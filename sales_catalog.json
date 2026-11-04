@@ -1599,7 +1599,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_65c95e957f1d4fd583d0065064a58828~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1624,7 +1624,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "manisa|gordes|tupuler",
@@ -1634,7 +1635,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_a0e57e1acdc544a69888c76b6f48e1f1~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1659,7 +1660,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "manisa|kula|saraclar",
@@ -1669,7 +1671,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_51942191b699424dacf1d92464f4334e~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1694,7 +1696,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "manisa|selendi|tavak",
@@ -1704,7 +1707,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_af789818e8ed4038953770e9f1cb5b52~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1729,7 +1732,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "manisa|yunusemre|sungullu",
@@ -1764,7 +1768,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "nigde|altunhisar|akcaoren",
