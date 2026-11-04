@@ -81,8 +81,19 @@ jobs:
                   continue
               pnorm = norm("Afyonkarahisar" if province_name == "Afyon" else province_name)
               dname = d["name"]
-              target_name = "Merkez" if norm(dname) == norm(province_name) else dname
+              is_center = norm(dname) == norm(province_name)
+              target_name = "Merkez" if is_center else dname
               osm_d = osm_districts.get((pnorm, norm(target_name)))
+              if not osm_d and is_center:
+                  candidates = []
+                  for (pk, dk), row in osm_districts.items():
+                      if pk != pnorm:
+                          continue
+                      dn = norm(row["name"])
+                      if dn == "merkez" or dn == pnorm + "merkez" or dn == "merkez" + pnorm or ("merkez" in dn and pnorm in dn):
+                          candidates.append(row)
+                  if len(candidates) == 1:
+                      osm_d = candidates[0]
               if not osm_d:
                   missing.append({"id":d["id"],"province":province_name,"district":dname})
                   continue
