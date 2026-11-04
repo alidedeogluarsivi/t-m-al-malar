@@ -1,0 +1,145 @@
+name: Build village point fallback
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-village-points.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download OSM admin points
+        run: |
+          set -e
+          curl -L --fail --retry 3             -o /tmp/admin-tr.csv             https://github.com/osadikoglu/turkey-admin-units-osm/releases/download/osm-2026-09-13/admin-tr.csv
+
+      - name: Build district point GeoJSON files
+        run: |
+          python3 - <<'PY'
+          import csv, json, os, re, unicodedata
+
+          def norm(s):
+              s = str(s or "")
+              s = s.translate(str.maketrans({"İ":"I","ı":"i","Ş":"S","ş":"s","Ğ":"G","ğ":"g","Ü":"U","ü":"u","Ö":"O","ö":"o","Ç":"C","ç":"c"}))
+              s = unicodedata.normalize("NFKD", s)
+              s = "".join(ch for ch in s if not unicodedata.combining(ch))
+              return "".join(ch.lower() for ch in s if ch.isalnum())
+
+          html = open("index.html", encoding="utf-8").read()
+          m = re.search(r"const PROVINCE_MAP=(\{.*?\});", html, re.S)
+          if not m:
+              raise SystemExit("PROVINCE_MAP not found")
+          province_map = json.loads(m.group(1))
+          id_to_province = {v:k for k,v in province_map.items()}
+
+          with open("districts-local.json", encoding="utf-8") as f:
+              districts = json.load(f)
+
+          rows = []
+          with open("/tmp/admin-tr.csv", encoding="utf-8-sig", newline="") as f:
+              rows = list(csv.DictReader(f))
+
+          by_id = {r["osm_id"]: r for r in rows}
+          provinces = {}
+          osm_districts = {}
+          children = {}
+
+          for r in rows:
+              lvl = r["level"]
+              if lvl == "il":
+                  provinces[norm(r["name"])] = r
+              elif lvl == "ilce":
+                  parent = by_id.get(r["parent_osm_id"])
+                  if parent:
+                      osm_districts[(norm(parent["name"]), norm(r["name"]))] = r
+              elif lvl in ("mahalle", "koy"):
+                  children.setdefault(r["parent_osm_id"], []).append(r)
+
+          os.makedirs("geo/points", exist_ok=True)
+          for name in os.listdir("geo/points"):
+              if name.endswith(".geojson"):
+                  os.remove(os.path.join("geo/points", name))
+
+          written = []
+          missing = []
+          feature_total = 0
+
+          for d in districts:
+              province_name = id_to_province.get(d["parent_id"])
+              if not province_name:
+                  missing.append({"id":d["id"],"reason":"province"})
+                  continue
+              pnorm = norm("Afyonkarahisar" if province_name == "Afyon" else province_name)
+              dname = d["name"]
+              target_name = "Merkez" if norm(dname) == norm(province_name) else dname
+              osm_d = osm_districts.get((pnorm, norm(target_name)))
+              if not osm_d:
+                  missing.append({"id":d["id"],"province":province_name,"district":dname})
+                  continue
+
+              feats = []
+              seen = set()
+              for r in children.get(osm_d["osm_id"], []):
+                  try:
+                      lat = float(r["lat"]); lon = float(r["lon"])
+                  except Exception:
+                      continue
+                  name = (r["name"] or "").strip()
+                  if not name:
+                      continue
+                  kind = "MAHALLE" if r["level"] == "mahalle" else "KÖY"
+                  k = (norm(name), kind)
+                  if k in seen:
+                      continue
+                  seen.add(k)
+                  feats.append({
+                      "type":"Feature",
+                      "properties":{"name":name,"kind":kind,"osm_id":r["osm_id"]},
+                      "geometry":{"type":"Point","coordinates":[lon,lat]}
+                  })
+
+              path = f'geo/points/{d["id"]}.geojson'
+              with open(path, "w", encoding="utf-8") as f:
+                  json.dump({"type":"FeatureCollection","features":feats}, f, ensure_ascii=False, separators=(",",":"))
+              written.append(os.path.basename(path))
+              feature_total += len(feats)
+
+          manifest = {
+              "source":"osadikoglu/turkey-admin-units-osm",
+              "snapshot":"2026-09-13",
+              "license":"ODbL-1.0",
+              "district_file_count":len(written),
+              "feature_count":feature_total,
+              "missing_district_count":len(missing),
+              "missing_districts":missing,
+              "files":sorted(written)
+          }
+          with open("geo/points-manifest.json","w",encoding="utf-8") as f:
+              json.dump(manifest,f,ensure_ascii=False,separators=(",",":"))
+          print(json.dumps(manifest,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Commit point fallback
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add geo/points geo/points-manifest.json
+          if git diff --cached --quiet; then
+            echo "No point changes"
+            exit 0
+          fi
+          git commit -m "Add OSM village and neighborhood point fallback [skip ci]"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
