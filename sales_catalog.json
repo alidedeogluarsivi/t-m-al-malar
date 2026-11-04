@@ -1132,7 +1132,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "karabuk|eflani|alpagut",
@@ -2749,7 +2750,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_629afad41f6e4a4e9e7dc725a1a8b1c3~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2796,7 +2797,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "yozgat|cekerek|celtek",
@@ -2806,7 +2808,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_7b7cf271311b470eba0567ab95f74b6c~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2842,7 +2844,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "yozgat|kadisehri|yakacik",
@@ -2913,7 +2916,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_e28ec4b78d794308a231a97052e1e8e7~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2927,7 +2930,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "zonguldak|eregli|kurtlar",
@@ -2962,7 +2966,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_3dfc1ec752ba4efe9098f4d550a73ebc~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2987,7 +2991,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "bartin|ulus|elmacik",
