@@ -1146,7 +1146,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_494a9a3c014d42f1afb36b5a151a33f6~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1160,7 +1160,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "kastamonu|agli|corlar",
@@ -1377,7 +1378,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "konya|bozkir|yalnizca",
