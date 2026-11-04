@@ -15,7 +15,8 @@
     pointManifest:new Set(),
     currentProvince:null,
     currentDistrict:null,
-    archiveIndex:new Map()
+    archiveIndex:new Map(),
+    archive:[]
   };
 
   function n(s){
@@ -27,21 +28,33 @@
   }
   function key(il,ilce,koy){return [n(il),n(ilce),n(koy)].join('|')}
   function archiveRow(il,ilce,koy){
-    if(window.archiveIndex && window.archiveIndex.get){
-      const direct=window.archiveIndex.get(key(il,ilce,koy));
-      if(direct) return direct;
-    }
-    if(window.archive){
-      return window.archive.find(r=>n(r.il)===n(il)&&n(r.ilce)===n(ilce)&&n(r.koy)===n(koy))||null;
-    }
-    return null;
+    const direct=state.archiveIndex.get(key(il,ilce,koy));
+    if(direct)return direct;
+    return state.archive.find(r=>n(r.il)===n(il)&&n(r.ilce)===n(ilce)&&n(r.koy)===n(koy))||null;
   }
   function getJSON(u){return fetch(u,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(u);return r.json()})}
+  async function loadArchiveData(){
+    if(state.archive.length)return state.archive;
+    const r=await fetch('./archive_verified.ndjson?v=20261105-final',{cache:'no-store'});
+    if(!r.ok)return [];
+    const txt=await r.text();
+    state.archive=[];
+    txt.split(/\r?\n/).forEach(line=>{
+      if(!line.trim())return;
+      try{
+        const x=JSON.parse(line);
+        if(x._summary)return;
+        state.archive.push(x);
+        if(x.il&&x.ilce&&x.koy)state.archiveIndex.set(key(x.il,x.ilce,x.koy),x);
+      }catch(e){}
+    });
+    return state.archive;
+  }
 
   function provinceStyle(f){
     const name=(f.properties&&f.properties.name)||'';
     const count=window.provinceArchiveCounts&&window.provinceArchiveCounts.get?n(window.provinceArchiveCounts.get(n(name))):0;
-    const has = window.archive ? window.archive.some(r=>n(r.il)===n(name)) : false;
+    const has = state.archive.some(r=>n(r.il)===n(name));
     return {
       color:has?'#155b3b':'#8c3030',
       weight:has?1.7:1.0,
@@ -51,7 +64,7 @@
   }
   function districtStyle(f){
     const name=(f.properties&&f.properties.name)||'';
-    const has=window.archive&&state.currentProvince?window.archive.some(r=>n(r.il)===n(state.currentProvince.name)&&n(r.ilce)===n(name)):false;
+    const has=state.currentProvince?state.archive.some(r=>n(r.il)===n(state.currentProvince.name)&&n(r.ilce)===n(name)):false;
     return {color:has?'#7a5419':'#a77524',weight:has?2:1,fillColor:has?'#e2b75d':'#f3dfb2',fillOpacity:has?.35:.18};
   }
   function villageStyle(f){
@@ -111,6 +124,7 @@
   async function showTurkey(){
     initBase();
     clearLayer('districtLayer'); clearLayer('villageLayer'); clearLayer('villagePointLayer');
+    await loadArchiveData();
     if(!state.provinceData) state.provinceData=await getJSON('./provinces-local.json');
     clearLayer('provinceLayer');
     state.currentProvince=null; state.currentDistrict=null;
@@ -153,7 +167,8 @@
     setStatus(feats.length+' İLÇE · İLÇEYE TIKLAYIN');
     try{
       const ps=document.getElementById('provinceSelect');
-      if(ps){ps.value=name;ps.dispatchEvent(new Event('change',{bubbles:true}))}
+      if(ps)ps.value=name;
+      if(typeof window.selectProvinceByName==='function')window.selectProvinceByName(name,id);
     }catch(e){}
   }
 
@@ -231,7 +246,7 @@
     }
 
     if(!shown){
-      const rows=(window.archive||[]).filter(r=>n(r.il)===n(state.currentProvince.name)&&n(r.ilce)===n(name));
+      const rows=state.archive.filter(r=>n(r.il)===n(state.currentProvince.name)&&n(r.ilce)===n(name));
       const markers=[];
       // Konum geometresi yoksa kullanıcıya arşiv kayıtlarını listede bırakır.
       rows.forEach(()=>{});
@@ -245,7 +260,11 @@
       const ds=document.getElementById('districtSelect');
       if(ds){
         const opt=[...ds.options].find(o=>n(o.textContent)===n(name));
-        if(opt){ds.value=opt.value;ds.dispatchEvent(new Event('change',{bubbles:true}))}
+        if(opt)ds.value=opt.value;
+      }
+      if(typeof window.selectDistrict==='function'){
+        const local=(window.districtList||[]).find(x=>String(x.id)===String(id))||{id:id,name:name};
+        window.selectDistrict(local,feature);
       }
     }catch(e){}
   }
