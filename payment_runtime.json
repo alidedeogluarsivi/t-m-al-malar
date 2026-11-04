@@ -1,9 +1,7 @@
 {
   "enabled": false,
-  "backend": "WIX_STORES",
-  "payment_provider": "PAYTR",
-  "wix_site_id": "a9585244-1944-4ec0-beaa-dad754368720",
-  "currency": "TRY",
-  "delivery": "WIX_DIGITAL_PRODUCT",
-  "status": "WAITING_FOR_PAYTR_MERCHANT_CONNECTION_AND_DIGITAL_FILE_BINDING"
+  "payment_provider": "IYZICO_LINK",
+  "account_type": "INDIVIDUAL",
+  "delivery": "SITE_AFTER_PAYMENT_CONFIRMATION",
+  "status": "APPLICATION_SUBMITTED_WAITING_APPROVAL"
 }
