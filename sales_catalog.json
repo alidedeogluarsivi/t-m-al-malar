@@ -19,9 +19,12 @@
           "hane": "33",
           "erkek": "117",
           "price_tl": 2925,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "afyonkarahisar|merkez|kucukkalecik",
@@ -40,9 +43,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ankara|haymana|katranci",
@@ -61,7 +67,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -70,9 +78,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ardahan|cildir|akcakale",
@@ -91,9 +102,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ardahan|hanak|alacam",
@@ -112,9 +126,12 @@
           "hane": "49",
           "erkek": "129",
           "price_tl": 3225,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ardahan|hanak|dilekdere",
@@ -133,10 +150,13 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
       ],
-      "cover_status": "VERIFIED_FIRST_PAGE"
+      "cover_status": "VERIFIED_FIRST_PAGE",
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ardahan|hanak|gec",
@@ -155,10 +175,13 @@
           "hane": "14",
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
       ],
-      "cover_status": "VERIFIED_FIRST_PAGE"
+      "cover_status": "VERIFIED_FIRST_PAGE",
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "artvin|ardanuc|cakillar",
@@ -177,9 +200,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "artvin|murgul|cimenli",
@@ -198,9 +224,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "bartin|amasra|zurnaci",
@@ -219,9 +248,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "bolu|mudurnu|-kaçık",
@@ -240,7 +272,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -249,7 +283,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "SOY KÜTÜĞÜ",
@@ -258,9 +294,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "bursa|mustafakemalpasa|yamanli",
@@ -279,7 +318,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -288,9 +329,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|alaca|kilavuz",
@@ -309,7 +353,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -318,7 +364,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -327,7 +375,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -336,9 +386,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|bogazkale|yazir",
@@ -357,7 +410,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -366,7 +421,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -375,9 +432,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|iskilip|karlik",
@@ -396,9 +456,12 @@
           "hane": null,
           "erkek": "38",
           "price_tl": 950,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|mecitozu|koseeyup",
@@ -417,7 +480,9 @@
           "hane": null,
           "erkek": "169",
           "price_tl": 4225,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -426,7 +491,9 @@
           "hane": "60",
           "erkek": "144",
           "price_tl": 3600,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -435,9 +502,12 @@
           "hane": "67",
           "erkek": null,
           "price_tl": 6700,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|merkez|sarimbey",
@@ -456,9 +526,12 @@
           "hane": "27",
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|sungurlu|bagcili",
@@ -477,7 +550,9 @@
           "hane": "7 asıl",
           "erkek": "22",
           "price_tl": 550,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -486,7 +561,9 @@
           "hane": "10",
           "erkek": "32",
           "price_tl": 800,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -495,7 +572,9 @@
           "hane": "10",
           "erkek": "35",
           "price_tl": 875,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -504,7 +583,9 @@
           "hane": "9",
           "erkek": null,
           "price_tl": 900,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -513,7 +594,9 @@
           "hane": "15",
           "erkek": "59",
           "price_tl": 1475,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "YOKLAMA",
@@ -522,9 +605,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|sungurlu|ekmekci",
@@ -543,7 +629,9 @@
           "hane": "34",
           "erkek": "118",
           "price_tl": 2950,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -552,7 +640,9 @@
           "hane": "32",
           "erkek": "104",
           "price_tl": 2600,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -561,7 +651,9 @@
           "hane": "32",
           "erkek": null,
           "price_tl": 3200,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -570,9 +662,12 @@
           "hane": "46",
           "erkek": "131",
           "price_tl": 3275,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|sungurlu|guvendik",
@@ -591,9 +686,12 @@
           "hane": "50",
           "erkek": "155",
           "price_tl": 3875,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|ugurludag|eskiceltek",
@@ -612,7 +710,9 @@
           "hane": "7",
           "erkek": "13",
           "price_tl": 325,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -621,9 +721,12 @@
           "hane": "5",
           "erkek": null,
           "price_tl": 500,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "corum|ugurludag|kizagili",
@@ -642,7 +745,9 @@
           "hane": "19",
           "erkek": "47",
           "price_tl": 1175,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -651,7 +756,9 @@
           "hane": "20",
           "erkek": null,
           "price_tl": 2000,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -660,7 +767,9 @@
           "hane": "19",
           "erkek": "47",
           "price_tl": 1175,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -669,9 +778,12 @@
           "hane": "20",
           "erkek": null,
           "price_tl": 2000,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "erzurum|oltu|elmaduze",
@@ -690,9 +802,12 @@
           "hane": "20",
           "erkek": "53",
           "price_tl": 1325,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "erzurum|olur|yukarikaracasu",
@@ -711,7 +826,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -720,9 +837,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "gumushane|kelkit|doganca",
@@ -741,9 +861,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "gumushane|kelkit|kizilca",
@@ -762,9 +885,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "gumushane|merkez|sogutagil",
@@ -783,9 +909,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "gümüşhane|şiran|kozagac",
@@ -804,7 +933,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -813,7 +944,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -822,9 +955,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "isparta|yalvac|koruyaka",
@@ -843,7 +979,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -852,9 +990,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "istanbul|çekmeköy|muradlı",
@@ -873,7 +1014,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -882,7 +1025,9 @@
           "hane": null,
           "erkek": "61",
           "price_tl": 1525,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -891,9 +1036,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "istanbul|cekmekoy|omerli",
@@ -912,7 +1060,9 @@
           "hane": null,
           "erkek": "142",
           "price_tl": 3550,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -921,7 +1071,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT / VERGİ",
@@ -930,7 +1082,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT + NÜFUS + SOY KÜTÜĞÜ",
@@ -939,7 +1093,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -948,9 +1104,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "karabuk|eflani|alpagut",
@@ -969,9 +1128,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kars|selim|buyukdere",
@@ -990,9 +1152,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kastamonu|agli|corlar",
@@ -1011,7 +1176,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -1020,9 +1187,12 @@
           "hane": "3",
           "erkek": null,
           "price_tl": 300,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kastamonu|cide|cayustu",
@@ -1041,7 +1211,9 @@
           "hane": "8",
           "erkek": "18",
           "price_tl": 450,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1050,7 +1222,9 @@
           "hane": "10",
           "erkek": "17",
           "price_tl": 425,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1059,9 +1233,12 @@
           "hane": "8",
           "erkek": "15",
           "price_tl": 375,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "konya|bozkir|fakilar",
@@ -1080,7 +1257,9 @@
           "hane": "33",
           "erkek": "86",
           "price_tl": 2150,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1089,7 +1268,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1098,9 +1279,12 @@
           "hane": "33",
           "erkek": "86",
           "price_tl": 2150,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "konya|bozkir|karacaardic",
@@ -1119,7 +1303,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1128,7 +1314,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1137,7 +1325,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1146,7 +1336,9 @@
           "hane": "54",
           "erkek": "174",
           "price_tl": 4350,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1155,7 +1347,9 @@
           "hane": "24",
           "erkek": "63",
           "price_tl": 1575,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1164,7 +1358,9 @@
           "hane": "78",
           "erkek": "174",
           "price_tl": 4350,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -1173,9 +1369,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "konya|bozkir|yalnizca",
@@ -1194,7 +1393,9 @@
           "hane": "25",
           "erkek": "66",
           "price_tl": 1650,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1203,7 +1404,9 @@
           "hane": "25",
           "erkek": "66",
           "price_tl": 1650,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1212,7 +1415,9 @@
           "hane": "25",
           "erkek": "66",
           "price_tl": 1650,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -1221,9 +1426,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "konya|huyuk|budak",
@@ -1242,7 +1450,9 @@
           "hane": "57",
           "erkek": "157",
           "price_tl": 3925,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1251,9 +1461,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kutahya|simav|cavdir",
@@ -1272,9 +1485,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kutahya|simav|gokceler",
@@ -1293,7 +1509,9 @@
           "hane": "39",
           "erkek": "93",
           "price_tl": 2325,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1302,7 +1520,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1311,9 +1531,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "kutahya|simav|yavi",
@@ -1332,7 +1555,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1341,9 +1566,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "manisa|akhisar|baslamis",
@@ -1362,7 +1590,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1371,9 +1601,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "manisa|gordes|tupuler",
@@ -1392,7 +1625,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1401,9 +1636,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "manisa|kula|saraclar",
@@ -1422,7 +1660,9 @@
           "hane": "13",
           "erkek": "42",
           "price_tl": 1050,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1431,9 +1671,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "manisa|selendi|tavak",
@@ -1452,7 +1695,9 @@
           "hane": "67",
           "erkek": "143",
           "price_tl": 3575,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1461,9 +1706,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "manisa|yunusemre|sungullu",
@@ -1482,7 +1730,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1491,9 +1741,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "nigde|altunhisar|akcaoren",
@@ -1512,9 +1765,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "nigde|merkez|kayirli",
@@ -1533,9 +1789,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "nigde|merkez|nar",
@@ -1554,7 +1813,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1563,9 +1824,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "nigde|ulukisla|basmakci",
@@ -1584,7 +1848,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1593,9 +1859,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ordu|akkus|dagyolu",
@@ -1614,7 +1883,9 @@
           "hane": "36",
           "erkek": "120",
           "price_tl": 3000,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1623,7 +1894,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1632,7 +1905,9 @@
           "hane": "36",
           "erkek": "120",
           "price_tl": 3000,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1641,9 +1916,12 @@
           "hane": "36",
           "erkek": "120",
           "price_tl": 3000,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ordu|mesudiye|musali",
@@ -1662,7 +1940,9 @@
           "hane": "25",
           "erkek": "85",
           "price_tl": 2125,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1671,9 +1951,12 @@
           "hane": "25",
           "erkek": "85",
           "price_tl": 2125,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ordu|mesudiye|sariyayla",
@@ -1692,7 +1975,9 @@
           "hane": "10",
           "erkek": "53",
           "price_tl": 1325,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "SOY KÜTÜĞÜ",
@@ -1701,7 +1986,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1710,9 +1997,12 @@
           "hane": "10",
           "erkek": "53",
           "price_tl": 1325,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "ordu|mesudiye|yeveli",
@@ -1731,7 +2021,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1740,9 +2032,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|alacam|uzunkirac",
@@ -1761,7 +2056,9 @@
           "hane": "32",
           "erkek": "111",
           "price_tl": 2775,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "VERGİ HİSSELERİ",
@@ -1770,7 +2067,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1779,7 +2078,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1788,7 +2089,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1797,7 +2100,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1806,7 +2111,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1815,10 +2122,13 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
       ],
-      "cover_status": "VERIFIED_FIRST_PAGE"
+      "cover_status": "VERIFIED_FIRST_PAGE",
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|ladik|ayvali",
@@ -1837,7 +2147,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1846,7 +2158,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1855,9 +2169,12 @@
           "hane": null,
           "erkek": "39",
           "price_tl": 975,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|ladik|mazlumoglu",
@@ -1876,7 +2193,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1885,7 +2204,9 @@
           "hane": null,
           "erkek": "52",
           "price_tl": 1300,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1894,9 +2215,12 @@
           "hane": null,
           "erkek": "52",
           "price_tl": 1300,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|vezirkopru|alanseyhi",
@@ -1915,7 +2239,9 @@
           "hane": null,
           "erkek": "58",
           "price_tl": 1450,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1924,7 +2250,9 @@
           "hane": "18",
           "erkek": "58",
           "price_tl": 1450,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1933,7 +2261,9 @@
           "hane": "18",
           "erkek": "59",
           "price_tl": 1475,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -1942,7 +2272,9 @@
           "hane": "18",
           "erkek": null,
           "price_tl": 1800,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -1951,10 +2283,13 @@
           "hane": "17",
           "erkek": "57",
           "price_tl": 1425,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
       ],
-      "cover_status": "VERIFIED_FIRST_PAGE"
+      "cover_status": "VERIFIED_FIRST_PAGE",
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|vezirkopru|aydinli",
@@ -1973,7 +2308,9 @@
           "hane": "10",
           "erkek": "24",
           "price_tl": 600,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1982,7 +2319,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1991,7 +2330,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -2000,9 +2341,12 @@
           "hane": "10",
           "erkek": "24",
           "price_tl": 600,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|vezirkopru|elaldi",
@@ -2021,7 +2365,9 @@
           "hane": "26",
           "erkek": "70",
           "price_tl": 1750,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2030,7 +2376,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2039,7 +2387,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -2048,9 +2398,12 @@
           "hane": "26",
           "erkek": "70",
           "price_tl": 1750,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|vezirkopru|kizilkese",
@@ -2069,7 +2422,9 @@
           "hane": "39",
           "erkek": "119",
           "price_tl": 2975,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2078,7 +2433,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -2087,9 +2444,12 @@
           "hane": "39",
           "erkek": "119",
           "price_tl": 2975,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "samsun|vezirköprü|teberuk",
@@ -2108,7 +2468,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -2117,7 +2479,9 @@
           "hane": "3 görülen",
           "erkek": "8",
           "price_tl": 200,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2126,7 +2490,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS",
@@ -2135,9 +2501,12 @@
           "hane": "3",
           "erkek": "8",
           "price_tl": 200,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "sinop|duragan|alpugan",
@@ -2156,10 +2525,13 @@
           "hane": "35",
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
       ],
-      "cover_status": "VERIFIED_FIRST_PAGE"
+      "cover_status": "VERIFIED_FIRST_PAGE",
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "sivas|golova|cukuryurt",
@@ -2178,9 +2550,12 @@
           "hane": "24",
           "erkek": "79 ana sayım + 16 tevellüd",
           "price_tl": 197900,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "sivas|koyulhisar|ortaseki",
@@ -2199,7 +2574,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2208,9 +2585,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "sivas|yildizeli|akpinar",
@@ -2229,7 +2609,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2238,9 +2620,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "tokat|merkez|senkoy",
@@ -2259,7 +2644,9 @@
           "hane": "8",
           "erkek": "32",
           "price_tl": 800,
-          "price_formula": "ERKEK × 25 TL"
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -2268,9 +2655,12 @@
           "hane": "10 + 3 köy dışı kayıt",
           "erkek": null,
           "price_tl": 10300,
-          "price_formula": "HANE × 100 TL"
+          "price_formula": "HANE × 100 TL",
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "tokat|resadiye|kecikoy",
@@ -2289,9 +2679,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "yozgat|cekerek|arpac",
@@ -2310,7 +2703,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2319,7 +2714,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2328,7 +2725,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2337,9 +2736,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "yozgat|cekerek|celtek",
@@ -2358,7 +2760,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2367,7 +2771,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2376,9 +2782,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "yozgat|kadisehri|yakacik",
@@ -2397,9 +2806,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "yozgat|sarikaya|topaktas",
@@ -2418,7 +2830,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -2427,9 +2841,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "yozgat|sorgun|gunyazi",
@@ -2448,9 +2865,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "zonguldak|eregli|kurtlar",
@@ -2469,9 +2889,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     },
     {
       "id": "zonguldak|gökçebey|alıusta",
@@ -2490,7 +2913,9 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         },
         {
           "tur": "TEMETTUAT",
@@ -2499,9 +2924,12 @@
           "hane": null,
           "erkek": null,
           "price_tl": null,
-          "price_formula": null
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": true
         }
-      ]
+      ],
+      "payment_provider": "SHOPIER"
     }
   ]
 }
