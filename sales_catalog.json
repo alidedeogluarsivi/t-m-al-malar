@@ -124,7 +124,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_375d3c229d304145b2cf4d304c0e209c~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -135,7 +135,8 @@
           "price_tl": null,
           "price_formula": null
         }
-      ]
+      ],
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "ardahan|hanak|gec",
@@ -1750,7 +1751,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_c66135e3ead446cfabc54334d997115c~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1815,7 +1816,8 @@
           "price_tl": null,
           "price_formula": null
         }
-      ]
+      ],
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "samsun|ladik|ayvali",
@@ -1903,7 +1905,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_9824559314be4543b4f6fa2d179042e6~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1950,7 +1952,8 @@
           "price_tl": 1425,
           "price_formula": "ERKEK × 25 TL"
         }
-      ]
+      ],
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "samsun|vezirkopru|aydinli",
@@ -2143,7 +2146,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_d99a391fd6034759abf9a21c824bcf4f~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2154,7 +2157,8 @@
           "price_tl": null,
           "price_formula": null
         }
-      ]
+      ],
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "sivas|golova|cukuryurt",
