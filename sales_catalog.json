@@ -454,7 +454,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_9aabb9c3191d4b1ebbc2938ec2526241~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -468,7 +468,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "corum|mecitozu|koseeyup",
@@ -630,7 +631,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_64b92816ae4549e5a53f73b2c028fa29~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -677,7 +678,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "corum|sungurlu|guvendik",
@@ -1499,7 +1501,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_62c1c52eed6e4ca8aa5cc654b1b5effd~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1513,7 +1515,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "kutahya|simav|gokceler",
@@ -2864,7 +2867,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_30d8ba14446b40859837bde8f8dc9150~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2889,7 +2892,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "yozgat|sorgun|gunyazi",
