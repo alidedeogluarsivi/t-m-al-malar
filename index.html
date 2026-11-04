@@ -279,7 +279,13 @@ function renderSearch(q){
 }
 
 pSel.onchange=()=>{if(!pSel.value){showTurkey();return}const f=provinceData.features.find(x=>norm(canonicalProvince(x.properties.name))===norm(pSel.value));if(f)selectProvince(f)};
-dSel.onchange=()=>{if(!dSel.value){vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';return}const local=districtListData.find(x=>x.id===dSel.value);if(!local)return;const geo=districtData?.features.find(x=>x.properties.id===dSel.value);const f=geo||{type:'Feature',properties:{id:local.id,name:local.name,parent_id:local.parent_id},geometry:null};selectDistrict(f)};
+dSel.onchange=()=>{if(!dSel.value){selectedDistrict=null;currentVillages=[];vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="sideEmpty">İlçe seçin; köy ve mahalleler burada görünecek.</div>';vCount.textContent='—';return}
+  const local=districtListData.find(x=>String(x.id)===String(dSel.value));
+  if(!local){statusEl.textContent='Seçilen ilçe yerel listede bulunamadı.';return}
+  const geo=districtData?.features?.find(x=>String(x.properties?.id)===String(dSel.value) || (norm(x.properties?.name)===norm(local.name) && String(x.properties?.parent_id||'')===String(local.parent_id)));
+  const f=geo||{type:'Feature',properties:{id:local.id,name:local.name,parent_id:local.parent_id},geometry:null};
+  selectDistrict(f)
+};
 vSel.onchange=()=>{if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(row)openVillage(row.properties._displayName)};
 document.getElementById('search').oninput=e=>renderSearch(e.target.value);
 document.getElementById('close').onclick=()=>drawer.classList.remove('open');
