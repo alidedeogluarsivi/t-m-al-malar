@@ -1,0 +1,80 @@
+name: Sync local map geometry
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/sync-map-data.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install mapshaper
+        run: npm install -g mapshaper
+
+      - name: Download upstream geometry
+        run: |
+          set -e
+          rm -rf /tmp/turkiye-harita-verisi
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/ttezer/turkiye-harita-verisi.git /tmp/turkiye-harita-verisi
+          cd /tmp/turkiye-harita-verisi
+          git sparse-checkout set dist/geojson/districts.geojson dist/geojson/mahalle-geometrileri-by-district-v2
+
+      - name: Build local district geometry
+        run: |
+          set -e
+          mkdir -p geo/villages
+          rm -f geo/districts.geojson
+          mapshaper /tmp/turkiye-harita-verisi/dist/geojson/districts.geojson \
+            -simplify 18% keep-shapes \
+            -o geo/districts.geojson format=geojson precision=0.00001
+
+      - name: Build local village geometry
+        run: |
+          set -e
+          rm -rf geo/villages
+          mkdir -p geo/villages
+          for f in /tmp/turkiye-harita-verisi/dist/geojson/mahalle-geometrileri-by-district-v2/*.geojson; do
+            b="$(basename "$f")"
+            mapshaper "$f" \
+              -simplify 12% keep-shapes \
+              -o "geo/villages/$b" format=geojson precision=0.00001
+          done
+
+      - name: Write geometry manifest
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const files=fs.readdirSync('geo/villages').filter(x=>x.endsWith('.geojson')).sort();
+          const manifest={
+            generated_at:new Date().toISOString(),
+            source:'ttezer/turkiye-harita-verisi',
+            district_geometry:'geo/districts.geojson',
+            village_directory:'geo/villages',
+            village_district_count:files.length,
+            files
+          };
+          fs.writeFileSync('geo/manifest.json',JSON.stringify(manifest));
+          NODE
+
+      - name: Commit local geometry
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add geo/
+          if git diff --cached --quiet; then
+            echo "No geometry changes"
+            exit 0
+          fi
+          git commit -m "Add simplified local district and village geometry [skip ci]"
+          git push
