@@ -3068,7 +3068,9 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0155",
-          "delivery_path": "products/p0155.pdf"
+          "delivery_path": "products/p0155.pdf",
+          "sale_hold": true,
+          "sale_hold_reason": "FIYAT KONTROLU"
         }
       ],
       "payment_provider": "PAYTR",
@@ -3194,7 +3196,9 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0161",
-          "delivery_path": "products/p0161.pdf"
+          "delivery_path": "products/p0161.pdf",
+          "sale_hold": true,
+          "sale_hold_reason": "FIYAT KONTROLU"
         }
       ],
       "payment_provider": "PAYTR",
