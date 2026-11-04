@@ -289,8 +289,13 @@ async function selectDistrict(local,geoFeature){
     const ah=currentVillages.filter(function(x){return x.has}).length;
     statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖYE TIKLAYIN · '+ah+' ARŞİV KAYDI';
   }else{
-    clearMap();
-    statusEl.textContent='Bu ilçe için köy geometrisi bulunamadı.'
+    const df=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
+      const p=x.properties||{};
+      return p.id===local.id || (norm(p.name)===norm(local.name)&&p.parent_id===selectedProvince.id)
+    });
+    if(df)render([df],'district',function(){},false);else clearMap();
+    const ah=currentVillages.filter(function(x){return x.has}).length;
+    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · '+currentVillages.length+' KÖY/MAHALLE LİSTELENDİ · '+ah+' ARŞİV KAYDI · AÇIK KÖY SINIR POLİGONU YOK';
   }
 }
 function openVillage(name){showRecord(name,archiveForVillage(name),selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
