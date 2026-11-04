@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-04",
-  "count": 116,
+  "count": 77,
   "items": [
     {
       "id": "afyonkarahisar|hocalar|yesilhisar",
@@ -3005,9 +3005,9 @@
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Atkaracalar (Merkez)",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3022,16 +3022,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|bozkuş",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Bozkuş",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3046,16 +3047,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|budakpınar",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Budakpınar",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3070,16 +3072,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|çardaklı(çırdak)",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Çardaklı (Çırdak)",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3094,16 +3097,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|demirli",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Demirli",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3118,16 +3122,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|eyüpözü",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Eyüpözü",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3142,16 +3147,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|hüyükköy",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Hüyükköy",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3166,16 +3172,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|ılıpınar",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Ilıpınar",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3190,16 +3197,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|kızılibrik",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Kızılibrik",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3214,16 +3222,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|kükürt",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Kükürt",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3238,16 +3247,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "cankiri|atkaracalar|susuz",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Susuz",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3262,16 +3272,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|atkaracalar|yakalı",
       "il": "Çankırı",
       "ilce": "Atkaracalar",
       "koy": "Yakalı",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3286,16 +3297,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|basdak-yaylakent",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Basdak-Yaylakent",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3310,16 +3322,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|buğurören",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Buğurören",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3334,16 +3347,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|büğdüz",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Büğdüz",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3358,16 +3372,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|elden",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Elden",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3382,16 +3397,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|gökçeören",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Gökçeören",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3406,16 +3422,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|halfet-kalfat",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Halfet-Kalfat",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3430,16 +3447,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|hasanhacı",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Hasanhacı",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3454,16 +3472,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|kayılar",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Kayılar",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3478,16 +3497,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|kayıören",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Kayıören",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3502,16 +3522,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|kırsakal",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Kırsakal",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3526,16 +3547,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|kısaç",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Kısaç",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3550,16 +3572,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|özlü",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Özlü",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3574,16 +3597,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|salur",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Salur",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3598,16 +3622,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|orta|yuva",
       "il": "Çankırı",
       "ilce": "Orta",
       "koy": "Yuva",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3622,16 +3647,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|bakırlı",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Bakırlı",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3646,16 +3672,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|bulduk",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Bulduk",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3670,16 +3697,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|bulgurcu",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Bulgurcu",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3694,16 +3722,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|büyükyakalı",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Büyükyakalı",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3718,16 +3747,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|çapar",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Çapar",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3742,16 +3772,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|çaparkayı",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Çaparkayı",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3766,16 +3797,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|çerçi",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Çerçi",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3790,16 +3822,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|çiğdemli",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Çiğdemli",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3814,16 +3847,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|dağkalfat",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Dağkalfat",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3838,16 +3872,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|demirlidalyasan",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Demirlidalyasan",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3862,16 +3897,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|gümerdiğin",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Gümerdiğin",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3897,16 +3933,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|gündoğmuş",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Gündoğmuş",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3921,16 +3958,17 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
       "id": "çankırı|şabanözü|gürpınar",
       "il": "Çankırı",
       "ilce": "Şabanözü",
       "koy": "Gürpınar",
-      "sale": true,
+      "sale": false,
       "preview": "COVER_ONLY",
-      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "secure_file_status": "NOT_APPLICABLE_DISTRICT_SOURCE",
       "cover_url": null,
       "products": [
         {
@@ -3945,7 +3983,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     }
   ],
   "shopier": {
