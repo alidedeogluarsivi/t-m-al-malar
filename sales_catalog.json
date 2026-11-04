@@ -1,0 +1,2502 @@
+{
+  "updated_at": "2026-11-04",
+  "count": 76,
+  "items": [
+    {
+      "id": "afyonkarahisar|hocalar|yesilhisar",
+      "il": "Afyonkarahisar",
+      "ilce": "Hocalar",
+      "koy": "Yeşilhisar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1708",
+          "yil": "1837",
+          "hane": "33",
+          "erkek": "117",
+          "price_tl": 2925,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "afyonkarahisar|merkez|kucukkalecik",
+      "il": "Afyonkarahisar",
+      "ilce": "Merkez",
+      "koy": "Küçükkalecik",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1696",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "ankara|haymana|katranci",
+      "il": "Ankara",
+      "ilce": "Haymana",
+      "koy": "Katrancı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1778",
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "ardahan|cildir|akcakale",
+      "il": "Ardahan",
+      "ilce": "Çıldır",
+      "koy": "Akçakale",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2760",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "ardahan|hanak|alacam",
+      "il": "Ardahan",
+      "ilce": "Hanak",
+      "koy": "Alaçam",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2760",
+          "yil": "1835",
+          "hane": "49",
+          "erkek": "129",
+          "price_tl": 3225,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "ardahan|hanak|dilekdere",
+      "il": "Ardahan",
+      "ilce": "Hanak",
+      "koy": "Dilekdere",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2760",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "ardahan|hanak|gec",
+      "il": "Ardahan",
+      "ilce": "Hanak",
+      "koy": "Geç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2760",
+          "yil": "1835-1836",
+          "hane": "14",
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "artvin|ardanuc|cakillar",
+      "il": "Artvin",
+      "ilce": "Ardanuç",
+      "koy": "Çakıllar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2761",
+          "yil": "1834",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "artvin|murgul|cimenli",
+      "il": "Artvin",
+      "ilce": "Murgul",
+      "koy": "Çimenli",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2766",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "bartin|amasra|zurnaci",
+      "il": "Bartın",
+      "ilce": "Amasra",
+      "koy": "Zurnacı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.736",
+          "yil": "1843",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "bolu|mudurnu|-kaçık",
+      "il": "Bolu",
+      "ilce": "Mudurnu",
+      "koy": "Kaçık",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.716",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "bursa|mustafakemalpasa|yamanli",
+      "il": "Bursa",
+      "ilce": "Mustafakemalpaşa",
+      "koy": "Yamanlı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1462",
+          "yil": "1839",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1839",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "corum|alaca|kilavuz",
+      "il": "Çorum",
+      "ilce": "Alaca",
+      "koy": "Kılavuz",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2273",
+          "yil": "1831",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2334",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2332",
+          "yil": "1838-1839",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.13740",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "corum|bogazkale|yazir",
+      "il": "Çorum",
+      "ilce": "Boğazkale",
+      "koy": "Yazır",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2051",
+          "yil": "1831",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.13160",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2072",
+          "yil": "1850",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "corum|iskilip|karlik",
+      "il": "Çorum",
+      "ilce": "İskilip",
+      "koy": "Karlık",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1935",
+          "yil": "1830-1831",
+          "hane": null,
+          "erkek": "38",
+          "price_tl": 950,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "corum|mecitozu|koseeyup",
+      "il": "Çorum",
+      "ilce": "Mecitözü",
+      "koy": "Köseeyüp",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2283",
+          "yil": "1831",
+          "hane": null,
+          "erkek": "169",
+          "price_tl": 4225,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2510",
+          "yil": "1838",
+          "hane": "60",
+          "erkek": "144",
+          "price_tl": 3600,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.14514",
+          "yil": "1844-1845",
+          "hane": "67",
+          "erkek": null,
+          "price_tl": 6700,
+          "price_formula": "HANE × 100 TL"
+        }
+      ]
+    },
+    {
+      "id": "corum|merkez|sarimbey",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sarımbey",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1914",
+          "yil": "1830",
+          "hane": "27",
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "corum|sungurlu|bagcili",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Bağcılı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2051",
+          "yil": "1831",
+          "hane": "7 asıl",
+          "erkek": "22",
+          "price_tl": 550,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2070",
+          "yil": "1834-1835",
+          "hane": "10",
+          "erkek": "32",
+          "price_tl": 800,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2071",
+          "yil": "1840",
+          "hane": "10",
+          "erkek": "35",
+          "price_tl": 875,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.13146",
+          "yil": "1845",
+          "hane": "9",
+          "erkek": null,
+          "price_tl": 900,
+          "price_formula": "HANE × 100 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2072",
+          "yil": "1850",
+          "hane": "15",
+          "erkek": "59",
+          "price_tl": 1475,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "YOKLAMA",
+          "defter": "NFS.d.2074",
+          "yil": "1852",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "corum|sungurlu|ekmekci",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Ekmekçi",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2051",
+          "yil": "1831",
+          "hane": "34",
+          "erkek": "118",
+          "price_tl": 2950,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2071",
+          "yil": "1841",
+          "hane": "32",
+          "erkek": "104",
+          "price_tl": 2600,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.13145",
+          "yil": "1845",
+          "hane": "32",
+          "erkek": null,
+          "price_tl": 3200,
+          "price_formula": "HANE × 100 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2072",
+          "yil": "1850",
+          "hane": "46",
+          "erkek": "131",
+          "price_tl": 3275,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "corum|sungurlu|guvendik",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Güvendik",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2072",
+          "yil": "1849-1850",
+          "hane": "50",
+          "erkek": "155",
+          "price_tl": 3875,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "corum|ugurludag|eskiceltek",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Eskiçeltek",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1923",
+          "yil": "1842",
+          "hane": "7",
+          "erkek": "13",
+          "price_tl": 325,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.429",
+          "yil": "1845",
+          "hane": "5",
+          "erkek": null,
+          "price_tl": 500,
+          "price_formula": "HANE × 100 TL"
+        }
+      ]
+    },
+    {
+      "id": "corum|ugurludag|kizagili",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Kızağılı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1923",
+          "yil": "1842",
+          "hane": "19",
+          "erkek": "47",
+          "price_tl": 1175,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.435",
+          "yil": "1846",
+          "hane": "20",
+          "erkek": null,
+          "price_tl": 2000,
+          "price_formula": "HANE × 100 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1923",
+          "yil": "1842",
+          "hane": "19",
+          "erkek": "47",
+          "price_tl": 1175,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.435",
+          "yil": "1846",
+          "hane": "20",
+          "erkek": null,
+          "price_tl": 2000,
+          "price_formula": "HANE × 100 TL"
+        }
+      ]
+    },
+    {
+      "id": "erzurum|oltu|elmaduze",
+      "il": "Erzurum",
+      "ilce": "Oltu",
+      "koy": "Elmadüzü",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2772",
+          "yil": "1835",
+          "hane": "20",
+          "erkek": "53",
+          "price_tl": 1325,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "erzurum|olur|yukarikaracasu",
+      "il": "Erzurum",
+      "ilce": "Olur",
+      "koy": "Yukarıkaracasu",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2773",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "gumushane|kelkit|doganca",
+      "il": "Gümüşhane",
+      "ilce": "Kelkit",
+      "koy": "Doğanca",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1091",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "gumushane|kelkit|kizilca",
+      "il": "Gümüşhane",
+      "ilce": "Kelkit",
+      "koy": "Kızılca",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1092",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "gumushane|merkez|sogutagil",
+      "il": "Gümüşhane",
+      "ilce": "Merkez",
+      "koy": "Söğütağıl",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1094",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "gümüşhane|şiran|kozagac",
+      "il": "Gümüşhane",
+      "ilce": "Şiran",
+      "koy": "Kozağaç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2750",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "2750",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "isparta|yalvac|koruyaka",
+      "il": "Isparta",
+      "ilce": "Yalvaç",
+      "koy": "Koruyaka",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3270",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "istanbul|çekmeköy|muradlı",
+      "il": "İstanbul",
+      "ilce": "Çekmeköy",
+      "koy": "Muratlı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "TEMETTUAT / VERGİ",
+          "defter": null,
+          "yil": null,
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.578",
+          "yil": "1832",
+          "hane": null,
+          "erkek": "61",
+          "price_tl": 1525,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.3073",
+          "yil": "1846",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "istanbul|cekmekoy|omerli",
+      "il": "İstanbul",
+      "ilce": "Çekmeköy",
+      "koy": "Ömerli",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.578",
+          "yil": "1832",
+          "hane": null,
+          "erkek": "142",
+          "price_tl": 3550,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.3067",
+          "yil": "1846",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT / VERGİ",
+          "defter": null,
+          "yil": null,
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT + NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "578",
+          "yil": "1832",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": null,
+          "yil": "1837",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "karabuk|eflani|alpagut",
+      "il": "Karabük",
+      "ilce": "Eflani",
+      "koy": "Alpagut",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.758",
+          "yil": "1837",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "kars|selim|buyukdere",
+      "il": "Kars",
+      "ilce": "Selim",
+      "koy": "Büyükdere",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2785",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "kastamonu|agli|corlar",
+      "il": "Kastamonu",
+      "ilce": "Ağlı",
+      "koy": "Çorlar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.933",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.4303",
+          "yil": "1845",
+          "hane": "3",
+          "erkek": null,
+          "price_tl": 300,
+          "price_formula": "HANE × 100 TL"
+        }
+      ]
+    },
+    {
+      "id": "kastamonu|cide|cayustu",
+      "il": "Kastamonu",
+      "ilce": "Cide",
+      "koy": "Çayüstü",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.863",
+          "yil": "1833",
+          "hane": "8",
+          "erkek": "18",
+          "price_tl": 450,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.865",
+          "yil": "1841",
+          "hane": "10",
+          "erkek": "17",
+          "price_tl": 425,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.866",
+          "yil": "1845",
+          "hane": "8",
+          "erkek": "15",
+          "price_tl": 375,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "konya|bozkir|fakilar",
+      "il": "Konya",
+      "ilce": "Bozkır",
+      "koy": "Fakılar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "33",
+          "erkek": "86",
+          "price_tl": 2150,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1836",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "33",
+          "erkek": "86",
+          "price_tl": 2150,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "konya|bozkir|karacaardic",
+      "il": "Konya",
+      "ilce": "Bozkır",
+      "koy": "Karacaardıç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "3316",
+          "yil": "1836",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "3316",
+          "yil": "1836",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "54",
+          "erkek": "174",
+          "price_tl": 4350,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "24",
+          "erkek": "63",
+          "price_tl": 1575,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "78",
+          "erkek": "174",
+          "price_tl": 4350,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.9872",
+          "yil": "1844/45",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "konya|bozkir|yalnizca",
+      "il": "Konya",
+      "ilce": "Bozkır",
+      "koy": "Yalnızca",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "25",
+          "erkek": "66",
+          "price_tl": 1650,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "25",
+          "erkek": "66",
+          "price_tl": 1650,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3316",
+          "yil": "1836",
+          "hane": "25",
+          "erkek": "66",
+          "price_tl": 1650,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.9881",
+          "yil": "1844/45",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "konya|huyuk|budak",
+      "il": "Konya",
+      "ilce": "Hüyük",
+      "koy": "Budak",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3329",
+          "yil": "1835",
+          "hane": "57",
+          "erkek": "157",
+          "price_tl": 3925,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "kutahya|simav|cavdir",
+      "il": "Kütahya",
+      "ilce": "Simav",
+      "koy": "Çavdır",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1629",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "kutahya|simav|gokceler",
+      "il": "Kütahya",
+      "ilce": "Simav",
+      "koy": "Gökçeler",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1629",
+          "yil": "1840",
+          "hane": "39",
+          "erkek": "93",
+          "price_tl": 2325,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "1629",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "kutahya|simav|yavi",
+      "il": "Kütahya",
+      "ilce": "Simav",
+      "koy": "Yavı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1629",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "manisa|akhisar|baslamis",
+      "il": "Manisa",
+      "ilce": "Akhisar",
+      "koy": "Başlamış",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2846",
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "manisa|gordes|tupuler",
+      "il": "Manisa",
+      "ilce": "Gördes",
+      "koy": "Tüpüler",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1834",
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "manisa|kula|saraclar",
+      "il": "Manisa",
+      "ilce": "Kula",
+      "koy": "Saraçlar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1614",
+          "yil": "1840",
+          "hane": "13",
+          "erkek": "42",
+          "price_tl": 1050,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "manisa|selendi|tavak",
+      "il": "Manisa",
+      "ilce": "Selendi",
+      "koy": "Tavak",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2836",
+          "yil": "1842",
+          "hane": "67",
+          "erkek": "143",
+          "price_tl": 3575,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1842",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "manisa|yunusemre|sungullu",
+      "il": "Manisa",
+      "ilce": "Yunusemre",
+      "koy": "Süngüllü",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2898",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "nigde|altunhisar|akcaoren",
+      "il": "Niğde",
+      "ilce": "Altunhisar",
+      "koy": "Akçaören",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3560",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "nigde|merkez|kayirli",
+      "il": "Niğde",
+      "ilce": "Merkez",
+      "koy": "Kayırlı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3573",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "nigde|merkez|nar",
+      "il": "Niğde",
+      "ilce": "Merkez",
+      "koy": "Nar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3553",
+          "yil": "1831",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3620",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "nigde|ulukisla|basmakci",
+      "il": "Niğde",
+      "ilce": "Ulukışla",
+      "koy": "Başmakçı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.3562",
+          "yil": "1834",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1834",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "ordu|akkus|dagyolu",
+      "il": "Ordu",
+      "ilce": "Akkuş",
+      "koy": "Dağyolu",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2351",
+          "yil": "1843",
+          "hane": "36",
+          "erkek": "120",
+          "price_tl": 3000,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1843",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2351",
+          "yil": "1844",
+          "hane": "36",
+          "erkek": "120",
+          "price_tl": 3000,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2351",
+          "yil": "1844",
+          "hane": "36",
+          "erkek": "120",
+          "price_tl": 3000,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "ordu|mesudiye|musali",
+      "il": "Ordu",
+      "ilce": "Mesudiye",
+      "koy": "Musalı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1104",
+          "yil": "1836",
+          "hane": "25",
+          "erkek": "85",
+          "price_tl": 2125,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1104",
+          "yil": "1836",
+          "hane": "25",
+          "erkek": "85",
+          "price_tl": 2125,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "ordu|mesudiye|sariyayla",
+      "il": "Ordu",
+      "ilce": "Mesudiye",
+      "koy": "Sarıyayla",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1104",
+          "yil": "1835",
+          "hane": "10",
+          "erkek": "53",
+          "price_tl": 1325,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1104",
+          "yil": "1836",
+          "hane": "10",
+          "erkek": "53",
+          "price_tl": 1325,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "ordu|mesudiye|yeveli",
+      "il": "Ordu",
+      "ilce": "Mesudiye",
+      "koy": "Yeveli",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1104",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "samsun|alacam|uzunkirac",
+      "il": "Samsun",
+      "ilce": "Alaçam",
+      "koy": "Uzunkıraç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.940",
+          "yil": "1840",
+          "hane": "32",
+          "erkek": "111",
+          "price_tl": 2775,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "VERGİ HİSSELERİ",
+          "defter": "ML.VRD.d.2238",
+          "yil": "1851",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "883",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": null,
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "samsun|ladik|ayvali",
+      "il": "Samsun",
+      "ilce": "Ladik",
+      "koy": "Ayvalı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2233",
+          "yil": "1837",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1837",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2234",
+          "yil": "1846",
+          "hane": null,
+          "erkek": "39",
+          "price_tl": 975,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|ladik|mazlumoglu",
+      "il": "Samsun",
+      "ilce": "Ladik",
+      "koy": "Mazlumoğlu",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2223",
+          "yil": "1837",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2234",
+          "yil": "1846",
+          "hane": null,
+          "erkek": "52",
+          "price_tl": 1300,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2234",
+          "yil": "1846",
+          "hane": null,
+          "erkek": "52",
+          "price_tl": 1300,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|vezirkopru|alanseyhi",
+      "il": "Samsun",
+      "ilce": "Vezirköprü",
+      "koy": "Alanşeyhi",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2253",
+          "yil": "1831",
+          "hane": null,
+          "erkek": "58",
+          "price_tl": 1450,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2254",
+          "yil": "1841",
+          "hane": "18",
+          "erkek": "58",
+          "price_tl": 1450,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2256",
+          "yil": "1844",
+          "hane": "18",
+          "erkek": "59",
+          "price_tl": 1475,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.15013",
+          "yil": "1845",
+          "hane": "18",
+          "erkek": null,
+          "price_tl": 1800,
+          "price_formula": "HANE × 100 TL"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2257",
+          "yil": "1846",
+          "hane": "17",
+          "erkek": "57",
+          "price_tl": 1425,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|vezirkopru|aydinli",
+      "il": "Samsun",
+      "ilce": "Vezirköprü",
+      "koy": "Aydınlı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "10",
+          "erkek": "24",
+          "price_tl": 600,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "2224",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "10",
+          "erkek": "24",
+          "price_tl": 600,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|vezirkopru|elaldi",
+      "il": "Samsun",
+      "ilce": "Vezirköprü",
+      "koy": "Elaldı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "26",
+          "erkek": "70",
+          "price_tl": 1750,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "2224",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "26",
+          "erkek": "70",
+          "price_tl": 1750,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|vezirkopru|kizilkese",
+      "il": "Samsun",
+      "ilce": "Vezirköprü",
+      "koy": "Kızılkese",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2257",
+          "yil": "1846",
+          "hane": "39",
+          "erkek": "119",
+          "price_tl": 2975,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1846",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2257",
+          "yil": "1846",
+          "hane": "39",
+          "erkek": "119",
+          "price_tl": 2975,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "samsun|vezirköprü|teberuk",
+      "il": "Samsun",
+      "ilce": "Vezirköprü",
+      "koy": "Teberük",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "3 görülen",
+          "erkek": "8",
+          "price_tl": 200,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "2224",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2224",
+          "yil": "1845",
+          "hane": "3",
+          "erkek": "8",
+          "price_tl": 200,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "sinop|duragan|alpugan",
+      "il": "Sinop",
+      "ilce": "Durağan",
+      "koy": "Alpuğan",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.884",
+          "yil": "1842",
+          "hane": "35",
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "sivas|golova|cukuryurt",
+      "il": "Sivas",
+      "ilce": "Gölova",
+      "koy": "Çukuryurt",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1080",
+          "yil": "1836",
+          "hane": "24",
+          "erkek": "79 ana sayım + 16 tevellüd",
+          "price_tl": 197900,
+          "price_formula": "ERKEK × 25 TL"
+        }
+      ]
+    },
+    {
+      "id": "sivas|koyulhisar|ortaseki",
+      "il": "Sivas",
+      "ilce": "Koyulhisar",
+      "koy": "Ortaseki",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1069",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "sivas|yildizeli|akpinar",
+      "il": "Sivas",
+      "ilce": "Yıldızeli",
+      "koy": "Akpınar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2365",
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "tokat|merkez|senkoy",
+      "il": "Tokat",
+      "ilce": "Merkez",
+      "koy": "Şenköy",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2373",
+          "yil": "1843",
+          "hane": "8",
+          "erkek": "32",
+          "price_tl": 800,
+          "price_formula": "ERKEK × 25 TL"
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.14710",
+          "yil": "1845",
+          "hane": "10 + 3 köy dışı kayıt",
+          "erkek": null,
+          "price_tl": 10300,
+          "price_formula": "HANE × 100 TL"
+        }
+      ]
+    },
+    {
+      "id": "tokat|resadiye|kecikoy",
+      "il": "Tokat",
+      "ilce": "Reşadiye",
+      "koy": "Keçiköy",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1058",
+          "yil": "1835",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "yozgat|cekerek|arpac",
+      "il": "Yozgat",
+      "ilce": "Çekerek",
+      "koy": "Arpaç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2510",
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1838",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "yozgat|cekerek|celtek",
+      "il": "Yozgat",
+      "ilce": "Çekerek",
+      "koy": "Çeltek",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2105",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "2105",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "NÜFUS / SOY KÜTÜĞÜ",
+          "defter": null,
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "yozgat|kadisehri|yakacik",
+      "il": "Yozgat",
+      "ilce": "Kadışehri",
+      "koy": "Yakacık",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2085",
+          "yil": "1834",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "yozgat|sarikaya|topaktas",
+      "il": "Yozgat",
+      "ilce": "Sarıkaya",
+      "koy": "Topaktaş",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2058",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.12863",
+          "yil": "1846",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "yozgat|sorgun|gunyazi",
+      "il": "Yozgat",
+      "ilce": "Sorgun",
+      "koy": "Günyazı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.2104",
+          "yil": "1845",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "zonguldak|eregli|kurtlar",
+      "il": "Zonguldak",
+      "ilce": "Ereğli",
+      "koy": "Kurtlar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.695",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    },
+    {
+      "id": "zonguldak|gökçebey|alıusta",
+      "il": "Zonguldak",
+      "ilce": "Gökçebey",
+      "koy": "Aliusta",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.796",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        },
+        {
+          "tur": "TEMETTUAT",
+          "defter": "ML.VRD.TMT.d.4889",
+          "yil": "1846",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null
+        }
+      ]
+    }
+  ]
+}
