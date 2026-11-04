@@ -70,7 +70,8 @@ const DIST_LOCAL='./districts-local.json';
 const SETTLEMENTS='./settlements-local.json';
 const ARCH=['archive_1.ndjson','archive_2.ndjson','archive_3.ndjson','archive_4.ndjson'];
 const DIST_REMOTE='./geo/districts.geojson';
-const VILLAGE_REMOTE='./geo/villages/';
+const VILLAGE_LOCAL='./geo/villages/';
+const VILLAGE_FALLBACK='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/mahalle-geometrileri-by-district-v2/';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
@@ -93,14 +94,18 @@ function addDot(x,y,archiveHas){const c=document.createElementNS(SVG_NS,'circle'
 function render(features,kind,onClick,showDots){clearMap();if(!features||!features.length){statusEl.textContent='Bu seviyede harita geometrisi bulunamadı.';return}const pr=projector(features);features.forEach(function(f){const p=document.createElementNS(SVG_NS,'path');p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo '+kind+(f.properties&&f.properties._has?' has':''));p.addEventListener('click',function(){onClick(f)});svg.appendChild(p)});features.forEach(function(f){const cc=center(f,pr),name=(f.properties&&(f.properties._displayName||f.properties.name))||'';if(showDots)addDot(cc[0],cc[1],!!(f.properties&&f.properties._has));addText(name,cc[0],cc[1]-5,kind==='province'?'provinceLabel':kind==='district'?'districtLabel':'villageLabel')});svg.setAttribute('viewBox','0 0 1000 620')}
 async function loadDistrictVillageGeo(local){
   if(districtVillageCache.has(local.id))return districtVillageCache.get(local.id);
+  let gj=null;
   try{
-    const gj=await getJSON(VILLAGE_REMOTE+encodeURIComponent(local.id)+'.geojson');
-    districtVillageCache.set(local.id,gj);
-    return gj
-  }catch(e){
-    districtVillageCache.set(local.id,{type:'FeatureCollection',features:[]});
-    return districtVillageCache.get(local.id)
+    gj=await getJSON(VILLAGE_LOCAL+encodeURIComponent(local.id)+'.geojson');
+  }catch(localErr){
+    try{
+      gj=await getJSON(VILLAGE_FALLBACK+encodeURIComponent(local.id)+'.geojson');
+    }catch(remoteErr){
+      gj={type:'FeatureCollection',features:[]};
+    }
   }
+  districtVillageCache.set(local.id,gj);
+  return gj
 }
 function districtOuterBoundary(features,pr){
   const edges=new Map();
@@ -256,9 +261,7 @@ function mergeRecords(rows){
 }
 function archiveForVillage(name){
   const exact=archiveIndex.get(key(selectedProvince&&selectedProvince.name,selectedDistrict&&selectedDistrict.name,name))||[];
-  if(exact.length)return mergeRecords(exact);
-  const hits=archive.filter(function(x){return x.koy&&norm(x.koy)===norm(name)&&x.ilce&&selectedDistrict&&norm(x.ilce)===norm(selectedDistrict.name)&&x.il&&selectedProvince&&norm(x.il)===norm(selectedProvince.name)});
-  return hits.length?mergeRecords(hits):null
+  return exact.length?mergeRecords(exact):null
 }
 function buildVillageRows(){const rec=districtRecord(selectedDistrict.name);const rows=[],seen=new Set();if(rec){(rec.v||[]).forEach(function(n){const k='k|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'KÖY'})}});(rec.m||[]).forEach(function(n){const k='m|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'MAHALLE'})}})}rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});rows.sort(function(a,b){return a.name.localeCompare(b.name,'tr')});return rows}
 function renderVillageList(){const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length,mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;vCount.textContent=vn+' KÖY · '+mn+' MAHALLE';vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})}
