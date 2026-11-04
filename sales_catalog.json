@@ -807,7 +807,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_839ac23b117c4e9a80eb1abfc8a97ae6~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -822,7 +822,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "erzurum|olur|yukarikaracasu",
@@ -832,7 +832,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_1153d3d93cb64c98aeef00750c09b603~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -858,7 +858,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "gumushane|kelkit|doganca",
@@ -1465,7 +1465,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_7f88e727ece24af4a25278d489a2e724~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1491,7 +1491,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "kutahya|simav|cavdir",
@@ -1838,7 +1838,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_ba679fa3cd59462e8b2da637b508cbc2~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1864,7 +1864,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "nigde|ulukisla|basmakci",
@@ -1874,7 +1874,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_c43bb32b98b0459f92c30f6f71c2c650~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1900,7 +1900,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "ordu|akkus|dagyolu",
@@ -2842,7 +2842,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_2f5c5598ffeb495ba63ad29794151b60~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2857,7 +2857,7 @@
         }
       ],
       "payment_provider": "SHOPIER",
-      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "yozgat|sarikaya|topaktas",
