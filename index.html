@@ -108,7 +108,7 @@ const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR
 
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
 const SVG_NS='http://www.w3.org/2000/svg';
-let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,histLayers={modern:true,sancak:false,eyalet:false,kaza:false};let baseMap=null,adminLayer=null;
+let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,histLayers={modern:true,sancak:false,eyalet:false,kaza:false};let baseMap=null,adminLayer=null,nearbyLayer=null;
 
 function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -257,8 +257,8 @@ function districtMapInfo(il,ilce){
     (vs.length?'<div class="mapInfoTags">'+vs.slice(0,24).map(function(x){return'<span>'+esc(x)+'</span>'}).join('')+(vs.length>24?'<span>+'+(vs.length-24)+'</span>':'')+'</div>':'')+
     '<div class="mapInfoHint">HARİTADAKİ KÖY ETİKETİNE / SINIRINA TIKLAYIN → ARŞİV KARTINI AÇIN.</div>'
 }
-function initBaseMap(){if(baseMap||!window.L)return;baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true});const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(baseMap);const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'© OpenStreetMap · © CARTO'});L.control.layers({'SOKAK HARİTASI':osm,'SADE HARİTA':light},{},{position:'topright'}).addTo(baseMap)}
-function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}}
+function initBaseMap(){if(baseMap||!window.L)return;baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:false,dragging:true,touchZoom:true});const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(baseMap);const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'© OpenStreetMap · © CARTO'});L.control.layers({'SOKAK HARİTASI':osm,'SADE HARİTA':light},{},{position:'topright'}).addTo(baseMap);baseMap.on('click',function(e){showNearbySettlements(e.latlng)})}
+function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}clearNearbyLayer()}
 function lbl(layer,name,cls){if(name)layer.bindTooltip(name,{permanent:true,direction:'center',className:cls||'mapLabel',opacity:1})}
 function featureLabelLatLng(feature){
   try{
@@ -280,15 +280,135 @@ function clickableLabel(name,feature,kind,onClick){
   const marker=L.marker(ll,{
     interactive:true,
     keyboard:true,
+    bubblingMouseEvents:false,
+    riseOnHover:true,
+    zIndexOffset:1000,
     icon:L.divIcon({
       className:'',
-      html:'<div class="mapClickLabel '+(kind||'')+'">'+esc(name)+'</div>',
+      html:'<div class="mapClickLabel '+(kind||'')+'" role="button" tabindex="0">'+esc(name)+'</div>',
       iconSize:null,
       iconAnchor:[0,0]
     })
   });
-  marker.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);onClick()});
+  function go(e){
+    if(e&&e.originalEvent){L.DomEvent.stop(e.originalEvent);if(e.originalEvent.preventDefault)e.originalEvent.preventDefault()}
+    onClick()
+  }
+  marker.on('click',go);
+  marker.on('dblclick',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent)});
+  marker.on('add',function(){
+    const el=marker.getElement();
+    if(!el)return;
+    L.DomEvent.disableClickPropagation(el);
+    L.DomEvent.disableScrollPropagation(el);
+    el.addEventListener('pointerdown',function(ev){ev.stopPropagation()});
+    el.addEventListener('mousedown',function(ev){ev.stopPropagation()});
+    el.addEventListener('touchstart',function(ev){ev.stopPropagation()},{passive:true});
+    el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();ev.stopPropagation();onClick()}})
+  });
   return marker
+}
+function clearNearbyLayer(){
+  if(nearbyLayer&&baseMap){baseMap.removeLayer(nearbyLayer);nearbyLayer=null}
+}
+function settlementPointRows(){
+  const out=[];
+  if(!baseMap)return out;
+  const il=selectedProvince&&selectedProvince.name;
+  const ilce=selectedDistrict&&selectedDistrict.name;
+  if(ilce){
+    const local=districtList.find(function(x){return selectedDistrict&&x.id===selectedDistrict.id})||districtList.find(function(x){return il&&x.parent_id===PROVINCE_MAP[il]&&norm(x.name)===norm(ilce)});
+    if(local){
+      const cached=districtPointCache.get(local.id);
+      if(cached&&cached.features){
+        cached.features.forEach(function(f){
+          const n=(f.properties&&f.properties.name)||'';
+          const c=f.geometry&&f.geometry.coordinates;
+          if(n&&c&&c.length>=2)out.push({name:n,lat:c[1],lng:c[0],kind:'KÖY',feature:f})
+        })
+      }
+    }
+  }
+  return out
+}
+async function showNearbySettlements(latlng){
+  if(!latlng||!baseMap)return;
+  clearNearbyLayer();
+
+  let rows=settlementPointRows();
+
+  // İlçe seçiliyse nokta verisi henüz cache'de değilse yükle.
+  if(selectedDistrict&&selectedProvince&&rows.length===0){
+    const local=districtList.find(function(x){return x.id===selectedDistrict.id})||districtList.find(function(x){return x.parent_id===selectedProvince.id&&norm(x.name)===norm(selectedDistrict.name)});
+    if(local){
+      try{
+        const pg=await loadDistrictPointGeo(local);
+        (pg.features||[]).forEach(function(f){
+          const n=(f.properties&&f.properties.name)||'',c=f.geometry&&f.geometry.coordinates;
+          if(n&&c&&c.length>=2)rows.push({name:n,lat:c[1],lng:c[0],kind:'KÖY',feature:f})
+        })
+      }catch(e){}
+    }
+  }
+
+  // İl seviyesinde: ilçe merkezleri etiket olarak göster.
+  if(!selectedDistrict&&selectedProvince){
+    try{
+      const gj=await loadDistrictGeo();
+      const feats=(gj.features||[]).filter(function(f){
+        const p=f.properties||{};
+        return String(p.parent_id||'')===String(selectedProvince.id||'')
+      });
+      rows=feats.map(function(f){
+        const ll=featureLabelLatLng(f),n=(f.properties&&f.properties.name)||'';
+        return ll?{name:n,lat:ll[0],lng:ll[1],kind:'İLÇE',feature:f}:null
+      }).filter(Boolean)
+    }catch(e){}
+  }
+
+  // Türkiye seviyesinde: illeri yakınlıkla göster.
+  if(!selectedProvince){
+    rows=((provinceData&&provinceData.features)||[]).map(function(f){
+      const ll=featureLabelLatLng(f),n=canonicalProvince((f.properties&&f.properties.name)||'');
+      return ll?{name:n,lat:ll[0],lng:ll[1],kind:'İL',feature:f}:null
+    }).filter(Boolean)
+  }
+
+  if(!rows.length)return;
+
+  rows.forEach(function(r){
+    r.distance=baseMap.distance(latlng,L.latLng(r.lat,r.lng))
+  });
+  rows.sort(function(a,b){return a.distance-b.distance});
+  const nearest=rows.slice(0,20);
+
+  nearbyLayer=L.layerGroup().addTo(baseMap);
+  nearest.forEach(function(r){
+    const m=L.marker([r.lat,r.lng],{
+      interactive:true,
+      bubblingMouseEvents:false,
+      zIndexOffset:1500,
+      icon:L.divIcon({
+        className:'',
+        html:'<div class="mapClickLabel '+(r.kind==='KÖY'?'village':'')+'">'+esc(r.name)+'</div>',
+        iconSize:null,
+        iconAnchor:[0,0]
+      })
+    });
+    m.on('click',function(e){
+      if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);
+      if(r.kind==='İL')selectProvinceFeature(r.feature);
+      else if(r.kind==='İLÇE')selectDistrictFeature(r.feature);
+      else openVillage(r.name)
+    });
+    nearbyLayer.addLayer(m)
+  });
+
+  setMapInfo('YAKIN YERLEŞİMLER',
+    '<b>'+nearest.length+' YERLEŞİM</b> · TIKLADIĞIN NOKTAYA EN YAKINLAR'+
+    '<div class="mapInfoTags">'+nearest.map(function(r){return'<span>'+esc(r.name)+'</span>'}).join('')+'</div>'+
+    '<div class="mapInfoHint">HARİTADAKİ ETİKETLERDEN BİRİNE TIKLAYARAK İLERLEYİN.</div>'
+  )
 }
 function renderBaseTurkey(){initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){setMapInfo(n,provinceMapInfo(n));selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
 function renderBaseProvince(feats){
