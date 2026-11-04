@@ -20,14 +20,85 @@
 <div id="modal" class="modal"><div class="panel"><button id="close" class="close">×</button><h2 id="mt"></h2><div id="ml"></div><div id="pv" class="preview"></div><div id="mi"></div></div></div>
 <script>
 let DATA={items:[]};
+let PAYCFG={api_base:"",enabled:false};
+let activePoll=null;
+async function loadPayCfg(){
+  try{
+    const r=await fetch('./payment_runtime.json?v=20261104',{cache:'no-store'});
+    if(r.ok) PAYCFG=await r.json();
+  }catch(e){}
+}
+async function beginCheckout(productId,btn){
+  if(!PAYCFG.enabled||!PAYCFG.api_base){alert('ÖDEME SİSTEMİ HENÜZ CANLIYA ALINMADI.');return}
+  const old=btn.textContent;btn.disabled=true;btn.textContent='ÖDEME HAZIRLANIYOR…';
+  try{
+    const r=await fetch(PAYCFG.api_base.replace(/\/$/,'')+'/api/create-payment',{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product_id:productId})
+    });
+    const j=await r.json();
+    if(!r.ok||!j.payment_url) throw new Error(j.error||'payment');
+    localStorage.setItem('alidedeoglu_last_order',JSON.stringify({id:j.order_id,token:j.order_token,api:PAYCFG.api_base}));
+    window.open(j.payment_url,'_blank','noopener');
+    btn.textContent='ÖDEME BEKLENİYOR…';
+    startOrderPoll(j.order_id,j.order_token,btn);
+  }catch(e){alert('ÖDEME BAŞLATILAMADI.');btn.disabled=false;btn.textContent=old}
+}
+function startOrderPoll(id,token,btn){
+  if(activePoll)clearInterval(activePoll);
+  const base=PAYCFG.api_base.replace(/\/$/,'');
+  const check=async()=>{
+    try{
+      const r=await fetch(base+'/api/order-status?id='+encodeURIComponent(id)+'&token='+encodeURIComponent(token),{cache:'no-store'});
+      const j=await r.json();
+      if(j.status==='paid'&&j.download_url){
+        clearInterval(activePoll);activePoll=null;
+        btn.disabled=false;btn.textContent='PDF’Yİ İNDİR';
+        btn.onclick=()=>window.location.href=base+j.download_url;
+      }
+    }catch(e){}
+  };
+  check();activePoll=setInterval(check,3000);
+}
+async function resumeLastOrder(){
+  try{
+    const o=JSON.parse(localStorage.getItem('alidedeoglu_last_order')||'null');
+    if(!o||!o.id||!o.token||!PAYCFG.api_base)return;
+    // Durum modal açıldığında yeniden kontrol edilir; burada sadece saklı sipariş korunur.
+  }catch(e){}
+}
+
 const q=document.getElementById('q'),grid=document.getElementById('grid'),count=document.getElementById('count'),modal=document.getElementById('modal'),mt=document.getElementById('mt'),ml=document.getElementById('ml'),pv=document.getElementById('pv'),mi=document.getElementById('mi');
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function imgFor(x){return x.cover_url||x.osmanlica_preview_url||x.preview_url||x.page_preview_url||null}
 function previewKind(x){if(x.cover_url)return'KAPAK';if(x.osmanlica_preview_url)return'ORİJİNAL OSMANLICA';if(x.preview_url||x.page_preview_url)return'PDF SAYFASI';return'OTOMATİK KAPAK'}
 function autoCover(x){const p=(x.products||[])[0]||{};return '<div class="autoCover"><div class="brand">ALİDEDEOĞLU ARŞİVİ</div><div class="place">'+esc(x.koy||'ARŞİV PDF')+'</div><div class="loc">'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</div><div class="def">'+esc(p.defter||p.tur||'OSMANLI ARŞİV BELGESİ')+'</div><div class="year">'+esc(p.yil||'')+'</div><div class="tag">E-SATIŞ ÖNİZLEME</div></div>'}
 function render(rows){count.textContent=rows.length.toLocaleString('tr-TR')+' PDF';grid.innerHTML=rows.length?rows.map(function(x,i){const im=imgFor(x);return '<article class="card" data-i="'+i+'"><div class="thumb">'+(im?'<img src="'+esc(im)+'" alt="">':autoCover(x))+'</div><div class="body"><h2>'+esc(x.koy||'PDF')+'</h2><small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small><div><span class="pill">'+esc(previewKind(x))+'</span><span class="pill">'+(x.products||[]).length+' ÜRÜN</span></div></div></article>'}).join(''):'<div class="empty">ÜRÜN BULUNAMADI.</div>';Array.from(grid.querySelectorAll('[data-i]')).forEach(function(el){el.onclick=function(){openItem(rows[Number(el.dataset.i)])}})}
-function openItem(x){mt.textContent=x.koy||'PDF';ml.innerHTML='<small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small>';const im=imgFor(x);pv.innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(previewKind(x))+'">':autoCover(x);mi.innerHTML='<div class="notice"><b>ÖNİZLEME TÜRÜ:</b> '+esc(previewKind(x))+'<br>ÖDEME PAYTR ÜZERİNDEN ALINIR. PDF ÖDEME ONAYINDAN SONRA BU SİTEDEN TESLİM EDİLİR.</div>'+(x.products||[]).map(function(p){const buy=p.PAYTR_url?'<a class="buy" href="'+esc(p.PAYTR_url)+'" target="_blank" rel="noopener">PAYTR\'DEN SATIN AL</a>':'<span class="buy off" title="Bu PDF için PAYTR ürün bağlantısı henüz tanımlanmadı">PAYTR BAĞLANTISI HAZIRLANIYOR</span>';return '<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(Number(p.price_tl)>0?'<div class="price">'+Number(p.price_tl).toLocaleString('tr-TR')+' TL</div>':'<div><b>FİYAT HAZIRLANIYOR</b></div>')+buy+'<div class="paynote">KARTLA ÖDEME PAYTR SAYFASINDA TAMAMLANIR; PDF PAYTR ÜZERİNDEN TESLİM EDİLMEZ.</div></div>'}).join('');modal.classList.add('open')}
+function openItem(x){
+  mt.textContent=x.koy||'PDF';ml.innerHTML='<small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small>';
+  const im=imgFor(x);pv.innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(previewKind(x))+'">':autoCover(x);
+  mi.innerHTML='<div class="notice"><b>ÖNİZLEME TÜRÜ:</b> '+esc(previewKind(x))+'<br>ÖDEME PAYTR ÜZERİNDEN ALINIR. ÖDEME ONAYLANINCA PDF BU SİTEDEN İNDİRİLİR.</div>'+
+  (x.products||[]).map(function(p,i){
+    const price=Number(p.price_tl)||0;
+    let buy='';
+    if(price>0&&p.product_id&&PAYCFG.enabled&&PAYCFG.api_base){
+      buy='<button class="buy jsbuy" data-pid="'+esc(p.product_id)+'">SATIN AL</button>';
+    }else if(price>0){
+      buy='<button class="buy off" disabled>ÖDEME SİSTEMİ HAZIRLANIYOR</button>';
+    }else{
+      buy='<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
+    }
+    return '<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(price>0?'<div class="price">'+price.toLocaleString('tr-TR')+' TL</div>':'')+buy+'<div class="paynote">KARTLA ÖDEME PAYTR SAYFASINDA TAMAMLANIR. PDF ÖDEME SONRASI OTOMATİK TESLİM EDİLİR.</div></div>'
+  }).join('');
+  Array.from(mi.querySelectorAll('.jsbuy')).forEach(function(btn){btn.onclick=function(){beginCheckout(btn.dataset.pid,btn)}});
+  modal.classList.add('open');
+  try{
+    const o=JSON.parse(localStorage.getItem('alidedeoglu_last_order')||'null');
+    if(o&&o.id&&o.token&&o.api===PAYCFG.api_base){
+      const first=mi.querySelector('.jsbuy');if(first)startOrderPoll(o.id,o.token,first);
+    }
+  }catch(e){}
+}
 document.getElementById('close').onclick=function(){modal.classList.remove('open')};modal.onclick=function(e){if(e.target===modal)modal.classList.remove('open')};q.oninput=function(){const s=q.value.toLocaleLowerCase('tr-TR');render(DATA.items.filter(function(x){return JSON.stringify(x).toLocaleLowerCase('tr-TR').includes(s)}))};
-fetch('./sales_catalog.json?v=20261105-0100',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('catalog');return r.json()}).then(function(j){DATA=j||{items:[]};render(DATA.items||[])}).catch(function(){count.textContent='HATA';grid.innerHTML='<div class="empty"><b>E-SATIŞ KATALOĞU YÜKLENEMEDİ.</b></div>'});
+Promise.all([loadPayCfg(),fetch('./sales_catalog.json?v=20261105-0200',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('catalog');return r.json()})]).then(function(v){DATA=v[1]||{items:[]};render(DATA.items||[]);resumeLastOrder()}).catch(function(){count.textContent='HATA';grid.innerHTML='<div class="empty"><b>E-SATIŞ KATALOĞU YÜKLENEMEDİ.</b></div>'});
 </script>
 </body></html>
