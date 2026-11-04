@@ -659,16 +659,102 @@ function matchedHanes(r,nq){
 function familyRowsForProvince(name){
   return lastSearchRows.filter(function(r){return norm(canonicalProvince(r.il||''))===norm(name)})
 }
-function renderFamilyProvinceList(name){
-  const panel=document.getElementById('searchPanel');
+function familyRowsForDistrict(name,ilce){
+  return familyRowsForProvince(name).filter(function(r){return norm(r.ilce||'')===norm(ilce)})
+}
+async function renderFamilyProvince(name){
   const rows=familyRowsForProvince(name);
-  panel.innerHTML='<div class="searchSummary"><b>'+esc(lastSearchQuery.toLocaleUpperCase('tr-TR'))+'</b><br><small>'+esc(name)+' · '+rows.length+' YERLEŞİM</small></div>'+rows.map(function(r,i){
+  if(!rows.length)return;
+  level='familyProvince';
+  selectedDistrict=null;
+  const pid=PROVINCE_MAP[name];
+  selectedProvince={name:name,id:pid};
+  clearMap();
+  crumb.textContent='TÜRKİYE → '+name.toLocaleUpperCase('tr-TR')+' · '+lastSearchQuery.toLocaleUpperCase('tr-TR');
+  const byDistrict=new Map();
+  rows.forEach(function(r){
+    const dk=norm(r.ilce||'');
+    if(!dk)return;
+    if(!byDistrict.has(dk))byDistrict.set(dk,{name:r.ilce,set:new Set()});
+    byDistrict.get(dk).set.add(norm(r.koy||''))
+  });
+  try{
+    const gj=await loadDistrictGeo();
+    const feats=(gj.features||[]).filter(function(f){
+      const p=f.properties||{};
+      return p.parent_id===pid || String(p.parent_id||'')===String(pid)
+    });
+    const pr=projector(feats);
+    feats.forEach(function(f){
+      const dn=(f.properties&&f.properties.name)||'';
+      const hit=byDistrict.get(norm(dn));
+      const cnt=hit?hit.set.size:0;
+      const p=document.createElementNS(SVG_NS,'path');
+      p.setAttribute('d',geometryPath(f.geometry,pr));
+      p.setAttribute('fill-rule','evenodd');
+      p.setAttribute('class','geo district');
+      p.setAttribute('fill',cnt?'#d8a84f':'#f3dfb2');
+      p.setAttribute('stroke',cnt?'#7c4d12':'#a77524');
+      p.setAttribute('stroke-width',cnt?'2.2':'1.1');
+      if(cnt)p.addEventListener('click',function(){renderFamilyDistrict(name,dn)});
+      svg.appendChild(p);
+      const cc=center(f,pr);
+      addText(dn,cc[0],cc[1]-5,'districtLabel');
+      if(cnt){
+        const c=document.createElementNS(SVG_NS,'circle');
+        c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+10);c.setAttribute('r','9');c.setAttribute('class','provinceCount');svg.appendChild(c);
+        const t=document.createElementNS(SVG_NS,'text');
+        t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+10);t.setAttribute('class','provinceCountText');t.textContent=cnt;svg.appendChild(t)
+      }
+    });
+    svg.setAttribute('viewBox','0 0 1000 620')
+  }catch(e){
+    const pf=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(name)});
+    if(pf)render([pf],'province',function(){},false)
+  }
+  const districts=Array.from(byDistrict.values()).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
+  vCount.textContent=rows.length+' YER';
+  vList.innerHTML=districts.map(function(x){return'<div class="vitem has" data-family-district="'+esc(x.name)+'"><span><b>'+esc(x.name)+'</b><br><small>'+x.set.size+' KÖY / MAHALLE</small></span><span class="badge">AİLE</span></div>'}).join('');
+  vList.querySelectorAll('[data-family-district]').forEach(function(el){el.onclick=function(){renderFamilyDistrict(name,el.getAttribute('data-family-district'))}});
+  statusEl.textContent=districts.length+' İLÇE · '+rows.length+' KÖY/MAHALLE · İLÇEYE TIKLAYIN'
+}
+async function renderFamilyDistrict(name,ilce){
+  const rows=familyRowsForDistrict(name,ilce);
+  if(!rows.length)return;
+  level='familyDistrict';
+  const local=districtList.find(function(x){return x.parent_id===PROVINCE_MAP[name]&&norm(x.name)===norm(ilce)});
+  selectedDistrict=local?{id:local.id,name:local.name}:{id:null,name:ilce};
+  clearMap();
+  crumb.textContent='TÜRKİYE → '+name.toLocaleUpperCase('tr-TR')+' → '+ilce.toLocaleUpperCase('tr-TR')+' · '+lastSearchQuery.toLocaleUpperCase('tr-TR');
+  let pointRows=[];
+  if(local){
+    try{
+      const pg=await loadDistrictPointGeo(local);
+      const pr=projector((pg&&pg.features)||[]);
+      (pg&&pg.features||[]).forEach(function(f){
+        const vn=(f.properties&&f.properties.name)||'';
+        const r=rows.find(function(x){return norm(x.koy||'')===norm(vn)});
+        if(!r)return;
+        pointRows.push({feature:f,row:r});
+        const cc=center(f,pr);
+        const c=document.createElementNS(SVG_NS,'circle');
+        c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]);c.setAttribute('r','7');c.setAttribute('class','centerDot archiveDot');
+        c.style.cursor='pointer';c.style.pointerEvents='all';
+        c.addEventListener('click',function(){showRecord(r.koy,r,r.ilce,r.il)});
+        svg.appendChild(c);
+        addText(vn,cc[0],cc[1]-8,'villageLabel')
+      });
+      if(pointRows.length)svg.setAttribute('viewBox','0 0 1000 620')
+    }catch(e){}
+  }
+  vCount.textContent=rows.length+' YER';
+  vList.innerHTML=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')}).map(function(r,i){
     const hs=matchedHanes(r,searchNorm(lastSearchQuery));
-    const htxt=hs.length?' · HANE '+hs.join(', '):'';
-    return'<div class="sresult" data-s="'+i+'"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc(r.il||'')+' · '+esc(r.ilce||'')+' · '+esc(r.koy||'')+esc(htxt)+'</small></div>'
+    return'<div class="vitem has" data-family-village="'+i+'"><span><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc(ilce)+(hs.length?' · HANE '+esc(hs.join(', ')):'')+'</small></span><span class="badge">AİLE</span></div>'
   }).join('');
-  panel.classList.add('show');
-  panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})
+  const sorted=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')});
+  vList.querySelectorAll('[data-family-village]').forEach(function(el){el.onclick=function(){const r=sorted[Number(el.getAttribute('data-family-village'))];showRecord(r.koy,r,r.ilce,r.il)}});
+  statusEl.textContent=rows.length+' KÖY/MAHALLE · KÖYE TIKLAYIN'
 }
 function renderFamilyDistribution(rows,q){
   if(!provinceData||!provinceData.features)return;
@@ -693,7 +779,7 @@ function renderFamilyDistribution(rows,q){
     p.setAttribute('fill',cnt?'#d8a84f':'#f4ece0');
     p.setAttribute('stroke',cnt?'#7c4d12':'#8c3030');
     p.setAttribute('stroke-width',cnt?'2.2':'1.1');
-    if(cnt)p.addEventListener('click',function(){renderFamilyProvinceList(name)});
+    if(cnt)p.addEventListener('click',function(){renderFamilyProvince(name)});
     svg.appendChild(p);
     const cc=center(f,pr);
     if(cnt){
