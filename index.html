@@ -34,12 +34,10 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 <div class="stat"><b id="placeStat">—</b><span>YERLEŞİM KARTI</span></div>
 <div class="stat"><b id="familyStat">—</b><span>TEKİL SÜLALE</span></div>
 <div class="stat"><b id="mappedStat">—</b><span>HARİTAYA BAĞLI KART</span></div>
-<div class="stat"><b id="exitStat">—</b><span>SİTEDEN ÇIKIŞ</span></div>
-<div class="stat"><b id="insideStat">—</b><span>TAHMİNÎ İÇERİDE</span></div>
 </div>
 </section>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a></div>\n<div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" placeholder="Köy, ilçe, defter no, sülale veya görevli adı…"><small>Haritaya bağlanmamış kayıtlar da aranır.</small></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a></div>\n<div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" placeholder="Köy, ilçe, defter no, sülale veya görevli adı…"><small>Haritaya bağlanmamış kayıtlar da aranır.</small></div>
 
 <div class="workbench">
 <aside class="sidebar">
@@ -654,68 +652,42 @@ document.getElementById('backBtn').onclick=function(){if(level==='district'&&sel
 document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!e.target.closest('#searchPanel'))document.getElementById('searchPanel').classList.remove('show')});
 
 
-// Basit ziyaret sayacı: dış serviste yalnızca sayısal sayaç tutulur.
-// GİRİŞ her sayfa yüklemesinde, ÇIKIŞ sayfa kapanırken/ayrılırken artar.
-// Tarayıcının zorla kapanması gibi durumlarda ÇIKIŞ sinyali kaçabileceği için
-// "TAHMİNÎ İÇERİDE" yalnızca yaklaşık bir değerdir.
+// Ziyaret sayacı: yalnızca toplam ziyaret tutulur.
 (function initVisitorCounter(){
   const base='https://countapi.mileshilliard.com/api/v1';
   const entryKey='alidedeogluarsivi_com_entries_v1';
-  const exitKey='alidedeogluarsivi_com_exits_v1';
   const entryEl=document.getElementById('entryStat');
-  const exitEl=document.getElementById('exitStat');
-  const insideEl=document.getElementById('insideStat');
-  let exitSent=false;
-
   function n(v){const x=Number(v);return Number.isFinite(x)?x:0}
-  function paint(entries,exits){
-    entryEl.textContent=entries.toLocaleString('tr-TR');
-    exitEl.textContent=exits.toLocaleString('tr-TR');
-    insideEl.textContent=Math.max(0,entries-exits).toLocaleString('tr-TR');
+  async function read(){
+    const r=await fetch(base+'/get/'+entryKey,{cache:'no-store'});
+    if(!r.ok)return 0;
+    const j=await r.json();
+    return n(j.value);
   }
-  async function read(key){
-    try{
-      const r=await fetch(base+'/get/'+key,{cache:'no-store'});
-      if(!r.ok)return 0;
-      const j=await r.json();
-      return n(j.value);
-    }catch(_){return 0}
-  }
-  async function hit(key){
-    const r=await fetch(base+'/hit/'+key,{cache:'no-store'});
+  async function hit(){
+    const r=await fetch(base+'/hit/'+entryKey,{cache:'no-store'});
     if(!r.ok)throw new Error('counter');
     const j=await r.json();
     return n(j.value);
   }
-
   (async function(){
     try{
-      let entries;
+      let total;
       try{
         if(sessionStorage.getItem('alidedeogluarsivi_visit_counted_v1')==='1'){
-          entries=await read(entryKey);
+          total=await read();
         }else{
-          entries=await hit(entryKey);
+          total=await hit();
           sessionStorage.setItem('alidedeogluarsivi_visit_counted_v1','1');
         }
       }catch(_){
-        entries=await hit(entryKey);
+        total=await read();
       }
-      const exits=await read(exitKey);
-      paint(entries,exits);
+      entryEl.textContent=total.toLocaleString('tr-TR');
     }catch(_){
-      entryEl.textContent='—'; exitEl.textContent='—'; insideEl.textContent='—';
+      entryEl.textContent='—';
     }
   })();
-
-  function sendExit(){
-    if(exitSent)return;
-    exitSent=true;
-    try{
-      fetch(base+'/hit/'+exitKey,{method:'GET',keepalive:true,cache:'no-store'}).catch(function(){});
-    }catch(_){}
-  }
-  window.addEventListener('pagehide',sendExit,{capture:true});
 })();
 
 (async function(){try{
