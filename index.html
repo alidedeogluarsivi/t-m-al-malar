@@ -340,7 +340,25 @@ async function selectDistrict(local,geoFeature){
 }
 function openVillage(name){showRecord(name,archiveForVillage(name),selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
-function genericObject(o){if(o==null)return'';if(typeof o!=='object')return esc(o);return Object.keys(o).filter(function(k){return o[k]!=null&&o[k]!==''}).map(function(k){return'<div><b>'+esc(k.replace(/_/g,' ').toLocaleUpperCase('tr-TR'))+'</b><span>'+esc(Array.isArray(o[k])?o[k].join(', '):o[k])+'</span></div>'}).join('')}
+function hasDisplayValue(v){
+  if(v==null)return false;
+  if(typeof v==='string')return v.trim()!=='';
+  if(Array.isArray(v))return v.some(hasDisplayValue);
+  if(typeof v==='object')return Object.keys(v).some(function(k){return hasDisplayValue(v[k])});
+  return true
+}
+function displayValue(v){
+  if(Array.isArray(v))return v.filter(hasDisplayValue).map(function(x){return typeof x==='object'?JSON.stringify(x):x}).join(', ');
+  if(v&&typeof v==='object')return JSON.stringify(v);
+  return v
+}
+function genericObject(o){
+  if(!hasDisplayValue(o))return'';
+  if(typeof o!=='object')return esc(o);
+  return Object.keys(o).filter(function(k){return hasDisplayValue(o[k])}).map(function(k){
+    return'<div><b>'+esc(k.replace(/_/g,' ').toLocaleUpperCase('tr-TR'))+'</b><span>'+esc(displayValue(o[k]))+'</span></div>'
+  }).join('')
+}
 function isSafeHistoricalStaff(x){
   const s=typeof x==='object'?JSON.stringify(x):String(x||'');
   const n=norm(s);
@@ -392,16 +410,40 @@ function showRecord(name,r,ilce,il){
     if(official.length){
       h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join('')+'</div>'
     }
-    const pdfs=(r.kaynak_pdf||[]).filter(Boolean);
-    if(pdfs.length){
-      h+='<div class="section"><h3>ÇALIŞMA DOSYASI</h3>'+pdfs.map(function(x){return'<div class="record">'+esc(x)+'</div>'}).join('')+'</div>'
-    }
     if(!h)h='<div class="empty"><b>BU YERLEŞİM İÇİN GÖSTERİLECEK ARŞİV VERİSİ YOK.</b></div>'
   }
   document.getElementById('vbody').innerHTML=h;
   drawer.classList.add('open')
 }
-async function loadArchive(){archive=[];summary={};for(const f of ARCH){const t=await getText(f);t.split(/\r?\n/).forEach(function(line){if(!line.trim())return;try{const x=JSON.parse(line);if(x._summary){summary=Object.assign(summary,x._summary)}else archive.push(x)}catch(e){}})}archiveIndex=new Map();archive.forEach(function(r){if(r.il&&r.ilce&&r.koy){const k=key(r.il,r.ilce,r.koy);if(!archiveIndex.has(k))archiveIndex.set(k,[]);archiveIndex.get(k).push(r)}});document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||0).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=(summary.yerlesim_karti||archive.length).toLocaleString('tr-TR');document.getElementById('familyStat').textContent=(summary.tekil_sulale||0).toLocaleString('tr-TR');document.getElementById('mappedStat').textContent=archive.filter(function(r){return r.il&&r.ilce&&r.koy}).length.toLocaleString('tr-TR');renderPreview()}
+function hasOfficialArchiveRecord(r){
+  return !!(r&&r.il&&r.ilce&&r.koy&&(r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}))
+}
+async function loadArchive(){
+  archive=[];summary={};
+  for(const f of ARCH){
+    const t=await getText(f);
+    t.split(/\r?\n/).forEach(function(line){
+      if(!line.trim())return;
+      try{
+        const x=JSON.parse(line);
+        if(x._summary){summary=Object.assign(summary,x._summary)}
+        else if(hasOfficialArchiveRecord(x))archive.push(x)
+      }catch(e){}
+    })
+  }
+  archiveIndex=new Map();
+  archive.forEach(function(r){
+    const k=key(r.il,r.ilce,r.koy);
+    if(!archiveIndex.has(k))archiveIndex.set(k,[]);
+    archiveIndex.get(k).push(r)
+  });
+  document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');
+  document.getElementById('pageStat').textContent=(summary.sayfa_toplam||0).toLocaleString('tr-TR');
+  document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
+  document.getElementById('familyStat').textContent=(summary.tekil_sulale||0).toLocaleString('tr-TR');
+  document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
+  renderPreview()
+}
 function score(r){return (r.defterler||[]).length*4+(r.sulaleler||[]).length*2+(r.haneler||[]).length+(r.gorevli_notlari||[]).length*2+(r.taramalar||[]).length}
 function renderPreview(){const rows=archive.slice().sort(function(a,b){return score(b)-score(a)}).slice(0,12);const g=document.getElementById('previewGrid');g.innerHTML=rows.map(function(r,i){const defs=r.defterler||[],f=r.sulaleler||[];return'<div class="pcard" data-p="'+i+'"><b>'+esc(r.koy||'YERLEŞİM')+'</b><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR')+'</small><div class="pills"><span class="pill">'+defs.length+' DEFTER</span><span class="pill">'+f.length+' SÜLALE</span><span class="pill">'+(r.gorevli_notlari||[]).length+' GÖREVLİ NOTU</span></div></div>'}).join('');g.querySelectorAll('[data-p]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.p)];showRecord(r.koy,r,r.ilce,r.il)}})}
 function renderSearch(q){
