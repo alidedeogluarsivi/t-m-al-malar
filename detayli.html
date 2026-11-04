@@ -24,7 +24,7 @@
   <p>İL → İLÇE → KÖY / MAHALLE</p>
   <div id="crumb" class="crumb">TÜRKİYE</div>
   <div id="status" class="status">Harita yükleniyor…</div>
-  <div class="buttons"><button id="back" class="btn hide">← GERİ</button><button id="home" class="btn alt">TÜRKİYE</button></div>
+  <div class="buttons"><button id="back" class="btn hide">← GERİ</button><button id="home" class="btn alt">TÜRKİYE</button><button id="catalog" class="btn alt">ARŞİV KATALOĞU</button></div>
 </div>
 <div class="legend">
   <div><span class="line il"></span>İL SINIRI</div>
@@ -32,7 +32,7 @@
   <div><span class="line koy"></span>KÖY / MAHALLE SINIRI</div>
   <div><span class="line ok"></span>ARŞİV KAYDI OLAN KÖY</div>
 </div>
-<div class="drawer" id="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div class="dbody" id="vbody"></div></div>
+<div class="drawer" id="catalogDrawer"><button id="catalogClose" class="close">×</button><div class="dhead"><div class="small">ALİDEDEOĞLU ARŞİVİ</div><h2>ARŞİV KATALOĞU</h2><p id="catalogCount">Yükleniyor…</p></div><div class="dbody"><input id="catalogSearch" placeholder="Köy, ilçe, il, defter veya sülale ara…" style="width:100%;padding:11px 12px;border:1px solid #cdbfa8;border-radius:10px;font-size:13px;margin-bottom:12px"><div id="catalogResults"></div></div></div><div class="drawer" id="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div class="dbody" id="vbody"></div></div>
 
 <script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
 <script>
@@ -109,6 +109,28 @@ async function selectDistrict(f){
     statusEl.textContent=gj.features.length+' köy/mahalle · '+matched+' arşiv eşleşmesi.';
   }catch(e){console.error(e);statusEl.textContent='Bu ilçe için köy/mahalle sınırı bulunamadı.'}
 }
+function recordSummary(r){
+  const defs=(r.defterler||[]).slice(0,4).map(d=>[d.tur,d.defter,d.yil].filter(Boolean).join(' · ')).join('<br>');
+  const fam=(r.sulaleler||[]).slice(0,6).join(', ');
+  return '<div class="record catalogItem" data-id="'+esc(r.id)+'" style="cursor:pointer"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İL / İLÇE EŞLEŞMESİ BEKLİYOR')+'</small>'+(defs?'<br><br>'+defs:'')+(fam?'<br><br><b>Sülale:</b> '+esc(fam):'')+'</div>';
+}
+function renderCatalog(q=''){
+  const qq=norm(q);
+  let arr=archive;
+  if(qq) arr=archive.filter(r=>norm([r.il,r.ilce,r.koy,(r.defterler||[]).map(d=>d.defter).join(' '),(r.sulaleler||[]).join(' ')].join(' ')).includes(qq));
+  const exact=archive.filter(r=>r.il&&r.ilce&&r.koy).length;
+  document.getElementById('catalogCount').textContent=archive.length+' yerleşim kartı · '+exact+' kesin il/ilçe/köy eşleşmesi';
+  const box=document.getElementById('catalogResults');
+  box.innerHTML=arr.slice(0,250).map(recordSummary).join('')+(arr.length>250?'<div class="empty">'+(arr.length-250)+' ek sonuç var; aramayı daraltın.</div>':'');
+  box.querySelectorAll('.catalogItem').forEach(el=>el.onclick=()=>{
+    const r=archive.find(x=>String(x.id)===el.dataset.id); if(!r)return;
+    document.getElementById('catalogDrawer').classList.remove('open');
+    const prevP=selectedProvince, prevD=selectedDistrict;
+    selectedProvince={name:r.il||'ARŞİV'}; selectedDistrict={name:r.ilce||'KATALOĞU'};
+    showVillage(r.koy||'YERLEŞİM',r);
+    selectedProvince=prevP; selectedDistrict=prevD;
+  });
+}
 function showVillage(vn,r){
   document.getElementById('vtitle').textContent=vn;document.getElementById('vloc').textContent=selectedDistrict.name+' / '+selectedProvince.name;
   let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy için doğrulanmış veri bulunduğunda karta eklenecektir.</div>';document.getElementById('vbody').innerHTML=h;drawer.classList.add('open');return}
@@ -127,7 +149,7 @@ map.on('load',async()=>{
     addProvinceLayers();
     map.fitBounds([[25.5,35.6],[44.9,42.2]],{padding:28,duration:0});
     statusEl.textContent='Bir ile tıklayın. Arşiv verileri bağlanıyor…';
-    loadArchive().then(()=>statusEl.textContent='Bir ile tıklayın. '+(summary.yerlesim_karti||archive.length)+' yerleşim kartı hazır.').catch(()=>statusEl.textContent='Harita hazır. Arşiv verisi geçici olarak yüklenemedi.');
+    loadArchive().then(()=>{statusEl.textContent='Bir ile tıklayın. '+(summary.yerlesim_karti||archive.length)+' yerleşim kartı hazır.';renderCatalog('')}).catch(()=>statusEl.textContent='Harita hazır. Arşiv verisi geçici olarak yüklenemedi.');
   }catch(e){console.error(e);statusEl.textContent='İl sınırları yüklenemedi.'}
 });
 map.on('click','province-fill',e=>{if(e.features?.[0])selectProvince(e.features[0])});
@@ -135,6 +157,9 @@ map.on('click','district-fill',e=>{if(e.features?.[0])selectDistrict(e.features[
 map.on('click','village-fill',e=>{if(e.features?.[0]){const f=e.features[0],vn=f.properties._displayName||f.properties.name||'KÖY / MAHALLE';showVillage(vn,recFor(vn))}});
 for(const id of ['province-fill','district-fill','village-fill']){map.on('mouseenter',id,()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',id,()=>map.getCanvas().style.cursor='')}
 
+document.getElementById('catalog').onclick=()=>{document.getElementById('catalogDrawer').classList.add('open');renderCatalog(document.getElementById('catalogSearch').value)};
+document.getElementById('catalogClose').onclick=()=>document.getElementById('catalogDrawer').classList.remove('open');
+document.getElementById('catalogSearch').oninput=e=>renderCatalog(e.target.value);
 document.getElementById('close').onclick=()=>drawer.classList.remove('open');
 document.getElementById('home').onclick=showTurkey;
 back.onclick=()=>{
