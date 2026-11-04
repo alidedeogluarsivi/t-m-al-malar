@@ -302,7 +302,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "bursa|mustafakemalpasa|yamanli",
@@ -1302,7 +1303,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "konya|bozkir|karacaardic",
@@ -1520,7 +1522,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_cbf17084d0394db081f6cf71e12a9911~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1556,7 +1558,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "kutahya|simav|yavi",
@@ -1566,7 +1569,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_11da48bef6574fd1909e18ba2bd82f05~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1591,7 +1594,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "manisa|akhisar|baslamis",
@@ -1902,7 +1906,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_aad8607245224ae8999f0a447110c19c~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1949,7 +1953,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "ordu|mesudiye|musali",
