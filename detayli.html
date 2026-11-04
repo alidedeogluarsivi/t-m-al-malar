@@ -1,173 +1,75 @@
 <!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Alidedeoğlu Arşivi Haritası</title>
-<link href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css" rel="stylesheet">
 <style>
-*{box-sizing:border-box}html,body,#map{margin:0;width:100%;height:100%;font-family:Arial,Helvetica,sans-serif;background:#eef2f2}
-#map{position:absolute;inset:0}
-.panel{position:absolute;z-index:5;top:12px;left:12px;width:min(410px,calc(100% - 24px));background:rgba(255,255,255,.96);border:1px solid #cbbfae;border-radius:15px;padding:13px 15px;box-shadow:0 10px 28px rgba(20,35,48,.18)}
-.tag{font-size:10px;font-weight:800;letter-spacing:.13em;color:#9a6725}.panel h1{margin:3px 0 4px;font:700 20px Georgia,serif;color:#142d45}.panel p{margin:0;color:#65717a;font-size:11px}.crumb{margin-top:9px;font-weight:800;color:#17384e;font-size:13px}.status{margin-top:5px;color:#8b5b1d;font-size:12px}.buttons{display:flex;gap:7px;margin-top:9px}.btn{border:0;border-radius:8px;padding:7px 10px;background:#173c55;color:#fff;font-size:11px;font-weight:700;cursor:pointer}.btn.alt{background:#e9e1d3;color:#17364e}.hide{display:none!important}
-.legend{position:absolute;z-index:4;right:12px;bottom:26px;background:rgba(255,255,255,.94);border:1px solid #d7cbb9;border-radius:10px;padding:9px 11px;font-size:11px;line-height:1.7;box-shadow:0 6px 20px rgba(0,0,0,.1)}.line{display:inline-block;width:24px;height:4px;margin-right:7px;vertical-align:middle}.il{background:#9b2f2f}.ilce{background:#b27b20}.koy{background:#2e7651}.ok{background:#0c5636}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#173247}
+#stage{position:absolute;inset:0;background:#fff;overflow:hidden}
+#mapSvg{width:100%;height:100%;display:block;background:#fff}
+.geo{vector-effect:non-scaling-stroke;cursor:pointer;transition:filter .12s}.geo:hover{filter:brightness(.94)}
+.province{fill:#f7efe3;stroke:#9b2f2f;stroke-width:1.5}.district{fill:#f3dfad;stroke:#b27b20;stroke-width:1.4}.village{fill:#e7e1d6;stroke:#777168;stroke-width:.8}.village.has{fill:#a9cfb7;stroke:#0c5636;stroke-width:1.7}
+.label{pointer-events:none;text-anchor:middle;font-weight:700;fill:#17384e;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.provinceLabel{font-size:12px}.districtLabel{font-size:11px}.villageLabel{font-size:9px}
+.panel{position:absolute;z-index:5;top:12px;left:12px;width:min(420px,calc(100% - 24px));background:rgba(255,255,255,.97);border:1px solid #cbbfae;border-radius:15px;padding:13px 15px;box-shadow:0 10px 28px rgba(20,35,48,.18)}
+.tag{font-size:10px;font-weight:800;letter-spacing:.13em;color:#9a6725}.panel h1{margin:3px 0 4px;font:700 20px Georgia,serif;color:#142d45}.panel p{margin:0;color:#65717a;font-size:11px}.crumb{margin-top:9px;font-weight:800;color:#17384e;font-size:13px}.status{margin-top:5px;color:#8b5b1d;font-size:12px}.buttons{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}.btn{border:0;border-radius:8px;padding:7px 10px;background:#173c55;color:#fff;font-size:11px;font-weight:700;cursor:pointer}.btn.alt{background:#e9e1d3;color:#17364e}.hide{display:none!important}
+.legend{position:absolute;z-index:4;right:12px;bottom:20px;background:rgba(255,255,255,.95);border:1px solid #d7cbb9;border-radius:10px;padding:9px 11px;font-size:11px;line-height:1.7}.line{display:inline-block;width:24px;height:4px;margin-right:7px;vertical-align:middle}.il{background:#9b2f2f}.ilce{background:#b27b20}.koy{background:#777168}.ok{background:#0c5636}
 .drawer{position:absolute;z-index:8;top:10px;right:10px;bottom:10px;width:min(490px,calc(100% - 20px));background:#fff;border:1px solid #cbbda5;border-radius:18px;box-shadow:0 18px 45px rgba(24,38,50,.22);overflow:hidden;display:none;flex-direction:column}.drawer.open{display:flex}.dhead{padding:17px 18px 14px;background:linear-gradient(135deg,#132f46,#1f516b);color:#fff}.dhead .small{font-size:10px;letter-spacing:.12em;color:#d9c189;font-weight:800}.dhead h2{font:600 29px Georgia,serif;margin:4px 0}.dhead p{margin:0;color:#d9e5ec;font-size:12px}.close{position:absolute;right:13px;top:13px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;width:31px;height:31px;border-radius:50%;font-size:18px;cursor:pointer}.dbody{padding:15px 17px 25px;overflow:auto;background:#fbfaf6}.badgeRow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.badge{font-size:10px;font-weight:800;border-radius:999px;padding:5px 8px;background:#eee6d8;color:#664b24;border:1px solid #d7c6a8}.badge.good{background:#e5f1e9;color:#285d3e;border-color:#bad4c3}.section{border-top:1px solid #e1d8c8;padding-top:13px;margin-top:13px}.section h3{font:700 16px Georgia,serif;margin:0 0 9px;color:#183950}.record{background:#fff;border:1px solid #e1d7c7;border-radius:10px;padding:10px 11px;margin:7px 0;line-height:1.45;font-size:12px}.family{display:inline-block;padding:4px 7px;margin:3px 4px 3px 0;border-radius:7px;background:#f0ece4;border:1px solid #ded4c5;font-size:11px}.empty{padding:13px;border:1px dashed #c9bda7;border-radius:10px;color:#76818a;font-size:12px}.scan{font-size:11px;padding:7px 0;border-bottom:1px dotted #ddd0be}
-.maplibregl-ctrl-attrib{font-size:10px}
 @media(max-width:760px){.panel{top:7px;left:7px;width:calc(100% - 14px)}.legend{display:none}.drawer{top:5px;right:5px;bottom:5px;width:calc(100% - 10px)}}
-</style>
-</head>
-<body>
-<div id="map"></div>
-<div class="panel">
-  <div class="tag">ALİDEDEOĞLU ARŞİVİ</div>
-  <h1>Türkiye Arşiv Haritası</h1>
-  <p>İL → İLÇE → KÖY / MAHALLE</p>
-  <div id="crumb" class="crumb">TÜRKİYE</div>
-  <div id="status" class="status">Harita yükleniyor…</div>
-  <div class="buttons"><button id="back" class="btn hide">← GERİ</button><button id="home" class="btn alt">TÜRKİYE</button><button id="catalog" class="btn alt">ARŞİV KATALOĞU</button></div>
-</div>
-<div class="legend">
-  <div><span class="line il"></span>İL SINIRI</div>
-  <div><span class="line ilce"></span>İLÇE SINIRI</div>
-  <div><span class="line koy"></span>KÖY / MAHALLE SINIRI</div>
-  <div><span class="line ok"></span>ARŞİV KAYDI OLAN KÖY</div>
-</div>
-<div class="drawer" id="catalogDrawer"><button id="catalogClose" class="close">×</button><div class="dhead"><div class="small">ALİDEDEOĞLU ARŞİVİ</div><h2>ARŞİV KATALOĞU</h2><p id="catalogCount">Yükleniyor…</p></div><div class="dbody"><input id="catalogSearch" placeholder="Köy, ilçe, il, defter veya sülale ara…" style="width:100%;padding:11px 12px;border:1px solid #cdbfa8;border-radius:10px;font-size:13px;margin-bottom:12px"><div id="catalogResults"></div></div></div><div class="drawer" id="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div class="dbody" id="vbody"></div></div>
-
-<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
+</style></head><body>
+<div id="stage"><svg id="mapSvg" viewBox="0 0 1200 650" preserveAspectRatio="xMidYMid meet"></svg></div>
+<div class="panel"><div class="tag">ALİDEDEOĞLU ARŞİVİ</div><h1>Türkiye Arşiv Haritası</h1><p>İL → İLÇE → KÖY / MAHALLE</p><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="status">Türkiye haritası yükleniyor…</div><div class="buttons"><button id="back" class="btn hide">← GERİ</button><button id="home" class="btn alt">TÜRKİYE</button><button id="catalog" class="btn alt">ARŞİV KATALOĞU</button></div></div>
+<div class="legend"><div><span class="line il"></span>İL SINIRI</div><div><span class="line ilce"></span>İLÇE SINIRI</div><div><span class="line koy"></span>KÖY / MAHALLE SINIRI</div><div><span class="line ok"></span>ARŞİV KAYDI OLAN KÖY</div></div>
+<div class="drawer" id="catalogDrawer"><button id="catalogClose" class="close">×</button><div class="dhead"><div class="small">ALİDEDEOĞLU ARŞİVİ</div><h2>ARŞİV KATALOĞU</h2><p id="catalogCount">Yükleniyor…</p></div><div class="dbody"><input id="catalogSearch" placeholder="Köy, ilçe, il, defter veya sülale ara…" style="width:100%;padding:11px 12px;border:1px solid #cdbfa8;border-radius:10px;font-size:13px;margin-bottom:12px"><div id="catalogResults"></div></div></div>
+<div class="drawer" id="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div class="dbody" id="vbody"></div></div>
 <script>
 const PROV='./provinces-local.json';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
 const MAH='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/mahalle-geometrileri-by-district-v2/';
 const ARCH=['archive_1.ndjson','archive_2.ndjson','archive_3.ndjson','archive_4.ndjson'];
-const statusEl=document.getElementById('status'), crumb=document.getElementById('crumb'), back=document.getElementById('back'), drawer=document.getElementById('drawer');
+const svg=document.getElementById('mapSvg'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),back=document.getElementById('back'),drawer=document.getElementById('drawer');
 let provinceData=null,districtData=null,selectedProvince=null,selectedDistrict=null,archive=[],archiveIndex=new Map(),summary={};
-
+const NS='http://www.w3.org/2000/svg';
 function norm(s){return (s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
 async function getJSON(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
 async function getText(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function flattenCoords(c,out=[]){if(typeof c?.[0]==='number')out.push(c);else if(Array.isArray(c))for(const x of c)flattenCoords(x,out);return out}
-function boundsOfFeature(f){const pts=flattenCoords(f.geometry.coordinates);let w=180,s=90,e=-180,n=-90;for(const p of pts){w=Math.min(w,p[0]);e=Math.max(e,p[0]);s=Math.min(s,p[1]);n=Math.max(n,p[1])}return [[w,s],[e,n]]}
+function flatten(c,o=[]){if(typeof c?.[0]==='number')o.push(c);else if(Array.isArray(c))for(const x of c)flatten(x,o);return o}
+function bbox(features){let w=180,s=90,e=-180,n=-90;for(const f of features){for(const p of flatten(f.geometry.coordinates)){w=Math.min(w,p[0]);e=Math.max(e,p[0]);s=Math.min(s,p[1]);n=Math.max(n,p[1])}}return[w,s,e,n]}
+function projector(features){const b=bbox(features),pad=45,ww=1200,hh=650,dx=b[2]-b[0],dy=b[3]-b[1],sc=Math.min((ww-pad*2)/dx,(hh-pad*2)/dy),ox=(ww-dx*sc)/2,oy=(hh-dy*sc)/2;return p=>[ox+(p[0]-b[0])*sc,hh-(oy+(p[1]-b[1])*sc)]}
+function ringPath(r,pr){return r.map((p,i)=>{const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}
+function geomPath(g,pr){if(g.type==='Polygon')return g.coordinates.map(r=>ringPath(r,pr)).join(' ');if(g.type==='MultiPolygon')return g.coordinates.flatMap(poly=>poly.map(r=>ringPath(r,pr))).join(' ');return''}
+function center(f,pr){const pts=flatten(f.geometry.coordinates);let x=0,y=0;for(const p of pts){const q=pr(p);x+=q[0];y+=q[1]}return[x/pts.length,y/pts.length]}
+function clearSvg(){while(svg.firstChild)svg.removeChild(svg.firstChild)}
+function addText(txt,x,y,cls){const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('class','label '+cls);t.textContent=txt;svg.appendChild(t)}
+function render(features,level,onClick){
+  clearSvg();const pr=projector(features);
+  for(const f of features){const p=document.createElementNS(NS,'path');p.setAttribute('d',geomPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo '+level);p.onclick=()=>onClick(f);svg.appendChild(p)}
+  for(const f of features){const c=center(f,pr),name=f.properties._displayName||f.properties.name||'';addText(name,c[0],c[1],level==='province'?'provinceLabel':level==='district'?'districtLabel':'villageLabel')}
+}
+function renderVillages(features){
+  clearSvg();const pr=projector(features);
+  for(const f of features){const vn=f.properties._displayName||f.properties.name||f.properties.source_raw_name||'KÖY / MAHALLE';const r=recFor(vn);const p=document.createElementNS(NS,'path');p.setAttribute('d',geomPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo village'+(r?' has':''));p.onclick=()=>showVillage(vn,r);svg.appendChild(p)}
+  for(const f of features){const vn=f.properties._displayName||f.properties.name||f.properties.source_raw_name||'';const c=center(f,pr);addText(vn,c[0],c[1],'villageLabel')}
+}
 function setBack(){back.classList.toggle('hide',!selectedProvince)}
-function removeLayer(id){if(map.getLayer(id))map.removeLayer(id)}
-function removeSource(id){if(map.getSource(id))map.removeSource(id)}
-function clearDistrict(){['district-label','district-line','district-fill'].forEach(removeLayer);removeSource('districts')}
-function clearVillage(){['village-label','village-line','village-fill'].forEach(removeLayer);removeSource('villages')}
-function clearProvince(){['province-label','province-line','province-fill'].forEach(removeLayer);removeSource('provinces')}
-
-const map=new maplibregl.Map({
-  container:'map',
-  style:'https://tiles.openfreemap.org/styles/liberty',
-  center:[35.2,39.0],
-  zoom:5.2,
-  attributionControl:true
-});
-map.addControl(new maplibregl.NavigationControl(),'bottom-left');
-
-async function loadArchive(){
-  for(const f of ARCH){const t=await getText(f);for(const line of t.split(/\r?\n/)){if(!line.trim())continue;const x=JSON.parse(line);if(x._summary){summary=x._summary;continue}archive.push(x)}}
-  for(const r of archive){if(r.il&&r.ilce&&r.koy)archiveIndex.set(key(r.il,r.ilce,r.koy),r)}
-}
-function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
-
-function addProvinceLayers(){
-  clearDistrict();clearVillage();clearProvince();
-  map.addSource('provinces',{type:'geojson',data:provinceData});
-  map.addLayer({id:'province-fill',type:'fill',source:'provinces',paint:{'fill-color':'#f6e9dc','fill-opacity':0.24}});
-  map.addLayer({id:'province-line',type:'line',source:'provinces',paint:{'line-color':'#9b2f2f','line-width':2}});
-  map.addLayer({id:'province-label',type:'symbol',source:'provinces',layout:{'text-field':['get','name'],'text-size':12,'text-font':['Noto Sans Bold'],'text-allow-overlap':false},paint:{'text-color':'#16374d','text-halo-color':'#ffffff','text-halo-width':2}});
-}
-function showTurkey(){
-  selectedProvince=null;selectedDistrict=null;drawer.classList.remove('open');crumb.textContent='TÜRKİYE';statusEl.textContent='Bir ile tıklayın.';addProvinceLayers();map.fitBounds([[25.5,35.6],[44.9,42.2]],{padding:28,duration:500});setBack()
-}
+function showTurkey(){selectedProvince=null;selectedDistrict=null;drawer.classList.remove('open');crumb.textContent='TÜRKİYE';statusEl.textContent='Bir ile tıklayın.';render(provinceData.features,'province',selectProvince);setBack()}
 async function selectProvince(f){
-  selectedProvince={name:f.properties.name,id:f.id};selectedDistrict=null;drawer.classList.remove('open');crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR');statusEl.textContent='İlçe sınırları yükleniyor…';clearVillage();clearDistrict();clearProvince();map.fitBounds(boundsOfFeature(f),{padding:45,duration:500});setBack();
-  try{
-    if(!districtData)districtData=await getJSON(DIST);
-    const pid='TR-P-'+String(f.id).padStart(2,'0');
-    const feats=districtData.features.filter(x=>x.properties.parent_id===pid);
-    const fc={type:'FeatureCollection',features:feats};
-    map.addSource('districts',{type:'geojson',data:fc});
-    map.addLayer({id:'district-fill',type:'fill',source:'districts',paint:{'fill-color':'#f2dca9','fill-opacity':0.28}});
-    map.addLayer({id:'district-line',type:'line',source:'districts',paint:{'line-color':'#b27b20','line-width':2}});
-    map.addLayer({id:'district-label',type:'symbol',source:'districts',layout:{'text-field':['get','name'],'text-size':13,'text-font':['Noto Sans Bold'],'text-allow-overlap':false},paint:{'text-color':'#5b4217','text-halo-color':'#ffffff','text-halo-width':2}});
-    statusEl.textContent=feats.length+' ilçe gösteriliyor. Bir ilçeye tıklayın.';
-  }catch(e){console.error(e);statusEl.textContent='İlçe sınırları yüklenemedi.'}
+  selectedProvince={name:f.properties.name,id:f.id};selectedDistrict=null;drawer.classList.remove('open');crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR');statusEl.textContent='İlçe sınırları yükleniyor…';setBack();
+  try{if(!districtData)districtData=await getJSON(DIST);const pid='TR-P-'+String(f.id).padStart(2,'0');const feats=districtData.features.filter(x=>x.properties.parent_id===pid);if(!feats.length)throw new Error('İlçe bulunamadı');render(feats,'district',selectDistrict);statusEl.textContent=feats.length+' ilçe gösteriliyor. Bir ilçeye tıklayın.'}catch(e){console.error(e);statusEl.textContent='İlçe sınırları yüklenemedi.'}
 }
 async function selectDistrict(f){
-  selectedDistrict={id:f.properties.id,name:f.properties.name};drawer.classList.remove('open');crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');statusEl.textContent='Köy / mahalle sınırları yükleniyor…';clearVillage();clearDistrict();map.fitBounds(boundsOfFeature(f),{padding:45,duration:500});setBack();
-  try{
-    const gj=await getJSON(MAH+selectedDistrict.id+'.geojson');
-    for(const vf of gj.features){const vn=vf.properties.name||vf.properties.source_raw_name||'';vf.properties._displayName=vn;vf.properties._hasArchive=recFor(vn)?1:0}
-    map.addSource('villages',{type:'geojson',data:gj});
-    map.addLayer({id:'village-fill',type:'fill',source:'villages',paint:{'fill-color':['case',['==',['get','_hasArchive'],1],'#79b48f','#d8d1c6'],'fill-opacity':['case',['==',['get','_hasArchive'],1],0.45,0.16]}});
-    map.addLayer({id:'village-line',type:'line',source:'villages',paint:{'line-color':['case',['==',['get','_hasArchive'],1],'#0c5636','#6f6a61'],'line-width':['case',['==',['get','_hasArchive'],1],2.2,1]}});
-    map.addLayer({id:'village-label',type:'symbol',source:'villages',layout:{'text-field':['get','_displayName'],'text-size':11,'text-font':['Noto Sans Bold'],'text-allow-overlap':false},paint:{'text-color':['case',['==',['get','_hasArchive'],1],'#0c5636','#3e464c'],'text-halo-color':'#ffffff','text-halo-width':2}});
-    const matched=gj.features.filter(x=>x.properties._hasArchive===1).length;
-    statusEl.textContent=gj.features.length+' köy/mahalle · '+matched+' arşiv eşleşmesi.';
-  }catch(e){console.error(e);statusEl.textContent='Bu ilçe için köy/mahalle sınırı bulunamadı.'}
+  selectedDistrict={id:f.properties.id,name:f.properties.name};drawer.classList.remove('open');crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');statusEl.textContent='Köy / mahalle sınırları yükleniyor…';setBack();
+  try{const gj=await getJSON(MAH+selectedDistrict.id+'.geojson');for(const vf of gj.features)vf.properties._displayName=vf.properties.name||vf.properties.source_raw_name||'';renderVillages(gj.features);const matched=gj.features.filter(v=>recFor(v.properties._displayName)).length;statusEl.textContent=gj.features.length+' köy/mahalle · '+matched+' arşiv eşleşmesi.'}catch(e){console.error(e);statusEl.textContent='Bu ilçe için köy/mahalle sınırı bulunamadı.'}
 }
-function recordSummary(r){
-  const defs=(r.defterler||[]).slice(0,4).map(d=>[d.tur,d.defter,d.yil].filter(Boolean).join(' · ')).join('<br>');
-  const fam=(r.sulaleler||[]).slice(0,6).join(', ');
-  return '<div class="record catalogItem" data-id="'+esc(r.id)+'" style="cursor:pointer"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İL / İLÇE EŞLEŞMESİ BEKLİYOR')+'</small>'+(defs?'<br><br>'+defs:'')+(fam?'<br><br><b>Sülale:</b> '+esc(fam):'')+'</div>';
-}
-function renderCatalog(q=''){
-  const qq=norm(q);
-  let arr=archive;
-  if(qq) arr=archive.filter(r=>norm([r.il,r.ilce,r.koy,(r.defterler||[]).map(d=>d.defter).join(' '),(r.sulaleler||[]).join(' ')].join(' ')).includes(qq));
-  const exact=archive.filter(r=>r.il&&r.ilce&&r.koy).length;
-  document.getElementById('catalogCount').textContent=archive.length+' yerleşim kartı · '+exact+' kesin il/ilçe/köy eşleşmesi';
-  const box=document.getElementById('catalogResults');
-  box.innerHTML=arr.slice(0,250).map(recordSummary).join('')+(arr.length>250?'<div class="empty">'+(arr.length-250)+' ek sonuç var; aramayı daraltın.</div>':'');
-  box.querySelectorAll('.catalogItem').forEach(el=>el.onclick=()=>{
-    const r=archive.find(x=>String(x.id)===el.dataset.id); if(!r)return;
-    document.getElementById('catalogDrawer').classList.remove('open');
-    const prevP=selectedProvince, prevD=selectedDistrict;
-    selectedProvince={name:r.il||'ARŞİV'}; selectedDistrict={name:r.ilce||'KATALOĞU'};
-    showVillage(r.koy||'YERLEŞİM',r);
-    selectedProvince=prevP; selectedDistrict=prevD;
-  });
-}
-function showVillage(vn,r){
-  document.getElementById('vtitle').textContent=vn;document.getElementById('vloc').textContent=selectedDistrict.name+' / '+selectedProvince.name;
-  let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy için doğrulanmış veri bulunduğunda karta eklenecektir.</div>';document.getElementById('vbody').innerHTML=h;drawer.classList.add('open');return}
-  const defs=r.defterler||[],fam=r.sulaleler||[],scans=r.taramalar||[],gos=r.gorevli_notlari||[];
-  h+='<div class="badgeRow">'+(defs.length?'<span class="badge good">'+defs.length+' BELGE/KAYIT</span>':'')+(fam.length?'<span class="badge good">'+fam.length+' SÜLALE</span>':'')+(scans.length?'<span class="badge">'+scans.length+' ARŞİV TARAMASI</span>':'')+'</div>';
-  h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">';if(d.tur)h+='<b>'+esc(d.tur)+'</b><br>';if(d.defter)h+='Defter: <b>'+esc(d.defter)+'</b> ';if(d.yil)h+='· Yıl: '+esc(d.yil);if(d.varak)h+='<br>Varak: <b>'+esc(d.varak)+'</b>';if(d.sayfa)h+=' · Sayfa: '+esc(d.sayfa);if(d.hane)h+='<br>Hane: <b>'+esc(d.hane)+'</b>';if(d.erkek)h+=' · Erkek: <b>'+esc(d.erkek)+'</b>';if(d.tarihi_kaza)h+='<br>Tarihî kaza: '+esc(d.tarihi_kaza);if(d.dogrulama)h+='<br><small>'+esc(d.dogrulama)+'</small>';h+='</div>'}h+='</div>';
-  h+='<div class="section"><h3>İMAM / MUHTAR / GÖREVLİ</h3>'+(gos.length?gos.map(g=>'<div class="record">'+esc(g)+'</div>').join(''):'<div class="empty">Görevli bilgisi henüz tespit edilmedi.</div>')+'</div>';
-  h+='<div class="section"><h3>SÜLALE ADLARI</h3>'+(fam.length?fam.map(f=>'<span class="family">'+esc(f)+'</span>').join(''):'<div class="empty">Sülale bilgisi henüz bağlanmadı.</div>')+'</div>';
-  h+='<div class="section"><h3>ARŞİV TARAMASI / ÇALIŞMA DOSYALARI</h3>'+(scans.length?scans.slice(0,100).map(s=>'<div class="scan"><b>'+esc(s.ad||'ARŞİV KAYDI')+'</b>'+(s.yil?' · '+esc(s.yil):'')+(s.tur?' · '+esc(s.tur):'')+'</div>').join(''):'<div class="empty">Ayrı tarama kaydı bulunmuyor.</div>')+'</div>';
-  document.getElementById('vbody').innerHTML=h;drawer.classList.add('open')
-}
-
-map.on('load',async()=>{
-  try{
-    provinceData=await getJSON(PROV);
-    addProvinceLayers();
-    map.fitBounds([[25.5,35.6],[44.9,42.2]],{padding:28,duration:0});
-    statusEl.textContent='Bir ile tıklayın. Arşiv verileri bağlanıyor…';
-    loadArchive().then(()=>{statusEl.textContent='Bir ile tıklayın. '+(summary.yerlesim_karti||archive.length)+' yerleşim kartı hazır.';renderCatalog('')}).catch(()=>statusEl.textContent='Harita hazır. Arşiv verisi geçici olarak yüklenemedi.');
-  }catch(e){console.error(e);statusEl.textContent='İl sınırları yüklenemedi.'}
-});
-map.on('click','province-fill',e=>{if(e.features?.[0])selectProvince(e.features[0])});
-map.on('click','district-fill',e=>{if(e.features?.[0])selectDistrict(e.features[0])});
-map.on('click','village-fill',e=>{if(e.features?.[0]){const f=e.features[0],vn=f.properties._displayName||f.properties.name||'KÖY / MAHALLE';showVillage(vn,recFor(vn))}});
-for(const id of ['province-fill','district-fill','village-fill']){map.on('mouseenter',id,()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',id,()=>map.getCanvas().style.cursor='')}
-
+async function loadArchive(){for(const f of ARCH){const t=await getText(f);for(const line of t.split(/\r?\n/)){if(!line.trim())continue;const x=JSON.parse(line);if(x._summary){summary=x._summary;continue}archive.push(x)}}for(const r of archive){if(r.il&&r.ilce&&r.koy)archiveIndex.set(key(r.il,r.ilce,r.koy),r)}}
+function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
+function recordSummary(r){const defs=(r.defterler||[]).slice(0,4).map(d=>[d.tur,d.defter,d.yil].filter(Boolean).join(' · ')).join('<br>');const fam=(r.sulaleler||[]).slice(0,6).join(', ');return '<div class="record catalogItem" data-id="'+esc(r.id)+'" style="cursor:pointer"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İL / İLÇE EŞLEŞMESİ BEKLİYOR')+'</small>'+(defs?'<br><br>'+defs:'')+(fam?'<br><br><b>Sülale:</b> '+esc(fam):'')+'</div>'}
+function renderCatalog(q=''){const qq=norm(q);let arr=archive;if(qq)arr=archive.filter(r=>norm([r.il,r.ilce,r.koy,(r.defterler||[]).map(d=>d.defter).join(' '),(r.sulaleler||[]).join(' ')].join(' ')).includes(qq));const exact=archive.filter(r=>r.il&&r.ilce&&r.koy).length;document.getElementById('catalogCount').textContent=archive.length+' yerleşim kartı · '+exact+' kesin il/ilçe/köy eşleşmesi';const box=document.getElementById('catalogResults');box.innerHTML=arr.slice(0,250).map(recordSummary).join('')+(arr.length>250?'<div class="empty">'+(arr.length-250)+' ek sonuç var; aramayı daraltın.</div>':'');box.querySelectorAll('.catalogItem').forEach(el=>el.onclick=()=>{const r=archive.find(x=>String(x.id)===el.dataset.id);if(!r)return;document.getElementById('catalogDrawer').classList.remove('open');const pp=selectedProvince,dd=selectedDistrict;selectedProvince={name:r.il||'ARŞİV'};selectedDistrict={name:r.ilce||'KATALOĞU'};showVillage(r.koy||'YERLEŞİM',r);selectedProvince=pp;selectedDistrict=dd})}
+function showVillage(vn,r){document.getElementById('vtitle').textContent=vn;document.getElementById('vloc').textContent=(selectedDistrict?.name||'')+' / '+(selectedProvince?.name||'');let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy için doğrulanmış veri bulunduğunda karta eklenecektir.</div>';document.getElementById('vbody').innerHTML=h;drawer.classList.add('open');return}const defs=r.defterler||[],fam=r.sulaleler||[],scans=r.taramalar||[],gos=r.gorevli_notlari||[];h+='<div class="badgeRow">'+(defs.length?'<span class="badge good">'+defs.length+' BELGE/KAYIT</span>':'')+(fam.length?'<span class="badge good">'+fam.length+' SÜLALE</span>':'')+(scans.length?'<span class="badge">'+scans.length+' ARŞİV TARAMASI</span>':'')+'</div>';h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">';if(d.tur)h+='<b>'+esc(d.tur)+'</b><br>';if(d.defter)h+='Defter: <b>'+esc(d.defter)+'</b> ';if(d.yil)h+='· Yıl: '+esc(d.yil);if(d.varak)h+='<br>Varak: <b>'+esc(d.varak)+'</b>';if(d.sayfa)h+=' · Sayfa: '+esc(d.sayfa);if(d.hane)h+='<br>Hane: <b>'+esc(d.hane)+'</b>';if(d.erkek)h+=' · Erkek: <b>'+esc(d.erkek)+'</b>';if(d.tarihi_kaza)h+='<br>Tarihî kaza: '+esc(d.tarihi_kaza);if(d.dogrulama)h+='<br><small>'+esc(d.dogrulama)+'</small>';h+='</div>'}h+='</div>';h+='<div class="section"><h3>İMAM / MUHTAR / GÖREVLİ</h3>'+(gos.length?gos.map(g=>'<div class="record">'+esc(g)+'</div>').join(''):'<div class="empty">Görevli bilgisi henüz tespit edilmedi.</div>')+'</div>';h+='<div class="section"><h3>SÜLALE ADLARI</h3>'+(fam.length?fam.map(f=>'<span class="family">'+esc(f)+'</span>').join(''):'<div class="empty">Sülale bilgisi henüz bağlanmadı.</div>')+'</div>';h+='<div class="section"><h3>ARŞİV TARAMASI</h3>'+(scans.length?scans.slice(0,100).map(s=>'<div class="scan"><b>'+esc(s.ad||'ARŞİV KAYDI')+'</b>'+(s.yil?' · '+esc(s.yil):'')+'</div>').join(''):'<div class="empty">Ayrı tarama kaydı bulunmuyor.</div>')+'</div>';document.getElementById('vbody').innerHTML=h;drawer.classList.add('open')}
 document.getElementById('catalog').onclick=()=>{document.getElementById('catalogDrawer').classList.add('open');renderCatalog(document.getElementById('catalogSearch').value)};
 document.getElementById('catalogClose').onclick=()=>document.getElementById('catalogDrawer').classList.remove('open');
 document.getElementById('catalogSearch').oninput=e=>renderCatalog(e.target.value);
 document.getElementById('close').onclick=()=>drawer.classList.remove('open');
 document.getElementById('home').onclick=showTurkey;
-back.onclick=()=>{
-  if(selectedDistrict){
-    const pf=provinceData.features.find(x=>norm(x.properties.name)===norm(selectedProvince.name));
-    selectProvince(pf);
-  }else showTurkey();
-};
-</script>
-</body>
-</html>
+back.onclick=()=>{if(selectedDistrict){const f=provinceData.features.find(x=>norm(x.properties.name)===norm(selectedProvince.name));selectProvince(f)}else showTurkey()};
+(async()=>{try{provinceData=await getJSON(PROV);showTurkey();statusEl.textContent='Bir ile tıklayın. Arşiv verileri bağlanıyor…';loadArchive().then(()=>{statusEl.textContent='Bir ile tıklayın. '+(summary.yerlesim_karti||archive.length)+' yerleşim kartı hazır.';renderCatalog('')}).catch(e=>{console.error(e);statusEl.textContent='Harita hazır. Arşiv veri katmanı yüklenemedi.'})}catch(e){console.error(e);statusEl.textContent='Türkiye haritası yüklenemedi.'}})();
+</script></body></html>
