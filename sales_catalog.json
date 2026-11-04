@@ -471,7 +471,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_9377fa7faa1f42d3971d16398573363f~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -507,7 +507,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "corum|merkez|sarimbey",
@@ -517,7 +518,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_002f31f5fcbe42a5a81e73ccb215f200~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -531,7 +532,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "corum|sungurlu|bagcili",
@@ -736,7 +738,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_e3444b81f6be40e9a946543c79d53a7c~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -783,7 +785,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "erzurum|oltu|elmaduze",
