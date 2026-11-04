@@ -13,7 +13,7 @@
 <body>
 <div class="shell">
 <div class="top"><a href="./">← ANA SAYFA</a><b>E-SATIŞ PDF</b></div>
-<section class="hero"><h1>E-Satış PDF</h1><p>PDF kartına tıklayınca önce önizleme açılır. Öncelik: kapak → orijinal Osmanlıca sayfa → mevcut herhangi bir sayfa.</p><p style="margin-top:10px"><b>ÖDEME SHOPIER ÜZERİNDEN YAPILIR.</b> Ödeme tamamlandıktan sonra dijital teslimat Shopier üzerinden gerçekleştirilir.</p></section>
+<section class="hero"><h1>E-Satış PDF</h1><p>PDF kartına tıklayınca önce önizleme açılır. Öncelik: kapak → orijinal Osmanlıca sayfa → mevcut herhangi bir sayfa.</p><p style="margin-top:10px"><b>ÖDEME SHOPIER ÜZERİNDEN YAPILIR.</b> Shopier yalnızca ödeme için kullanılır. PDF teslimatı Alidedeoğlu Arşivi sitesi üzerinden yapılır.</p></section>
 <div class="toolbar"><input id="q" placeholder="İl, ilçe, köy, defter no veya yıl ara…"><div id="count" class="count"></div></div>
 <div id="grid" class="grid"></div>
 </div>
@@ -43,7 +43,7 @@ function open(x){
   ml.innerHTML='<small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small>';
   const im=imgFor(x);
   pv.innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(previewKind(x))+'">':'<div class="fallback">BU PDF İÇİN GÖRSEL ÖNİZLEME HENÜZ EKLENMEDİ.</div>';
-  mi.innerHTML='<div class="notice"><b>ÖNİZLEME TÜRÜ:</b> '+esc(previewKind(x))+'<br>TAM PDF SATIN ALMA SONRASINDA SHOPIER ÜZERİNDEN TESLİM EDİLİR.</div>'+(x.products||[]).map(p=>'<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(Number(p.price_tl)>0?'<div class="price">'+Number(p.price_tl).toLocaleString('tr-TR')+' TL</div>':'<div><b>FİYAT HAZIRLANIYOR</b></div>')+(p.shopier_url?'<a class="buy" href="'+esc(p.shopier_url)+'" target="_blank" rel="noopener">SHOPIER\'DEN SATIN AL</a>':'<span class="buy off">SHOPIER ÖDEME LİNKİ HAZIRLANIYOR</span>')+'<div class="paynote">KARTLA ÖDEME SHOPIER SAYFASINDA TAMAMLANIR.</div></div>').join('');
+  mi.innerHTML='<div class="notice"><b>ÖNİZLEME TÜRÜ:</b> '+esc(previewKind(x))+'<br>ÖDEME SHOPIER ÜZERİNDEN ALINIR. PDF, ÖDEME ONAYLANDIKTAN SONRA ALİDEDEOĞLU ARŞİVİ SİTESİNDEN TESLİM EDİLİR.</div>'+(x.products||[]).map(p=>'<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(Number(p.price_tl)>0?'<div class="price">'+Number(p.price_tl).toLocaleString('tr-TR')+' TL</div>':'<div><b>FİYAT HAZIRLANIYOR</b></div>')+(p.shopier_url?'<a class="buy" href="'+esc(p.shopier_url)+'" target="_blank" rel="noopener">SHOPIER\'DEN SATIN AL</a>':'<span class="buy off">SHOPIER ÖDEME LİNKİ HAZIRLANIYOR</span>')+'<div class="paynote">KARTLA ÖDEME SHOPIER SAYFASINDA TAMAMLANIR; PDF SHOPIER'DEN İNDİRİLMEZ.</div></div>').join('');
   modal.classList.add('open');
 }
 close.onclick=()=>modal.classList.remove('open');
