@@ -543,7 +543,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_7db4a13974644535a63cb14cc8b60a42~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -612,7 +612,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "corum|sungurlu|ekmekci",
