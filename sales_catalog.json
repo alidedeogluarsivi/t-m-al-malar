@@ -4688,5 +4688,11 @@
     "automatic_verification": true,
     "status": "PENDING_MERCHANT_APPROVAL_AND_SECRET_BACKEND"
   },
-  "backend_mode": "VERCEL_PAYTR_PRIVATE_BLOB"
+  "backend_mode": "WIX_STORES_DIGITAL",
+  "wix_store": {
+    "site_id": "a9585244-1944-4ec0-beaa-dad754368720",
+    "installed": true,
+    "currency": "TRY",
+    "digital_delivery": true
+  }
 }
