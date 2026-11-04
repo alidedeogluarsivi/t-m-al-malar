@@ -342,49 +342,49 @@ function isSafeHistoricalStaff(x){
 }
 function showRecord(name,r,ilce,il){
   document.getElementById('vtitle').textContent=name||'YERLEŞİM';
-  document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR';
+  document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'';
   let h='';
   if(!r){
-    h='<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b><br>Yerleşim haritada mevcut olabilir; arşiv eşleşmesi kesinleştiğinde kart açılacaktır.</div>'
+    h='<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b></div>'
   }else{
-    const defs=r.defterler||[],fams=r.sulaleler||[],houses=r.haneler||[],staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
-    h+='<div class="section"><h3>NFS / TEMETTUAT FİHRİSTİ</h3>';
-    if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';
-    defs.forEach(function(d){
-      h+='<div class="record"><div class="kv">'
-        +valueLine('TÜR',d.tur)
-        +valueLine('DEFTER NO',d.defter)
-        +valueLine('YIL',d.yil)
-        +valueLine('HİCRÎ',d.hicri)
-        +valueLine('VARAK',d.varak)
-        +valueLine('SAYFA',d.sayfa)
-        +valueLine('HANE',d.hane)
-        +valueLine('ERKEK',d.erkek)
-        +valueLine('TARİHÎ KAZA',d.tarihi_kaza)
-        +valueLine('SANCAK',d.sancak)
-        +valueLine('DİVAN',d.divan)
-        +'</div>'
-        +(d.defter?'<div class="notice"><b>KAYNAK:</b> DEVLET ARŞİVLERİ — DEFTER NO: '+esc(d.defter)+'</div>':'')
-        +'</div>'
-    });
-    h+='</div>';
-
-    h+='<div class="section"><h3>HANE / KİŞİ BİLGİLERİ</h3>'
-      +(houses.length?houses.slice(0,200).map(function(x){return'<div class="record"><div class="kv">'+genericObject(x)+'</div></div>'}).join(''):'<div class="empty">Hane ayrıntısı bu kartta henüz bağlanmadı.</div>')
-      +'</div>';
-
-    h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'
-      +(fams.length?fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join(''):'<div class="empty">Sülale bilgisi bulunmuyor.</div>')
-      +'</div>';
-
-    h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'
-      +(staff.length?staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join(''):'<div class="empty">Devlet arşivi kaydıyla güvenli biçimde ayrıştırılmış görevli bilgisi bulunmuyor.</div>')
-      +'</div>';
-
-    h+='<div class="section"><h3>KAYNAK</h3>';
+    const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
+    const fams=(r.sulaleler||[]).filter(function(x){return x!=null&&String(typeof x==='object'?JSON.stringify(x):x).trim()!==''});
+    const houses=(r.haneler||[]).filter(function(x){return x&&genericObject(x)});
+    const staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
+    if(defs.length){
+      h+='<div class="section"><h3>NFS / TEMETTUAT FİHRİSTİ</h3>';
+      defs.forEach(function(d){
+        const lines=valueLine('TÜR',d.tur)
+          +valueLine('DEFTER NO',d.defter)
+          +valueLine('YIL',d.yil)
+          +valueLine('HİCRÎ',d.hicri)
+          +valueLine('VARAK',d.varak)
+          +valueLine('SAYFA',d.sayfa)
+          +valueLine('HANE',d.hane)
+          +valueLine('ERKEK',d.erkek)
+          +valueLine('TARİHÎ KAZA',d.tarihi_kaza)
+          +valueLine('SANCAK',d.sancak)
+          +valueLine('DİVAN',d.divan);
+        if(lines||d.defter){
+          h+='<div class="record">'+(lines?'<div class="kv">'+lines+'</div>':'')+(d.defter?'<div class="notice"><b>KAYNAK:</b> DEVLET ARŞİVLERİ — DEFTER NO: '+esc(d.defter)+'</div>':'')+'</div>'
+        }
+      });
+      h+='</div>'
+    }
+    if(houses.length){
+      h+='<div class="section"><h3>HANE / KİŞİ BİLGİLERİ</h3>'+houses.slice(0,200).map(function(x){const body=genericObject(x);return body?'<div class="record"><div class="kv">'+body+'</div></div>':''}).join('')+'</div>'
+    }
+    if(fams.length){
+      h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'+fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div>'
+    }
+    if(staff.length){
+      h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'+staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>'
+    }
     const official=defs.filter(function(d){return d.defter});
-    h+=official.length?official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join(''):'<div class="empty">Defter numarası henüz bağlanmadı.</div>';
-    h+='</div>';
+    if(official.length){
+      h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join('')+'</div>'
+    }
+    if(!h)h='<div class="empty"><b>BU YERLEŞİM İÇİN GÖSTERİLECEK ARŞİV VERİSİ YOK.</b></div>'
   }
   document.getElementById('vbody').innerHTML=h;
   drawer.classList.add('open')
