@@ -78,4 +78,6 @@ jobs:
             exit 0
           fi
           git commit -m "Add simplified local district and village geometry [skip ci]"
-          git push
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
