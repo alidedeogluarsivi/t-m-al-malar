@@ -1221,7 +1221,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_a9bec733b0954f28ba4651f2dbcadcd6~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -1257,7 +1257,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "konya|bozkir|fakilar",
@@ -2257,7 +2258,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "samsun|vezirkopru|alanseyhi",
@@ -2578,7 +2580,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_05a551691d71438aba641827a4d85a3b~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2592,7 +2594,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "sivas|koyulhisar|ortaseki",
@@ -2673,7 +2676,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_2179ba5b2a514cf1a7e3631ff0db6274~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2698,7 +2701,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "tokat|resadiye|kecikoy",
@@ -2933,7 +2937,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "zonguldak|gökçebey|alıusta",
