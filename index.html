@@ -25,7 +25,7 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
-<p>Türkiye haritasında ile tıklayın. İl açıldığında ilçe sınırları ve ilçe adları görünür; ilçeye tıklayınca köy/mahalle sınırları ve adları açılır. Köye tıklayınca devlet arşivi defter bilgileri ve okunmuş arşiv içeriği gösterilir.</p>
+<p>Türkiye haritasında ile tıklayın. İl açıldığında ilçe sınırları, ilçe adları ve o ildeki bütün okunmuş köy/mahalleler aynı anda görünür. İlçeye tıklamak yalnızca görünümü daraltır. Köye tıklayınca devlet arşivi defter bilgileri ve okunmuş arşiv içeriği gösterilir.</p>
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>TOPLAM PDF SAYFASI</span></div>
@@ -140,6 +140,98 @@ function renderPointVillages(features){
   });
   svg.setAttribute('viewBox','0 0 1000 620')
 }
+
+function archiveForProvinceVillage(districtName,name){
+  const il=selectedProvince&&selectedProvince.name;
+  if(!il||!districtName||!name)return null;
+  let exact=archiveIndex.get(key(il,districtName,name))||[];
+  if(!exact.length&&norm(il)===norm(districtName)){
+    exact=archiveIndex.get(key(il,'Merkez',name))||[];
+  }
+  if(!exact.length&&norm(districtName)==='merkez'){
+    exact=archiveIndex.get(key(il,il,name))||[];
+  }
+  return exact.length?mergeRecords(exact):null
+}
+function openProvinceVillage(name,districtName){
+  showRecord(name,archiveForProvinceVillage(districtName,name),districtName,selectedProvince&&selectedProvince.name)
+}
+function renderProvinceArchiveOverview(districtFeatures,archivePoints){
+  clearMap();
+  if(!districtFeatures||!districtFeatures.length){
+    statusEl.textContent='Bu il için ilçe geometrisi bulunamadı.';
+    return
+  }
+  const pr=projector(districtFeatures);
+
+  districtFeatures.forEach(function(f){
+    const p=document.createElementNS(SVG_NS,'path');
+    p.setAttribute('d',geometryPath(f.geometry,pr));
+    p.setAttribute('fill-rule','evenodd');
+    p.setAttribute('class','geo district');
+    p.addEventListener('click',function(){selectDistrictFeature(f)});
+    svg.appendChild(p)
+  });
+
+  districtFeatures.forEach(function(f){
+    const cc=center(f,pr),name=(f.properties&&f.properties.name)||'';
+    addText(name,cc[0],cc[1]-5,'districtLabel')
+  });
+
+  archivePoints.forEach(function(row){
+    const f=row.feature;
+    const cc=center(f,pr),name=(f.properties&&f.properties.name)||row.name||'';
+    const hit=document.createElementNS(SVG_NS,'circle');
+    hit.setAttribute('cx',cc[0]);
+    hit.setAttribute('cy',cc[1]);
+    hit.setAttribute('r','6.2');
+    hit.setAttribute('class','centerDot archiveDot');
+    hit.style.cursor='pointer';
+    hit.style.pointerEvents='all';
+    hit.addEventListener('click',function(ev){
+      ev.stopPropagation();
+      openProvinceVillage(name,row.district.name)
+    });
+    svg.appendChild(hit);
+    addText(name,cc[0],cc[1]-8,'villageLabel')
+  });
+  svg.setAttribute('viewBox','0 0 1000 620')
+}
+async function loadProvinceArchivePoints(list,requestId){
+  const groups=await Promise.all(list.map(async function(local){
+    const gj=await loadDistrictPointGeo(local);
+    const rows=[];
+    (gj.features||[]).forEach(function(f){
+      const name=(f.properties&&f.properties.name)||'';
+      const rec=archiveForProvinceVillage(local.name,name);
+      if(rec)rows.push({feature:f,name:name,district:local,record:rec})
+    });
+    return rows
+  }));
+  if(requestId!==districtRequestSeq||level!=='province')return[];
+  const out=[];
+  const seen=new Set();
+  groups.flat().forEach(function(row){
+    const k=norm(row.district.name)+'|'+norm(row.name);
+    if(!seen.has(k)){seen.add(k);out.push(row)}
+  });
+  return out
+}
+function renderProvinceArchiveList(rows){
+  vCount.textContent=rows.length+' OKUNMUŞ YER';
+  vList.innerHTML=rows.length?rows
+    .slice()
+    .sort(function(a,b){return a.district.name.localeCompare(b.district.name,'tr')||a.name.localeCompare(b.name,'tr')})
+    .map(function(x,i){return '<div class="vitem has" data-province-row="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.district.name)+'</small></span><span class="badge">ARŞİV</span></div>'})
+    .join(''):'<div class="empty">Bu ilde haritaya bağlanmış okunmuş köy bulunamadı.</div>';
+  const sorted=rows.slice().sort(function(a,b){return a.district.name.localeCompare(b.district.name,'tr')||a.name.localeCompare(b.name,'tr')});
+  vList.querySelectorAll('[data-province-row]').forEach(function(el){
+    el.onclick=function(){
+      const row=sorted[Number(el.dataset.provinceRow)];
+      if(row)openProvinceVillage(row.name,row.district.name)
+    }
+  })
+}
 function districtOuterBoundary(features,pr){
   const edges=new Map();
   function addRing(ring){
@@ -237,7 +329,7 @@ async function loadDistrictGeo(){
   return districtGeo
 }
 async function selectProvinceByName(name,id){
-  districtRequestSeq++;
+  const requestId=++districtRequestSeq;
   selectedProvince={name:name,id:id};
   selectedDistrict=null;
   currentVillages=[];
@@ -246,13 +338,16 @@ async function selectProvinceByName(name,id){
   crumb.textContent=name.toLocaleUpperCase('tr-TR');
   const list=localDistricts();
   dSel.disabled=false;
-  dSel.innerHTML='<option value="">İLÇE SEÇİN</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
+  dSel.innerHTML='<option value="">TÜM İLÇELER</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
   vSel.disabled=true;
-  vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';
-  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · GERÇEK İLÇE SINIRLARI YÜKLENİYOR…';
+  vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';
+  vList.innerHTML='<div class="empty">Okunmuş köyler il genelinde yükleniyor…</div>';
+  vCount.textContent='—';
+  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇELER VE TÜM OKUNMUŞ KÖYLER YÜKLENİYOR…';
 
   try{
     const gj=await loadDistrictGeo();
+    if(requestId!==districtRequestSeq||level!=='province')return;
     const feats=(gj.features||[]).filter(function(f){
       const p=f.properties||{};
       return p.parent_id===id || String(p.parent_id||'')===String(id)
@@ -266,16 +361,23 @@ async function selectProvinceByName(name,id){
       const p=f.properties||{};
       return list.some(function(x){return x.id===p.id || norm(x.name)===norm(p.name)})
     });
+
     if(feats.length){
-      render(feats,'district',selectDistrictFeature,false);
-      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · İLÇEYE TIKLAYIN';
+      const archivePoints=await loadProvinceArchivePoints(list,requestId);
+      if(requestId!==districtRequestSeq||level!=='province')return;
+      renderProvinceArchiveOverview(feats,archivePoints);
+      renderProvinceArchiveList(archivePoints);
+      const districtWithArchive=new Set(archivePoints.map(function(x){return x.district.id})).size;
+      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · '+archivePoints.length+' OKUNMUŞ KÖY/MAHALLE · '+districtWithArchive+' İLÇEDE ARŞİV';
       return
     }
   }catch(e){
-    console.error('Gerçek ilçe sınır katmanı yüklenemedi',e)
+    console.error('İl görünümü yüklenemedi',e)
   }
   const pf=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(name)});
   if(pf)render([pf],'province',function(){},false);
+  vList.innerHTML='<div class="empty">İlçe sınırları yüklenemediği için okunmuş köy yoğunluğu haritada gösterilemedi.</div>';
+  vCount.textContent='—';
   statusEl.textContent='Gerçek ilçe sınır katmanı yüklenemedi; ilçe listesini soldan kullanabilirsiniz.'
 }
 function selectDistrictFeature(f){
