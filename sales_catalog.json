@@ -312,7 +312,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_3093ff4a0a444700a81663e1e196df24~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -337,7 +337,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "corum|alaca|kilavuz",
@@ -1973,7 +1974,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "ordu|mesudiye|sariyayla",
@@ -1983,7 +1985,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_25c14a18b4d74e1db8c1fc90bad6cbda~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2019,7 +2021,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "ordu|mesudiye|yeveli",
@@ -2029,7 +2032,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_3bc736d32616437cb382e5c06d82547d~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2054,7 +2057,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "samsun|alacam|uzunkirac",
@@ -2191,7 +2195,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "samsun|ladik|mazlumoglu",
