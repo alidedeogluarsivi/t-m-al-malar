@@ -406,6 +406,9 @@ function showRecord(name,r,ilce,il){
     if(staff.length){
       h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'+staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>'
     }
+    if(r.arsiv_karti===true&&!defs.some(function(d){return d&&hasDisplayValue(d.defter)})){
+      h+='<div class="section"><h3>ARŞİV DURUMU</h3><div class="notice"><b>BU YERLEŞİM İÇİN KÖY/MAHALLE BAZLI ARŞİV ÇALIŞMASI MEVCUTTUR.</b><br>DEFTER NO ENVANTER KONTROLÜ DEVAM EDİYOR.</div></div>'
+    }
     const official=defs.filter(function(d){return d.defter});
     if(official.length){
       h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join('')+'</div>'
@@ -416,7 +419,10 @@ function showRecord(name,r,ilce,il){
   drawer.classList.add('open')
 }
 function hasOfficialArchiveRecord(r){
-  return !!(r&&r.il&&r.ilce&&r.koy&&(r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}))
+  return !!(r&&r.il&&r.ilce&&r.koy&&(
+    r.arsiv_karti===true ||
+    (r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)})
+  ))
 }
 async function loadArchive(){
   archive=[];summary={};
