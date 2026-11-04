@@ -7,7 +7,7 @@
 <style>
 :root{--ink:#142d3f;--muted:#6d7880;--paper:#f7f3eb;--card:#fff;--line:#d8ccb9;--gold:#a7772a;--red:#8c3030;--green:#1f6a46;--green2:#dcefe4;--orange:#d39a36}
 *{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,select,input{font:inherit}
-.shell{max-width:1500px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#112d44,#1b5268);color:#fff;border-radius:22px;padding:24px;box-shadow:0 18px 45px #0002}.hero h1{margin:4px 0 8px;font:700 34px Georgia,serif}.hero p{margin:0;color:#dbe8ed;line-height:1.55}.eyebrow{font-size:10px!important;font-weight:900;letter-spacing:.16em;color:#e4bd74!important}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.stat{background:#ffffff12;border:1px solid #ffffff25;border-radius:13px;padding:13px}.stat b{display:block;font-size:22px}.stat span{font-size:9px;letter-spacing:.08em;color:#dbe8ed}
+.shell{max-width:1500px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#112d44,#1b5268);color:#fff;border-radius:22px;padding:24px;box-shadow:0 18px 45px #0002}.hero h1{margin:4px 0 8px;font:700 34px Georgia,serif}.hero p{margin:0;color:#dbe8ed;line-height:1.55}.eyebrow{font-size:10px!important;font-weight:900;letter-spacing:.16em;color:#e4bd74!important}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-top:18px}.stat{background:#ffffff12;border:1px solid #ffffff25;border-radius:13px;padding:13px}.stat b{display:block;font-size:22px}.stat span{font-size:9px;letter-spacing:.08em;color:#dbe8ed}
 .searchbar{margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;box-shadow:0 8px 24px #0001}.searchbar b{font:700 18px Georgia,serif}.searchbar input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px}.searchbar small{color:var(--muted)}
 .workbench{display:grid;grid-template-columns:330px minmax(0,1fr);gap:14px;align-items:start}.sidebar{display:block;min-width:0;position:sticky;top:10px}.sidebar,.mapcard,.preview{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 36px #0001}.sidehead{background:#183b53;color:#fff;border-radius:17px 17px 0 0;padding:16px}.sidehead h2{margin:4px 0;font:700 23px Georgia,serif}.sidehead p{margin:0;color:#d8e5eb;font-size:11px;line-height:1.45}.sidebody{padding:14px}.step{font-size:10px;color:var(--muted);margin-bottom:12px}.field{margin-bottom:11px}.field label{display:block;font-size:9px;font-weight:900;letter-spacing:.09em;color:#765b31;margin-bottom:5px}.field select{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}.field select:disabled{background:#f0eee9;color:#999}
 .listhead{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e7dfd4;padding-top:12px;margin-top:12px}.listhead b{font:700 15px Georgia,serif}.listhead small{color:var(--muted)}.vlist{max-height:390px;overflow:auto;margin-top:7px}.vitem{padding:9px 10px;margin:5px 0;border:1px solid #e5ddd1;border-radius:9px;cursor:pointer;display:flex;justify-content:space-between;gap:8px;background:#fff}.vitem:hover{border-color:#b39464;background:#fcf7ef}.vitem.has{background:#f0f8f3;border-color:#b5d5c2}.badge{font-size:8px;font-weight:900;border-radius:999px;padding:3px 6px;background:var(--green2);color:var(--green);height:max-content}.muted{color:#aaa}.empty{padding:14px;border:1px dashed #cfc2ae;border-radius:10px;color:#788187;font-size:11px;line-height:1.45}
@@ -32,6 +32,9 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 <div class="stat"><b id="placeStat">—</b><span>YERLEŞİM KARTI</span></div>
 <div class="stat"><b id="familyStat">—</b><span>TEKİL SÜLALE</span></div>
 <div class="stat"><b id="mappedStat">—</b><span>HARİTAYA BAĞLI KART</span></div>
+<div class="stat"><b id="entryStat">—</b><span>SİTEYE GİRİŞ</span></div>
+<div class="stat"><b id="exitStat">—</b><span>SİTEDEN ÇIKIŞ</span></div>
+<div class="stat"><b id="insideStat">—</b><span>TAHMİNÎ İÇERİDE</span></div>
 </div>
 </section>
 
@@ -630,6 +633,61 @@ document.getElementById('close').onclick=function(){drawer.classList.remove('ope
 document.getElementById('homeBtn').onclick=showTurkey;
 document.getElementById('backBtn').onclick=function(){if(level==='district'&&selectedProvince){const n=selectedProvince.name,id=selectedProvince.id;selectProvinceByName(n,id)}else showTurkey()};
 document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!e.target.closest('#searchPanel'))document.getElementById('searchPanel').classList.remove('show')});
+
+
+// Basit ziyaret sayacı: dış serviste yalnızca sayısal sayaç tutulur.
+// GİRİŞ her sayfa yüklemesinde, ÇIKIŞ sayfa kapanırken/ayrılırken artar.
+// Tarayıcının zorla kapanması gibi durumlarda ÇIKIŞ sinyali kaçabileceği için
+// "TAHMİNÎ İÇERİDE" yalnızca yaklaşık bir değerdir.
+(function initVisitorCounter(){
+  const base='https://countapi.mileshilliard.com/api/v1';
+  const entryKey='alidedeogluarsivi_com_entries_v1';
+  const exitKey='alidedeogluarsivi_com_exits_v1';
+  const entryEl=document.getElementById('entryStat');
+  const exitEl=document.getElementById('exitStat');
+  const insideEl=document.getElementById('insideStat');
+  let exitSent=false;
+
+  function n(v){const x=Number(v);return Number.isFinite(x)?x:0}
+  function paint(entries,exits){
+    entryEl.textContent=entries.toLocaleString('tr-TR');
+    exitEl.textContent=exits.toLocaleString('tr-TR');
+    insideEl.textContent=Math.max(0,entries-exits).toLocaleString('tr-TR');
+  }
+  async function read(key){
+    try{
+      const r=await fetch(base+'/get/'+key,{cache:'no-store'});
+      if(!r.ok)return 0;
+      const j=await r.json();
+      return n(j.value);
+    }catch(_){return 0}
+  }
+  async function hit(key){
+    const r=await fetch(base+'/hit/'+key,{cache:'no-store'});
+    if(!r.ok)throw new Error('counter');
+    const j=await r.json();
+    return n(j.value);
+  }
+
+  (async function(){
+    try{
+      const entries=await hit(entryKey);
+      const exits=await read(exitKey);
+      paint(entries,exits);
+    }catch(_){
+      entryEl.textContent='—'; exitEl.textContent='—'; insideEl.textContent='—';
+    }
+  })();
+
+  function sendExit(){
+    if(exitSent)return;
+    exitSent=true;
+    try{
+      fetch(base+'/hit/'+exitKey,{method:'GET',keepalive:true,cache:'no-store'}).catch(function(){});
+    }catch(_){}
+  }
+  window.addEventListener('pagehide',sendExit,{capture:true});
+})();
 
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
