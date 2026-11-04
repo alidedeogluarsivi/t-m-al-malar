@@ -1,7 +1,9 @@
 {
   "enabled": false,
-  "api_base": "",
+  "backend": "WIX_STORES",
   "payment_provider": "PAYTR",
-  "delivery": "AUTO_PRIVATE_PDF",
-  "status": "WAITING_FOR_VERCEL_DEPLOY_AND_PAYTR_SECRETS"
+  "wix_site_id": "a9585244-1944-4ec0-beaa-dad754368720",
+  "currency": "TRY",
+  "delivery": "WIX_DIGITAL_PRODUCT",
+  "status": "WAITING_FOR_PAYTR_MERCHANT_CONNECTION_AND_DIGITAL_FILE_BINDING"
 }
