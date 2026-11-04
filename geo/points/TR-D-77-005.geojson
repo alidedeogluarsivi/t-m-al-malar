@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Akköy","kind":"MAHALLE","osm_id":"r17531192"},"geometry":{"type":"Point","coordinates":[29.18895,40.62994]}},{"type":"Feature","properties":{"name":"Yenimahalle","kind":"KÖY","osm_id":"n1498888394"},"geometry":{"type":"Point","coordinates":[29.20762,40.60927]}}]}
