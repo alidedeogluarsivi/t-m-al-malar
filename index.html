@@ -330,6 +330,83 @@ function renderPointVillages(features){
   svg.setAttribute('viewBox','0 0 1000 620')
 }
 
+function renderDistrictVillageView(local,districtFeature,villageFeatures,pointFeatures){
+  clearMap();
+  villageFeatures=villageFeatures||[];
+  pointFeatures=pointFeatures||[];
+
+  // Projeksiyonun çerçevesini ilçe sınırı belirlesin; böylece ilçe sınırı kaybolmaz.
+  const frame=[];
+  if(districtFeature)frame.push(districtFeature);
+  villageFeatures.forEach(function(f){frame.push(f)});
+  pointFeatures.forEach(function(f){frame.push(f)});
+  if(!frame.length)return false;
+  const pr=projector(frame);
+
+  // İlçe zemin/sınırı önce çizilir.
+  if(districtFeature){
+    const base=document.createElementNS(SVG_NS,'path');
+    base.setAttribute('d',geometryPath(districtFeature.geometry,pr));
+    base.setAttribute('fill','#fbf7ef');
+    base.setAttribute('fill-opacity','.48');
+    base.setAttribute('stroke','#17384e');
+    base.setAttribute('stroke-width','4');
+    base.setAttribute('vector-effect','non-scaling-stroke');
+    base.setAttribute('fill-rule','evenodd');
+    base.setAttribute('pointer-events','none');
+    svg.appendChild(base)
+  }
+
+  if(villageFeatures.length){
+    villageFeatures.forEach(function(f){
+      const name=(f.properties&&f.properties.name)||'';
+      const has=!!archiveForVillage(name);
+      const p=document.createElementNS(SVG_NS,'path');
+      p.setAttribute('d',geometryPath(f.geometry,pr));
+      p.setAttribute('fill-rule','evenodd');
+      p.setAttribute('class','geo village'+(has?' has':''));
+      p.style.cursor='pointer';
+      p.addEventListener('click',function(ev){ev.stopPropagation();openVillage(name)});
+      svg.appendChild(p)
+    });
+    // Köy/mahalle etiketlerinin tamamı.
+    villageFeatures.forEach(function(f){
+      const name=(f.properties&&f.properties.name)||'';
+      const cc=center(f,pr);
+      addText(name,cc[0],cc[1]-3,'villageLabel')
+    })
+  }else if(pointFeatures.length){
+    pointFeatures.forEach(function(f){
+      const name=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(name);
+      const cc=center(f,pr);
+      const hit=document.createElementNS(SVG_NS,'circle');
+      hit.setAttribute('cx',cc[0]);hit.setAttribute('cy',cc[1]);
+      hit.setAttribute('r',has?'6.5':'4.5');
+      hit.setAttribute('class','centerDot'+(has?' archiveDot':''));
+      hit.style.cursor='pointer';hit.style.pointerEvents='all';
+      hit.addEventListener('click',function(){openVillage(name)});
+      svg.appendChild(hit);
+      addText(name,cc[0],cc[1]-7,'villageLabel')
+    })
+  }
+
+  // En son ilçe dış sınırını tekrar çiz: köy çizgilerinin üstünde daima kalsın.
+  if(districtFeature){
+    const outline=document.createElementNS(SVG_NS,'path');
+    outline.setAttribute('d',geometryPath(districtFeature.geometry,pr));
+    outline.setAttribute('fill','none');
+    outline.setAttribute('stroke','#17384e');
+    outline.setAttribute('stroke-width','4');
+    outline.setAttribute('vector-effect','non-scaling-stroke');
+    outline.setAttribute('fill-rule','evenodd');
+    outline.setAttribute('pointer-events','none');
+    svg.appendChild(outline)
+  }
+
+  svg.setAttribute('viewBox','0 0 1000 620');
+  updateHistoricalOverlay();
+  return true
+}
 function archiveForProvinceVillage(districtName,name){
   const il=selectedProvince&&selectedProvince.name;
   if(!il||!districtName||!name)return null;
@@ -353,6 +430,7 @@ function renderProvinceArchiveOverview(districtFeatures,archivePoints){
   }
   const pr=projector(districtFeatures);
 
+  // İlçeler: sınırlar ve tıklama alanları.
   districtFeatures.forEach(function(f){
     const p=document.createElementNS(SVG_NS,'path');
     p.setAttribute('d',geometryPath(f.geometry,pr));
@@ -362,29 +440,36 @@ function renderProvinceArchiveOverview(districtFeatures,archivePoints){
     svg.appendChild(p)
   });
 
+  // Seçilen ilin dış sınırı her zaman görünür kalsın.
+  const outer=document.createElementNS(SVG_NS,'path');
+  outer.setAttribute('d',districtOuterBoundary(districtFeatures,pr));
+  outer.setAttribute('fill','none');
+  outer.setAttribute('stroke','#17384e');
+  outer.setAttribute('stroke-width','4');
+  outer.setAttribute('vector-effect','non-scaling-stroke');
+  outer.setAttribute('pointer-events','none');
+  svg.appendChild(outer);
+
+  // İl seviyesinde yalnızca TÜM İLÇE ETİKETLERİ.
   districtFeatures.forEach(function(f){
     const cc=center(f,pr),name=(f.properties&&f.properties.name)||'';
-    addText(name,cc[0],cc[1]-5,'districtLabel')
+    const bg=document.createElementNS(SVG_NS,'rect');
+    const w=Math.max(46,name.length*7.4);
+    bg.setAttribute('x',(cc[0]-w/2).toFixed(1));
+    bg.setAttribute('y',(cc[1]-16).toFixed(1));
+    bg.setAttribute('width',w.toFixed(1));
+    bg.setAttribute('height','20');
+    bg.setAttribute('rx','4');
+    bg.setAttribute('fill','#fffffff0');
+    bg.setAttribute('stroke','#8b5c17');
+    bg.setAttribute('stroke-width','.7');
+    bg.setAttribute('pointer-events','none');
+    svg.appendChild(bg);
+    addText(name,cc[0],cc[1]-1,'districtLabel')
   });
 
-  archivePoints.forEach(function(row){
-    const f=row.feature;
-    const cc=center(f,pr),name=(f.properties&&f.properties.name)||row.name||'';
-    const hit=document.createElementNS(SVG_NS,'circle');
-    hit.setAttribute('cx',cc[0]);
-    hit.setAttribute('cy',cc[1]);
-    hit.setAttribute('r','6.2');
-    hit.setAttribute('class','centerDot archiveDot');
-    hit.style.cursor='pointer';
-    hit.style.pointerEvents='all';
-    hit.addEventListener('click',function(ev){
-      ev.stopPropagation();
-      openProvinceVillage(name,row.district.name)
-    });
-    svg.appendChild(hit);
-    addText(name,cc[0],cc[1]-8,'villageLabel')
-  });
-  svg.setAttribute('viewBox','0 0 1000 620')
+  svg.setAttribute('viewBox','0 0 1000 620');
+  updateHistoricalOverlay()
 }
 async function loadProvinceArchivePoints(list,requestId){
   const groups=await Promise.all(list.map(async function(local){
@@ -560,7 +645,7 @@ async function selectProvinceByName(name,id){
       renderProvinceArchiveOverview(feats,archivePoints);
       renderProvinceArchiveList(archivePoints);
       const districtWithArchive=new Set(archivePoints.map(function(x){return x.district.id})).size;
-      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · '+archivePoints.length+' OKUNMUŞ KÖY/MAHALLE · '+districtWithArchive+' İLÇEDE ARŞİV';
+      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · TÜM İLÇE ETİKETLERİ · '+districtWithArchive+' İLÇEDE ARŞİV';
       return
     }
   }catch(e){
@@ -614,26 +699,33 @@ async function selectDistrict(local,geoFeature){
   vSel.disabled=false;
   vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
   renderVillageList();
-  clearMap();
-  statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER AÇILIYOR…';
-
-  const pg=await loadDistrictPointGeo(local);
-  if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
-  const pfeats=(pg&&pg.features)||[];
-  if(pfeats.length){
-    renderPointVillages(pfeats);
-    const ah=currentVillages.filter(function(x){return x.has}).length;
-    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · '+pfeats.length+' KÖY/MAHALLE · '+ah+' ARŞİV KAYDI · KÖYE TIKLAYIN';
-    return
-  }
+  statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
 
   const df=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
     const p=x.properties||{};
     return p.id===local.id || (norm(p.name)===norm(local.name)&&p.parent_id===selectedProvince.id)
   });
-  if(df)render([df],'district',function(){},false);
+
+  const results=await Promise.all([
+    loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}}),
+    loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}})
+  ]);
+  if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
+
+  const vfeats=(results[0]&&results[0].features)||[];
+  const pfeats=(results[1]&&results[1].features)||[];
+  const shown=renderDistrictVillageView(local,df,vfeats,pfeats);
   const ah=currentVillages.filter(function(x){return x.has}).length;
-  statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · '+currentVillages.length+' KÖY/MAHALLE LİSTELENDİ · '+ah+' ARŞİV KAYDI';
+
+  if(vfeats.length){
+    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · '+vfeats.length+' KÖY/MAHALLE SINIRI · TÜM ETİKETLER · '+ah+' ARŞİV KAYDI';
+  }else if(pfeats.length){
+    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · '+pfeats.length+' KÖY/MAHALLE NOKTASI · TÜM ETİKETLER · '+ah+' ARŞİV KAYDI';
+  }else if(df){
+    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · İLÇE SINIRI · '+currentVillages.length+' YERLEŞİM LİSTEDE · '+ah+' ARŞİV KAYDI';
+  }else{
+    statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · HARİTA GEOMETRİSİ YOK · YERLEŞİMLER SOLDAN SEÇİLEBİLİR';
+  }
 }
 function openVillage(name){showRecord(name,archiveForVillage(name),selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
