@@ -256,7 +256,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "bolu|mudurnu|-kaçık",
@@ -2341,7 +2342,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_956a720e364c448a9954c193c56fbe2a~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2388,7 +2389,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "samsun|vezirkopru|elaldi",
@@ -2398,7 +2400,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_9dfb45dd2b564bfb8edeaa37f4da4fe5~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2445,7 +2447,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "samsun|vezirkopru|kizilkese",
@@ -2455,7 +2458,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_5426b5a0d22d491bbf02e5a0cf6fef18~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -2491,7 +2494,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "samsun|vezirköprü|teberuk",
@@ -2501,7 +2505,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_00f5eca5b4334fa1a24f98d09f4955d5~mv2.png",
       "products": [
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2548,7 +2552,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER"
     },
     {
       "id": "sinop|duragan|alpugan",
