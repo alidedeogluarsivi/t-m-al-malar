@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-04",
-  "count": 76,
+  "count": 116,
   "items": [
     {
       "id": "afyonkarahisar|hocalar|yesilhisar",
@@ -2928,6 +2928,988 @@
           "erkek": null,
           "price_tl": null,
           "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "bartin|ulus|elmacik",
+      "il": "Bartın",
+      "ilce": "Ulus",
+      "koy": "Elmacık",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.965",
+          "yil": "1845",
+          "hane": "31",
+          "erkek": "132",
+          "price_tl": 3300,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        },
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "965",
+          "yil": "1840",
+          "hane": null,
+          "erkek": null,
+          "price_tl": null,
+          "price_formula": null,
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|atkaracalar(merkez)",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Atkaracalar (Merkez)",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "149",
+          "erkek": "475",
+          "price_tl": 11875,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|bozkuş",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Bozkuş",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1879",
+          "yil": "1845",
+          "hane": "13",
+          "erkek": "46",
+          "price_tl": 1150,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|budakpınar",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Budakpınar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1879",
+          "yil": "1845",
+          "hane": "25",
+          "erkek": "93",
+          "price_tl": 2325,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|çardaklı(çırdak)",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Çardaklı (Çırdak)",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "10",
+          "erkek": "42",
+          "price_tl": 1050,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|demirli",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Demirli",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "10",
+          "erkek": "30",
+          "price_tl": 750,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|eyüpözü",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Eyüpözü",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "21",
+          "erkek": "67",
+          "price_tl": 1675,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|hüyükköy",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Hüyükköy",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "13",
+          "erkek": "40",
+          "price_tl": 1000,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|ılıpınar",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Ilıpınar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "9",
+          "erkek": "27",
+          "price_tl": 675,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|kızılibrik",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Kızılibrik",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "9",
+          "erkek": "25",
+          "price_tl": 625,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|kükürt",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Kükürt",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "24",
+          "erkek": "84",
+          "price_tl": 2100,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "cankiri|atkaracalar|susuz",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Susuz",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1879",
+          "yil": "1845",
+          "hane": "9",
+          "erkek": "28",
+          "price_tl": 700,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|atkaracalar|yakalı",
+      "il": "Çankırı",
+      "ilce": "Atkaracalar",
+      "koy": "Yakalı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1885",
+          "yil": "1845",
+          "hane": "8",
+          "erkek": "27",
+          "price_tl": 675,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|basdak-yaylakent",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Basdak-Yaylakent",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "123",
+          "erkek": "360",
+          "price_tl": 9000,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|buğurören",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Buğurören",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "26",
+          "erkek": "80",
+          "price_tl": 2000,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|büğdüz",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Büğdüz",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "23",
+          "erkek": "94",
+          "price_tl": 2350,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|elden",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Elden",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "16",
+          "erkek": "49",
+          "price_tl": 1225,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|gökçeören",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Gökçeören",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "20",
+          "erkek": "76",
+          "price_tl": 1900,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|halfet-kalfat",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Halfet-Kalfat",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "122",
+          "erkek": "382",
+          "price_tl": 9550,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|hasanhacı",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Hasanhacı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "20",
+          "erkek": "86",
+          "price_tl": 2150,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|kayılar",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Kayılar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "16",
+          "erkek": "55",
+          "price_tl": 1375,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|kayıören",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Kayıören",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "7",
+          "erkek": "21",
+          "price_tl": 525,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|kırsakal",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Kırsakal",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "16",
+          "erkek": "76",
+          "price_tl": 1900,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|kısaç",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Kısaç",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "8",
+          "erkek": "23",
+          "price_tl": 575,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|özlü",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Özlü",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "21",
+          "erkek": "78",
+          "price_tl": 1950,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|salur",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Salur",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "5",
+          "erkek": "35",
+          "price_tl": 875,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|orta|yuva",
+      "il": "Çankırı",
+      "ilce": "Orta",
+      "koy": "Yuva",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1869",
+          "yil": "1846",
+          "hane": "16",
+          "erkek": "51",
+          "price_tl": 1275,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|bakırlı",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Bakırlı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1895",
+          "yil": "1846",
+          "hane": "42",
+          "erkek": "166",
+          "price_tl": 4150,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|bulduk",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Bulduk",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1882",
+          "yil": "1846",
+          "hane": "15",
+          "erkek": "65",
+          "price_tl": 1625,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|bulgurcu",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Bulgurcu",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1895",
+          "yil": "1846",
+          "hane": "6",
+          "erkek": "27",
+          "price_tl": 675,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|büyükyakalı",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Büyükyakalı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1895",
+          "yil": "1846",
+          "hane": "30",
+          "erkek": "71",
+          "price_tl": 1775,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|çapar",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Çapar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1882",
+          "yil": "1846",
+          "hane": "8",
+          "erkek": "17",
+          "price_tl": 425,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|çaparkayı",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Çaparkayı",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1882",
+          "yil": "1846",
+          "hane": "37",
+          "erkek": "123",
+          "price_tl": 3075,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|çerçi",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Çerçi",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1882",
+          "yil": "1846",
+          "hane": "10",
+          "erkek": "43",
+          "price_tl": 1075,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|çiğdemli",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Çiğdemli",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1888",
+          "yil": "1846",
+          "hane": "20",
+          "erkek": "67",
+          "price_tl": 1675,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|dağkalfat",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Dağkalfat",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "NFS.d.3562",
+          "yil": "1845",
+          "hane": "32",
+          "erkek": "89",
+          "price_tl": 2225,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|demirlidalyasan",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Demirlidalyasan",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS + SOY KÜTÜĞÜ",
+          "defter": "NFS.d.3562",
+          "yil": "1845",
+          "hane": "17",
+          "erkek": "29",
+          "price_tl": 725,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|gümerdiğin",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Gümerdiğin",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1895",
+          "yil": "1846",
+          "hane": "38",
+          "erkek": "124",
+          "price_tl": 3100,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1882",
+          "yil": "1846",
+          "hane": "33",
+          "erkek": "115",
+          "price_tl": 2875,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|gündoğmuş",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Gündoğmuş",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1888",
+          "yil": "1846",
+          "hane": "21",
+          "erkek": "82",
+          "price_tl": 2050,
+          "price_formula": "ERKEK × 25 TL",
+          "shopier_url": null,
+          "digital_delivery": false
+        }
+      ],
+      "payment_provider": "SHOPIER"
+    },
+    {
+      "id": "çankırı|şabanözü|gürpınar",
+      "il": "Çankırı",
+      "ilce": "Şabanözü",
+      "koy": "Gürpınar",
+      "sale": true,
+      "preview": "COVER_ONLY",
+      "secure_file_status": "PENDING_PRIVATE_STORAGE",
+      "cover_url": null,
+      "products": [
+        {
+          "tur": "NÜFUS",
+          "defter": "NFS.d.1895",
+          "yil": "1846",
+          "hane": "75",
+          "erkek": "226",
+          "price_tl": 5650,
+          "price_formula": "ERKEK × 25 TL",
           "shopier_url": null,
           "digital_delivery": false
         }
