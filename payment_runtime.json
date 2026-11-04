@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "api_base": "",
+  "payment_provider": "PAYTR",
+  "delivery": "AUTO_PRIVATE_PDF",
+  "status": "WAITING_FOR_VERCEL_DEPLOY_AND_PAYTR_SECRETS"
+}
