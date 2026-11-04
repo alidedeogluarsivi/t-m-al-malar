@@ -2773,7 +2773,7 @@
   },
   {
     "product_id": "p0155",
-    "active": true,
+    "active": false,
     "name": "Çukuryurt - NÜFUS - NFS.d.1080 - 1836",
     "price_tl": 197900,
     "currency": "TL",
@@ -2787,7 +2787,9 @@
       "tur": "NÜFUS",
       "defter": "NFS.d.1080",
       "yil": "1836"
-    }
+    },
+    "sale_hold": true,
+    "sale_hold_reason": "FIYAT KONTROLU"
   },
   {
     "product_id": "p0156",
@@ -2881,7 +2883,7 @@
   },
   {
     "product_id": "p0161",
-    "active": true,
+    "active": false,
     "name": "Şenköy - TEMETTUAT - ML.VRD.TMT.d.14710 - 1845",
     "price_tl": 10300,
     "currency": "TL",
@@ -2895,7 +2897,9 @@
       "tur": "TEMETTUAT",
       "defter": "ML.VRD.TMT.d.14710",
       "yil": "1845"
-    }
+    },
+    "sale_hold": true,
+    "sale_hold_reason": "FIYAT KONTROLU"
   },
   {
     "product_id": "p0162",
