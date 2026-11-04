@@ -87,14 +87,23 @@ function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
 async function json(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
 async function txt(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+let currentProjection=null,currentPath=null;
 function projectionFor(fc){return d3.geoMercator().fitExtent([[35,48],[965,585]],fc)}
-
+function fitFeatureToView(f,padding=34){
+  const b=currentPath.bounds(f),x0=b[0][0],y0=b[0][1],x1=b[1][0],y1=b[1][1];
+  const w=Math.max(1,x1-x0),h=Math.max(1,y1-y0),pad=Math.max(0,padding);
+  const scale=Math.min((1000-pad*2)/w,(620-pad*2)/h);
+  const vw=1000/scale,vh=620/scale,cx=(x0+x1)/2,cy=(y0+y1)/2;
+  svg.attr('viewBox',(cx-vw/2)+' '+(cy-vh/2)+' '+vw+' '+vh);
+}
+function resetView(){svg.attr('viewBox','0 0 1000 620')}
 function renderFeatures(features,level,clicker){
-  const fc={type:'FeatureCollection',features},proj=projectionFor(fc),path=d3.geoPath(proj);
+  const fc={type:'FeatureCollection',features};currentProjection=projectionFor(fc);currentPath=d3.geoPath(currentProjection);
   svg.selectAll('*').remove();
-  svg.selectAll('path').data(features).join('path').attr('d',path).attr('class','geo '+level).on('click',(e,d)=>clicker(d));
-  const labels=features.map(f=>({c:path.centroid(f),name:f.properties._displayName||f.properties.name||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
+  svg.selectAll('path').data(features).join('path').attr('d',currentPath).attr('class','geo '+level).on('click',(e,d)=>clicker(d));
+  const labels=features.map(f=>({c:currentPath.centroid(f),name:f.properties._displayName||f.properties.name||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
   svg.selectAll('text').data(labels).join('text').attr('x',d=>d.c[0]).attr('y',d=>d.c[1]).attr('class','label '+(level==='province'?'provinceLabel':level==='district'?'districtLabel':'villageLabel')).text(d=>d.name);
+  resetView();
 }
 
 function fillProvinceSelect(){
@@ -102,26 +111,38 @@ function fillProvinceSelect(){
   pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(n=>'<option>'+esc(n)+'</option>').join('');
 }
 function showTurkey(){
-  selectedProvince=null;selectedDistrict=null;currentVillages=[];crumb.textContent='TÜRKİYE';statusEl.textContent='Bir il seçin veya haritaya tıklayın.';renderFeatures(provinceData.features,'province',selectProvince);
+  selectedProvince=null;selectedDistrict=null;currentVillages=[];crumb.textContent='TÜRKİYE';statusEl.textContent='Bir ile tıklayın.';renderFeatures(provinceData.features,'province',selectProvince);resetView();
   pSel.value='';dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';dSel.disabled=true;vList.innerHTML='<div class="sideEmpty">İl ve ilçe seçtiğinizde bütün köy/mahalle adları burada listelenecek.</div>';vCount.textContent='—';
 }
 async function selectProvince(f){
   const geoName=f.properties.name,canon=canonicalProvince(geoName),pid=PROVINCE_MAP[canon];selectedProvince={geoName,name:canon,id:pid};selectedDistrict=null;currentVillages=[];
   crumb.textContent=canon.toLocaleUpperCase('tr-TR');statusEl.textContent='İlçeler yükleniyor…';pSel.value=canon;vList.innerHTML='<div class="sideEmpty">İlçe seçin; köyler burada görünecek.</div>';vCount.textContent='—';
-  try{if(!districtData)districtData=await json(DIST);const feats=districtData.features.filter(x=>x.properties.parent_id===pid).sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));if(!feats.length)throw new Error('İlçe yok');
+  try{
+    if(!districtData)districtData=await json(DIST);
+    const feats=districtData.features.filter(x=>x.properties.parent_id===pid).sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
+    if(!feats.length)throw new Error('İlçe yok');
     dSel.disabled=false;dSel.innerHTML='<option value="">İLÇE SEÇİN</option>'+feats.map(x=>'<option value="'+esc(x.properties.id)+'">'+esc(x.properties.name)+'</option>').join('');
-    renderFeatures(feats,'district',selectDistrict);statusEl.textContent=feats.length+' ilçe · haritadan veya listeden seçin.';
+    renderFeatures(feats,'district',selectDistrict);
+    statusEl.textContent=feats.length+' ilçe · bir ilçeye tıklayın.';
   }catch(e){console.error(e);statusEl.textContent='İlçe sınırları yüklenemedi.'}
 }
 async function selectDistrict(f){
-  selectedDistrict={id:f.properties.id,name:f.properties.name};crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');statusEl.textContent='Köyler yükleniyor…';dSel.value=selectedDistrict.id;
-  try{const gj=await json(MAH+selectedDistrict.id+'.geojson');for(const vf of gj.features){const vn=vf.properties.name||vf.properties.source_raw_name||'';vf.properties._displayName=vn;vf.properties._has=recFor(vn)?1:0}currentVillages=gj.features.sort((a,b)=>(a.properties._displayName||'').localeCompare(b.properties._displayName||'','tr'));renderVillages(currentVillages);renderVillageList();const m=currentVillages.filter(x=>x.properties._has===1).length;statusEl.textContent=currentVillages.length+' köy/mahalle · '+m+' arşiv kaydı eşleşti.'}catch(e){console.error(e);statusEl.textContent='Bu ilçe için köy/mahalle sınırı bulunamadı.';vList.innerHTML='<div class="sideEmpty">Bu ilçe için açık köy/mahalle sınırı bulunamadı.</div>'}
+  selectedDistrict={id:f.properties.id,name:f.properties.name};crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');statusEl.textContent='Köy/mahalle sınırları yükleniyor…';dSel.value=selectedDistrict.id;
+  try{
+    const gj=await json(MAH+selectedDistrict.id+'.geojson');
+    for(const vf of gj.features){const vn=vf.properties.name||vf.properties.source_raw_name||'';vf.properties._displayName=vn;vf.properties._has=recFor(vn)?1:0}
+    currentVillages=gj.features.sort((a,b)=>(a.properties._displayName||'').localeCompare(b.properties._displayName||'','tr'));
+    renderVillages(currentVillages);renderVillageList();
+    const m=currentVillages.filter(x=>x.properties._has===1).length;
+    statusEl.textContent=currentVillages.length+' köy/mahalle · '+m+' arşiv kaydı eşleşti. Köye tıklayın.';
+  }catch(e){console.error(e);statusEl.textContent='Bu ilçe için köy/mahalle sınırı bulunamadı.';vList.innerHTML='<div class="sideEmpty">Bu ilçe için açık köy/mahalle sınırı bulunamadı.</div>'}
 }
 function renderVillages(features){
-  const fc={type:'FeatureCollection',features},proj=projectionFor(fc),path=d3.geoPath(proj);svg.selectAll('*').remove();
-  svg.selectAll('path').data(features).join('path').attr('d',path).attr('class',d=>'geo village'+(d.properties._has===1?' has':'')).on('click',(e,d)=>openVillage(d.properties._displayName));
-  const labels=features.map(f=>({c:path.centroid(f),name:f.properties._displayName||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
+  const fc={type:'FeatureCollection',features};currentProjection=projectionFor(fc);currentPath=d3.geoPath(currentProjection);svg.selectAll('*').remove();
+  svg.selectAll('path').data(features).join('path').attr('d',currentPath).attr('class',d=>'geo village'+(d.properties._has===1?' has':'')).on('click',(e,d)=>{fitFeatureToView(d,70);openVillage(d.properties._displayName)});
+  const labels=features.map(f=>({c:currentPath.centroid(f),name:f.properties._displayName||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
   svg.selectAll('text').data(labels).join('text').attr('x',d=>d.c[0]).attr('y',d=>d.c[1]).attr('class','label villageLabel').text(d=>d.name);
+  resetView();
 }
 function renderVillageList(){
   vCount.textContent=currentVillages.length+' YER';
