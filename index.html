@@ -9,10 +9,10 @@
 *{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,select,input{font:inherit}
 .shell{max-width:1500px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#112d44,#1b5268);color:#fff;border-radius:22px;padding:24px;box-shadow:0 18px 45px #0002}.hero h1{margin:4px 0 8px;font:700 34px Georgia,serif}.hero p{margin:0;color:#dbe8ed;line-height:1.55}.eyebrow{font-size:10px!important;font-weight:900;letter-spacing:.16em;color:#e4bd74!important}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.stat{background:#ffffff12;border:1px solid #ffffff25;border-radius:13px;padding:13px}.stat b{display:block;font-size:22px}.stat span{font-size:9px;letter-spacing:.08em;color:#dbe8ed}
 .searchbar{margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;box-shadow:0 8px 24px #0001}.searchbar b{font:700 18px Georgia,serif}.searchbar input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 13px}.searchbar small{color:var(--muted)}
-.workbench{display:grid;grid-template-columns:330px 1fr;gap:14px}.sidebar,.mapcard,.preview{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 36px #0001}.sidehead{background:#183b53;color:#fff;border-radius:17px 17px 0 0;padding:16px}.sidehead h2{margin:4px 0;font:700 23px Georgia,serif}.sidehead p{margin:0;color:#d8e5eb;font-size:11px;line-height:1.45}.sidebody{padding:14px}.step{font-size:10px;color:var(--muted);margin-bottom:12px}.field{margin-bottom:11px}.field label{display:block;font-size:9px;font-weight:900;letter-spacing:.09em;color:#765b31;margin-bottom:5px}.field select{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}.field select:disabled{background:#f0eee9;color:#999}
+.workbench{display:block}.sidebar{display:none}.sidebar,.mapcard,.preview{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 36px #0001}.sidehead{background:#183b53;color:#fff;border-radius:17px 17px 0 0;padding:16px}.sidehead h2{margin:4px 0;font:700 23px Georgia,serif}.sidehead p{margin:0;color:#d8e5eb;font-size:11px;line-height:1.45}.sidebody{padding:14px}.step{font-size:10px;color:var(--muted);margin-bottom:12px}.field{margin-bottom:11px}.field label{display:block;font-size:9px;font-weight:900;letter-spacing:.09em;color:#765b31;margin-bottom:5px}.field select{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}.field select:disabled{background:#f0eee9;color:#999}
 .listhead{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e7dfd4;padding-top:12px;margin-top:12px}.listhead b{font:700 15px Georgia,serif}.listhead small{color:var(--muted)}.vlist{max-height:390px;overflow:auto;margin-top:7px}.vitem{padding:9px 10px;margin:5px 0;border:1px solid #e5ddd1;border-radius:9px;cursor:pointer;display:flex;justify-content:space-between;gap:8px;background:#fff}.vitem:hover{border-color:#b39464;background:#fcf7ef}.vitem.has{background:#f0f8f3;border-color:#b5d5c2}.badge{font-size:8px;font-weight:900;border-radius:999px;padding:3px 6px;background:var(--green2);color:var(--green);height:max-content}.muted{color:#aaa}.empty{padding:14px;border:1px dashed #cfc2ae;border-radius:10px;color:#788187;font-size:11px;line-height:1.45}
 .mapcard{position:relative;min-height:760px;overflow:hidden}.maptop{position:absolute;z-index:4;top:12px;left:12px;right:12px;display:flex;gap:8px;pointer-events:none}.crumb,.mapstatus{pointer-events:auto;background:#fffffff2;border:1px solid var(--line);border-radius:10px;padding:8px 10px;box-shadow:0 4px 12px #0001;font-size:10px}.crumb{font-weight:900}.mapstatus{margin-left:auto;color:#845d24}.mapactions{position:absolute;z-index:4;left:12px;bottom:12px;display:flex;gap:6px}.mapactions button{border:1px solid var(--line);background:#fffffff2;border-radius:9px;padding:7px 9px;cursor:pointer;color:var(--ink);font-size:10px}
-svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;vector-effect:non-scaling-stroke}.province{fill:#f4ece0;stroke:var(--red);stroke-width:1.2}.province:hover{fill:#ead7c4}.district{fill:#f3dfb2;stroke:#a77524;stroke-width:1.15}.district:hover{fill:#e6c980}.village{fill:#eeeae2;stroke:#736e66;stroke-width:.65}.village.has{fill:#a8d2b8;stroke:#155b3b;stroke-width:1.5}.label{pointer-events:none;text-anchor:middle;font-weight:900;fill:#17384e;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}.provinceLabel{font-size:11px}.districtLabel{font-size:10px}.villageLabel{font-size:8px}.centerDot{pointer-events:none;fill:#17384e;stroke:#fff;stroke-width:1.6}.archiveDot{fill:#0a6a3f}
+svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;vector-effect:non-scaling-stroke}.province{fill:#f4ece0;stroke:var(--red);stroke-width:1.2}.province:hover{fill:#ead7c4}.district{fill:#f3dfb2;stroke:#a77524;stroke-width:1.15}.district:hover{fill:#e6c980}.village{fill:#eeeae2;stroke:#736e66;stroke-width:.65}.village.has{fill:#a8d2b8;stroke:#155b3b;stroke-width:1.5}.label{pointer-events:none;text-anchor:middle;font-weight:900;fill:#17384e;paint-order:stroke;stroke:#fff;stroke-width:4.5px;stroke-linejoin:round;letter-spacing:.01em}.provinceLabel{font-size:12px}.districtLabel{font-size:12px}.villageLabel{font-size:9px}.centerDot{pointer-events:none;fill:#17384e;stroke:#fff;stroke-width:1.6}.archiveDot{fill:#0a6a3f}
 .legend{position:absolute;z-index:4;right:12px;bottom:12px;background:#fffffff0;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:9px;line-height:1.7}.sw{display:inline-block;width:20px;height:4px;vertical-align:middle;margin-right:5px}.s1{background:var(--red)}.s2{background:#a77524}.s3{background:#736e66}.s4{background:#0a6a3f}
 .preview{margin-top:14px;padding:16px}.preview h2{font:700 22px Georgia,serif;margin:0 0 5px}.preview>p{margin:0 0 12px;color:var(--muted);font-size:11px}.previewgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.pcard{border:1px solid #e1d7c8;border-radius:12px;padding:11px;background:#fff;cursor:pointer}.pcard:hover{border-color:#aa8a5d;box-shadow:0 8px 20px #0001}.pcard b{font:700 15px Georgia,serif}.pcard small{display:block;color:var(--muted);margin-top:4px;line-height:1.45}.pills{margin-top:7px}.pill{display:inline-block;margin:2px 3px 2px 0;border-radius:999px;background:#f0ece5;padding:4px 6px;font-size:8px}
 .searchpanel{display:none;position:fixed;z-index:30;left:50%;top:80px;transform:translateX(-50%);width:min(850px,calc(100% - 24px));max-height:72vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 22px 55px #0004;padding:8px}.searchpanel.show{display:block}.sresult{padding:10px;border-bottom:1px solid #eee5d9;cursor:pointer}.sresult:hover{background:#faf6ef}.sresult small{color:var(--muted)}
@@ -25,7 +25,7 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
-<p>İl → ilçe → köy düzeninde harita tabanlı arşiv ön izlemesi. Haritada sınırları inceleyin; köy kartlarında mevcut defter, hane, erkek nüfus, Temettuat, sülale, imam–muhtar ve tarama bilgilerini görün.</p>
+<p>Türkiye haritasında ile tıklayın. İl açıldığında ilçe sınırları ve ilçe adları görünür; ilçeye tıklayınca köy/mahalle sınırları ve adları açılır. Köye tıklayınca devlet arşivi defter bilgileri ve okunmuş arşiv içeriği gösterilir.</p>
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>TOPLAM PDF SAYFASI</span></div>
@@ -51,7 +51,7 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 </aside>
 
 <section class="mapcard">
-<div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">Harita ve arşiv hazırlanıyor…</div></div>
+<div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">İLİN ÜZERİNE TIKLAYIN</div></div>
 <svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası"></svg>
 <div class="mapactions"><button id="backBtn">← GERİ</button><button id="homeBtn">TÜRKİYE</button></div>
 <div class="legend"><div><span class="sw s1"></span>İL SINIRI</div><div><span class="sw s2"></span>İLÇE SINIRI</div><div><span class="sw s3"></span>KÖY / MAHALLE SINIRI</div><div><span class="sw s4"></span>ARŞİV KAYDI</div></div>
@@ -120,20 +120,77 @@ try{const gj=await getJSON(VILLAGE_REMOTE+encodeURIComponent(local.id)+'.geojson
 function openVillage(name){showRecord(name,archiveForVillage(name),selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
 function genericObject(o){if(o==null)return'';if(typeof o!=='object')return esc(o);return Object.keys(o).filter(function(k){return o[k]!=null&&o[k]!==''}).map(function(k){return'<div><b>'+esc(k.replace(/_/g,' ').toLocaleUpperCase('tr-TR'))+'</b><span>'+esc(Array.isArray(o[k])?o[k].join(', '):o[k])+'</span></div>'}).join('')}
-function showRecord(name,r,ilce,il){document.getElementById('vtitle').textContent=name||'YERLEŞİM';document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR';let h='';if(!r){h='<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b><br>Yerleşim haritada mevcut olabilir; arşiv eşleşmesi kesinleştiğinde kart açılacaktır.</div>'}else{const defs=r.defterler||[],fams=r.sulaleler||[],houses=r.haneler||[],staff=r.gorevli_notlari||[],scans=r.taramalar||[];h+='<div class="section"><h3>NFS / TEMETTUAT FİHRİSTİ VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';defs.forEach(function(d){h+='<div class="record"><div class="kv">'+valueLine('TÜR',d.tur)+valueLine('DEFTER NO',d.defter)+valueLine('YIL',d.yil)+valueLine('HİCRÎ',d.hicri)+valueLine('VARAK',d.varak)+valueLine('SAYFA',d.sayfa)+valueLine('HANE',d.hane)+valueLine('ERKEK',d.erkek)+valueLine('TARİHÎ KAZA',d.tarihi_kaza)+valueLine('SANCAK',d.sancak)+valueLine('DİVAN',d.divan)+valueLine('PDF / DOSYA',d.dosya)+valueLine('DOĞRULAMA',d.dogrulama)+'</div></div>'});h+='</div>';
-const tem=defs.filter(function(d){return norm(d.tur).includes('temett')}).concat(scans.filter(function(s){return norm((s.tur||'')+' '+(s.ad||'')).includes('temett')}));
-h+='<div class="section"><h3>TEMETTUAT</h3>'+(tem.length?tem.map(function(t){return'<div class="record">'+genericObject(t)+'</div>'}).join(''):'<div class="empty">Bu kartta ayrı Temettuat bilgisi bulunmuyor.</div>')+'</div>';
-h+='<div class="section"><h3>HANE / KİŞİ BİLGİLERİ</h3>'+(houses.length?houses.slice(0,200).map(function(x){return'<div class="record"><div class="kv">'+genericObject(x)+'</div></div>'}).join(''):'<div class="empty">Hane ayrıntısı bu kartta henüz bağlanmadı.</div>')+'</div>';
-h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'+(fams.length?fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join(''):'<div class="empty">Sülale bilgisi bulunmuyor.</div>')+'</div>';
-h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'+(staff.length?staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join(''):'<div class="empty">Görevli bilgisi bulunmuyor.</div>')+'</div>';
-h+='<div class="section"><h3>PDF / ÇALIŞMA ÖRNEKLERİ</h3>'+(scans.length?scans.map(function(x){return'<div class="record"><div class="kv">'+genericObject(x)+'</div></div>'}).join(''):'<div class="empty">Ayrı tarama kaydı bulunmuyor.</div>')+'</div>';
-if(!r.il||!r.ilce)h+='<div class="notice"><b>İDARİ EŞLEŞME NOTU:</b> Bu arşiv kartı korunuyor ancak bugünkü il/ilçe bağlantısı veri setinde kesinleşmemiş. Genel aramada görünmeye devam eder.</div>'}
-document.getElementById('vbody').innerHTML=h;drawer.classList.add('open')}
+function isSafeHistoricalStaff(x){
+  const s=typeof x==='object'?JSON.stringify(x):String(x||'');
+  const n=norm(s);
+  const hasRole=['imam','muhtar','kethuda','hatip','naib','muezzin','coban','bekci','mudur'].some(function(w){return n.includes(w)});
+  const modern=['tez','yuksek lisans','doktora','danisman','hazirlayan','yazar','universite','fakulte','enstitu','prof','docent','arastirmaci','makale','sempozyum','editor','orcid'].some(function(w){return n.includes(w)});
+  return hasRole&&!modern&&s.length<=700
+}
+function showRecord(name,r,ilce,il){
+  document.getElementById('vtitle').textContent=name||'YERLEŞİM';
+  document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR';
+  let h='';
+  if(!r){
+    h='<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b><br>Yerleşim haritada mevcut olabilir; arşiv eşleşmesi kesinleştiğinde kart açılacaktır.</div>'
+  }else{
+    const defs=r.defterler||[],fams=r.sulaleler||[],houses=r.haneler||[],staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
+    h+='<div class="section"><h3>NFS / TEMETTUAT FİHRİSTİ</h3>';
+    if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';
+    defs.forEach(function(d){
+      h+='<div class="record"><div class="kv">'
+        +valueLine('TÜR',d.tur)
+        +valueLine('DEFTER NO',d.defter)
+        +valueLine('YIL',d.yil)
+        +valueLine('HİCRÎ',d.hicri)
+        +valueLine('VARAK',d.varak)
+        +valueLine('SAYFA',d.sayfa)
+        +valueLine('HANE',d.hane)
+        +valueLine('ERKEK',d.erkek)
+        +valueLine('TARİHÎ KAZA',d.tarihi_kaza)
+        +valueLine('SANCAK',d.sancak)
+        +valueLine('DİVAN',d.divan)
+        +'</div>'
+        +(d.defter?'<div class="notice"><b>KAYNAK:</b> DEVLET ARŞİVLERİ — DEFTER NO: '+esc(d.defter)+'</div>':'')
+        +'</div>'
+    });
+    h+='</div>';
+
+    h+='<div class="section"><h3>HANE / KİŞİ BİLGİLERİ</h3>'
+      +(houses.length?houses.slice(0,200).map(function(x){return'<div class="record"><div class="kv">'+genericObject(x)+'</div></div>'}).join(''):'<div class="empty">Hane ayrıntısı bu kartta henüz bağlanmadı.</div>')
+      +'</div>';
+
+    h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'
+      +(fams.length?fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join(''):'<div class="empty">Sülale bilgisi bulunmuyor.</div>')
+      +'</div>';
+
+    h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'
+      +(staff.length?staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join(''):'<div class="empty">Devlet arşivi kaydıyla güvenli biçimde ayrıştırılmış görevli bilgisi bulunmuyor.</div>')
+      +'</div>';
+
+    h+='<div class="section"><h3>KAYNAK</h3>';
+    const official=defs.filter(function(d){return d.defter});
+    h+=official.length?official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join(''):'<div class="empty">Defter numarası henüz bağlanmadı.</div>';
+    h+='</div>';
+  }
+  document.getElementById('vbody').innerHTML=h;
+  drawer.classList.add('open')
+}
 async function loadArchive(){archive=[];summary={};for(const f of ARCH){const t=await getText(f);t.split(/\r?\n/).forEach(function(line){if(!line.trim())return;try{const x=JSON.parse(line);if(x._summary){summary=Object.assign(summary,x._summary)}else archive.push(x)}catch(e){}})}archiveIndex=new Map();archive.forEach(function(r){if(r.il&&r.ilce&&r.koy){const k=key(r.il,r.ilce,r.koy);if(!archiveIndex.has(k))archiveIndex.set(k,[]);archiveIndex.get(k).push(r)}});document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||0).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=(summary.yerlesim_karti||archive.length).toLocaleString('tr-TR');document.getElementById('familyStat').textContent=(summary.tekil_sulale||0).toLocaleString('tr-TR');document.getElementById('mappedStat').textContent=archive.filter(function(r){return r.il&&r.ilce&&r.koy}).length.toLocaleString('tr-TR');renderPreview()}
 function score(r){return (r.defterler||[]).length*4+(r.sulaleler||[]).length*2+(r.haneler||[]).length+(r.gorevli_notlari||[]).length*2+(r.taramalar||[]).length}
 function renderPreview(){const rows=archive.slice().sort(function(a,b){return score(b)-score(a)}).slice(0,12);const g=document.getElementById('previewGrid');g.innerHTML=rows.map(function(r,i){const defs=r.defterler||[],f=r.sulaleler||[];return'<div class="pcard" data-p="'+i+'"><b>'+esc(r.koy||'YERLEŞİM')+'</b><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR')+'</small><div class="pills"><span class="pill">'+defs.length+' DEFTER</span><span class="pill">'+f.length+' SÜLALE</span><span class="pill">'+(r.gorevli_notlari||[]).length+' GÖREVLİ NOTU</span></div></div>'}).join('');g.querySelectorAll('[data-p]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.p)];showRecord(r.koy,r,r.ilce,r.il)}})}
-function renderSearch(q){const panel=document.getElementById('searchPanel'),nq=norm(q);if(!nq){panel.classList.remove('show');panel.innerHTML='';return}const rows=archive.filter(function(r){const blob=[r.il,r.ilce,r.koy,JSON.stringify(r.defterler||[]),JSON.stringify(r.sulaleler||[]),JSON.stringify(r.haneler||[]),JSON.stringify(r.gorevli_notlari||[]),JSON.stringify(r.taramalar||[])].join(' ');return norm(blob).includes(nq)}).slice(0,120);panel.innerHTML=rows.length?rows.map(function(r,i){return'<div class="sresult" data-s="'+i+'"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR')+' · '+esc((r.defterler||[]).map(function(d){return d.defter}).filter(Boolean).join(', '))+'</small></div>'}).join(''):'<div class="empty">Sonuç bulunamadı.</div>';panel.classList.add('show');panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})}
-
+function renderSearch(q){
+  const panel=document.getElementById('searchPanel'),nq=norm(q);
+  if(!nq){panel.classList.remove('show');panel.innerHTML='';return}
+  const rows=archive.filter(function(r){
+    const officialDefs=(r.defterler||[]).map(function(d){return[d.defter,d.tur,d.yil,d.hicri,d.varak,d.hane,d.erkek,d.tarihi_kaza,d.sancak,d.divan].filter(Boolean).join(' ')}).join(' ');
+    const blob=[r.il,r.ilce,r.koy,officialDefs,JSON.stringify(r.sulaleler||[]),JSON.stringify(r.haneler||[])].join(' ');
+    return norm(blob).includes(nq)
+  }).slice(0,120);
+  panel.innerHTML=rows.length?rows.map(function(r,i){return'<div class="sresult" data-s="'+i+'"><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc([r.ilce,r.il].filter(Boolean).join(' / ')||'İDARİ EŞLEŞME BEKLİYOR')+' · '+esc((r.defterler||[]).map(function(d){return d.defter}).filter(Boolean).join(', '))+'</small></div>'}).join(''):'<div class="empty">Sonuç bulunamadı.</div>';
+  panel.classList.add('show');
+  panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})
+}
 pSel.onchange=function(){if(!pSel.value){showTurkey();return}const f=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(pSel.value)});if(f)selectProvinceFeature(f)};
 dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';currentVillages=[];vList.innerHTML='<div class="empty">İlçe seçin.</div>';vCount.textContent='—';return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
 vSel.onchange=function(){if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(row)openVillage(row.name)};
