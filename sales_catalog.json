@@ -24,10 +24,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0001",
-          "delivery_path": "products/p0001.pdf"
+          "delivery_path": "products/p0001.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "afyonkarahisar|merkez|kucukkalecik",
@@ -51,10 +52,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0002",
-          "delivery_path": "products/p0002.pdf"
+          "delivery_path": "products/p0002.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -79,7 +81,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0003",
-          "delivery_path": "products/p0003.pdf"
+          "delivery_path": "products/p0003.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -93,10 +96,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0004",
-          "delivery_path": "products/p0004.pdf"
+          "delivery_path": "products/p0004.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -121,10 +125,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0005",
-          "delivery_path": "products/p0005.pdf"
+          "delivery_path": "products/p0005.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "ardahan|hanak|alacam",
@@ -148,10 +153,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0006",
-          "delivery_path": "products/p0006.pdf"
+          "delivery_path": "products/p0006.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "ardahan|hanak|dilekdere",
@@ -175,11 +181,12 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0007",
-          "delivery_path": "products/p0007.pdf"
+          "delivery_path": "products/p0007.pdf",
+          "iyzico_link": null
         }
       ],
       "cover_status": "VERIFIED_FIRST_PAGE",
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "ardahan|hanak|gec",
@@ -203,11 +210,12 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0008",
-          "delivery_path": "products/p0008.pdf"
+          "delivery_path": "products/p0008.pdf",
+          "iyzico_link": null
         }
       ],
       "cover_status": "VERIFIED_FIRST_PAGE",
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "artvin|ardanuc|cakillar",
@@ -231,10 +239,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0009",
-          "delivery_path": "products/p0009.pdf"
+          "delivery_path": "products/p0009.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -259,10 +268,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0010",
-          "delivery_path": "products/p0010.pdf"
+          "delivery_path": "products/p0010.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -287,10 +297,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0011",
-          "delivery_path": "products/p0011.pdf"
+          "delivery_path": "products/p0011.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -315,7 +326,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0012",
-          "delivery_path": "products/p0012.pdf"
+          "delivery_path": "products/p0012.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -329,7 +341,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0013",
-          "delivery_path": "products/p0013.pdf"
+          "delivery_path": "products/p0013.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "SOY KÜTÜĞÜ",
@@ -343,10 +356,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0014",
-          "delivery_path": "products/p0014.pdf"
+          "delivery_path": "products/p0014.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -371,7 +385,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0015",
-          "delivery_path": "products/p0015.pdf"
+          "delivery_path": "products/p0015.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -385,10 +400,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0016",
-          "delivery_path": "products/p0016.pdf"
+          "delivery_path": "products/p0016.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -413,7 +429,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0017",
-          "delivery_path": "products/p0017.pdf"
+          "delivery_path": "products/p0017.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -427,7 +444,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0018",
-          "delivery_path": "products/p0018.pdf"
+          "delivery_path": "products/p0018.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -441,7 +459,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0019",
-          "delivery_path": "products/p0019.pdf"
+          "delivery_path": "products/p0019.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -455,10 +474,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0020",
-          "delivery_path": "products/p0020.pdf"
+          "delivery_path": "products/p0020.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -483,7 +503,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0021",
-          "delivery_path": "products/p0021.pdf"
+          "delivery_path": "products/p0021.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -497,7 +518,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0022",
-          "delivery_path": "products/p0022.pdf"
+          "delivery_path": "products/p0022.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -511,10 +533,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0023",
-          "delivery_path": "products/p0023.pdf"
+          "delivery_path": "products/p0023.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -539,10 +562,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0024",
-          "delivery_path": "products/p0024.pdf"
+          "delivery_path": "products/p0024.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -567,7 +591,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0025",
-          "delivery_path": "products/p0025.pdf"
+          "delivery_path": "products/p0025.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -581,7 +606,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0026",
-          "delivery_path": "products/p0026.pdf"
+          "delivery_path": "products/p0026.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -595,10 +621,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0027",
-          "delivery_path": "products/p0027.pdf"
+          "delivery_path": "products/p0027.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
@@ -623,10 +650,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0028",
-          "delivery_path": "products/p0028.pdf"
+          "delivery_path": "products/p0028.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
@@ -651,7 +679,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0029",
-          "delivery_path": "products/p0029.pdf"
+          "delivery_path": "products/p0029.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -665,7 +694,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0030",
-          "delivery_path": "products/p0030.pdf"
+          "delivery_path": "products/p0030.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -679,7 +709,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0031",
-          "delivery_path": "products/p0031.pdf"
+          "delivery_path": "products/p0031.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -693,7 +724,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0032",
-          "delivery_path": "products/p0032.pdf"
+          "delivery_path": "products/p0032.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -707,7 +739,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0033",
-          "delivery_path": "products/p0033.pdf"
+          "delivery_path": "products/p0033.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "YOKLAMA",
@@ -721,10 +754,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0034",
-          "delivery_path": "products/p0034.pdf"
+          "delivery_path": "products/p0034.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -749,7 +783,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0035",
-          "delivery_path": "products/p0035.pdf"
+          "delivery_path": "products/p0035.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -763,7 +798,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0036",
-          "delivery_path": "products/p0036.pdf"
+          "delivery_path": "products/p0036.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -777,7 +813,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0037",
-          "delivery_path": "products/p0037.pdf"
+          "delivery_path": "products/p0037.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -791,10 +828,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0038",
-          "delivery_path": "products/p0038.pdf"
+          "delivery_path": "products/p0038.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -819,10 +857,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0039",
-          "delivery_path": "products/p0039.pdf"
+          "delivery_path": "products/p0039.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -847,7 +886,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0040",
-          "delivery_path": "products/p0040.pdf"
+          "delivery_path": "products/p0040.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -861,10 +901,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0041",
-          "delivery_path": "products/p0041.pdf"
+          "delivery_path": "products/p0041.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "corum|ugurludag|kizagili",
@@ -888,7 +929,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0042",
-          "delivery_path": "products/p0042.pdf"
+          "delivery_path": "products/p0042.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -902,7 +944,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0043",
-          "delivery_path": "products/p0043.pdf"
+          "delivery_path": "products/p0043.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -916,7 +959,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0044",
-          "delivery_path": "products/p0044.pdf"
+          "delivery_path": "products/p0044.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -930,10 +974,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0045",
-          "delivery_path": "products/p0045.pdf"
+          "delivery_path": "products/p0045.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
@@ -958,10 +1003,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0046",
-          "delivery_path": "products/p0046.pdf"
+          "delivery_path": "products/p0046.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -986,7 +1032,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0047",
-          "delivery_path": "products/p0047.pdf"
+          "delivery_path": "products/p0047.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1000,10 +1047,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0048",
-          "delivery_path": "products/p0048.pdf"
+          "delivery_path": "products/p0048.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1028,10 +1076,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0049",
-          "delivery_path": "products/p0049.pdf"
+          "delivery_path": "products/p0049.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1056,10 +1105,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0050",
-          "delivery_path": "products/p0050.pdf"
+          "delivery_path": "products/p0050.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1084,10 +1134,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0051",
-          "delivery_path": "products/p0051.pdf"
+          "delivery_path": "products/p0051.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1112,7 +1163,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0052",
-          "delivery_path": "products/p0052.pdf"
+          "delivery_path": "products/p0052.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1126,7 +1178,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0053",
-          "delivery_path": "products/p0053.pdf"
+          "delivery_path": "products/p0053.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1140,10 +1193,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0054",
-          "delivery_path": "products/p0054.pdf"
+          "delivery_path": "products/p0054.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1168,7 +1222,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0055",
-          "delivery_path": "products/p0055.pdf"
+          "delivery_path": "products/p0055.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1182,10 +1237,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0056",
-          "delivery_path": "products/p0056.pdf"
+          "delivery_path": "products/p0056.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1210,7 +1266,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0057",
-          "delivery_path": "products/p0057.pdf"
+          "delivery_path": "products/p0057.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1224,7 +1281,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0058",
-          "delivery_path": "products/p0058.pdf"
+          "delivery_path": "products/p0058.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -1238,10 +1296,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0059",
-          "delivery_path": "products/p0059.pdf"
+          "delivery_path": "products/p0059.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "istanbul|cekmekoy|omerli",
@@ -1265,7 +1324,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0060",
-          "delivery_path": "products/p0060.pdf"
+          "delivery_path": "products/p0060.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -1279,7 +1339,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0061",
-          "delivery_path": "products/p0061.pdf"
+          "delivery_path": "products/p0061.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT / VERGİ",
@@ -1293,7 +1354,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0062",
-          "delivery_path": "products/p0062.pdf"
+          "delivery_path": "products/p0062.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT + NÜFUS + SOY KÜTÜĞÜ",
@@ -1307,7 +1369,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0063",
-          "delivery_path": "products/p0063.pdf"
+          "delivery_path": "products/p0063.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1321,10 +1384,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0064",
-          "delivery_path": "products/p0064.pdf"
+          "delivery_path": "products/p0064.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1349,10 +1413,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0065",
-          "delivery_path": "products/p0065.pdf"
+          "delivery_path": "products/p0065.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "kars|selim|buyukdere",
@@ -1376,10 +1441,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0066",
-          "delivery_path": "products/p0066.pdf"
+          "delivery_path": "products/p0066.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1404,7 +1470,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0067",
-          "delivery_path": "products/p0067.pdf"
+          "delivery_path": "products/p0067.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -1418,10 +1485,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0068",
-          "delivery_path": "products/p0068.pdf"
+          "delivery_path": "products/p0068.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1446,7 +1514,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0069",
-          "delivery_path": "products/p0069.pdf"
+          "delivery_path": "products/p0069.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1460,7 +1529,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0070",
-          "delivery_path": "products/p0070.pdf"
+          "delivery_path": "products/p0070.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1474,10 +1544,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0071",
-          "delivery_path": "products/p0071.pdf"
+          "delivery_path": "products/p0071.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1502,7 +1573,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0072",
-          "delivery_path": "products/p0072.pdf"
+          "delivery_path": "products/p0072.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1516,7 +1588,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0073",
-          "delivery_path": "products/p0073.pdf"
+          "delivery_path": "products/p0073.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1530,10 +1603,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0074",
-          "delivery_path": "products/p0074.pdf"
+          "delivery_path": "products/p0074.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1558,7 +1632,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0075",
-          "delivery_path": "products/p0075.pdf"
+          "delivery_path": "products/p0075.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1572,7 +1647,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0076",
-          "delivery_path": "products/p0076.pdf"
+          "delivery_path": "products/p0076.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1586,7 +1662,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0077",
-          "delivery_path": "products/p0077.pdf"
+          "delivery_path": "products/p0077.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1600,7 +1677,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0078",
-          "delivery_path": "products/p0078.pdf"
+          "delivery_path": "products/p0078.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1614,7 +1692,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0079",
-          "delivery_path": "products/p0079.pdf"
+          "delivery_path": "products/p0079.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1628,7 +1707,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0080",
-          "delivery_path": "products/p0080.pdf"
+          "delivery_path": "products/p0080.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -1642,10 +1722,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0081",
-          "delivery_path": "products/p0081.pdf"
+          "delivery_path": "products/p0081.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -1670,7 +1751,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0082",
-          "delivery_path": "products/p0082.pdf"
+          "delivery_path": "products/p0082.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1684,7 +1766,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0083",
-          "delivery_path": "products/p0083.pdf"
+          "delivery_path": "products/p0083.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -1698,7 +1781,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0084",
-          "delivery_path": "products/p0084.pdf"
+          "delivery_path": "products/p0084.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -1712,10 +1796,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0085",
-          "delivery_path": "products/p0085.pdf"
+          "delivery_path": "products/p0085.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "konya|huyuk|budak",
@@ -1739,7 +1824,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0086",
-          "delivery_path": "products/p0086.pdf"
+          "delivery_path": "products/p0086.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1753,10 +1839,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0087",
-          "delivery_path": "products/p0087.pdf"
+          "delivery_path": "products/p0087.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1781,10 +1868,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0088",
-          "delivery_path": "products/p0088.pdf"
+          "delivery_path": "products/p0088.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1809,7 +1897,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0089",
-          "delivery_path": "products/p0089.pdf"
+          "delivery_path": "products/p0089.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -1823,7 +1912,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0090",
-          "delivery_path": "products/p0090.pdf"
+          "delivery_path": "products/p0090.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1837,10 +1927,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0091",
-          "delivery_path": "products/p0091.pdf"
+          "delivery_path": "products/p0091.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1865,7 +1956,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0092",
-          "delivery_path": "products/p0092.pdf"
+          "delivery_path": "products/p0092.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1879,10 +1971,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0093",
-          "delivery_path": "products/p0093.pdf"
+          "delivery_path": "products/p0093.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1907,7 +2000,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0094",
-          "delivery_path": "products/p0094.pdf"
+          "delivery_path": "products/p0094.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1921,10 +2015,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0095",
-          "delivery_path": "products/p0095.pdf"
+          "delivery_path": "products/p0095.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1949,7 +2044,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0096",
-          "delivery_path": "products/p0096.pdf"
+          "delivery_path": "products/p0096.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -1963,10 +2059,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0097",
-          "delivery_path": "products/p0097.pdf"
+          "delivery_path": "products/p0097.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -1991,7 +2088,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0098",
-          "delivery_path": "products/p0098.pdf"
+          "delivery_path": "products/p0098.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2005,10 +2103,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0099",
-          "delivery_path": "products/p0099.pdf"
+          "delivery_path": "products/p0099.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2033,7 +2132,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0100",
-          "delivery_path": "products/p0100.pdf"
+          "delivery_path": "products/p0100.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2047,10 +2147,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0101",
-          "delivery_path": "products/p0101.pdf"
+          "delivery_path": "products/p0101.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2075,7 +2176,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0102",
-          "delivery_path": "products/p0102.pdf"
+          "delivery_path": "products/p0102.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2089,10 +2191,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0103",
-          "delivery_path": "products/p0103.pdf"
+          "delivery_path": "products/p0103.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -2117,10 +2220,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0104",
-          "delivery_path": "products/p0104.pdf"
+          "delivery_path": "products/p0104.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "nigde|merkez|kayirli",
@@ -2144,10 +2248,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0105",
-          "delivery_path": "products/p0105.pdf"
+          "delivery_path": "products/p0105.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -2172,7 +2277,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0106",
-          "delivery_path": "products/p0106.pdf"
+          "delivery_path": "products/p0106.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2186,10 +2292,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0107",
-          "delivery_path": "products/p0107.pdf"
+          "delivery_path": "products/p0107.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2214,7 +2321,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0108",
-          "delivery_path": "products/p0108.pdf"
+          "delivery_path": "products/p0108.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2228,10 +2336,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0109",
-          "delivery_path": "products/p0109.pdf"
+          "delivery_path": "products/p0109.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2256,7 +2365,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0110",
-          "delivery_path": "products/p0110.pdf"
+          "delivery_path": "products/p0110.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2270,7 +2380,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0111",
-          "delivery_path": "products/p0111.pdf"
+          "delivery_path": "products/p0111.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2284,7 +2395,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0112",
-          "delivery_path": "products/p0112.pdf"
+          "delivery_path": "products/p0112.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2298,10 +2410,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0113",
-          "delivery_path": "products/p0113.pdf"
+          "delivery_path": "products/p0113.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2326,7 +2439,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0114",
-          "delivery_path": "products/p0114.pdf"
+          "delivery_path": "products/p0114.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2340,10 +2454,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0115",
-          "delivery_path": "products/p0115.pdf"
+          "delivery_path": "products/p0115.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -2368,7 +2483,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0116",
-          "delivery_path": "products/p0116.pdf"
+          "delivery_path": "products/p0116.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "SOY KÜTÜĞÜ",
@@ -2382,7 +2498,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0117",
-          "delivery_path": "products/p0117.pdf"
+          "delivery_path": "products/p0117.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2396,10 +2513,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0118",
-          "delivery_path": "products/p0118.pdf"
+          "delivery_path": "products/p0118.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2424,7 +2542,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0119",
-          "delivery_path": "products/p0119.pdf"
+          "delivery_path": "products/p0119.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2438,10 +2557,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0120",
-          "delivery_path": "products/p0120.pdf"
+          "delivery_path": "products/p0120.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2466,7 +2586,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0121",
-          "delivery_path": "products/p0121.pdf"
+          "delivery_path": "products/p0121.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "VERGİ HİSSELERİ",
@@ -2480,7 +2601,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0122",
-          "delivery_path": "products/p0122.pdf"
+          "delivery_path": "products/p0122.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2494,7 +2616,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0123",
-          "delivery_path": "products/p0123.pdf"
+          "delivery_path": "products/p0123.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2508,7 +2631,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0124",
-          "delivery_path": "products/p0124.pdf"
+          "delivery_path": "products/p0124.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2522,7 +2646,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0125",
-          "delivery_path": "products/p0125.pdf"
+          "delivery_path": "products/p0125.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2536,7 +2661,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0126",
-          "delivery_path": "products/p0126.pdf"
+          "delivery_path": "products/p0126.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2550,11 +2676,12 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0127",
-          "delivery_path": "products/p0127.pdf"
+          "delivery_path": "products/p0127.pdf",
+          "iyzico_link": null
         }
       ],
       "cover_status": "VERIFIED_FIRST_PAGE",
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "samsun|ladik|ayvali",
@@ -2578,7 +2705,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0128",
-          "delivery_path": "products/p0128.pdf"
+          "delivery_path": "products/p0128.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2592,7 +2720,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0129",
-          "delivery_path": "products/p0129.pdf"
+          "delivery_path": "products/p0129.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2606,10 +2735,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0130",
-          "delivery_path": "products/p0130.pdf"
+          "delivery_path": "products/p0130.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -2634,7 +2764,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0131",
-          "delivery_path": "products/p0131.pdf"
+          "delivery_path": "products/p0131.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2648,7 +2779,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0132",
-          "delivery_path": "products/p0132.pdf"
+          "delivery_path": "products/p0132.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2662,10 +2794,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0133",
-          "delivery_path": "products/p0133.pdf"
+          "delivery_path": "products/p0133.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -2690,7 +2823,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0134",
-          "delivery_path": "products/p0134.pdf"
+          "delivery_path": "products/p0134.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2704,7 +2838,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0135",
-          "delivery_path": "products/p0135.pdf"
+          "delivery_path": "products/p0135.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2718,7 +2853,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0136",
-          "delivery_path": "products/p0136.pdf"
+          "delivery_path": "products/p0136.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -2732,7 +2868,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0137",
-          "delivery_path": "products/p0137.pdf"
+          "delivery_path": "products/p0137.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2746,11 +2883,12 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0138",
-          "delivery_path": "products/p0138.pdf"
+          "delivery_path": "products/p0138.pdf",
+          "iyzico_link": null
         }
       ],
       "cover_status": "VERIFIED_FIRST_PAGE",
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "samsun|vezirkopru|aydinli",
@@ -2774,7 +2912,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0139",
-          "delivery_path": "products/p0139.pdf"
+          "delivery_path": "products/p0139.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2788,7 +2927,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0140",
-          "delivery_path": "products/p0140.pdf"
+          "delivery_path": "products/p0140.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2802,7 +2942,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0141",
-          "delivery_path": "products/p0141.pdf"
+          "delivery_path": "products/p0141.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2816,10 +2957,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0142",
-          "delivery_path": "products/p0142.pdf"
+          "delivery_path": "products/p0142.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2844,7 +2986,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0143",
-          "delivery_path": "products/p0143.pdf"
+          "delivery_path": "products/p0143.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2858,7 +3001,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0144",
-          "delivery_path": "products/p0144.pdf"
+          "delivery_path": "products/p0144.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2872,7 +3016,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0145",
-          "delivery_path": "products/p0145.pdf"
+          "delivery_path": "products/p0145.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2886,10 +3031,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0146",
-          "delivery_path": "products/p0146.pdf"
+          "delivery_path": "products/p0146.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2914,7 +3060,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0147",
-          "delivery_path": "products/p0147.pdf"
+          "delivery_path": "products/p0147.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -2928,7 +3075,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0148",
-          "delivery_path": "products/p0148.pdf"
+          "delivery_path": "products/p0148.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2942,10 +3090,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0149",
-          "delivery_path": "products/p0149.pdf"
+          "delivery_path": "products/p0149.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -2970,7 +3119,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0150",
-          "delivery_path": "products/p0150.pdf"
+          "delivery_path": "products/p0150.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -2984,7 +3134,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0151",
-          "delivery_path": "products/p0151.pdf"
+          "delivery_path": "products/p0151.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -2998,7 +3149,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0152",
-          "delivery_path": "products/p0152.pdf"
+          "delivery_path": "products/p0152.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -3012,10 +3164,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0153",
-          "delivery_path": "products/p0153.pdf"
+          "delivery_path": "products/p0153.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3040,11 +3193,12 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0154",
-          "delivery_path": "products/p0154.pdf"
+          "delivery_path": "products/p0154.pdf",
+          "iyzico_link": null
         }
       ],
       "cover_status": "VERIFIED_FIRST_PAGE",
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "sivas|golova|cukuryurt",
@@ -3070,10 +3224,11 @@
           "product_id": "p0155",
           "delivery_path": "products/p0155.pdf",
           "sale_hold": true,
-          "sale_hold_reason": "FIYAT KONTROLU"
+          "sale_hold_reason": "FIYAT KONTROLU",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3098,7 +3253,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0156",
-          "delivery_path": "products/p0156.pdf"
+          "delivery_path": "products/p0156.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -3112,10 +3268,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0157",
-          "delivery_path": "products/p0157.pdf"
+          "delivery_path": "products/p0157.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -3140,7 +3297,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0158",
-          "delivery_path": "products/p0158.pdf"
+          "delivery_path": "products/p0158.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -3154,10 +3312,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0159",
-          "delivery_path": "products/p0159.pdf"
+          "delivery_path": "products/p0159.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3182,7 +3341,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0160",
-          "delivery_path": "products/p0160.pdf"
+          "delivery_path": "products/p0160.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -3198,10 +3358,11 @@
           "product_id": "p0161",
           "delivery_path": "products/p0161.pdf",
           "sale_hold": true,
-          "sale_hold_reason": "FIYAT KONTROLU"
+          "sale_hold_reason": "FIYAT KONTROLU",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3226,10 +3387,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0162",
-          "delivery_path": "products/p0162.pdf"
+          "delivery_path": "products/p0162.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3254,7 +3416,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0163",
-          "delivery_path": "products/p0163.pdf"
+          "delivery_path": "products/p0163.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -3268,7 +3431,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0164",
-          "delivery_path": "products/p0164.pdf"
+          "delivery_path": "products/p0164.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -3282,7 +3446,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0165",
-          "delivery_path": "products/p0165.pdf"
+          "delivery_path": "products/p0165.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -3296,10 +3461,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0166",
-          "delivery_path": "products/p0166.pdf"
+          "delivery_path": "products/p0166.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3324,7 +3490,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0167",
-          "delivery_path": "products/p0167.pdf"
+          "delivery_path": "products/p0167.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -3338,7 +3505,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0168",
-          "delivery_path": "products/p0168.pdf"
+          "delivery_path": "products/p0168.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS / SOY KÜTÜĞÜ",
@@ -3352,10 +3520,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0169",
-          "delivery_path": "products/p0169.pdf"
+          "delivery_path": "products/p0169.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3380,10 +3549,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0170",
-          "delivery_path": "products/p0170.pdf"
+          "delivery_path": "products/p0170.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3408,7 +3578,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0171",
-          "delivery_path": "products/p0171.pdf"
+          "delivery_path": "products/p0171.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -3422,10 +3593,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0172",
-          "delivery_path": "products/p0172.pdf"
+          "delivery_path": "products/p0172.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3450,10 +3622,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0173",
-          "delivery_path": "products/p0173.pdf"
+          "delivery_path": "products/p0173.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3478,10 +3651,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0174",
-          "delivery_path": "products/p0174.pdf"
+          "delivery_path": "products/p0174.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
@@ -3506,7 +3680,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0175",
-          "delivery_path": "products/p0175.pdf"
+          "delivery_path": "products/p0175.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "TEMETTUAT",
@@ -3520,10 +3695,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0176",
-          "delivery_path": "products/p0176.pdf"
+          "delivery_path": "products/p0176.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "VERIFIED_COVER"
     },
     {
@@ -3548,7 +3724,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0177",
-          "delivery_path": "products/p0177.pdf"
+          "delivery_path": "products/p0177.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS + SOY KÜTÜĞÜ",
@@ -3562,10 +3739,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0178",
-          "delivery_path": "products/p0178.pdf"
+          "delivery_path": "products/p0178.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR"
+      "payment_provider": "IYZICO_LINK"
     },
     {
       "id": "çankırı|atkaracalar|atkaracalar(merkez)",
@@ -3589,10 +3767,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0179",
-          "delivery_path": "products/p0179.pdf"
+          "delivery_path": "products/p0179.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3617,10 +3796,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0180",
-          "delivery_path": "products/p0180.pdf"
+          "delivery_path": "products/p0180.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3645,10 +3825,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0181",
-          "delivery_path": "products/p0181.pdf"
+          "delivery_path": "products/p0181.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3673,10 +3854,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0182",
-          "delivery_path": "products/p0182.pdf"
+          "delivery_path": "products/p0182.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3701,10 +3883,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0183",
-          "delivery_path": "products/p0183.pdf"
+          "delivery_path": "products/p0183.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3729,10 +3912,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0184",
-          "delivery_path": "products/p0184.pdf"
+          "delivery_path": "products/p0184.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3757,10 +3941,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0185",
-          "delivery_path": "products/p0185.pdf"
+          "delivery_path": "products/p0185.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3785,10 +3970,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0186",
-          "delivery_path": "products/p0186.pdf"
+          "delivery_path": "products/p0186.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3813,10 +3999,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0187",
-          "delivery_path": "products/p0187.pdf"
+          "delivery_path": "products/p0187.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3841,10 +4028,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0188",
-          "delivery_path": "products/p0188.pdf"
+          "delivery_path": "products/p0188.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3869,10 +4057,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0189",
-          "delivery_path": "products/p0189.pdf"
+          "delivery_path": "products/p0189.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3897,10 +4086,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0190",
-          "delivery_path": "products/p0190.pdf"
+          "delivery_path": "products/p0190.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3925,10 +4115,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0191",
-          "delivery_path": "products/p0191.pdf"
+          "delivery_path": "products/p0191.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3953,10 +4144,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0192",
-          "delivery_path": "products/p0192.pdf"
+          "delivery_path": "products/p0192.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -3981,10 +4173,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0193",
-          "delivery_path": "products/p0193.pdf"
+          "delivery_path": "products/p0193.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4009,10 +4202,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0194",
-          "delivery_path": "products/p0194.pdf"
+          "delivery_path": "products/p0194.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4037,10 +4231,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0195",
-          "delivery_path": "products/p0195.pdf"
+          "delivery_path": "products/p0195.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4065,10 +4260,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0196",
-          "delivery_path": "products/p0196.pdf"
+          "delivery_path": "products/p0196.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4093,10 +4289,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0197",
-          "delivery_path": "products/p0197.pdf"
+          "delivery_path": "products/p0197.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4121,10 +4318,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0198",
-          "delivery_path": "products/p0198.pdf"
+          "delivery_path": "products/p0198.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4149,10 +4347,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0199",
-          "delivery_path": "products/p0199.pdf"
+          "delivery_path": "products/p0199.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4177,10 +4376,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0200",
-          "delivery_path": "products/p0200.pdf"
+          "delivery_path": "products/p0200.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4205,10 +4405,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0201",
-          "delivery_path": "products/p0201.pdf"
+          "delivery_path": "products/p0201.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4233,10 +4434,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0202",
-          "delivery_path": "products/p0202.pdf"
+          "delivery_path": "products/p0202.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4261,10 +4463,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0203",
-          "delivery_path": "products/p0203.pdf"
+          "delivery_path": "products/p0203.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4289,10 +4492,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0204",
-          "delivery_path": "products/p0204.pdf"
+          "delivery_path": "products/p0204.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4317,10 +4521,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0205",
-          "delivery_path": "products/p0205.pdf"
+          "delivery_path": "products/p0205.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4345,10 +4550,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0206",
-          "delivery_path": "products/p0206.pdf"
+          "delivery_path": "products/p0206.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4373,10 +4579,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0207",
-          "delivery_path": "products/p0207.pdf"
+          "delivery_path": "products/p0207.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4401,10 +4608,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0208",
-          "delivery_path": "products/p0208.pdf"
+          "delivery_path": "products/p0208.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4429,10 +4637,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0209",
-          "delivery_path": "products/p0209.pdf"
+          "delivery_path": "products/p0209.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4457,10 +4666,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0210",
-          "delivery_path": "products/p0210.pdf"
+          "delivery_path": "products/p0210.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4485,10 +4695,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0211",
-          "delivery_path": "products/p0211.pdf"
+          "delivery_path": "products/p0211.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4513,10 +4724,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0212",
-          "delivery_path": "products/p0212.pdf"
+          "delivery_path": "products/p0212.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4541,10 +4753,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0213",
-          "delivery_path": "products/p0213.pdf"
+          "delivery_path": "products/p0213.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4569,10 +4782,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0214",
-          "delivery_path": "products/p0214.pdf"
+          "delivery_path": "products/p0214.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4597,7 +4811,8 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0215",
-          "delivery_path": "products/p0215.pdf"
+          "delivery_path": "products/p0215.pdf",
+          "iyzico_link": null
         },
         {
           "tur": "NÜFUS",
@@ -4611,10 +4826,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0216",
-          "delivery_path": "products/p0216.pdf"
+          "delivery_path": "products/p0216.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4639,10 +4855,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0217",
-          "delivery_path": "products/p0217.pdf"
+          "delivery_path": "products/p0217.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     },
     {
@@ -4667,10 +4884,11 @@
           "digital_delivery": false,
           "paytr_link": null,
           "product_id": "p0218",
-          "delivery_path": "products/p0218.pdf"
+          "delivery_path": "products/p0218.pdf",
+          "iyzico_link": null
         }
       ],
-      "payment_provider": "PAYTR",
+      "payment_provider": "IYZICO_LINK",
       "cover_status": "NO_STANDALONE_VILLAGE_PDF"
     }
   ],
@@ -4680,7 +4898,7 @@
     "shop_url": null,
     "automatic_verification": false
   },
-  "payment_provider": "PAYTR",
+  "payment_provider": "IYZICO_LINK",
   "paytr": {
     "role": "PAYMENT_ONLY",
     "delivery": "ALIDEDEOGLU_ARSIVI_SITE",
@@ -4688,11 +4906,17 @@
     "automatic_verification": true,
     "status": "PENDING_MERCHANT_APPROVAL_AND_SECRET_BACKEND"
   },
-  "backend_mode": "WIX_STORES_DIGITAL",
+  "backend_mode": "IYZICO_LINK_MANUAL",
   "wix_store": {
     "site_id": "a9585244-1944-4ec0-beaa-dad754368720",
     "installed": true,
     "currency": "TRY",
     "digital_delivery": true
+  },
+  "iyzico": {
+    "role": "PAYMENT_LINK",
+    "account_type": "INDIVIDUAL",
+    "automatic_verification": false,
+    "status": "APPLICATION_SUBMITTED_WAITING_APPROVAL"
   }
 }
