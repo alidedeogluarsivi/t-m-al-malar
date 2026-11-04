@@ -193,6 +193,11 @@ function fillProvinces(){const names=provinceData.features.map(function(f){retur
 function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];crumb.textContent='TÜRKİYE';statusEl.textContent='HARİTADA BİR İLE TIKLAYIN';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">İl ve ilçe seçildiğinde yerleşimler burada listelenecek.</div>';vCount.textContent='—';render(provinceData.features,'province',selectProvinceFeature,false)}
 function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
 function selectProvinceFeature(f){const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];selectProvinceByName(name,id)}
+async function loadDistrictGeo(){
+  if(districtGeo)return districtGeo;
+  districtGeo=await getJSON(DIST_REMOTE);
+  return districtGeo
+}
 async function selectProvinceByName(name,id){
   selectedProvince={name:name,id:id};
   selectedDistrict=null;
@@ -205,20 +210,34 @@ async function selectProvinceByName(name,id){
   dSel.innerHTML='<option value="">İLÇE SEÇİN</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
   vSel.disabled=true;
   vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';
-  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇELER YÜKLENİYOR…';
+  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · GERÇEK İLÇE SINIRLARI YÜKLENİYOR…';
 
-  const groups=await Promise.all(list.map(async function(local){
-    return {local:local,geo:await loadDistrictVillageGeo(local)}
-  }));
-  const usable=groups.filter(function(g){return g.geo&&g.geo.features&&g.geo.features.length});
-  if(usable.length){
-    renderDistrictGroups(usable);
-    statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇEYE TIKLAYIN';
-  }else{
-    const pf=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(name)});
-    if(pf)render([pf],'province',function(){},false);
-    statusEl.textContent='Bu il için ilçe geometrisi bulunamadı.'
+  try{
+    const gj=await loadDistrictGeo();
+    const feats=(gj.features||[]).filter(function(f){
+      const p=f.properties||{};
+      return p.parent_id===id || String(p.parent_id||'')===String(id)
+    }).map(function(f){
+      const p=f.properties||{};
+      const local=list.find(function(x){return x.id===p.id}) || list.find(function(x){return norm(x.name)===norm(p.name)});
+      if(local){p.id=local.id;p.name=local.name;p.parent_id=id}
+      f.properties=p;
+      return f
+    }).filter(function(f){
+      const p=f.properties||{};
+      return list.some(function(x){return x.id===p.id || norm(x.name)===norm(p.name)})
+    });
+    if(feats.length){
+      render(feats,'district',selectDistrictFeature,false);
+      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · İLÇEYE TIKLAYIN';
+      return
+    }
+  }catch(e){
+    console.error('Gerçek ilçe sınır katmanı yüklenemedi',e)
   }
+  const pf=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(name)});
+  if(pf)render([pf],'province',function(){},false);
+  statusEl.textContent='Gerçek ilçe sınır katmanı yüklenemedi; ilçe listesini soldan kullanabilirsiniz.'
 }
 function selectDistrictFeature(f){
   const props=f.properties||{};
