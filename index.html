@@ -78,7 +78,7 @@ svg{width:100%;height:760px;display:block;background:#fff;cursor:grab;touch-acti
 <section class="mapcard">
 <div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">İLİN ÜZERİNE TIKLAYIN</div></div>
 <div class="histTools"><button id="modernLayerBtn" class="active" type="button">GÜNÜMÜZ</button><button id="sancakLayerBtn" type="button">SANCAK</button><button id="eyaletLayerBtn" type="button">1890 VİLÂYET</button><button id="kazaLayerBtn" type="button">KAZA</button></div><div id="histInfo" class="histInfo"></div><div class="histPeriodNote">TAHMİNÎ 1890 İDARÎ KATMANI · SINIRLAR TARİHÎ BAĞLILIKLARA GÖRE BUGÜNKÜ GEOMETRİDEN YAKLAŞIK ÜRETİLİR.</div>
-<div id="baseMap" class="baseMap" aria-label="Harita altlığı"></div><svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası" style="display:none"></svg>
+<div id="baseMap" class="baseMap" aria-label="Harita altlığı"></div><div id="mapInfoCard" class="mapInfoCard"><button id="mapInfoClose" type="button">×</button><div id="mapInfoTitle" class="mapInfoTitle">TÜRKİYE</div><div id="mapInfoBody" class="mapInfoBody">HARİTADA BİR İLE TIKLAYIN.</div></div><svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası" style="display:none"></svg>
 <div class="mapactions"><button id="backBtn">← GERİ</button><button id="homeBtn">TÜRKİYE</button></div>
 <div class="legend"><div><span class="sw s1"></span>İL SINIRI</div><div><span class="sw s2"></span>İLÇE SINIRI</div><div><span class="sw s3"></span>KÖY / MAHALLE SINIRI</div><div><span class="sw s4"></span>ARŞİV KAYDI</div></div>
 </section>
@@ -234,11 +234,33 @@ function bindHistoricalControls(){
     el.onclick=function(){histLayers[p[1]]=!histLayers[p[1]];el.classList.toggle('active',histLayers[p[1]]);updateHistoricalOverlay()};
   });
 }
+function setMapInfo(title,html){
+  const card=document.getElementById('mapInfoCard'),t=document.getElementById('mapInfoTitle'),b=document.getElementById('mapInfoBody');
+  if(!card||!t||!b)return;
+  t.textContent=title||'BİLGİ';b.innerHTML=html||'';card.style.display='block'
+}
+function provinceMapInfo(name){
+  const rows=archive.filter(function(r){return norm(canonicalProvince(r.il||''))===norm(name)});
+  const ds=Array.from(new Set(rows.map(function(r){return r.ilce}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'tr')});
+  const villages=new Set(rows.map(function(r){return norm(r.ilce)+'|'+norm(r.koy)}));
+  const fams=new Set();rows.forEach(function(r){(r.sulaleler||[]).forEach(function(x){if(x!=null)fams.add(typeof x==='object'?JSON.stringify(x):String(x))})});
+  return '<b>'+ds.length+' İLÇE</b> · '+villages.size+' ARŞİV KÖY/MAHALLE · '+fams.size+' SÜLALE'+
+    (ds.length?'<div class="mapInfoTags">'+ds.map(function(x){return'<span>'+esc(x)+'</span>'}).join('')+'</div>':'')+
+    '<div class="mapInfoHint">HARİTADAKİ İLÇE ETİKETİNE / SINIRINA TIKLAYIN → KÖYLERE İNİN.</div>'
+}
+function districtMapInfo(il,ilce){
+  const rows=archive.filter(function(r){return norm(canonicalProvince(r.il||''))===norm(il)&&norm(r.ilce||'')===norm(ilce)});
+  const vs=Array.from(new Set(rows.map(function(r){return r.koy}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'tr')});
+  const fams=new Set();rows.forEach(function(r){(r.sulaleler||[]).forEach(function(x){if(x!=null)fams.add(typeof x==='object'?JSON.stringify(x):String(x))})});
+  return '<b>'+currentVillages.length+' YERLEŞİM</b> · '+vs.length+' ARŞİV KÖY/MAHALLE · '+fams.size+' SÜLALE'+
+    (vs.length?'<div class="mapInfoTags">'+vs.slice(0,24).map(function(x){return'<span>'+esc(x)+'</span>'}).join('')+(vs.length>24?'<span>+'+(vs.length-24)+'</span>':'')+'</div>':'')+
+    '<div class="mapInfoHint">HARİTADAKİ KÖY ETİKETİNE / SINIRINA TIKLAYIN → ARŞİV KARTINI AÇIN.</div>'
+}
 function initBaseMap(){if(baseMap||!window.L)return;baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true});const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(baseMap);const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'© OpenStreetMap · © CARTO'});L.control.layers({'SOKAK HARİTASI':osm,'SADE HARİTA':light},{},{position:'topright'}).addTo(baseMap)}
 function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}}
 function lbl(layer,name,cls){if(name)layer.bindTooltip(name,{permanent:true,direction:'center',className:cls||'mapLabel',opacity:1})}
-function renderBaseTurkey(){initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');lbl(l,n,'mapLabel');l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
-function renderBaseProvince(feats){initBaseMap();clearBaseLayer();adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:{color:'#a77524',weight:2,fillColor:'#f3dfb2',fillOpacity:.055},onEachFeature:function(f,l){const n=(f.properties&&f.properties.name)||'';lbl(l,n,'mapLabel');l.on('click',function(){showDistrictInfo(selectedProvince&&selectedProvince.name||'',n);selectDistrictFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[18,18],maxZoom:10})}
+function renderBaseTurkey(){initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');lbl(l,n,'mapLabel');l.on('click',function(){setMapInfo(n,provinceMapInfo(n));selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
+function renderBaseProvince(feats){initBaseMap();clearBaseLayer();adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:{color:'#a77524',weight:2,fillColor:'#f3dfb2',fillOpacity:.055},onEachFeature:function(f,l){const n=(f.properties&&f.properties.name)||'';lbl(l,n,'mapLabel');l.on('click',function(){const il=selectedProvince&&selectedProvince.name||'';setMapInfo(n,districtMapInfo(il,n));selectDistrictFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[18,18],maxZoom:10})}
 function renderBaseDistrict(df,vf,pf){initBaseMap();clearBaseLayer();const ls=[];if(df)ls.push(L.geoJSON(df,{style:{color:'#17384e',weight:4,fillColor:'#fbf7ef',fillOpacity:.025},interactive:false}));if(vf&&vf.length){ls.push(L.geoJSON({type:'FeatureCollection',features:vf},{style:function(f){const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);return{color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#a8d2b8':'#eeeae2',fillOpacity:has?.09:.035}},onEachFeature:function(f,l){const n=(f.properties&&f.properties.name)||'';lbl(l,n,'villageMapLabel');l.on('click',function(){openVillage(n)})}}))}else if(pf&&pf.length){ls.push(L.geoJSON({type:'FeatureCollection',features:pf},{pointToLayer:function(f,ll){const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);return L.circleMarker(ll,{radius:has?6:4,color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#2f7d55':'#b8b2a9',fillOpacity:.9})},onEachFeature:function(f,l){const n=(f.properties&&f.properties.name)||'';lbl(l,n,'villageMapLabel');l.on('click',function(){openVillage(n)})}}))}adminLayer=L.layerGroup(ls).addTo(baseMap);let b=null;ls.forEach(function(g){if(g.getBounds&&g.getBounds().isValid())b=b?b.extend(g.getBounds()):g.getBounds()});if(b&&b.isValid())baseMap.fitBounds(b,{padding:[18,18],maxZoom:13})}
 function clearMap(){while(svg.firstChild)svg.removeChild(svg.firstChild)}
 function addText(t,x,y,cls){const el=document.createElementNS(SVG_NS,'text');el.setAttribute('x',x);el.setAttribute('y',y);el.setAttribute('class','label '+cls);el.textContent=t;svg.appendChild(el)}
@@ -606,7 +628,7 @@ function renderDistrictGroups(groups){
   svg.setAttribute('viewBox','0 0 1000 620')
 }
 function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
-function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
+function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();setMapInfo('TÜRKİYE','HARİTADA BİR İLE TIKLAYIN → İLÇELER → KÖYLER → ARŞİV BİLGİSİ.');renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
 function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
 function selectProvinceFeature(f){const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];selectProvinceByName(name,id)}
 async function loadDistrictGeo(){
@@ -625,7 +647,7 @@ async function selectProvinceByName(name,id){
   renderPreview();
   pSel.value=name;
   crumb.textContent=name.toLocaleUpperCase('tr-TR');
-  showProvinceInfo(name);
+  setMapInfo(name,provinceMapInfo(name));
   const list=localDistricts();
   dSel.disabled=false;
   dSel.innerHTML='<option value="">TÜM İLÇELER</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
@@ -712,7 +734,7 @@ async function selectDistrict(local,geoFeature){
   vSel.disabled=false;
   vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
   renderVillageList();
-  showDistrictInfo(selectedProvince.name,local.name);
+  setMapInfo(local.name,districtMapInfo(selectedProvince.name,local.name));
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
 
   const df=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
@@ -741,7 +763,7 @@ async function selectDistrict(local,geoFeature){
     statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · HARİTA GEOMETRİSİ YOK · YERLEŞİMLER SOLDAN SEÇİLEBİLİR';
   }
 }
-function openVillage(name){showRecord(name,archiveForVillage(name),selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
+function openVillage(name){const r=archiveForVillage(name);setMapInfo(name,'<b>'+esc(selectedDistrict&&selectedDistrict.name||'')+'</b> · '+(r?'ARŞİV KAYDI VAR':'ARŞİV KARTI HENÜZ YOK')+'<div class="mapInfoHint">KÖY DETAYI AÇILDI.</div>');showRecord(name,r,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
 function hasDisplayValue(v){
   if(v==null)return false;
@@ -1232,6 +1254,7 @@ document.getElementById('searchBtn').onclick=function(){renderSearch(document.ge
 document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();renderSearch(e.target.value)}};
 document.getElementById('close').onclick=function(){drawer.classList.remove('open')};
 document.getElementById('homeBtn').onclick=showTurkey;
+const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapInfoClose.onclick=function(){document.getElementById('mapInfoCard').style.display='none'};
 document.getElementById('qSearch').onclick=function(){const s=document.getElementById('search');s.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){s.focus()},250)};
 document.getElementById('qMap').onclick=function(){document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'})};
 document.getElementById('qTop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
