@@ -146,7 +146,7 @@
       "sale": true,
       "preview": "COVER_ONLY",
       "secure_file_status": "PENDING_PRIVATE_STORAGE",
-      "cover_url": null,
+      "cover_url": "https://static.wixstatic.com/media/c3ec93_ea7454de7a89407281d83944209d6724~mv2.png",
       "products": [
         {
           "tur": "NÜFUS",
@@ -157,7 +157,8 @@
           "price_tl": null,
           "price_formula": null
         }
-      ]
+      ],
+      "cover_status": "VERIFIED_FIRST_PAGE"
     },
     {
       "id": "artvin|ardanuc|cakillar",
