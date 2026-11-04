@@ -71,7 +71,6 @@ h1{margin:0;font:500 clamp(34px,5vw,62px)/1 Georgia,'Times New Roman',serif;lett
 <div id="searchPanel" class="searchPanel"></div>
 <div id="drawer" class="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
@@ -80,7 +79,7 @@ const MAH='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master
 const ARCH=['archive_1.ndjson','archive_2.ndjson','archive_3.ndjson','archive_4.ndjson'];
 const SETTLEMENTS='./settlements-local.json';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
-const svg=d3.select('#mapSvg'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount');
+const svgEl=document.getElementById('mapSvg'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount');
 let provinceData,districtData=null,districtListData=[],settlementsData=null,selectedProvince=null,selectedDistrict=null,currentVillages=[],archive=[],archiveIndex=new Map(),summary={};
 
 function norm(s){return (s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
@@ -89,25 +88,48 @@ function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
 async function json(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
 async function txt(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-let currentProjection=null,currentPath=null;
-function projectionFor(fc){return d3.geoMercator().fitExtent([[35,48],[965,585]],fc)}
-function fitFeatureToView(f,padding=34){
-  const b=currentPath.bounds(f),x0=b[0][0],y0=b[0][1],x1=b[1][0],y1=b[1][1];
-  const w=Math.max(1,x1-x0),h=Math.max(1,y1-y0),pad=Math.max(0,padding);
-  const scale=Math.min((1000-pad*2)/w,(620-pad*2)/h);
-  const vw=1000/scale,vh=620/scale,cx=(x0+x1)/2,cy=(y0+y1)/2;
-  svg.attr('viewBox',(cx-vw/2)+' '+(cy-vh/2)+' '+vw+' '+vh);
+const SVG_NS='http://www.w3.org/2000/svg';
+function flattenCoords(coords,out=[]){
+  if(Array.isArray(coords)&&typeof coords[0]==='number'){out.push(coords);return out}
+  if(Array.isArray(coords)) for(const x of coords) flattenCoords(x,out);
+  return out;
 }
-function resetView(){svg.attr('viewBox','0 0 1000 620')}
+function makeProjector(features){
+  const pts=[];for(const f of features)flattenCoords(f.geometry?.coordinates,pts);
+  let minLon=180,maxLon=-180,minLat=90,maxLat=-90;
+  for(const p of pts){minLon=Math.min(minLon,p[0]);maxLon=Math.max(maxLon,p[0]);minLat=Math.min(minLat,p[1]);maxLat=Math.max(maxLat,p[1])}
+  const pad=36,W=1000,H=620,dx=Math.max(.01,maxLon-minLon),dy=Math.max(.01,maxLat-minLat);
+  const sx=(W-pad*2)/dx,sy=(H-pad*2)/dy,scale=Math.min(sx,sy);
+  const ox=(W-dx*scale)/2,oy=(H-dy*scale)/2;
+  return p=>[ox+(p[0]-minLon)*scale,H-(oy+(p[1]-minLat)*scale)];
+}
+function ringPath(r,pr){return r.map((p,i)=>{const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}
+function geometryPath(g,pr){
+  if(!g)return'';
+  if(g.type==='Polygon')return g.coordinates.map(r=>ringPath(r,pr)).join(' ');
+  if(g.type==='MultiPolygon')return g.coordinates.flatMap(poly=>poly.map(r=>ringPath(r,pr))).join(' ');
+  return'';
+}
+function featureCenter(f,pr){
+  const pts=flattenCoords(f.geometry?.coordinates,[]);if(!pts.length)return[500,310];
+  let x=0,y=0;for(const p of pts){const q=pr(p);x+=q[0];y+=q[1]}return[x/pts.length,y/pts.length];
+}
+function clearSvg(){while(svgEl.firstChild)svgEl.removeChild(svgEl.firstChild)}
+function addSvgText(text,x,y,cls){
+  const t=document.createElementNS(SVG_NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('class','label '+cls);t.textContent=text;svgEl.appendChild(t);
+}
+function resetView(){svgEl.setAttribute('viewBox','0 0 1000 620')}
 function renderFeatures(features,level,clicker){
-  const fc={type:'FeatureCollection',features};currentProjection=projectionFor(fc);currentPath=d3.geoPath(currentProjection);
-  svg.selectAll('*').remove();
-  svg.selectAll('path').data(features).join('path').attr('d',currentPath).attr('class','geo '+level).on('click',(e,d)=>clicker(d));
-  const labels=features.map(f=>({c:currentPath.centroid(f),name:f.properties._displayName||f.properties.name||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
-  svg.selectAll('text').data(labels).join('text').attr('x',d=>d.c[0]).attr('y',d=>d.c[1]).attr('class','label '+(level==='province'?'provinceLabel':level==='district'?'districtLabel':'villageLabel')).text(d=>d.name);
+  clearSvg();const pr=makeProjector(features);
+  for(const f of features){
+    const p=document.createElementNS(SVG_NS,'path');p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('class','geo '+level);p.setAttribute('fill-rule','evenodd');p.addEventListener('click',()=>clicker(f));svgEl.appendChild(p);
+  }
+  for(const f of features){
+    const cc=featureCenter(f,pr),name=f.properties?._displayName||f.properties?.name||'';
+    addSvgText(name,cc[0],cc[1],level==='province'?'provinceLabel':level==='district'?'districtLabel':'villageLabel');
+  }
   resetView();
 }
-
 function fillProvinceSelect(){
   const names=provinceData.features.map(f=>canonicalProvince(f.properties.name)).sort((a,b)=>a.localeCompare(b,'tr'));
   pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(n=>'<option>'+esc(n)+'</option>').join('');
@@ -194,7 +216,7 @@ async function selectDistrict(f){
     }catch(polyErr){
       console.warn('Bu ilçede yerleşim poligonu yok',polyErr);
       const districtFeature=districtData?.features?.find(x=>x.properties.id===selectedDistrict.id);
-      if(districtFeature)renderFeatures([districtFeature],'district',()=>{});else svg.selectAll('*').remove();
+      if(districtFeature)renderFeatures([districtFeature],'district',()=>{});else clearSvg();
       const matched=currentVillages.filter(x=>x.properties._has===1).length;
       statusEl.textContent=villageN+' köy · '+neighN+' mahalle · '+matched+' arşiv eşleşmesi. Açık köy sınır poligonu yok; tüm adlar solda listelendi.';
       const note=document.createElement('div');
@@ -211,10 +233,15 @@ async function selectDistrict(f){
 }
 
 function renderVillages(features){
-  const fc={type:'FeatureCollection',features};currentProjection=projectionFor(fc);currentPath=d3.geoPath(currentProjection);svg.selectAll('*').remove();
-  svg.selectAll('path').data(features).join('path').attr('d',currentPath).attr('class',d=>'geo village'+(d.properties._has===1?' has':'')).on('click',(e,d)=>{fitFeatureToView(d,70);openVillage(d.properties._displayName)});
-  const labels=features.map(f=>({c:currentPath.centroid(f),name:f.properties._displayName||''})).filter(x=>Number.isFinite(x.c[0])&&Number.isFinite(x.c[1]));
-  svg.selectAll('text').data(labels).join('text').attr('x',d=>d.c[0]).attr('y',d=>d.c[1]).attr('class','label villageLabel').text(d=>d.name);
+  clearSvg();const pr=makeProjector(features);
+  for(const f of features){
+    const p=document.createElementNS(SVG_NS,'path');
+    p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('class','geo village'+(f.properties._has===1?' has':''));p.setAttribute('fill-rule','evenodd');
+    p.addEventListener('click',()=>openVillage(f.properties._displayName));svgEl.appendChild(p);
+  }
+  for(const f of features){
+    const cc=featureCenter(f,pr);addSvgText(f.properties._displayName||'',cc[0],cc[1],'villageLabel');
+  }
   resetView();
 }
 function renderVillageList(){
