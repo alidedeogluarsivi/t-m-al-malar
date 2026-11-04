@@ -6,99 +6,65 @@
 <title>E-Satış PDF | Alidedeoğlu Arşivi</title>
 <style>
 :root{--ink:#142d3f;--paper:#f7f3eb;--line:#d8ccb9;--red:#8c3030;--muted:#6d7880}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.shell{max-width:1400px;margin:auto;padding:16px}.top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}.top a{color:#fff;background:#17384e;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:900}.hero{background:linear-gradient(135deg,#112d44,#8c3030);color:#fff;border-radius:20px;padding:22px}.hero h1{margin:0 0 8px;font:700 32px Georgia,serif}.hero p{margin:0;color:#f0e8e0;line-height:1.5}.toolbar{display:grid;grid-template-columns:1fr auto;gap:10px;margin:14px 0}.toolbar input{padding:12px;border:1px solid var(--line);border-radius:10px}.count{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:10px;font-weight:900}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 8px 24px #0001;cursor:pointer}.thumb{aspect-ratio:4/3;background:#eee8df;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.autoCover{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;background:linear-gradient(180deg,#f9f4e9,#efe3cd);color:#17384e}.autoCover .brand{font:700 13px Georgia,serif;letter-spacing:.12em;color:#8c3030;margin-bottom:14px}.autoCover .place{font:700 24px Georgia,serif;line-height:1.08;margin-bottom:8px}.autoCover .loc{font-size:11px;font-weight:900;color:#6d7880;margin-bottom:16px}.autoCover .def{font-size:13px;font-weight:900;border-top:1px solid #c9b99f;border-bottom:1px solid #c9b99f;padding:8px 0;width:90%}.autoCover .year{font-size:12px;margin-top:7px;color:#765b31}.autoCover .tag{margin-top:14px;font-size:9px;font-weight:900;letter-spacing:.08em;color:#fff;background:#17384e;border-radius:999px;padding:6px 9px}.body{padding:13px}.body h2{font:700 20px Georgia,serif;margin:0 0 5px}.body small{color:var(--muted)}.pill{display:inline-block;margin:7px 5px 0 0;background:#f0ece5;padding:4px 7px;border-radius:999px;font-size:9px}.modal{display:none;position:fixed;z-index:50;inset:0;background:#0009;padding:18px}.modal.open{display:flex;align-items:center;justify-content:center}.panel{width:min(900px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;padding:16px;position:relative}.close{position:absolute;right:12px;top:10px;border:0;background:#17384e;color:#fff;border-radius:50%;width:32px;height:32px;font-size:20px}.preview{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#faf7f2;min-height:320px;display:flex;align-items:center;justify-content:center;overflow:hidden}.preview img{max-width:100%;max-height:70vh;object-fit:contain}.record{border:1px solid #e2d8c8;border-radius:10px;padding:10px;margin:7px 0}.price{font-size:19px;font-weight:900;color:#8c3030}.buy{display:inline-block;margin-top:10px;width:100%;text-align:center;text-decoration:none;border:0;border-radius:10px;padding:12px 14px;background:#8c3030;color:#fff;font-weight:900}.buy.off{background:#aaa;cursor:not-allowed}.paynote{font-size:11px;color:#6d7880;margin-top:7px}.notice{padding:10px;background:#fff5da;border:1px solid #e5c978;border-radius:10px;margin-top:10px;font-size:12px;line-height:1.5}.empty{padding:18px;background:#fff;border:1px dashed var(--line);border-radius:12px}
-@media(max-width:620px){.toolbar{grid-template-columns:1fr}.hero h1{font-size:26px}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.shell{max-width:1400px;margin:auto;padding:16px}.top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}.top a{color:#fff;background:#17384e;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:900}.hero{background:linear-gradient(135deg,#112d44,#8c3030);color:#fff;border-radius:20px;padding:22px}.hero h1{margin:0 0 8px;font:700 32px Georgia,serif}.hero p{margin:0;color:#f0e8e0;line-height:1.5}.toolbar{display:grid;grid-template-columns:1fr auto auto;gap:10px;margin:14px 0}.toolbar select{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}.statusbar{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:11px;color:var(--muted)}.toolbar input{padding:12px;border:1px solid var(--line);border-radius:10px}.count{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:10px;font-weight:900}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 8px 24px #0001;cursor:pointer}.thumb{aspect-ratio:4/3;background:#eee8df;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.autoCover{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;background:linear-gradient(180deg,#f9f4e9,#efe3cd);color:#17384e}.autoCover .brand{font:700 13px Georgia,serif;letter-spacing:.12em;color:#8c3030;margin-bottom:14px}.autoCover .place{font:700 24px Georgia,serif;line-height:1.08;margin-bottom:8px}.autoCover .loc{font-size:11px;font-weight:900;color:#6d7880;margin-bottom:16px}.autoCover .def{font-size:13px;font-weight:900;border-top:1px solid #c9b99f;border-bottom:1px solid #c9b99f;padding:8px 0;width:90%}.autoCover .year{font-size:12px;margin-top:7px;color:#765b31}.autoCover .tag{margin-top:14px;font-size:9px;font-weight:900;letter-spacing:.08em;color:#fff;background:#17384e;border-radius:999px;padding:6px 9px}.body{padding:13px}.body h2{font:700 20px Georgia,serif;margin:0 0 5px}.body small{color:var(--muted)}.pill{display:inline-block;margin:7px 5px 0 0;background:#f0ece5;padding:4px 7px;border-radius:999px;font-size:9px}.modal{display:none;position:fixed;z-index:50;inset:0;background:#0009;padding:18px}.modal.open{display:flex;align-items:center;justify-content:center}.panel{width:min(900px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;padding:16px;position:relative}.close{position:absolute;right:12px;top:10px;border:0;background:#17384e;color:#fff;border-radius:50%;width:32px;height:32px;font-size:20px}.preview{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#faf7f2;min-height:320px;display:flex;align-items:center;justify-content:center;overflow:hidden}.preview img{max-width:100%;max-height:70vh;object-fit:contain}.record{border:1px solid #e2d8c8;border-radius:10px;padding:10px;margin:7px 0}.price{font-size:19px;font-weight:900;color:#8c3030}.buy{display:inline-block;margin-top:10px;width:100%;text-align:center;text-decoration:none;border:0;border-radius:10px;padding:12px 14px;background:#8c3030;color:#fff;font-weight:900}.buy.off{background:#aaa;cursor:not-allowed}.paynote{font-size:11px;color:#6d7880;margin-top:7px}.notice{padding:10px;background:#fff5da;border:1px solid #e5c978;border-radius:10px;margin-top:10px;font-size:12px;line-height:1.5}.empty{padding:18px;background:#fff;border:1px dashed var(--line);border-radius:12px}
+@media(max-width:620px){.toolbar{grid-template-columns:1fr}.hero h1{font-size:26px}.grid{grid-template-columns:1fr}.card{box-shadow:none}}
 </style>
 </head>
 <body>
 <div class="shell">
 <div class="top"><a href="./">← ANA SAYFA</a><b>E-SATIŞ PDF</b></div>
 <section class="hero"><h1>E-Satış PDF</h1><p>PDF kartına tıklayınca önizleme açılır. Öncelik: kapak → orijinal Osmanlıca sayfa → mevcut herhangi bir sayfa. iyzico yalnızca ödeme içindir; PDF teslimatı Alidedeoğlu Arşivi sitesinden yapılır.</p></section>
-<div class="toolbar"><input id="q" placeholder="İl, ilçe, köy, defter no veya yıl ara…"><div id="count" class="count">YÜKLENİYOR…</div></div>
+<div class="toolbar"><input id="q" autocomplete="off" enterkeyhint="search" aria-label="E-satış PDF ara" placeholder="İl, ilçe, köy, defter no veya yıl ara…"><select id="saleFilter"><option value="all">TÜM PDF’LER</option><option value="ready">FİYATI HAZIR</option><option value="link">SATIN ALINABİLİR</option></select><div id="count" class="count">YÜKLENİYOR…</div></div><div id="statusbar" class="statusbar">İYZİCO BİREYSEL BAŞVURUSU ONAY BEKLİYOR. ÜRÜN LİNKLERİ EKLENDİKÇE SATIN ALMA DÜĞMELERİ OTOMATİK AÇILACAK.</div>
 <div id="grid" class="grid"><div class="empty">KATALOG YÜKLENİYOR…</div></div>
 </div>
 <div id="modal" class="modal"><div class="panel"><button id="close" class="close">×</button><h2 id="mt"></h2><div id="ml"></div><div id="pv" class="preview"></div><div id="mi"></div></div></div>
 <script>
-let DATA={items:[]};
-let PAYCFG={api_base:"",enabled:false,backend:"WIX_STORES"};
-let activePoll=null;
-async function loadPayCfg(){
-  try{
-    const r=await fetch('./payment_runtime.json?v=20261104',{cache:'no-store'});
-    if(r.ok) PAYCFG=await r.json();
-  }catch(e){}
-}
-async function beginCheckout(productId,btn){
-  if(!PAYCFG.enabled||!PAYCFG.api_base){alert('iyzico HESABI WIX MAĞAZASINA BAĞLANMADAN CANLI ÖDEME AÇILMAZ.');return}
-  const old=btn.textContent;btn.disabled=true;btn.textContent='ÖDEME HAZIRLANIYOR…';
-  try{
-    const r=await fetch(PAYCFG.api_base.replace(/\/$/,'')+'/api/create-payment',{
-      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product_id:productId})
-    });
-    const j=await r.json();
-    if(!r.ok||!j.payment_url) throw new Error(j.error||'payment');
-    localStorage.setItem('alidedeoglu_last_order',JSON.stringify({id:j.order_id,token:j.order_token,api:PAYCFG.api_base}));
-    window.open(j.payment_url,'_blank','noopener');
-    btn.textContent='ÖDEME BEKLENİYOR…';
-    startOrderPoll(j.order_id,j.order_token,btn);
-  }catch(e){alert('ÖDEME BAŞLATILAMADI.');btn.disabled=false;btn.textContent=old}
-}
-function startOrderPoll(id,token,btn){
-  if(activePoll)clearInterval(activePoll);
-  const base=PAYCFG.api_base.replace(/\/$/,'');
-  const check=async()=>{
-    try{
-      const r=await fetch(base+'/api/order-status?id='+encodeURIComponent(id)+'&token='+encodeURIComponent(token),{cache:'no-store'});
-      const j=await r.json();
-      if(j.status==='paid'&&j.download_url){
-        clearInterval(activePoll);activePoll=null;
-        btn.disabled=false;btn.textContent='PDF’Yİ İNDİR';
-        btn.onclick=()=>window.location.href=base+j.download_url;
-      }
-    }catch(e){}
-  };
-  check();activePoll=setInterval(check,3000);
-}
-async function resumeLastOrder(){
-  try{
-    const o=JSON.parse(localStorage.getItem('alidedeoglu_last_order')||'null');
-    if(!o||!o.id||!o.token||!PAYCFG.api_base)return;
-    // Durum modal açıldığında yeniden kontrol edilir; burada sadece saklı sipariş korunur.
-  }catch(e){}
-}
-
-const q=document.getElementById('q'),grid=document.getElementById('grid'),count=document.getElementById('count'),modal=document.getElementById('modal'),mt=document.getElementById('mt'),ml=document.getElementById('ml'),pv=document.getElementById('pv'),mi=document.getElementById('mi');
+let DATA={items:[]},searchTimer=null;
+const q=document.getElementById('q'),filter=document.getElementById('saleFilter'),grid=document.getElementById('grid'),count=document.getElementById('count'),modal=document.getElementById('modal'),mt=document.getElementById('mt'),ml=document.getElementById('ml'),pv=document.getElementById('pv'),mi=document.getElementById('mi');
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function imgFor(x){return x.cover_url||x.osmanlica_preview_url||x.preview_url||x.page_preview_url||null}
 function previewKind(x){if(x.cover_url)return'KAPAK';if(x.osmanlica_preview_url)return'ORİJİNAL OSMANLICA';if(x.preview_url||x.page_preview_url)return'PDF SAYFASI';return'OTOMATİK KAPAK'}
 function autoCover(x){const p=(x.products||[])[0]||{};return '<div class="autoCover"><div class="brand">ALİDEDEOĞLU ARŞİVİ</div><div class="place">'+esc(x.koy||'ARŞİV PDF')+'</div><div class="loc">'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</div><div class="def">'+esc(p.defter||p.tur||'OSMANLI ARŞİV BELGESİ')+'</div><div class="year">'+esc(p.yil||'')+'</div><div class="tag">E-SATIŞ ÖNİZLEME</div></div>'}
-function render(rows){count.textContent=rows.length.toLocaleString('tr-TR')+' PDF';grid.innerHTML=rows.length?rows.map(function(x,i){const im=imgFor(x);return '<article class="card" data-i="'+i+'"><div class="thumb">'+(im?'<img src="'+esc(im)+'" alt="">':autoCover(x))+'</div><div class="body"><h2>'+esc(x.koy||'PDF')+'</h2><small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small><div><span class="pill">'+esc(previewKind(x))+'</span><span class="pill">'+(x.products||[]).length+' ÜRÜN</span></div></div></article>'}).join(''):'<div class="empty">ÜRÜN BULUNAMADI.</div>';Array.from(grid.querySelectorAll('[data-i]')).forEach(function(el){el.onclick=function(){openItem(rows[Number(el.dataset.i)])}})}
+function flattened(x){return JSON.stringify(x).toLocaleLowerCase('tr-TR')}
+function isReady(x){return (x.products||[]).some(function(p){return Number(p.price_tl)>0})}
+function hasLink(x){return (x.products||[]).some(function(p){return !!p.iyzico_link})}
+function filteredRows(){
+  const s=q.value.trim().toLocaleLowerCase('tr-TR'),mode=filter.value;
+  return (DATA.items||[]).filter(function(x){
+    if(s && !flattened(x).includes(s))return false;
+    if(mode==='ready'&&!isReady(x))return false;
+    if(mode==='link'&&!hasLink(x))return false;
+    return true
+  })
+}
+function render(rows){
+  count.textContent=rows.length.toLocaleString('tr-TR')+' PDF';
+  grid.innerHTML=rows.length?rows.map(function(x,i){
+    const im=imgFor(x),ready=isReady(x),link=hasLink(x);
+    return '<article class="card" tabindex="0" data-i="'+i+'"><div class="thumb">'+(im?'<img loading="lazy" decoding="async" src="'+esc(im)+'" alt="'+esc(x.koy||'PDF')+'">':autoCover(x))+'</div><div class="body"><h2>'+esc(x.koy||'PDF')+'</h2><small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small><div><span class="pill">'+esc(previewKind(x))+'</span><span class="pill">'+(x.products||[]).length+' ÜRÜN</span><span class="pill">'+(link?'SATIŞA AÇIK':ready?'FİYATI HAZIR':'HAZIRLANIYOR')+'</span></div></div></article>'
+  }).join(''):'<div class="empty">ÜRÜN BULUNAMADI.</div>';
+  Array.from(grid.querySelectorAll('[data-i]')).forEach(function(el){
+    const open=function(){openItem(rows[Number(el.dataset.i)])};
+    el.onclick=open;el.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}}
+  })
+}
 function openItem(x){
   mt.textContent=x.koy||'PDF';ml.innerHTML='<small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small>';
   const im=imgFor(x);pv.innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(previewKind(x))+'">':autoCover(x);
-  mi.innerHTML='<div class="notice"><b>ÖNİZLEME TÜRÜ:</b> '+esc(previewKind(x))+'<br>ÖDEME iyzico ÜZERİNDEN ALINIR. ÖDEME ONAYLANINCA PDF BU SİTEDEN İNDİRİLİR.</div>'+
-  (x.products||[]).map(function(p,i){
+  mi.innerHTML='<div class="notice"><b>ÖNİZLEME:</b> '+esc(previewKind(x))+'<br>İYZİCO yalnızca ödeme içindir. Ödeme bağlantısı tanımlanan ürünlerde satın alma düğmesi açılır.</div>'+
+  (x.products||[]).map(function(p){
     const price=Number(p.price_tl)||0;
-    let buy='';
-    if(price>0&&p.product_id&&PAYCFG.enabled&&PAYCFG.api_base){
-      buy='<button class="buy jsbuy" data-pid="'+esc(p.product_id)+'">SATIN AL</button>';
-    }else if(price>0){
-      buy='<button class="buy off" disabled>iyzico BAĞLANTISI BEKLENİYOR</button>';
-    }else{
-      buy='<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
-    }
-    return '<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(price>0?'<div class="price">'+price.toLocaleString('tr-TR')+' TL</div>':'')+buy+'<div class="paynote">KARTLA ÖDEME iyzico SAYFASINDA TAMAMLANIR. PDF ÖDEME SONRASI OTOMATİK TESLİM EDİLİR.</div></div>'
+    const buy=p.iyzico_link?'<a class="buy" href="'+esc(p.iyzico_link)+'" target="_blank" rel="noopener noreferrer">İYZİCO İLE SATIN AL</a>':price>0?'<button class="buy off" disabled>İYZİCO ONAYI BEKLENİYOR</button>':'<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
+    return '<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(price>0?'<div class="price">'+price.toLocaleString('tr-TR')+' TL</div>':'')+buy+'</div>'
   }).join('');
-  Array.from(mi.querySelectorAll('.jsbuy')).forEach(function(btn){btn.onclick=function(){beginCheckout(btn.dataset.pid,btn)}});
-  modal.classList.add('open');
-  try{
-    const o=JSON.parse(localStorage.getItem('alidedeoglu_last_order')||'null');
-    if(o&&o.id&&o.token&&o.api===PAYCFG.api_base){
-      const first=mi.querySelector('.jsbuy');if(first)startOrderPoll(o.id,o.token,first);
-    }
-  }catch(e){}
+  modal.classList.add('open')
 }
-document.getElementById('close').onclick=function(){modal.classList.remove('open')};modal.onclick=function(e){if(e.target===modal)modal.classList.remove('open')};q.oninput=function(){const s=q.value.toLocaleLowerCase('tr-TR');render(DATA.items.filter(function(x){return JSON.stringify(x).toLocaleLowerCase('tr-TR').includes(s)}))};
-Promise.all([loadPayCfg(),fetch('./sales_catalog.json?v=20261105-0200',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('catalog');return r.json()})]).then(function(v){DATA=v[1]||{items:[]};render(DATA.items||[]);resumeLastOrder()}).catch(function(){count.textContent='HATA';grid.innerHTML='<div class="empty"><b>E-SATIŞ KATALOĞU YÜKLENEMEDİ.</b></div>'});
+function apply(){render(filteredRows())}
+document.getElementById('close').onclick=function(){modal.classList.remove('open')};
+modal.onclick=function(e){if(e.target===modal)modal.classList.remove('open')};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')modal.classList.remove('open')});
+q.oninput=function(){clearTimeout(searchTimer);searchTimer=setTimeout(apply,150)};
+filter.onchange=apply;
+fetch('./sales_catalog.json?v=20261105-0300',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('catalog');return r.json()}).then(function(j){DATA=j||{items:[]};apply()}).catch(function(){count.textContent='HATA';grid.innerHTML='<div class="empty"><b>E-SATIŞ KATALOĞU YÜKLENEMEDİ.</b></div>'});
 </script>
 </body></html>
