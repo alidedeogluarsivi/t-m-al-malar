@@ -20,7 +20,7 @@
 <div id="modal" class="modal"><div class="panel"><button id="close" class="close">×</button><h2 id="mt"></h2><div id="ml"></div><div id="pv" class="preview"></div><div id="mi"></div></div></div>
 <script>
 let DATA={items:[]};
-let PAYCFG={api_base:"",enabled:false};
+let PAYCFG={api_base:"",enabled:false,backend:"WIX_STORES"};
 let activePoll=null;
 async function loadPayCfg(){
   try{
@@ -29,7 +29,7 @@ async function loadPayCfg(){
   }catch(e){}
 }
 async function beginCheckout(productId,btn){
-  if(!PAYCFG.enabled||!PAYCFG.api_base){alert('ÖDEME SİSTEMİ HENÜZ CANLIYA ALINMADI.');return}
+  if(!PAYCFG.enabled||!PAYCFG.api_base){alert('PAYTR HESABI WIX MAĞAZASINA BAĞLANMADAN CANLI ÖDEME AÇILMAZ.');return}
   const old=btn.textContent;btn.disabled=true;btn.textContent='ÖDEME HAZIRLANIYOR…';
   try{
     const r=await fetch(PAYCFG.api_base.replace(/\/$/,'')+'/api/create-payment',{
@@ -83,7 +83,7 @@ function openItem(x){
     if(price>0&&p.product_id&&PAYCFG.enabled&&PAYCFG.api_base){
       buy='<button class="buy jsbuy" data-pid="'+esc(p.product_id)+'">SATIN AL</button>';
     }else if(price>0){
-      buy='<button class="buy off" disabled>ÖDEME SİSTEMİ HAZIRLANIYOR</button>';
+      buy='<button class="buy off" disabled>PAYTR BAĞLANTISI BEKLENİYOR</button>';
     }else{
       buy='<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
     }
