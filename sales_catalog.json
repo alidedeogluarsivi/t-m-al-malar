@@ -818,7 +818,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
     },
     {
       "id": "erzurum|olur|yukarikaracasu",
@@ -853,7 +854,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
     },
     {
       "id": "gumushane|kelkit|doganca",
@@ -1817,7 +1819,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "NO_COVER_FIRST_PAGE_IS_PAID_CONTENT"
     },
     {
       "id": "nigde|merkez|nar",
@@ -1852,7 +1855,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
     },
     {
       "id": "nigde|ulukisla|basmakci",
@@ -1887,7 +1891,8 @@
           "digital_delivery": false
         }
       ],
-      "payment_provider": "SHOPIER"
+      "payment_provider": "SHOPIER",
+      "cover_status": "VERIFIED_COVER_PENDING_UPLOAD"
     },
     {
       "id": "ordu|akkus|dagyolu",
