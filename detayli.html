@@ -14,7 +14,7 @@ html,body,#map{height:100%;margin:0}body{font-family:Arial,Helvetica,sans-serif;
 <div class="legend"><div><span class="dot read"></span>ARŞİV KAYDI VAR</div><div><span class="dot none"></span>HENÜZ EŞLEŞEN KAYIT YOK</div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
 const map=L.map('map',{zoomControl:true,minZoom:5,maxZoom:16}).setView([39,35.2],6);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(map);
 const PROV='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/provinces.geojson';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
 const MAH='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/mahalle-geometrileri-by-district-v2/';
