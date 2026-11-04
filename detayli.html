@@ -80,7 +80,7 @@ const ARCH=['archive_1.ndjson','archive_2.ndjson','archive_3.ndjson','archive_4.
 const TRAPI='https://api.turkiyeapi.dev/v2';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 const svg=d3.select('#mapSvg'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount');
-let provinceData,districtData=null,selectedProvince=null,selectedDistrict=null,currentVillages=[],archive=[],archiveIndex=new Map(),summary={};
+let provinceData,districtData=null,selectedProvince=null,selectedDistrict=null,currentVillages=[],currentApiDistricts=[],archive=[],archiveIndex=new Map(),summary={};
 
 function norm(s){return (s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function canonicalProvince(n){return norm(n)===norm('Afyon')?'Afyonkarahisar':n}
@@ -116,56 +116,94 @@ function showTurkey(){
   pSel.value='';dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';dSel.disabled=true;vList.innerHTML='<div class="sideEmpty">İl ve ilçe seçtiğinizde bütün köy/mahalle adları burada listelenecek.</div>';vCount.textContent='—';
 }
 async function selectProvince(f){
-  const geoName=f.properties.name,canon=canonicalProvince(geoName),pid=PROVINCE_MAP[canon];selectedProvince={geoName,name:canon,id:pid};selectedDistrict=null;currentVillages=[];
-  crumb.textContent=canon.toLocaleUpperCase('tr-TR');statusEl.textContent='İlçeler yükleniyor…';pSel.value=canon;vList.innerHTML='<div class="sideEmpty">İlçe seçin; köyler burada görünecek.</div>';vCount.textContent='—';
+  const geoName=f.properties.name,canon=canonicalProvince(geoName),pid=PROVINCE_MAP[canon];
+  selectedProvince={geoName,name:canon,id:pid};selectedDistrict=null;currentVillages=[];currentApiDistricts=[];
+  crumb.textContent=canon.toLocaleUpperCase('tr-TR');statusEl.textContent='İlçeler yükleniyor…';pSel.value=canon;
+  vList.innerHTML='<div class="sideEmpty">İlçe seçin; köy ve mahalleler burada görünecek.</div>';vCount.textContent='—';
   try{
-    if(!districtData)districtData=await json(DIST);
+    const plate=Number(String(pid).replace('TR-P-',''));
+    const [apiDistrictRes] = await Promise.all([
+      json(TRAPI+'/provinces/'+plate+'/districts?limit=1000'),
+      districtData ? Promise.resolve(null) : json(DIST).then(x=>districtData=x)
+    ]);
+    currentApiDistricts=(apiDistrictRes?.data||[]).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
     const feats=districtData.features.filter(x=>x.properties.parent_id===pid).sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
-    if(!feats.length)throw new Error('İlçe yok');
-    dSel.disabled=false;dSel.innerHTML='<option value="">İLÇE SEÇİN</option>'+feats.map(x=>'<option value="'+esc(x.properties.id)+'">'+esc(x.properties.name)+'</option>').join('');
+    if(!feats.length)throw new Error('İlçe geometrisi yok');
+    dSel.disabled=false;
+    dSel.innerHTML='<option value="">İLÇE SEÇİN</option>'+feats.map(x=>'<option value="'+esc(x.properties.id)+'">'+esc(x.properties.name)+'</option>').join('');
     renderFeatures(feats,'district',selectDistrict);
-    statusEl.textContent=feats.length+' ilçe · bir ilçeye tıklayın.';
-  }catch(e){console.error(e);statusEl.textContent='İlçe sınırları yüklenemedi.'}
-}
-async function selectDistrict(f){
-  selectedDistrict={id:f.properties.id,name:f.properties.name};crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');statusEl.textContent='Köy/mahalle sınırları yükleniyor…';dSel.value=selectedDistrict.id;
-  try{
-    const gj=await json(MAH+selectedDistrict.id+'.geojson');
-    for(const vf of gj.features){const vn=vf.properties.name||vf.properties.source_raw_name||'';vf.properties._displayName=vn;vf.properties._has=recFor(vn)?1:0}
-    currentVillages=gj.features.sort((a,b)=>(a.properties._displayName||'').localeCompare(b.properties._displayName||'','tr'));
-    renderVillages(currentVillages);renderVillageList();
-    const m=currentVillages.filter(x=>x.properties._has===1).length;
-    statusEl.textContent=currentVillages.length+' köy/mahalle · '+m+' arşiv kaydı eşleşti. Köye tıklayın.';
+    statusEl.textContent=feats.length+' ilçe · haritadan veya listeden seçin.';
   }catch(e){
-    console.warn('Poligon yok, köy listesi yedek kaynaktan getiriliyor',e);
-    await loadVillageFallback();
+    console.error(e);
+    statusEl.textContent='İlçeler yüklenemedi.';
   }
 }
-async function loadVillageFallback(){
+
+function findApiDistrict(name){
+  let d=currentApiDistricts.find(x=>norm(x.name)===norm(name));
+  if(!d && selectedProvince && norm(name)===norm(selectedProvince.name)) d=currentApiDistricts.find(x=>norm(x.name)==='merkez');
+  if(!d && norm(name)==='corum') d=currentApiDistricts.find(x=>norm(x.name)==='merkez');
+  return d||null;
+}
+
+async function loadAllSettlements(){
+  const apiDistrict=findApiDistrict(selectedDistrict.name);
+  if(!apiDistrict) throw new Error('API ilçe eşleşmesi bulunamadı');
+  selectedDistrict.apiId=apiDistrict.id;
+  const [vr,nr]=await Promise.all([
+    json(TRAPI+'/districts/'+apiDistrict.id+'/villages?limit=1000').catch(()=>({data:[]})),
+    json(TRAPI+'/districts/'+apiDistrict.id+'/neighborhoods?limit=1000').catch(()=>({data:[]}))
+  ]);
+  const seen=new Set(), rows=[];
+  for(const v of (vr.data||[])){
+    const k='koy|'+norm(v.name); if(seen.has(k))continue; seen.add(k);
+    rows.push({properties:{_displayName:v.name,_kind:'KÖY',_has:recFor(v.name)?1:0,_fallback:1}});
+  }
+  for(const n of (nr.data||[])){
+    const k='mahalle|'+norm(n.name); if(seen.has(k))continue; seen.add(k);
+    rows.push({properties:{_displayName:n.name,_kind:'MAHALLE',_has:recFor(n.name)?1:0,_fallback:1}});
+  }
+  rows.sort((a,b)=>a.properties._displayName.localeCompare(b.properties._displayName,'tr'));
+  return rows;
+}
+
+async function selectDistrict(f){
+  selectedDistrict={id:f.properties.id,name:f.properties.name};
+  crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+selectedDistrict.name.toLocaleUpperCase('tr-TR');
+  statusEl.textContent='Köy ve mahalleler yükleniyor…';dSel.value=selectedDistrict.id;
   try{
-    const plate=Number(String(selectedProvince.id||'').replace('TR-P-',''));
-    const dr=await json(TRAPI+'/provinces/'+plate+'/districts?limit=1000');
-    const d=(dr.data||[]).find(x=>norm(x.name)===norm(selectedDistrict.name) || (norm(selectedDistrict.name)==='corum'&&norm(x.name)==='merkez'));
-    if(!d)throw new Error('Yedek ilçe eşleşmedi');
-    const vr=await json(TRAPI+'/districts/'+d.id+'/villages?limit=1000');
-    const villages=(vr.data||[]).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
-    currentVillages=villages.map(v=>({properties:{_displayName:v.name,_has:recFor(v.name)?1:0,_fallback:1}}));
+    currentVillages=await loadAllSettlements();
     renderVillageList();
-    svg.selectAll('*').remove();
-    const districtFeature=districtData.features.find(x=>x.properties.id===selectedDistrict.id);
-    if(districtFeature)renderFeatures([districtFeature],'district',()=>{});
-    vCount.textContent=villages.length+' KÖY';
-    statusEl.textContent=villages.length+' köy listelendi · bu ilçede açık köy sınır poligonu mevcut değil.';
-    const note=document.createElement('div');note.className='sideEmpty';note.style.marginBottom='8px';note.innerHTML='<b>KÖYLER LİSTELENDİ.</b><br>Bu ilçede açık ve doğrulanmış köy sınır poligonu bulunmadığı için sahte sınır çizilmedi.';
-    vList.prepend(note);
+    const villageN=currentVillages.filter(x=>x.properties._kind==='KÖY').length;
+    const neighN=currentVillages.filter(x=>x.properties._kind==='MAHALLE').length;
+    try{
+      const gj=await json(MAH+selectedDistrict.id+'.geojson');
+      for(const vf of gj.features){
+        const vn=vf.properties.name||vf.properties.source_raw_name||'';
+        vf.properties._displayName=vn;vf.properties._has=recFor(vn)?1:0;
+      }
+      renderVillages(gj.features);
+      const matched=currentVillages.filter(x=>x.properties._has===1).length;
+      statusEl.textContent=villageN+' köy · '+neighN+' mahalle · '+matched+' arşiv eşleşmesi. Sınırı görünen yerleşime tıklayın veya soldan seçin.';
+    }catch(polyErr){
+      console.warn('Bu ilçede yerleşim poligonu yok',polyErr);
+      const districtFeature=districtData.features.find(x=>x.properties.id===selectedDistrict.id);
+      if(districtFeature)renderFeatures([districtFeature],'district',()=>{});
+      const matched=currentVillages.filter(x=>x.properties._has===1).length;
+      statusEl.textContent=villageN+' köy · '+neighN+' mahalle · '+matched+' arşiv eşleşmesi. Açık köy sınır poligonu yok; tüm adlar solda listelendi.';
+      const note=document.createElement('div');
+      note.className='sideEmpty';note.style.marginBottom='8px';
+      note.innerHTML='<b>TÜM YERLEŞİMLER LİSTELENDİ.</b><br>Bu ilçede doğrulanmış açık köy/mahalle sınır poligonu bulunmadığı için sahte sınır çizilmedi.';
+      vList.prepend(note);
+    }
   }catch(err){
     console.error(err);
-    currentVillages=[];
-    vCount.textContent='—';
-    statusEl.textContent='Köy listesi ve sınır verisi yüklenemedi.';
-    vList.innerHTML='<div class="sideEmpty">Bu ilçe için erişilebilir köy verisi bulunamadı.</div>';
+    currentVillages=[];vCount.textContent='—';
+    statusEl.textContent='Bu ilçenin yerleşim listesi yüklenemedi.';
+    vList.innerHTML='<div class="sideEmpty">Bu ilçe için köy/mahalle verisi yüklenemedi.</div>';
   }
 }
+
 function renderVillages(features){
   const fc={type:'FeatureCollection',features};currentProjection=projectionFor(fc);currentPath=d3.geoPath(currentProjection);svg.selectAll('*').remove();
   svg.selectAll('path').data(features).join('path').attr('d',currentPath).attr('class',d=>'geo village'+(d.properties._has===1?' has':'')).on('click',(e,d)=>{fitFeatureToView(d,70);openVillage(d.properties._displayName)});
@@ -174,8 +212,13 @@ function renderVillages(features){
   resetView();
 }
 function renderVillageList(){
-  vCount.textContent=currentVillages.length+' YER';
-  vList.innerHTML=currentVillages.map((f,i)=>{const n=f.properties._displayName||'',has=f.properties._has===1;return '<div class="villageItem '+(has?'has':'')+'" data-i="'+i+'"><span>'+esc(n)+'</span>'+(has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join('');
+  const villageN=currentVillages.filter(x=>x.properties._kind==='KÖY').length;
+  const neighN=currentVillages.filter(x=>x.properties._kind==='MAHALLE').length;
+  vCount.textContent=villageN+' KÖY · '+neighN+' MAHALLE';
+  vList.innerHTML=currentVillages.map((f,i)=>{
+    const n=f.properties._displayName||'',has=f.properties._has===1,kind=f.properties._kind||'YER';
+    return '<div class="villageItem '+(has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(n)+'</b><br><small>'+esc(kind)+'</small></span>'+(has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>';
+  }).join('');
   vList.querySelectorAll('[data-i]').forEach(el=>el.onclick=()=>openVillage(currentVillages[Number(el.dataset.i)].properties._displayName));
 }
 function openVillage(name){showVillage(name,recFor(name))}
