@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Okunmuş Yerler Haritası</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+html,body,#map{height:100%;margin:0}body{font-family:Arial,Helvetica,sans-serif;background:#f7f4ee}
+#map{background:#f7f4ee}.panel{position:absolute;z-index:1000;top:12px;left:12px;width:min(390px,calc(100% - 24px));background:rgba(255,255,255,.96);border:1px solid #cfc6b6;border-radius:14px;padding:14px 16px;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.panel h1{margin:0 0 4px;font:700 20px Georgia,serif;color:#142d45}.panel p{margin:3px 0;color:#55616d;font-size:12px;line-height:1.4}#crumb{margin-top:9px;font-weight:700;color:#142d45}#status{margin-top:6px;color:#8b5b1d}
+.legend{position:absolute;z-index:1000;right:12px;bottom:20px;background:rgba(255,255,255,.95);border:1px solid #d8d0c2;border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.7;box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.sw{display:inline-block;width:22px;height:3px;margin-right:7px;vertical-align:middle}.prov{background:#8f2d2d}.dist{background:#b9852d}.vill{background:#316e51}.read{background:#111;height:8px;width:8px;border-radius:50%}
+@media(max-width:640px){.panel{top:8px;left:8px;width:calc(100% - 16px);padding:10px 12px}.panel h1{font-size:17px}.legend{right:8px;bottom:14px}}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="panel"><h1>OKUNMUŞ YERLER HARİTASI</h1><p>İL → İLÇE → KÖY / MAHALLE</p><div id="crumb">TÜRKİYE</div><div id="status">İl sınırları yükleniyor…</div></div>
+<div class="legend"><div><span class="sw prov"></span>İL SINIRI</div><div><span class="sw dist"></span>İLÇE SINIRI</div><div><span class="sw vill"></span>KÖY / MAHALLE SINIRI</div><div><span class="sw read"></span>OKUNMUŞ YER</div></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map=L.map('map',{zoomControl:true,minZoom:5,maxZoom:16}).setView([39.0,35.2],6);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+const PROV='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/provinces.geojson';
+const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
+const META='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/json/districts.json';
+const MAH='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/mahalle-geometrileri-by-district-v2/';
+const READ='./okunanlar.json';
+const statusEl=document.getElementById('status'), crumb=document.getElementById('crumb');
+let provinceLayer,districtLayer,villageLayer,readLayer,meta=[],selectedProvince=null;
+function norm(s){return (s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9çğıöşü]/g,'');}
+async function getJSON(url){const r=await fetch(url);if(!r.ok)throw new Error(r.status);return r.json();}
+async function init(){
+ try{
+  const [p,d,m]=await Promise.all([getJSON(PROV),getJSON(DIST),getJSON(META)]);meta=m;
+  provinceLayer=L.geoJSON(p,{style:{color:'#8f2d2d',weight:1.8,fillColor:'#fff7e8',fillOpacity:.08},onEachFeature:(f,l)=>{const n=f.properties.name||f.properties.NAME_1||'İL';l.bindTooltip(n,{sticky:true});l.on('click',()=>{selectedProvince=n;crumb.textContent=n.toLocaleUpperCase('tr-TR');map.fitBounds(l.getBounds(),{padding:[18,18]});if(!map.hasLayer(districtLayer))districtLayer.addTo(map);clearVillage();statusEl.textContent='İlçe seçin.';});}}).addTo(map);
+  districtLayer=L.geoJSON(d,{style:{color:'#b9852d',weight:1.1,fillColor:'#f5dfb8',fillOpacity:.04},onEachFeature:(f,l)=>{const n=f.properties.name||f.properties.NAME_2||'İLÇE';l.bindTooltip(n,{sticky:true});l.on('click',()=>selectDistrict(f,l,n));}});
+  statusEl.textContent='Bir ile tıklayın.';
+  loadRead();
+ }catch(e){statusEl.textContent='Sınır verisi yüklenemedi.';console.error(e);}
+}
+async function selectDistrict(f,l,n){
+ map.fitBounds(l.getBounds(),{padding:[20,20]});crumb.textContent=(selectedProvince||'')+' → '+n.toLocaleUpperCase('tr-TR');clearVillage();statusEl.textContent='Köy / mahalle sınırları aranıyor…';
+ const pid=f.properties.parent_id||'';const cand=meta.filter(x=>x.id===f.properties.id || (norm(x.name)===norm(n) && (!pid || x.parent_id===pid)));
+ if(!cand.length){statusEl.textContent='Bu ilçe için köy/mahalle eşleşmesi bulunamadı.';return;}
+ try{
+  const gj=await getJSON(MAH+cand[0].id+'.geojson');
+  villageLayer=L.geoJSON(gj,{style:{color:'#316e51',weight:.9,fillColor:'#8fc5a9',fillOpacity:.08},onEachFeature:(vf,vl)=>{const vn=vf.properties.name||vf.properties.source_raw_name||'KÖY / MAHALLE';vl.bindTooltip(vn,{sticky:true});vl.bindPopup('<b>'+vn+'</b><br>'+n+' / '+(selectedProvince||''));}}).addTo(map);
+  statusEl.textContent=gj.features.length+' köy/mahalle sınırı gösteriliyor.';
+ }catch(e){statusEl.textContent='Bu ilçede açık köy/mahalle poligonu yok.';}
+}
+function clearVillage(){if(villageLayer){map.removeLayer(villageLayer);villageLayer=null;}}
+async function loadRead(){
+ try{
+  const a=await getJSON(READ);readLayer=L.layerGroup().addTo(map);a.forEach(x=>{if(!Number.isFinite(x.lat)||!Number.isFinite(x.lon))return;const m=L.circleMarker([x.lat,x.lon],{radius:6,color:'#111',weight:2,fillColor:'#fff',fillOpacity:1});let h='<b>'+x.koy+'</b><br>'+[x.ilce,x.il].filter(Boolean).join(' / ');if(x.nfs)h+='<br><b>NFS:</b> '+x.nfs;if(x.tmt)h+='<br><b>TMT:</b> '+x.tmt;if(x.varak)h+='<br><b>Varak:</b> '+x.varak;if(x.hane)h+='<br><b>Hane:</b> '+x.hane;if(x.erkek)h+='<br><b>Erkek:</b> '+x.erkek;m.bindPopup(h);m.bindTooltip(x.koy,{direction:'top'});m.addTo(readLayer);});
+ }catch(e){console.warn(e);}
+}
+map.on('zoomend',()=>{if(!districtLayer)return;if(map.getZoom()>=7){if(!map.hasLayer(districtLayer))districtLayer.addTo(map);}else if(map.hasLayer(districtLayer)){map.removeLayer(districtLayer);clearVillage();crumb.textContent='TÜRKİYE';}});
+init();
+</script>
+</body></html>
