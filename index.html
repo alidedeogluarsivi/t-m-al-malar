@@ -14,7 +14,7 @@
 .mapcard{position:relative;min-height:760px;overflow:hidden}.maptop{position:absolute;z-index:4;top:12px;left:12px;right:12px;display:flex;gap:8px;pointer-events:none}.crumb,.mapstatus{pointer-events:auto;background:#fffffff2;border:1px solid var(--line);border-radius:10px;padding:8px 10px;box-shadow:0 4px 12px #0001;font-size:10px}.crumb{font-weight:900}.mapstatus{margin-left:auto;color:#845d24}.mapactions{position:absolute;z-index:4;left:12px;bottom:12px;display:flex;gap:6px}.histTools{position:absolute;z-index:5;left:12px;top:58px;display:flex;gap:6px;flex-wrap:wrap;max-width:70%}.histTools button{border:1px solid var(--line);background:#fffffff2;border-radius:9px;padding:7px 9px;cursor:pointer;color:var(--ink);font-size:9px;font-weight:900}.histTools button.active{background:#17384e;color:#fff;border-color:#17384e}.histInfo{position:absolute;z-index:5;left:12px;top:102px;max-width:min(560px,80%);background:#fffffff0;border:1px solid var(--line);border-radius:10px;padding:9px 11px;box-shadow:0 4px 12px #0001;font-size:10px;line-height:1.5;display:none}.histInfo.show{display:block}.histInfo b{color:#8c3030}.histLabel{pointer-events:none;text-anchor:middle;font-weight:900;paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}.histLabel.sancak{fill:#8c3030;font-size:20px}.histLabel.eyalet{fill:#17384e;font-size:24px}.histLabel.kaza{fill:#765b31;font-size:15px}.mapactions button{border:1px solid var(--line);background:#fffffff2;border-radius:9px;padding:7px 9px;cursor:pointer;color:var(--ink);font-size:10px}
 svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;vector-effect:non-scaling-stroke}.province{fill:#f4ece0;stroke:var(--red);stroke-width:1.2}.province:hover{fill:#ead7c4}.province.hasArchive{fill:#b9d9c4;stroke:#155b3b;stroke-width:1.8}.province.density2{fill:#8fc5a3}.province.density3{fill:#5ea87b}.province.density4{fill:#2f7d55}.provinceCount{pointer-events:none;fill:#0b5d3b;stroke:#fff;stroke-width:1.2}.provinceCountText{pointer-events:none;text-anchor:middle;dominant-baseline:middle;font-size:8px;font-weight:900;fill:#fff;stroke:none}.district{fill:#f3dfb2;stroke:#a77524;stroke-width:1.15}.district:hover{fill:#d8b35c;stroke:#6f4b12;stroke-width:1.8}.districtGroup:hover .district{fill:#ead08e}.village{fill:#eeeae2;stroke:#736e66;stroke-width:.65}.village.has{fill:#a8d2b8;stroke:#155b3b;stroke-width:1.5}.label{pointer-events:none;text-anchor:middle;font-weight:900;fill:#17384e;paint-order:stroke;stroke:#fff;stroke-width:4.5px;stroke-linejoin:round;letter-spacing:.01em}.provinceLabel{font-size:12px}.districtLabel{font-size:14px;font-family:Georgia,serif}.villageLabel{font-size:9px}.centerDot{pointer-events:none;fill:#17384e;stroke:#fff;stroke-width:1.6}.archiveDot{fill:#0a6a3f}
 .legend{position:absolute;z-index:4;right:12px;bottom:12px;background:#fffffff0;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:9px;line-height:1.7}.sw{display:inline-block;width:20px;height:4px;vertical-align:middle;margin-right:5px}.s1{background:var(--red)}.s2{background:#a77524}.s3{background:#736e66}.s4{background:#0a6a3f}
-.preview{margin-top:14px;padding:16px}.preview h2{font:700 22px Georgia,serif;margin:0 0 5px}.preview>p{margin:0 0 12px;color:var(--muted);font-size:11px}.previewgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.pcard{border:1px solid #e1d7c8;border-radius:12px;padding:12px;background:#fff;cursor:pointer;min-width:0}.pcard:hover{border-color:#aa8a5d;box-shadow:0 8px 20px #0001}.pcard b{font:700 16px Georgia,serif}.pcard small{display:block;color:var(--muted);margin-top:4px;line-height:1.45}.previewLoc{font-size:9px;font-weight:900;color:#765b31;margin-bottom:5px;letter-spacing:.04em}.previewFamilies{margin-top:9px;padding-top:8px;border-top:1px solid #eee5d9}.previewFamilies strong{display:block;font-size:9px;letter-spacing:.08em;color:#17384e;margin-bottom:5px}.previewMore{grid-column:1/-1;border:1px solid #cdbb9f;background:#fffaf0;color:#17384e;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer}.previewMore:hover{background:#f5ead9}.quickbar{position:sticky;top:8px;z-index:12;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;padding:8px;background:#ffffffed;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px #0001;backdrop-filter:blur(8px)}.quickbar button{border:1px solid var(--line);background:#fff;color:#17384e;border-radius:9px;padding:8px 10px;font-size:10px;font-weight:900;cursor:pointer}.quickbar button:hover{background:#f6efe5}.quickbar .qstatus{margin-left:auto;font-size:9px;color:var(--muted);font-weight:800}.pills{margin-top:7px}.pill{display:inline-block;margin:2px 3px 2px 0;border-radius:999px;background:#f0ece5;padding:4px 7px;font-size:9px;line-height:1.25}.pill.familyPill{background:#edf5ef;border:1px solid #c7ddce;color:#14583a;font-weight:800}
+.adminHistory{display:none;margin-top:14px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 36px #0001}.adminHistory.show{display:block}.adminHistory h2{font:700 22px Georgia,serif;margin:0 0 5px}.adminHistory>p{margin:0 0 12px;color:var(--muted);font-size:11px}.adminGrid{display:grid;gap:8px}.adminRow{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:start;border:1px solid #e4dacb;border-radius:10px;padding:9px 10px;background:#fcfaf6}.adminTag{font-size:9px;font-weight:900;color:#8c3030;letter-spacing:.04em}.adminLine{font-size:11px;line-height:1.45}.adminSource{margin-top:10px;padding-top:9px;border-top:1px solid #e9dfd0;font-size:9px;color:#765b31;font-weight:900}.preview{margin-top:14px;padding:16px}.preview h2{font:700 22px Georgia,serif;margin:0 0 5px}.preview>p{margin:0 0 12px;color:var(--muted);font-size:11px}.previewgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.pcard{border:1px solid #e1d7c8;border-radius:12px;padding:12px;background:#fff;cursor:pointer;min-width:0}.pcard:hover{border-color:#aa8a5d;box-shadow:0 8px 20px #0001}.pcard b{font:700 16px Georgia,serif}.pcard small{display:block;color:var(--muted);margin-top:4px;line-height:1.45}.previewLoc{font-size:9px;font-weight:900;color:#765b31;margin-bottom:5px;letter-spacing:.04em}.previewFamilies{margin-top:9px;padding-top:8px;border-top:1px solid #eee5d9}.previewFamilies strong{display:block;font-size:9px;letter-spacing:.08em;color:#17384e;margin-bottom:5px}.previewMore{grid-column:1/-1;border:1px solid #cdbb9f;background:#fffaf0;color:#17384e;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer}.previewMore:hover{background:#f5ead9}.quickbar{position:sticky;top:8px;z-index:12;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;padding:8px;background:#ffffffed;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px #0001;backdrop-filter:blur(8px)}.quickbar button{border:1px solid var(--line);background:#fff;color:#17384e;border-radius:9px;padding:8px 10px;font-size:10px;font-weight:900;cursor:pointer}.quickbar button:hover{background:#f6efe5}.quickbar .qstatus{margin-left:auto;font-size:9px;color:var(--muted);font-weight:800}.pills{margin-top:7px}.pill{display:inline-block;margin:2px 3px 2px 0;border-radius:999px;background:#f0ece5;padding:4px 7px;font-size:9px;line-height:1.25}.pill.familyPill{background:#edf5ef;border:1px solid #c7ddce;color:#14583a;font-weight:800}
 .searchpanel{display:none;position:fixed;z-index:30;left:50%;top:80px;transform:translateX(-50%);width:min(980px,calc(100% - 24px));max-height:76vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 55px #0004;padding:8px}.searchpanel.show{display:block}.searchGroup{padding:10px 10px 4px;font:700 16px Georgia,serif;color:#17384e;background:#faf7f1;border-top:1px solid #eadfce}.searchGroup:first-of-type{border-top:0}.sresult{padding:11px 12px;border-bottom:1px solid #eee5d9;cursor:pointer;display:grid;grid-template-columns:minmax(180px,1fr) 2fr;gap:14px;align-items:start}.sresult:hover{background:#faf6ef}.sresult small{color:var(--muted)}.sresultLoc{font-size:9px;font-weight:900;color:#765b31;margin-bottom:3px}.sresultFamilies{display:flex;flex-wrap:wrap;gap:4px}.sFam{background:#edf5ef;border:1px solid #c8ddcf;color:#14583a;border-radius:999px;padding:4px 7px;font-size:9px;font-weight:900}.searchHint{font-size:10px;color:var(--muted);margin-top:4px}
 .drawer{display:none;position:fixed;z-index:40;top:10px;right:10px;bottom:10px;width:min(590px,calc(100% - 20px));background:#fff;border:1px solid #c9b99f;border-radius:18px;box-shadow:0 24px 60px #0005;overflow:hidden;flex-direction:column}.drawer.open{display:flex}.dhead{padding:18px;background:linear-gradient(135deg,#122e46,#20526a);color:#fff;position:relative}.dhead h2{font:700 29px Georgia,serif;margin:4px 0}.dhead p{margin:0;color:#dce7ec;font-size:11px}.close{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid #ffffff55;background:#ffffff12;color:#fff;font-size:20px;cursor:pointer}.dbody{overflow:auto;padding:15px;background:#fbfaf7}.section{border-top:1px solid #e4dacb;padding-top:13px;margin-top:13px}.section:first-child{border-top:0;margin-top:0;padding-top:0}.section h3{font:700 16px Georgia,serif;margin:0 0 8px}.record{border:1px solid #e2d8c8;border-radius:10px;background:#fff;padding:10px;margin:7px 0;font-size:11px;line-height:1.5}.record strong{color:#102f45}.family{display:inline-block;border:1px solid #ddd1c0;border-radius:7px;background:#f2eee7;padding:5px 7px;margin:3px;font-size:10px}.kv{display:grid;grid-template-columns:130px 1fr;gap:4px 9px;font-size:10px}.kv b{color:#6f552e}.notice{margin-top:8px;padding:9px;border-radius:9px;background:#fff7df;border:1px solid #e8cf8c;color:#6f5421;font-size:10px;line-height:1.45}.saleBox{border:2px solid #a7772a;border-radius:14px;padding:14px;background:#fffaf0}.saleBox h3{margin:0 0 8px!important}.saleCover{width:100%;max-height:420px;object-fit:contain;border:1px solid #e1d7c8;border-radius:10px;background:#fff;margin:8px 0}.saleLock{font-weight:900;font-size:13px;margin:8px 0}.salePrice{font-size:19px;font-weight:900;margin:8px 0}.buyBtn{width:100%;border:0;border-radius:10px;padding:12px 14px;background:#17384e;color:#fff;font-weight:900;cursor:pointer}.buyBtn:disabled{opacity:.55;cursor:not-allowed}
 @media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.workbench{grid-template-columns:1fr}.sidebar{min-height:0;position:static}.vlist{max-height:280px}.mapcard{min-height:680px}svg{height:680px}.previewgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.shell{padding:8px}.hero{padding:18px}.hero h1{font-size:27px}.searchbar{grid-template-columns:1fr}.searchbar small{display:none}.previewgrid{grid-template-columns:1fr}.maptop{flex-direction:column;right:auto}.mapstatus{margin-left:0}.legend{font-size:8px}}
@@ -62,7 +62,7 @@ svg{width:100%;height:760px;display:block;background:#fff}.geo{cursor:pointer;ve
 </section>
 </div>
 
-<section class="preview"><h2 id="previewTitle">Arşivden Ön İzleme</h2><p id="previewDesc">İl veya ilçe seçtiğinizde o bölgedeki köyler ve kayıtlı sülale adları burada görünür.</p><div id="previewGrid" class="previewgrid"></div></section>
+<section id="adminHistory" class="adminHistory"><h2 id="adminTitle">OSMANLI İDARÎ GEÇMİŞİ</h2><p id="adminDesc"></p><div id="adminGrid" class="adminGrid"></div><div class="adminSource">KAYNAK: DEVLET ARŞİVLERİ GENEL MÜDÜRLÜĞÜ · OSMANLI YER ADLARI (2017)</div></section><section class="preview"><h2 id="previewTitle">Arşivden Ön İzleme</h2><p id="previewDesc">İl veya ilçe seçtiğinizde o bölgedeki köyler ve kayıtlı sülale adları burada görünür.</p><div id="previewGrid" class="previewgrid"></div></section>
 </div>
 
 <div id="searchPanel" class="searchpanel"></div>
@@ -79,11 +79,12 @@ const VILLAGE_LOCAL='./geo/villages/';
 const GEO_MANIFEST='./geo/manifest.json';
 const POINT_MANIFEST='./geo/points-manifest.json';
 const VILLAGE_POINTS='./geo/points/';
+const OSMANLI_ADMIN_FILES=Array.from({length:18},function(_,i){return './geo/osmanli_admin_'+String(i+1).padStart(2,'0')+'.json'});
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
 const SVG_NS='http://www.w3.org/2000/svg';
-let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,histLayers={modern:true,sancak:false,eyalet:false,kaza:false};
+let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,osmanliAdminData=null,osmanliAdminPromise=null,histLayers={modern:true,sancak:false,eyalet:false,kaza:false};
 
 function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -95,6 +96,76 @@ function flatten(c,out){out=out||[];if(Array.isArray(c)&&typeof c[0]==='number')
 function geometryPath(g,pr){if(!g)return'';function ring(r){return r.map(function(p,i){const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}if(g.type==='Polygon')return g.coordinates.map(ring).join(' ');if(g.type==='MultiPolygon')return g.coordinates.flatMap(function(poly){return poly.map(ring)}).join(' ');return''}
 function projector(features){const pts=[];features.forEach(function(f){flatten(f.geometry&&f.geometry.coordinates,pts)});if(!pts.length)return function(){return[500,310]};let minX=180,maxX=-180,minY=90,maxY=-90;pts.forEach(function(p){minX=Math.min(minX,p[0]);maxX=Math.max(maxX,p[0]);minY=Math.min(minY,p[1]);maxY=Math.max(maxY,p[1])});const W=1000,H=620,pad=34,dx=Math.max(.01,maxX-minX),dy=Math.max(.01,maxY-minY),scale=Math.min((W-pad*2)/dx,(H-pad*2)/dy),ox=(W-dx*scale)/2,oy=(H-dy*scale)/2;return function(p){return[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)]}}
 function center(f,pr){const pts=flatten(f.geometry&&f.geometry.coordinates,[]);if(!pts.length)return[500,310];let x=0,y=0;pts.forEach(function(p){const q=pr(p);x+=q[0];y+=q[1]});return[x/pts.length,y/pts.length]}
+async function loadOsmanliAdmin(){
+  if(osmanliAdminData)return osmanliAdminData;
+  if(osmanliAdminPromise)return osmanliAdminPromise;
+  osmanliAdminPromise=Promise.all(OSMANLI_ADMIN_FILES.map(function(u){return getJSON(u).catch(function(){return{}})})).then(function(parts){
+    osmanliAdminData=Object.assign({},...parts);return osmanliAdminData
+  });
+  return osmanliAdminPromise
+}
+function provinceAliases(il){
+  const m={
+    'Afyonkarahisar':['Afyonkarahisar','Afyon','Karahisâr-ı Sâhib','Karahisar-ı Sahib'],
+    'Amasya':['Amasya'],'Ankara':['Ankara'],'Antalya':['Antalya','Teke'],
+    'Ardahan':['Ardahan','Kars','Çıldır'],'Artvin':['Artvin','Çoruh','Lazistan'],
+    'Aydın':['Aydın'],'Balıkesir':['Balıkesir','Karesi'],'Bartın':['Bartın','Zonguldak'],
+    'Bilecik':['Bilecik','Ertuğrul'],'Bolu':['Bolu'],'Burdur':['Burdur','Hamid'],
+    'Bursa':['Bursa','Hudâvendigâr','Hüdavendigâr'],'Çanakkale':['Çanakkale','Biga','Kale-i Sultâniye'],
+    'Çankırı':['Çankırı','Kengırı','Kângırı'],'Çorum':['Çorum'],'Denizli':['Denizli'],
+    'Elazığ':['Elazığ','Mamûretülaziz','Harput'],'Erzincan':['Erzincan'],'Erzurum':['Erzurum'],
+    'Giresun':['Giresun','Şebinkarahisar','Karahisâr-ı şarkî','Karahisar-ı Şarki'],
+    'Gümüşhane':['Gümüşhane'],'Isparta':['Isparta','Hamid'],'İstanbul':['İstanbul','Şehremaneti','Üsküdar'],
+    'İzmir':['İzmir','Sığla'],'Karabük':['Karabük','Zonguldak','Kastamonu'],
+    'Kars':['Kars'],'Kastamonu':['Kastamonu'],'Kayseri':['Kayseri'],
+    'Kırıkkale':['Kırıkkale','Ankara','Keskin'],'Kocaeli':['Kocaeli','İzmit'],
+    'Konya':['Konya','Karaman'],'Kütahya':['Kütahya','Hudâvendigâr'],
+    'Malatya':['Malatya','Mamûretülaziz'],'Manisa':['Manisa','Saruhan'],
+    'Muğla':['Muğla','Menteşe'],'Niğde':['Niğde','Konya'],'Ordu':['Ordu'],
+    'Rize':['Rize','Lazistan'],'Sakarya':['Sakarya','Kocaeli','İzmit'],
+    'Samsun':['Samsun','Canik'],'Sinop':['Sinop'],'Sivas':['Sivas'],
+    'Tekirdağ':['Tekirdağ','Tekfurdağı'],'Tokat':['Tokat','Sivas'],
+    'Trabzon':['Trabzon'],'Uşak':['Uşak','Kütahya'],'Van':['Van'],
+    'Yalova':['Yalova','Kocaeli','İstanbul'],'Yozgat':['Yozgat','Bozok'],
+    'Zonguldak':['Zonguldak','Bolu'],'Adana':['Adana'],'Ardahan':['Ardahan','Kars','Çıldır']
+  };
+  return m[il]||[il]
+}
+function cleanAdminLines(lines){
+  const out=[];
+  (lines||[]).forEach(function(raw){
+    let s=String(raw||'').replace(/[\u0600-\u06ff]+/g,'').replace(/\s+/g,' ').trim();
+    if(!s)return;
+    if((/^\(/.test(s)||/^(vilâyeti|eyâleti|sancağı|salnâme)/i.test(s))&&out.length){out[out.length-1]+=' '+s}else out.push(s)
+  });
+  return out
+}
+function hideAdminHistory(){const box=document.getElementById('adminHistory');if(box)box.classList.remove('show')}
+async function renderAdminHistory(il,ilce){
+  const box=document.getElementById('adminHistory'),grid=document.getElementById('adminGrid'),desc=document.getElementById('adminDesc'),title=document.getElementById('adminTitle');
+  if(!box||!ilce){hideAdminHistory();return}
+  title.textContent=ilce.toLocaleUpperCase('tr-TR')+' · OSMANLI İDARÎ GEÇMİŞİ';
+  desc.textContent='Tarihî statü ve bağlı idarî birimler yükleniyor…';grid.innerHTML='';box.classList.add('show');
+  const data=await loadOsmanliAdmin();
+  if(!selectedDistrict||norm(selectedDistrict.name)!==norm(ilce)){return}
+  let keyName=Object.keys(data).find(function(k){return norm(k)===norm(ilce)});
+  let entries=keyName?(data[keyName]||[]):[];
+  if(!entries.length){desc.textContent='Bu ilçe adı için Osmanlı Yer Adları kaynağında doğrudan eşleşme bulunamadı.';return}
+  const aliases=provinceAliases(il).map(norm);
+  let picked=entries.filter(function(e){const b=norm((e.kayitlar||[]).join(' '));return aliases.some(function(a){return a&&b.includes(a)})});
+  if(entries.length===1&&!picked.length)picked=entries;
+  if(entries.length>1&&!picked.length){desc.textContent='Aynı yer adı birden fazla bölgede geçtiği için il eşleşmesi olmadan otomatik kayıt gösterilmedi.';grid.innerHTML='';return}
+  const rows=[];
+  picked.forEach(function(e){cleanAdminLines(e.kayitlar).forEach(function(line){rows.push({ad:e.ad,line:line})})});
+  if(!rows.length){desc.textContent='Eşleşen tarihî idarî satır bulunamadı.';return}
+  desc.textContent=il+' / '+ilce+' için kaynakta geçen tarihî idarî statü ve bağlılıklar.';
+  grid.innerHTML=rows.map(function(x){
+    const m=x.line.match(/^([^()]+?)(?:\s*\(([^)]+)\))?\s*(.*)$/);
+    const tag=m&&m[1]?m[1].trim():'KAYIT';
+    const rest=(m&&m[2]?'('+m[2]+') ':'')+(m&&m[3]?m[3]:'');
+    return'<div class="adminRow"><div class="adminTag">'+esc(tag)+'</div><div class="adminLine">'+esc(rest||x.line)+'</div></div>'
+  }).join('')
+}
 function historicalMeta(){
   const rows=archive.filter(function(r){
     if(selectedProvince&&norm(r.il)!==norm(selectedProvince.name))return false;
@@ -417,7 +488,7 @@ function renderDistrictGroups(groups){
   svg.setAttribute('viewBox','0 0 1000 620')
 }
 function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
-function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
+function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
 function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
 function selectProvinceFeature(f){const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];selectProvinceByName(name,id)}
 async function loadDistrictGeo(){
@@ -429,6 +500,7 @@ async function selectProvinceByName(name,id){
   const requestId=++districtRequestSeq;
   selectedProvince={name:name,id:id};
   selectedDistrict=null;
+  hideAdminHistory();
   previewLimit=36;
   currentVillages=[];
   level='province';
@@ -511,6 +583,7 @@ function renderVillageList(){const vn=currentVillages.filter(function(x){return 
 async function selectDistrict(local,geoFeature){
   const requestId=++districtRequestSeq;
   selectedDistrict={id:local.id,name:local.name};
+  renderAdminHistory(selectedProvince.name,local.name);
   previewLimit=36;
   level='district';
   renderPreview();
