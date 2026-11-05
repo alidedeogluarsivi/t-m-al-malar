@@ -1206,6 +1206,34 @@ function showRecord(name,r,ilce,il){
   document.getElementById('vbody').innerHTML=h;
   drawer.classList.add('open')
 }
+function settlementNamesFor(il,ilce){
+  const pname=canonicalProvince(il||'');
+  const pid=PROVINCE_MAP[pname];
+  if(!pid||!settlements)return[];
+  const plate=Number(String(pid).replace('TR-P-',''));
+  const bucket=(settlements[String(plate)]||settlements[plate]||{});
+  let rec=bucket[ilce];
+  if(!rec){
+    const k=Object.keys(bucket).find(function(x){return norm(x)===norm(ilce)});
+    if(k)rec=bucket[k]
+  }
+  if(!rec&&norm(ilce)===norm(pname))rec=bucket.Merkez||bucket.MERKEZ||null;
+  return rec?[...(rec.v||[]),...(rec.m||[])]:[]
+}
+function canonicalVillageCandidates(il,ilce,koy){
+  const names=settlementNamesFor(il,ilce);
+  if(!names.length)return[];
+  const nk=norm(koy||'');
+  const exact=names.find(function(x){return norm(x)===nk});
+  if(exact)return[exact];
+  const cleaned=nk.replace(norm(ilce||''),'').replace(/ilcesi|koyu|koyleri|karyesi|kopya|merkez/g,'');
+  const hits=names.filter(function(x){
+    const nx=norm(x);
+    return nx&&(nk.includes(nx)||cleaned.includes(nx))
+  });
+  if(hits.length)return hits;
+  return[]
+}
 function inferProvinceFromDistrict(ilce){
   const n=norm(ilce||'');if(!n)return'';
   const hits=Array.from(new Set(districtList.filter(function(x){return norm(x.name||'')===n}).map(function(x){
@@ -1238,7 +1266,14 @@ async function loadArchive(){
         const x=JSON.parse(line);
         if(x._summary){summary=Object.assign(summary,x._summary);return}
         if(!x.il&&x.ilce)x.il=inferProvinceFromDistrict(x.ilce);
-        if(x.il&&x.ilce&&x.koy)raw.push(x)
+        if(x.il&&x.ilce&&x.koy){
+          const vc=canonicalVillageCandidates(x.il,x.ilce,x.koy);
+          if(vc.length){
+            vc.forEach(function(vn){const y=Object.assign({},x,{koy:vn});raw.push(y)})
+          }else if(!isJunkVillageName(x.koy)){
+            raw.push(x)
+          }
+        }
       }catch(e){}
     })
   }
