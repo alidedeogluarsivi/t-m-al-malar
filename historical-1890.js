@@ -172,7 +172,7 @@ installControls();
 
 /* İlçe bazlı toplu PDF/Excel çalışmalarındaki sülaleleri köy kartlarına bindir. */
 (function(){
-  const OVERLAY='./catalog/district_family_overlay.json?v=20261105-02';
+  const OVERLAY='./catalog/district_family_overlay.json?v=20261105-04';
   function sn(s){try{return searchNorm(s)}catch(e){return String(s||'').toLocaleLowerCase('tr-TR')}}
   function nn(s){try{return norm(s)}catch(e){return String(s||'').toLocaleLowerCase('tr-TR')}}
   async function applyDistrictFamilyOverlay(){
