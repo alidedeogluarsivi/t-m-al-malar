@@ -1291,12 +1291,13 @@ async function loadArchive(){
           const ilce=String(item['İLÇE']||'').trim();
           const koy=String(item['KÖY']||'').trim();
           const sulale=String(item['SÜLALE ADI (STANDART)']||'').trim();
-          if(!il||!ilce||!koy||!sulale||/ADAY/i.test(item['EŞLEŞME DURUMU']||''))return;
+          if(!il||!ilce||!koy||!sulale)return;
           if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
           const villages=settlementNamesFor(il,ilce);
           const matched= villages.find(function(v){return norm(v)===norm(koy)});
           if(!matched)return;
-          const record={il:il,ilce:ilce,koy:matched,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:['SÜLALE KATALOĞUNDAN KÖY EŞLEŞMESİ'],arsiv_karti:true};
+          const aday=/ADAY/i.test(item['EŞLEŞME DURUMU']||'');
+          const record={il:il,ilce:ilce,koy:matched,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[aday?'SÜLALE KATALOĞU: ADAY KAYIT, ARŞİV KÜNYESİ DOĞRULANMALI':'SÜLALE KATALOĞUNDAN KÖY EŞLEŞMESİ'],arsiv_karti:true};
           const defter=String(item['DEFTER NO']||'').trim();
           if(defter)record.defterler.push({defter:defter,tur:item['BELGE TÜRÜ']||'',yil:item['DEFTER YILI']||''});
           const hane=item['HANE NO'];
