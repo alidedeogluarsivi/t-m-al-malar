@@ -1,293 +1,171 @@
-/* ALİDEDEOĞLU ARŞİVİ — TAHMİNÎ 1890 OSMANLI İDARÎ KATMANI
-   Kaynak mantığı: Devlet Arşivleri Osmanlı Yer Adları + arşivde işlenmiş NFS/TMT tarihî idare alanları.
-   Sınırlar tarihî çizili harita değildir; bugünkü ilçe geometrilerinin 1890 civarı idarî bağlılıklara göre birleştirilmiş yaklaşık görünümüdür. */
+/* ALİDEDEOĞLU ARŞİVİ — TARİHÎ OSMANLI İDARÎ KATMANI
+   Sınırlar: R. Huber 1899 idarî haritası esas alınarak elle sayısallaştırılmış
+   tarihî kaza poligonları (Amasyalı HGIS, c. 1893–1914).
+   Vilâyet ve sancak sınırları bu gerçek kaza poligonlarının birleşiminden üretilir. */
 (function(){
 'use strict';
 
+const HIST_GEO='./historical/kazas_boundaries_1899.geojson?v=20261105';
 let historicalLayer=null;
-let historical1890=null;
+let historicalData=null;
 let histSelection={vilayet:null,sancak:null};
 
-function clean(s){
-  return String(s||'').replace(/\s+/g,' ').replace(/[“”"]/g,'').trim();
+function hclean(s){return String(s||'').replace(/\s+/g,' ').trim()}
+function hnorm(s){return hclean(s).toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
+function hesc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]})}
+function stripKaza(s){return hclean(s).replace(/\s+kaza$/i,'').trim()}
+function ensureMap(){if(typeof initBaseMap==='function')initBaseMap();return window.L&&baseMap}
+async function loadHistoricalData(){
+  if(historicalData)return historicalData;
+  historicalData=await getJSON(HIST_GEO);
+  return historicalData
 }
-function stripAdminSuffix(s){
-  return clean(s)
-    .replace(/\b(vilâyeti|vilayeti|vilâyet|vilayet|eyâleti|eyaleti|eyâlet|eyalet|sancağı|sancagi|sancak|kazâsı|kazasi|kazâ|kaza)\b/gi,'')
-    .replace(/\s+/g,' ').trim();
-}
-function yearCovers1890(line){
-  const ranges=[...String(line||'').matchAll(/\((\d{4})(?:\s*[-–]\s*(\d{4}))?/g)];
-  if(!ranges.length)return false;
-  return ranges.some(m=>{
-    const a=Number(m[1]),b=Number(m[2]||m[1]);
-    return a<=1890 && 1890<=b;
-  });
-}
-function statusOf(line){
-  const s=clean(line).toLocaleLowerCase('tr-TR');
-  if(s.startsWith('nâhiye')||s.startsWith('nahiye'))return'nahiye';
-  if(s.startsWith('kazâ')||s.startsWith('kaza'))return'kaza';
-  if(s.startsWith('sancak'))return'sancak';
-  if(s.startsWith('vilâyet')||s.startsWith('vilayet')||s.startsWith('eyâlet')||s.startsWith('eyalet'))return'vilayet';
-  return'';
-}
-function parse1890Line(currentName,line){
-  if(!yearCovers1890(line))return null;
-  if(/rusya|bulgaristan|romanya|yunanistan|iran|fransa mandası/i.test(line))return null;
-  const status=statusOf(line);
-  if(!status)return null;
-  let body=String(line).replace(/^[^(]+/,'').replace(/^\s*\([^)]*\)\s*/,'').trim();
-  const parts=body.split('→').map(clean).filter(Boolean);
-  if(!parts.length)return null;
-
-  let vilayet='';
-  let vilayetIndex=-1;
-  for(let i=parts.length-1;i>=0;i--){
-    if(/vilâyet|vilayet|eyâlet|eyalet/i.test(parts[i])){
-      vilayet=stripAdminSuffix(parts[i]);vilayetIndex=i;break;
-    }
-  }
-  if(!vilayet){
-    // Bazı satırlarda vilâyet sözcüğü ayrı devam satırına düşmüş olabilir.
-    const last=parts[parts.length-1];
-    if(last && !/salnâme|salname/i.test(last))vilayet=stripAdminSuffix(last);
-    vilayetIndex=parts.length-1;
-  }
-  if(!vilayet)return null;
-
-  const before=parts.slice(0,Math.max(0,vilayetIndex)).map(stripAdminSuffix).filter(Boolean);
-  let sancak='',kaza='';
-  if(status==='nahiye'){
-    kaza=before[0]||currentName;
-    sancak=before.length>1?before[before.length-1]:(before[0]||currentName);
-  }else if(status==='kaza'){
-    kaza=currentName;
-    sancak=before.length?before[before.length-1]:currentName;
-  }else if(status==='sancak'){
-    sancak=currentName;kaza=currentName;
-  }else{
-    sancak=currentName;kaza=currentName;
-  }
-  return {vilayet:vilayet,sancak:sancak,kaza:kaza,status:status,sourceLine:clean(line)};
-}
-function reverseProvinceMap(){
-  const out={};
-  Object.keys(PROVINCE_MAP||{}).forEach(k=>{out[String(PROVINCE_MAP[k])]=k});
-  return out;
-}
-function entryMatchesProvince(lines,province){
-  const aliases=(typeof provinceAliases==='function'?provinceAliases(province):[province]).map(norm);
-  const blob=norm((lines||[]).join(' '));
-  return aliases.some(a=>a&&blob.includes(a));
-}
-async function loadHistorical1890(){
-  if(historical1890)return historical1890;
-  const [admin,dist]=await Promise.all([
-    loadOsmanliAdmin(),
-    districtGeo?Promise.resolve(districtGeo):getJSON(DIST_REMOTE)
-  ]);
-  if(!districtGeo)districtGeo=dist;
-  const rev=reverseProvinceMap();
-  const assignments=[];
-  const missed=[];
-
-  (dist.features||[]).forEach(f=>{
-    const p=f.properties||{};
-    const districtName=p.name||'';
-    const modernProvince=rev[String(p.parent_id||'')]||'';
-    if(!districtName||!modernProvince)return;
-
-    const keyName=Object.keys(admin||{}).find(k=>norm(k)===norm(districtName));
-    const entries=keyName?(admin[keyName]||[]):[];
-    let candidates=[];
-    entries.forEach(e=>{
-      const lines=e.kayitlar||[];
-      lines.forEach(line=>{
-        const parsed=parse1890Line(districtName,line);
-        if(parsed)candidates.push({parsed:parsed,lines:lines});
-      });
-    });
-    if(candidates.length>1){
-      const byProvince=candidates.filter(x=>entryMatchesProvince(x.lines,modernProvince));
-      if(byProvince.length)candidates=byProvince;
-    }
-    if(candidates.length){
-      const a=candidates[0].parsed;
-      assignments.push({
-        feature:f,
-        district:districtName,
-        modernProvince:modernProvince,
-        vilayet:a.vilayet,
-        sancak:a.sancak,
-        kaza:a.kaza,
-        sourceLine:a.sourceLine
-      });
-    }else missed.push({district:districtName,province:modernProvince});
-  });
-
-  // Arşiv defterlerindeki tarihî alanlarla boşlukları, yalnız açık alan varsa tamamla.
-  (archive||[]).forEach(r=>{
-    const exists=assignments.some(a=>norm(a.modernProvince)===norm(r.il)&&norm(a.district)===norm(r.ilce));
-    if(exists)return;
-    const d=(r.defterler||[]).find(x=>x&&(x.tarihi_kaza||x.kaza)&&(x.sancak||x.tarihi_sancak)&&(x.vilayet||x.eyalet||x.tarihi_vilayet||x.tarihi_eyalet));
-    if(!d)return;
-    const f=(dist.features||[]).find(x=>{
-      const p=x.properties||{};
-      return norm(p.name)===norm(r.ilce)&&norm(rev[String(p.parent_id||'')]||'')===norm(r.il);
-    });
-    if(!f)return;
-    assignments.push({
-      feature:f,district:r.ilce,modernProvince:r.il,
-      vilayet:String(d.vilayet||d.eyalet||d.tarihi_vilayet||d.tarihi_eyalet),
-      sancak:String(d.sancak||d.tarihi_sancak),
-      kaza:String(d.tarihi_kaza||d.kaza),
-      sourceLine:'NFS/TMT ARŞİV KARTI'
-    });
-  });
-
-  historical1890={assignments:assignments,missed:missed};
-  return historical1890;
-}
-
 function clearHistoricalLayer(){
   if(historicalLayer&&baseMap){baseMap.removeLayer(historicalLayer);historicalLayer=null}
-  histSelection={vilayet:null,sancak:null};
 }
-function fcFor(rows,field){
-  return {type:'FeatureCollection',features:rows.map(r=>{
-    const f=JSON.parse(JSON.stringify(r.feature));
-    f.properties=Object.assign({},f.properties,{_histGroup:r[field],_histVilayet:r.vilayet,_histSancak:r.sancak,_histKaza:r.kaza});
-    return f;
-  })};
+function setButtons(mode){
+  ['modernLayerBtn','eyaletLayerBtn','sancakLayerBtn','kazaLayerBtn'].forEach(function(id){
+    const e=document.getElementById(id);if(e)e.classList.remove('active')
+  });
+  const id=mode==='modern'?'modernLayerBtn':mode==='vilayet'?'eyaletLayerBtn':mode==='sancak'?'sancakLayerBtn':'kazaLayerBtn';
+  const e=document.getElementById(id);if(e)e.classList.add('active')
 }
-function dissolve(fc,field){
-  if(!window.turf||!fc.features.length)return fc;
-  try{
-    return turf.dissolve(fc,{propertyName:field});
-  }catch(e){
-    return fc;
+function histInfo(html){
+  const box=document.getElementById('histInfo');if(!box)return;
+  box.innerHTML=html;box.classList.add('show')
+}
+function sourceNote(){
+  return '<small>KAYNAK SINIRLARI: R. HUBER 1899 OSMANLI İDARÎ HARİTASI ÜZERİNDEN SAYISALLAŞTIRILMIŞ TARİHÎ KAZA POLİGONLARI · AMASYALI HGIS. DÖNEM: 1893–1914 CİVARI.</small>'
+}
+function featureGroup(fc,field){
+  return {
+    type:'FeatureCollection',
+    features:(fc.features||[]).map(function(f){
+      const x=JSON.parse(JSON.stringify(f));
+      const p=x.properties||{};
+      x.properties=Object.assign({},p,{_histGroup:hclean(p[field]||'')});
+      return x
+    }).filter(function(f){return f.properties._histGroup})
   }
+}
+function dissolveBy(fc,field){
+  const grouped=featureGroup(fc,field);
+  if(!window.turf||!grouped.features.length)return grouped;
+  try{return turf.dissolve(grouped,{propertyName:'_histGroup'})}
+  catch(e){return grouped}
 }
 function histLabel(layer,name,cls){
   if(!name)return;
-  layer.bindTooltip(name,{permanent:true,direction:'center',className:'histMapLabel '+(cls||''),opacity:1});
+  layer.bindTooltip(name,{permanent:true,direction:'center',className:'histMapLabel '+cls,opacity:1})
 }
-function histInfo(html){
-  const box=document.getElementById('histInfo');
-  if(!box)return;
-  box.innerHTML=html;
-  box.classList.add('show');
+function fit(layer,maxZoom){
+  try{const b=layer.getBounds();if(b&&b.isValid())baseMap.fitBounds(b,{padding:[18,18],maxZoom:maxZoom||7})}catch(e){}
 }
-function vilayetSummary(name,rows){
-  const sancaks=[...new Set(rows.map(r=>r.sancak).filter(Boolean))];
-  const kazas=[...new Set(rows.map(r=>r.kaza).filter(Boolean))];
-  return '<b>TAHMİNÎ 1890 · '+esc(name.toLocaleUpperCase('tr-TR'))+' VİLÂYETİ</b><br>'+
-    sancaks.length+' SANCAK · '+kazas.length+' KAZA EŞLEŞMESİ<br>'+
-    '<small>SINIR: BUGÜNKÜ İLÇE GEOMETRİLERİNİN 1890 CİVARI TARİHÎ BAĞLILIKLARA GÖRE BİRLEŞTİRİLMİŞ YAKLAŞIK GÖRÜNÜMÜDÜR.</small>';
+function rowsFor(data,vilayet,sancak){
+  return (data.features||[]).filter(function(f){
+    const p=f.properties||{};
+    if(vilayet&&hnorm(p.Vilayet)!==hnorm(vilayet))return false;
+    if(sancak&&hnorm(p.Sanjak)!==hnorm(sancak))return false;
+    return true
+  })
 }
 function renderVilayets(){
-  loadHistorical1890().then(data=>{
+  if(!ensureMap())return;
+  loadHistoricalData().then(function(data){
     clearHistoricalLayer();
-    const rows=data.assignments.filter(r=>r.vilayet);
-    const fc=dissolve(fcFor(rows,'vilayet'),'_histGroup');
+    setButtons('vilayet');
+    histSelection={vilayet:null,sancak:null};
+    const fc=dissolveBy(data,'Vilayet');
     historicalLayer=L.geoJSON(fc,{
-      style:{color:'#c21f2f',weight:3,fillColor:'#c21f2f',fillOpacity:.025,dashArray:'7 4'},
+      pane:'overlayPane',
+      style:{color:'#b51e2e',weight:3.6,fillColor:'#b51e2e',fillOpacity:.06,dashArray:'9 5',opacity:1},
       onEachFeature:function(f,l){
         const name=(f.properties&&f.properties._histGroup)||'';
-        histLabel(l,name+' VİLÂYETİ','vilayet');
+        histLabel(l,name.toLocaleUpperCase('tr-TR')+' VİLÂYETİ','vilayet');
         l.on('click',function(){
-          histSelection.vilayet=name;
-          const vrows=rows.filter(r=>norm(r.vilayet)===norm(name));
-          histInfo(vilayetSummary(name,vrows));
-          renderSancaks(name);
-        });
+          histSelection.vilayet=name;histSelection.sancak=null;
+          const kazas=rowsFor(data,name,null);
+          const sancaks=[...new Set(kazas.map(function(x){return hclean((x.properties||{}).Sanjak)}).filter(Boolean))];
+          histInfo('<b>'+hesc(name.toLocaleUpperCase('tr-TR'))+' VİLÂYETİ</b><br>'+sancaks.length+' SANCAK · '+kazas.length+' KAZA<br>'+sourceNote());
+          renderSancaks(name)
+        })
       }
     }).addTo(baseMap);
-    if(historicalLayer.getBounds().isValid())baseMap.fitBounds(historicalLayer.getBounds(),{padding:[12,12]});
-    histInfo('<b>TAHMİNÎ 1890 OSMANLI İDARÎ HARİTASI</b><br>VİLÂYET SINIRLARI KIRMIZI VE SAYDAMDIR. BİR VİLÂYETE TIKLAYIN → SANCAKLAR AÇILSIN.<br><small>KAYNAK: OSMANLI YER ADLARI + NFS/TMT TARİHÎ İDARÎ ALANLARI.</small>');
-  });
+    fit(historicalLayer,6);
+    histInfo('<b>1899 OSMANLI İDARÎ SINIRLARI</b><br>VİLÂYET SINIRLARI GERÇEK TARİHÎ KAZA POLİGONLARINDAN ÜRETİLDİ. BİR VİLÂYETE TIKLAYIN → SANCAKLAR AÇILSIN.<br>'+sourceNote())
+  })
 }
 function renderSancaks(vilayet){
-  loadHistorical1890().then(data=>{
-    if(historicalLayer){baseMap.removeLayer(historicalLayer);historicalLayer=null}
-    const rows=data.assignments.filter(r=>norm(r.vilayet)===norm(vilayet)&&r.sancak);
-    const fc=dissolve(fcFor(rows,'sancak'),'_histGroup');
+  if(!ensureMap())return;
+  loadHistoricalData().then(function(data){
+    clearHistoricalLayer();
+    setButtons('sancak');
+    const rows=rowsFor(data,vilayet,null);
+    const fc=dissolveBy({type:'FeatureCollection',features:rows},'Sanjak');
     historicalLayer=L.geoJSON(fc,{
-      style:{color:'#9a6818',weight:3.2,fillColor:'#d6a13a',fillOpacity:.035},
+      style:{color:'#a06c15',weight:3.2,fillColor:'#d6a13a',fillOpacity:.08,opacity:1},
       onEachFeature:function(f,l){
         const name=(f.properties&&f.properties._histGroup)||'';
-        histLabel(l,name+' SANCAĞI','sancak');
+        histLabel(l,name.toLocaleUpperCase('tr-TR')+' SANCAĞI','sancak');
         l.on('click',function(){
-          histSelection.sancak=name;
-          const srows=rows.filter(r=>norm(r.sancak)===norm(name));
-          const kazas=[...new Set(srows.map(r=>r.kaza).filter(Boolean))];
-          histInfo('<b>'+esc(vilayet.toLocaleUpperCase('tr-TR'))+' VİLÂYETİ → '+esc(name.toLocaleUpperCase('tr-TR'))+' SANCAĞI</b><br>'+kazas.length+' KAZA EŞLEŞMESİ · SANCAĞA TIKLANDI, KAZALAR AÇILIYOR.');
-          renderKazas(vilayet,name);
-        });
+          histSelection.vilayet=vilayet;histSelection.sancak=name;
+          const kazas=rowsFor(data,vilayet,name);
+          histInfo('<b>'+hesc(vilayet.toLocaleUpperCase('tr-TR'))+' VİLÂYETİ → '+hesc(name.toLocaleUpperCase('tr-TR'))+' SANCAĞI</b><br>'+kazas.length+' KAZA<br>'+sourceNote());
+          renderKazas(vilayet,name)
+        })
       }
     }).addTo(baseMap);
-    if(historicalLayer.getBounds().isValid())baseMap.fitBounds(historicalLayer.getBounds(),{padding:[20,20],maxZoom:8});
-  });
+    fit(historicalLayer,8)
+  })
 }
 function renderKazas(vilayet,sancak){
-  loadHistorical1890().then(data=>{
-    if(historicalLayer){baseMap.removeLayer(historicalLayer);historicalLayer=null}
-    const rows=data.assignments.filter(r=>norm(r.vilayet)===norm(vilayet)&&norm(r.sancak)===norm(sancak)&&r.kaza);
-    const fc=dissolve(fcFor(rows,'kaza'),'_histGroup');
-    historicalLayer=L.geoJSON(fc,{
-      style:{color:'#17384e',weight:2.6,fillColor:'#17384e',fillOpacity:.025},
+  if(!ensureMap())return;
+  loadHistoricalData().then(function(data){
+    clearHistoricalLayer();
+    setButtons('kaza');
+    const rows=rowsFor(data,vilayet,sancak);
+    historicalLayer=L.geoJSON({type:'FeatureCollection',features:rows},{
+      style:{color:'#17384e',weight:2.1,fillColor:'#17384e',fillOpacity:.045,opacity:1},
       onEachFeature:function(f,l){
-        const name=(f.properties&&f.properties._histGroup)||'';
-        histLabel(l,name+' KAZASI','kaza');
+        const p=f.properties||{};
+        const name=stripKaza(p.KazaName||'');
+        histLabel(l,name.toLocaleUpperCase('tr-TR')+' KAZASI','kaza');
         l.on('click',function(){
-          const krows=rows.filter(r=>norm(r.kaza)===norm(name));
-          const modern=[...new Set(krows.map(r=>r.modernProvince+' / '+r.district))];
-          openInfoPanel(name+' KAZASI','TAHMİNÎ 1890 · '+vilayet+' VİLÂYETİ / '+sancak+' SANCAĞI',
-            '<div class="section"><h3>TARİHÎ KAZA KATMANI</h3><div class="notice"><b>TAHMİNÎ SINIR:</b> BUGÜNKÜ İLÇE GEOMETRİLERİ TARİHÎ BAĞLILIKLARA GÖRE BİRLEŞTİRİLMİŞTİR.</div></div>'+
-            '<div class="section"><h3>BUGÜNKÜ GEOMETRİYE DENK GELEN YERLER</h3>'+modern.map(x=>'<span class="family">'+esc(x)+'</span>').join('')+'</div>'+
-            '<div class="section"><h3>KAYNAK SATIRLARI</h3>'+krows.slice(0,30).map(x=>'<div class="record">'+esc(x.sourceLine)+'</div>').join('')+'</div>'
-          );
-        });
+          const body='<div class="section"><h3>TARİHÎ İDARÎ HİYERARŞİ</h3><div class="record"><strong>VİLÂYET:</strong> '+hesc(p.Vilayet||'')+'<br><strong>SANCAK:</strong> '+hesc(p.Sanjak||'')+'<br><strong>KAZA:</strong> '+hesc(name)+'</div></div><div class="section"><h3>SINIR KAYNAĞI</h3><div class="notice">R. HUBER 1899 OSMANLI İDARÎ HARİTASI ESAS ALINARAK SAYISALLAŞTIRILMIŞ TARİHÎ KAZA POLİGONU. 1893 NÜFUS COĞRAFYASI İLE UYUMLANDIRILMIŞTIR.</div></div>';
+          if(typeof openInfoPanel==='function')openInfoPanel(name+' KAZASI',(p.Vilayet||'')+' VİLÂYETİ / '+(p.Sanjak||'')+' SANCAĞI',body)
+        })
       }
     }).addTo(baseMap);
-    if(historicalLayer.getBounds().isValid())baseMap.fitBounds(historicalLayer.getBounds(),{padding:[22,22],maxZoom:10});
-  });
+    fit(historicalLayer,10)
+  })
 }
-
-function setBtn(id,active){const e=document.getElementById(id);if(e)e.classList.toggle('active',!!active)}
 function installControls(){
   const modern=document.getElementById('modernLayerBtn');
-  const eyalet=document.getElementById('eyaletLayerBtn');
-  const sancak=document.getElementById('sancakLayerBtn');
-  const kaza=document.getElementById('kazaLayerBtn');
-  if(eyalet)eyalet.textContent='1890 VİLÂYET';
+  const vil=document.getElementById('eyaletLayerBtn');
+  const san=document.getElementById('sancakLayerBtn');
+  const kaz=document.getElementById('kazaLayerBtn');
+  const note=document.querySelector('.histPeriodNote');
+  if(vil)vil.textContent='1899 VİLÂYET';
+  if(note)note.textContent='1899 TARİHÎ İDARÎ KATMAN · KAZA SINIRLARI R. HUBER HARİTASI ÜZERİNDEN SAYISALLAŞTIRILMIŞTIR.';
   if(modern)modern.onclick=function(){
-    clearHistoricalLayer();
-    document.getElementById('histInfo').classList.remove('show');
-    setBtn('modernLayerBtn',true);setBtn('eyaletLayerBtn',false);setBtn('sancakLayerBtn',false);setBtn('kazaLayerBtn',false);
+    clearHistoricalLayer();setButtons('modern');histSelection={vilayet:null,sancak:null};
+    const box=document.getElementById('histInfo');if(box)box.classList.remove('show')
   };
-  if(eyalet)eyalet.onclick=function(){
-    setBtn('modernLayerBtn',false);setBtn('eyaletLayerBtn',true);setBtn('sancakLayerBtn',false);setBtn('kazaLayerBtn',false);
-    renderVilayets();
-  };
-  if(sancak)sancak.onclick=function(){
-    setBtn('modernLayerBtn',false);setBtn('eyaletLayerBtn',false);setBtn('sancakLayerBtn',true);setBtn('kazaLayerBtn',false);
+  if(vil)vil.onclick=renderVilayets;
+  if(san)san.onclick=function(){
     if(histSelection.vilayet)renderSancaks(histSelection.vilayet);
-    else {renderVilayets();histInfo('<b>ÖNCE VİLÂYETE TIKLAYIN.</b><br>SEÇTİĞİNİZ VİLÂYETİN SANCAKLARI ÖNE ÇIKACAK.')}
+    else {renderVilayets();histInfo('<b>ÖNCE VİLÂYETE TIKLAYIN.</b><br>SEÇTİĞİNİZ VİLÂYETİN TARİHÎ SANCAKLARI AÇILACAK.<br>'+sourceNote())}
   };
-  if(kaza)kaza.onclick=function(){
-    setBtn('modernLayerBtn',false);setBtn('eyaletLayerBtn',false);setBtn('sancakLayerBtn',false);setBtn('kazaLayerBtn',true);
+  if(kaz)kaz.onclick=function(){
     if(histSelection.vilayet&&histSelection.sancak)renderKazas(histSelection.vilayet,histSelection.sancak);
-    else histInfo('<b>ÖNCE VİLÂYET → SANCAK SEÇİN.</b><br>SONRA KAZALAR ÖNE ÇIKACAK.');
-  };
+    else histInfo('<b>ÖNCE VİLÂYET → SANCAK SEÇİN.</b><br>SONRA TARİHÎ KAZA SINIRLARI AÇILACAK.')
+  }
 }
 function addCss(){
   const s=document.createElement('style');
-  s.textContent='.leaflet-tooltip.histMapLabel{background:#fffdf7ed;border-radius:5px;box-shadow:none;font-weight:900;white-space:nowrap;padding:3px 6px}.leaflet-tooltip.histMapLabel.vilayet{border:2px solid #c21f2f;color:#9f1624;font-size:12px}.leaflet-tooltip.histMapLabel.sancak{border:2px solid #9a6818;color:#79500f;font-size:11px}.leaflet-tooltip.histMapLabel.kaza{border:1px solid #17384e;color:#17384e;font-size:10px}';
-  document.head.appendChild(s);
+  s.textContent='.leaflet-tooltip.histMapLabel{background:#fffdf7f2;border-radius:5px;box-shadow:0 2px 8px #0002;font-weight:900;white-space:nowrap;padding:3px 6px}.leaflet-tooltip.histMapLabel.vilayet{border:2px solid #b51e2e;color:#8f1220;font-size:12px}.leaflet-tooltip.histMapLabel.sancak{border:2px solid #a06c15;color:#75500d;font-size:11px}.leaflet-tooltip.histMapLabel.kaza{border:1px solid #17384e;color:#17384e;font-size:9px}';
+  document.head.appendChild(s)
 }
-
 addCss();
 installControls();
 })();
