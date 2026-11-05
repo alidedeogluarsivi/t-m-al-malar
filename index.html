@@ -97,7 +97,7 @@ svg{width:100%;height:760px;display:block;background:#fff;cursor:grab;touch-acti
 const PROV='./provinces-local.json';
 const DIST_LOCAL='./districts-local.json';
 const SETTLEMENTS='./settlements-local.json';
-const ARCH=['archive_verified.ndjson?v=20261105-familycomplete','archive_1.ndjson?v=20261105-familycomplete','archive_2.ndjson?v=20261105-familycomplete','archive_3.ndjson?v=20261105-familycomplete','archive_4.ndjson?v=20261105-familycomplete'];
+const ARCH=['archive_verified.ndjson?v=20261105-verifiedfull','archive_1.ndjson?v=20261105-familycomplete','archive_2.ndjson?v=20261105-familycomplete','archive_3.ndjson?v=20261105-familycomplete','archive_4.ndjson?v=20261105-familycomplete'];
 const SALES='./sales_catalog.json?v=20261104-2200';
 const DIST_REMOTE='./geo/districts.geojson';
 const VILLAGE_LOCAL='./geo/villages/';
@@ -1473,8 +1473,47 @@ async function loadArchive(){
       }catch(e){}
     })
   }
-  // Include family-index entries only when their current province, district and village
-  // match an actual settlement exactly. Candidate and ambiguous records stay unlinked.
+  // Önce doğrulanmış ana sülale kataloğunu yükle.
+  try{
+    const verified=await getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-verifiedfull');
+    verified.split(/\r?\n/).forEach(function(line){
+      if(!line.trim())return;
+      try{
+        const item=JSON.parse(line);
+        const il=canonicalProvince(item['İL']||'');
+        const ilce=String(item['İLÇE']||'').trim();
+        const koyRaw=String(item['KÖY/KARYE/MAHALLE']||'').trim();
+        const sulale=String(item['STANDART SÜLALE ADI']||'').trim();
+        if(!sulale||!koyRaw)return;
+        let resolvedIl=il,resolvedIlce=ilce;
+        if(!resolvedIlce&&item['TARİHÎ KAZA']){
+          const hk=String(item['TARİHÎ KAZA']||'').trim();
+          const dHits=districtList.filter(function(d){return norm(d.name||'')===norm(hk)});
+          if(dHits.length===1){
+            resolvedIlce=dHits[0].name;
+            resolvedIl=inferProvinceFromDistrict(resolvedIlce)||resolvedIl
+          }
+        }
+        if(!resolvedIl||!resolvedIlce)return;
+        const villages=settlementNamesFor(resolvedIl,resolvedIlce);
+        const direct=villages.find(function(v){return norm(v)===norm(koyRaw)});
+        const vc=canonicalVillageCandidates(resolvedIl,resolvedIlce,koyRaw);
+        const targets=direct?[direct]:(vc.length===1?vc:[koyRaw]);
+        targets.forEach(function(resolvedVillage){
+          const record={il:resolvedIl,ilce:resolvedIlce,koy:resolvedVillage,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:['DOĞRULANMIŞ SÜLALE ANA KATALOĞUNDAN'],arsiv_karti:true};
+          const defter=String(item['DEFTER NO']||'').trim();
+          const yil=String(item['YIL']||'').trim();
+          if(defter||yil)record.defterler.push({defter:defter||null,tur:item['BELGE TÜRÜ']||'',yil:yil||null,tarihi_kaza:item['TARİHÎ KAZA']||null,tarihi_ad:koyRaw});
+          const hane=item['HANE NO'];
+          if(hane!==null&&hane!==undefined&&String(hane).trim())record.haneler.push({sulale:sulale,hane_no:String(hane)});
+          if(item['KAYNAK PDF'])record.kaynak_pdf.push(item['KAYNAK PDF']);
+          raw.push(record)
+        })
+      }catch(e){}
+    })
+  }catch(e){console.warn('Doğrulanmış sülale kataloğu okunamadı',e)}
+
+  // Eski parçalı katalog da ek kaynak olarak yüklenir.
   const familyFiles=['01','02','03','04','05','06'].map(function(n){return 'catalog/sulale_'+n+'.ndjson'});
   for(const file of familyFiles){
     try{
@@ -1998,5 +2037,5 @@ bindHistoricalControls();
   showTurkey()
 }catch(e){console.error(e);statusEl.textContent='Site verileri yüklenirken hata oluştu. Sayfayı yenileyin.'}})();
 </script>
-<script src="./historical-1890.js?v=20261105-04"></script>
+<script src="./historical-1890.js?v=20261105-05"></script>
 </body></html>
