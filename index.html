@@ -1277,6 +1277,35 @@ async function loadArchive(){
       }catch(e){}
     })
   }
+  // Include family-index entries only when their current province, district and village
+  // match an actual settlement exactly. Candidate and ambiguous records stay unlinked.
+  const familyFiles=['01','02','03','04','05','06'].map(function(n){return 'catalog/sulale_'+n+'.ndjson'});
+  for(const file of familyFiles){
+    try{
+      const content=await getText(file);
+      content.split(/\r?\n/).forEach(function(line){
+        if(!line.trim())return;
+        try{
+          const item=JSON.parse(line);
+          const il=canonicalProvince(item['İL']||'');
+          const ilce=String(item['İLÇE']||'').trim();
+          const koy=String(item['KÖY']||'').trim();
+          const sulale=String(item['SÜLALE ADI (STANDART)']||'').trim();
+          if(!il||!ilce||!koy||!sulale||/ADAY/i.test(item['EŞLEŞME DURUMU']||''))return;
+          if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
+          const villages=settlementNamesFor(il,ilce);
+          const matched= villages.find(function(v){return norm(v)===norm(koy)});
+          if(!matched)return;
+          const record={il:il,ilce:ilce,koy:matched,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:['SÜLALE KATALOĞUNDAN KÖY EŞLEŞMESİ'],arsiv_karti:true};
+          const defter=String(item['DEFTER NO']||'').trim();
+          if(defter)record.defterler.push({defter:defter,tur:item['BELGE TÜRÜ']||'',yil:item['DEFTER YILI']||''});
+          const hane=item['HANE NO'];
+          if(hane!==null&&hane!==undefined&&String(hane).trim())record.haneler.push({sulale:sulale,hane_no:String(hane)});
+          raw.push(record);
+        }catch(e){}
+      });
+    }catch(e){console.warn('Sülale kataloğu okunamadı',file,e)}
+  }
   const merged=new Map();
   function pushUnique(arr,vals,sig){
     (vals||[]).forEach(function(v){
