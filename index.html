@@ -105,11 +105,12 @@ const GEO_MANIFEST='./geo/manifest.json';
 const POINT_MANIFEST='./geo/points-manifest.json';
 const VILLAGE_POINTS='./geo/points/';
 const OSMANLI_ADMIN_FILES=Array.from({length:18},function(_,i){return './geo/osmanli_admin_'+String(i+1).padStart(2,'0')+'.json'});
+const OSMANLI_CURRENT_MAP='./geo/osmanli_current_map.json?v=20261105-1';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
 const SVG_NS='http://www.w3.org/2000/svg';
-let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),familyIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,mapPeriod='modern';let baseMap=null,adminLayer=null,nearbyLayer=null;
+let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),familyIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,osmanliCurrentMap=null,osmanliCurrentPromise=null,mapPeriod='modern';let baseMap=null,adminLayer=null,nearbyLayer=null;
 
 function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -128,6 +129,17 @@ async function loadOsmanliAdmin(){
     osmanliAdminData=Object.assign({},...parts);return osmanliAdminData
   });
   return osmanliAdminPromise
+}
+function loadOsmanliCurrentMap(){
+  if(osmanliCurrentMap)return Promise.resolve(osmanliCurrentMap);
+  if(osmanliCurrentPromise)return osmanliCurrentPromise;
+  osmanliCurrentPromise=getJSON(OSMANLI_CURRENT_MAP).then(function(x){osmanliCurrentMap=x||{};return osmanliCurrentMap}).catch(function(){return{}});
+  return osmanliCurrentPromise
+}
+function mappedAdminEntries(il,ilce){
+  if(!osmanliCurrentMap||!osmanliCurrentMap.by_district)return[];
+  const k=norm(il)+'|'+norm(ilce);
+  return (osmanliCurrentMap.by_district[k]||[]).map(function(r){return{ad:r.osmanli_adi||r.anahtar||ilce,kayitlar:r.kayitlar||[],_mapped:true}})
 }
 function provinceAliases(il){
   const m={
@@ -171,10 +183,12 @@ async function renderAdminHistory(il,ilce){
   if(!box||!ilce){hideAdminHistory();return}
   title.textContent=ilce.toLocaleUpperCase('tr-TR')+' · OSMANLI İDARÎ GEÇMİŞİ';
   desc.textContent='Tarihî statü ve bağlı idarî birimler yükleniyor…';grid.innerHTML='';box.classList.add('show');
+  await loadOsmanliCurrentMap();
   const data=await loadOsmanliAdmin();
   if(!selectedDistrict||norm(selectedDistrict.name)!==norm(ilce)){return}
+  let entries=mappedAdminEntries(il,ilce);
   let keyName=Object.keys(data).find(function(k){return norm(k)===norm(ilce)});
-  let entries=keyName?(data[keyName]||[]):[];
+  if(!entries.length)entries=keyName?(data[keyName]||[]):[];
   if(!entries.length){desc.textContent='Bu ilçe adı için Osmanlı Yer Adları kaynağında doğrudan eşleşme bulunamadı.';return}
   const aliases=provinceAliases(il).map(norm);
   let picked=entries.filter(function(e){const b=norm((e.kayitlar||[]).join(' '));return aliases.some(function(a){return a&&b.includes(a)})});
@@ -238,9 +252,11 @@ function parse1890Line(line,districtName){
   return {status:status,parent:parent||districtName,chain:chain,line:clean}
 }
 async function admin1890Meta(il,ilce){
+  await loadOsmanliCurrentMap();
   const data=await loadOsmanliAdmin();
+  let entries=mappedAdminEntries(il,ilce);
   const keyName=Object.keys(data||{}).find(function(k){return norm(k)===norm(ilce)});
-  let entries=keyName?(data[keyName]||[]):[];
+  if(!entries.length)entries=keyName?(data[keyName]||[]):[];
   const aliases=provinceAliases(il).map(norm);
   let picked=entries.filter(function(e){const b=norm((e.kayitlar||[]).join(' '));return aliases.some(function(a){return a&&b.includes(a)})});
   if(!picked.length&&entries.length===1)picked=entries;
@@ -1215,9 +1231,11 @@ async function renderSideDistrict(il,ilce){
   const rows=archive.filter(function(r){return norm(canonicalProvince(r.il||''))===norm(il)&&norm(r.ilce||'')===norm(ilce)});
   body+='<div class="sideInfoSec"><b class="title">GÜNÜMÜZ</b>'+esc(il)+' / '+esc(ilce)+' · '+currentVillages.length+' YERLEŞİM</div>';
   try{
+    await loadOsmanliCurrentMap();
     const data=await loadOsmanliAdmin();
+    let entries=mappedAdminEntries(il,ilce);
     const k=Object.keys(data||{}).find(function(x){return norm(x)===norm(ilce)});
-    let entries=k?(data[k]||[]):[];
+    if(!entries.length)entries=k?(data[k]||[]):[];
     const pals=(typeof provinceAliases==='function'?provinceAliases(il):[il]).map(norm);
     let filtered=entries.filter(function(e){return (e.kayitlar||[]).some(function(line){const n=norm(line);return pals.some(function(a){return a&&n.includes(a)})})});
     if(filtered.length)entries=filtered;
