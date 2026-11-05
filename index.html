@@ -260,6 +260,19 @@ function districtMapInfo(il,ilce){
 }
 function initBaseMap(){if(baseMap||!window.L)return;baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:false,dragging:true,touchZoom:true});baseMap.createPane('archiveLabels');baseMap.getPane('archiveLabels').style.zIndex='760';baseMap.getPane('archiveLabels').style.pointerEvents='auto';const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(baseMap);const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'© OpenStreetMap · © CARTO'});L.control.layers({'SOKAK HARİTASI':osm,'SADE HARİTA':light},{},{position:'topright'}).addTo(baseMap);baseMap.on('click',function(e){showNearbySettlements(e.latlng)})}
 function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}clearNearbyLayer()}
+function useLeafletMap(){
+  const bm=document.getElementById('baseMap');
+  const sv=document.getElementById('mapSvg');
+  if(bm)bm.style.display='block';
+  if(sv)sv.style.display='none';
+  if(baseMap)setTimeout(function(){try{baseMap.invalidateSize()}catch(e){}},0)
+}
+function useSvgMap(){
+  const bm=document.getElementById('baseMap');
+  const sv=document.getElementById('mapSvg');
+  if(bm)bm.style.display='none';
+  if(sv)sv.style.display='block'
+}
 function lbl(layer,name,cls){if(name)layer.bindTooltip(name,{permanent:true,direction:'center',className:cls||'mapLabel',opacity:1})}
 function featureLabelLatLng(feature){
   try{
@@ -413,9 +426,9 @@ async function showNearbySettlements(latlng){
     '<div class="mapInfoHint">HARİTADAKİ ETİKETLERDEN BİRİNE TIKLAYARAK İLERLEYİN.</div>'
   )
 }
-function renderBaseTurkey(){initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
+function renderBaseTurkey(){useLeafletMap();initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
 function renderBaseProvince(feats){
-  initBaseMap();clearBaseLayer();
+  useLeafletMap();initBaseMap();clearBaseLayer();
   const polygonLayer=L.geoJSON({type:'FeatureCollection',features:feats},{
     style:{color:'#a77524',weight:2.2,fillColor:'#f3dfb2',fillOpacity:.045},
     onEachFeature:function(f,l){
@@ -441,7 +454,7 @@ function renderBaseProvince(feats){
   if(polygonLayer.getBounds().isValid())baseMap.fitBounds(polygonLayer.getBounds(),{padding:[24,24],maxZoom:10})
 }
 function renderBaseDistrict(df,vf,pf){
-  initBaseMap();clearBaseLayer();
+  useLeafletMap();initBaseMap();clearBaseLayer();
   const layers=[];
   let boundsLayer=null;
 
@@ -1317,6 +1330,7 @@ function familyRowsForDistrict(name,ilce){
   return familyRowsForProvince(name).filter(function(r){return norm(r.ilce||'')===norm(ilce)})
 }
 async function renderFamilyProvince(name){
+  useSvgMap();
   const rows=familyRowsForProvince(name);
   if(!rows.length)return;
   level='familyProvince';
@@ -1373,6 +1387,7 @@ async function renderFamilyProvince(name){
   statusEl.textContent=districts.length+' İLÇE · '+rows.length+' KÖY/MAHALLE · İLÇEYE TIKLAYIN'
 }
 async function renderFamilyDistrict(name,ilce){
+  useSvgMap();
   const rows=familyRowsForDistrict(name,ilce);
   if(!rows.length)return;
   level='familyDistrict';
@@ -1411,6 +1426,7 @@ async function renderFamilyDistrict(name,ilce){
   statusEl.textContent=rows.length+' KÖY/MAHALLE · KÖYE TIKLAYIN'
 }
 function renderFamilyDistribution(rows,q){
+  useSvgMap();
   if(!provinceData||!provinceData.features)return;
   level='family';
   selectedProvince=null;selectedDistrict=null;currentVillages=[];
