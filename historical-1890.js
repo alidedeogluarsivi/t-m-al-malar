@@ -169,3 +169,64 @@ function addCss(){
 addCss();
 installControls();
 })();
+
+/* İlçe bazlı toplu PDF/Excel çalışmalarındaki sülaleleri köy kartlarına bindir. */
+(function(){
+  const OVERLAY='./catalog/district_family_overlay.json?v=20261105-02';
+  function sn(s){try{return searchNorm(s)}catch(e){return String(s||'').toLocaleLowerCase('tr-TR')}}
+  function nn(s){try{return norm(s)}catch(e){return String(s||'').toLocaleLowerCase('tr-TR')}}
+  async function applyDistrictFamilyOverlay(){
+    try{
+      if(typeof archive==='undefined'||!archive||!archive.length){setTimeout(applyDistrictFamilyOverlay,300);return}
+      const ov=await getJSON(OVERLAY);
+      const cards=(ov&&ov.cards)||{};
+      let changed=0;
+      archive.forEach(function(r){
+        const o=cards[[r.il,r.ilce,r.koy].join('|')];
+        if(!o)return;
+        r.sulaleler=r.sulaleler||[];
+        const have=new Set(r.sulaleler.map(function(x){return sn(typeof x==='object'?JSON.stringify(x):x)}));
+        (o.families||[]).forEach(function(fam){
+          const fk=sn(fam);
+          if(fk&&!have.has(fk)){r.sulaleler.push(fam);have.add(fk);changed++}
+        });
+        r.defterler=r.defterler||[];
+        (o.defterler||[]).forEach(function(d){
+          const sig=nn(JSON.stringify([d.defter,d.yil,d.tur,d.tarihi_kaza,d.tarihi_ad]));
+          const exists=r.defterler.some(function(x){
+            return nn(JSON.stringify([x.defter,x.yil,x.tur,x.tarihi_kaza||x.kaza,x.tarihi_ad||x.tarihi_karye||x.karye]))===sig
+          });
+          if(!exists)r.defterler.push(d)
+        })
+      });
+      if(changed&&typeof loadArchive==='function'){
+        archiveIndex=new Map();familyIndex=new Map();provinceArchiveCounts=new Map();
+        const provinceSeen=new Map();
+        archive.forEach(function(r){
+          const k=key(r.il,r.ilce,r.koy);
+          if(!archiveIndex.has(k))archiveIndex.set(k,[]);
+          archiveIndex.get(k).push(r);
+          (r.sulaleler||[]).forEach(function(fam){
+            const fk=sn(typeof fam==='object'?JSON.stringify(fam):fam);
+            if(!fk)return;
+            if(!familyIndex.has(fk))familyIndex.set(fk,[]);
+            familyIndex.get(fk).push(r)
+          });
+          const pk=nn(canonicalProvince(r.il||''));
+          if(pk){
+            if(!provinceSeen.has(pk))provinceSeen.set(pk,new Set());
+            provinceSeen.get(pk).add(nn(r.ilce)+'|'+nn(r.koy))
+          }
+        });
+        provinceSeen.forEach(function(set,pk){provinceArchiveCounts.set(pk,set.size)});
+        try{
+          const famCount=new Set();
+          archive.forEach(function(r){(r.sulaleler||[]).forEach(function(x){famCount.add(sn(typeof x==='object'?JSON.stringify(x):x))})});
+          const el=document.getElementById('familyStat');if(el)el.textContent=famCount.size.toLocaleString('tr-TR')
+        }catch(e){}
+        try{renderPreview()}catch(e){}
+      }
+    }catch(e){console.warn('İlçe sülale katmanı yüklenemedi',e)}
+  }
+  applyDistrictFamilyOverlay();
+})();
