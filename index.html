@@ -1214,8 +1214,13 @@ function inferProvinceFromDistrict(ilce){
   }).filter(Boolean)));
   return hits.length===1?hits[0]:''
 }
+function isJunkVillageName(s){
+  const n=norm(s||'');
+  if(!n)return true;
+  return ['icindekiler','talebe','isimler','hastalik','muhtar','imam','koyleri','kazasi','toplu','soyadtespiti','kopya'].includes(n)
+}
 function hasOfficialArchiveRecord(r){
-  return !!(r&&r.il&&r.ilce&&r.koy&&(
+  return !!(r&&r.il&&r.ilce&&r.koy&&!isJunkVillageName(r.koy)&&(
     r.arsiv_karti===true ||
     (r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}) ||
     (r.sulaleler||[]).length ||
@@ -1715,12 +1720,14 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 bindHistoricalControls();
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
-  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL),getJSON(SETTLEMENTS),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}}),loadArchive()]);
+  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL),getJSON(SETTLEMENTS),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}})]);
   provinceData=base[0];
   districtList=base[1];
   settlements=base[2];
   villageGeoIds=new Set((base[3].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
   villagePointIds=new Set((base[4].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
+  statusEl.textContent='İlçe bazlı arşiv çalışmaları köylere bağlanıyor…';
+  await loadArchive();
   fillProvinces();
   initFinder();
   initBaseMap();
