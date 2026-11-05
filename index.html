@@ -1293,11 +1293,14 @@ async function loadArchive(){
           const sulale=String(item['SÜLALE ADI (STANDART)']||'').trim();
           if(!il||!ilce||!koy||!sulale)return;
           if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
+          if(isJunkVillageName(koy))return;
           const villages=settlementNamesFor(il,ilce);
-          const matched= villages.find(function(v){return norm(v)===norm(koy)});
-          if(!matched)return;
-          const konumNotu='PDF KAYDI: TARİHÎ KAZA VE BUGÜNKÜ YERLEŞİM AYRI DEĞERLENDİRİLİR';
-          const record={il:il,ilce:ilce,koy:matched,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[konumNotu],arsiv_karti:true};
+          const matched=villages.find(function(v){return norm(v)===norm(koy)});
+          // A historical village must not disappear merely because it is absent
+          // from the modern settlement gazetteer.
+          const resolvedVillage=matched||koy;
+          const record={il:il,ilce:ilce,koy:resolvedVillage,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[],arsiv_karti:true};
+          if(!matched)record.durumlar.push('TARİHÎ KÖY ADI; BUGÜNKÜ YERLEŞİM ADI KONTROL EDİLECEK');
           const defter=String(item['DEFTER NO']||'').trim();
           if(defter)record.defterler.push({defter:defter,tur:item['BELGE TÜRÜ']||'',yil:item['DEFTER YILI']||''});
           const hane=item['HANE NO'];
