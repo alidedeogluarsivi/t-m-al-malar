@@ -1394,7 +1394,7 @@ function showRecord(name,r,ilce,il){
         +'<div class="saleLock">🔒 TAM TERCÜME PDF ÜCRETLİDİR.</div>'
         +'<div class="notice">PDF İÇERİĞİ ÜCRETSİZ AÇILMAZ. KAPAK MEVCUTSA YALNIZCA KAPAK ÖNİZLEMESİ GÖSTERİLİR.</div>'
         +(priced.length?priced.map(function(p){return'<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+'<div class="salePrice">'+Number(p.price_tl).toLocaleString('tr-TR')+' TL</div>'+(p.price_formula?'<small>'+esc(p.price_formula)+'</small>':'')+'</div>'}).join(''):'<div class="record"><b>FİYAT SATIŞ DOSYASINA GÖRE HESAPLANACAKTIR.</b></div>')
-        +'<button class="buyBtn" type="button" disabled>ÖDEME SİSTEMİ BAĞLANIYOR</button>'
+        +'<a class="buyBtn" href="https://www.shopier.com/ahmetsel/50787129" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;text-decoration:none">SHOPİER İLE ÖDEME YAP</a>'
         +'</div></div>';
     }
     if(!h)h='<div class="empty"><b>BU YERLEŞİM İÇİN GÖSTERİLECEK ARŞİV VERİSİ YOK.</b></div>'
