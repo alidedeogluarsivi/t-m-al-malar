@@ -262,11 +262,11 @@ function updateHistoricalOverlay(){
     parts.push('<span class="periodBadge nfs">1830–1850</span><b>NÜFUS DEFTERİ İDARÎ KATMANI</b>');
     if(m.sancak.length)parts.push('<b>SANCAK:</b> '+m.sancak.map(esc).join(' · '));
     if(m.kaza.length)parts.push('<b>KAZA:</b> '+m.kaza.map(esc).join(' · '));
-    if(note)note.textContent='1830–1850 · KAZA/SANCAK ALANLARI NFS KAYIT BAĞLILIKLARINDAN; KESİK İÇ SINIRLAR GÜNÜMÜZ REFERANSINDAN ÜRETİLİR.';
+    if(note)note.textContent='1830–1850 · GÜNÜMÜZ SINIRLARI TEMEL ALINIR; SADECE NFS KAYITLARINDA ADI VEYA BAĞLILIĞI DEĞİŞEN İL/İLÇELER AYRICA GÖSTERİLİR.';
   }else{
     parts.push('<span class="periodBadge p1890">1890</span><b>OSMANLI İDARÎ KATMANI</b>');
     parts.push('KAZA / NAHİYE BAĞLILIKLARI 1890 DÖNEM SATIRLARINA GÖRE GÖSTERİLİR.');
-    if(note)note.textContent='1890 · SALNÂME / OSMANLI YER ADLARI BAĞLILIKLARI · KALIN SINIR TARİHÎ İDARÎ GRUP, KESİK SINIR GÜNÜMÜZ REFERANSIDIR.';
+    if(note)note.textContent='1890 · GÜNÜMÜZ İL/İLÇE GEOMETRİSİ ESAS; SALNÂMEDE BAĞLILIĞI VEYA ADI DEĞİŞEN YERLER FARKLI ETİKETLENİR.';
   }
   box.innerHTML=parts.join('<br>');box.classList.add('show')
 }
@@ -311,20 +311,40 @@ function safeUnion(features){
 }
 async function addHistoricalProvinceLayer(feats,layerGroup){
   if(mapPeriod==='modern'||!baseMap)return;
-  const groups=await periodGroupsForProvince(feats);
-  if(level!=='province'||!selectedProvince)return;
-  groups.forEach(function(g){
-    const merged=safeUnion(g.features);
-    const target=merged||{type:'FeatureCollection',features:g.features};
-    const border=L.geoJSON(target,{style:{color:mapPeriod==='nfs'?'#8c3030':'#765b31',weight:5,fillOpacity:.025,fillColor:mapPeriod==='nfs'?'#8c3030':'#b9975b',dashArray:null,interactive:false}});
+  const il=selectedProvince&&selectedProvince.name||'';
+  for(const f of feats){
+    if(level!=='province'||!selectedProvince)return;
+    const modernName=(f.properties&&f.properties.name)||'';
+    let histName=modernName,meta=null;
+    if(mapPeriod==='nfs'){
+      meta=nfsDistrictMeta(il,modernName);
+      if(meta&&meta.kaza)histName=meta.kaza;
+    }else{
+      meta=await admin1890Meta(il,modernName);
+      if(meta&&meta.kaza)histName=meta.kaza;
+    }
+    const changed=norm(histName)!==norm(modernName);
+    const border=L.geoJSON(f,{style:{
+      color:mapPeriod==='nfs'?'#8c3030':'#765b31',
+      weight:changed?4.8:3.2,
+      fillOpacity:changed?.035:.015,
+      fillColor:mapPeriod==='nfs'?'#8c3030':'#b9975b',
+      dashArray:null,
+      interactive:false
+    }});
     layerGroup.addLayer(border);
     let ll=null;
-    try{ll=border.getBounds().getCenter()}catch(e){}
+    try{ll=featureLabelLatLng(f)}catch(e){}
     if(ll){
-      const tag=L.marker(ll,{pane:'archiveLabels',interactive:false,zIndexOffset:4000,icon:L.divIcon({className:'',html:'<div class="histApproxLabel '+(mapPeriod==='1890'?'p1890':'')+'">'+esc(g.name)+'</div>',iconSize:null,iconAnchor:[0,0]})});
+      const label=changed?(modernName+' → '+histName):histName;
+      const tag=L.marker(ll,{pane:'archiveLabels',interactive:false,zIndexOffset:4000,icon:L.divIcon({
+        className:'',
+        html:'<div class="histApproxLabel '+(mapPeriod==='1890'?'p1890':'')+'">'+esc(label)+'</div>',
+        iconSize:null,iconAnchor:[0,0]
+      })});
       layerGroup.addLayer(tag)
     }
-  })
+  }
 }
 function setMapInfo(title,html){
   const card=document.getElementById('mapInfoCard'),t=document.getElementById('mapInfoTitle'),b=document.getElementById('mapInfoBody');
