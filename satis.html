@@ -13,8 +13,8 @@
 <body>
 <div class="shell">
 <div class="top"><a href="./">← ANA SAYFA</a><b>E-SATIŞ PDF</b></div>
-<section class="hero"><h1>E-Satış PDF</h1><p>PDF kartına tıklayınca önizleme açılır. Öncelik: kapak → orijinal Osmanlıca sayfa → mevcut herhangi bir sayfa. iyzico yalnızca ödeme içindir; PDF teslimatı Alidedeoğlu Arşivi sitesinden yapılır.</p></section>
-<div class="toolbar"><input id="q" autocomplete="off" enterkeyhint="search" aria-label="E-satış PDF ara" placeholder="İl, ilçe, köy, defter no veya yıl ara…"><select id="saleFilter"><option value="all">TÜM PDF’LER</option><option value="ready">FİYATI HAZIR</option><option value="link">SATIN ALINABİLİR</option></select><div id="count" class="count">YÜKLENİYOR…</div></div><div id="statusbar" class="statusbar">İYZİCO BİREYSEL BAŞVURUSU ONAY BEKLİYOR. ÜRÜN LİNKLERİ EKLENDİKÇE SATIN ALMA DÜĞMELERİ OTOMATİK AÇILACAK.</div>
+<section class="hero"><h1>E-Satış PDF</h1><p>PDF kartına tıklayınca önizleme açılır. Öncelik: kapak → orijinal Osmanlıca sayfa → mevcut herhangi bir sayfa. Shopier yalnızca ödeme içindir; PDF teslimatı Alidedeoğlu Arşivi sitesinden yapılır.</p></section>
+<div class="toolbar"><input id="q" autocomplete="off" enterkeyhint="search" aria-label="E-satış PDF ara" placeholder="İl, ilçe, köy, defter no veya yıl ara…"><select id="saleFilter"><option value="all">TÜM PDF’LER</option><option value="ready">FİYATI HAZIR</option><option value="link">SATIN ALINABİLİR</option></select><div id="count" class="count">YÜKLENİYOR…</div></div><div id="statusbar" class="statusbar">ÖDEME SHOPİER ÜZERİNDEN YAPILIR. PDF TESLİMATI ALİDEDEOĞLU ARŞİVİ TARAFINDAN YAPILIR.</div>
 <div id="grid" class="grid"><div class="empty">KATALOG YÜKLENİYOR…</div></div>
 </div>
 <div id="modal" class="modal"><div class="panel"><button id="close" class="close">×</button><h2 id="mt"></h2><div id="ml"></div><div id="pv" class="preview"></div><div id="mi"></div></div></div>
@@ -51,10 +51,10 @@ function render(rows){
 function openItem(x){
   mt.textContent=x.koy||'PDF';ml.innerHTML='<small>'+esc([x.ilce,x.il].filter(Boolean).join(' / '))+'</small>';
   const im=imgFor(x);pv.innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(previewKind(x))+'">':autoCover(x);
-  mi.innerHTML='<div class="notice"><b>ÖNİZLEME:</b> '+esc(previewKind(x))+'<br>İYZİCO yalnızca ödeme içindir. Ödeme bağlantısı tanımlanan ürünlerde satın alma düğmesi açılır.</div>'+
+  mi.innerHTML='<div class="notice"><b>ÖNİZLEME:</b> '+esc(previewKind(x))+'<br>Shopier yalnızca ödeme içindir. Satın alma düğmesi ödeme sayfasını açar; PDF teslimatı Alidedeoğlu Arşivi üzerinden yapılır.</div>'+
   (x.products||[]).map(function(p){
     const price=Number(p.price_tl)||0;
-    const buy=p.iyzico_link?'<a class="buy" href="'+esc(p.iyzico_link)+'" target="_blank" rel="noopener noreferrer">İYZİCO İLE SATIN AL</a>':price>0?'<button class="buy off" disabled>İYZİCO ONAYI BEKLENİYOR</button>':'<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
+    const payLink=p.iyzico_link||'https://www.shopier.com/ahmetsel/50787129'; const buy=price>0?'<a class="buy" href="'+esc(payLink)+'" target="_blank" rel="noopener noreferrer">SHOPİER İLE ÖDEME YAP</a>':'<button class="buy off" disabled>FİYAT HAZIRLANIYOR</button>';
     return '<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+(p.hane?'<br>HANE: '+esc(p.hane):'')+(p.erkek?'<br>ERKEK: '+esc(p.erkek):'')+(price>0?'<div class="price">'+price.toLocaleString('tr-TR')+' TL</div>':'')+buy+'</div>'
   }).join('');
   modal.classList.add('open')
