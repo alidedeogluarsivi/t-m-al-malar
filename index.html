@@ -426,11 +426,11 @@ async function showNearbySettlements(latlng){
     '<div class="mapInfoHint">HARİTADAKİ ETİKETLERDEN BİRİNE TIKLAYARAK İLERLEYİN.</div>'
   )
 }
-function renderBaseTurkey(){useLeafletMap();initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
+function renderBaseTurkey(){useLeafletMap();initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#8c3030',weight:c?2:1,fillColor:c?'#8fc5a3':'#f4ece0',fillOpacity:c?.08:.035,bubblingMouseEvents:false}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
 function renderBaseProvince(feats){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const polygonLayer=L.geoJSON({type:'FeatureCollection',features:feats},{
-    style:{color:'#a77524',weight:2.2,fillColor:'#f3dfb2',fillOpacity:.045},
+    style:{color:'#a77524',weight:2.2,fillColor:'#f3dfb2',fillOpacity:.045,bubblingMouseEvents:false},
     onEachFeature:function(f,l){
       const n=(f.properties&&f.properties.name)||'';
       l.on('click',function(){
@@ -467,7 +467,7 @@ function renderBaseDistrict(df,vf,pf){
     const villagePolys=L.geoJSON({type:'FeatureCollection',features:vf},{
       style:function(f){
         const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);
-        return{color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#a8d2b8':'#eeeae2',fillOpacity:has?.065:.02}
+        return{color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#a8d2b8':'#eeeae2',fillOpacity:has?.065:.02,bubblingMouseEvents:false}
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
@@ -707,11 +707,12 @@ function renderProvinceArchiveOverview(districtFeatures,archivePoints){
 
   // İlçeler: sınırlar ve tıklama alanları.
   districtFeatures.forEach(function(f){
+    const name=(f.properties&&f.properties.name)||'';
     const p=document.createElementNS(SVG_NS,'path');
     p.setAttribute('d',geometryPath(f.geometry,pr));
     p.setAttribute('fill-rule','evenodd');
     p.setAttribute('class','geo district');
-    p.addEventListener('click',function(){showDistrictInfo(selectedProvince&&selectedProvince.name||'',name);selectDistrictFeature(f)});
+    p.addEventListener('click',function(ev){if(ev)ev.stopPropagation();showDistrictInfo(selectedProvince&&selectedProvince.name||'',name);selectDistrictFeature(f)});
     svg.appendChild(p)
   });
 
