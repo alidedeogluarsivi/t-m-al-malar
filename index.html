@@ -654,6 +654,7 @@ function renderBaseDistrict(df,vf,pf){
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
+        l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.94});
         l.on('click',function(){openVillage(n)})
       }
     });
@@ -667,7 +668,7 @@ function renderBaseDistrict(df,vf,pf){
     const points=L.geoJSON({type:'FeatureCollection',features:pf},{
       pointToLayer:function(f,ll){
         const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);
-        return L.circleMarker(ll,{radius:has?6:4,color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#2f7d55':'#b8b2a9',fillOpacity:.9})
+        return L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:has?6:4,color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#2f7d55':'#b8b2a9',fillOpacity:.9})
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
