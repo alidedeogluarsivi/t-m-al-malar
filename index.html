@@ -2066,19 +2066,19 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
   const base='https://countapi.mileshilliard.com/api/v1';
   const entryKey='alidedeogluarsivi_com_entries_v1';
   const entryEl=document.getElementById('entryStat');
-  function n(v){const x=Number(v);return Number.isFinite(x)?x:0}
-  async function read(){
-    const r=await fetch(base+'/get/'+entryKey,{cache:'no-store'});
-    if(!r.ok)return 0;
-    const j=await r.json();
-    return n(j.value);
+  function n(v){const x=Number(v);if(v==null||v===''||!Number.isSafeInteger(x)||x<0)throw new Error('Sayaç verisi geçersiz');return x}
+  async function counterRequest(action){
+    const controller=new AbortController();
+    const timeout=setTimeout(function(){controller.abort()},3500);
+    try{
+      const r=await fetch(base+'/'+action+'/'+entryKey,{cache:'no-store',signal:controller.signal});
+      if(!r.ok)throw new Error('Sayaç servisi erişilemiyor');
+      const j=await r.json();
+      return n(j.value);
+    }finally{clearTimeout(timeout)}
   }
-  async function hit(){
-    const r=await fetch(base+'/hit/'+entryKey,{cache:'no-store'});
-    if(!r.ok)throw new Error('counter');
-    const j=await r.json();
-    return n(j.value);
-  }
+  async function read(){return counterRequest('get')}
+  async function hit(){return counterRequest('hit')}
   (async function(){
     try{
       let total;
@@ -2154,7 +2154,7 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 bindHistoricalControls();
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
-  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL),getJSON(SETTLEMENTS),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}})]);
+  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL),getJSON(SETTLEMENTS).catch(function(e){console.warn('Yerleşim listesi daha sonra yüklenecek',e);return[]}),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}})]);
   provinceData=base[0];
   districtList=base[1];
   settlements=base[2];
