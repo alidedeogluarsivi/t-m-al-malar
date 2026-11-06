@@ -1952,13 +1952,13 @@ function matchedFamilies(r,nq){
   return (r.sulaleler||[]).filter(function(x){
     const s=typeof x==='object'?JSON.stringify(x):String(x||'');
     const ns=searchNorm(s);
-    return ns.includes(nq)||nq.includes(ns)
+    return !!ns&&ns.includes(nq)
   })
 }
 function familySearchRows(nq){
   const found=new Map();
   familyIndex.forEach(function(rows,fk){
-    if(!(fk.includes(nq)||nq.includes(fk)))return;
+    if(!fk||!fk.includes(nq))return;
     rows.forEach(function(r){found.set(r.id||key(r.il,r.ilce,r.koy),r)})
   });
   return Array.from(found.values())
