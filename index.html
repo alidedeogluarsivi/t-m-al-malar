@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Alidedeoğlu Arşivi | Osmanlı Nüfus, Temettuat ve Sülale Arşivi</title>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+<link rel="dns-prefetch" href="//a.basemaps.cartocdn.com">
+<link rel="dns-prefetch" href="//server.arcgisonline.com">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--ink:#142d3f;--muted:#6d7880;--paper:#f7f3eb;--card:#fff;--line:#d8ccb9;--gold:#a7772a;--red:#8c3030;--green:#1f6a46;--green2:#dcefe4;--orange:#d39a36}
@@ -124,8 +128,17 @@ function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD'
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function canonicalProvince(n){return norm(n)===norm('Afyon')?'Afyonkarahisar':n}
 function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
-async function getJSON(u){const r=await fetch(u,{cache:'default'});if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
-async function getText(u){const r=await fetch(u,{cache:'default'});if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
+const jsonRequestCache=new Map(),textRequestCache=new Map();
+async function getJSON(u){
+  if(jsonRequestCache.has(u))return jsonRequestCache.get(u);
+  const p=fetch(u,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(r.status+' '+u);return r.json()}).catch(function(e){jsonRequestCache.delete(u);throw e});
+  jsonRequestCache.set(u,p);return p
+}
+async function getText(u){
+  if(textRequestCache.has(u))return textRequestCache.get(u);
+  const p=fetch(u,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(r.status+' '+u);return r.text()}).catch(function(e){textRequestCache.delete(u);throw e});
+  textRequestCache.set(u,p);return p
+}
 function flatten(c,out){out=out||[];if(Array.isArray(c)&&typeof c[0]==='number'){out.push(c);return out}if(Array.isArray(c))c.forEach(function(x){flatten(x,out)});return out}
 function geometryPath(g,pr){if(!g)return'';function ring(r){return r.map(function(p,i){const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}if(g.type==='Polygon')return g.coordinates.map(ring).join(' ');if(g.type==='MultiPolygon')return g.coordinates.flatMap(function(poly){return poly.map(ring)}).join(' ');return''}
 function projector(features){const pts=[];features.forEach(function(f){flatten(f.geometry&&f.geometry.coordinates,pts)});if(!pts.length)return function(){return[500,310]};let minX=180,maxX=-180,minY=90,maxY=-90;pts.forEach(function(p){minX=Math.min(minX,p[0]);maxX=Math.max(maxX,p[0]);minY=Math.min(minY,p[1]);maxY=Math.max(maxY,p[1])});const W=1000,H=620,pad=34,dx=Math.max(.01,maxX-minX),dy=Math.max(.01,maxY-minY),scale=Math.min((W-pad*2)/dx,(H-pad*2)/dy),ox=(W-dx*scale)/2,oy=(H-dy*scale)/2;return function(p){return[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)]}}
@@ -420,7 +433,11 @@ function initBaseMap(){
   });
   L.control.layers({'AYRINTILI YER ADLARI':michelin,'UYDU GÖRÜNÜMÜ':satellite,'ARAZİ / TOPOGRAFYA':terrain,'SADE HARİTA':light,'SOKAK HARİTASI':osm},{},{position:'topright',collapsed:true}).addTo(baseMap);
   archiveLayerMenu().addTo(baseMap);
-  baseMap.on('zoomend moveend',function(){updateAdaptiveLabels()});
+  let labelRefreshTimer=null;
+  baseMap.on('zoomend moveend',function(){
+    clearTimeout(labelRefreshTimer);
+    labelRefreshTimer=setTimeout(updateAdaptiveLabels,70)
+  });
   baseMap.on('click',function(){clearNearbyLayer()})
 }
 function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}if(adaptiveLabelLayer&&baseMap){baseMap.removeLayer(adaptiveLabelLayer);adaptiveLabelLayer=null}adaptiveLabelSpecs=[];adaptiveLabelMode='';clearNearbyLayer()}
@@ -438,19 +455,25 @@ function useSvgMap(){
   if(sv)sv.style.display='block'
 }
 function lbl(layer,name,cls){if(name)layer.bindTooltip(name,{permanent:true,direction:'center',className:cls||'mapLabel',opacity:1})}
+const featureLabelCache=new WeakMap();
 function featureLabelLatLng(feature){
+  if(feature&&featureLabelCache.has(feature))return featureLabelCache.get(feature);
+  let out=null;
   try{
     if(window.turf){
       const p=turf.pointOnFeature(feature);
-      const c=p&&p.geometry&&p.geometry.coordinates;
-      if(c&&c.length>=2)return [c[1],c[0]]
+      const cc=p&&p.geometry&&p.geometry.coordinates;
+      if(cc&&cc.length>=2)out=[cc[1],cc[0]]
     }
   }catch(e){}
-  try{
-    const g=L.geoJSON(feature);
-    if(g.getBounds&&g.getBounds().isValid())return g.getBounds().getCenter()
-  }catch(e){}
-  return null
+  if(!out){
+    try{
+      const g=L.geoJSON(feature);
+      if(g.getBounds&&g.getBounds().isValid())out=g.getBounds().getCenter()
+    }catch(e){}
+  }
+  if(feature&&out)featureLabelCache.set(feature,out);
+  return out
 }
 function setAdaptiveLabels(specs,mode){
   adaptiveLabelSpecs=specs||[];
@@ -716,7 +739,7 @@ function addDot(x,y,archiveHas){const c=document.createElementNS(SVG_NS,'circle'
 function render(features,kind,onClick,showDots){clearMap();if(!features||!features.length){statusEl.textContent='Bu seviyede harita geometrisi bulunamadı.';updateHistoricalOverlay();return}const pr=projector(features);features.forEach(function(f){const p=document.createElementNS(SVG_NS,'path');p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo '+kind+(f.properties&&f.properties._has?' has':''));p.addEventListener('click',function(){onClick(f)});svg.appendChild(p)});features.forEach(function(f){const cc=center(f,pr),name=(f.properties&&(f.properties._displayName||f.properties.name))||'';if(showDots)addDot(cc[0],cc[1],!!(f.properties&&f.properties._has));addText(name,cc[0],cc[1]-5,kind==='province'?'provinceLabel':kind==='district'?'districtLabel':'villageLabel')});svg.setAttribute('viewBox','0 0 1000 620');updateHistoricalOverlay()}
 function renderTurkeyOverview(){
   clearMap();
-  if(window.L)renderBaseTurkey();
+  if(window.L){renderBaseTurkey();updateHistoricalOverlay();return}
   const features=provinceData&&provinceData.features||[];
   if(!features.length)return;
   const pr=projector(features);
@@ -812,9 +835,10 @@ function renderPointVillages(features){
 
 function renderDistrictVillageView(local,districtFeature,villageFeatures,pointFeatures){
   clearMap();
-  if(window.L)renderBaseDistrict(districtFeature,villageFeatures,pointFeatures);
   villageFeatures=villageFeatures||[];
   pointFeatures=pointFeatures||[];
+  if(window.L){renderBaseDistrict(districtFeature,villageFeatures,pointFeatures);updateHistoricalOverlay();return !!(districtFeature||villageFeatures.length||pointFeatures.length)}
+
 
   // Projeksiyonun çerçevesini ilçe sınırı belirlesin; böylece ilçe sınırı kaybolmaz.
   const frame=[];
@@ -905,11 +929,11 @@ function openProvinceVillage(name,districtName){
 }
 function renderProvinceArchiveOverview(districtFeatures,archivePoints){
   clearMap();
-  if(window.L)renderBaseProvince(districtFeatures);
   if(!districtFeatures||!districtFeatures.length){
     statusEl.textContent='Bu il için ilçe geometrisi bulunamadı.';
     return
   }
+  if(window.L){renderBaseProvince(districtFeatures);updateHistoricalOverlay();return}
   const pr=projector(districtFeatures);
 
   // İlçeler: sınırlar ve tıklama alanları.
@@ -955,24 +979,29 @@ function renderProvinceArchiveOverview(districtFeatures,archivePoints){
   updateHistoricalOverlay()
 }
 async function loadProvinceArchivePoints(list,requestId){
-  const groups=await Promise.all(list.map(async function(local){
-    const gj=await loadDistrictPointGeo(local);
-    const rows=[];
-    (gj.features||[]).forEach(function(f){
-      const name=(f.properties&&f.properties.name)||'';
-      const rec=archiveForProvinceVillage(local.name,name);
-      if(rec)rows.push({feature:f,name:name,district:local,record:rec})
-    });
-    return rows
-  }));
-  if(requestId!==districtRequestSeq||level!=='province')return[];
-  const out=[];
-  const seen=new Set();
-  groups.flat().forEach(function(row){
-    const k=norm(row.district.name)+'|'+norm(row.name);
-    if(!seen.has(k)){seen.add(k);out.push(row)}
-  });
-  return out
+  const out=[],seen=new Set();
+  let cursor=0;
+  async function worker(){
+    while(cursor<list.length){
+      if(requestId!==districtRequestSeq||level!=='province')return;
+      const local=list[cursor++];
+      let gj;
+      try{gj=await loadDistrictPointGeo(local)}catch(e){continue}
+      if(requestId!==districtRequestSeq||level!=='province')return;
+      (gj.features||[]).forEach(function(f){
+        const name=(f.properties&&f.properties.name)||'';
+        const rec=archiveForProvinceVillage(local.name,name);
+        if(!rec)return;
+        const k=norm(local.name)+'|'+norm(name);
+        if(!seen.has(k)){seen.add(k);out.push({feature:f,name:name,district:local,record:rec})}
+      })
+    }
+  }
+  const workers=[];
+  const count=Math.min(6,list.length);
+  for(let i=0;i<count;i++)workers.push(worker());
+  await Promise.all(workers);
+  return requestId===districtRequestSeq&&level==='province'?out:[]
 }
 function renderProvinceArchiveList(rows){
   vCount.textContent=rows.length+' OKUNMUŞ YER';
@@ -1124,9 +1153,12 @@ async function selectProvinceByName(name,id){
     });
 
     if(feats.length){
+      renderProvinceArchiveOverview(feats,[]);
+      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇELER HAZIR · ARŞİV KÖYLERİ YÜKLENİYOR…';
+      await loadArchive();
+      if(requestId!==districtRequestSeq||level!=='province')return;
       const archivePoints=await loadProvinceArchivePoints(list,requestId);
       if(requestId!==districtRequestSeq||level!=='province')return;
-      renderProvinceArchiveOverview(feats,archivePoints);
       renderProvinceArchiveList(archivePoints);
       const districtWithArchive=new Set(archivePoints.map(function(x){return x.district.id})).size;
       statusEl.textContent=(mapPeriod==='nfs'?'1830–1850 NFS · ':mapPeriod==='1890'?'1890 OSMANLI · ':'GÜNÜMÜZ · ')+name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' MODERN İLÇE REFERANSI · '+districtWithArchive+' İLÇEDE ARŞİV';
@@ -1191,14 +1223,15 @@ async function selectDistrict(local,geoFeature){
     return p.id===local.id || (norm(p.name)===norm(local.name)&&p.parent_id===selectedProvince.id)
   });
 
-  const results=await Promise.all([
-    loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}}),
-    loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}})
-  ]);
+  const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
   if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
-
-  const vfeats=(results[0]&&results[0].features)||[];
-  const pfeats=(results[1]&&results[1].features)||[];
+  const vfeats=(villageGeo&&villageGeo.features)||[];
+  let pfeats=[];
+  if(!vfeats.length){
+    const pointGeo=await loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
+    if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
+    pfeats=(pointGeo&&pointGeo.features)||[]
+  }
   const shown=renderDistrictVillageView(local,df,vfeats,pfeats);
   const ah=currentVillages.filter(function(x){return x.has}).length;
 
@@ -1466,7 +1499,7 @@ function hasOfficialArchiveRecord(r){
     (r.gorevli_notlari||[]).length
   ))
 }
-async function loadArchive(){
+async function loadArchiveCore(){
   archive=[];summary={};
   const raw=[];
   const archiveTexts=await Promise.all(ARCH.map(function(f){return getText(f)}));
@@ -1621,7 +1654,15 @@ async function loadArchive(){
   document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
   document.getElementById('familyStat').textContent=famCount.size.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
-  renderPreview()
+  renderPreview();
+  return archive
+}
+let archivePromise=null;
+function loadArchive(){
+  if(!archivePromise){
+    archivePromise=loadArchiveCore().catch(function(e){archivePromise=null;throw e})
+  }
+  return archivePromise
 }
 function score(r){return (r.defterler||[]).length*4+(r.sulaleler||[]).length*2+(r.haneler||[]).length+(r.gorevli_notlari||[]).length*2+(r.taramalar||[]).length}
 function previewRows(){
@@ -2046,12 +2087,18 @@ bindHistoricalControls();
   settlements=base[2];
   villageGeoIds=new Set((base[3].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
   villagePointIds=new Set((base[4].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
-  statusEl.textContent='İlçe bazlı arşiv çalışmaları köylere bağlanıyor…';
-  await loadArchive();
   fillProvinces();
   initFinder();
   initBaseMap();
-  showTurkey()
+  showTurkey();
+  statusEl.textContent='HARİTA HAZIR · ARŞİV VERİLERİ ARKA PLANDA YÜKLENİYOR…';
+  const startArchive=function(){
+    loadArchive().then(function(){
+      if(level==='turkey')renderTurkeyOverview();
+      statusEl.textContent=level==='turkey'?'HARİTA HAZIR · ARŞİV VERİLERİ YÜKLENDİ':statusEl.textContent
+    }).catch(function(e){console.error(e);statusEl.textContent='HARİTA HAZIR · ARŞİV VERİSİ YÜKLENEMEDİ; SAYFAYI YENİLEYİN.'})
+  };
+  if('requestIdleCallback' in window)requestIdleCallback(startArchive,{timeout:700});else setTimeout(startArchive,0)
 }catch(e){console.error(e);statusEl.textContent='Site verileri yüklenirken hata oluştu. Sayfayı yenileyin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261105-05"></script>
