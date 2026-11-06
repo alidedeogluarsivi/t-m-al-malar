@@ -825,6 +825,19 @@ function renderBaseProvince(feats){
       }}:null
     }).filter(Boolean),'province')
   }
+  // Keep verified village-level archive dots visible at province scale too.
+  // Reuse the nationwide coordinate cache; never invent or move a settlement.
+  const provinceName=selectedProvince&&selectedProvince.name||'';
+  const provinceDots=L.layerGroup();
+  const provinceRenderer=L.canvas({padding:.4});
+  nationwideVillagePointCache.forEach(function(item){
+    if(!item||!item.ll||norm(canonicalProvince(item.il))!==norm(canonicalProvince(provinceName)))return;
+    const dot=L.circleMarker(item.ll,{renderer:provinceRenderer,radius:4.5,color:'#980000',weight:1.2,fillColor:'#f00',fillOpacity:.95});
+    dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
+    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);openProvinceVillage(item.koy,item.ilce)});
+    provinceDots.addLayer(dot)
+  });
+  provinceDots.addTo(adminLayer);
   if(historical)addHistoricalProvinceLayer(feats,adminLayer);
   if(polygonLayer.getBounds().isValid())baseMap.fitBounds(polygonLayer.getBounds(),{padding:[24,24],maxZoom:10})
 }
