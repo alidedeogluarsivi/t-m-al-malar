@@ -1106,7 +1106,7 @@ function renderDistrictGroups(groups){
   svg.setAttribute('viewBox','0 0 1000 620')
 }
 function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
-function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
+function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;regionFamiliesOpen=false;regionFamilyPage=0;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
 function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
 function selectProvinceFeature(f){const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];selectProvinceByName(name,id)}
 async function loadDistrictGeo(){
@@ -1119,7 +1119,7 @@ async function selectProvinceByName(name,id){
   selectedProvince={name:name,id:id};
   selectedDistrict=null;
   hideAdminHistory();
-  previewLimit=36;
+  previewLimit=36;regionFamiliesOpen=false;regionFamilyPage=0;
   currentVillages=[];
   level='province';
   renderPreview();
@@ -1201,12 +1201,12 @@ function archiveForVillage(name){
   return exact.length?mergeRecords(exact):null
 }
 function buildVillageRows(){const rec=districtRecord(selectedDistrict.name);const rows=[],seen=new Set();if(rec){(rec.v||[]).forEach(function(n){const k='k|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'KÖY'})}});(rec.m||[]).forEach(function(n){const k='m|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'MAHALLE'})}})}rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});rows.sort(function(a,b){return a.name.localeCompare(b.name,'tr')});return rows}
-function renderVillageList(){const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length,mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;vCount.textContent=vn+' KÖY · '+mn+' MAHALLE';vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})}
+function renderVillageList(){const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length,mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;vCount.textContent=vn+' KÖY · '+mn+' MAHALLE';const ordered=currentVillages.map(function(x,i){return{x:x,i:i}}).sort(function(a,b){return Number(!!b.x.has)-Number(!!a.x.has)||a.x.name.localeCompare(b.x.name,'tr')});vList.innerHTML=ordered.length?ordered.map(function(item){const x=item.x,i=item.i;return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})}
 async function selectDistrict(local,geoFeature){
   const requestId=++districtRequestSeq;
   selectedDistrict={id:local.id,name:local.name};
   renderAdminHistory(selectedProvince.name,local.name);
-  previewLimit=36;
+  previewLimit=36;regionFamiliesOpen=false;regionFamilyPage=0;
   level='district';
   renderPreview();
   dSel.value=local.id;
@@ -1712,7 +1712,7 @@ function regionFamilyEntries(){
   });
   return Array.from(found.values()).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
 }
-let regionFamilyPage=0;
+let regionFamilyPage=0,regionFamiliesOpen=false;
 function showRegionFamilies(){
   const el=document.getElementById('regionFamilies');
   if(!el)return;
@@ -1743,7 +1743,7 @@ function renderPreview(){
   }
   if(!rows.length){g.innerHTML='<div class="empty">Bu seçim için arşiv kartı bulunamadı.</div>';return}
   const visible=rows.slice(0,previewLimit);
-  const regionButton=selectedProvince?'<button id="regionFamiliesBtn" type="button" class="previewMore">BU '+(selectedDistrict?'İLÇENİN':'İLİN')+' TÜM SÜLALELERİNİ LİSTELE</button><div id="regionFamilies"></div>':'';
+  const regionButton=selectedProvince?'<button id="regionFamiliesBtn" type="button" class="previewMore">'+(regionFamiliesOpen?'SÜLALE LİSTESİNİ KAPAT':'BU '+(selectedDistrict?'İLÇENİN':'İLİN')+' TÜM SÜLALELERİNİ LİSTELE')+'</button><div id="regionFamilies"></div>':'';
   g.innerHTML=regionButton+visible.map(function(r,i){
     const defs=r.defterler||[],f=(r.sulaleler||[]).filter(Boolean);
     const famHtml=f.length?'<div class="previewFamilies"><strong>SÜLALELER</strong>'+f.map(function(x){return'<span class="pill familyPill">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div>':'<div class="previewFamilies"><strong>SÜLALELER</strong><span class="searchHint">Bu kartta sülale adı henüz işlenmedi.</span></div>';
@@ -1751,7 +1751,8 @@ function renderPreview(){
   }).join('')+(rows.length>visible.length?'<button id="previewMore" class="previewMore" type="button">DAHA FAZLA GÖSTER · '+visible.length+' / '+rows.length+'</button>':'');
   g.querySelectorAll('[data-p]').forEach(function(el){el.onclick=function(){const r=visible[Number(el.dataset.p)];showRecord(r.koy,r,r.ilce,r.il)}});
   const more=document.getElementById('previewMore');if(more)more.onclick=function(){previewLimit+=36;renderPreview()};
-  const regionBtn=document.getElementById('regionFamiliesBtn');if(regionBtn)regionBtn.onclick=function(){regionFamilyPage=0;showRegionFamilies();regionBtn.remove()};
+  const regionBtn=document.getElementById('regionFamiliesBtn');if(regionBtn)regionBtn.onclick=function(){regionFamiliesOpen=!regionFamiliesOpen;regionFamilyPage=0;renderPreview()};
+  if(regionFamiliesOpen&&selectedProvince)showRegionFamilies();
   const qs=document.getElementById('qStatus');if(qs)qs.textContent=(selectedDistrict?selectedProvince.name+' / '+selectedDistrict.name:selectedProvince?selectedProvince.name:'TÜRKİYE')+' · '+rows.length+' KART';
 }
 function standardFamilyName(v){
