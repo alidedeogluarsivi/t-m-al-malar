@@ -1988,7 +1988,8 @@ function renderSearch(q){
   lastSearchRows=rows;lastSearchQuery=q;
   const provinceCount=new Set(rows.map(function(r){return norm(canonicalProvince(r.il||''))}).filter(Boolean)).size;
   const grouped=new Map();
-  rows.forEach(function(r,idx){
+  const maxSearchCards=120;
+  rows.slice(0,maxSearchCards).forEach(function(r,idx){
     const group=[r.il||'BİLİNMİYOR',r.ilce||'BİLİNMİYOR'].join(' / ');
     if(!grouped.has(group))grouped.set(group,[]);
     grouped.get(group).push({r:r,idx:idx})
@@ -2002,7 +2003,7 @@ function renderSearch(q){
       list+='<div class="sresult" data-s="'+x.idx+'"><div><div class="sresultLoc">'+esc([r.il,r.ilce].filter(Boolean).join(' · '))+'</div><b>'+esc(r.koy||'YERLEŞİM')+'</b><div class="searchHint">'+(hs.length?'HANE '+esc(hs.join(', '))+(defs?' · ':''):'')+(defs?esc(defs):'')+'</div></div><div><div class="sresultFamilies">'+(fams.length?fams.map(function(v){return'<span class="sFam">'+esc(typeof v==='object'?JSON.stringify(v):v)+'</span>'}).join(''):'<span class="searchHint">Sülale kaydı yok</span>')+'</div></div></div>'
     })
   });
-  panel.innerHTML=rows.length?'<div class="searchSummary"><b>'+esc(q.toLocaleUpperCase('tr-TR'))+'</b> · '+rows.length+' YERLEŞİM · '+provinceCount+' İL · '+(familyMode?'SÜLALE EŞLEŞMESİ · TÜRKİYE GENELİ':'GENEL ARŞİV EŞLEŞMESİ')+' <button id="familyMapBtn" class="mapSearchBtn" type="button">TÜRKİYE’DE GÖSTER</button></div>'+list:'<div class="empty">Sonuç bulunamadı.</div>';
+  panel.innerHTML=rows.length?'<div class="searchSummary"><b>'+esc(q.toLocaleUpperCase('tr-TR'))+'</b> · '+rows.length+' YERLEŞİM · '+provinceCount+' İL · '+(rows.length>maxSearchCards?'İLK '+maxSearchCards+' SONUÇ GÖSTERİLİYOR · ':'')++(familyMode?'SÜLALE EŞLEŞMESİ · TÜRKİYE GENELİ':'GENEL ARŞİV EŞLEŞMESİ')+' <button id="familyMapBtn" class="mapSearchBtn" type="button">TÜRKİYE’DE GÖSTER</button></div>'+list:'<div class="empty">Sonuç bulunamadı.</div>';
   panel.classList.add('show');
   const mapBtn=document.getElementById('familyMapBtn');if(mapBtn)mapBtn.onclick=function(){panel.classList.remove('show');renderFamilyDistribution(rows,q)};
   panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})
@@ -2086,12 +2087,20 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
     dragging=true;startX=e.clientX;startY=e.clientY;startBox=vb();
     el.classList.add('dragging');el.setPointerCapture(e.pointerId);
   });
+  let panFrame=0,panX=0,panY=0;
   el.addEventListener('pointermove',function(e){
     if(!dragging||!startBox)return;
-    const rect=el.getBoundingClientRect();
-    const dx=(e.clientX-startX)/rect.width*startBox.w;
-    const dy=(e.clientY-startY)/rect.height*startBox.h;
-    set({x:startBox.x-dx,y:startBox.y-dy,w:startBox.w,h:startBox.h});
+    panX=e.clientX;panY=e.clientY;
+    if(panFrame)return;
+    panFrame=requestAnimationFrame(function(){
+      panFrame=0;
+      if(!dragging||!startBox)return;
+      const rect=el.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      const dx=(panX-startX)/rect.width*startBox.w;
+      const dy=(panY-startY)/rect.height*startBox.h;
+      set({x:startBox.x-dx,y:startBox.y-dy,w:startBox.w,h:startBox.h});
+    });
   });
   function end(e){
     if(!dragging)return;dragging=false;startBox=null;el.classList.remove('dragging');
