@@ -750,6 +750,39 @@ function renderBaseTurkey(){
   if(dots.getLayers().length)statusEl.textContent='TÜRKİYE · '+dots.getLayers().length+' İLDE KIRMIZI ARŞİV NOKTASI';
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
+function addProvinceDistrictDensityDots(feats,layerGroup){
+  if(!baseMap||!selectedProvince||!archive.length)return;
+  if(!baseMap.getPane('archiveDensity')){
+    baseMap.createPane('archiveDensity');
+    baseMap.getPane('archiveDensity').style.zIndex='685';
+  }
+  const renderer=L.svg({pane:'archiveDensity',padding:.5});
+  const il=norm(canonicalProvince(selectedProvince.name));
+  const counts=new Map();
+  archive.forEach(function(r){
+    if(norm(canonicalProvince(r.il||''))!==il)return;
+    const d=norm(r.ilce||'');
+    if(!d)return;
+    if(!counts.has(d))counts.set(d,new Set());
+    counts.get(d).add(norm(r.koy||''))
+  });
+  const dots=L.layerGroup();
+  feats.forEach(function(f){
+    const name=(f.properties||{}).name||'';
+    const count=(counts.get(norm(name))||new Set()).size;
+    if(!count)return;
+    const ll=featureLabelLatLng(f);if(!ll)return;
+    const radius=Math.min(18,5+Math.sqrt(count)*1.25);
+    const dot=L.circleMarker(ll,{renderer:renderer,pane:'archiveDensity',radius:radius,color:'#9e1111',weight:2.5,fillColor:'#f21e1e',fillOpacity:.9});
+    dot.bindTooltip(name+' · '+count+' ARŞİV YERLEŞİMİ',{direction:'top'});
+    dot.on('click',function(e){
+      if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
+      selectDistrictFeature(f)
+    });
+    dots.addLayer(dot)
+  });
+  layerGroup.addLayer(dots)
+}
 function renderBaseProvince(feats){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const historical=mapPeriod!=='modern';
@@ -765,6 +798,7 @@ function renderBaseProvince(feats){
     }
   });
   adminLayer=L.layerGroup([polygonLayer]).addTo(baseMap);
+  addProvinceDistrictDensityDots(feats,adminLayer);
   if(!historical){
     setAdaptiveLabels(feats.map(function(f){
       const n=(f.properties&&f.properties.name)||'',ll=featureLabelLatLng(f);
