@@ -1545,7 +1545,7 @@ async function loadArchiveCore(){
         const il=canonicalProvince(item['İL']||'');
         const ilce=String(item['İLÇE']||'').trim();
         const koyRaw=String(item['KÖY/KARYE/MAHALLE']||'').trim();
-        const sulale=String(item['STANDART SÜLALE ADI']||'').trim();
+        const sulale=standardFamilyName(String(item['STANDART SÜLALE ADI']||''));
         if(!sulale||!koyRaw||!item['DEFTER NO']||!item['HANE NO'])return;
         let resolvedIl=il,resolvedIlce=ilce;
         if(!resolvedIlce&&item['TARİHÎ KAZA']){
@@ -1587,7 +1587,7 @@ async function loadArchiveCore(){
           const il=canonicalProvince(item['İL']||'');
           const ilce=String(item['İLÇE']||'').trim();
           const koy=String(item['KÖY']||'').trim();
-          const sulale=String(item['SÜLALE ADI (STANDART)']||'').trim();
+          const sulale=standardFamilyName(String(item['SÜLALE ADI (STANDART)']||''));
           if(!il||!ilce||!koy||!sulale||!item['DEFTER NO']||!item['HANE NO'])return;
           if(/AHMET\s+ALİDEDEOĞLU/i.test(ilce))return;
           if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
@@ -1625,7 +1625,7 @@ async function loadArchiveCore(){
       merged.set(k,t)
     }
     pushUnique(t.defterler,r.defterler,function(d){return norm(JSON.stringify([d&&d.defter,d&&d.yil,d&&d.tur,d&&d.varak,d&&d.sayfa,d&&d.tarihi_kaza,d&&d.sancak,d&&d.divan,d&&d.dosya]))});
-    pushUnique(t.sulaleler,(r.sulaleler||[]).map(function(x){if(typeof x!=='string')return x;return x.trim().replace(/OĞLU$/iu,'OĞULLARI').replace(/OĞULLAR$/iu,'OĞULLARI')}),function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x)});
+    pushUnique(t.sulaleler,(r.sulaleler||[]).map(standardFamilyName).filter(Boolean),function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.haneler,r.haneler,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.gorevli_notlari,r.gorevli_notlari,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.taramalar,r.taramalar,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
@@ -1715,6 +1715,14 @@ function renderPreview(){
   g.querySelectorAll('[data-p]').forEach(function(el){el.onclick=function(){const r=visible[Number(el.dataset.p)];showRecord(r.koy,r,r.ilce,r.il)}});
   const more=document.getElementById('previewMore');if(more)more.onclick=function(){previewLimit+=36;renderPreview()};
   const qs=document.getElementById('qStatus');if(qs)qs.textContent=(selectedDistrict?selectedProvince.name+' / '+selectedDistrict.name:selectedProvince?selectedProvince.name:'TÜRKİYE')+' · '+rows.length+' KART';
+}
+function standardFamilyName(v){
+  if(typeof v!=='string')return v;
+  const t=v.trim();
+  if(!t)return '';
+  // Akrabalık sözcükleri sülale değildir; hane bağlantısı ayrıca doğrulanır.
+  if(/^(karındaş|karındaşı|kardeş|kardeşi)(?:oğlu|oğulları)?$/iu.test(t.replace(/\s+/g,'')))return '';
+  return t.replace(/OĞLU$/iu,'OĞULLARI').replace(/OĞULLAR$/iu,'OĞULLARI');
 }
 function searchNorm(s){
   return norm(s).replace(/ogullari/g,'').replace(/ogullar/g,'').replace(/oglu/g,'')
