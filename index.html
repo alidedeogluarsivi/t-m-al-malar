@@ -1831,6 +1831,13 @@ async function loadArchiveCore(){
       if(!familyIndex.has(fk))familyIndex.set(fk,[]);
       familyIndex.get(fk).push(r)
     });
+    (r.defterler||[]).forEach(function(d){
+      const asiret=d&&d.asiret?String(d.asiret):'';
+      const ak=searchNorm(asiret);
+      if(!ak)return;
+      if(!familyIndex.has(ak))familyIndex.set(ak,[]);
+      familyIndex.get(ak).push(r)
+    });
     const pk=norm(canonicalProvince(r.il||''));
     if(pk){
       if(!provinceSeen.has(pk))provinceSeen.set(pk,new Set());
@@ -2172,11 +2179,16 @@ function runFinder(){
   const more=document.getElementById('finderMore');if(more)more.onclick=function(){finderLimit+=24;runFinder()}
 }
 function matchedFamilies(r,nq){
-  return (r.sulaleler||[]).filter(function(x){
+  const out=(r.sulaleler||[]).filter(function(x){
     const s=typeof x==='object'?JSON.stringify(x):String(x||'');
     const ns=searchNorm(s);
     return !!ns&&ns.includes(nq)
-  })
+  });
+  (r.defterler||[]).forEach(function(d){
+    const a=d&&d.asiret?String(d.asiret):'';
+    if(a&&searchNorm(a).includes(nq))out.push(a)
+  });
+  return Array.from(new Set(out.map(function(x){return typeof x==='object'?JSON.stringify(x):String(x)})))
 }
 function familySearchRows(nq){
   const found=new Map();
@@ -2197,7 +2209,7 @@ function renderSearch(q){
     rows=familyRows.map(function(x){return x.r}).sort(function(a,b){return (a.il||'').localeCompare(b.il||'','tr')||(a.ilce||'').localeCompare(b.ilce||'','tr')||(a.koy||'').localeCompare(b.koy||'','tr')}).slice(0,2000)
   }else{
     rows=archive.filter(function(r){
-      const officialDefs=(r.defterler||[]).map(function(d){return[d.defter,d.tur,d.yil,d.hicri,d.varak,d.hane,d.erkek,d.tarihi_kaza,d.sancak,d.divan].filter(Boolean).join(' ')}).join(' ');
+      const officialDefs=(r.defterler||[]).map(function(d){return[d.defter,d.tur,d.yil,d.hicri,d.varak,d.hane,d.erkek,d.tarihi_kaza,d.sancak,d.divan,d.asiret,d.kayit_adi].filter(Boolean).join(' ')}).join(' ');
       const blob=[r.il,r.ilce,r.koy,officialDefs,JSON.stringify(r.haneler||[]),JSON.stringify(r.gorevli_notlari||[])].join(' ');
       return searchNorm(blob).includes(nq)
     }).slice(0,400)
@@ -2220,7 +2232,7 @@ function renderSearch(q){
       list+='<div class="sresult" data-s="'+x.idx+'"><div><div class="sresultLoc">'+esc([r.il,r.ilce].filter(Boolean).join(' · '))+'</div><b>'+esc(r.koy||'YERLEŞİM')+'</b><div class="searchHint">'+(hs.length?'HANE '+esc(hs.join(', '))+(defs?' · ':''):'')+(defs?esc(defs):'')+'</div></div><div><div class="sresultFamilies">'+(fams.length?fams.map(function(v){return'<span class="sFam">'+esc(typeof v==='object'?JSON.stringify(v):v)+'</span>'}).join(''):'<span class="searchHint">Sülale kaydı yok</span>')+'</div></div></div>'
     })
   });
-  panel.innerHTML=rows.length?'<div class="searchSummary"><b>'+esc(q.toLocaleUpperCase('tr-TR'))+'</b> · '+rows.length+' YERLEŞİM · '+provinceCount+' İL · '+(rows.length>maxSearchCards?'İLK '+maxSearchCards+' SONUÇ GÖSTERİLİYOR · ':'')+(familyMode?'SÜLALE EŞLEŞMESİ · TÜRKİYE GENELİ':'GENEL ARŞİV EŞLEŞMESİ')+' <button id="familyMapBtn" class="mapSearchBtn" type="button">TÜRKİYE’DE GÖSTER</button></div>'+list:'<div class="empty">Sonuç bulunamadı.</div>';
+  panel.innerHTML=rows.length?'<div class="searchSummary"><b>'+esc(q.toLocaleUpperCase('tr-TR'))+'</b> · '+rows.length+' YERLEŞİM · '+provinceCount+' İL · '+(rows.length>maxSearchCards?'İLK '+maxSearchCards+' SONUÇ GÖSTERİLİYOR · ':'')+(familyMode?'SÜLALE / AŞİRET EŞLEŞMESİ · TÜRKİYE GENELİ':'GENEL ARŞİV EŞLEŞMESİ')+' <button id="familyMapBtn" class="mapSearchBtn" type="button">TÜRKİYE’DE GÖSTER</button></div>'+list:'<div class="empty">Sonuç bulunamadı.</div>';
   panel.classList.add('show');
   const mapBtn=document.getElementById('familyMapBtn');if(mapBtn)mapBtn.onclick=function(){panel.classList.remove('show');renderFamilyDistribution(rows,q)};
   panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=rows[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})
