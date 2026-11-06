@@ -1524,6 +1524,8 @@ async function loadArchiveCore(){
         if(x._summary){summary=Object.assign(summary,x._summary);return}
         if(!x.il&&x.ilce)x.il=inferProvinceFromDistrict(x.ilce);
         if(x.il&&x.ilce&&x.koy){
+          // Kaynağı doğrulanmış tarihî köyü benzer adlı güncel köylere çoğaltma.
+          if(x.durumlar&&x.durumlar.includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK')){raw.push(x);return}
           const vc=canonicalVillageCandidates(x.il,x.ilce,x.koy);
           if(vc.length){
             vc.forEach(function(vn){const y=Object.assign({},x,{koy:vn});raw.push(y)})
