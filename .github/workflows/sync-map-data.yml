@@ -2,6 +2,8 @@ name: Sync local map geometry
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "10 3 * * 1"
   push:
     branches: [main]
     paths:
