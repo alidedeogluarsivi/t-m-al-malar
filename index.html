@@ -1473,7 +1473,8 @@ async function loadArchive(){
       }catch(e){}
     })
   }
-  // Önce doğrulanmış ana sülale kataloğunu yükle.
+  // Kaynaksız sülale-köy eşleştirmeleri geçici olarak yayından çıkarıldı.
+  // Doğrulanmış katalog yalnızca defter ve hane kanıtı bulunan satırları sunabilir.
   try{
     const verified=await getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-allfamilies');
     verified.split(/\r?\n/).forEach(function(line){
@@ -1484,7 +1485,7 @@ async function loadArchive(){
         const ilce=String(item['İLÇE']||'').trim();
         const koyRaw=String(item['KÖY/KARYE/MAHALLE']||'').trim();
         const sulale=String(item['STANDART SÜLALE ADI']||'').trim();
-        if(!sulale||!koyRaw)return;
+        if(!sulale||!koyRaw||!item['DEFTER NO']||!item['HANE NO'])return;
         let resolvedIl=il,resolvedIlce=ilce;
         if(!resolvedIlce&&item['TARİHÎ KAZA']){
           const hk=String(item['TARİHÎ KAZA']||'').trim();
@@ -1526,7 +1527,8 @@ async function loadArchive(){
           const ilce=String(item['İLÇE']||'').trim();
           const koy=String(item['KÖY']||'').trim();
           const sulale=String(item['SÜLALE ADI (STANDART)']||'').trim();
-          if(!il||!ilce||!koy||!sulale)return;
+          if(!il||!ilce||!koy||!sulale||!item['DEFTER NO']||!item['HANE NO'])return;
+          if(/AHMET\s+ALİDEDEOĞLU/i.test(ilce))return;
           if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
           if(isJunkVillageName(koy))return;
           const villages=settlementNamesFor(il,ilce);
