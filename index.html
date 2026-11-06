@@ -1625,7 +1625,7 @@ async function loadArchiveCore(){
       merged.set(k,t)
     }
     pushUnique(t.defterler,r.defterler,function(d){return norm(JSON.stringify([d&&d.defter,d&&d.yil,d&&d.tur,d&&d.varak,d&&d.sayfa,d&&d.tarihi_kaza,d&&d.sancak,d&&d.divan,d&&d.dosya]))});
-    pushUnique(t.sulaleler,r.sulaleler,function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x)});
+    pushUnique(t.sulaleler,(r.sulaleler||[]).map(function(x){if(typeof x!=='string')return x;return x.trim().replace(/OĞLU$/iu,'OĞULLARI').replace(/OĞULLAR$/iu,'OĞULLARI')}),function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.haneler,r.haneler,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.gorevli_notlari,r.gorevli_notlari,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.taramalar,r.taramalar,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
