@@ -433,11 +433,11 @@ function districtMapInfo(il,ilce){
 }
 function initBaseMap(){
   if(baseMap||!window.L)return;
-  baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true,preferCanvas:true,zoomAnimation:true,markerZoomAnimation:true});
+  baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
   baseMap.createPane('archiveLabels');baseMap.getPane('archiveLabels').style.zIndex='760';baseMap.getPane('archiveLabels').style.pointerEvents='auto';
-  const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
-  const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap · © CARTO'});
-  const michelin=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
+  const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenStreetMap'});
+  const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenStreetMap · © CARTO'});
+  const michelin=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenStreetMap'});
   const satellite=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'Tiles © Esri'});
   const terrain=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxNativeZoom:17,maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenTopoMap · © OpenStreetMap · SRTM'});
 
@@ -454,7 +454,7 @@ function initBaseMap(){
   let labelRefreshTimer=null;
   baseMap.on('zoomend moveend',function(){
     clearTimeout(labelRefreshTimer);
-    labelRefreshTimer=setTimeout(updateAdaptiveLabels,70)
+    labelRefreshTimer=setTimeout(updateAdaptiveLabels,250)
   });
   baseMap.on('click',function(){clearNearbyLayer()})
 }
