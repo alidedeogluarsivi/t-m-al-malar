@@ -1678,7 +1678,7 @@ function familyRowsForProvince(name){
 function familyRowsForDistrict(name,ilce){
   return familyRowsForProvince(name).filter(function(r){return norm(r.ilce||'')===norm(ilce)})
 }
-async function renderFamilyProvince(name){
+async async function renderFamilyProvince(name){
   useSvgMap();
   const rows=familyRowsForProvince(name);
   if(!rows.length)return;
@@ -1721,7 +1721,7 @@ async function renderFamilyProvince(name){
         const c=document.createElementNS(SVG_NS,'circle');
         c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+10);c.setAttribute('r','9');c.setAttribute('class','provinceCount');svg.appendChild(c);
         const t=document.createElementNS(SVG_NS,'text');
-        t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+10);t.setAttribute('class','provinceCountText');t.textContent=cnt;svg.appendChild(t)
+        t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+10);t.setAttribute('class','provinceCountText');t.textContent=cnt;t.style.cursor='pointer';t.style.pointerEvents='all';t.addEventListener('click',function(){renderFamilyDistrict(name,dn)});svg.appendChild(t)
       }
     });
     svg.setAttribute('viewBox','0 0 1000 620')
@@ -1806,7 +1806,7 @@ function renderFamilyDistribution(rows,q){
       const c=document.createElementNS(SVG_NS,'circle');
       c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+7);c.setAttribute('r','9');c.setAttribute('class','provinceCount');svg.appendChild(c);
       const t=document.createElementNS(SVG_NS,'text');
-      t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+7);t.setAttribute('class','provinceCountText');t.textContent=cnt;svg.appendChild(t)
+      t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+7);t.setAttribute('class','provinceCountText');t.textContent=cnt;t.style.cursor='pointer';t.style.pointerEvents='all';t.addEventListener('click',function(){renderFamilyProvince(name)});svg.appendChild(t)
     }
   });
   svg.setAttribute('viewBox','0 0 1000 620');
