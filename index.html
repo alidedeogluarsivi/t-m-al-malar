@@ -112,6 +112,13 @@ const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
 const SVG_NS='http://www.w3.org/2000/svg';
 let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),familyIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,osmanliCurrentMap=null,osmanliCurrentPromise=null,rumeliMapData=null,rumeliMapPromise=null,mapPeriod='modern';let baseMap=null,adminLayer=null,nearbyLayer=null,adaptiveLabelLayer=null,adaptiveLabelSpecs=[],adaptiveLabelMode='';
+const archiveLayerPrefs={historical:true,families:true,subsettlements:true};
+function isSubsettlementName(n){return /(?:mezra|çiftlik|yayla|kom|oba|divan|mahalle)/i.test(String(n||''))}
+function archiveLayerMenu(){
+ const c=L.control({position:'topright'});
+ c.onAdd=function(){const d=L.DomUtil.create('div','leaflet-bar');d.style.cssText='background:#fff;padding:9px 12px;max-width:230px;font:600 12px Arial;color:#17384e;box-shadow:0 2px 8px #0002';d.innerHTML='<b>ARŞİV KATMANLARI</b><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="historical" checked> TARİHÎ KAZA / NAHİYE / DİVAN</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="families" checked> SÜLALE / HANE KAYITLARI</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="subsettlements" checked> MEZRA / ÇİFTLİK / KÖY ALTI</label><small style="display:block;margin-top:5px;font-weight:400">Tarihî sınırlar kesin değilse güncel coğrafya üzerinde bilgi gösterilir.</small>';L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);d.querySelectorAll('[data-archive-layer]').forEach(function(input){input.addEventListener('change',function(){archiveLayerPrefs[input.dataset.archiveLayer]=input.checked;updateAdaptiveLabels();updateHistoricalOverlay()})});return d};return c
+}
+
 
 function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[şŞ]/g,'s').replace(/[ğĞ]/g,'g').replace(/[üÜ]/g,'u').replace(/[öÖ]/g,'o').replace(/[çÇ]/g,'c').replace(/[^a-z0-9]+/g,'')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -275,6 +282,7 @@ async function admin1890Meta(il,ilce){
 function updateHistoricalOverlay(){
   const box=document.getElementById('histInfo'),note=document.getElementById('histPeriodNote');
   if(!box)return;
+  if(!archiveLayerPrefs.historical){box.innerHTML='';box.classList.remove('show');return}
   if(mapPeriod==='modern'){
     box.innerHTML='';box.classList.remove('show');
     if(note)note.textContent='GÜNÜMÜZ İL · İLÇE · KÖY SINIRLARI';
@@ -399,6 +407,8 @@ function initBaseMap(){
   const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
   const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap · © CARTO'});
   const michelin=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
+  const satellite=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'Tiles © Esri'});
+  const terrain=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxNativeZoom:17,maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenTopoMap · © OpenStreetMap · SRTM'});
 
   michelin.addTo(baseMap);
   const mapEl=document.getElementById('baseMap');
@@ -408,7 +418,8 @@ function initBaseMap(){
     if(!el)return;
     if(e&&e.name==='AYRINTILI YER ADLARI')el.classList.add('michelinMode');else el.classList.remove('michelinMode')
   });
-  L.control.layers({'AYRINTILI YER ADLARI':michelin,'SADE HARİTA':light,'SOKAK HARİTASI':osm},{},{position:'topright',collapsed:true}).addTo(baseMap);
+  L.control.layers({'AYRINTILI YER ADLARI':michelin,'UYDU GÖRÜNÜMÜ':satellite,'ARAZİ / TOPOGRAFYA':terrain,'SADE HARİTA':light,'SOKAK HARİTASI':osm},{},{position:'topright',collapsed:true}).addTo(baseMap);
+  archiveLayerMenu().addTo(baseMap);
   baseMap.on('zoomend moveend',function(){updateAdaptiveLabels()});
   baseMap.on('click',function(){clearNearbyLayer()})
 }
@@ -461,6 +472,7 @@ function updateAdaptiveLabels(){
   const z=baseMap.getZoom(),bounds=baseMap.getBounds(),visible=[];
   for(const spec of adaptiveLabelSpecs){
     if(z<adaptiveLabelThreshold(spec))continue;
+    if(!archiveLayerPrefs.subsettlements&&isSubsettlementName(spec.name))continue;
     if(!spec.ll||!bounds.pad(.15).contains(L.latLng(spec.ll[0],spec.ll[1])))continue;
     visible.push(spec)
   }
