@@ -1233,6 +1233,19 @@ async function selectDistrict(local,geoFeature){
     pfeats=(pointGeo&&pointGeo.features)||[]
   }
   const shown=renderDistrictVillageView(local,df,vfeats,pfeats);
+
+  // Harita önce görünür; arşiv arka planda tamamlanınca seçili ilçe sessizce zenginleşir.
+  const archiveReady=archive.length>0;
+  if(!archiveReady){
+    loadArchive().then(function(){
+      if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
+      currentVillages=buildVillageRows();
+      renderVillageList();
+      renderSideDistrict(selectedProvince.name,local.name);
+      renderDistrictVillageView(local,df,vfeats,pfeats);
+      renderPreview()
+    }).catch(function(e){console.error('İlçe arşiv verisi yüklenemedi',e)})
+  }
   const ah=currentVillages.filter(function(x){return x.has}).length;
 
   if(vfeats.length){
