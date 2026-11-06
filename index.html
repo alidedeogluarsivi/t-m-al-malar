@@ -654,6 +654,72 @@ async function showNearbySettlements(latlng){
     '<div class="mapInfoHint">HARİTADAKİ ETİKETLERDEN BİRİNE TIKLAYARAK İLERLEYİN.</div>'
   )
 }
+// Only matched modern village point geometries are plotted. No invented coordinates.
+const nationwideVillagePointCache=new Map();
+let nationwideVillageLoadStarted=false,nationwideVillageLayer=null;
+function nationwidePointMatches(il,ilce,koy){
+  const candidates=archiveIndex.get(key(il,ilce,koy))||[];
+  return candidates.length>0
+}
+function addNationwideVillageDots(){
+  if(level!=='turkey'||!baseMap||!nationwideVillageLayer)return;
+  nationwideVillageLayer.clearLayers();
+  if(!baseMap.getPane('archiveVillageDots')){
+    baseMap.createPane('archiveVillageDots');
+    baseMap.getPane('archiveVillageDots').style.zIndex='710';
+  }
+  const renderer=L.svg({pane:'archiveVillageDots',padding:.5});
+  nationwideVillagePointCache.forEach(function(item){
+    if(!item||!item.ll)return;
+    const dot=L.circleMarker(item.ll,{renderer:renderer,pane:'archiveVillageDots',radius:4.8,color:'#980000',weight:1.6,fillColor:'#f00',fillOpacity:.95});
+    dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
+    dot.on('click',function(e){
+      if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
+      const provinceId=PROVINCE_MAP[item.il];
+      if(!provinceId)return;
+      selectProvinceByName(item.il,provinceId).then(function(){
+        if(level==='province')openProvinceVillage(item.koy,item.ilce)
+      })
+    });
+    nationwideVillageLayer.addLayer(dot)
+  })
+}
+function startNationwideVillageDots(){
+  if(nationwideVillageLoadStarted||!archive.length||!districtList.length)return;
+  nationwideVillageLoadStarted=true;
+  const provinceSet=new Set(archive.map(function(x){return norm(canonicalProvince(x.il||''))}));
+  const districtSet=new Set(archive.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
+  const jobs=districtList.filter(function(d){
+    const province=provinceData.features.find(function(f){return PROVINCE_MAP[canonicalProvince((f.properties||{}).name||'')]===d.parent_id});
+    const il=province&&canonicalProvince(province.properties.name);
+    return il&&provinceSet.has(norm(il))&&districtSet.has(norm(il)+'|'+norm(d.name))
+  }).map(function(d){
+    const province=provinceData.features.find(function(f){return PROVINCE_MAP[canonicalProvince((f.properties||{}).name||'')]===d.parent_id});
+    return{district:d,il:canonicalProvince(province.properties.name)}
+  });
+  let cursor=0,loaded=0;
+  async function worker(){
+    while(cursor<jobs.length){
+      const job=jobs[cursor++];
+      const gj=await loadDistrictPointGeo(job.district).catch(function(){return null});
+      if(!gj)continue;
+      (gj.features||[]).forEach(function(f){
+        const name=(f.properties||{}).name||'';
+        if(!nationwidePointMatches(job.il,job.district.name,name))return;
+        const ll=featureLabelLatLng(f);
+        if(!ll)return;
+        const id=key(job.il,job.district.name,name);
+        nationwideVillagePointCache.set(id,{il:job.il,ilce:job.district.name,koy:name,ll:ll})
+      });
+      loaded++;
+      if(level==='turkey'&&nationwideVillageLayer&&loaded%5===0)addNationwideVillageDots();
+      if(loaded%8===0)await new Promise(function(resolve){setTimeout(resolve,0)})
+    }
+  }
+  Promise.all(Array.from({length:Math.min(3,jobs.length)},function(){return worker()})).then(function(){
+    if(level==='turkey')addNationwideVillageDots()
+  })
+}
 function renderBaseTurkey(){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const feats=(provinceData&&provinceData.features)||[];
@@ -677,7 +743,10 @@ function renderBaseTurkey(){
     dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);selectProvinceFeature(f)});
     dots.addLayer(dot)
   });
-  adminLayer=L.layerGroup([outlines,dots]).addTo(baseMap);
+  nationwideVillageLayer=L.layerGroup();
+  adminLayer=L.layerGroup([outlines,dots,nationwideVillageLayer]).addTo(baseMap);
+  addNationwideVillageDots();
+  startNationwideVillageDots();
   if(dots.getLayers().length)statusEl.textContent='TÜRKİYE · '+dots.getLayers().length+' İLDE KIRMIZI ARŞİV NOKTASI';
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
@@ -1187,6 +1256,19 @@ async function selectProvinceByName(name,id){
       const archivePoints=await loadProvinceArchivePoints(list,requestId);
       if(requestId!==districtRequestSeq||level!=='province')return;
       renderProvinceArchiveList(archivePoints);
+      if(baseMap&&adminLayer&&level==='province'){
+        if(!baseMap.getPane('provinceArchiveDots')){baseMap.createPane('provinceArchiveDots');baseMap.getPane('provinceArchiveDots').style.zIndex='710'}
+        const pointRenderer=L.svg({pane:'provinceArchiveDots',padding:.5});
+        const layer=L.layerGroup();
+        archivePoints.forEach(function(p){
+          const ll=featureLabelLatLng(p.feature);if(!ll)return;
+          const dot=L.circleMarker(ll,{renderer:pointRenderer,pane:'provinceArchiveDots',radius:6,color:'#970000',weight:2,fillColor:'#ef1616',fillOpacity:1});
+          dot.bindTooltip(p.district.name+' / '+p.name,{direction:'top'});
+          dot.on('click',function(){openProvinceVillage(p.name,p.district.name)});
+          layer.addLayer(dot)
+        });
+        adminLayer.addLayer(layer)
+      }
       const districtWithArchive=new Set(archivePoints.map(function(x){return x.district.id})).size;
       statusEl.textContent=(mapPeriod==='nfs'?'1830–1850 NFS · ':mapPeriod==='1890'?'1890 OSMANLI · ':'GÜNÜMÜZ · ')+name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' MODERN İLÇE REFERANSI · '+districtWithArchive+' İLÇEDE ARŞİV';
       return
