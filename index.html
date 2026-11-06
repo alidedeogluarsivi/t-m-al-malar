@@ -1722,10 +1722,10 @@ function standardFamilyName(v){
   if(!t)return '';
   // Akrabalık sözcükleri sülale değildir; hane bağlantısı ayrıca doğrulanır.
   if(/^(karındaş|karındaşı|kardeş|kardeşi)(?:oğlu|oğulları)?$/iu.test(t.replace(/\s+/g,'')))return '';
-  return t.replace(/OĞLU$/iu,'OĞULLARI').replace(/OĞULLAR$/iu,'OĞULLARI');
+  return t.replace(/\s*OĞLU$/iu,'OĞULLARI').replace(/\s*OĞULLAR$/iu,'OĞULLARI').replace(/\s+OĞULLARI$/iu,'OĞULLARI');
 }
 function searchNorm(s){
-  return norm(s).replace(/ogullari/g,'').replace(/ogullar/g,'').replace(/oglu/g,'')
+  return norm(s).replace(/\s*ogullari\b/g,'').replace(/\s*ogullar\b/g,'').replace(/\s*oglu\b/g,'').trim()
 }
 function haneNoOf(x){
   if(!x||typeof x!=='object')return'';
