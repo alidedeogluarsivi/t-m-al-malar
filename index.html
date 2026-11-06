@@ -654,7 +654,28 @@ async function showNearbySettlements(latlng){
     '<div class="mapInfoHint">HARİTADAKİ ETİKETLERDEN BİRİNE TIKLAYARAK İLERLEYİN.</div>'
   )
 }
-function renderBaseTurkey(){useLeafletMap();initBaseMap();clearBaseLayer();const feats=(provinceData&&provinceData.features)||[];adminLayer=L.geoJSON({type:'FeatureCollection',features:feats},{renderer:L.canvas({padding:.4}),smoothFactor:1.5,style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#155b3b':'#9a6b4f',weight:c?2:1,fillColor:c?'#8fc5a3':'#f6ead8',fillOpacity:c?.075:.025,bubblingMouseEvents:false}},onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.95});l.on('click',function(){selectProvinceFeature(f)})}}).addTo(baseMap);if(adminLayer.getBounds().isValid())baseMap.fitBounds(adminLayer.getBounds(),{padding:[10,10]})}
+function renderBaseTurkey(){
+  useLeafletMap();initBaseMap();clearBaseLayer();
+  const feats=(provinceData&&provinceData.features)||[];
+  const outlines=L.geoJSON({type:'FeatureCollection',features:feats},{
+    renderer:L.canvas({padding:.4}),smoothFactor:1.5,
+    style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c?.06:.025,bubblingMouseEvents:false}},
+    onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{sticky:true,direction:'top',className:'mapHoverLabel'});l.on('click',function(){selectProvinceFeature(f)})}
+  });
+  const dots=L.layerGroup();
+  feats.forEach(function(f){
+    const name=canonicalProvince((f.properties&&f.properties.name)||''),count=provinceArchiveCounts.get(norm(name))||0;
+    if(!count)return;
+    const ll=featureLabelLatLng(f);if(!ll)return;
+    const radius=Math.min(19,5+Math.sqrt(count)*1.05);
+    const dot=L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:radius,color:'#9c1717',weight:2,fillColor:'#df2020',fillOpacity:.83,bubblingMouseEvents:false});
+    dot.bindTooltip(name+' · '+count+' ARŞİV YERLEŞİMİ',{direction:'top',className:'mapHoverLabel'});
+    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);selectProvinceFeature(f)});
+    dots.addLayer(dot)
+  });
+  adminLayer=L.layerGroup([outlines,dots]).addTo(baseMap);
+  if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
+}
 function renderBaseProvince(feats){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const historical=mapPeriod!=='modern';
@@ -715,7 +736,7 @@ function renderBaseDistrict(df,vf,pf){
     const points=L.geoJSON({type:'FeatureCollection',features:pf},{
       pointToLayer:function(f,ll){
         const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);
-        return L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:has?6:4,color:has?'#155b3b':'#736e66',weight:has?2:1,fillColor:has?'#2f7d55':'#b8b2a9',fillOpacity:.9})
+        return L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:has?7:4,color:has?'#9c1717':'#736e66',weight:has?2:1,fillColor:has?'#e02121':'#b8b2a9',fillOpacity:.9})
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
