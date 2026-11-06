@@ -1689,7 +1689,7 @@ function previewRows(){
     }).slice().sort(function(a,b){
       const da=(a.ilce||'').localeCompare(b.ilce||'','tr');
       return da||((a.koy||'').localeCompare(b.koy||'','tr'))
-    })
+    }).slice(0,Math.max(previewLimit,36))
   }
   return archive.slice().sort(function(a,b){return score(b)-score(a)}).slice(0,12)
 }
@@ -1913,8 +1913,12 @@ function initFinder(){
   document.getElementById('finderSearch').oninput=function(){clearTimeout(searchTimer);searchTimer=setTimeout(function(){finderLimit=24;runFinder()},180)};
   document.querySelectorAll('[data-find-tip]').forEach(function(btn){btn.onclick=function(){document.getElementById('finderSearch').value=btn.getAttribute('data-find-tip');finderLimit=24;runFinder()}});
 }
+const finderTextCache=new WeakMap();
 function finderBlob(r){
-  return [r.il,r.ilce,r.koy,JSON.stringify(r.sulaleler||[]),JSON.stringify(r.defterler||[]),JSON.stringify(r.haneler||[]),JSON.stringify(r.gorevli_notlari||[]),JSON.stringify(r.taramalar||[])].join(' ')
+  if(finderTextCache.has(r))return finderTextCache.get(r);
+  const value=searchNorm([r.il,r.ilce,r.koy,JSON.stringify(r.sulaleler||[]),JSON.stringify(r.defterler||[]),JSON.stringify(r.haneler||[]),JSON.stringify(r.gorevli_notlari||[]),JSON.stringify(r.taramalar||[])].join(' '));
+  finderTextCache.set(r,value);
+  return value
 }
 function runFinder(){
   const input=document.getElementById('finderSearch'),fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict'),box=document.getElementById('finderResults'),list=document.getElementById('finderList'),sum=document.getElementById('finderSummary');
@@ -1924,7 +1928,7 @@ function runFinder(){
     if(il&&norm(canonicalProvince(r.il||''))!==norm(il))return false;
     if(ilce&&norm(r.ilce||'')!==norm(ilce))return false;
     if(!nq)return !!(il||ilce);
-    return searchNorm(finderBlob(r)).includes(nq)
+    return finderBlob(r).includes(nq)
   });
   rows.sort(function(a,b){
     function rank(r){
