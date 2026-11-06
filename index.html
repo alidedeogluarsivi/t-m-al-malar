@@ -662,18 +662,23 @@ function renderBaseTurkey(){
     style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c?.06:.025,bubblingMouseEvents:false}},
     onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{sticky:true,direction:'top',className:'mapHoverLabel'});l.on('click',function(){selectProvinceFeature(f)})}
   });
+  if(!baseMap.getPane('archiveDots')){baseMap.createPane('archiveDots');baseMap.getPane('archiveDots').style.zIndex='690';baseMap.getPane('archiveDots').style.pointerEvents='auto'}
+  const dotRenderer=L.svg({pane:'archiveDots',padding:0.6});
   const dots=L.layerGroup();
+  const fallbackCounts=new Map();
+  archive.forEach(function(row){const key=norm(canonicalProvince(row.il||''));if(key)fallbackCounts.set(key,(fallbackCounts.get(key)||0)+1)});
   feats.forEach(function(f){
-    const name=canonicalProvince((f.properties&&f.properties.name)||''),count=provinceArchiveCounts.get(norm(name))||0;
+    const name=canonicalProvince((f.properties&&f.properties.name)||''),count=provinceArchiveCounts.get(norm(name))||fallbackCounts.get(norm(name))||0;
     if(!count)return;
     const ll=featureLabelLatLng(f);if(!ll)return;
     const radius=Math.min(19,5+Math.sqrt(count)*1.05);
-    const dot=L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:radius,color:'#9c1717',weight:2,fillColor:'#df2020',fillOpacity:.83,bubblingMouseEvents:false});
+    const dot=L.circleMarker(ll,{renderer:dotRenderer,pane:'archiveDots',radius:radius,color:'#920b0b',weight:2.5,fillColor:'#ee2020',fillOpacity:1,bubblingMouseEvents:false,interactive:true});
     dot.bindTooltip(name+' · '+count+' ARŞİV YERLEŞİMİ',{direction:'top',className:'mapHoverLabel'});
     dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);selectProvinceFeature(f)});
     dots.addLayer(dot)
   });
   adminLayer=L.layerGroup([outlines,dots]).addTo(baseMap);
+  if(dots.getLayers().length)statusEl.textContent='TÜRKİYE · '+dots.getLayers().length+' İLDE KIRMIZI ARŞİV NOKTASI';
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
 function renderBaseProvince(feats){
