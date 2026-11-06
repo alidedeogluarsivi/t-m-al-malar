@@ -677,7 +677,8 @@ function renderBaseDistrict(df,vf,pf){
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
         l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.94});
-        l.on('click',function(){openVillage(n)})
+        l.bindPopup(function(){return villagePopupHtml(n,archiveForVillage(n))},{maxWidth:340});
+        l.on('click',function(){openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
       }
     });
     layers.push(villagePolys);if(!boundsLayer)boundsLayer=villagePolys;
@@ -694,7 +695,7 @@ function renderBaseDistrict(df,vf,pf){
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
-        l.on('click',function(){openVillage(n)})
+        l.on('click',function(){openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
       }
     });
     layers.push(points);if(!boundsLayer)boundsLayer=points;
@@ -1211,6 +1212,7 @@ async function selectDistrict(local,geoFeature){
     statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · HARİTA GEOMETRİSİ YOK · YERLEŞİMLER SOLDAN SEÇİLEBİLİR';
   }
 }
+function villagePopupHtml(name,r){const d=(r&&r.defterler||[]).filter(function(x){return x&&x.defter}).slice(0,3);const fam=archiveLayerPrefs.families?(r&&r.sulaleler||[]).slice(0,12):[];return '<div style="min-width:190px;max-width:310px"><b>'+esc(name)+'</b><br><small>'+esc([selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name].filter(Boolean).join(' / '))+'</small>'+(d.length?'<p>'+d.map(function(x){return esc([x.tur,x.defter,x.yil,x.varak?'VARAK '+x.varak:''].filter(Boolean).join(' · '))}).join('<br>')+'</p>':'<p>DOĞRULANMIŞ DEFTER BİLGİSİ YOK</p>')+(fam.length?'<b>SÜLALELER</b><br>'+fam.map(function(x){return esc(typeof x==='object'?JSON.stringify(x):x)}).join(' · '):'')+'</div>'}
 function openVillage(name){const r=archiveForVillage(name);renderSideVillage(name,r,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);const idx=currentVillages.findIndex(function(x){return norm(x.name)===norm(name)});if(idx>=0)vSel.value=String(idx)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
 function hasDisplayValue(v){
@@ -1344,7 +1346,7 @@ function renderSideVillage(name,r,ilce,il){
     }).join('')+'</div>'
   }
   const fams=(r.sulaleler||[]).filter(Boolean);
-  if(fams.length)body+='<div class="sideInfoSec"><b class="title">SÜLALE / LAKAP</b><div class="sideInfoTags">'+fams.slice(0,60).map(function(x){return'<span>'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div></div>';
+  if(archiveLayerPrefs.families&&fams.length)body+='<div class="sideInfoSec"><b class="title">SÜLALE / LAKAP</b><div class="sideInfoTags">'+fams.slice(0,60).map(function(x){return'<span>'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div></div>';
   const staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
   if(staff.length)body+='<div class="sideInfoSec"><b class="title">İMAM / MUHTAR / GÖREVLİ</b>'+staff.slice(0,30).map(function(x){return'<div class="sideInfoRecord">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>';
   setSideInfo(name,(ilce||'')+' / '+(il||''),body)
@@ -1382,10 +1384,10 @@ function showRecord(name,r,ilce,il){
       });
       h+='</div>'
     }
-    if(houses.length){
+    if(archiveLayerPrefs.families&&houses.length){
       h+='<div class="section"><h3>HANE / KİŞİ BİLGİLERİ</h3>'+houses.slice(0,200).map(function(x){const body=genericObject(x);return body?'<div class="record"><div class="kv">'+body+'</div></div>':''}).join('')+'</div>'
     }
-    if(fams.length){
+    if(archiveLayerPrefs.families&&fams.length){
       h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'+fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div>'
     }
     if(staff.length){
