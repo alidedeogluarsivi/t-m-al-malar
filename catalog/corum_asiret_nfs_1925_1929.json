@@ -1,0 +1,1883 @@
+{
+  "baslik": "ÇORUM AŞİRET NÜFUS DEFTERLERİ FİHRİSTİ",
+  "kapsam": "BOA NFS.d.1925-1929",
+  "kayit_sayisi": 69,
+  "notlar": [
+    "Defterdeki okuma kayit_adi alanında korunur.",
+    "Bugünkü eşleşen yer il/ilce/koy alanlarında gösterilir.",
+    "Aşiret, varak, hane ve erkek sayıları defterler alanındadır.",
+    "AKSU, NFS.d.1926 v.3 Cihanbeyli kaydı olarak Tarhankozlusu-Demirşeyh hattında yaklaşık tarihî kayıt noktasıdır."
+  ],
+  "kayitlar": [
+    {
+      "id": "corum|ugurludag|ugurludag|asiret1925",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Uğurludağ",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 42,
+          "erkek": 137,
+          "asiret": "LEK AŞİRETİ",
+          "kayit_adi": "KIZILVİRAN"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 3,
+          "erkek": 12,
+          "asiret": "ABDAL AŞİRETİ",
+          "kayit_adi": "KIZILVİRAN'DA MUKİM ABDAL"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|inalozu|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "İnalözü",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 1,
+          "erkek": 3,
+          "asiret": "ŞEYHBEZİNLİ AŞİRETİ",
+          "kayit_adi": "İNALÖZÜ"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 7,
+          "erkek": 15,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "İNALÖZÜ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|seydimsultan|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Seydimsultan",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 1,
+          "erkek": 3,
+          "asiret": "MİLLÎ AŞİRETİ",
+          "kayit_adi": "SEYDİMSULTAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|buget|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Büğet",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 5,
+          "erkek": 11,
+          "asiret": "BÂZİKLİ AŞİRETİ",
+          "kayit_adi": "BÜĞET"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sariseyh|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sarışeyh",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 1,
+          "erkek": 2,
+          "asiret": "BÂZİKLİ AŞİRETİ",
+          "kayit_adi": "SARIŞEYH"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 11,
+          "erkek": 40,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "SARIŞEYH"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|tuglu|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Tuğlu",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 5,
+          "erkek": 13,
+          "asiret": "BÂZİKLİ AŞİRETİ",
+          "kayit_adi": "TOHT"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 15,
+          "erkek": 48,
+          "asiret": "ÇAKALLI AŞİRETİ",
+          "kayit_adi": "TIHT"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 3,
+          "erkek": 8,
+          "asiret": "RİŞVAN AŞİRETİ",
+          "kayit_adi": "TUHT"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|lacin|narli|asiret",
+      "il": "Çorum",
+      "ilce": "Laçin",
+      "koy": "Narlı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "8",
+          "hane": 10,
+          "erkek": 30,
+          "asiret": "BÂZİKLİ AŞİRETİ",
+          "kayit_adi": "NARLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|agcakaya|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Ağçakaya",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 1,
+          "erkek": 1,
+          "asiret": "BÂZİKLİ AŞİRETİ",
+          "kayit_adi": "AĞÇAKAYA"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sekerbey|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Şekerbey",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1925",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 15,
+          "erkek": 46,
+          "asiret": "AĞÇAKOYUNLU AŞİRETİ",
+          "kayit_adi": "ŞEKERBEĞ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|mecitozu|ayvali|asiret",
+      "il": "Çorum",
+      "ilce": "Mecitözü",
+      "koy": "Ayvalı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 1,
+          "erkek": 3,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "AYVALI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "amasya|merzifon|iliz|asiret",
+      "il": "Amasya",
+      "ilce": "Merzifon",
+      "koy": "İliz",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 13,
+          "erkek": 39,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "ELİZ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "ÇORUM AŞİRET NÜFUS DEFTERİNDE GEÇER"
+      ]
+    },
+    {
+      "id": "amasya|merzifon|samiyye|asiret",
+      "il": "Amasya",
+      "ilce": "Merzifon",
+      "koy": "Samiyye",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 1,
+          "erkek": 3,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "SANIB"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "ÇORUM AŞİRET NÜFUS DEFTERİNDE GEÇER"
+      ]
+    },
+    {
+      "id": "amasya|merzifon|pekmezci|asiret",
+      "il": "Amasya",
+      "ilce": "Merzifon",
+      "koy": "Pekmezci",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 10,
+          "erkek": 26,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "PEKMEZCİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "ÇORUM AŞİRET NÜFUS DEFTERİNDE GEÇER"
+      ]
+    },
+    {
+      "id": "corum|merkez|kosurelik|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Kösürelik",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 8,
+          "erkek": 22,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "KÖSVELEK"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 1,
+          "erkek": 2,
+          "asiret": "RİŞVAN AŞİRETİ",
+          "kayit_adi": "GÜSNLEK"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|tarhankozlusu|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Tarhankozlusu",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 1,
+          "erkek": 2,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "TERCAN KOZLUĞU"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|buyukgullucek|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Büyükgüllücek",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 8,
+          "erkek": 23,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "KÜLLÜCEK"
+        },
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 6,
+          "erkek": 21,
+          "asiret": "RİŞVAN AŞİRETİ",
+          "kayit_adi": "KÜLLÜCEK"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|demirseh|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Demirşeyh",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 2,
+          "erkek": 4,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "TEMİRŞEYH"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sirikli|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sırıklı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 10,
+          "erkek": 21,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "SIRTLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|aksungur|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Aksungur",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 5,
+          "erkek": 14,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "AKSUNGUR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|hortumca|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hortumca",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 2,
+          "erkek": 6,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "HOR / HUR TOMCA"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|aktas|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Aktaş",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 4,
+          "erkek": 12,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "AKTAŞ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|gulveren|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Gülveren",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 4,
+          "erkek": 8,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "GÜLPERİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "HARMANCIK HATTI EŞLEŞMESİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|hamdi|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hamdi",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 2,
+          "erkek": 8,
+          "asiret": "RİŞVAN AŞİRETİ",
+          "kayit_adi": "MEHDİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|serban|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Serban",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 22,
+          "erkek": 68,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "SERBALI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|cavuslu|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Çavuşlu",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 5,
+          "erkek": 17,
+          "asiret": "ÇİYAN YÖRÜKÂNI",
+          "kayit_adi": "ÇAVUŞLU"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|oyaca|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Oyaca",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 5,
+          "erkek": 16,
+          "asiret": "ÇİYAN YÖRÜKÂNI",
+          "kayit_adi": "OYACA"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|topuz|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Topuz",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 12,
+          "erkek": 46,
+          "asiret": "ÇİYAN YÖRÜKÂNI",
+          "kayit_adi": "TOPUZ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|cayan|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Çayan",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 19,
+          "erkek": 59,
+          "asiret": "ÇİYAN YÖRÜKÂNI",
+          "kayit_adi": "ÇİYAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|feruz|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Feruz",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "8",
+          "hane": 35,
+          "erkek": 126,
+          "asiret": "ÇİYAN YÖRÜKÂNI",
+          "kayit_adi": "FERAVED?"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "OKUMA EŞLEŞMESİ FERUZ KABUL EDİLDİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|serpin|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Serpin",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 14,
+          "erkek": 46,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "SARPIN / SARPAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|karabayir|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Karabayır",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 9,
+          "erkek": 24,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "KARABAYIR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|seyfe|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Seyfe",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 38,
+          "erkek": 100,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "SEYFİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sorsavus|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sorsavuş",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 8,
+          "erkek": 24,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "SORÇAVUŞ / SORSAVUŞ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "HAMDİKÖY HATTI"
+      ]
+    },
+    {
+      "id": "corum|merkez|sapa|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sapa",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 51,
+          "erkek": 144,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "SAPA"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|gokdere|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Gökdere",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 3,
+          "erkek": 9,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "GÖKDERE"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|bagcili|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Bağcılı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 28,
+          "erkek": 71,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "MÜDÜ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "MÜDÜ (BUGÜNKÜ BAĞCILI)"
+      ]
+    },
+    {
+      "id": "corum|merkez|yenice|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Yenice",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 1,
+          "erkek": 3,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "YENİCE"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sarimbey|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sarımbey",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 34,
+          "erkek": 97,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "SARIMBEĞ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|cayhatap|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Çayhatap",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1927",
+          "yil": "1844",
+          "varak": "8",
+          "hane": 8,
+          "erkek": 25,
+          "asiret": "KUYUMCU AŞİRETİ",
+          "kayit_adi": "ÇAYHATİB"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|boztepe|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Boztepe",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 5,
+          "erkek": 14,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "BOZTEPE"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|tutpinar|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Tutpınar",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 26,
+          "erkek": 71,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "TUTPINAR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|torunlar|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Torunlar",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 7,
+          "erkek": 24,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "CİNDER TORUNLARI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|kizagili|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Kızağılı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 21,
+          "erkek": 52,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "KIZAĞIL"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|asiliarmut|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Aşılıarmut",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 18,
+          "erkek": 43,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "AŞILI ARMUD"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|haciahmetderesi|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hacıahmetderesi",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 9,
+          "erkek": 24,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "HACI AHMED DERESİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|suluklu|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Sülüklü",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 5,
+          "erkek": 10,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "SÜLÜKLÜ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|sahinkaya|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Şahinkaya",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 5,
+          "erkek": 12,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "CIRFINLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|hizirli|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hızırlı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "5",
+          "hane": 11,
+          "erkek": 37,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "HIZIRLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|akdam|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Akdam",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 14,
+          "erkek": 33,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "AKDAM"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|kertme|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Kertme",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 19,
+          "erkek": 66,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "KERTE"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|guvenli|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Güvenli",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 6,
+          "erkek": 13,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "GÜVANLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|karakecili|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Karakeçili",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 8,
+          "erkek": 22,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "KARAKEÇİLİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|hacibey|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hacıbey",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 13,
+          "erkek": 39,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "HACIBEĞ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|eskiviran|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Eskiviran",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 13,
+          "erkek": 41,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "ESKİVİRAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|aksofu|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Aksofu",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 3,
+          "erkek": 6,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "AKSOFİ"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|kizilkir|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Kızılkır",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 6,
+          "erkek": 10,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "KIZILKIR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|eskiceltek|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Eskiçeltek",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 7,
+          "erkek": 13,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "ESKİÇELTİK"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|lacin|lacin|asiret",
+      "il": "Çorum",
+      "ilce": "Laçin",
+      "koy": "Laçin",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "9",
+          "hane": 4,
+          "erkek": 11,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "LAÇİNKEBİR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|kormehmedkislasi|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Körmehmed Kışlası",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "10",
+          "hane": 18,
+          "erkek": 53,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "KÖRMEHMED KIŞLASI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|ferhatli|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Ferhatlı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "13",
+          "hane": 3,
+          "erkek": 33,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "FERHADLI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "ESKİÖREN HATTI"
+      ]
+    },
+    {
+      "id": "corum|merkez|hasandegin|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hasandeğin",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1928",
+          "yil": "1844",
+          "varak": "13",
+          "hane": 25,
+          "erkek": 56,
+          "asiret": "DEDESLİ AŞİRETİ",
+          "kayit_adi": "HASANDİĞİN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|belkavak|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Belkavak",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "2",
+          "hane": 18,
+          "erkek": 35,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "BELKAVAK"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|yeniyapan|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Yeniyapan",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 8,
+          "erkek": 16,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "YENİYAPAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|ucdam|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Üçdam",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "4",
+          "hane": 29,
+          "erkek": 72,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "ÜÇTAM"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|yarimca|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Yarımca",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "6",
+          "hane": 13,
+          "erkek": 33,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "YARIMCA"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|soglan|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Soğlan",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "7",
+          "hane": 22,
+          "erkek": 59,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "SOĞULAN"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|merkez|hacibayram|asiret",
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Hacıbayram",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "12",
+          "hane": 4,
+          "erkek": 9,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "HACIBAYRAMLAR"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|ugurludag|ambarci|asiret",
+      "il": "Çorum",
+      "ilce": "Uğurludağ",
+      "koy": "Ambarcı",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1929",
+          "yil": "1844",
+          "varak": "12",
+          "hane": 35,
+          "erkek": 85,
+          "asiret": "BEDİRHANLI AŞİRETİ",
+          "kayit_adi": "ANBARCI"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ"
+      ]
+    },
+    {
+      "id": "corum|sungurlu|aksu|asiret",
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Aksu",
+      "defterler": [
+        {
+          "tur": "NÜFUS",
+          "defter": "BOA NFS.d.1926",
+          "yil": "1844",
+          "varak": "3",
+          "hane": 2,
+          "erkek": 2,
+          "asiret": "CİHANBEYLİ AŞİRETİ",
+          "kayit_adi": "AKSU"
+        }
+      ],
+      "sulaleler": [],
+      "haneler": [],
+      "gorevli_notlari": [],
+      "taramalar": [],
+      "kaynak_pdf": [],
+      "durumlar": [
+        "AŞİRET NÜFUS DEFTERİ",
+        "TARHANKOZLUSU–DEMİRŞEYH ARASINA ARA NOKTA OLARAK YERLEŞTİRİLDİ"
+      ]
+    }
+  ]
+}
