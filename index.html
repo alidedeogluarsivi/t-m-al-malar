@@ -1516,7 +1516,10 @@ function hasOfficialArchiveRecord(r){
 async function loadArchiveCore(){
   archive=[];summary={};
   const raw=[];
-  const archiveTexts=await Promise.all(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return getText(f)}));
+  const archiveResults=await Promise.allSettled(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return getText(f)}));
+  const archiveTexts=archiveResults.filter(function(x){return x.status==='fulfilled'}).map(function(x){return x.value});
+  archiveResults.filter(function(x){return x.status==='rejected'}).forEach(function(x){console.warn('Arşiv dosyası yüklenemedi',x.reason)});
+  if(!archiveTexts.length)throw new Error('Hiçbir arşiv dosyası yüklenemedi');
   for(const t of archiveTexts){
     t.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
@@ -2154,7 +2157,7 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 bindHistoricalControls();
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
-  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL),getJSON(SETTLEMENTS).catch(function(e){console.warn('Yerleşim listesi daha sonra yüklenecek',e);return[]}),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}})]);
+  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL).catch(function(e){console.warn('İlçe listesi yüklenemedi',e);return[]}),getJSON(SETTLEMENTS).catch(function(e){console.warn('Yerleşim listesi daha sonra yüklenecek',e);return[]}),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}})]);
   provinceData=base[0];
   districtList=base[1];
   settlements=base[2];
@@ -2172,7 +2175,7 @@ bindHistoricalControls();
     }).catch(function(e){console.error(e);statusEl.textContent='HARİTA HAZIR · ARŞİV VERİSİ YÜKLENEMEDİ; SAYFAYI YENİLEYİN.'})
   };
   if('requestIdleCallback' in window)requestIdleCallback(startArchive,{timeout:700});else setTimeout(startArchive,0)
-}catch(e){console.error(e);statusEl.textContent='Site verileri yüklenirken hata oluştu. Sayfayı yenileyin.'}})();
+}catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261105-05"></script>
 </body></html>
