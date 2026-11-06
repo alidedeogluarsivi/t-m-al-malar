@@ -1687,11 +1687,45 @@ function previewRows(){
       if(selectedDistrict&&norm(r.ilce||'')!==norm(selectedDistrict.name))return false;
       return !!(r.koy&&String(r.koy).trim())
     }).slice().sort(function(a,b){
-      const da=(a.ilce||'').localeCompare(b.ilce||'','tr');
-      return da||((a.koy||'').localeCompare(b.koy||'','tr'))
-    }).slice(0,Math.max(previewLimit,36))
+      const da=score(b)-score(a);
+      if(da)return da;
+      return (a.ilce||'').localeCompare(b.ilce||'','tr')||(a.koy||'').localeCompare(b.koy||'','tr')
+    })
   }
   return archive.slice().sort(function(a,b){return score(b)-score(a)}).slice(0,12)
+}
+function regionFamilyEntries(){
+  if(!selectedProvince)return [];
+  const ip=norm(selectedProvince.name),dp=selectedDistrict?norm(selectedDistrict.name):'';
+  const found=new Map();
+  archive.forEach(function(r){
+    if(norm(canonicalProvince(r.il||''))!==ip||(dp&&norm(r.ilce||'')!==dp))return;
+    (r.sulaleler||[]).forEach(function(f){
+      if(typeof f!=='string')return;
+      const name=standardFamilyName(f);
+      if(!name)return;
+      const k=searchNorm(name);
+      if(!k)return;
+      if(!found.has(k))found.set(k,{name:name,places:new Set()});
+      found.get(k).places.add([r.ilce,r.koy].filter(Boolean).join(' / '));
+    });
+  });
+  return Array.from(found.values()).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
+}
+let regionFamilyPage=0;
+function showRegionFamilies(){
+  const el=document.getElementById('regionFamilies');
+  if(!el)return;
+  const entries=regionFamilyEntries();
+  const count=Math.min(entries.length,(regionFamilyPage+1)*100);
+  el.innerHTML='<div class="searchSummary"><b>'+entries.length+' TEKİL SÜLALE</b> · '+(selectedDistrict?esc(selectedDistrict.name):esc(selectedProvince.name))+'</div>'+
+    entries.slice(0,count).map(function(x){
+      const places=Array.from(x.places);
+      return '<div class="sresult"><div><b>'+esc(x.name)+'</b><div class="searchHint">'+esc(places.slice(0,6).join(' · '))+(places.length>6?' · +'+(places.length-6)+' YER':'')+'</div></div></div>'
+    }).join('')+
+    (count<entries.length?'<button type="button" id="regionFamilyMore" class="previewMore">100 SÜLALE DAHA GÖSTER · '+count+' / '+entries.length+'</button>':'');
+  const more=document.getElementById('regionFamilyMore');
+  if(more)more.onclick=function(){regionFamilyPage++;showRegionFamilies()};
 }
 function renderPreview(){
   const rows=previewRows();
@@ -1709,13 +1743,15 @@ function renderPreview(){
   }
   if(!rows.length){g.innerHTML='<div class="empty">Bu seçim için arşiv kartı bulunamadı.</div>';return}
   const visible=rows.slice(0,previewLimit);
-  g.innerHTML=visible.map(function(r,i){
+  const regionButton=selectedProvince?'<button id="regionFamiliesBtn" type="button" class="previewMore">BU '+(selectedDistrict?'İLÇENİN':'İLİN')+' TÜM SÜLALELERİNİ LİSTELE</button><div id="regionFamilies"></div>':'';
+  g.innerHTML=regionButton+visible.map(function(r,i){
     const defs=r.defterler||[],f=(r.sulaleler||[]).filter(Boolean);
     const famHtml=f.length?'<div class="previewFamilies"><strong>SÜLALELER</strong>'+f.map(function(x){return'<span class="pill familyPill">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div>':'<div class="previewFamilies"><strong>SÜLALELER</strong><span class="searchHint">Bu kartta sülale adı henüz işlenmedi.</span></div>';
     return'<div class="pcard" data-p="'+i+'"><div class="previewLoc">'+esc([r.il,r.ilce].filter(Boolean).join(' · '))+'</div><b>'+esc(r.koy||'YERLEŞİM')+'</b><small>'+defs.map(function(d){return[d.defter,d.yil].filter(Boolean).join(' · ')}).filter(Boolean).slice(0,3).map(esc).join('<br>')+'</small>'+famHtml+'</div>'
   }).join('')+(rows.length>visible.length?'<button id="previewMore" class="previewMore" type="button">DAHA FAZLA GÖSTER · '+visible.length+' / '+rows.length+'</button>':'');
   g.querySelectorAll('[data-p]').forEach(function(el){el.onclick=function(){const r=visible[Number(el.dataset.p)];showRecord(r.koy,r,r.ilce,r.il)}});
   const more=document.getElementById('previewMore');if(more)more.onclick=function(){previewLimit+=36;renderPreview()};
+  const regionBtn=document.getElementById('regionFamiliesBtn');if(regionBtn)regionBtn.onclick=function(){regionFamilyPage=0;showRegionFamilies();regionBtn.remove()};
   const qs=document.getElementById('qStatus');if(qs)qs.textContent=(selectedDistrict?selectedProvince.name+' / '+selectedDistrict.name:selectedProvince?selectedProvince.name:'TÜRKİYE')+' · '+rows.length+' KART';
 }
 function standardFamilyName(v){
