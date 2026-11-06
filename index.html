@@ -1515,7 +1515,7 @@ function hasOfficialArchiveRecord(r){
 async function loadArchiveCore(){
   archive=[];summary={};
   const raw=[];
-  const archiveTexts=await Promise.all(ARCH.map(function(f){return getText(f)}));
+  const archiveTexts=await Promise.all(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return getText(f)}));
   for(const t of archiveTexts){
     t.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
