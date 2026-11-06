@@ -117,8 +117,8 @@ function norm(s){return String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD'
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function canonicalProvince(n){return norm(n)===norm('Afyon')?'Afyonkarahisar':n}
 function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
-async function getJSON(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
-async function getText(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
+async function getJSON(u){const r=await fetch(u,{cache:'default'});if(!r.ok)throw new Error(r.status+' '+u);return r.json()}
+async function getText(u){const r=await fetch(u,{cache:'default'});if(!r.ok)throw new Error(r.status+' '+u);return r.text()}
 function flatten(c,out){out=out||[];if(Array.isArray(c)&&typeof c[0]==='number'){out.push(c);return out}if(Array.isArray(c))c.forEach(function(x){flatten(x,out)});return out}
 function geometryPath(g,pr){if(!g)return'';function ring(r){return r.map(function(p,i){const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}if(g.type==='Polygon')return g.coordinates.map(ring).join(' ');if(g.type==='MultiPolygon')return g.coordinates.flatMap(function(poly){return poly.map(ring)}).join(' ');return''}
 function projector(features){const pts=[];features.forEach(function(f){flatten(f.geometry&&f.geometry.coordinates,pts)});if(!pts.length)return function(){return[500,310]};let minX=180,maxX=-180,minY=90,maxY=-90;pts.forEach(function(p){minX=Math.min(minX,p[0]);maxX=Math.max(maxX,p[0]);minY=Math.min(minY,p[1]);maxY=Math.max(maxY,p[1])});const W=1000,H=620,pad=34,dx=Math.max(.01,maxX-minX),dy=Math.max(.01,maxY-minY),scale=Math.min((W-pad*2)/dx,(H-pad*2)/dy),ox=(W-dx*scale)/2,oy=(H-dy*scale)/2;return function(p){return[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)]}}
@@ -1454,8 +1454,8 @@ function hasOfficialArchiveRecord(r){
 async function loadArchive(){
   archive=[];summary={};
   const raw=[];
-  for(const f of ARCH){
-    const t=await getText(f);
+  const archiveTexts=await Promise.all(ARCH.map(function(f){return getText(f)}));
+  for(const t of archiveTexts){
     t.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
       try{
