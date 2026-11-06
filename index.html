@@ -399,8 +399,7 @@ function initBaseMap(){
   const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
   const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap · © CARTO'});
   const michelin=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:3,attribution:'© OpenStreetMap'});
-  const satellite=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,updateWhenIdle:true,keepBuffer:2,attribution:'Tiles © Esri'});
-  const terrain=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,maxNativeZoom:17,updateWhenIdle:true,keepBuffer:2,attribution:'© OpenTopoMap · © OpenStreetMap contributors · SRTM'});
+
   michelin.addTo(baseMap);
   const mapEl=document.getElementById('baseMap');
   if(mapEl)mapEl.classList.add('michelinMode');
@@ -409,7 +408,7 @@ function initBaseMap(){
     if(!el)return;
     if(e&&e.name==='AYRINTILI YER ADLARI')el.classList.add('michelinMode');else el.classList.remove('michelinMode')
   });
-  L.control.layers({'AYRINTILI YER ADLARI':michelin,'UYDU GÖRÜNÜMÜ':satellite,'ARAZİ / TOPOGRAFYA':terrain,'SADE HARİTA':light,'SOKAK HARİTASI':osm},{},{position:'topright',collapsed:true}).addTo(baseMap);
+  L.control.layers({'AYRINTILI YER ADLARI':michelin,'SADE HARİTA':light,'SOKAK HARİTASI':osm},{},{position:'topright',collapsed:true}).addTo(baseMap);
   baseMap.on('zoomend moveend',function(){updateAdaptiveLabels()});
   baseMap.on('click',function(){clearNearbyLayer()})
 }
