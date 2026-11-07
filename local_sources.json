@@ -174,6 +174,113 @@
           "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
         }
       ]
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Çalıca",
+      "kaynaklar": [
+        {
+          "tarih": "21 Nisan 1917",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "Karabekiroğullarından Bekir, Hasan oğlu, 23 yaşında nefer olarak İstablat Muharebesi'nde şehit kaydıyla geçmektedir.",
+          "kaynak": "Şehadet Atlası, Çorum / Merkez"
+        }
+      ]
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Merkez",
+      "koy": "Taşpınar",
+      "kaynaklar": [
+        {
+          "tarih": "20/07/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "İbrahim bin Hüseyin, Çanakkale Cephesi'nde Davutpaşa Kışla Hastanesi kaydında şehit olarak geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "28/05/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "1880 doğumlu Mehmet bin İsmail, Çanakkale Cephesi Anafartalar Asmadere'de şehit kaydıyla geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        }
+      ]
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Salman",
+      "kaynaklar": [
+        {
+          "tarih": "27/06/1332",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "1882 doğumlu Cemal bin Mustafa, I. Dünya Savaşı Irak Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "25/05/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "1880 doğumlu Kasım bin Osman, Çanakkale Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "18/04/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "1882 doğumlu Mustafa bin Mehmet, I. Dünya Savaşı Şark Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "22/06/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "1876 doğumlu Rıza bin Mustafa, I. Dünya Savaşı Şark Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "18/03/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "Şakir bin Mustafa, Çanakkale Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        },
+        {
+          "tarih": "25/02/1331",
+          "tur": "ŞEHİT KAYDI",
+          "ozet": "Tolgaroğullarından 1889 doğumlu Yakup bin Zeynel, Çanakkale Cephesi şehit kaydında geçmektedir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        }
+      ]
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Sungurlu",
+      "koy": "Hacıosman",
+      "kaynaklar": [
+        {
+          "tarih": "20. yüzyıl başı",
+          "tur": "GAZETE / İCRA-ARAZİ",
+          "ozet": "Hacıosman karyesinden Hamza oğlu Musa Efendi'ye ait bir kıta bağ, Sungurlu Ziraat Bankası Sandığı borcu nedeniyle ipotekli taşınmazın açık artırma ilanında geçmektedir.",
+          "kaynak": "Sungurlu İcra Dairesi ilanı, Yozgad Matbaası, kayıt no 2935"
+        }
+      ]
+    },
+    {
+      "il": "Amasya",
+      "ilce": "Merkez",
+      "koy": "Yolyanı",
+      "kaynaklar": [
+        {
+          "tarih": "Millî Mücadele dönemi",
+          "tur": "İSTİKLAL MAHKEMESİ",
+          "ozet": "Bıçaksızoğullarından Mustafa oğlu Ömer, Kahvecioğullarından Ömer oğlu Arif ve Lazoğullarından Mustafa oğlu Kasım; Amasya İstiklâl Mahkemesi karar kayıtlarında Heniske/Yolyanı bağlantısıyla geçmektedir.",
+          "kaynak": "TBMM İstiklâl Mahkemeleri kararları, 316/1316"
+        },
+        {
+          "tarih": "I. Dünya Savaşı / Kurtuluş Savaşı",
+          "tur": "ŞEHİT KAYITLARI",
+          "ozet": "Yolyanı yerleşiminden Hacıkadiroğullarından Ahmet; İbrahim; Mehmet; Süleyman; Sarıoğullarından Ahmet ve Dişlioğullarından Süleyman olmak üzere altı şehit kaydı tespit edilmiştir.",
+          "kaynak": "T.C. MSB Şehit Bilgi Kapısı"
+        }
+      ]
     }
   ]
 }
