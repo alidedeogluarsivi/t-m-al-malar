@@ -2048,15 +2048,15 @@ function familyRowsForProvince(name){
 function familyRowsForDistrict(name,ilce){
   return familyRowsForProvince(name).filter(function(r){return norm(r.ilce||'')===norm(ilce)})
 }
-async function renderFamilyProvince(name){
-  useSvgMap();
+async async function renderFamilyProvince(name){
+  useLeafletMap();
   const rows=familyRowsForProvince(name);
-  if(!rows.length)return;
+  if(!rows.length||!baseMap)return;
   level='familyProvince';
   selectedDistrict=null;
   const pid=PROVINCE_MAP[name];
   selectedProvince={name:name,id:pid};
-  clearMap();
+  clearBaseLayer();
   crumb.textContent='TÜRKİYE → '+name.toLocaleUpperCase('tr-TR')+' · '+lastSearchQuery.toLocaleUpperCase('tr-TR');
   const byDistrict=new Map();
   rows.forEach(function(r){
@@ -2065,41 +2065,26 @@ async function renderFamilyProvince(name){
     if(!byDistrict.has(dk))byDistrict.set(dk,{name:r.ilce,set:new Set()});
     byDistrict.get(dk).set.add(norm(r.koy||''))
   });
-  try{
-    const gj=await loadDistrictGeo();
-    const feats=(gj.features||[]).filter(function(f){
-      const p=f.properties||{};
-      return p.parent_id===pid || String(p.parent_id||'')===String(pid)
-    });
-    const pr=projector(feats);
-    feats.forEach(function(f){
+  const gj=await loadDistrictGeo();
+  const feats=(gj.features||[]).filter(function(f){
+    const p=f.properties||{};
+    return p.parent_id===pid || String(p.parent_id||'')===String(pid)
+  });
+  const dl=L.geoJSON({type:'FeatureCollection',features:feats},{
+    style:function(f){
       const dn=(f.properties&&f.properties.name)||'';
-      const hit=byDistrict.get(norm(dn));
-      const cnt=hit?hit.set.size:0;
-      const p=document.createElementNS(SVG_NS,'path');
-      p.setAttribute('d',geometryPath(f.geometry,pr));
-      p.setAttribute('fill-rule','evenodd');
-      p.setAttribute('class','geo district');
-      p.setAttribute('fill',cnt?'#d8a84f':'#f3dfb2');
-      p.setAttribute('stroke',cnt?'#7c4d12':'#a77524');
-      p.setAttribute('stroke-width',cnt?'2.2':'1.1');
-      if(cnt)p.addEventListener('click',function(){renderFamilyDistrict(name,dn)});
-      svg.appendChild(p);
-      const cc=center(f,pr);
-      addText(dn,cc[0],cc[1]-5,'districtLabel');
-      if(cnt){
-        const c=document.createElementNS(SVG_NS,'circle');
-        c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+10);c.setAttribute('r','9');c.setAttribute('class','provinceCount');svg.appendChild(c);
-        const t=document.createElementNS(SVG_NS,'text');
-        t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+10);t.setAttribute('class','provinceCountText');t.textContent=cnt;t.style.cursor='pointer';t.style.pointerEvents='all';t.addEventListener('click',function(){renderFamilyDistrict(name,dn)});svg.appendChild(t)
-      }
-    });
-    svg.setAttribute('viewBox','0 0 1000 620')
-  }catch(e){
-    const pf=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(name)});
-    if(pf)render([pf],'province',function(){},false)
-  }
-  const districts=Array.from(byDistrict.values()).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
+      const hit=byDistrict.get(norm(dn)),cnt=hit?hit.set.size:0;
+      return{color:cnt?'#7c4d12':'#a77524',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f3dfb2',fillOpacity:cnt?.72:.35}
+    },
+    onEachFeature:function(f,l){
+      const dn=(f.properties&&f.properties.name)||'';
+      const hit=byDistrict.get(norm(dn)),cnt=hit?hit.set.size:0;
+      l.bindTooltip(dn+(cnt?' · '+cnt:''));
+      if(cnt)l.on('click',function(){renderFamilyDistrict(name,dn)})
+    }
+  });
+  adminLayer=L.layerGroup([dl]).addTo(baseMap);
+  if(dl.getBounds().isValid())baseMap.fitBounds(dl.getBounds(),{padding:[20,20],maxZoom:10});
   const villageMap=new Map();
   rows.forEach(function(r){
     const vk=norm(r.ilce||'')+'|'+norm(r.koy||'');
@@ -2108,75 +2093,82 @@ async function renderFamilyProvince(name){
   });
   const villages=Array.from(villageMap.values()).sort(function(a,b){return a.ilce.localeCompare(b.ilce,'tr')||a.koy.localeCompare(b.koy,'tr')});
   vCount.textContent=villages.length+' KÖY / MAHALLE';
-  vList.innerHTML=villages.map(function(x,i){
-    return'<div class="vitem has" data-family-province-village="'+i+'"><span><b>'+esc(x.koy)+'</b><br><small>'+esc(x.ilce)+' · '+x.rows.length+' KAYIT</small></span><span class="badge">'+x.rows.length+'</span></div>'
-  }).join('');
+  vList.innerHTML=villages.map(function(x,i){return'<div class="vitem has" data-family-province-village="'+i+'"><span><b>'+esc(x.koy)+'</b><br><small>'+esc(x.ilce)+' · '+x.rows.length+' KAYIT</small></span><span class="badge">'+x.rows.length+'</span></div>'}).join('');
   vList.querySelectorAll('[data-family-province-village]').forEach(function(el){
-    el.onclick=async function(){
+    el.onclick=function(){
       const x=villages[Number(el.getAttribute('data-family-province-village'))];
-      if(!x)return;
-      await renderFamilyDistrict(name,x.ilce);
-      const r=x.rows[0];
-      if(r)showRecord(r.koy,r,r.ilce,r.il)
+      if(x)renderFamilyDistrict(name,x.ilce,x.koy)
     }
   });
-  statusEl.textContent=districts.length+' İLÇE · '+villages.length+' KÖY/MAHALLE · KÖYE VEYA SAYIYA TIKLAYIN'
+  statusEl.textContent=byDistrict.size+' İLÇE · '+villages.length+' KÖY/MAHALLE · KÖYE VEYA SAYIYA TIKLAYIN'
 }
-async function renderFamilyDistrict(name,ilce){
-  useSvgMap();
+async async function renderFamilyDistrict(name,ilce,focusVillageName){
+  useLeafletMap();
   const rows=familyRowsForDistrict(name,ilce);
-  if(!rows.length)return;
+  if(!rows.length||!baseMap)return;
   level='familyDistrict';
   const local=districtList.find(function(x){return x.parent_id===PROVINCE_MAP[name]&&norm(x.name)===norm(ilce)});
   selectedDistrict=local?{id:local.id,name:local.name}:{id:null,name:ilce};
-  clearMap();
+  clearBaseLayer();
   crumb.textContent='TÜRKİYE → '+name.toLocaleUpperCase('tr-TR')+' → '+ilce.toLocaleUpperCase('tr-TR')+' · '+lastSearchQuery.toLocaleUpperCase('tr-TR');
-  let pointRows=[];
-  const familyVillageCenters=new Map();
-  function focusFamilyVillage(r){
-    const hit=familyVillageCenters.get(norm(r&&r.koy||''));
-    if(hit){
-      const w=260,h=170;
-      svg.setAttribute('viewBox',(hit[0]-w/2)+' '+(hit[1]-h/2)+' '+w+' '+h);
-    }
-    if(r)showRecord(r.koy,r,r.ilce,r.il)
-  }
+  const layers=[];
+  try{
+    const gj=await loadDistrictGeo();
+    const df=(gj.features||[]).find(function(f){
+      const p=f.properties||{};
+      return (p.parent_id===PROVINCE_MAP[name]||String(p.parent_id||'')===String(PROVINCE_MAP[name]))&&norm(p.name||'')===norm(ilce)
+    });
+    if(df)layers.push(L.geoJSON(df,{style:{color:'#17384e',weight:2.5,fillColor:'#fbf7ef',fillOpacity:.25}}))
+  }catch(e){}
+  const markerByName=new Map();
   if(local){
     try{
       const pg=await loadDistrictPointGeo(local);
-      const pr=projector((pg&&pg.features)||[]);
-      (pg&&pg.features||[]).forEach(function(f){
+      (pg.features||[]).forEach(function(f){
         const vn=(f.properties&&f.properties.name)||'';
         const r=rows.find(function(x){return norm(x.koy||'')===norm(vn)});
         if(!r)return;
-        const cc=center(f,pr);
-        familyVillageCenters.set(norm(vn),cc);
-        pointRows.push({feature:f,row:r,center:cc});
-        const c=document.createElementNS(SVG_NS,'circle');
-        c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]);c.setAttribute('r','7');c.setAttribute('class','centerDot archiveDot');
-        c.style.cursor='pointer';c.style.pointerEvents='all';
-        c.addEventListener('click',function(){focusFamilyVillage(r)});
-        svg.appendChild(c);
-        addText(vn,cc[0],cc[1]-8,'villageLabel')
-      });
-      if(pointRows.length)svg.setAttribute('viewBox','0 0 1000 620')
+        const co=f.geometry&&f.geometry.coordinates;
+        if(!co||co.length<2)return;
+        const ll=[co[1],co[0]];
+        const m=L.circleMarker(ll,{radius:7,weight:2,color:'#14583a',fillColor:'#0a6a3f',fillOpacity:.95});
+        m.bindTooltip(vn,{permanent:false,direction:'top'});
+        m.on('click',function(){baseMap.setView(ll,14);showRecord(r.koy,r,r.ilce,r.il)});
+        markerByName.set(norm(vn),{marker:m,ll:ll,row:r});
+        layers.push(m)
+      })
     }catch(e){}
   }
-  vCount.textContent=rows.length+' YER';
-  vList.innerHTML=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')}).map(function(r,i){
+  adminLayer=L.layerGroup(layers).addTo(baseMap);
+  if(focusVillageName&&markerByName.has(norm(focusVillageName))){
+    const hit=markerByName.get(norm(focusVillageName));
+    baseMap.setView(hit.ll,14);
+    showRecord(hit.row.koy,hit.row,hit.row.ilce,hit.row.il)
+  }else if(adminLayer.getBounds&&adminLayer.getBounds().isValid()){
+    baseMap.fitBounds(adminLayer.getBounds(),{padding:[24,24],maxZoom:12})
+  }
+  const sorted=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')});
+  vCount.textContent=sorted.length+' YER';
+  vList.innerHTML=sorted.map(function(r,i){
     const hs=matchedHanes(r,searchNorm(lastSearchQuery));
     return'<div class="vitem has" data-family-village="'+i+'"><span><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc(ilce)+(hs.length?' · HANE '+esc(hs.join(', ')):'')+'</small></span><span class="badge">AİLE</span></div>'
   }).join('');
-  const sorted=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')});
-  vList.querySelectorAll('[data-family-village]').forEach(function(el){el.onclick=function(){const r=sorted[Number(el.getAttribute('data-family-village'))];focusFamilyVillage(r)}});
-  statusEl.textContent=rows.length+' KÖY/MAHALLE · KÖYE TIKLAYIN'
+  vList.querySelectorAll('[data-family-village]').forEach(function(el){
+    el.onclick=function(){
+      const r=sorted[Number(el.getAttribute('data-family-village'))];
+      const hit=markerByName.get(norm(r.koy||''));
+      if(hit){baseMap.setView(hit.ll,14);showRecord(r.koy,r,r.ilce,r.il)}
+      else showRecord(r.koy,r,r.ilce,r.il)
+    }
+  });
+  statusEl.textContent=sorted.length+' KÖY/MAHALLE · KÖYE TIKLAYIN'
 }
 function renderFamilyDistribution(rows,q){
-  useSvgMap();
-  if(!provinceData||!provinceData.features)return;
+  useLeafletMap();
+  if(!baseMap||!provinceData||!provinceData.features)return;
   level='family';
   selectedProvince=null;selectedDistrict=null;currentVillages=[];
-  clearMap();
+  clearBaseLayer();
   const byProvince=new Map();
   rows.forEach(function(r){
     const pk=norm(canonicalProvince(r.il||''));
@@ -2184,34 +2176,27 @@ function renderFamilyDistribution(rows,q){
     if(!byProvince.has(pk))byProvince.set(pk,new Set());
     byProvince.get(pk).add(norm(r.ilce)+'|'+norm(r.koy))
   });
-  const pr=projector(provinceData.features);
-  provinceData.features.forEach(function(f){
-    const name=canonicalProvince((f.properties&&f.properties.name)||'');
-    const cnt=(byProvince.get(norm(name))||new Set()).size;
-    const p=document.createElementNS(SVG_NS,'path');
-    p.setAttribute('d',geometryPath(f.geometry,pr));
-    p.setAttribute('fill-rule','evenodd');
-    p.setAttribute('class','geo province');
-    p.setAttribute('fill',cnt?'#d8a84f':'#f4ece0');
-    p.setAttribute('stroke',cnt?'#7c4d12':'#8c3030');
-    p.setAttribute('stroke-width',cnt?'2.2':'1.1');
-    if(cnt)p.addEventListener('click',function(){renderFamilyProvince(name)});
-    svg.appendChild(p);
-    const cc=center(f,pr);
-    if(cnt){
-      addText(name,cc[0],cc[1]-6,'provinceLabel');
-      const c=document.createElementNS(SVG_NS,'circle');
-      c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+7);c.setAttribute('r','9');c.setAttribute('class','provinceCount');
-      c.style.cursor='pointer';c.style.pointerEvents='all';c.addEventListener('click',function(){renderFamilyProvince(name)});svg.appendChild(c);
-      const t=document.createElementNS(SVG_NS,'text');
-      t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+7);t.setAttribute('class','provinceCountText');t.textContent=cnt;t.style.cursor='pointer';t.style.pointerEvents='all';t.addEventListener('click',function(){renderFamilyProvince(name)});svg.appendChild(t)
+  const layer=L.geoJSON(provinceData,{
+    style:function(f){
+      const name=canonicalProvince((f.properties&&f.properties.name)||'');
+      const cnt=(byProvince.get(norm(name))||new Set()).size;
+      return{color:cnt?'#7c4d12':'#8c3030',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f4ece0',fillOpacity:cnt?.72:.35}
+    },
+    onEachFeature:function(f,l){
+      const name=canonicalProvince((f.properties&&f.properties.name)||'');
+      const cnt=(byProvince.get(norm(name))||new Set()).size;
+      if(cnt){
+        l.bindTooltip(name+' · '+cnt+' KÖY/MAHALLE',{sticky:true});
+        l.on('click',function(){renderFamilyProvince(name)})
+      }
     }
   });
-  svg.setAttribute('viewBox','0 0 1000 620');
+  adminLayer=L.layerGroup([layer]).addTo(baseMap);
+  if(layer.getBounds().isValid())baseMap.fitBounds(layer.getBounds(),{padding:[12,12]});
   const provinceCount=byProvince.size;
   const placeCount=Array.from(byProvince.values()).reduce(function(a,s){return a+s.size},0);
   crumb.textContent='TÜRKİYE · '+q.toLocaleUpperCase('tr-TR');
-  statusEl.textContent=provinceCount+' İL · '+placeCount+' KÖY/MAHALLE · İLE TIKLAYIN';
+  statusEl.textContent=provinceCount+' İL · '+placeCount+' KÖY/MAHALLE · İLE VEYA SAYIYA TIKLAYIN';
   const provinceItems=Array.from(byProvince.entries()).map(function(entry){
     const key=entry[0],set=entry[1];
     const row=rows.find(function(r){return norm(canonicalProvince(r.il||''))===key});
@@ -2219,8 +2204,8 @@ function renderFamilyDistribution(rows,q){
   }).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
   vList.innerHTML=provinceItems.map(function(x,i){return'<div class="vitem has" data-family-province="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+x.count+' KÖY / MAHALLE</small></span><span class="badge">'+x.count+'</span></div>'}).join('');
   vList.querySelectorAll('[data-family-province]').forEach(function(el){el.onclick=function(){const x=provinceItems[Number(el.getAttribute('data-family-province'))];if(x)renderFamilyProvince(x.name)}});
-  document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'});
-  vCount.textContent=placeCount+' YER'
+  vCount.textContent=placeCount+' YER';
+  document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'})
 }
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
