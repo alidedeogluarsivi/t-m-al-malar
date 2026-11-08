@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#111;font-weight:700}.t{font-size:40px}.s{font-size:24px}.k{font-size:30px}.d{font-size:18px}.v{font-size:16px}.h{font-size:14px}.b{fill:#fff;stroke:#111;stroke-width:3}.db{fill:#fff;stroke:#111;stroke-width:5}.kb{fill:#fff;stroke:#111;stroke-width:10}.dash{fill:none;stroke:#555;stroke-width:2;stroke-dasharray:10 8}.box{fill:#fff;stroke:#111;stroke-width:2}
+</style>
+<rect width="1600" height="1050" fill="#fff"/>
+<text x="800" y="55" text-anchor="middle" class="t">KARABÜK OVACIK — 1840 NÜFUS DEFTERLERİNE GÖRE</text>
+<text x="800" y="95" text-anchor="middle" class="s">ULAK VE ŞEHABEDDİN KAZALARI / DİVAN–KÖY HARİTASI</text>
+<text x="800" y="130" text-anchor="middle" class="d">BOA NFS.d.719 (ULAK) • BOA NFS.d.793 (ŞEHABEDDİN) • NFS.d.675 (1831 KONTROL)</text>
+
+<path class="kb" d="M70 250 Q80 205 145 190 L500 145 L990 135 Q1040 135 1080 175 L1490 420 L1515 805 Q1510 865 1450 885 L1040 980 L540 1010 L150 990 Q85 980 70 910 Z"/>
+<path class="db" d="M445 410 L560 550 L500 670 L635 760 L795 845"/>
+<text x="310" y="610" class="k">ŞEHABEDDİN KAZASI</text>
+<text x="920" y="560" class="k">ULAK KAZASI</text>
+
+<!-- Divan labels -->
+<g class="d">
+<text x="205" y="360">BOYALI DİVANI</text><text x="330" y="330">BOYALI ULYA DİVANI</text>
+<text x="235" y="545">AĞIOZ DİVANI</text><text x="300" y="705">SÜLÜK DİVANI</text>
+<text x="520" y="725">PELİTÇİK DİVANI</text><text x="165" y="790">DUDAŞ DİVANI</text>
+<text x="270" y="910">BAŞBOYUNDURUK DİVANI</text><text x="525" y="970">YÖRÜKVİRAN DİVANI</text>
+<text x="235" y="1015">BEYDİL DİVANI</text><text x="620" y="560">OVACIK DİVANI</text>
+<text x="850" y="525">EKİNCİK DİVANI</text><text x="855" y="340">KAVAKLAR DİVANI</text>
+<text x="1010" y="410">AHMEDLER DİVANI</text><text x="1090" y="335">ANBARÖZÜ DİVANI</text>
+<text x="1095" y="655">KOLTUK DİVANI</text><text x="840" y="900">AKHİSAR DİVANI</text>
+<text x="1320" y="760">İSTİYE DİVANI</text>
+</g>
+
+<!-- dashed modern settlement separators -->
+<path class="dash" d="M145 190 L170 430 M230 210 L260 430 M360 175 L395 430 M500 145 L520 430 M660 140 L665 430 M820 138 L805 430 M990 135 L965 430 M1110 195 L1060 440 M1240 270 L1160 480 M1390 360 L1280 510"/>
+<path class="dash" d="M70 430 L445 410 M70 635 L500 670 M70 820 L500 820 M445 410 L795 845 M560 550 L1020 600 M500 670 L1080 720 M635 760 L1040 980 M795 845 L1510 805"/>
+
+<!-- villages -->
+<g text-anchor="middle">
+<text x="130" y="270" class="v">BOYALI</text><text x="130" y="292" class="h">H/E: 42/113</text>
+<text x="290" y="285" class="v">KÜÇÜKSU</text><text x="290" y="307" class="h">H/E: 23/80</text>
+<text x="395" y="270" class="v">ÇUKURKÖY</text><text x="395" y="292" class="h">H/E: 13/34</text>
+<text x="230" y="405" class="v">ŞAMLAR</text><text x="230" y="427" class="h">H/E: 14/44</text>
+<text x="165" y="540" class="v">BEYDİNİ</text><text x="165" y="562" class="h">H/E: 18/56</text>
+<text x="305" y="505" class="v">GÜNEYSAZ</text><text x="305" y="527" class="h">H/E: 18/53</text>
+<text x="420" y="610" class="v">ALINCA</text><text x="420" y="632" class="h">H/E: 5/14</text>
+<text x="305" y="690" class="v">SÜLÜK</text><text x="305" y="712" class="h">H/E: 23/72</text>
+<text x="145" y="820" class="v">DUDAŞ</text><text x="145" y="842" class="h">H/E: 38/95</text>
+<text x="330" y="835" class="v">BAŞBOYUNDURUK</text><text x="330" y="857" class="h">H/E: 25/81</text>
+<text x="520" y="730" class="v">GÖKÇEDÜZ</text><text x="520" y="752" class="h">H/E: 13/38</text>
+<text x="565" y="790" class="v">PELİTÇİK</text><text x="565" y="812" class="h">H/E: 39/104</text>
+<text x="455" y="930" class="v">DÖKECEK</text><text x="455" y="952" class="h">H/E: 19/44</text>
+<text x="350" y="965" class="v">BODUROĞLU</text><text x="350" y="987" class="h">H/E: 20/48</text>
+<text x="650" y="945" class="v">SOFUOĞLU</text><text x="650" y="967" class="h">H/E: 21/64</text>
+<text x="215" y="985" class="v">BEYDİLİ</text><text x="215" y="1007" class="h">H/E: 14/30</text>
+
+<text x="610" y="500" class="v">MERKEZ</text><text x="610" y="522" class="h">H/E: 37/113</text>
+<text x="745" y="690" class="v">DOĞANLAR</text><text x="745" y="712" class="h">H/E: 26/67</text>
+<text x="610" y="705" class="v">İMANLAR</text>
+<text x="775" y="475" class="v">EKİNCİK</text><text x="775" y="497" class="h">H/E: 31/112</text><text x="775" y="519" class="h">YAYALAR (ŞEH.) 7/31</text>
+<text x="720" y="300" class="v">YENİÖREN</text><text x="720" y="322" class="h">H/E: 5/12</text>
+<text x="660" y="235" class="v">PÜRÇÜKÖREN</text><text x="660" y="257" class="h">H/E: 29/79</text>
+<text x="780" y="220" class="v">ABDULLAR</text><text x="780" y="242" class="h">H/E: 20/67</text>
+<text x="920" y="380" class="v">KAVAKLAR</text><text x="920" y="402" class="h">H/E: 20/69</text>
+<text x="1040" y="455" class="v">AHMETLER</text><text x="1040" y="477" class="h">H/E: 20/71</text>
+<text x="1135" y="250" class="v">GÜMELİK</text><text x="1135" y="272" class="h">H/E: 25/92</text>
+<text x="1265" y="235" class="v">AMBARÖZÜ</text><text x="1265" y="257" class="h">H/E: 16/43</text>
+<text x="1160" y="180" class="v">SARILAR</text><text x="1160" y="202" class="h">H/E: 14/40</text>
+<text x="1370" y="405" class="v">SOĞANLI</text><text x="1370" y="427" class="h">H/E: 15/56</text>
+<text x="1450" y="560" class="v">YAYLACILAR</text><text x="1450" y="582" class="h">H/E: 33/77</text>
+<text x="1210" y="560" class="v">YIĞINOT</text><text x="1210" y="582" class="h">H/E: 29/91</text>
+<text x="1280" y="640" class="v">AVLAĞIKAYA</text><text x="1280" y="662" class="h">H/E: 34/102</text>
+<text x="1045" y="715" class="v">KOLTUK</text><text x="1045" y="737" class="h">H/E: 18/53</text>
+<text x="1150" y="785" class="v">KIŞLAKÖY</text><text x="1150" y="807" class="h">H/E: 38/120</text>
+<text x="1300" y="895" class="v">ERKEÇ</text><text x="1300" y="917" class="h">H/E: 40/128</text>
+<text x="1450" y="835" class="v">BELEN</text><text x="1450" y="857" class="h">H/E: 16/44</text>
+<text x="885" y="835" class="v">YAKA</text><text x="885" y="857" class="h">H/E: 24/70</text>
+<text x="960" y="900" class="v">ÇATAK</text><text x="960" y="922" class="h">H/E: 33/81</text>
+<text x="1085" y="860" class="v">TAŞOĞLU</text><text x="1085" y="882" class="h">H/E: 19/59</text>
+</g>
+
+<rect x="980" y="930" width="540" height="85" class="box"/>
+<text x="1250" y="955" text-anchor="middle" class="h">KALIN SİYAH: TARİHÎ KAZA SINIRI • DÜZ SİYAH: DİVAN KÜMESİ</text>
+<text x="1250" y="977" text-anchor="middle" class="h">KESİK ÇİZGİ: BUGÜNKÜ YERLEŞİM ALANI ŞEMASI • H/E: HANE / ERKEK</text>
+<text x="1250" y="999" text-anchor="middle" class="h">* EKİNCİK: ULAK ANA KAYDI + ŞEHABEDDİN YAYALAR KAYDI</text>
+<text x="90" y="1030" class="h">HAZIRLAYAN: AHMET ALİDEDEOĞLU • ALİDEDEOĞLU ARŞİVİ</text>
+</svg>
