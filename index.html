@@ -960,7 +960,8 @@ function addDot(x,y,archiveHas){const c=document.createElementNS(SVG_NS,'circle'
 function render(features,kind,onClick,showDots){clearMap();if(!features||!features.length){statusEl.textContent='Bu seviyede harita geometrisi bulunamadı.';updateHistoricalOverlay();return}const pr=projector(features);features.forEach(function(f){const p=document.createElementNS(SVG_NS,'path');p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo '+kind+(f.properties&&f.properties._has?' has':''));p.addEventListener('click',function(){onClick(f)});svg.appendChild(p)});features.forEach(function(f){const cc=center(f,pr),name=(f.properties&&(f.properties._displayName||f.properties.name))||'';if(showDots)addDot(cc[0],cc[1],!!(f.properties&&f.properties._has));addText(name,cc[0],cc[1]-5,kind==='province'?'provinceLabel':kind==='district'?'districtLabel':'villageLabel')});svg.setAttribute('viewBox','0 0 1000 620');updateHistoricalOverlay()}
 function renderTurkeyOverview(){
   clearMap();
-  if(window.L){renderBaseTurkey();updateHistoricalOverlay();return}
+  if(window.L){useLeafletMap();renderBaseTurkey();updateHistoricalOverlay();return}
+  useSvgMap();
   const features=provinceData&&provinceData.features||[];
   if(!features.length)return;
   const pr=projector(features);
