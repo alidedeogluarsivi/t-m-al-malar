@@ -589,7 +589,7 @@ function adaptiveLabelThreshold(spec){
     if(spec.hasArchive)return 11;
     return 13
   }
-  if(adaptiveLabelMode==='province')return 9;
+  if(adaptiveLabelMode==='province')return 8;
   return 99
 }
 function updateAdaptiveLabels(){
@@ -1043,7 +1043,7 @@ function renderTurkeyOverview(){
       else if(ratio>=.12)cls+=' density2';
     }
     p.setAttribute('class',cls);
-    p.addEventListener('click',function(){showProvinceInfo(name);selectProvinceFeature(f)});
+    p.addEventListener('click',function(){selectProvinceFeature(f)});
     svg.appendChild(p)
   });
 
@@ -1393,7 +1393,15 @@ function renderDistrictGroups(groups){
 function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
 function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
 function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
-function selectProvinceFeature(f){const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];selectProvinceByName(name,id)}
+function selectProvinceFeature(f){
+  const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];
+  const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
+  const info=document.getElementById('mapInfoCard');if(info)info.style.display='none';
+  if(baseMap&&window.L){
+    try{const g=L.geoJSON(f);if(g.getBounds&&g.getBounds().isValid())baseMap.fitBounds(g.getBounds(),{padding:[18,18],maxZoom:9})}catch(e){}
+  }
+  selectProvinceByName(name,id)
+}
 async function loadDistrictGeo(){
   if(districtGeo)return districtGeo;
   districtGeo=await getJSON(DIST_REMOTE);
@@ -1416,9 +1424,10 @@ async function selectProvinceByName(name,id){
   dSel.innerHTML='<option value="">TÜM İLÇELER</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
   vSel.disabled=true;
   vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';
-  vList.innerHTML='<div class="empty">Okunmuş köyler il genelinde yükleniyor…</div>';
-  vCount.textContent='—';
-  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇELER VE TÜM OKUNMUŞ KÖYLER YÜKLENİYOR…';
+  vList.innerHTML=list.map(function(x){return'<div class="vitem" data-fast-district="'+esc(x.id)+'"><span><b>'+esc(x.name)+'</b></span><span class="badge">İLÇE</span></div>'}).join('');
+  vCount.textContent=list.length+' İLÇE';
+  vList.querySelectorAll('[data-fast-district]').forEach(function(el){el.onclick=function(){const local=list.find(function(x){return String(x.id)===String(el.getAttribute('data-fast-district'))});if(local)selectDistrict(local,null)}});
+  statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+list.length+' İLÇE · İLÇEYE TIKLAYIN';
 
   try{
     const gj=await loadDistrictGeo();
@@ -2531,8 +2540,8 @@ bindHistoricalControls();
   initFinder();
   initBaseMap();
   showTurkey();
-  statusEl.textContent='HARİTA HAZIR · ARŞİV VERİLERİ ARKA PLANDA YÜKLENİYOR…';
-  statusEl.textContent='HARİTA HAZIR · ARŞİV VERİSİ ARAMA VEYA İL SEÇİMİNDE YÜKLENİR';
+  setTimeout(function(){loadDistrictGeo().catch(function(e){console.warn('İlçe sınırları ön yüklenemedi',e)})},250);
+  statusEl.textContent='HARİTA HAZIR · BİR İLE TIKLAYIN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261105-05"></script>
