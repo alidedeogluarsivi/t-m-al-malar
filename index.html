@@ -2074,7 +2074,7 @@ async async function renderFamilyProvince(name){
     style:function(f){
       const dn=(f.properties&&f.properties.name)||'';
       const hit=byDistrict.get(norm(dn)),cnt=hit?hit.set.size:0;
-      return{color:cnt?'#7c4d12':'#a77524',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f3dfb2',fillOpacity:cnt?.72:.35}
+      return{color:cnt?'#7c4d12':'#a77524',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f3dfb2',fillOpacity:cnt ? .72 : .35}
     },
     onEachFeature:function(f,l){
       const dn=(f.properties&&f.properties.name)||'';
@@ -2180,7 +2180,7 @@ function renderFamilyDistribution(rows,q){
     style:function(f){
       const name=canonicalProvince((f.properties&&f.properties.name)||'');
       const cnt=(byProvince.get(norm(name))||new Set()).size;
-      return{color:cnt?'#7c4d12':'#8c3030',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f4ece0',fillOpacity:cnt?.72:.35}
+      return{color:cnt?'#7c4d12':'#8c3030',weight:cnt?2.2:1,fillColor:cnt?'#d8a84f':'#f4ece0',fillOpacity:cnt ? .72 : .35}
     },
     onEachFeature:function(f,l){
       const name=canonicalProvince((f.properties&&f.properties.name)||'');
