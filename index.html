@@ -1448,28 +1448,31 @@ async function selectProvinceByName(name,id){
 
     if(feats.length){
       renderProvinceArchiveOverview(feats,[]);
-      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · İLÇELER HAZIR · ARŞİV KÖYLERİ YÜKLENİYOR…';
-      await loadArchive();
-      if(requestId!==districtRequestSeq||level!=='province')return;
-      const archivePoints=await loadProvinceArchivePoints(list,requestId);
-      if(requestId!==districtRequestSeq||level!=='province')return;
-      renderProvinceArchiveList(archivePoints);
-      archivePoints.forEach(function(p){const ll=featureLabelLatLng(p.feature);if(ll)nationwideVillagePointCache.set(key(name,p.district.name,p.name),{il:name,ilce:p.district.name,koy:p.name,ll:ll})});
-      if(baseMap&&adminLayer&&level==='province'){
-        if(!baseMap.getPane('provinceArchiveDots')){baseMap.createPane('provinceArchiveDots');baseMap.getPane('provinceArchiveDots').style.zIndex='710'}
-        const pointRenderer=L.svg({pane:'provinceArchiveDots',padding:.5});
-        const layer=L.layerGroup();
-        archivePoints.forEach(function(p){
-          const ll=featureLabelLatLng(p.feature);if(!ll)return;
-          const dot=L.circleMarker(ll,{renderer:pointRenderer,pane:'provinceArchiveDots',radius:7,color:'#970000',weight:2,fillColor:'#ef1616',fillOpacity:1,interactive:true});
-          dot.bindTooltip(p.district.name+' / '+p.name,{direction:'top'});
-          dot.on('click',function(){openProvinceVillage(p.name,p.district.name)});
-          layer.addLayer(dot)
-        });
-        adminLayer.addLayer(layer)
-      }
-      const districtWithArchive=new Set(archivePoints.map(function(x){return x.district.id})).size;
-      statusEl.textContent=(mapPeriod==='nfs'?'1830–1850 NFS · ':mapPeriod==='1890'?'1890 OSMANLI · ':'GÜNÜMÜZ · ')+name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' MODERN İLÇE REFERANSI · '+districtWithArchive+' İLÇEDE ARŞİV';
+      statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · '+feats.length+' İLÇE · İLÇEYE TIKLAYIN';
+      const enrichProvince=function(){
+        if(requestId!==districtRequestSeq||level!=='province')return;
+        loadArchive().then(async function(){
+          if(requestId!==districtRequestSeq||level!=='province')return;
+          const archivePoints=await loadProvinceArchivePoints(list,requestId);
+          if(requestId!==districtRequestSeq||level!=='province')return;
+          renderProvinceArchiveList(archivePoints);
+          archivePoints.forEach(function(p){const ll=featureLabelLatLng(p.feature);if(ll)nationwideVillagePointCache.set(key(name,p.district.name,p.name),{il:name,ilce:p.district.name,koy:p.name,ll:ll})});
+          if(baseMap&&adminLayer&&level==='province'){
+            if(!baseMap.getPane('provinceArchiveDots')){baseMap.createPane('provinceArchiveDots');baseMap.getPane('provinceArchiveDots').style.zIndex='710'}
+            const pointRenderer=L.svg({pane:'provinceArchiveDots',padding:.5});
+            const layer=L.layerGroup();
+            archivePoints.forEach(function(p){
+              const ll=featureLabelLatLng(p.feature);if(!ll)return;
+              const dot=L.circleMarker(ll,{renderer:pointRenderer,pane:'provinceArchiveDots',radius:7,color:'#970000',weight:2,fillColor:'#ef1616',fillOpacity:1,interactive:true});
+              dot.bindTooltip(p.district.name+' / '+p.name,{direction:'top'});
+              dot.on('click',function(){openProvinceVillage(p.name,p.district.name)});
+              layer.addLayer(dot)
+            });
+            adminLayer.addLayer(layer)
+          }
+        }).catch(function(e){console.warn('İl arşivi sessiz yüklenemedi',e)})
+      };
+      if('requestIdleCallback' in window)requestIdleCallback(enrichProvince,{timeout:1800});else setTimeout(enrichProvince,1200);
       return
     }
   }catch(e){
@@ -1513,9 +1516,16 @@ function renderVillageList(){const vn=currentVillages.filter(function(x){return 
 async function selectDistrict(local,geoFeature){
   const requestId=++districtRequestSeq;
   selectedDistrict={id:local.id,name:local.name};
-  renderAdminHistory(selectedProvince.name,local.name);
   previewLimit=36;
   level='district';
+  const fastDf=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
+    const p=x.properties||{};
+    return p.id===local.id || (norm(p.name)===norm(local.name)&&p.parent_id===selectedProvince.id)
+  });
+  if(baseMap&&fastDf&&window.L){
+    try{const g=L.geoJSON(fastDf);if(g.getBounds&&g.getBounds().isValid())baseMap.fitBounds(g.getBounds(),{padding:[18,18],maxZoom:12})}catch(e){}
+  }
+  setTimeout(function(){if(selectedDistrict&&selectedDistrict.id===local.id)renderAdminHistory(selectedProvince.name,local.name)},0);
   renderPreview();
   dSel.value=local.id;
   crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+local.name.toLocaleUpperCase('tr-TR');
@@ -1526,11 +1536,17 @@ async function selectDistrict(local,geoFeature){
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
 
-  const df=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
-    const p=x.properties||{};
-    return p.id===local.id || (norm(p.name)===norm(local.name)&&p.parent_id===selectedProvince.id)
-  });
+  const df=fastDf;
 
+  if(!settlements||!settlements.length){
+    getJSON(SETTLEMENTS).then(function(data){
+      settlements=data||[];
+      if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
+      currentVillages=buildVillageRows();
+      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+      renderVillageList()
+    }).catch(function(e){console.warn('Yerleşim listesi yüklenemedi',e)})
+  }
   const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
   if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
   const vfeats=(villageGeo&&villageGeo.features)||[];
