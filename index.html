@@ -2100,10 +2100,27 @@ async function renderFamilyProvince(name){
     if(pf)render([pf],'province',function(){},false)
   }
   const districts=Array.from(byDistrict.values()).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
-  vCount.textContent=rows.length+' YER';
-  vList.innerHTML=districts.map(function(x){return'<div class="vitem has" data-family-district="'+esc(x.name)+'"><span><b>'+esc(x.name)+'</b><br><small>'+x.set.size+' KÖY / MAHALLE</small></span><span class="badge">AİLE</span></div>'}).join('');
-  vList.querySelectorAll('[data-family-district]').forEach(function(el){el.onclick=function(){renderFamilyDistrict(name,el.getAttribute('data-family-district'))}});
-  statusEl.textContent=districts.length+' İLÇE · '+rows.length+' KÖY/MAHALLE · İLÇEYE TIKLAYIN'
+  const villageMap=new Map();
+  rows.forEach(function(r){
+    const vk=norm(r.ilce||'')+'|'+norm(r.koy||'');
+    if(!villageMap.has(vk))villageMap.set(vk,{ilce:r.ilce||'',koy:r.koy||'YERLEŞİM',rows:[]});
+    villageMap.get(vk).rows.push(r)
+  });
+  const villages=Array.from(villageMap.values()).sort(function(a,b){return a.ilce.localeCompare(b.ilce,'tr')||a.koy.localeCompare(b.koy,'tr')});
+  vCount.textContent=villages.length+' KÖY / MAHALLE';
+  vList.innerHTML=villages.map(function(x,i){
+    return'<div class="vitem has" data-family-province-village="'+i+'"><span><b>'+esc(x.koy)+'</b><br><small>'+esc(x.ilce)+' · '+x.rows.length+' KAYIT</small></span><span class="badge">'+x.rows.length+'</span></div>'
+  }).join('');
+  vList.querySelectorAll('[data-family-province-village]').forEach(function(el){
+    el.onclick=async function(){
+      const x=villages[Number(el.getAttribute('data-family-province-village'))];
+      if(!x)return;
+      await renderFamilyDistrict(name,x.ilce);
+      const r=x.rows[0];
+      if(r)showRecord(r.koy,r,r.ilce,r.il)
+    }
+  });
+  statusEl.textContent=districts.length+' İLÇE · '+villages.length+' KÖY/MAHALLE · KÖYE VEYA SAYIYA TIKLAYIN'
 }
 async function renderFamilyDistrict(name,ilce){
   useSvgMap();
@@ -2174,7 +2191,8 @@ function renderFamilyDistribution(rows,q){
     if(cnt){
       addText(name,cc[0],cc[1]-6,'provinceLabel');
       const c=document.createElementNS(SVG_NS,'circle');
-      c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+7);c.setAttribute('r','9');c.setAttribute('class','provinceCount');svg.appendChild(c);
+      c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]+7);c.setAttribute('r','9');c.setAttribute('class','provinceCount');
+      c.style.cursor='pointer';c.style.pointerEvents='all';c.addEventListener('click',function(){renderFamilyProvince(name)});svg.appendChild(c);
       const t=document.createElementNS(SVG_NS,'text');
       t.setAttribute('x',cc[0]);t.setAttribute('y',cc[1]+7);t.setAttribute('class','provinceCountText');t.textContent=cnt;t.style.cursor='pointer';t.style.pointerEvents='all';t.addEventListener('click',function(){renderFamilyProvince(name)});svg.appendChild(t)
     }
@@ -2184,7 +2202,14 @@ function renderFamilyDistribution(rows,q){
   const placeCount=Array.from(byProvince.values()).reduce(function(a,s){return a+s.size},0);
   crumb.textContent='TÜRKİYE · '+q.toLocaleUpperCase('tr-TR');
   statusEl.textContent=provinceCount+' İL · '+placeCount+' KÖY/MAHALLE · İLE TIKLAYIN';
-  vList.innerHTML='<div class="empty"><b>'+esc(q.toLocaleUpperCase('tr-TR'))+'</b><br>'+provinceCount+' ilde, '+placeCount+' köy/mahallede eşleşme bulundu. Haritada sarı illere tıklayın.</div>';
+  const provinceItems=Array.from(byProvince.entries()).map(function(entry){
+    const key=entry[0],set=entry[1];
+    const row=rows.find(function(r){return norm(canonicalProvince(r.il||''))===key});
+    return{name:row?canonicalProvince(row.il||''):key,count:set.size}
+  }).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
+  vList.innerHTML=provinceItems.map(function(x,i){return'<div class="vitem has" data-family-province="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+x.count+' KÖY / MAHALLE</small></span><span class="badge">'+x.count+'</span></div>'}).join('');
+  vList.querySelectorAll('[data-family-province]').forEach(function(el){el.onclick=function(){const x=provinceItems[Number(el.getAttribute('data-family-province'))];if(x)renderFamilyProvince(x.name)}});
+  document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'});
   vCount.textContent=placeCount+' YER'
 }
 function initFinder(){
