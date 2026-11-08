@@ -414,7 +414,7 @@ async function addHistoricalProvinceLayer(feats,layerGroup){
     const border=L.geoJSON(f,{style:{
       color:mapPeriod==='nfs'?'#8c3030':'#765b31',
       weight:changed?4.8:3.2,
-      fillOpacity:changed?.035:.015,
+      fillOpacity:changed ? .035 : .015,
       fillColor:mapPeriod==='nfs'?'#8c3030':'#b9975b',
       dashArray:null,
       interactive:false
@@ -768,7 +768,7 @@ function renderBaseTurkey(){
   const feats=(provinceData&&provinceData.features)||[];
   const outlines=L.geoJSON({type:'FeatureCollection',features:feats},{
     renderer:L.canvas({padding:.4}),smoothFactor:1.5,
-    style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c?.06:.025,bubblingMouseEvents:false}},
+    style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c ? .06 : .025,bubblingMouseEvents:false}},
     onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{sticky:true,direction:'top',className:'mapHoverLabel'});l.on('click',function(){selectProvinceFeature(f)})}
   });
   if(!baseMap.getPane('archiveDots')){baseMap.createPane('archiveDots');baseMap.getPane('archiveDots').style.zIndex='690';baseMap.getPane('archiveDots').style.pointerEvents='auto'}
@@ -830,7 +830,7 @@ function renderBaseProvince(feats){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const historical=mapPeriod!=='modern';
   const polygonLayer=L.geoJSON({type:'FeatureCollection',features:feats},{
-    style:{color:historical?'#8a8378':'#b27c2f',weight:historical?1.1:2,fillColor:'#f1ddad',fillOpacity:historical?.012:.035,dashArray:historical?'5 5':null,bubblingMouseEvents:false,className:historical?'histReference':''},
+    style:{color:historical?'#8a8378':'#b27c2f',weight:historical?1.1:2,fillColor:'#f1ddad',fillOpacity:historical ? .012 : .035,dashArray:historical?'5 5':null,bubblingMouseEvents:false,className:historical?'histReference':''},
     onEachFeature:function(f,l){
       const n=(f.properties&&f.properties.name)||'';
       l.on('click',function(){
@@ -915,7 +915,7 @@ function renderBaseDistrict(df,vf,pf){
     const villagePolys=L.geoJSON({type:'FeatureCollection',features:vf},{renderer:L.canvas({padding:.5}),smoothFactor:1.5,
       style:function(f){
         const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);
-        return{color:has?'#155b3b':'#9a9488',weight:has?2:0.8,fillColor:has?'#a8d2b8':'#f6f1e7',fillOpacity:has?.06:.012,dashArray:mapPeriod==='modern'?null:'4 4',bubblingMouseEvents:false}
+        return{color:has?'#155b3b':'#9a9488',weight:has?2:0.8,fillColor:has?'#a8d2b8':'#f6f1e7',fillOpacity:has ? .06 : .012,dashArray:mapPeriod==='modern'?null:'4 4',bubblingMouseEvents:false}
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
