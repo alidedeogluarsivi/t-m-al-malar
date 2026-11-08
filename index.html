@@ -2048,7 +2048,7 @@ function familyRowsForProvince(name){
 function familyRowsForDistrict(name,ilce){
   return familyRowsForProvince(name).filter(function(r){return norm(r.ilce||'')===norm(ilce)})
 }
-async async function renderFamilyProvince(name){
+async function renderFamilyProvince(name){
   useLeafletMap();
   const rows=familyRowsForProvince(name);
   if(!rows.length||!baseMap)return;
@@ -2102,7 +2102,7 @@ async async function renderFamilyProvince(name){
   });
   statusEl.textContent=byDistrict.size+' İLÇE · '+villages.length+' KÖY/MAHALLE · KÖYE VEYA SAYIYA TIKLAYIN'
 }
-async async function renderFamilyDistrict(name,ilce,focusVillageName){
+async function renderFamilyDistrict(name,ilce,focusVillageName){
   useLeafletMap();
   const rows=familyRowsForDistrict(name,ilce);
   if(!rows.length||!baseMap)return;
