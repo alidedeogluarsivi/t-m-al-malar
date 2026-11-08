@@ -2132,6 +2132,15 @@ async function renderFamilyDistrict(name,ilce){
   clearMap();
   crumb.textContent='TÜRKİYE → '+name.toLocaleUpperCase('tr-TR')+' → '+ilce.toLocaleUpperCase('tr-TR')+' · '+lastSearchQuery.toLocaleUpperCase('tr-TR');
   let pointRows=[];
+  const familyVillageCenters=new Map();
+  function focusFamilyVillage(r){
+    const hit=familyVillageCenters.get(norm(r&&r.koy||''));
+    if(hit){
+      const w=260,h=170;
+      svg.setAttribute('viewBox',(hit[0]-w/2)+' '+(hit[1]-h/2)+' '+w+' '+h);
+    }
+    if(r)showRecord(r.koy,r,r.ilce,r.il)
+  }
   if(local){
     try{
       const pg=await loadDistrictPointGeo(local);
@@ -2140,12 +2149,13 @@ async function renderFamilyDistrict(name,ilce){
         const vn=(f.properties&&f.properties.name)||'';
         const r=rows.find(function(x){return norm(x.koy||'')===norm(vn)});
         if(!r)return;
-        pointRows.push({feature:f,row:r});
         const cc=center(f,pr);
+        familyVillageCenters.set(norm(vn),cc);
+        pointRows.push({feature:f,row:r,center:cc});
         const c=document.createElementNS(SVG_NS,'circle');
         c.setAttribute('cx',cc[0]);c.setAttribute('cy',cc[1]);c.setAttribute('r','7');c.setAttribute('class','centerDot archiveDot');
         c.style.cursor='pointer';c.style.pointerEvents='all';
-        c.addEventListener('click',function(){showRecord(r.koy,r,r.ilce,r.il)});
+        c.addEventListener('click',function(){focusFamilyVillage(r)});
         svg.appendChild(c);
         addText(vn,cc[0],cc[1]-8,'villageLabel')
       });
@@ -2158,7 +2168,7 @@ async function renderFamilyDistrict(name,ilce){
     return'<div class="vitem has" data-family-village="'+i+'"><span><b>'+esc(r.koy||'YERLEŞİM')+'</b><br><small>'+esc(ilce)+(hs.length?' · HANE '+esc(hs.join(', ')):'')+'</small></span><span class="badge">AİLE</span></div>'
   }).join('');
   const sorted=rows.slice().sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')});
-  vList.querySelectorAll('[data-family-village]').forEach(function(el){el.onclick=function(){const r=sorted[Number(el.getAttribute('data-family-village'))];showRecord(r.koy,r,r.ilce,r.il)}});
+  vList.querySelectorAll('[data-family-village]').forEach(function(el){el.onclick=function(){const r=sorted[Number(el.getAttribute('data-family-village'))];focusFamilyVillage(r)}});
   statusEl.textContent=rows.length+' KÖY/MAHALLE · KÖYE TIKLAYIN'
 }
 function renderFamilyDistribution(rows,q){
