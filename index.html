@@ -270,12 +270,12 @@ async function addRumeliArchiveLayer(layerGroup){
   const renderer=L.svg({pane:'rumeliArchive',padding:.8}),g=L.layerGroup(),bounds=[];
   pts.forEach(function(r){
     const ll=r.current.coordinates,h=(r.historical||{}),cur=r.current||{},yer=(h.yer||[])[0]||cur.settlement||'RUMELİ',sul=(r.sulaleler||[]);
-    const m=L.circleMarker(ll,{renderer:renderer,pane:'rumeliArchive',radius:6.5,color:'#6f0000',weight:2,fillColor:'#d7191c',fillOpacity:.95});
+    const m=L.circleMarker(ll,{renderer:renderer,pane:'rumeliArchive',radius:7.5,color:'#6f0000',weight:2.2,fillColor:'#d7191c',fillOpacity:1});
     const title=esc(yer)+' → '+esc(cur.settlement||'');
     const loc=[cur.municipality,cur.province||cur.region||cur.regional_unit,cur.country].filter(Boolean).map(esc).join(' · ');
     const defs=(r.defter||[]).length?'<br><b>NFS:</b> '+r.defter.map(esc).join(', '):'';
     const fam=sul.length?'<br><b>SÜLALELER:</b> '+sul.map(esc).join(' · '):'';
-    m.bindTooltip(title,{direction:'top',className:'mapHoverLabel'});
+    m.bindTooltip('<b>'+title+'</b>'+(defs?defs.replace('<br>',' · '):''),{permanent:true,direction:'right',offset:[8,0],className:'mapHoverLabel',opacity:1});
     m.bindPopup('<b>'+title+'</b><br>'+loc+defs+fam);
     g.addLayer(m);bounds.push(ll)
   });
