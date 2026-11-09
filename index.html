@@ -190,7 +190,7 @@ const POINT_MANIFEST='./geo/points-manifest.json';
 const VILLAGE_POINTS='./geo/points/';
 const OSMANLI_ADMIN_FILES=Array.from({length:18},function(_,i){return './geo/osmanli_admin_'+String(i+1).padStart(2,'0')+'.json'});
 const OSMANLI_CURRENT_MAP='./geo/osmanli_current_map.json?v=20261105-1';
-const RUMELI_CURRENT_MAP='./geo/rumeli_current_map.json?v=20261105-2';
+const RUMELI_CURRENT_MAP='./geo/rumeli_current_map.json?v=20261109-1';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 
 const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
@@ -260,6 +260,33 @@ function loadRumeliMap(){
   if(rumeliMapPromise)return rumeliMapPromise;
   rumeliMapPromise=getJSON(RUMELI_CURRENT_MAP).then(function(x){rumeliMapData=x||{};return rumeliMapData}).catch(function(){return{}});
   return rumeliMapPromise
+}
+async function addRumeliArchiveLayer(layerGroup){
+  if(!baseMap||!layerGroup)return;
+  const data=await loadRumeliMap(),rows=(data&&data.records)||[];
+  const pts=rows.filter(function(r){return r&&r.current&&Array.isArray(r.current.coordinates)&&r.current.coordinates.length===2});
+  if(!pts.length)return;
+  if(!baseMap.getPane('rumeliArchive')){baseMap.createPane('rumeliArchive');baseMap.getPane('rumeliArchive').style.zIndex='700';baseMap.getPane('rumeliArchive').style.pointerEvents='auto'}
+  const renderer=L.svg({pane:'rumeliArchive',padding:.8}),g=L.layerGroup(),bounds=[];
+  pts.forEach(function(r){
+    const ll=r.current.coordinates,h=(r.historical||{}),cur=r.current||{},yer=(h.yer||[])[0]||cur.settlement||'RUMELİ',sul=(r.sulaleler||[]);
+    const m=L.circleMarker(ll,{renderer:renderer,pane:'rumeliArchive',radius:6.5,color:'#6f0000',weight:2,fillColor:'#d7191c',fillOpacity:.95});
+    const title=esc(yer)+' → '+esc(cur.settlement||'');
+    const loc=[cur.municipality,cur.province||cur.region||cur.regional_unit,cur.country].filter(Boolean).map(esc).join(' · ');
+    const defs=(r.defter||[]).length?'<br><b>NFS:</b> '+r.defter.map(esc).join(', '):'';
+    const fam=sul.length?'<br><b>SÜLALELER:</b> '+sul.map(esc).join(' · '):'';
+    m.bindTooltip(title,{direction:'top',className:'mapHoverLabel'});
+    m.bindPopup('<b>'+title+'</b><br>'+loc+defs+fam);
+    g.addLayer(m);bounds.push(ll)
+  });
+  layerGroup.addLayer(g);
+  if(level==='turkey'&&bounds.length){
+    try{
+      const b=L.latLngBounds(bounds);
+      if(adminLayer&&adminLayer.getBounds&&adminLayer.getBounds().isValid())b.extend(adminLayer.getBounds());
+      baseMap.fitBounds(b,{padding:[18,18],maxZoom:6})
+    }catch(e){}
+  }
 }
 function loadOsmanliCurrentMap(){
   if(osmanliCurrentMap)return Promise.resolve(osmanliCurrentMap);
@@ -849,6 +876,7 @@ function renderBaseTurkey(){
   });
   nationwideVillageLayer=L.layerGroup();
   adminLayer=L.layerGroup([outlines,dots,nationwideVillageLayer]).addTo(baseMap);
+  addRumeliArchiveLayer(adminLayer);
   addNationwideVillageDots();
   startNationwideVillageDots();
   if(dots.getLayers().length)statusEl.textContent='TÜRKİYE · '+dots.getLayers().length+' İLDE KIRMIZI ARŞİV NOKTASI';
