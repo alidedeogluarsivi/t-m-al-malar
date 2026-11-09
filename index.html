@@ -181,7 +181,7 @@ const PROV='./provinces-local.json';
 const DIST_LOCAL='./districts-local.json';
 const SETTLEMENTS='./settlements-local.json';
 const LOCAL_SOURCES='./local_sources.json?v=20261107-localhistory';
-const ARCH=['archive_verified.ndjson?v=20261105-allfamilies','archive_1.ndjson?v=20261106-vanfix-1f89354','archive_2.ndjson?v=20261105-directmerge2','archive_3.ndjson?v=20261105-directmerge2','archive_4.ndjson?v=20261105-directmerge2','archive_5.ndjson?v=20261107-asiret1844-search2','catalog/alacam_full_1834_1837.ndjson?v=20261107-alacam-tembel-review2','catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson?v=20261107-sinop1','catalog/karabuk_nfs_full.ndjson?v=20261108-karabuk3','catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson?v=20261108-carsamba2','catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson?v=20261108-asaginarli1'];
+const ARCH=['archive_verified.ndjson?v=20261105-allfamilies','archive_1.ndjson?v=20261106-vanfix-1f89354','archive_2.ndjson?v=20261105-directmerge2','archive_3.ndjson?v=20261105-directmerge2','archive_4.ndjson?v=20261105-directmerge2','archive_5.ndjson?v=20261107-asiret1844-search2','catalog/alacam_full_1834_1837.ndjson?v=20261107-alacam-tembel-review2','catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson?v=20261107-sinop1','catalog/karabuk_nfs_full.ndjson?v=20261108-karabuk3','catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson?v=20261108-carsamba2','catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson?v=20261108-asaginarli1','catalog/rumeli_nfs.ndjson?v=20261109-rumeli1'];
 const SALES='./sales_catalog.json?v=20261104-2200';
 const DIST_REMOTE='./geo/districts.geojson';
 const VILLAGE_LOCAL='./geo/villages/';
@@ -1418,9 +1418,16 @@ function renderDistrictGroups(groups){
   });
   svg.setAttribute('viewBox','0 0 1000 620')
 }
-function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
+function fillProvinces(){const names=provinceData.features.map(function(f){return canonicalProvince(f.properties.name)}).sort(function(a,b){return a.localeCompare(b,'tr')});names.push('RUMELİ');pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option>'+esc(n)+'</option>'}).join('')}
 function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
-function localDistricts(){return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})}
+function rumeliDistricts(){
+  const names=Array.from(new Set(archive.filter(function(r){return norm(r.il||'')===norm('RUMELİ')}).map(function(r){return r.ilce}).filter(Boolean)));
+  return names.sort(function(a,b){return a.localeCompare(b,'tr')}).map(function(n){return{id:'RUMELI-'+norm(n),name:n,parent_id:'RUMELI'}})
+}
+function localDistricts(){
+  if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))return rumeliDistricts();
+  return districtList.filter(function(x){return x.parent_id===selectedProvince.id}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')})
+}
 function selectProvinceFeature(f){
   const name=canonicalProvince(f.properties.name),id=PROVINCE_MAP[name];
   const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
@@ -1434,6 +1441,43 @@ async function loadDistrictGeo(){
   if(districtGeo)return districtGeo;
   districtGeo=await getJSON(DIST_REMOTE);
   return districtGeo
+}
+
+async function selectRumeliProvince(){
+  await loadArchive();
+  await loadRumeliMap();
+  selectedProvince={name:'RUMELİ',id:'RUMELI'};
+  selectedDistrict=null;level='province';currentVillages=[];previewLimit=36;hideAdminHistory();
+  pSel.value='RUMELİ';crumb.textContent='RUMELİ';renderPreview();
+  const list=rumeliDistricts();
+  dSel.disabled=false;
+  dSel.innerHTML='<option value="">TÜM KAZALAR</option>'+list.map(function(x){return'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join('');
+  vSel.disabled=true;vSel.innerHTML='<option value="">KAZA SEÇEREK DARALTIN</option>';
+  vList.innerHTML=list.map(function(x){return'<div class="vitem" data-rumeli-district="'+esc(x.id)+'"><span><b>'+esc(x.name)+'</b></span><span class="badge">KAZA</span></div>'}).join('');
+  vCount.textContent=list.length+' KAZA';
+  statusEl.textContent='RUMELİ · '+list.length+' KAZA · KAZAYA TIKLAYIN';
+  const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty"><b>RUMELİ ARŞİV İLİ</b><br>Tarihî kazalar → köy/karyeler → NFS kayıtları.</div>';
+  vList.querySelectorAll('[data-rumeli-district]').forEach(function(el){el.onclick=function(){const x=list.find(function(d){return d.id===el.getAttribute('data-rumeli-district')});if(x)selectRumeliDistrict(x.name)}});
+  clearMap();useLeafletMap();initBaseMap();adminLayer=L.layerGroup().addTo(baseMap);await addRumeliArchiveLayer(adminLayer);
+}
+async function selectRumeliDistrict(name){
+  await loadArchive();await loadRumeliMap();
+  selectedDistrict={id:'RUMELI-'+norm(name),name:name,parent_id:'RUMELI'};level='district';
+  const rows=archive.filter(function(r){return norm(r.il||'')===norm('RUMELİ')&&norm(r.ilce||'')===norm(name)});
+  currentVillages=rows.map(function(r){return{name:r.koy,record:r}}).sort(function(a,b){return a.name.localeCompare(b.name,'tr')});
+  crumb.textContent='RUMELİ / '+name.toLocaleUpperCase('tr-TR');
+  dSel.value=selectedDistrict.id;
+  vSel.disabled=false;
+  vSel.innerHTML='<option value="">KÖY / KARYE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+'</option>'}).join('');
+  vList.innerHTML=currentVillages.map(function(x,i){return'<div class="vitem" data-rumeli-village="'+i+'"><span><b>'+esc(x.name)+'</b></span><span class="badge">KARYE</span></div>'}).join('');
+  vCount.textContent=currentVillages.length+' KÖY / KARYE';
+  statusEl.textContent='RUMELİ · '+name.toLocaleUpperCase('tr-TR')+' · '+currentVillages.length+' KÖY / KARYE';
+  vList.querySelectorAll('[data-rumeli-village]').forEach(function(el){el.onclick=function(){const x=currentVillages[Number(el.getAttribute('data-rumeli-village'))];if(x)showRecord(x.name,x.record,name,'RUMELİ')}});
+  clearMap();useLeafletMap();initBaseMap();adminLayer=L.layerGroup().addTo(baseMap);
+  const data=await loadRumeliMap(),pts=((data&&data.records)||[]).filter(function(r){const k=(r.historical&&((r.historical.kaza_corrected||r.historical.kaza||r.historical.kaza_raw)))||'';return norm(k)===norm(name)&&r.current&&Array.isArray(r.current.coordinates)});
+  const g=L.layerGroup(),bounds=[];
+  pts.forEach(function(r){const ll=r.current.coordinates,yer=(r.historical&&r.historical.yer&&r.historical.yer[0])||r.current.settlement||'';const m=L.circleMarker(ll,{radius:8,color:'#6f0000',weight:2,fillColor:'#d7191c',fillOpacity:1});m.bindTooltip(yer+' → '+(r.current.settlement||''),{permanent:true,direction:'right',offset:[8,0],className:'mapHoverLabel'});g.addLayer(m);bounds.push(ll)});
+  adminLayer.addLayer(g);if(bounds.length)baseMap.fitBounds(L.latLngBounds(bounds),{padding:[30,30],maxZoom:9});
 }
 async function selectProvinceByName(name,id){
   const requestId=++districtRequestSeq;
@@ -2463,9 +2507,9 @@ function renderSearch(q){
   panel.classList.add('show');
   panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(){const r=visible[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}})
 }
-pSel.onchange=function(){if(!pSel.value){showTurkey();return}const f=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(pSel.value)});if(f)selectProvinceFeature(f)};
-dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
-vSel.onchange=function(){if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(row)openVillage(row.name)};
+pSel.onchange=function(){if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(pSel.value)});if(f)selectProvinceFeature(f)};
+dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ')){const x=rumeliDistricts().find(function(d){return d.id===dSel.value});if(x)selectRumeliDistrict(x.name);return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
+vSel.onchange=function(){if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(!row)return;if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
 document.getElementById('search').oninput=function(e){const v=e.target.value;clearTimeout(searchTimer);if(v.trim().length<2){document.getElementById('searchPanel').classList.remove('show');return}searchTimer=setTimeout(function(){renderSearch(v)},160)};
 document.getElementById('searchBtn').onclick=function(){renderSearch(document.getElementById('search').value)};
 document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();renderSearch(e.target.value)}};
@@ -2475,7 +2519,7 @@ const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapIn
 document.getElementById('qSearch').onclick=function(){const s=document.getElementById('search');s.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){s.focus()},250)};
 document.getElementById('qMap').onclick=function(){document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'})};
 document.getElementById('qTop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
-document.getElementById('backBtn').onclick=function(){if(level==='district'&&selectedProvince){const n=selectedProvince.name,id=selectedProvince.id;selectProvinceByName(n,id)}else showTurkey()};
+document.getElementById('backBtn').onclick=function(){if(level==='district'&&selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else{const n=selectedProvince.name,id=selectedProvince.id;selectProvinceByName(n,id)}}else showTurkey()};
 document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!e.target.closest('#searchBtn')&&!e.target.closest('#searchPanel'))document.getElementById('searchPanel').classList.remove('show')});
 
 
