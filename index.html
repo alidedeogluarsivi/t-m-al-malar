@@ -2373,9 +2373,20 @@ function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
   if(!fp||!provinceData)return;
   const names=(provinceData.features||[]).map(function(f){return canonicalProvince((f.properties&&f.properties.name)||'')}).filter(Boolean).sort(function(a,b){return a.localeCompare(b,'tr')});
+  if(!names.some(function(n){return norm(n)===norm('RUMELİ')}))names.push('RUMELİ');
   fp.innerHTML='<option value="">TÜM İLLER</option>'+names.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
   fp.onchange=function(){
-    const il=fp.value,pid=PROVINCE_MAP[il];
+    const il=fp.value;
+    if(norm(il)===norm('RUMELİ')){
+      fd.disabled=false;fd.innerHTML='<option value="">KAZALAR YÜKLENİYOR…</option>';
+      loadArchive().then(function(){
+        const ds=rumeliDistricts().map(function(d){return d.name});
+        fd.innerHTML='<option value="">TÜM KAZALAR</option>'+ds.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
+        finderLimit=24;runFinder()
+      }).catch(function(){fd.innerHTML='<option value="">RUMELİ KAZALARI YÜKLENEMEDİ</option>'});
+      return
+    }
+    const pid=PROVINCE_MAP[il];
     const ds=Array.from(new Set(districtList.filter(function(d){return !il||String(d.parent_id||'')===String(pid||'')}).map(function(d){return d.name}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'tr')});
     fd.disabled=!il;fd.innerHTML='<option value="">TÜM İLÇELER</option>'+ds.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
     finderLimit=24;runFinder()
@@ -2629,6 +2640,8 @@ bindHistoricalControls();
   initBaseMap();
   showTurkey();
   setTimeout(function(){loadDistrictGeo().catch(function(e){console.warn('İlçe sınırları ön yüklenemedi',e)})},250);
+  const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
+  if('requestIdleCallback' in window)requestIdleCallback(warmArchive,{timeout:1200});else setTimeout(warmArchive,450);
   statusEl.textContent='HARİTA HAZIR · BİR İLE TIKLAYIN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
