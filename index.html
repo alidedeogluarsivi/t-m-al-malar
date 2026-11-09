@@ -546,7 +546,7 @@ function districtMapInfo(il,ilce){
 }
 function initBaseMap(){
   if(baseMap||!window.L)return;
-  baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
+  baseMap=L.map('baseMap',{center:[39,35.2],zoom:6,minZoom:5,maxZoom:18,scrollWheelZoom:true,doubleClickZoom:true,dragging:true,touchZoom:true,tap:true,tapTolerance:24,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
   baseMap.createPane('archiveLabels');baseMap.getPane('archiveLabels').style.zIndex='760';baseMap.getPane('archiveLabels').style.pointerEvents='auto';
   const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenStreetMap'});
   const light=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,updateWhenIdle:true,keepBuffer:1,attribution:'© OpenStreetMap · © CARTO'});
@@ -567,7 +567,7 @@ function initBaseMap(){
   let labelRefreshTimer=null;
   baseMap.on('zoomend moveend',function(){
     clearTimeout(labelRefreshTimer);
-    labelRefreshTimer=setTimeout(updateAdaptiveLabels,250)
+    labelRefreshTimer=setTimeout(updateAdaptiveLabels,90)
   });
   baseMap.on('click',function(){clearNearbyLayer()})
 }
@@ -802,7 +802,7 @@ function addNationwideVillageDots(){
   if(!nationwidePointRenderer)nationwidePointRenderer=L.svg({pane:'archiveVillageDots',padding:.5});
   nationwideVillagePointCache.forEach(function(item,id){
     if(!item||!item.ll||nationwideRenderedIds.has(id))return;
-    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:4.8,color:'#980000',weight:1.6,fillColor:'#f00',fillOpacity:.95});
+    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:7.5,color:'#980000',weight:2,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
     dot.on('click',function(e){
       if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
@@ -946,7 +946,7 @@ function renderBaseProvince(feats){
   const provinceRenderer=L.canvas({padding:.4});
   nationwideVillagePointCache.forEach(function(item){
     if(!item||!item.ll||norm(canonicalProvince(item.il))!==norm(canonicalProvince(provinceName)))return;
-    const dot=L.circleMarker(item.ll,{renderer:provinceRenderer,radius:4.5,color:'#980000',weight:1.2,fillColor:'#f00',fillOpacity:.95});
+    const dot=L.circleMarker(item.ll,{renderer:provinceRenderer,radius:7,color:'#980000',weight:1.8,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
     dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);openProvinceVillage(item.koy,item.ilce)});
     provinceDots.addLayer(dot)
@@ -990,6 +990,35 @@ function addHistoricalDivanMarkers(vf,pf,layerGroup){
   });
   layerGroup.addLayer(g)
 }
+function addDistrictSwitchLayer(layerGroup){
+  if(!baseMap||!layerGroup||!selectedProvince||norm(selectedProvince.name)===norm('RUMELİ')||!districtGeo)return;
+  if(!baseMap.getPane('districtSwitch')){
+    baseMap.createPane('districtSwitch');
+    baseMap.getPane('districtSwitch').style.zIndex='330';
+    baseMap.getPane('districtSwitch').style.pointerEvents='auto'
+  }
+  const pid=selectedProvince.id,current=selectedDistrict&&selectedDistrict.name||'';
+  const feats=(districtGeo.features||[]).filter(function(f){
+    const p=f.properties||{};
+    return String(p.parent_id||'')===String(pid||'')&&norm(p.name||'')!==norm(current)
+  });
+  if(!feats.length)return;
+  const nav=L.geoJSON({type:'FeatureCollection',features:feats},{
+    pane:'districtSwitch',
+    style:{color:'#8c7a67',weight:1.1,fillColor:'#ffffff',fillOpacity:.001,opacity:.55},
+    onEachFeature:function(f,l){
+      const n=(f.properties&&f.properties.name)||'';
+      l.bindTooltip(n+' · TIKLA VE GEÇ',{sticky:true,direction:'top',className:'mapHoverLabel'});
+      l.on('click',function(e){
+        if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);
+        const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
+        const local=localDistricts().find(function(x){return norm(x.name)===norm(n)});
+        if(local)selectDistrict(local,f)
+      })
+    }
+  });
+  layerGroup.addLayer(nav);
+}
 function renderBaseDistrict(df,vf,pf){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const layers=[];
@@ -1010,7 +1039,7 @@ function renderBaseDistrict(df,vf,pf){
         const n=(f.properties&&f.properties.name)||'';
         l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.94});
         l.bindPopup(function(){return villagePopupHtml(n,archiveForVillage(n))},{maxWidth:340});
-        l.on('click',function(){openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
+        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
       }
     });
     layers.push(villagePolys);if(!boundsLayer)boundsLayer=villagePolys;
@@ -1023,11 +1052,11 @@ function renderBaseDistrict(df,vf,pf){
     const points=L.geoJSON({type:'FeatureCollection',features:pf},{
       pointToLayer:function(f,ll){
         const n=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(n);
-        return L.circleMarker(ll,{renderer:L.canvas({padding:.5}),radius:has?7:4,color:has?'#9c1717':'#736e66',weight:has?2:1,fillColor:has?'#e02121':'#b8b2a9',fillOpacity:.9})
+        return L.circleMarker(ll,{renderer:L.canvas({padding:.8}),radius:has?10:7,color:has?'#9c1717':'#736e66',weight:has?2.4:1.4,fillColor:has?'#e02121':'#b8b2a9',fillOpacity:.94,bubblingMouseEvents:false})
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
-        l.on('click',function(){openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
+        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
       }
     });
     layers.push(points);if(!boundsLayer)boundsLayer=points;
@@ -1038,6 +1067,7 @@ function renderBaseDistrict(df,vf,pf){
   }
 
   adminLayer=L.layerGroup(layers).addTo(baseMap);
+  addDistrictSwitchLayer(adminLayer);
   addHistoricalDivanMarkers(vf,pf,adminLayer);
   if(boundsLayer&&boundsLayer.getBounds&&boundsLayer.getBounds().isValid()){
     baseMap.fitBounds(boundsLayer.getBounds(),{padding:[24,24],maxZoom:13})
@@ -1586,6 +1616,7 @@ function archiveForVillage(name){
 function buildVillageRows(){const rec=districtRecord(selectedDistrict.name);const rows=[],seen=new Set();if(rec){(rec.v||[]).forEach(function(n){const k='k|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'KÖY'})}});(rec.m||[]).forEach(function(n){const k='m|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'MAHALLE'})}})}archive.forEach(function(r){if(norm(r.il)!==norm(selectedProvince.name)||norm(r.ilce)!==norm(selectedDistrict.name)||!(r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))return;if(!rows.some(function(x){return norm(x.name)===norm(r.koy)}))rows.push({name:r.koy,kind:'TARİHÎ YERLEŞİM'})});rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});rows.sort(function(a,b){return a.name.localeCompare(b.name,'tr')});return rows}
 function renderVillageList(){const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length,mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;const hn=currentVillages.filter(function(x){return x.kind==='TARİHÎ YERLEŞİM'}).length;vCount.textContent=vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ YERLEŞİM':'');vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})}
 async function selectDistrict(local,geoFeature){
+  const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
   const requestId=++districtRequestSeq;
   selectedDistrict={id:local.id,name:local.name};
   previewLimit=36;
