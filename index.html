@@ -792,29 +792,63 @@ function nationwidePointMatches(il,ilce,koy){
   const candidates=archiveIndex.get(key(il,ilce,koy))||[];
   return candidates.length>0
 }
+let nationwideDotRefreshTimer=null;
+let nationwideDotRefreshMap=null;
 function addNationwideVillageDots(){
   if(level!=='turkey'||!baseMap||!nationwideVillageLayer)return;
-  if(nationwideRenderedLayer!==nationwideVillageLayer){nationwideRenderedLayer=nationwideVillageLayer;nationwideRenderedIds.clear();nationwidePointRenderer=null}
+  if(nationwideRenderedLayer!==nationwideVillageLayer){
+    nationwideRenderedLayer=nationwideVillageLayer;
+    nationwideRenderedIds.clear();
+    nationwidePointRenderer=null;
+  }
   if(!baseMap.getPane('archiveVillageDots')){
     baseMap.createPane('archiveVillageDots');
     baseMap.getPane('archiveVillageDots').style.zIndex='710';
   }
-  if(!nationwidePointRenderer)nationwidePointRenderer=L.svg({pane:'archiveVillageDots',padding:.5});
-  nationwideVillagePointCache.forEach(function(item,id){
-    if(!item||!item.ll||nationwideRenderedIds.has(id))return;
-    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:7.5,color:'#980000',weight:2,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
+  // Canvas uses one drawing surface instead of a separate SVG element for every village.
+  if(!nationwidePointRenderer)nationwidePointRenderer=L.canvas({pane:'archiveVillageDots',padding:.25});
+  if(nationwideDotRefreshMap!==baseMap){
+    nationwideDotRefreshMap=baseMap;
+    baseMap.on('moveend zoomend',function(){
+      clearTimeout(nationwideDotRefreshTimer);
+      nationwideDotRefreshTimer=setTimeout(addNationwideVillageDots,160);
+    });
+  }
+  const bounds=baseMap.getBounds().pad(.18);
+  const zoom=baseMap.getZoom();
+  // At country scale keep the existing province dots; individual villages become
+  // interactive as the visitor zooms in. No archive data is discarded.
+  const showVillages=zoom>=7;
+  const desired=new Set();
+  if(showVillages)nationwideVillagePointCache.forEach(function(item,id){
+    if(item&&item.ll&&bounds.contains(item.ll))desired.add(id);
+  });
+  nationwideRenderedIds.forEach(function(id){
+    if(!desired.has(id)){
+      const layer=nationwideVillageLayer._archiveDots&&nationwideVillageLayer._archiveDots.get(id);
+      if(layer)nationwideVillageLayer.removeLayer(layer);
+      if(nationwideVillageLayer._archiveDots)nationwideVillageLayer._archiveDots.delete(id);
+      nationwideRenderedIds.delete(id);
+    }
+  });
+  if(!nationwideVillageLayer._archiveDots)nationwideVillageLayer._archiveDots=new Map();
+  desired.forEach(function(id){
+    if(nationwideRenderedIds.has(id))return;
+    const item=nationwideVillagePointCache.get(id);
+    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:6,color:'#980000',weight:1.5,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
     dot.on('click',function(e){
       if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
       const provinceId=PROVINCE_MAP[item.il];
       if(!provinceId)return;
       selectProvinceByName(item.il,provinceId).then(function(){
-        if(level==='province')openProvinceVillage(item.koy,item.ilce)
-      })
+        if(level==='province')openProvinceVillage(item.koy,item.ilce);
+      });
     });
     nationwideVillageLayer.addLayer(dot);
-    nationwideRenderedIds.add(id)
-  })
+    nationwideVillageLayer._archiveDots.set(id,dot);
+    nationwideRenderedIds.add(id);
+  });
 }
 function startNationwideVillageDots(){
   if(nationwideVillageLoadStarted||!archive.length||!districtList.length)return;
