@@ -1964,7 +1964,7 @@ function renderSideVillage(name,r,ilce,il){
   const staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
   if(staff.length)body+='<div class="sideInfoSec"><b class="title">İMAM / MUHTAR / GÖREVLİ</b>'+staff.slice(0,30).map(function(x){return'<div class="sideInfoRecord">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>';
   const pdfs=(r.kaynak_pdf||[]).filter(Boolean);
-  if(pdfs.length)body+='<div class="sideInfoSec"><b class="title">ARŞİV PDF</b>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\\/\\//i.test(u)?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;margin:8px 0;padding:10px 12px;border-radius:10px;background:#17384e;color:#fff;text-decoration:none;font-weight:900;text-align:center">📄 PDF DOSYASINI AÇ</a>':'<div class="sideInfoRecord">'+esc(u)+'</div>'}).join('')+'</div>';
+  if(pdfs.length)body+='<div class="sideInfoSec"><b class="title">ARŞİV PDF</b>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\/\//i.test(u)?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;margin:8px 0;padding:10px 12px;border-radius:10px;background:#17384e;color:#fff;text-decoration:none;font-weight:900;text-align:center">📄 PDF DOSYASINI AÇ</a>':'<div class="sideInfoRecord">'+esc(u)+'</div>'}).join('')+'</div>';
   if(local.length)body+=localSourcesSection(local,'side');
   setSideInfo(name,(ilce||'')+' / '+(il||''),body)
 }
@@ -2016,7 +2016,7 @@ function showRecord(name,r,ilce,il){
     }
     const pdfs=(r.kaynak_pdf||[]).filter(Boolean);
     if(pdfs.length){
-      h+='<div class="section"><h3>ARŞİV PDF DOSYASI</h3>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\\/\\//i.test(u)?'<a class="buyBtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;text-decoration:none">📄 PDF DOSYASINI AÇ / İNDİR</a>':'<div class="record">'+esc(u)+'</div>'}).join('')+'</div>'
+      h+='<div class="section"><h3>ARŞİV PDF DOSYASI</h3>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\/\//i.test(u)?'<a class="buyBtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;text-decoration:none">📄 PDF DOSYASINI AÇ / İNDİR</a>':'<div class="record">'+esc(u)+'</div>'}).join('')+'</div>'
     }
     if(local.length)h+=localSourcesSection(local,'section');
     if(r.arsiv_karti===true&&!defs.some(function(d){return d&&hasDisplayValue(d.defter)})){
