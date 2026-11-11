@@ -1028,7 +1028,7 @@ function addDistrictSwitchLayer(layerGroup){
   if(!baseMap||!layerGroup||!selectedProvince||norm(selectedProvince.name)===norm('RUMELİ')||!districtGeo)return;
   if(!baseMap.getPane('districtSwitch')){
     baseMap.createPane('districtSwitch');
-    baseMap.getPane('districtSwitch').style.zIndex='330';
+    baseMap.getPane('districtSwitch').style.zIndex='650';
     baseMap.getPane('districtSwitch').style.pointerEvents='auto'
   }
   const pid=selectedProvince.id,current=selectedDistrict&&selectedDistrict.name||'';
@@ -1039,7 +1039,7 @@ function addDistrictSwitchLayer(layerGroup){
   if(!feats.length)return;
   const nav=L.geoJSON({type:'FeatureCollection',features:feats},{
     pane:'districtSwitch',
-    style:{color:'#8c7a67',weight:1.1,fillColor:'#ffffff',fillOpacity:.001,opacity:.55},
+    style:{color:'#8c7a67',weight:1.2,fillColor:'#ffffff',fillOpacity:.012,opacity:.65},
     onEachFeature:function(f,l){
       const n=(f.properties&&f.properties.name)||'';
       l.bindTooltip(n+' · TIKLA VE GEÇ',{sticky:true,direction:'top',className:'mapHoverLabel'});
@@ -1175,6 +1175,7 @@ async function loadDistrictVillageGeo(local){
     gj={type:'FeatureCollection',features:[]};
   }
   districtVillageCache.set(local.id,gj);
+  while(districtVillageCache.size>6){const oldest=districtVillageCache.keys().next().value;districtVillageCache.delete(oldest)}
   return gj
 }
 async function loadDistrictPointGeo(local){
@@ -1647,8 +1648,36 @@ function archiveForVillage(name){
   }
   return exact.length?mergeRecords(exact):null
 }
-function buildVillageRows(){const rec=districtRecord(selectedDistrict.name);const rows=[],seen=new Set();if(rec){(rec.v||[]).forEach(function(n){const k='k|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'KÖY'})}});(rec.m||[]).forEach(function(n){const k='m|'+norm(n);if(!seen.has(k)){seen.add(k);rows.push({name:n,kind:'MAHALLE'})}})}archive.forEach(function(r){if(norm(r.il)!==norm(selectedProvince.name)||norm(r.ilce)!==norm(selectedDistrict.name)||!(r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))return;if(!rows.some(function(x){return norm(x.name)===norm(r.koy)}))rows.push({name:r.koy,kind:'TARİHÎ YERLEŞİM'})});rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});rows.sort(function(a,b){return a.name.localeCompare(b.name,'tr')});return rows}
-function renderVillageList(){const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length,mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;const hn=currentVillages.filter(function(x){return x.kind==='TARİHÎ YERLEŞİM'}).length;vCount.textContent=vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ YERLEŞİM':'');vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'}).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})}
+function buildVillageRows(){
+  const rec=districtRecord(selectedDistrict.name),rows=[],seen=new Set();
+  function add(n,kind){const nk=norm(n);if(!nk||seen.has(nk))return;seen.add(nk);rows.push({name:n,kind:kind})}
+  if(rec){
+    (rec.v||[]).forEach(function(n){add(n,'KÖY')});
+    (rec.m||[]).forEach(function(n){add(n,'MAHALLE')})
+  }
+  const ip=norm(selectedProvince.name),dp=norm(selectedDistrict.name);
+  archive.forEach(function(r){
+    if(norm(r.il)!==ip||norm(r.ilce)!==dp)return;
+    if((r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))add(r.koy,'TARİHÎ YERLEŞİM')
+  });
+  rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});
+  rows.sort(function(a,b){
+    if(a.has!==b.has)return a.has?-1:1;
+    return a.name.localeCompare(b.name,'tr')
+  });
+  return rows
+}
+function renderVillageList(){
+  const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length;
+  const mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;
+  const hn=currentVillages.filter(function(x){return x.kind==='TARİHÎ YERLEŞİM'}).length;
+  const an=currentVillages.filter(function(x){return x.has}).length;
+  vCount.textContent=an+' ARŞİV · '+vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ':'');
+  vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){
+    return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'
+  }).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';
+  vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})
+}
 async function selectDistrict(local,geoFeature){
   const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
   const requestId=++districtRequestSeq;
@@ -1668,7 +1697,7 @@ async function selectDistrict(local,geoFeature){
   crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+local.name.toLocaleUpperCase('tr-TR');
   currentVillages=buildVillageRows();
   vSel.disabled=false;
-  vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+  vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
   renderVillageList();
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
@@ -1680,18 +1709,30 @@ async function selectDistrict(local,geoFeature){
       settlements=data||[];
       if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
-      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
       renderVillageList()
     }).catch(function(e){console.warn('Yerleşim listesi yüklenemedi',e)})
   }
-  const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
-  if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
-  const vfeats=(villageGeo&&villageGeo.features)||[];
-  let pfeats=[];
-  if(!vfeats.length){
+  const lowPower=(window.matchMedia&&window.matchMedia('(max-width: 900px)').matches)||((navigator.deviceMemory||8)<=4);
+  let vfeats=[],pfeats=[];
+  if(lowPower){
     const pointGeo=await loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
     if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
-    pfeats=(pointGeo&&pointGeo.features)||[]
+    pfeats=(pointGeo&&pointGeo.features)||[];
+    if(!pfeats.length){
+      const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
+      if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
+      vfeats=(villageGeo&&villageGeo.features)||[]
+    }
+  }else{
+    const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
+    if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
+    vfeats=(villageGeo&&villageGeo.features)||[];
+    if(!vfeats.length){
+      const pointGeo=await loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
+      if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
+      pfeats=(pointGeo&&pointGeo.features)||[]
+    }
   }
   const shown=renderDistrictVillageView(local,df,vfeats,pfeats);
 
