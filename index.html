@@ -99,6 +99,11 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .mapDock.open button{background:#8c3030}
 .mapModeNotice{margin:0 0 12px;padding:12px 14px;border:1px solid #d8c9b4;border-radius:10px;background:#fffaf0;color:#765b31;font-size:.9rem;line-height:1.45}
 @media(max-width:700px){.mapDock{top:auto;bottom:16px;right:8px;border-radius:12px}.mapDock button{writing-mode:horizontal-tb;transform:none;padding:11px 14px}}
+.whatsappFamilyBtn{position:fixed;left:14px;bottom:18px;z-index:45;display:flex;align-items:center;gap:9px;text-decoration:none;background:#1f7a4d;color:#fff;border:2px solid #fff;border-radius:999px;padding:12px 16px;font-weight:900;box-shadow:0 10px 28px #0004;font-size:.95rem}
+.whatsappFamilyBtn:hover{filter:brightness(.95)}
+.whatsappFamilyBtn .waIcon{font-size:1.25rem;line-height:1}
+.whatsappFamilyBtn small{display:block;font-size:.72rem;font-weight:700;color:#eafff2}
+@media(max-width:700px){.whatsappFamilyBtn{left:8px;bottom:70px;max-width:calc(100% - 16px);padding:10px 13px;font-size:.86rem}.whatsappFamilyBtn small{font-size:.66rem}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -119,6 +124,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 </style>
 </head>
 <body>
+<a id="whatsappFamilyBtn" class="whatsappFamilyBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener" aria-label="Aile bazında arşiv araştırması için WhatsApp'tan talep gönder"><span class="waIcon">✆</span><span>AİLE BAZINDA ARAŞTIRMA TALEBİ<small>WHATSAPP'TAN GÖNDER</small></span></a>
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
 <img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli">
 <div class="shell">
@@ -2535,14 +2541,21 @@ function finderBlob(r){
   finderTextCache.set(r,value);
   return value
 }
-function runFinder(){
+async function runFinder(){
   const input=document.getElementById('finderSearch'),fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict'),box=document.getElementById('finderResults'),list=document.getElementById('finderList'),sum=document.getElementById('finderSummary');
-  if(!input||!box)return;
-  const q=input.value.trim(),nq=searchNorm(q),il=fp.value,ilce=fd.value;
-  if((q||il||ilce)&&!archive.length){
-    box.classList.add('show');sum.innerHTML='<span><b>ARŞİV HAZIRLANIYOR…</b></span>';list.innerHTML='';
-    loadArchive().then(runFinder).catch(function(){sum.innerHTML='<span>ARŞİV VERİSİ YÜKLENEMEDİ.</span>'});
-    return
+  if(!input||!box||!list||!sum)return;
+  const q=input.value.trim(),nq=searchNorm(q),il=fp?fp.value:'',ilce=fd?fd.value:'';
+  if(!q&&!il&&!ilce){box.classList.remove('show');list.innerHTML='';sum.innerHTML='';return}
+  box.classList.add('show');
+  if(!archive.length){
+    sum.innerHTML='<span><b>ARŞİV YÜKLENİYOR…</b></span>';
+    list.innerHTML='<div class="empty">Arama verileri hazırlanıyor.</div>';
+    try{await loadArchive()}catch(e){
+      console.error('Arama arşivi yüklenemedi',e);
+      sum.innerHTML='<span><b>ARAMA VERİSİ YÜKLENEMEDİ</b></span>';
+      list.innerHTML='<div class="empty">Bağlantıyı kontrol edip tekrar ARA düğmesine basın.</div>';
+      return
+    }
   }
   let rows=archive.filter(function(r){
     if(il&&norm(canonicalProvince(r.il||''))!==norm(il))return false;
@@ -2554,17 +2567,21 @@ function runFinder(){
     function rank(r){
       if(!nq)return 0;
       let s=0;
-      if(searchNorm(r.koy||'').includes(nq))s+=30;
-      if((r.sulaleler||[]).some(function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x).includes(nq)}))s+=50;
-      if((r.defterler||[]).some(function(x){return searchNorm(JSON.stringify(x)).includes(nq)}))s+=20;
+      if(searchNorm(r.koy||'').includes(nq))s+=40;
+      if((r.sulaleler||[]).some(function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x).includes(nq)}))s+=60;
+      if((r.defterler||[]).some(function(x){return searchNorm(JSON.stringify(x)).includes(nq)}))s+=25;
+      if(searchNorm(r.ilce||'').includes(nq))s+=15;
+      if(searchNorm(r.il||'').includes(nq))s+=10;
       return s
     }
     return rank(b)-rank(a)||(a.koy||'').localeCompare(b.koy||'','tr')
   });
-  if(!q&&!il&&!ilce){box.classList.remove('show');list.innerHTML='';sum.innerHTML='';return}
-  box.classList.add('show');
   const visible=rows.slice(0,finderLimit);
-  sum.innerHTML='<span><b>'+rows.length.toLocaleString('tr-TR')+'</b> YERLEŞİM BULUNDU</span><span>'+esc([il,ilce].filter(Boolean).join(' / ')||'TÜRKİYE')+'</span>';
+  sum.innerHTML='<span><b>'+rows.length.toLocaleString('tr-TR')+'</b> SONUÇ BULUNDU</span><span>'+esc([il,ilce].filter(Boolean).join(' / ')||'TÜRKİYE')+'</span>';
+  if(!rows.length){
+    list.innerHTML='<div class="empty"><b>SONUÇ BULUNAMADI.</b><br>Köy, sülale, kişi adı veya defter numarasının bir bölümünü yazarak tekrar deneyin.</div>';
+    return
+  }
   list.innerHTML=visible.map(function(r,i){
     const defs=(r.defterler||[]).slice(0,2).map(function(d){return[d.defter,d.yil].filter(Boolean).join(' · ')}).filter(Boolean);
     const fam=(r.sulaleler||[]).filter(Boolean).slice(0,6);
@@ -2572,7 +2589,7 @@ function runFinder(){
   }).join('')+(rows.length>visible.length?'<button id="finderMore" class="finderMore" type="button">DAHA FAZLA SONUÇ · '+visible.length+' / '+rows.length+'</button>':'');
   list.querySelectorAll('[data-fi]').forEach(function(el){const open=function(e){if(e&&e.target&&e.target.closest('.familyJump,.showOnMap'))return;const r=visible[Number(el.dataset.fi)];showRecord(r.koy,r,r.ilce,r.il)};el.onclick=open;el.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(e)}}});
   list.querySelectorAll('[data-map-fi]').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const r=visible[Number(btn.getAttribute('data-map-fi'))];if(r)showRecordOnMap(r)}});
-  list.querySelectorAll('.familyJump').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const fam=btn.getAttribute('data-family')||'';document.getElementById('finderSearch').value=fam;renderSearch(fam)}});
+  list.querySelectorAll('.familyJump').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const fam=btn.getAttribute('data-family')||'';input.value=fam;finderLimit=24;runFinder()}});
   const more=document.getElementById('finderMore');if(more)more.onclick=function(){finderLimit+=24;runFinder()}
 }
 function matchedFamilies(r,nq){
@@ -2654,9 +2671,9 @@ function renderSearch(q){
 pSel.onchange=function(){if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(pSel.value)});if(f)selectProvinceFeature(f)};
 dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ')){const x=rumeliDistricts().find(function(d){return d.id===dSel.value});if(x)selectRumeliDistrict(x.name);return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
 vSel.onchange=function(){if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(!row)return;if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
-document.getElementById('search').oninput=function(e){const v=e.target.value;clearTimeout(searchTimer);if(v.trim().length<2){document.getElementById('searchPanel').classList.remove('show');return}searchTimer=setTimeout(function(){renderSearch(v)},160)};
-document.getElementById('searchBtn').onclick=function(){renderSearch(document.getElementById('search').value)};
-document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();renderSearch(e.target.value)}};
+document.getElementById('search').oninput=function(e){if(e.target.value.trim().length<2)document.getElementById('searchPanel').classList.remove('show')};
+document.getElementById('searchBtn').onclick=function(){const v=document.getElementById('search').value||'';document.getElementById('finderSearch').value=v;document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'});finderLimit=24;runFinder()};
+document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('finderSearch').value=e.target.value||'';finderLimit=24;runFinder();document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'})}};
 document.getElementById('close').onclick=function(){drawer.classList.remove('open')};
 document.getElementById('homeBtn').onclick=showTurkey;
 const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapInfoClose.onclick=function(){document.getElementById('mapInfoCard').style.display='none'};
