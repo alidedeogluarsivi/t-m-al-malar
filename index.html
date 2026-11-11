@@ -100,11 +100,8 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .mapDock.open button{background:#8c3030}
 .mapModeNotice{margin:0 0 12px;padding:12px 14px;border:1px solid #d8c9b4;border-radius:10px;background:#fffaf0;color:#765b31;font-size:.9rem;line-height:1.45}
 @media(max-width:700px){.mapDock{top:auto;bottom:16px;right:8px;border-radius:12px}.mapDock button{writing-mode:horizontal-tb;transform:none;padding:11px 14px}}
-.whatsappFamilyBtn{position:fixed;left:14px;bottom:18px;z-index:45;display:flex;align-items:center;gap:9px;text-decoration:none;background:#1f7a4d;color:#fff;border:2px solid #fff;border-radius:999px;padding:12px 16px;font-weight:900;box-shadow:0 10px 28px #0004;font-size:.95rem}
-.whatsappFamilyBtn:hover{filter:brightness(.95)}
-.whatsappFamilyBtn .waIcon{font-size:1.25rem;line-height:1}
-.whatsappFamilyBtn small{display:block;font-size:.72rem;font-weight:700;color:#eafff2}
-@media(max-width:700px){.whatsappFamilyBtn{left:8px;bottom:70px;max-width:calc(100% - 16px);padding:10px 13px;font-size:.86rem}.whatsappFamilyBtn small{font-size:.66rem}}
+.waNavBtn{display:inline-flex;align-items:center;gap:7px;background:#1f7a4d;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002}
+.waNavBtn:hover{filter:brightness(.95)}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -125,7 +122,6 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 </style>
 </head>
 <body>
-<a id="whatsappFamilyBtn" class="whatsappFamilyBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener" aria-label="Aile bazında arşiv araştırması için WhatsApp'tan talep gönder"><span class="waIcon">✆</span><span>AİLE BAZINDA ARAŞTIRMA TALEBİ<small>WHATSAPP'TAN GÖNDER</small></span></a>
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
 <img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli">
 <div class="shell">
@@ -165,7 +161,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
   <div id="listFirstHint" class="mapModeNotice"><b>NASIL KULLANILIR?</b><br>Aradığınız kelimeyi yazın → sonuçları listede görün → kaydı açın. Yalnız konum gerekiyorsa “HARİTADA GÖSTER”e basın.</div>
 </section>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a><a class="waNavBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener">WHATSAPP · AİLE BAZINDA ARAŞTIRMA</a></div>
 <div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYI AÇ</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
 
 <div class="workbench mapClosed" id="workbench">
