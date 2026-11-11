@@ -2052,39 +2052,8 @@ async function loadArchiveCore(){
     })
   }catch(e){console.warn('Doğrulanmış sülale kataloğu okunamadı',e)}
 
-  // Eski parçalı katalog da ek kaynak olarak yüklenir.
-  const familyFiles=['01','02','03','04','05','06'].map(function(n){return 'catalog/sulale_'+n+'.ndjson'});
-  for(const file of familyFiles){
-    try{
-      const content=await getText(file);
-      content.split(/\r?\n/).forEach(function(line){
-        if(!line.trim())return;
-        try{
-          const item=JSON.parse(line);
-          const il=canonicalProvince(item['İL']||'');
-          const ilce=String(item['İLÇE']||'').trim();
-          const koy=String(item['KÖY']||'').trim();
-          const sulale=standardFamilyName(String(item['SÜLALE ADI (STANDART)']||''));
-          if(!il||!ilce||!koy||!sulale||!item['DEFTER NO']||!item['HANE NO'])return;
-          if(/AHMET\s+ALİDEDEOĞLU/i.test(ilce))return;
-          if(/belirtilmemiş|bilinmiyor|tespit edilmedi/i.test(ilce+' '+koy))return;
-          if(isJunkVillageName(koy))return;
-          const villages=settlementNamesFor(il,ilce);
-          const matched=villages.find(function(v){return norm(v)===norm(koy)});
-          // A historical village must not disappear merely because it is absent
-          // from the modern settlement gazetteer.
-          const resolvedVillage=matched||koy;
-          const record={il:il,ilce:ilce,koy:resolvedVillage,sulaleler:[sulale],defterler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[],arsiv_karti:true};
-          if(!matched)record.durumlar.push('TARİHÎ KÖY ADI; BUGÜNKÜ YERLEŞİM ADI KONTROL EDİLECEK');
-          const defter=String(item['DEFTER NO']||'').trim();
-          if(defter)record.defterler.push({defter:defter,tur:item['BELGE TÜRÜ']||'',yil:item['DEFTER YILI']||''});
-          const hane=item['HANE NO'];
-          if(hane!==null&&hane!==undefined&&String(hane).trim())record.haneler.push({sulale:sulale,hane_no:String(hane)});
-          raw.push(record);
-        }catch(e){}
-      });
-    }catch(e){console.warn('Sülale kataloğu okunamadı',file,e)}
-  }
+  // Performans: eski 6 parçalı sülale katalogları ilk açılışta tekrar yüklenmez.
+  // Doğrulanmış birleşik kataloglar ARCH üzerinden yüklenir; böylece aynı veri telefonda birkaç kez işlenmez.
   const merged=new Map();
   function pushUnique(arr,vals,sig){
     (vals||[]).forEach(function(v){
@@ -2710,5 +2679,5 @@ bindHistoricalControls();
   statusEl.textContent='HARİTA HAZIR · BİR İLE TIKLAYIN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
-<script src="./historical-1890.js?v=20261105-05"></script>
+<script src="./historical-1890.js?v=20261111-perf1"></script>
 </body></html>
