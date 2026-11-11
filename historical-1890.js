@@ -228,5 +228,7 @@ installControls();
       }
     }catch(e){console.warn('İlçe sülale katmanı yüklenemedi',e)}
   }
-  applyDistrictFamilyOverlay();
+  // Performans: doğrulanmış köy-sülale verileri artık ARCH içindeki birleşik kataloglardan geliyor.
+  // 460 KB toplu overlay'i sayfa açılışında yeniden indirip bütün arşive bindirmek donmaya yol açıyordu.
+  // Fonksiyon yedek olarak korunur; otomatik çalıştırılmaz.
 })();
