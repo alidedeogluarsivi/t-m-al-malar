@@ -575,7 +575,22 @@ function districtMapInfo(il,ilce){
     '<div class="mapInfoHint">HARİTADAKİ KÖY ETİKETİNE / SINIRINA TIKLAYIN → ARŞİV KARTINI AÇIN.</div>'
 }
 let mapActivated=false;
-function activateMapUI(opts){
+let mapBaseDataPromise=null;
+async function ensureMapBaseData(){
+  if(provinceData&&provinceData.features&&provinceData.features.length)return;
+  if(mapBaseDataPromise)return mapBaseDataPromise;
+  mapBaseDataPromise=Promise.all([
+    withTimeout(getJSON(PROV),7000,{type:'FeatureCollection',features:[]}),
+    withTimeout(getJSON(GEO_MANIFEST),5000,{files:[]}),
+    withTimeout(getJSON(POINT_MANIFEST),5000,{files:[]})
+  ]).then(function(parts){
+    provinceData=parts[0]||{type:'FeatureCollection',features:[]};
+    villageGeoIds=new Set(((parts[1]&&parts[1].files)||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
+    villagePointIds=new Set(((parts[2]&&parts[2].files)||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
+  }).catch(function(e){console.warn('Harita temel verisi yüklenemedi',e)}).finally(function(){mapBaseDataPromise=null});
+  return mapBaseDataPromise
+}
+async function activateMapUI(opts){
   opts=opts||{};
   const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard'),dock=document.getElementById('mapDock');
   if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
@@ -583,6 +598,7 @@ function activateMapUI(opts){
   if(dock)dock.classList.add('open');
   if(!mapActivated){
     mapActivated=true;
+    await ensureMapBaseData();
     initBaseMap();
     showTurkey();
     setTimeout(function(){loadDistrictGeo().catch(function(e){console.warn('İlçe sınırları yüklenemedi',e)})},80);
@@ -2094,9 +2110,7 @@ function hasOfficialArchiveRecord(r){
 }
 async function loadArchiveCore(){
   archive=[];summary={};
-  if(!settlements||!settlements.length){
-    try{settlements=await withTimeout(getJSON(SETTLEMENTS),5000,[])}catch(e){console.warn('Yerleşim listesi yüklenemedi',e);settlements=[]}
-  }
+  if(!settlements)settlements=[];
   const raw=[];
   const archiveResults=await Promise.allSettled(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return withTimeout(getText(f),6500)}));
   const archiveTexts=archiveResults.filter(function(x){return x.status==='fulfilled'}).map(function(x){return x.value});
@@ -2517,7 +2531,7 @@ function renderFamilyDistribution(rows,q){
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
   if(!fp)return;
-  const names=((provinceData&&provinceData.features)||[]).map(function(f){return canonicalProvince((f.properties&&f.properties.name)||'')}).filter(Boolean).sort(function(a,b){return a.localeCompare(b,'tr')});
+  const names=((((provinceData&&provinceData.features)||[]).length)?(provinceData.features||[]).map(function(f){return canonicalProvince((f.properties&&f.properties.name)||'')}):Object.keys(PROVINCE_MAP)).filter(Boolean).sort(function(a,b){return a.localeCompare(b,'tr')});
   if(!names.some(function(n){return norm(n)===norm('RUMELİ')}))names.push('RUMELİ');
   fp.innerHTML='<option value="">TÜM İLLER</option>'+names.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
   fp.onchange=function(){
@@ -2787,19 +2801,16 @@ bindHistoricalControls();
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
   const base=await Promise.all([
-    withTimeout(getJSON(PROV),4500,{type:'FeatureCollection',features:[]}).catch(function(e){console.warn('İl listesi yüklenemedi',e);return{type:'FeatureCollection',features:[]}}),
-    withTimeout(getJSON(DIST_LOCAL),4500,[]).catch(function(e){console.warn('İlçe listesi yüklenemedi',e);return[]}),
-    withTimeout(getJSON(GEO_MANIFEST),3000,{files:[]}).catch(function(){return{files:[]}}),
-    withTimeout(getJSON(POINT_MANIFEST),3000,{files:[]}).catch(function(){return{files:[]}}),
-    withTimeout(getJSON(LOCAL_SOURCES),3000,{records:[]}).catch(function(e){console.warn('Yerel kaynaklar yüklenemedi',e);return{records:[]}})
+    withTimeout(getJSON(DIST_LOCAL),3500,[]).catch(function(e){console.warn('İlçe listesi yüklenemedi',e);return[]}),
+    withTimeout(getJSON(LOCAL_SOURCES),2500,{records:[]}).catch(function(e){console.warn('Yerel kaynaklar yüklenemedi',e);return{records:[]}})
   ]);
-  provinceData=base[0];
-  districtList=base[1];
+  provinceData={type:'FeatureCollection',features:[]};
+  districtList=base[0]||[];
   settlements=[];
-  localSources=(base[4]&&base[4].records)||[];
+  localSources=(base[1]&&base[1].records)||[];
   buildLocalSourceIndex();
-  villageGeoIds=new Set((base[2].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
-  villagePointIds=new Set((base[3].files||[]).map(function(x){return String(x).replace(/\.geojson$/,'')}));
+  villageGeoIds=new Set();
+  villagePointIds=new Set();
   fillProvinces();
   initFinder();
   const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard');
@@ -2807,7 +2818,7 @@ bindHistoricalControls();
   if(mc)mc.classList.add('mapDormant');
   statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
-  if('requestIdleCallback' in window)requestIdleCallback(warmArchive,{timeout:1200});else setTimeout(warmArchive,450);
+  setTimeout(warmArchive,0);
   if(!mapActivated)statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
