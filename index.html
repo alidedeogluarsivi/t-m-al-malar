@@ -252,7 +252,18 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){retur
 function canonicalProvince(n){return norm(n)===norm('Afyon')?'Afyonkarahisar':n}
 function key(il,ilce,koy){return norm(il)+'|'+norm(ilce)+'|'+norm(koy)}
 const jsonRequestCache=new Map(),textRequestCache=new Map();
-async function getJSON(u){
+async function withTimeout(p,ms,fallback){
+  const hasFallback=arguments.length>=3;
+  return new Promise(function(resolve,reject){
+    let done=false;
+    const timer=setTimeout(function(){
+      if(done)return;done=true;
+      if(hasFallback)resolve(fallback);else reject(new Error('İstek zaman aşımına uğradı'))
+    },ms);
+    Promise.resolve(p).then(function(v){if(done)return;done=true;clearTimeout(timer);resolve(v)},function(e){if(done)return;done=true;clearTimeout(timer);reject(e)})
+  })
+}
+function getJSON(u){
   if(jsonRequestCache.has(u))return jsonRequestCache.get(u);
   const p=fetch(u,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(r.status+' '+u);return r.json()}).catch(function(e){jsonRequestCache.delete(u);throw e});
   jsonRequestCache.set(u,p);return p
@@ -2084,10 +2095,10 @@ function hasOfficialArchiveRecord(r){
 async function loadArchiveCore(){
   archive=[];summary={};
   if(!settlements||!settlements.length){
-    try{settlements=await getJSON(SETTLEMENTS)}catch(e){console.warn('Yerleşim listesi yüklenemedi',e);settlements=[]}
+    try{settlements=await withTimeout(getJSON(SETTLEMENTS),5000,[])}catch(e){console.warn('Yerleşim listesi yüklenemedi',e);settlements=[]}
   }
   const raw=[];
-  const archiveResults=await Promise.allSettled(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return getText(f)}));
+  const archiveResults=await Promise.allSettled(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return withTimeout(getText(f),6500)}));
   const archiveTexts=archiveResults.filter(function(x){return x.status==='fulfilled'}).map(function(x){return x.value});
   archiveResults.filter(function(x){return x.status==='rejected'}).forEach(function(x){console.warn('Arşiv dosyası yüklenemedi',x.reason)});
   if(!archiveTexts.length)throw new Error('Hiçbir arşiv dosyası yüklenemedi');
@@ -2114,7 +2125,7 @@ async function loadArchiveCore(){
   // Kaynaksız sülale-köy eşleştirmeleri geçici olarak yayından çıkarıldı.
   // Doğrulanmış katalog yalnızca defter ve hane kanıtı bulunan satırları sunabilir.
   try{
-    const verified=await getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-allfamilies');
+    const verified=await withTimeout(getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-allfamilies'),6500);
     verified.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
       try{
@@ -2209,7 +2220,7 @@ async function loadArchiveCore(){
   });
   provinceSeen.forEach(function(set,pk){provinceArchiveCounts.set(pk,set.size)});
   try{
-    const sales=await getJSON(SALES);
+    const sales=await withTimeout(getJSON(SALES),3500,{items:[],count:0});
     salesMap=new Map((sales.items||[]).map(function(x){return[x.id,x]}));
     salesCount=Number(sales.count||salesMap.size||0);
   }catch(e){salesMap=new Map();salesCount=0}
@@ -2505,8 +2516,8 @@ function renderFamilyDistribution(rows,q){
 }
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
-  if(!fp||!provinceData)return;
-  const names=(provinceData.features||[]).map(function(f){return canonicalProvince((f.properties&&f.properties.name)||'')}).filter(Boolean).sort(function(a,b){return a.localeCompare(b,'tr')});
+  if(!fp)return;
+  const names=((provinceData&&provinceData.features)||[]).map(function(f){return canonicalProvince((f.properties&&f.properties.name)||'')}).filter(Boolean).sort(function(a,b){return a.localeCompare(b,'tr')});
   if(!names.some(function(n){return norm(n)===norm('RUMELİ')}))names.push('RUMELİ');
   fp.innerHTML='<option value="">TÜM İLLER</option>'+names.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
   fp.onchange=function(){
@@ -2550,7 +2561,7 @@ async function runFinder(){
     try{await loadArchive()}catch(e){
       console.error('Arama arşivi yüklenemedi',e);
       sum.innerHTML='<span><b>ARAMA VERİSİ YÜKLENEMEDİ</b></span>';
-      list.innerHTML='<div class="empty">Bağlantıyı kontrol edip tekrar ARA düğmesine basın.</div>';
+      list.innerHTML='<div class="empty">Arşiv dosyaları yanıt vermedi. Sayfayı yenilemeden tekrar ARA düğmesine basabilirsiniz.</div>';
       return
     }
   }
@@ -2775,7 +2786,13 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 bindHistoricalControls();
 (async function(){try{
   statusEl.textContent='Yerel idari veriler yükleniyor…';
-  const base=await Promise.all([getJSON(PROV),getJSON(DIST_LOCAL).catch(function(e){console.warn('İlçe listesi yüklenemedi',e);return[]}),getJSON(GEO_MANIFEST).catch(function(){return{files:[]}}),getJSON(POINT_MANIFEST).catch(function(){return{files:[]}}),getJSON(LOCAL_SOURCES).catch(function(e){console.warn('Yerel kaynaklar yüklenemedi',e);return{records:[]}})]);
+  const base=await Promise.all([
+    withTimeout(getJSON(PROV),4500,{type:'FeatureCollection',features:[]}).catch(function(e){console.warn('İl listesi yüklenemedi',e);return{type:'FeatureCollection',features:[]}}),
+    withTimeout(getJSON(DIST_LOCAL),4500,[]).catch(function(e){console.warn('İlçe listesi yüklenemedi',e);return[]}),
+    withTimeout(getJSON(GEO_MANIFEST),3000,{files:[]}).catch(function(){return{files:[]}}),
+    withTimeout(getJSON(POINT_MANIFEST),3000,{files:[]}).catch(function(){return{files:[]}}),
+    withTimeout(getJSON(LOCAL_SOURCES),3000,{records:[]}).catch(function(e){console.warn('Yerel kaynaklar yüklenemedi',e);return{records:[]}})
+  ]);
   provinceData=base[0];
   districtList=base[1];
   settlements=[];
