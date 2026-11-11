@@ -88,8 +88,8 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .familyProvinceResult:hover,.familyProvinceResult:focus{outline:3px solid #d5b06b;background:#fffaf0}
 
 /* 2026-11-11 · LİSTE ÖNCELİKLİ / İSTEĞE BAĞLI HARİTA */
-.workbench.mapClosed{grid-template-columns:1fr}
-.workbench.mapClosed .sidebar{max-width:none;width:100%}
+.workbench.mapClosed{display:none}
+.workbench.mapOpen{display:grid}
 .mapcard.mapDormant{display:none}
 .resultActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .resultActions button{min-height:40px;border:1px solid #cdbfa9;border-radius:9px;padding:8px 11px;background:#fff;color:#17384e;font-weight:900;cursor:pointer}
@@ -125,7 +125,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
-<p>Türkiye haritasında ile tıklayın. İl açıldığında ilçe sınırları, ilçe adları ve o ildeki bütün okunmuş köy/mahalleler aynı anda görünür. İlçeye tıklamak yalnızca görünümü daraltır. Köye tıklayınca devlet arşivi defter bilgileri ve okunmuş arşiv içeriği gösterilir.</p>
+<p>Önce arşivde arayın; bulunan köy, sülale veya defter kayıtlarını listeden açın. Konumu görmek isterseniz sonuç üzerindeki <b>HARİTADA GÖSTER</b> düğmesine basın. Harita yalnız istendiğinde yüklenir.</p>
 <div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div>
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
@@ -139,7 +139,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <section class="finder" aria-label="Arşiv hızlı bulucu">
   <div class="finderHead">
     <div><div class="finderMode">ALİDEDEOĞLU ARŞİVİ · HIZLI BULUCU</div><h2>Yer, sülale veya defter ara</h2><p>Bugünkü köy adı, eski yer adı, sülale, hane, NFS/TMT defter no veya görevli adıyla arayın.</p></div>
-    <div class="finderMode">ARAMA ÖNCELİKLİ · HARİTA DESTEKLİ</div>
+    <div class="finderMode">LİSTE ÖNCELİKLİ · HARİTA İSTEĞE BAĞLI</div>
   </div>
   <div class="finderGrid">
     <input id="finderSearch" autocomplete="off" enterkeyhint="search" placeholder="Örn: İmamoğulları, Elvançelebi, NFS.d.2264, Sungurlu…">
@@ -155,10 +155,11 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
     <button type="button" data-find-tip="imam">İMAM</button>
   </div>
   <div id="finderResults" class="finderResults"><div id="finderSummary" class="finderSummary"></div><div id="finderList" class="finderList"></div></div>
+  <div id="listFirstHint" class="mapModeNotice"><b>NASIL KULLANILIR?</b><br>Aradığınız kelimeyi yazın → sonuçları listede görün → kaydı açın. Yalnız konum gerekiyorsa “HARİTADA GÖSTER”e basın.</div>
 </section>
 
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a></div>
-<div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYA DÖN</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
+<div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYI AÇ</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
 
 <div class="workbench mapClosed" id="workbench">
 <aside class="sidebar">
@@ -563,7 +564,7 @@ let mapActivated=false;
 function activateMapUI(opts){
   opts=opts||{};
   const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard'),dock=document.getElementById('mapDock');
-  if(wb)wb.classList.remove('mapClosed');
+  if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
   if(mc)mc.classList.remove('mapDormant');
   if(dock)dock.classList.add('open');
   if(!mapActivated){
@@ -2771,7 +2772,7 @@ bindHistoricalControls();
   fillProvinces();
   initFinder();
   const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard');
-  if(wb)wb.classList.add('mapClosed');
+  if(wb){wb.classList.remove('mapOpen');wb.classList.add('mapClosed')}
   if(mc)mc.classList.add('mapDormant');
   statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
