@@ -790,7 +790,7 @@ let nationwideVillageLoadStarted=false,nationwideVillageLayer=null;
 let nationwideRenderedLayer=null,nationwideRenderedIds=new Set(),nationwidePointRenderer=null;
 function nationwidePointMatches(il,ilce,koy){
   const candidates=archiveIndex.get(key(il,ilce,koy))||[];
-  return candidates.length>0
+  return candidates.some(function(r){return (r.sulaleler||[]).filter(Boolean).length>0})
 }
 let nationwideDotRefreshTimer=null;
 let nationwideDotRefreshMap=null;
@@ -816,11 +816,10 @@ function addNationwideVillageDots(){
   }
   const bounds=baseMap.getBounds().pad(.18);
   const zoom=baseMap.getZoom();
-  // At country scale keep the existing province dots; individual villages become
-  // interactive as the visitor zooms in. No archive data is discarded.
-  const showVillages=zoom>=7;
+  // Sülale kaydı olan her doğrulanmış yerleşim ülke ölçeğinde de görünür.
+  // Canvas kullanıldığı için binlerce nokta tek çizim yüzeyinde tutulur.
   const desired=new Set();
-  if(showVillages)nationwideVillagePointCache.forEach(function(item,id){
+  nationwideVillagePointCache.forEach(function(item,id){
     if(item&&item.ll&&bounds.contains(item.ll))desired.add(id);
   });
   nationwideRenderedIds.forEach(function(id){
@@ -835,7 +834,8 @@ function addNationwideVillageDots(){
   desired.forEach(function(id){
     if(nationwideRenderedIds.has(id))return;
     const item=nationwideVillagePointCache.get(id);
-    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:6,color:'#980000',weight:1.5,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
+    const small=baseMap.getZoom()<7;
+    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:small?3.2:6,color:'#980000',weight:small?0.8:1.5,fillColor:'#f00',fillOpacity:small?.9:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
     dot.on('click',function(e){
       if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
@@ -853,8 +853,9 @@ function addNationwideVillageDots(){
 function startNationwideVillageDots(){
   if(nationwideVillageLoadStarted||!archive.length||!districtList.length)return;
   nationwideVillageLoadStarted=true;
-  const provinceSet=new Set(archive.map(function(x){return norm(canonicalProvince(x.il||''))}));
-  const districtSet=new Set(archive.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
+  const familyRows=archive.filter(function(x){return (x.sulaleler||[]).filter(Boolean).length>0});
+  const provinceSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))}));
+  const districtSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
   const jobs=districtList.filter(function(d){
     const province=provinceData.features.find(function(f){return PROVINCE_MAP[canonicalProvince((f.properties||{}).name||'')]===d.parent_id});
     const il=province&&canonicalProvince(province.properties.name);
@@ -879,11 +880,11 @@ function startNationwideVillageDots(){
       });
       loaded++;
       if(level==='turkey'&&nationwideVillageLayer&&loaded%8===0)addNationwideVillageDots();
-      await new Promise(function(resolve){setTimeout(resolve,45)})
+      await new Promise(function(resolve){setTimeout(resolve,12)})
     }
   }
   // Start after first paint. A single low-priority worker avoids saturating mobile devices.
-  setTimeout(function(){worker().then(function(){if(level==='turkey')addNationwideVillageDots()}).catch(function(e){console.warn('Köy noktaları kademeli yüklenemedi',e)})},1500)
+  setTimeout(function(){worker().then(function(){if(level==='turkey')addNationwideVillageDots()}).catch(function(e){console.warn('Sülale noktaları kademeli yüklenemedi',e)})},180)
 }
 function renderBaseTurkey(){
   useLeafletMap();initBaseMap();clearBaseLayer();
@@ -893,27 +894,12 @@ function renderBaseTurkey(){
     style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c ? .06 : .025,bubblingMouseEvents:false}},
     onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{sticky:true,direction:'top',className:'mapHoverLabel'});l.on('click',function(){selectProvinceFeature(f)})}
   });
-  if(!baseMap.getPane('archiveDots')){baseMap.createPane('archiveDots');baseMap.getPane('archiveDots').style.zIndex='690';baseMap.getPane('archiveDots').style.pointerEvents='auto'}
-  const dotRenderer=L.svg({pane:'archiveDots',padding:0.6});
-  const dots=L.layerGroup();
-  const fallbackCounts=new Map();
-  archive.forEach(function(row){const key=norm(canonicalProvince(row.il||''));if(key)fallbackCounts.set(key,(fallbackCounts.get(key)||0)+1)});
-  feats.forEach(function(f){
-    const name=canonicalProvince((f.properties&&f.properties.name)||''),count=provinceArchiveCounts.get(norm(name))||fallbackCounts.get(norm(name))||0;
-    if(!count)return;
-    const ll=featureLabelLatLng(f);if(!ll)return;
-    const radius=Math.min(19,5+Math.sqrt(count)*1.05);
-    const dot=L.circleMarker(ll,{renderer:dotRenderer,pane:'archiveDots',radius:radius,color:'#920b0b',weight:2.5,fillColor:'#ee2020',fillOpacity:1,bubblingMouseEvents:false,interactive:true});
-    dot.bindTooltip(name+' · '+count+' ARŞİV YERLEŞİMİ',{direction:'top',className:'mapHoverLabel'});
-    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);selectProvinceFeature(f)});
-    dots.addLayer(dot)
-  });
   nationwideVillageLayer=L.layerGroup();
-  adminLayer=L.layerGroup([outlines,dots,nationwideVillageLayer]).addTo(baseMap);
+  adminLayer=L.layerGroup([outlines,nationwideVillageLayer]).addTo(baseMap);
   addRumeliArchiveLayer(adminLayer);
   addNationwideVillageDots();
   startNationwideVillageDots();
-  if(dots.getLayers().length)statusEl.textContent='TÜRKİYE · '+dots.getLayers().length+' İLDE KIRMIZI ARŞİV NOKTASI';
+  statusEl.textContent='TÜRKİYE · SÜLALE KAYDI OLAN YERLER KIRMIZI NOKTA · İL / NOKTA ÜZERİNE TIKLAYIN';
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
 function addProvinceDistrictDensityDots(feats,layerGroup){
