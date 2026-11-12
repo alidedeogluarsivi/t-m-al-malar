@@ -216,7 +216,22 @@ const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provin
 const SVG_NS='http://www.w3.org/2000/svg';
 let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),familyIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,localSources=[],localSourceIndex=new Map(),selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,osmanliCurrentMap=null,osmanliCurrentPromise=null,rumeliMapData=null,rumeliMapPromise=null,mapPeriod='modern';let baseMap=null,adminLayer=null,nearbyLayer=null,adaptiveLabelLayer=null,adaptiveLabelSpecs=[],adaptiveLabelMode='';
 const archiveLayerPrefs={historical:true,families:true,subsettlements:true};
-function isSubsettlementName(n){return /(?:mezra|çiftlik|yayla|kom|oba|divan|mahalle)/i.test(String(n||''))}
+function localityKind(n,r){
+ const explicit=String(r&& (r.yerlesim_turu||r.alt_yerlesim_turu)||'').toLocaleUpperCase('tr-TR');
+ if(['MAHALLE','MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ','KÖY','DİVAN'].includes(explicit))return explicit;
+ const v=String(n||'').toLocaleLowerCase('tr-TR');
+ if(/(?:^|\\s)(?:mahalle|mahallesi|mah\\.|mah)(?:\\s|$)/i.test(v))return 'MAHALLE';
+ if(/mezra/i.test(v))return 'MEZRA';
+ if(/çiftlik/i.test(v))return 'ÇİFTLİK';
+ if(/yayla/i.test(v))return 'YAYLA';
+ if(/(?:^|\\s)oba(?:sı)?(?:\\s|$)/i.test(v))return 'OBA';
+ if(/(?:^|\\s)kom(?:u)?(?:\\s|$)/i.test(v))return 'KOM';
+ if(/sokak|sokağı/i.test(v))return 'SOKAK';
+ if(/mevki/i.test(v))return 'MEVKİ';
+ if(/divan/i.test(v))return 'DİVAN';
+ return 'KÖY / TARİHÎ YERLEŞİM';
+}
+function isSubsettlementName(n){return ['MAHALLE','MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ','DİVAN'].includes(localityKind(n))}
 
 function buildLocalSourceIndex(){
   localSourceIndex=new Map();
@@ -1729,28 +1744,27 @@ function archiveForVillage(name){
   return exact.length?mergeRecords(exact):null
 }
 function buildVillageRows(){
-  const rec=districtRecord(selectedDistrict.name),rows=[],seen=new Set();
-  function add(n,kind){const nk=norm(n);if(!nk||seen.has(nk))return;seen.add(nk);rows.push({name:n,kind:kind})}
-  if(rec){
-    (rec.v||[]).forEach(function(n){add(n,'KÖY')});
-    (rec.m||[]).forEach(function(n){add(n,'MAHALLE')})
-  }
-  const ip=norm(selectedProvince.name),dp=norm(selectedDistrict.name);
-  archive.forEach(function(r){
-    if(norm(r.il)!==ip||norm(r.ilce)!==dp)return;
-    if((r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))add(r.koy,'TARİHÎ YERLEŞİM')
-  });
-  rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});
-  rows.sort(function(a,b){
-    if(a.has!==b.has)return a.has?-1:1;
-    return a.name.localeCompare(b.name,'tr')
-  });
-  return rows
+ const rec=districtRecord(selectedDistrict.name),rows=[],seen=new Set();
+ function add(n,kind,parent){const nk=norm(n);if(!nk||seen.has(nk))return;seen.add(nk);rows.push({name:n,kind:kind,parent:parent||'',record:null,has:false})}
+ if(rec){(rec.v||[]).forEach(function(n){add(n,'KÖY')});(rec.m||[]).forEach(function(n){add(n,'MAHALLE')})}
+ const ip=norm(selectedProvince.name),dp=norm(selectedDistrict.name);
+ archive.forEach(function(r){
+   if(norm(r.il)!==ip||norm(r.ilce)!==dp||!r.koy)return;
+   const parent=r.bagli_oldugu_koy||r.ust_yerlesim||r.muhtarlik||'';
+   add(r.koy,localityKind(r.koy,r),parent)
+ });
+ rows.forEach(function(x){x.record=archiveForVillage(x.name);x.has=!!x.record});
+ rows.sort(function(a,b){
+   if(a.has!==b.has)return a.has?-1:1;
+   if(a.parent&&b.parent&&norm(a.parent)===norm(b.parent))return a.name.localeCompare(b.name,'tr');
+   return a.name.localeCompare(b.name,'tr')
+ });
+ return rows
 }
 function renderVillageList(){
   const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length;
   const mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;
-  const hn=currentVillages.filter(function(x){return x.kind==='TARİHÎ YERLEŞİM'}).length;
+  const hn=currentVillages.filter(function(x){return !['KÖY','MAHALLE'].includes(x.kind)}).length;
   const an=currentVillages.filter(function(x){return x.has}).length;
   vCount.textContent=an+' ARŞİV · '+vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ':'');
   vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){
@@ -1777,7 +1791,7 @@ async function selectDistrict(local,geoFeature){
   crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+local.name.toLocaleUpperCase('tr-TR');
   currentVillages=buildVillageRows();
   vSel.disabled=false;
-  vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+  vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+(x.parent?' / '+esc(x.parent):'')+'</option>'}).join('');
   renderVillageList();
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
@@ -1789,7 +1803,7 @@ async function selectDistrict(local,geoFeature){
       settlements=data||[];
       if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
-      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+(x.parent?' / '+esc(x.parent):'')+'</option>'}).join('');
       renderVillageList()
     }).catch(function(e){console.warn('Yerleşim listesi yüklenemedi',e)})
   }
