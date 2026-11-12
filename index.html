@@ -172,7 +172,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <div class="step">1. İL SEÇ &nbsp;→&nbsp; 2. İLÇE SEÇ &nbsp;→&nbsp; 3. KÖY / MAHALLE SEÇ</div>
 <div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
 <div class="field"><label>İLÇE</label><select id="districtSelect" disabled><option value="">ÖNCE İL SEÇİN</option></select></div>
-<div class="field"><label>KÖY / MAHALLE</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
+<div class="field"><label>KÖY / MUHTARLIK</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div class="field"><label>MAHALLE / KÖY ALTI YERLEŞİM</label><select id="subsettlementSelect" disabled><option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option></select></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
 <div class="listhead"><b>KÖY / MAHALLELER</b><small id="villageCount">—</small></div>
 <div id="villageList" class="vlist"><div class="empty">İl ve ilçe seçildiğinde yerleşimler burada listelenecek.</div></div>
 </div>
@@ -212,7 +212,7 @@ const OSMANLI_CURRENT_MAP='./geo/osmanli_current_map.json?v=20261105-1';
 const RUMELI_CURRENT_MAP='./geo/rumeli_current_map.json?v=20261109-1';
 const PROVINCE_MAP={"Adana":"TR-P-01","Adıyaman":"TR-P-02","Afyonkarahisar":"TR-P-03","Ağrı":"TR-P-04","Amasya":"TR-P-05","Ankara":"TR-P-06","Antalya":"TR-P-07","Artvin":"TR-P-08","Aydın":"TR-P-09","Balıkesir":"TR-P-10","Bilecik":"TR-P-11","Bingöl":"TR-P-12","Bitlis":"TR-P-13","Bolu":"TR-P-14","Burdur":"TR-P-15","Bursa":"TR-P-16","Çanakkale":"TR-P-17","Çankırı":"TR-P-18","Çorum":"TR-P-19","Denizli":"TR-P-20","Diyarbakır":"TR-P-21","Edirne":"TR-P-22","Elazığ":"TR-P-23","Erzincan":"TR-P-24","Erzurum":"TR-P-25","Eskişehir":"TR-P-26","Gaziantep":"TR-P-27","Giresun":"TR-P-28","Gümüşhane":"TR-P-29","Hakkari":"TR-P-30","Hatay":"TR-P-31","Isparta":"TR-P-32","Mersin":"TR-P-33","İstanbul":"TR-P-34","İzmir":"TR-P-35","Kars":"TR-P-36","Kastamonu":"TR-P-37","Kayseri":"TR-P-38","Kırklareli":"TR-P-39","Kırşehir":"TR-P-40","Kocaeli":"TR-P-41","Konya":"TR-P-42","Kütahya":"TR-P-43","Malatya":"TR-P-44","Manisa":"TR-P-45","Kahramanmaraş":"TR-P-46","Mardin":"TR-P-47","Muğla":"TR-P-48","Muş":"TR-P-49","Nevşehir":"TR-P-50","Niğde":"TR-P-51","Ordu":"TR-P-52","Rize":"TR-P-53","Sakarya":"TR-P-54","Samsun":"TR-P-55","Siirt":"TR-P-56","Sinop":"TR-P-57","Sivas":"TR-P-58","Tekirdağ":"TR-P-59","Tokat":"TR-P-60","Trabzon":"TR-P-61","Tunceli":"TR-P-62","Şanlıurfa":"TR-P-63","Uşak":"TR-P-64","Van":"TR-P-65","Yozgat":"TR-P-66","Zonguldak":"TR-P-67","Aksaray":"TR-P-68","Bayburt":"TR-P-69","Karaman":"TR-P-70","Kırıkkale":"TR-P-71","Batman":"TR-P-72","Şırnak":"TR-P-73","Bartın":"TR-P-74","Ardahan":"TR-P-75","Iğdır":"TR-P-76","Yalova":"TR-P-77","Karabük":"TR-P-78","Kilis":"TR-P-79","Osmaniye":"TR-P-80","Düzce":"TR-P-81"};
 
-const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
+const svg=document.getElementById('mapSvg'),pSel=document.getElementById('provinceSelect'),dSel=document.getElementById('districtSelect'),vSel=document.getElementById('villageSelect'),subSel=document.getElementById('subsettlementSelect'),vList=document.getElementById('villageList'),vCount=document.getElementById('villageCount'),statusEl=document.getElementById('status'),crumb=document.getElementById('crumb'),drawer=document.getElementById('drawer');
 const SVG_NS='http://www.w3.org/2000/svg';
 let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=[],archiveIndex=new Map(),familyIndex=new Map(),summary={},salesMap=new Map(),salesCount=0,localSources=[],localSourceIndex=new Map(),selectedProvince=null,selectedDistrict=null,currentVillages=[],level='turkey',districtVillageCache=new Map(),districtPointCache=new Map(),villageGeoIds=new Set(),villagePointIds=new Set(),districtRequestSeq=0,provinceArchiveCounts=new Map(),lastSearchRows=[],lastSearchQuery='',previewLimit=36,searchTimer=null,finderLimit=24,osmanliAdminData=null,osmanliAdminPromise=null,osmanliCurrentMap=null,osmanliCurrentPromise=null,rumeliMapData=null,rumeliMapPromise=null,mapPeriod='modern';let baseMap=null,adminLayer=null,nearbyLayer=null,adaptiveLabelLayer=null,adaptiveLabelSpecs=[],adaptiveLabelMode='';
 const archiveLayerPrefs={historical:true,families:true,subsettlements:true};
@@ -1761,6 +1761,19 @@ function buildVillageRows(){
  });
  return rows
 }
+function refreshHierarchy(){
+ if(!subSel)return;
+ const primaries=currentVillages.filter(function(x){return !x.parent && ['KÖY','MAHALLE','DİVAN','KÖY / TARİHÎ YERLEŞİM'].includes(x.kind) || !x.parent && !['MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ'].includes(x.kind)});
+ vSel.disabled=!primaries.length;
+ vSel.innerHTML='<option value="">KÖY / MUHTARLIK SEÇİN</option>'+primaries.map(function(x){const i=currentVillages.indexOf(x);return '<option value="'+i+'">'+(x.has?'★ ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+ subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option>';
+}
+function refreshSubsettlements(parentName){
+ if(!subSel)return;
+ const children=currentVillages.filter(function(x){return x.parent && norm(x.parent)===norm(parentName)});
+ subSel.disabled=!children.length;
+ subSel.innerHTML='<option value="">'+(children.length?'MAHALLE / MEZRA / MEVKİ SEÇİN':'BAĞLI ALT YERLEŞİM KAYDI YOK')+'</option>'+children.map(function(x){return '<option value="'+currentVillages.indexOf(x)+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+}
 function renderVillageList(){
   const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length;
   const mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;
@@ -1791,7 +1804,7 @@ async function selectDistrict(local,geoFeature){
   crumb.textContent=selectedProvince.name.toLocaleUpperCase('tr-TR')+' → '+local.name.toLocaleUpperCase('tr-TR');
   currentVillages=buildVillageRows();
   vSel.disabled=false;
-  vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+(x.parent?' / '+esc(x.parent):'')+'</option>'}).join('');
+  refreshHierarchy();
   renderVillageList();
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
@@ -1803,7 +1816,7 @@ async function selectDistrict(local,geoFeature){
       settlements=data||[];
       if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
-      vSel.innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+currentVillages.map(function(x,i){return'<option value="'+i+'">'+(x.has?'★ ARŞİV · ':'')+esc(x.name)+' — '+esc(x.kind)+(x.parent?' / '+esc(x.parent):'')+'</option>'}).join('');
+      refreshHierarchy();
       renderVillageList()
     }).catch(function(e){console.warn('Yerleşim listesi yüklenemedi',e)})
   }
@@ -2706,7 +2719,8 @@ function renderSearch(q){
 }
 pSel.onchange=function(){if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=provinceData.features.find(function(x){return norm(canonicalProvince(x.properties.name))===norm(pSel.value)});if(f)selectProvinceFeature(f)};
 dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ')){const x=rumeliDistricts().find(function(d){return d.id===dSel.value});if(x)selectRumeliDistrict(x.name);return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
-vSel.onchange=function(){if(vSel.value==='')return;const row=currentVillages[Number(vSel.value)];if(!row)return;if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
+vSel.onchange=function(){if(vSel.value===''){if(subSel){subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option>'}return}const row=currentVillages[Number(vSel.value)];if(!row)return;refreshSubsettlements(row.name);if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
+subSel.onchange=function(){if(subSel.value==='')return;const row=currentVillages[Number(subSel.value)];if(row){renderSideVillage(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}};
 document.getElementById('search').oninput=function(e){if(e.target.value.trim().length<2)document.getElementById('searchPanel').classList.remove('show')};
 document.getElementById('searchBtn').onclick=function(){const v=document.getElementById('search').value||'';document.getElementById('finderSearch').value=v;document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'});finderLimit=24;runFinder()};
 document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('finderSearch').value=e.target.value||'';finderLimit=24;runFinder();document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'})}};
