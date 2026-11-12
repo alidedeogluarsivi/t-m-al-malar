@@ -236,7 +236,7 @@ function localSourcesSection(rows,cls){
     rows.map(function(x){
       return '<div class="'+rec+'"><strong>'+esc([x.tarih,x.tur].filter(Boolean).join(' · '))+'</strong>'+
         (x.ozet?'<br>'+esc(x.ozet):'')+
-        (x.kaynak?'<br><b>KAYNAK:</b> '+esc(x.kaynak):'')+
+        ''+
       '</div>';
     }).join('')+'</div>';
 }
@@ -1979,7 +1979,7 @@ function renderSideVillage(name,r,ilce,il){
   if(archiveLayerPrefs.families&&fams.length)body+='<div class="sideInfoSec"><b class="title">SÜLALE / LAKAP</b><div class="sideInfoTags">'+fams.slice(0,60).map(function(x){return'<span>'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div></div>';
   const staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
   if(staff.length)body+='<div class="sideInfoSec"><b class="title">İMAM / MUHTAR / GÖREVLİ</b>'+staff.slice(0,30).map(function(x){return'<div class="sideInfoRecord">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>';
-  const pdfs=(r.kaynak_pdf||[]).filter(Boolean);
+  const pdfs=(r.kaynak_pdf||[]).filter(function(x){return /^https?:\/\//i.test(String(x||''))});
   if(pdfs.length)body+='<div class="sideInfoSec"><b class="title">ARŞİV PDF</b>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\/\//i.test(u)?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;margin:8px 0;padding:10px 12px;border-radius:10px;background:#17384e;color:#fff;text-decoration:none;font-weight:900;text-align:center">📄 PDF DOSYASINI AÇ</a>':'<div class="sideInfoRecord">'+esc(u)+'</div>'}).join('')+'</div>';
   if(local.length)body+=localSourcesSection(local,'side');
   setSideInfo(name,(ilce||'')+' / '+(il||''),body)
@@ -2016,7 +2016,7 @@ function showRecord(name,r,ilce,il){
           +valueLine('SANCAK',d.sancak)
           +valueLine('DİVAN',d.divan);
         if(lines||d.defter){
-          h+='<div class="record">'+(lines?'<div class="kv">'+lines+'</div>':'')+(d.defter?'<div class="notice"><b>KAYNAK:</b> DEVLET ARŞİVLERİ — DEFTER NO: '+esc(d.defter)+'</div>':'')+'</div>'
+          h+='<div class="record">'+(lines?'<div class="kv">'+lines+'</div>':'')+(d.defter?'<div class="notice"><b>KAYNAK:</b> BOA '+esc(d.defter)+'</div>':'')+'</div>'
         }
       });
       h+='</div>'
@@ -2030,7 +2030,7 @@ function showRecord(name,r,ilce,il){
     if(staff.length){
       h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'+staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>'
     }
-    const pdfs=(r.kaynak_pdf||[]).filter(Boolean);
+    const pdfs=(r.kaynak_pdf||[]).filter(function(x){return /^https?:\/\//i.test(String(x||''))});
     if(pdfs.length){
       h+='<div class="section"><h3>ARŞİV PDF DOSYASI</h3>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\/\//i.test(u)?'<a class="buyBtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;text-decoration:none">📄 PDF DOSYASINI AÇ / İNDİR</a>':'<div class="record">'+esc(u)+'</div>'}).join('')+'</div>'
     }
@@ -2040,7 +2040,7 @@ function showRecord(name,r,ilce,il){
     }
     const official=defs.filter(function(d){return d.defter});
     if(official.length){
-      h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>DEVLET ARŞİVLERİ</b><br>DEFTER NO: '+esc(d.defter)+'</div>'}).join('')+'</div>'
+      h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>BOA '+esc(d.defter)+'</b></div>'}).join('')+'</div>'
     }
     const sale=salesMap.get(r.id);
     if(sale&&sale.sale){
