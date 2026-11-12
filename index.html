@@ -172,7 +172,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <div class="step">1. İL SEÇ &nbsp;→&nbsp; 2. İLÇE SEÇ &nbsp;→&nbsp; 3. KÖY / MAHALLE SEÇ</div>
 <div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
 <div class="field"><label>İLÇE</label><select id="districtSelect" disabled><option value="">ÖNCE İL SEÇİN</option></select></div>
-<div class="field"><label>KÖY / MUHTARLIK</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div class="field"><label>MAHALLE / KÖY ALTI YERLEŞİM</label><select id="subsettlementSelect" disabled><option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option></select></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
+<div class="field"><label>MAHALLE / KÖY</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div class="field"><label>MAHALLE / KÖY ALTI YERLEŞİM</label><select id="subsettlementSelect" disabled><option value="">ÖNCE MAHALLE / KÖY SEÇİN</option></select></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
 <div class="listhead"><b>KÖY / MAHALLELER</b><small id="villageCount">—</small></div>
 <div id="villageList" class="vlist"><div class="empty">İl ve ilçe seçildiğinde yerleşimler burada listelenecek.</div></div>
 </div>
@@ -1766,7 +1766,7 @@ function refreshHierarchy(){
  const primaries=currentVillages.filter(function(x){return !x.parent && ['KÖY','MAHALLE','DİVAN','KÖY / TARİHÎ YERLEŞİM'].includes(x.kind) || !x.parent && !['MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ'].includes(x.kind)});
  vSel.disabled=!primaries.length;
  vSel.innerHTML='<option value="">KÖY / MUHTARLIK SEÇİN</option>'+primaries.map(function(x){const i=currentVillages.indexOf(x);return '<option value="'+i+'">'+(x.has?'★ ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
- subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option>';
+ subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE MAHALLE / KÖY SEÇİN</option>';
 }
 function refreshSubsettlements(parentName){
  if(!subSel)return;
@@ -2719,7 +2719,7 @@ function renderSearch(q){
 }
 pSel.onchange=function(){if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=((provinceData&&provinceData.features)||[]).find(function(x){return norm(canonicalProvince((x.properties&&x.properties.name)||''))===norm(pSel.value)});if(f){selectProvinceFeature(f);return}const id=PROVINCE_MAP[pSel.value];if(id)selectProvinceByName(pSel.value,id)};
 dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ')){const x=rumeliDistricts().find(function(d){return d.id===dSel.value});if(x)selectRumeliDistrict(x.name);return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
-vSel.onchange=function(){if(vSel.value===''){if(subSel){subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE KÖY / MUHTARLIK SEÇİN</option>'}return}const row=currentVillages[Number(vSel.value)];if(!row)return;refreshSubsettlements(row.name);if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
+vSel.onchange=function(){if(vSel.value===''){if(subSel){subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE MAHALLE / KÖY SEÇİN</option>'}return}const row=currentVillages[Number(vSel.value)];if(!row)return;refreshSubsettlements(row.name);if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
 subSel.onchange=function(){if(subSel.value==='')return;const row=currentVillages[Number(subSel.value)];if(row){renderSideVillage(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}};
 document.getElementById('search').oninput=function(e){if(e.target.value.trim().length<2)document.getElementById('searchPanel').classList.remove('show')};
 document.getElementById('searchBtn').onclick=function(){const v=document.getElementById('search').value||'';document.getElementById('finderSearch').value=v;document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'});finderLimit=24;runFinder()};
