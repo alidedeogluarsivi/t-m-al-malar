@@ -1748,6 +1748,12 @@ function archiveForVillage(name){
   }
   return exact.length?mergeRecords(exact):null
 }
+let settlementLoadPromise=null;
+function ensureSettlements(){
+  if(settlements && !Array.isArray(settlements))return Promise.resolve(settlements);
+  if(!settlementLoadPromise)settlementLoadPromise=getJSON(SETTLEMENTS).then(function(data){settlements=data&&typeof data==='object'?data:{};return settlements}).catch(function(e){settlementLoadPromise=null;console.warn('Yerlesim listesi yuklenemedi',e);return null});
+  return settlementLoadPromise;
+}
 function buildVillageRows(){
  const rec=districtRecord(selectedDistrict.name),rows=[],seen=new Set();
  function add(n,kind,parent){const nk=norm(n);if(!nk||seen.has(nk))return;seen.add(nk);rows.push({name:n,kind:kind,parent:parent||'',record:null,has:false})}
@@ -1768,7 +1774,7 @@ function buildVillageRows(){
 }
 function refreshHierarchy(){
  if(!subSel)return;
- const primaries=currentVillages.filter(function(x){return !x.parent && ['KÖY','MAHALLE','DİVAN','KÖY / TARİHÎ YERLEŞİM'].includes(x.kind) || !x.parent && !['MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ'].includes(x.kind)});
+ const primaries=currentVillages.filter(function(x){return !x.parent});
  vSel.disabled=!primaries.length;
  vSel.innerHTML='<option value="">KÖY / MUHTARLIK SEÇİN</option>'+primaries.map(function(x){const i=currentVillages.indexOf(x);return '<option value="'+i+'">'+(x.has?'★ ':'')+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
  subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE MAHALLE / KÖY SEÇİN</option>';
@@ -1777,7 +1783,7 @@ function refreshSubsettlements(parentName){
  if(!subSel)return;
  const children=currentVillages.filter(function(x){return x.parent && norm(x.parent)===norm(parentName)});
  subSel.disabled=!children.length;
- subSel.innerHTML='<option value="">'+(children.length?'MAHALLE / MEZRA / MEVKİ SEÇİN':'BAĞLI ALT YERLEŞİM KAYDI YOK')+'</option>'+children.map(function(x){return '<option value="'+currentVillages.indexOf(x)+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
+ subSel.innerHTML='<option value="">'+(children.length?'MAHALLE / MEZRA / MEVKİ SEÇİN':'BU KÖYE BAĞLI DOĞRULANMIŞ ALT YERLEŞİM YOK')+'</option>'+children.map(function(x){return '<option value="'+currentVillages.indexOf(x)+'">'+esc(x.name)+' — '+esc(x.kind)+'</option>'}).join('');
 }
 function renderVillageList(){
   const vn=currentVillages.filter(function(x){return x.kind==='KÖY'}).length;
@@ -1816,16 +1822,16 @@ async function selectDistrict(local,geoFeature){
 
   const df=fastDf;
 
-  if(!settlements||!settlements.length){
-    getJSON(SETTLEMENTS).then(function(data){
-      settlements=data||[];
-      if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
+  if(!settlements || Array.isArray(settlements)){
+    ensureSettlements().then(function(data){
+      if(!data||requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
       refreshHierarchy();
       renderVillageList()
-    }).catch(function(e){console.warn('Yerleşim listesi yüklenemedi',e)})
+    });
   }
-  const lowPower=(window.matchMedia&&window.matchMedia('(max-width: 900px)').matches)||((navigator.deviceMemory||8)<=4);
+  // Prefer smaller point geometries on all devices to avoid blocking UI.
+  const lowPower=true;
   let vfeats=[],pfeats=[];
   if(lowPower){
     const pointGeo=await loadDistrictPointGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
@@ -1834,7 +1840,8 @@ async function selectDistrict(local,geoFeature){
     if(!pfeats.length){
       const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
       if(requestId!==districtRequestSeq || !selectedDistrict || selectedDistrict.id!==local.id)return;
-      vfeats=(villageGeo&&villageGeo.features)||[]
+      vfeats=(villageGeo&&villageGeo.features)||[];
+      if(vfeats.length>180)vfeats=[];
     }
   }else{
     const villageGeo=await loadDistrictVillageGeo(local).catch(function(){return{type:'FeatureCollection',features:[]}});
