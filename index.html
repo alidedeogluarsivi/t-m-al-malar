@@ -102,6 +102,16 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 @media(max-width:700px){.mapDock{top:auto;bottom:16px;right:8px;border-radius:12px}.mapDock button{writing-mode:horizontal-tb;transform:none;padding:11px 14px}}
 .waNavBtn{display:inline-flex;align-items:center;gap:7px;background:#1f7a4d;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002}
 .waNavBtn:hover{filter:brightness(.95)}
+
+/* Fixed-access location selectors: keep original IDs and event handlers unchanged. */
+.stickyLocationSearch{position:sticky;top:0;z-index:850;background:#fff;border:2px solid #17384e;border-radius:12px;padding:9px;margin-bottom:12px;box-shadow:0 5px 18px #0002;isolation:isolate}
+.stickyLocationTitle{font-size:11px;font-weight:900;line-height:1.4;margin-bottom:8px;color:#17384e}
+.stickyLocationFields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.stickyLocationFields .field{min-width:0;margin:0}
+.stickyLocationFields select{font-size:14px;min-height:44px;padding:9px 5px;max-width:100%}
+.vlist{overscroll-behavior:contain;contain:layout style}
+@media(max-width:1050px){.sidebar{overflow:visible}.sidebody{overflow:visible}.stickyLocationSearch{top:0}}
+@media(max-width:620px){.stickyLocationSearch{padding:7px}.stickyLocationFields{gap:5px}.stickyLocationFields select{font-size:12px;min-height:42px}.stickyLocationTitle{font-size:10px}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -170,9 +180,9 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <div class="sidebody">
 <div class="mapModeNotice"><b>LİSTE ÖNCELİKLİ GÖRÜNÜM</b><br>Önce arayın ve kaydı bulun. Harita yalnız “HARİTADA GÖSTER” denildiğinde açılır.</div>
 <div class="step">1. İL SEÇ &nbsp;→&nbsp; 2. İLÇE SEÇ &nbsp;→&nbsp; 3. KÖY / MAHALLE SEÇ</div>
-<div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
+<div class="stickyLocationSearch" aria-label="Sabit yerleşim sorgulama"><div class="stickyLocationTitle">SABİT YERLEŞİM SORGULAMA · İL / İLÇE / KÖY / KÖY ALTI</div><div class="stickyLocationFields"><div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
 <div class="field"><label>İLÇE</label><select id="districtSelect" disabled><option value="">ÖNCE İL SEÇİN</option></select></div>
-<div class="field"><label>MAHALLE / KÖY</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div class="field"><label>MAHALLE / KÖY ALTI YERLEŞİM</label><select id="subsettlementSelect" disabled><option value="">ÖNCE MAHALLE / KÖY SEÇİN</option></select></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
+<div class="field"><label>MAHALLE / KÖY</label><select id="villageSelect" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select></div><div class="field"><label>MAHALLE / KÖY ALTI YERLEŞİM</label><select id="subsettlementSelect" disabled><option value="">ÖNCE MAHALLE / KÖY SEÇİN</option></select></div></div></div><div id="sideInfo" class="sideInfo"><div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN.</div></div>
 <div class="listhead"><b>KÖY / MAHALLELER</b><small id="villageCount">—</small></div>
 <div id="villageList" class="vlist"><div class="empty">İl ve ilçe seçildiğinde yerleşimler burada listelenecek.</div></div>
 </div>
