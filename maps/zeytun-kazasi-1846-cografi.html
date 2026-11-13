@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zeytun Kazası 1846 - Coğrafi Yerleşim Haritası</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#111;background:white}header{padding:16px 20px;border-bottom:2px solid #111}h1{font-size:24px;margin:0 0 6px}p{margin:5px 0;line-height:1.5}#map{height:calc(100dvh - 155px);min-height:440px;width:100%}.notice{font-size:13px;font-weight:700;padding:9px 20px;border-bottom:1px solid #aaa}.leaflet-popup-content{font-size:14px;line-height:1.5}@media(max-width:650px){#map{height:calc(100dvh - 185px)}h1{font-size:19px}}</style></head>
+<body><header><h1>ZEYTUN KAZASI - 1846 NÜFUS YERLEŞİMLERİ</h1><p>BOA NFS.d.2257 - AMASYA SANCAĞI</p></header><div class="notice">BU SAYFA COĞRAFİ HARİTADIR. TARİHÎ KAZA SINIRI ÇİZİLMEMİŞTİR. GÖSTERİLEN KÖY NOKTALARI GÜNCEL YER ADI EŞLEŞTİRMELERİDİR; 1846 KÖY SINIRLARI OLARAK KABUL EDİLEMEZ.</div><div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
+const villages=[
+{ad:"KUZHAYAT",il:"ÇORUM",ilce:"OSMANCIK",lat:41.105,lon:34.809,varak:"156",hane:"36",erkek:"93",note:"1846 NFS.d.2257; Osman Efendi Oğulları Hane 1"},
+{ad:"KAMİL",il:"ÇORUM",ilce:"OSMANCIK",lat:41.114,lon:34.764,varak:"139"},
+{ad:"AVLAĞI",il:"ÇORUM",ilce:"OSMANCIK",lat:41.123,lon:34.818,varak:"162",note:"Tarihî adı Avlağu; eşleştirme kontrol edilecek"},
+{ad:"HANEFİ",il:"ÇORUM",ilce:"OSMANCIK",lat:41.107,lon:34.842,varak:"175"},
+{ad:"KONACA",il:"ÇORUM",ilce:"OSMANCIK",lat:41.120,lon:34.857,varak:"182"},
+{ad:"PELİTÇİK",il:"ÇORUM",ilce:"OSMANCIK",lat:41.199,lon:34.873,note:"Tarihî Pelidcik; eşleştirme kontrol edilecek"},
+{ad:"ÇORAKDERE",il:"SAMSUN",ilce:"VEZİRKÖPRÜ",lat:41.251,lon:35.103,note:"Tarihî Çorakderesi"},
+{ad:"KARAKÖY",il:"SAMSUN",ilce:"VEZİRKÖPRÜ",lat:41.145,lon:35.096},
+{ad:"ALANŞEYHİ",il:"SAMSUN",ilce:"VEZİRKÖPRÜ",lat:41.102,lon:35.131,varak:"172",note:"Tarihî eşleştirme kontrol edilecek"},
+{ad:"ÇALTI",il:"SAMSUN",ilce:"VEZİRKÖPRÜ",lat:41.330,lon:35.116,note:"Tarihî Çaltık/Çaltu aday eşleştirmesi"}
+];
+const m=L.map('map',{preferCanvas:true,zoomControl:true}).setView([41.16,34.99],10);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:18}).addTo(m);
+const pts=[];
+villages.forEach(v=>{const marker=L.circleMarker([v.lat,v.lon],{radius:7,color:'#111',fillColor:'#b42121',fillOpacity:1,weight:2}).addTo(m);marker.bindPopup('<b>'+v.ad+'</b><br>'+v.il+' / '+v.ilce+(v.varak?'<br>NFS.d.2257 FIHRİST: '+v.varak:'')+(v.hane?'<br>'+v.hane+' HANE, '+v.erkek+' ERKEK':'')+(v.note?'<br>'+v.note:'')+'<br><small>NOKTA KONUMU, TARİHÎ SINIR DEĞİLDİR.</small>');pts.push([v.lat,v.lon])});
+m.fitBounds(pts,{padding:[35,35]});
+</script></body></html>
