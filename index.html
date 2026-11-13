@@ -335,13 +335,8 @@ async function addRumeliArchiveLayer(layerGroup){
     g.addLayer(m);bounds.push(ll)
   });
   layerGroup.addLayer(g);
-  if(level==='turkey'&&bounds.length){
-    try{
-      const b=L.latLngBounds(bounds);
-      if(adminLayer&&adminLayer.getBounds&&adminLayer.getBounds().isValid())b.extend(adminLayer.getBounds());
-      baseMap.fitBounds(b,{padding:[18,18],maxZoom:6})
-    }catch(e){}
-  }
+  // Rumeli noktalari arka planda eklenir; ana harita gorunumu degistirilmez.
+  // Kullanici Rumeli'yi secerse o bolgenin haritasi ayrica odaklanir.
 }
 function loadOsmanliCurrentMap(){
   if(osmanliCurrentMap)return Promise.resolve(osmanliCurrentMap);
