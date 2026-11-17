@@ -22,7 +22,7 @@ try:
     inactive={int(e["id"]) for e in raw.get("neighborhoods",[])}
 except Exception: pass
 owners={(d,n):i for i,d,n in rows if "," not in n}
-result=defaultdict(lambda:defaultdict(lambda:{"muhtarliklar":{},"baglilar":{}}))
+result=defaultdict(lambda:defaultdict(lambda:{"muhtarliklar":{},"baglilar":{},"eslesmeyen_baglilar":[]}))
 total=0
 unresolved=0
 for i,d,name in rows:
@@ -42,6 +42,7 @@ for i,d,name in rows:
         parent=owners.get((d,resolved_head))
     if parent is None:
         unresolved+=1
+        entry["eslesmeyen_baglilar"].append({"ana_ad":head,"name":child,"source_id":i})
         continue
     entry["baglilar"].setdefault(resolved_head,[]).append({"name":child,"source_id":i})
     total+=1
