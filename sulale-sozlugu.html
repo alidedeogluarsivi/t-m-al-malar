@@ -104,12 +104,12 @@ async function refreshFilters(changed){
    const plate=Object.keys(officialManifest.provinces).find(k=>norm(officialManifest.provinces[k])===norm(il.value));
    if(plate){try{const data=await loadOfficial(plate+".json");if(sequence!==requestNum)return;officialProvince=data}catch(e){console.warn(e)}}
   }
-  const names=officialProvince?Object.keys(officialProvince.districts):distinct(all.filter(x=>!il.value||norm(x.il)===norm(il.value)),"ilce");
+  const names=il.value?(officialProvince?Object.keys(officialProvince.districts):distinct(all.filter(x=>norm(x.il)===norm(il.value)),"ilce")):[];
   selectOptions(ilce,names.sort(sortTR),"TÜM İLÇELER");
  }
  if(changed==="il"||changed==="ilce"){
   const off=Object.keys(officialProvince?.districts?.[ilce.value]?.muhtarliklar||{});
-  const local=all.filter(x=>(!il.value||norm(x.il)===norm(il.value))&&(!ilce.value||norm(x.ilce)===norm(ilce.value))).map(x=>x.koy).filter(valid);
+  const local=ilce.value?all.filter(x=>norm(x.il)===norm(il.value)&&norm(x.ilce)===norm(ilce.value)).map(x=>x.koy).filter(valid):[];
   selectOptions(koy,[...new Set([...off,...local])].sort(sortTR),"TÜM KÖY / MAHALLE");
  }
  if(["il","ilce","koy"].includes(changed)){
@@ -120,8 +120,9 @@ async function refreshFilters(changed){
    for(const item of rows){const n=typeof item==="string"?item:item?.name;if(n)attached.push(n)}
   }
   for(const x of all){
-   if(il.value&&norm(x.il)!==norm(il.value))continue;
-   if(ilce.value&&norm(x.ilce)!==norm(ilce.value))continue;
+   if(!ilce.value)break;
+   if(norm(x.il)!==norm(il.value))continue;
+   if(norm(x.ilce)!==norm(ilce.value))continue;
    if(koy.value&&comparePlace(x.koy)!==comparePlace(koy.value))continue;
    for(const n of [x.koyAlti,x.sokak,x.cadde])if(n)attached.push(n);
   }
