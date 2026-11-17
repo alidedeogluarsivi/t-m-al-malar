@@ -1,0 +1,72 @@
+{
+  "source_note": "İkincil adres dizininde Gökçeağaçoymağı Mahallesi için listelenen sokak adlarıdır; NVİ adres kodlarıyla tek tek teyit edilmemiştir.",
+  "records": [
+    {
+      "il": "SAMSUN",
+      "ilce": "ALAÇAM",
+      "muhtarlik": "GÖKÇEAĞAÇOYMAĞI MAHALLESİ",
+      "children": [
+        {
+          "name": "Adilli SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Ali SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Arıçalı SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Gökçeağaç SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Hıdır SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Kemik SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Kısrakçı SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Köprü SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Kozluca SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        },
+        {
+          "name": "Kuzlar SOKAK",
+          "type": "sokak",
+          "source": "sehirveri.com/sehirler/samsun/alacam/gokceagacoymagi",
+          "verification": "ikincil_adres_dizini"
+        }
+      ]
+    }
+  ]
+}
