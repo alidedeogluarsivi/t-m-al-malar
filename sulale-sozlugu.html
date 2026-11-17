@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sülale Sözlüğü | Alidedeoğlu Arşivi</title>
+<meta name="description" content="Osmanlı nüfus ve temettuat belgelerindeki sülaleleri il, ilçe, köy ve mahalle bazında kaynaklarıyla arayın.">
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#171717;background:#fff}*{box-sizing:border-box}body{margin:0}header{border-bottom:3px solid #111;padding:22px max(20px,calc((100vw - 1140px)/2));background:#fff}header a{color:#111;font-weight:900;text-decoration:none}h1{font-size:clamp(26px,4vw,39px);margin:12px 0 3px;font-weight:900}p{line-height:1.5}main{max-width:1140px;margin:0 auto;padding:22px 18px 60px}.lead{font-size:15px;color:#333}.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:15px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd}label{font-size:13px;font-weight:900;display:block}select,input{width:100%;min-height:44px;margin-top:5px;border:2px solid #222;border-radius:5px;background:white;color:#111;padding:9px;font-size:15px}button{border:2px solid #111;background:#fff;font-weight:800;padding:10px 14px;cursor:pointer;border-radius:5px}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.meta{font-size:14px;font-weight:800;margin:12px 0}#results{display:grid;gap:14px}.place{border:2px solid #181818;padding:16px;border-radius:4px;break-inside:avoid}.place h2{font-size:18px;margin:0 0 8px}.names{display:flex;flex-wrap:wrap;gap:7px}.pill{font-weight:800;background:#f3f3f3;border:1px solid #ccc;border-radius:3px;padding:7px 9px;font-size:13px}.pill small{font-size:10px;color:#555;display:block;margin-top:3px}.sources{font-size:12px;color:#333;margin-top:12px;overflow-wrap:anywhere}.hint{color:#555;font-size:13px}.empty{border:1px solid #bbb;padding:20px}footer{border-top:2px solid #111;margin-top:30px;padding-top:15px;font-size:12px}.check{display:flex;gap:8px;align-items:center;margin:12px 0}.check input{width:auto;min-height:auto;margin:0}.check label{font-size:13px}.muted{color:#777}a{color:#111}#progress{font-weight:800}.stat{font-size:14px}@media(max-width:780px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:430px){.filters{grid-template-columns:1fr}}@media print{button,.filters,.buttons,.check{display:none}.place{page-break-inside:avoid}}
+</style></head><body>
+<header><a href="./index.html">← ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a><h1>SÜLALE SÖZLÜĞÜ</h1><strong>İL · İLÇE · KÖY / MAHALLE · SÜLALE</strong><p class="lead">AYNI SÜLALE ADI FARKLI KÖYLERDE AYRI AYRI GÖSTERİLİR. ARŞİV KÜNYELERİ KORUNUR.</p></header>
+<main>
+<div id="progress" role="status">ARŞİV KAYITLARI YÜKLENİYOR…</div>
+<div class="filters"><label>İL<select id="il"><option value="">TÜM İLLER</option></select></label><label>İLÇE<select id="ilce"><option value="">TÜM İLÇELER</option></select></label><label>KÖY / MAHALLE<select id="koy"><option value="">TÜM YERLEŞİMLER</option></select></label><label>SÜLALE ADI ARA<input id="query" type="search" placeholder="ÖRN. KARAMUSA OĞULLARI"></label></div>
+<div class="check"><input id="onlyVerified" type="checkbox" checked><label for="onlyVerified">SADECE YERLEŞİM EŞLEŞMESİ GÜÇLÜ KAYITLAR (ADAYLARI GİZLE)</label></div>
+<div class="buttons"><button id="reset">FİLTRELERİ TEMİZLE</button><button id="print">YAZDIR / PDF OLARAK KAYDET</button></div>
+<p id="summary" class="meta"></p><div id="results"></div><div class="buttons"><button id="more" hidden>DAHA FAZLA KÖY GÖSTER</button></div>
+<footer>ALİDEDEOĞLU ARŞİVİ · NFS / TMT / SOY KÜTÜĞÜ VERİLERİ. YERİ BELİRSİZ VEYA ADAY OLAN KAYITLAR KESİN YERLEŞİM OLARAK SUNULMAZ. YERLEŞİM/KAYNAK KONTROLÜ DEVAM ETMEKTEDİR.</footer></main>
+<script>
+"use strict";
+const root="catalog/";
+const paths=[
+ ...Array.from({length:6},(_,i)=>root+"sulale_"+String(i+1).padStart(2,"0")+".ndjson"),
+ root+"sulale_verified_v2_compact.ndjson",
+ "archive_verified.ndjson"
+];
+const byId=id=>document.getElementById(id), il=byId("il"),ilce=byId("ilce"),koy=byId("koy"),query=byId("query"),onlyVerified=byId("onlyVerified");
+const clean=s=>String(s??"").trim().replace(/\s+/g," ");
+const norm=s=>clean(s).toLocaleUpperCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/İ/g,"I").replace(/ı/g,"I");
+const upper=s=>clean(s).toLocaleUpperCase("tr-TR");
+const valid=s=>!!s&&!["NULL","BELİRSİZ","YOK","BİLİNMİYOR","-"].includes(norm(s));
+const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
+function add(row,candidate){
+ const name=upper(row.name);if(!valid(name))return;
+ const city=upper(row.il),district=upper(row.ilce),place=upper(row.koy);
+ const key=[norm(city),norm(district),norm(place),norm(name),norm(row.defter),norm(row.year),norm(row.hane)].join("|");
+ const cur=recordMap.get(key);if(cur){if(!candidate)cur.candidate=false;if(row.source)cur.sources.add(row.source);return;}
+ recordMap.set(key,{name,il:city,ilce:district,koy:place,defter:clean(row.defter),year:clean(row.year),hane:clean(row.hane),candidate, sources:new Set(row.source?[row.source]:[])});
+}
+function ingest(obj,path){
+ if(!obj||obj._summary)return;
+ if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
+  for(const name of obj.sulaleler){if(typeof name!=="string")continue;
+   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,defter:(obj.defterler||[]).map(x=>x.defter).filter(Boolean).join(", "),source:(obj.kaynak_pdf||[]).filter(x=>typeof x==="string").join(", ")},false);
+  }return;
+ }
+ const name=obj["SÜLALE ADI (STANDART)"]||obj["STANDART SÜLALE ADI"]||obj.sulale||obj.sulale_adi;
+ if(!name)return;
+ const status=obj["EŞLEŞME DURUMU"]||obj["DOĞRULAMA"]||"";
+ const isCandidate=!!obj["EŞLEŞME DURUMU"]&&/ADAY|BELİRSİZ|KONTROL|ŞÜPHE/i.test(status);
+ add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,defter:obj["DEFTER NO"]||obj["DEFTER NUMARASI"],year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:obj["KAYNAK PDF"]||obj["ARŞİV PDF NO"]},isCandidate);
+}
+function optionize(select,vals,placeholder,keep){select.textContent="";const base=document.createElement("option");base.value="";base.textContent=placeholder;select.append(base);for(const s of vals){let o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)}if(vals.includes(keep))select.value=keep}
+function sortTR(a,b){return a.localeCompare(b,"tr")}
+function distinct(items,field){return [...new Set(items.map(x=>x[field]).filter(valid))].sort(sortTR)}
+function refreshFilters(changed){
+ const vcity=il.value,vdis=ilce.value,vplace=koy.value;
+ const filtered=all.filter(x=>!onlyVerified.checked||!x.candidate);
+ if(changed!=="il")optionize(il,distinct(filtered,"il"),"TÜM İLLER",vcity);
+ const cities=filtered.filter(x=>!il.value||x.il===il.value);
+ optionize(ilce,distinct(cities,"ilce"),"TÜM İLÇELER",changed==="il"?"":vdis);
+ const districts=cities.filter(x=>!ilce.value||x.ilce===ilce.value);
+ optionize(koy,distinct(districts,"koy"),"TÜM YERLEŞİMLER",changed==="il"||changed==="ilce"?"":vplace);
+ render(true);
+}
+function esc(str){return clean(str).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function calc(){
+ const n=norm(query.value);
+ return all.filter(x=>(!onlyVerified.checked||!x.candidate)&&(!il.value||x.il===il.value)&&(!ilce.value||x.ilce===ilce.value)&&(!koy.value||x.koy===koy.value)&&(!n||norm([x.name,x.il,x.ilce,x.koy,x.defter,x.sources.size?[...x.sources].join(" "):""].join(" ")).includes(n)));
+}
+let grouped=[];
+function render(reset){
+ if(reset){current=calc();const map=new Map;
+ for(const x of current){const key=[x.il,x.ilce,x.koy].join("|");if(!map.has(key))map.set(key,[]);map.get(key).push(x);}
+ grouped=[...map].map(([key,rows])=>({key,rows})).sort((a,b)=>sortTR(a.key,b.key));visible=0;}
+ const batch=grouped.slice(visible,visible+40),frag=document.createDocumentFragment();
+ for(const group of batch){
+  const [city,district,place]=group.key.split("|");
+  const article=document.createElement("article");article.className="place";
+  const h=document.createElement("h2");h.textContent=[city||"İLİ TESPİT EDİLMEMİŞ",district||"İLÇESİ TESPİT EDİLMEMİŞ",place||"KÖYÜ TESPİT EDİLMEMİŞ"].join(" / ");article.append(h);
+  const names=document.createElement("div");names.className="names";
+  const unique=new Map;
+  group.rows.forEach(x=>{const k=norm(x.name);if(!unique.has(k))unique.set(k,{name:x.name,candidate:x.candidate,defter:new Set,sources:new Set,years:new Set,hane:new Set});let p=unique.get(k);if(!x.candidate)p.candidate=false;if(x.defter)p.defter.add(x.defter);if(x.year)p.years.add(x.year);if(x.hane)p.hane.add(x.hane);x.sources.forEach(y=>p.sources.add(y))});
+  for(const v of [...unique.values()].sort((a,b)=>sortTR(a.name,b.name))){
+   const span=document.createElement("span");span.className="pill";
+   span.innerHTML=esc(v.name)+(v.candidate?" <small>YER EŞLEŞMESİ ADAY</small>":"")+
+   (v.defter.size?'<small>DEFTER: '+esc([...v.defter].join(" · "))+'</small>':"")+
+   (v.years.size?'<small>YIL: '+esc([...v.years].join(" · "))+'</small>':"")+
+   (v.hane.size?'<small>HANE: '+esc([...v.hane].join(" · "))+'</small>':"")+
+   (v.sources.size?'<small>KAYNAK: '+esc([...v.sources].slice(0,3).join(" · "))+'</small>':"");
+   names.append(span);
+  }
+  article.append(names);frag.append(article);
+ }
+ byId("results").append(frag);visible+=batch.length;byId("more").hidden=visible>=grouped.length;
+ byId("summary").textContent=current.length.toLocaleString("tr-TR")+" KAYNAK SATIRI · "+grouped.length.toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+visible.toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
+ if(!grouped.length)byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN KAYIT BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
+}
+for(const [node,id] of [[il,"il"],[ilce,"ilce"],[koy,"koy"]])node.addEventListener("change",()=>refreshFilters(id));
+onlyVerified.addEventListener("change",()=>refreshFilters("status"));
+query.addEventListener("input",()=>render(true));
+byId("more").addEventListener("click",()=>render(false));
+byId("print").addEventListener("click",()=>window.print());
+byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";query.value="";onlyVerified.checked=true;refreshFilters("status")});
+(async()=>{
+ const requests=await Promise.allSettled(paths.map(async path=>{const res=await fetch(path+"?v=20261117", {cache:"no-cache"});if(!res.ok)throw Error(path+" HTTP "+res.status);return {path,txt:await res.text()}}));
+ requests.forEach((r,i)=>{if(r.status!=="fulfilled"){errors.push(paths[i]);return;}const {txt,path}=r.value;for(const line of txt.split(/\r?\n/)){if(!line.trim())continue;try{ingest(JSON.parse(line),path)}catch(e){errors.push(path+" : PARSE")}}});
+ all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
+ byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI YÜKLENDİ."+(errors.length?" "+errors.length+" DOSYADA YÜKLEME SORUNU VAR.":"");
+ refreshFilters("status");
+})().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
+</script></body></html>
