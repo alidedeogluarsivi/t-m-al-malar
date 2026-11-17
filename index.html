@@ -112,6 +112,16 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .vlist{overscroll-behavior:contain;contain:layout style}
 @media(max-width:1050px){.sidebar{overflow:visible}.sidebody{overflow:visible}.stickyLocationSearch{top:0}}
 @media(max-width:620px){.stickyLocationSearch{padding:7px}.stickyLocationFields{gap:5px}.stickyLocationFields select{font-size:12px;min-height:42px}.stickyLocationTitle{font-size:10px}}
+
+/* Arşiv canlı ziyaret ve son aramalar */
+.archiveLiveStats{margin-top:12px;padding:13px 15px;background:#ffffff12;border:1px solid #ffffff35;border-radius:13px}
+.archiveLiveCounters{display:flex;flex-wrap:wrap;gap:14px;font-weight:800;font-size:13px}
+.archiveLiveCounters b{font-size:21px;margin-left:6px}
+.archiveRecent{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.archiveRecent>div{min-width:0;padding:10px;background:#ffffff0d;border:1px solid #ffffff22;border-radius:9px}
+.archiveRecent strong{display:block;font-size:11px;letter-spacing:.04em;margin-bottom:5px}
+.archiveRecent p{margin:0!important;color:#fff!important;font-size:13px!important;line-height:1.65!important;overflow-wrap:anywhere}
+@media(max-width:600px){.archiveRecent{grid-template-columns:1fr}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -140,6 +150,10 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
 <p>Önce arşivde arayın; bulunan köy, sülale veya defter kayıtlarını listeden açın. Konumu görmek isterseniz sonuç üzerindeki <b>HARİTADA GÖSTER</b> düğmesine basın. Harita yalnız istendiğinde yüklenir.</p>
 <div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div>
+<div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
+  <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
+  <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div>
+</div>
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>E-SATIŞ PDF</span></div>
@@ -2648,9 +2662,9 @@ async function runFinder(){
     const fam=(r.sulaleler||[]).filter(Boolean).slice(0,6);
     return'<div class="finderItem" data-fi="'+i+'" tabindex="0"><div class="loc">'+esc([r.il,r.ilce].filter(Boolean).join(' · '))+'</div><h3>'+esc(r.koy||'YERLEŞİM')+'</h3><div class="meta">'+(defs.length?defs.map(esc).join('<br>'):'ARŞİV KARTI')+'</div>'+(fam.length?'<div class="finderFam">'+fam.map(function(x){return'<button type="button" class="familyJump" data-family="'+esc(typeof x==='object'?JSON.stringify(x):x)+'">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</button>'}).join('')+'</div>':'')+'<div class="resultActions"><button type="button" class="openRecord">KAYDI AÇ</button><button type="button" class="showOnMap" data-map-fi="'+i+'">HARİTADA GÖSTER</button></div></div>'
   }).join('')+(rows.length>visible.length?'<button id="finderMore" class="finderMore" type="button">DAHA FAZLA SONUÇ · '+visible.length+' / '+rows.length+'</button>':'');
-  list.querySelectorAll('[data-fi]').forEach(function(el){const open=function(e){if(e&&e.target&&e.target.closest('.familyJump,.showOnMap'))return;const r=visible[Number(el.dataset.fi)];showRecord(r.koy,r,r.ilce,r.il)};el.onclick=open;el.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(e)}}});
-  list.querySelectorAll('[data-map-fi]').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const r=visible[Number(btn.getAttribute('data-map-fi'))];if(r)showRecordOnMap(r)}});
-  list.querySelectorAll('.familyJump').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const fam=btn.getAttribute('data-family')||'';input.value=fam;finderLimit=24;runFinder()}});
+  list.querySelectorAll('[data-fi]').forEach(function(el){const open=function(e){if(e&&e.target&&e.target.closest('.familyJump,.showOnMap'))return;const r=visible[Number(el.dataset.fi)];if(r){window.ArchiveStats?.recordVillage(r.koy||'');showRecord(r.koy,r,r.ilce,r.il)}};el.onclick=open;el.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(e)}}});
+  list.querySelectorAll('[data-map-fi]').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const r=visible[Number(btn.getAttribute('data-map-fi'))];if(r){window.ArchiveStats?.recordVillage(r.koy||'');showRecordOnMap(r)}}});
+  list.querySelectorAll('.familyJump').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const fam=btn.getAttribute('data-family')||'';window.ArchiveStats?.recordFamily(fam);input.value=fam;finderLimit=24;runFinder()}});
   const more=document.getElementById('finderMore');if(more)more.onclick=function(){finderLimit+=24;runFinder()}
 }
 function matchedFamilies(r,nq){
@@ -2863,4 +2877,5 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
+<script defer src="./site-stats.js?v=20261118"></script>
 </body></html>
