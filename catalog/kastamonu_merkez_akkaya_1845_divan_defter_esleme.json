@@ -740,8 +740,11 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
-      "ek_tarihi_kaynaklar": []
+      "eslesme_seviyesi": "TARİHÎ YERLEŞİM BÖLGESİ DOĞRULANDI; KÖY MUHTARLIĞI BİLİNMİYOR",
+      "ek_tarihi_kaynaklar": [],
+      "guncel_mevki": "Balatlar mevkii (Akkaya bölgesi, Kastamonu)",
+      "eslesme_aciklamasi": "Kastamonu Akkaya mevkiinde Zımmiyan-ı Balatlar adlı tarihî gayrimüslim yerleşimi ve ibadet yeri belgelerde anılıyor; günümüzdeki köy sınırı ve muhtarlığı tespit edilmedi.",
+      "dogrulama_kaynagi": "https://kitap.tyb.org.tr/kitap/insan_tarih_sehir_kitap.pdf"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4086",
