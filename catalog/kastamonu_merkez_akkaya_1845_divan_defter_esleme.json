@@ -254,21 +254,38 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Eceoğlu",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Eceoğlu"
-      ],
-      "eslesme_aciklamasi": "Tarihî Eyiceoğlu / Eceoğlu ad yakınlığı; bağımsız eski-yeni yer belgesi kontrolü",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_aciklamasi": "Eyiceoğlu Divanı'nın ortak camisi güncel Eceoğlu köyünde; diğer mahalleler ortak ibadet ağına dahil. Mahallelerin güncel muhtarlık bağları bu bilgiyle kesinleşmez.",
       "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_seviyesi": "DOĞRUDAN SAHA KAYNAĞIYLA DOĞRULANMIŞ DİVAN-MERKEZ KÖY İLİŞKİSİ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "bagli_guncel_yerler": [
+        {
+          "yer": "Eceoğlu Köyü",
+          "tip": "KÖY"
+        },
+        {
+          "yer": "Sarıca Mahallesi",
+          "tip": "TARİHÎ DİVAN CAMİSİ CEMAATİ"
+        },
+        {
+          "yer": "Koşlu Mahallesi",
+          "tip": "TARİHÎ DİVAN CAMİSİ CEMAATİ"
+        },
+        {
+          "yer": "Taşanlar Mahallesi",
+          "tip": "TARİHÎ DİVAN CAMİSİ CEMAATİ"
+        }
+      ],
+      "dogrulama_kaynagi": "https://kastamonudivancamileri.org/camiler/eceoglu-koyu-divan-camii"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4069",
@@ -329,17 +346,15 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Sulusökü"
-      ],
-      "eslesme_seviyesi": "ADAY - YER ADI SÜREKLİLİĞİ DOĞRULANACAK",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "GÜNCEL KÖY EŞLEŞMESİ YOK",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Danaseküsü / Dana Sökücü tarihî kayıtları ile güncel Sulusökü arasında yalnız ad kökü benzerliği var; bağlantı henüz ispatlanmadı."
+      "eslesme_aciklamasi": "Danaseküsü adı kaynakta doğrulandı; Sulusökü ile aynı köy olduğuna dair kanıt bulunmadığından aday kaldırıldı."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4072",
@@ -427,18 +442,41 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [
-        "Kuzyaka Bucağı Çavundur",
-        "Merkez Bucağı Çavundur"
+        "Merkez Bucağı Çavundur",
+        "Kuzyaka Bucağı Çavundur"
       ],
-      "eslesme_aciklamasi": "Merkez ilçesi güncel kaydında iki Çavundur ayrımı var; tarihî divana hangisinin ait olduğu kesin değil",
+      "eslesme_aciklamasi": "Çavundur Divanı cami ağına Evciler, Gelinören, Çavundur, Bayramlı ve Dayılar dahil. Saha kaynağı camiyi Kuzyaka başlığı altında sınıflandırdığından 1845 Akkaya defteriyle doğrudan aynı idarî birim varsayılamaz.",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_seviyesi": "TARİHÎ DİVAN İLİŞKİSİ DOĞRULANDI; İDARÎ BAĞ KONTROL",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "bagli_guncel_yerler": [
+        {
+          "yer": "Evciler",
+          "tip": "ORTAK DİVAN CAMİSİ KULLANICISI"
+        },
+        {
+          "yer": "Gelinören",
+          "tip": "ORTAK DİVAN CAMİSİ KULLANICISI"
+        },
+        {
+          "yer": "Çavundur",
+          "tip": "ORTAK DİVAN CAMİSİ KULLANICISI"
+        },
+        {
+          "yer": "Bayramlı",
+          "tip": "ORTAK DİVAN CAMİSİ KULLANICISI"
+        },
+        {
+          "yer": "Dayılar",
+          "tip": "ORTAK DİVAN CAMİSİ KULLANICISI"
+        }
+      ],
+      "dogrulama_kaynagi": "https://kastamonudivancamileri.org/camiler/cavundur-koyu-yeni-cuma-camii"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4076",
@@ -495,15 +533,16 @@
       "gunumuz_koy_adaylari": [
         "Gelinören"
       ],
-      "eslesme_aciklamasi": "Gelinviran / Gelinveren tarihî adının aynı bölgede geçtiği ve güncel Gelinören adı bulunduğu için güçlü aday; karye-mülk sürekliliği ayrıca doğrulanacak",
+      "eslesme_aciklamasi": "Gelinviran tarihî yer adı ve modern Gelinören köyü; ayrıca Çavundur ortak divan camisi kullanıcıları arasında Gelinören var. Aynı karye devamlılığı doğrudan tapu belgesiyle henüz ispatlanmadı.",
       "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_seviyesi": "GÜÇLÜ ADAY - DİVAN CAMİSİ SAHA KAYDIYLA DESTEKLİ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "dogrulama_kaynagi": "https://kastamonudivancamileri.org/camiler/cavundur-koyu-yeni-cuma-camii"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4079",
@@ -519,18 +558,19 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [
-        "İnceboğaz",
-        "Ortaboğaz"
+        "Ortaboğaz",
+        "İnceboğaz"
       ],
-      "eslesme_aciklamasi": "Boğaz adlı tarihî divanın aynı kökten gelen modern yerleşimlerle bağlantısı henüz kanıtlanmadı",
+      "eslesme_aciklamasi": "Kayalı divan camiinin ortak kullanıcıları arasında Ortaboğaz bulunuyor. Ancak 1845 'Boğaz Divanı' defterindeki tüm karyelerin hangi köyler olduğu belgelenmedi.",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_seviyesi": "GÜÇLÜ İLİŞKİ ADAYI - DOĞRUDAN DİVAN KARYE ÖZDEŞLİĞİ DEĞİL",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "dogrulama_kaynagi": "https://kastamonudivancamileri.org/camiler/kayali-koyu-divan-camii"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4080",
@@ -618,17 +658,15 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Kadıoğlu"
-      ],
-      "eslesme_seviyesi": "ADAY - YALNIZ YEREL AD ÇALIŞMASI GEREKİYOR",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "GÜNCEL KÖY EŞLEŞMESİ YOK",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Kızoğlu ile Kadıoğlu aynı yer kabul edilmedi; ad benzerliğinden öte kaynak bulunması gerekli."
+      "eslesme_aciklamasi": "Kızoğlu ile Kadıoğlu bağlantısı belgesiz; bu aday kaldırıldı."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4084",
@@ -722,17 +760,19 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [
-        "Yürekveren"
+        "Yürekveren",
+        "Halaçlı (Ören mevkii)"
       ],
-      "eslesme_seviyesi": "ADAY - AKADEMİK KAYNAKTA KESİNLİK OLMADIĞI BELİRTİLİYOR",
+      "eslesme_seviyesi": "TARİHÎ AD DEVAMLILIĞI DOĞRULANDI - YERİ BELİRSİZ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Yürekveren ile tarihî Yörükviran bağı akademik kaynakta ihtimal olarak geçiyor, kesin değildir; Taşköprü'de aynı tarihî adın geçmesi karışıklık riski yaratır",
-      "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3293640"
+      "eslesme_aciklamasi": "1896 salnamesinde Akkaya'ya bağlı Yürekveren ile Göl kazasına bağlı başka bir Yürekveren ayrı kayıtlıdır. Akkaya Yürekviran'ının Halaçlı çevresinde kaybolmuş yerleşim olabileceği belirtilmiştir; bugünkü Yürekveren köyüyle otomatik özdeşlik kurulmaz.",
+      "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3293640",
+      "dogrulama_kaynagi": "https://www.ttk.gov.tr/wp-content/uploads/2022/04/03-CevdetYakupoglu.pdf"
     }
   ],
   "source_notes": [
