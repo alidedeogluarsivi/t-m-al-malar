@@ -221,7 +221,7 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "TARİHÎ DİVAN KAYDI; AYNI ADLI BAŞKA İLÇE RİSKİ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -232,7 +232,8 @@
         "KABALAR DER KARASU"
       ],
       "ek_tarihi_kanit": "1582 tahririnde KABALAR DER KARASU adı var. Güncel Taşköprü veya İnebolu Kabalar köyleriyle aynı kabul edilemez.",
-      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme"
+      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme",
+      "ayni_adli_yanlis_ilce_uyarisi": "Kabalar adlı güncel köyler İnebolu ve Taşköprü ilçelerinde de bulunur; 1845 Kastamonu/Akkaya divanı onlara doğrudan bağlanamaz."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4061",
@@ -272,8 +273,10 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
-      "ek_tarihi_kaynaklar": []
+      "eslesme_seviyesi": "1410 VE 1845 TARİHÎ AD KAYDI; GÜNCEL KÖY MUHTARLIĞI KONTROL",
+      "ek_tarihi_kaynaklar": [],
+      "ek_tarihi_kanit": "Hacı Murad Zaviyesi 812/1410 tarihli vakfiyesinde Çapak adı Kastamonu'da vakfedilen köyler arasında geçer; 1845 Çapak divanına bağlı karyeler ve bugünkü muhtarlık bağlantıları ayrıca ayrıştırılacak.",
+      "ek_tarihi_kanit_url": "https://isamveri.org/pdfdrg/D260153/2016/2016_CAKMAKA.pdf"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4066",
@@ -415,7 +418,7 @@
       "gunumuz_koy_adaylari": [],
       "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "TARİHÎ YAZILIŞLAR DOĞRULANDI; TOSYA İLE KARIŞTIRMA",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -426,7 +429,8 @@
         "BÜRNÜK / BÜRNİK"
       ],
       "ek_tarihi_kanit": "1582 tahrir listesinde BÜRNİK; 18. yüzyıl avarız listesinde BÜRNÜK mevcut. Bunlar tarihî ad varyantlarıdır; güncel köy muhtarlığı tespit edilmiş değil.",
-      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme"
+      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme",
+      "ayni_adli_yanlis_ilce_uyarisi": "Tosya ilçesindeki güncel Bürnük köyü, 1845 Kastamonu/Akkaya Bürünük divanı ile kaynak olmadan aynı sayılamaz."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4073",
@@ -442,18 +446,20 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [
-        "Bük",
-        "Bükköy"
+        "Bük (resmî idarî kayıtlardaki ad)",
+        "Bükköy (köy yerleşim adı)"
       ],
-      "eslesme_aciklamasi": "Kastamonu Merkez'in güncel köy listelerinde Bük yazılışı da bulunuyor; sitedeki yerleşim envanterinde Bükköy var. Bunların tek köyün iki yazımı mı yoksa ayrı coğrafi kaydı mı olduğu doğrulanmadan kesin köy adı atanmamalıdır.",
+      "eslesme_aciklamasi": "Güncel idarî BÜK ve yerleşim BÜKKÖY adlarının aynı kayıtta geçtiği doğrulandı. 1845 BÜK divanındaki bütün karyelerin güncel Bük köyüne ait olduğu henüz ispatlanmadı.",
       "aday_kaynak": "https://www.kastamonuistiklal.com/kastamonunun-koyleri-tek-listede-hangi-ilcede-kac-koy-var",
-      "eslesme_seviyesi": "GÜNCEL KÖY ADI ADAYI; İDARÎ KOD KONTROLÜ",
+      "eslesme_seviyesi": "GÜNCEL KÖY ADI İKİ RESMÎ/YEREL BİÇİMİYLE DOĞRULANDI; 1845 DİVAN HANELERİ BEKLİYOR",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "guncel_ad_dogrulamasi": "Kastamonu Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 2017/11 jeolojik-jeoteknik etüt listesi: KASTAMONU / MERKEZ / MERKEZ-BÜK / BÜKKÖY",
+      "dogrulama_kaynagi": "https://webdosya.csb.gov.tr/db/kastamonu/menu/raporlar-listesi-ayfer23_20220223104710.pdf"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4074",
@@ -857,8 +863,9 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
-      "ek_tarihi_kaynaklar": []
+      "eslesme_seviyesi": "TARİHÎ KAYIT VAR; GÜNCEL KÖY TESPİTİ BEKLİYOR",
+      "ek_tarihi_kaynaklar": [],
+      "ayni_adli_yanlis_ilce_uyarisi": "Tosya ilçesindeki Sofular köyü ile eski Kastamonu/Akkaya Soflan divanının aynı olduğuna dair kaynak yoktur."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4087",
@@ -918,5 +925,10 @@
     "Kastamonu Merkez Köy Adları üzerine akademik yayınlar"
   ],
   "research_updated": "2026-11-18",
-  "research_scope": "1845 fihristi + 1582 yerleşim listesi + 1712-1728 Şer'iyye sicili + 18. yüzyıl avarız incelemesi"
+  "research_scope": "1845 fihristi + 1582 yerleşim listesi + 1712-1728 Şer'iyye sicili + 18. yüzyıl avarız incelemesi",
+  "research_notes": [
+    "Kastamonu İl Çevre Şehircilik 2017/11 BÜK/BÜKKÖY idarî ad karşılaştırması",
+    "1410 Hacı Murad Zaviyesi vakfiyesinde Çapak adı",
+    "Tosya Bürnük ve Sofular ile İnebolu/Taşköprü Kabalar aynı-ad tuzakları; tarihî Akkaya'ya yanlış atama önlendi"
+  ]
 }
