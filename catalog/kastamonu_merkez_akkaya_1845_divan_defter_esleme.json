@@ -64,14 +64,34 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "gunumuz_koy_adaylari": [
+        "Emirli",
+        "Esenler",
+        "Yunusköy"
+      ],
+      "eslesme_seviyesi": "ÜÇ TARİHÎ BAĞLI YER TESPİT EDİLDİ; MODERN ADLAR ADAY",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "bagli_guncel_yerler": [
+        {
+          "yer": "Emir",
+          "tip": "VAKIF LİSTESİNDEKİ YER"
+        },
+        {
+          "yer": "Esen",
+          "tip": "VAKIF LİSTESİNDEKİ YER"
+        },
+        {
+          "yer": "Yunus",
+          "tip": "VAKIF LİSTESİNDEKİ YER"
+        }
+      ],
+      "eslesme_aciklamasi": "Atabeykavacığı (Emir, Esen, Yunus) şeklinde kaynakta verilmiştir; güncel Emirli, Esenler, Yunusköy adlarına aidiyet ayrıca araştırılmalıdır.",
+      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4055",
@@ -127,21 +147,20 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Başören",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Başören"
-      ],
-      "eslesme_aciklamasi": "Başviran/başören ad benzerliği, başka ilçelerde de kullanılmış; Kastamonu Merkez karşılığı belgesiz kesinleştirilmez",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_aciklamasi": "Başviran adı Başören yerleşiminin tarihî adı olarak belirtilmiştir.",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_seviyesi": "ESKİ-YENİ AD EŞLEŞMESİ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "dogrulama_kaynagi": "https://www.getty.edu/vow/TGNFullDisplay?english=Y&find=Boise&nation=United+States&place=City&subjectid=7735498"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4058",
@@ -214,18 +233,19 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Kızılkese",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - AYNI ADLI BAŞKA İLÇE RİSKİ",
+      "eslesme_seviyesi": "VAKIF KAYDIYLA DESTEKLİ EŞLEŞME",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Kızılkilise adı Taşköprü belgelerinde de geçtiği için Merkez Kızılkese veya Taşköprü Kızılkese ile özdeşlik kurulamaz."
+      "eslesme_aciklamasi": "Akkaya için 1845 Kızılkilise adı ve Atabey Gazi'nin Akkaya yerleşimlerini sayan vakıf listesinde Kızılkese adı; tarihî devamlılık kuvvetle desteklenir.",
+      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4062",
@@ -297,17 +317,19 @@
       "tur": "KARYE",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "İmamköy",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "VAKIF KAYDINDA ESKİ-YENİ YER ADI",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Vakıf arazileri listesinde İmam (Elinveren) birlikte gösterilir; 1845 Elenviran yazılışıyla karşılaştırıldı.",
+      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4070",
@@ -604,17 +626,19 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Karaş",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "VAKIF KAYDINDA ESKİ-YENİ YER ADI",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Vakıf listesinde Karaş (Küplüözü) eşleştirmesi açıkça verilir.",
+      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4082",
@@ -655,18 +679,19 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Hatipoğlu",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "GÜNCEL KÖY EŞLEŞMESİ YOK",
+      "eslesme_seviyesi": "VAKIF KAYDINDA ESKİ-YENİ YER ADI",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Kızoğlu ile Kadıoğlu bağlantısı belgesiz; bu aday kaldırıldı."
+      "eslesme_aciklamasi": "Vakıf listesinde Hatipoğlu (Kızoğlu) açıkça belirtilir.",
+      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4084",
@@ -681,14 +706,25 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "gunumuz_koy_adaylari": [
+        "Çatalçam",
+        "Yaka"
+      ],
+      "eslesme_seviyesi": "AYNI ADLI MEVKİ BULUNDU - KÖY AİDİYETİ KESİN DEĞİL",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "bagli_guncel_yerler": [
+        {
+          "yer": "Yukarı Karandı",
+          "tip": "GÜNCEL HARİTA MEVKİ ADI"
+        }
+      ],
+      "eslesme_aciklamasi": "Yukarı Karandı adlı mevki Çatalçam ve Yaka çevresinde haritalanıyor; tarihî Karandi divanının tüm sınırlarını veya bugünkü muhtarlık aidiyetini ispatlamaz.",
+      "dogrulama_kaynagi": "https://mapcarta.com/13820284"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4085",
