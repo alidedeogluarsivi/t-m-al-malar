@@ -14,7 +14,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Elmayakası",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4053",
@@ -28,7 +30,14 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Aşağıelyakut",
+        "Yukarıelyakut"
+      ],
+      "eslesme_aciklamasi": "Tarihî Elyakut ile aynı kökten gelen iki güncel köy; defterdeki karyelerin dağılımı doğrulanmadı",
+      "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3454308",
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4054",
@@ -42,7 +51,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4055",
@@ -56,7 +67,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Akçataş",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4056",
@@ -70,7 +83,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Bürme",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4057",
@@ -84,7 +99,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Başören"
+      ],
+      "eslesme_aciklamasi": "Başviran/başören ad benzerliği, başka ilçelerde de kullanılmış; Kastamonu Merkez karşılığı belgesiz kesinleştirilmez",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4058",
@@ -98,7 +119,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4059",
@@ -112,7 +135,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Halaçlı",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4060",
@@ -126,7 +151,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4061",
@@ -140,7 +167,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4062",
@@ -154,7 +183,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4066",
@@ -168,7 +199,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Eceoğlu"
+      ],
+      "eslesme_aciklamasi": "Tarihî Eyiceoğlu / Eceoğlu ad yakınlığı; bağımsız eski-yeni yer belgesi kontrolü",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4069",
@@ -182,7 +219,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4070",
@@ -196,7 +235,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Gökçukur"
+      ],
+      "eslesme_aciklamasi": "Yalnızca Çukur ortak kökü var; doğrudan eşleştirme kanıtı değil",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4071",
@@ -210,7 +255,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4072",
@@ -224,7 +271,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Bürme"
+      ],
+      "eslesme_aciklamasi": "Bürünük ile Bürme aynı yer kabul edilemez; yalnız ad benzerliği, başka delil gerekli",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4073",
@@ -238,7 +291,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Bükköy"
+      ],
+      "eslesme_aciklamasi": "Kısa tarihî Bük adı birden fazla yere karşılık gelebilir; yalnız aday",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4074",
@@ -252,7 +311,14 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Aşağıelyakut",
+        "Yukarıelyakut"
+      ],
+      "eslesme_aciklamasi": "Alyakut/Elyakut yazım yakınlığı; güncel iki ayrı köy kesin biçimde dağıtılamadı",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4075",
@@ -266,7 +332,14 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Kuzyaka Bucağı Çavundur",
+        "Merkez Bucağı Çavundur"
+      ],
+      "eslesme_aciklamasi": "Merkez ilçesi güncel kaydında iki Çavundur ayrımı var; tarihî divana hangisinin ait olduğu kesin değil",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4076",
@@ -280,7 +353,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4077",
@@ -294,7 +369,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Kuşkara",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4078",
@@ -308,7 +385,13 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Gelinören"
+      ],
+      "eslesme_aciklamasi": "Tarihî Gelinviran/Gelinveren - güncel Gelinören eşleşmesini destekleyen yerel tarih kaynakları",
+      "aday_kaynak": "https://turizm.kastamonu.edu.tr/images/2018/KastamonuEfsanaleri.pdf",
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4079",
@@ -322,7 +405,14 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "İnceboğaz",
+        "Ortaboğaz"
+      ],
+      "eslesme_aciklamasi": "Boğaz adlı tarihî divanın aynı kökten gelen modern yerleşimlerle bağlantısı henüz kanıtlanmadı",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4080",
@@ -336,7 +426,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Bozoğlak",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4081",
@@ -350,7 +442,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4082",
@@ -364,7 +458,16 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [
+        "Baltacıkuyucağı",
+        "Halifekuyucağı",
+        "Nalcıkuyucağı",
+        "Yukarıkuyucak"
+      ],
+      "eslesme_aciklamasi": "Kuyucuk adlı tarihî divanın güncel kuyucak/kuyucağı köylerinden hangisine karşılık geldiği belirsiz",
+      "aday_kaynak": null,
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4083",
@@ -378,7 +481,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4084",
@@ -392,7 +497,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4085",
@@ -406,7 +513,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4086",
@@ -420,7 +529,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4087",
@@ -434,7 +545,9 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": "Darıbükü",
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4088",
@@ -448,7 +561,15 @@
       "gunumuz_ilce": "Merkez",
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
-      "kaynak": "BOA TEMETTUAT FİHRİSTİ"
+      "kaynak": "BOA TEMETTUAT FİHRİSTİ",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     }
+  ],
+  "source_notes": [
+    "BOA ML.VRD.TMT.d.4052-4088 ilgili defter fihristi",
+    "Kastamonu Merkez güncel yerleşim envanteri",
+    "İsmail Bilaloğlu, 66 No'lu Kastamonu Şer'iyye Sicilinin Transkripsiyonu, 2025",
+    "Kastamonu Merkez Köy Adları üzerine akademik yayınlar"
   ]
 }
