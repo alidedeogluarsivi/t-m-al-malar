@@ -2050,6 +2050,7 @@ function renderSideVillage(name,r,ilce,il){
 function showProvinceInfo(name){openInfoPanel(name,'İL BİLGİSİ',provinceInfoHtml(name))}
 function showDistrictInfo(il,ilce){openInfoPanel(ilce,il+' / İLÇE BİLGİSİ',districtInfoHtml(il,ilce))}
 function showRecord(name,r,ilce,il){
+  if(r&&r.koy&&window.ArchiveStats)window.ArchiveStats.recordVillage(r.koy);
   document.getElementById('vtitle').textContent=name||'YERLEŞİM';
   document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'';
   let h='';
@@ -2887,5 +2888,5 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
-<script defer src="./site-stats.js?v=20261118b"></script>
+<script defer src="./site-stats.js?v=20261118e"></script>
 </body></html>
