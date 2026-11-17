@@ -36,12 +36,14 @@ for i,d,name in rows:
         continue
     head,child=(x.strip() for x in name.split(",",1))
     parent=owners.get((d,head))
+    resolved_head=head
     if parent is None and head.endswith(" KÖYÜ"):
-        parent=owners.get((d,head[:-5]+" MAHALLESİ"))
+        resolved_head=head[:-5]+" MAHALLESİ"
+        parent=owners.get((d,resolved_head))
     if parent is None:
         unresolved+=1
         continue
-    entry["baglilar"].setdefault(head,[]).append(child)
+    entry["baglilar"].setdefault(resolved_head,[]).append(child)
     total+=1
 out=Path("official-addresses")
 out.mkdir(exist_ok=True)
