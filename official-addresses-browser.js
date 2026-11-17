@@ -18,7 +18,7 @@ function fill(select,names,label){select.replaceChildren();const base=document.c
 function message(str){status.textContent=str;children.replaceChildren()}
 let manifest=null,active=null;
 async function readJSON(path){
- const r=await fetch(path+"?v=20261118-muhtarlik2",{cache:"no-cache",signal:AbortSignal.timeout(18000)});
+ const r=await fetch(path+"?v=20261118-muhtarlik3",{cache:"no-cache",signal:AbortSignal.timeout(18000)});
  if(!r.ok)throw Error("Veri dosyası bulunamadı ("+r.status+")");
  return r.json();
 }
@@ -47,19 +47,22 @@ district.addEventListener("change",function(){
  if(!district.value||!active){message("İLÇE SEÇİN");return}
  const data=active.districts[district.value];
  const opts=Object.keys(data?.muhtarliklar||{}).sort((a,b)=>a.localeCompare(b,"tr")).map(x=>[x,x]);
+ if((data?.eslesmeyen_baglilar||[]).length)opts.push(["__UNMATCHED__","ANA MUHTARLIĞI EŞLEŞTİRİLEMEMİŞ BAĞLILAR"]);
  fill(parent,opts,"KÖY / MAHALLE MUHTARLIĞI SEÇİN");
  message(opts.length+" KÖY / MAHALLE MUHTARLIĞI LİSTELENDİ");
 });
 parent.addEventListener("change",function(){
  if(!active||!district.value||!parent.value){message("MUHTARLIK SEÇİN");return}
- const rows=active.districts[district.value]?.baglilar?.[parent.value]||[];
+ const districtData=active.districts[district.value];
+ const unmatched=parent.value==="__UNMATCHED__";
+ const rows=unmatched?(districtData?.eslesmeyen_baglilar||[]):(districtData?.baglilar?.[parent.value]||[]);
  children.replaceChildren();
  if(!rows.length){status.textContent="BU MUHTARLIĞA BAĞLI AYRI BİR YERLEŞİM KAYDI YOK";return}
- status.textContent=parent.value+" · "+rows.length+" BAĞLI YERLEŞİM";
+ status.textContent=(unmatched?"ÜST MUHTARLIĞI DOĞRULANACAK KAYITLAR":parent.value)+" · "+rows.length+" BAĞLI YERLEŞİM";
  for(const item of rows){
   const name=typeof item==="string"?item:item.name;
   if(!name)continue;
-  const el=document.createElement("div");el.className="ohItem";el.textContent=name;children.append(el);
+  const el=document.createElement("div");el.className="ohItem";el.textContent=(unmatched?item.ana_ad+" → ":"")+name;children.append(el);
  }
 });
 start();
