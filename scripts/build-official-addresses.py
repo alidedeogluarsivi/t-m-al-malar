@@ -43,7 +43,7 @@ for i,d,name in rows:
     if parent is None:
         unresolved+=1
         continue
-    entry["baglilar"].setdefault(resolved_head,[]).append(child)
+    entry["baglilar"].setdefault(resolved_head,[]).append({"name":child,"source_id":i})
     total+=1
 out=Path("official-addresses")
 out.mkdir(exist_ok=True)
