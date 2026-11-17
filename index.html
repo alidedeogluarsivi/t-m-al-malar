@@ -122,6 +122,16 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .archiveRecent strong{display:block;font-size:11px;letter-spacing:.04em;margin-bottom:5px}
 .archiveRecent p{margin:0!important;color:#fff!important;font-size:13px!important;line-height:1.65!important;overflow-wrap:anywhere}
 @media(max-width:600px){.archiveRecent{grid-template-columns:1fr}}
+
+.archiveStatsTop{background:#132f43;color:#fff;padding:10px 16px}
+.archiveStatsTopInner{max-width:1500px;margin:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.archiveStatsTop .visitorHero{margin:0;border-radius:10px;flex-shrink:0}
+.archiveStatsTop .archiveLiveStats{margin:0;padding:7px 10px;flex:1;min-width:min(100%,320px);background:#ffffff10}
+.archiveStatsTop .archiveRecent{margin-top:5px}
+.archiveStatsTop .archiveRecent>div{padding:5px 8px}
+.archiveStatsTop .archiveRecent p{font-size:12px!important}
+.archiveStatsTop .archiveLiveCounters b{font-size:19px}
+@media(max-width:600px){.archiveStatsTop{padding:8px}.archiveStatsTopInner{gap:6px}.archiveStatsTop .archiveLiveStats{width:100%}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -143,17 +153,17 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 </head>
 <body>
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
+<section class="archiveStatsTop" aria-label="Arşiv istatistikleri"><div class="archiveStatsTopInner"><div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div><div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
+  <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
+  <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div>
+</div></div></section>
 <img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli">
 <div class="shell">
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
 <p>Önce arşivde arayın; bulunan köy, sülale veya defter kayıtlarını listeden açın. Konumu görmek isterseniz sonuç üzerindeki <b>HARİTADA GÖSTER</b> düğmesine basın. Harita yalnız istendiğinde yüklenir.</p>
-<div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div>
-<div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
-  <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
-  <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div>
-</div>
+
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>E-SATIŞ PDF</span></div>
@@ -2877,5 +2887,5 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
-<script defer src="./site-stats.js?v=20261118"></script>
+<script defer src="./site-stats.js?v=20261118b"></script>
 </body></html>
