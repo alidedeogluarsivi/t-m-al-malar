@@ -8,6 +8,7 @@
 <header><a href="./index.html">← ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a><h1>SÜLALE SÖZLÜĞÜ</h1><strong>İL · İLÇE · MUHTARLIK / KÖY · BAĞLI MAHALLE · SOKAK · CADDE · SÜLALE</strong><p class="lead">AYNI SÜLALE ADI FARKLI KÖYLERDE AYRI AYRI GÖSTERİLİR. ARŞİV KÜNYELERİ KORUNUR.</p></header>
 <main>
 <div id="progress" role="status">ARŞİV KAYITLARI YÜKLENİYOR…</div>
+<div id="officialHierarchy" aria-label="Resmi koy baglilari ve mahalle muhtarliklari"></div>
 <div class="filters"><label>İL<select id="il"><option value="">TÜM İLLER</option></select></label><label>İLÇE<select id="ilce"><option value="">TÜM İLÇELER</option></select></label><label>KÖY / MAHALLE<select id="koy"><option value="">TÜM YERLEŞİMLER</option></select></label><label>BAĞLI MAHALLE / KÖY ALTI<select id="koyAlti"><option value="">TÜM BAĞLI YERLEŞİMLER</option></select></label><label>SOKAK<select id="sokak"><option value="">TÜM SOKAKLAR</option></select></label><label>CADDE<select id="cadde"><option value="">TÜM CADDELER</option></select></label><label>SÜLALE ADI ARA<div class="queryRow"><input id="query" type="search" placeholder="ÖRN. KARAMUSA OĞULLARI"><button id="queryGo" type="button">ARA</button></div></label></div>
 <p class="hint">BAĞLI MAHALLE, SOKAK VE CADDE FİLTRELERİ YALNIZCA KAYNAK VERİLERİNDE İLGİLİ MUHTARLIĞA BAĞLANTISI BULUNDUĞUNDA DOLDURULUR. BOŞ SEÇENEKLER KAYIT EKSİKLİĞİNİ GÖSTERİR.</p>
 <div class="check"><input id="onlyVerified" type="checkbox" checked><label for="onlyVerified">SADECE YERLEŞİM EŞLEŞMESİ GÜÇLÜ KAYITLAR (ADAYLARI GİZLE)</label></div>
@@ -140,4 +141,4 @@ byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value=
  refreshFilters("status");
  byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";
 })().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
-</script><script defer src="./site-stats.js?v=20261118e"></script></body></html>
+</script><script defer src="./site-stats.js?v=20261118e"></script><script defer src="./official-addresses-browser.js?v=20261118-muhtarlik2"></script></body></html>
