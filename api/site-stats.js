@@ -1,8 +1,16 @@
 import {put,list} from '@vercel/blob';
 const PREFIX='public-search-stats/v1/';
-function headers(res){
+function headers(req,res){
  res.setHeader('Cache-Control','no-store');
  res.setHeader('X-Content-Type-Options','nosniff');
+ const origin=req.headers.origin||'';
+ const allowed=['https://alidedeogluarsivi.com','https://www.alidedeogluarsivi.com','https://alidedeogluarsivi.github.io'];
+ if(allowed.includes(origin)){
+  res.setHeader('Access-Control-Allow-Origin',origin);
+  res.setHeader('Vary','Origin');
+ }
+ res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');
+ res.setHeader('Access-Control-Allow-Headers','Content-Type');
 }
 function parseBlob(blob){
  try{
@@ -13,7 +21,8 @@ function parseBlob(blob){
  }catch(_){return null}
 }
 export default async function handler(req,res){
- headers(res);
+ headers(req,res);
+ if(req.method==='OPTIONS')return res.status(204).end();
  if(req.method==='GET'){
   try{
    const records=[];
