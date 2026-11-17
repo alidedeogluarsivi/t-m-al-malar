@@ -7,7 +7,7 @@
 <main><p>BU FİHRİSTTE TARİHÎ DİVAN ADLARI GÜNCEL KÖY ADLARINDAN AYRI TUTULUR. AYNI İSİM, BİR DİVANIN BÜTÜN KARYELERİNİN TEK KÖYE BAĞLANDIĞINI GÖSTERMEZ.</p>
 <div class="filters"><input id="q" type="search" placeholder="DİVAN, KÖY, KARYE VEYA DEFTER NUMARASI ARA" aria-label="Arama"><select id="status" aria-label="Eşleşme durumu"><option value="">TÜM KAYITLAR</option><option value="yes">AYNI ADLI GÜNCEL KÖY BULUNANLAR</option><option value="candidate">GÜNCEL KÖY ADAYLARI</option><option value="no">EŞLEŞMESİ HENÜZ BULUNMAYANLAR</option></select></div>
 <div class="stats" id="summary">KAYITLAR YÜKLENİYOR…</div>
-<table><thead><tr><th>DEFTER</th><th>TARİHÎ DİVAN / KARYE</th><th>TÜR</th><th>AYNI ADLI GÜNCEL KÖY</th><th>GÜNCEL KÖY ADAYI (KESİN DEĞİL)</th><th>BAĞLANTILI YERLEŞİMLER / TARİHÎ MEVKİ</th><th>EŞLEŞME AÇIKLAMASI / KAYNAK</th></tr></thead><tbody id="rows"></tbody></table>
+<table><thead><tr><th>DEFTER</th><th>TARİHÎ DİVAN / KARYE</th><th>ESKİ AD VARYANTLARI</th><th>TÜR</th><th>AYNI ADLI GÜNCEL KÖY</th><th>GÜNCEL KÖY ADAYI (KESİN DEĞİL)</th><th>BAĞLANTILI YERLEŞİMLER / TARİHÎ MEVKİ</th><th>EŞLEŞME AÇIKLAMASI / KAYNAK</th></tr></thead><tbody id="rows"></tbody></table>
 <p class="warn"><strong>KAYNAK:</strong> DEVLET ARŞİVLERİ BAŞKANLIĞI OSMANLI ARŞİVİ, ML.VRD.TMT.d.4052–4088 ARALIĞINDAKİ İLGİLİ DEFTERLER, H.1261. BU FİHRİST DEFTER KÜNYELERİNİ GÖSTERİR; TÜM KARYELERİN GÜNCEL KÖY AİDİYETİ TAMAMLANMIŞ DEĞİLDİR.</p></main>
 <script>
 const escapeText=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -23,9 +23,9 @@ function render(){
  sum.textContent=items.length+' KAYIT GÖSTERİLİYOR · TOPLAM '+rows.length+' DEFTER / BİRİM KAYDI';
  dest.innerHTML=items.map(r=>{
   const candidates=(r.gunumuz_koy_adaylari||[]).map(escapeText).join(' · ');
-  const note=r.eslesme_aciklamasi||r.durum; const linked=[...(r.bagli_guncel_yerler||[]).map(x=>escapeText(typeof x==='string'?x:x.yer)+' ('+escapeText(x.tip||'İLİŞKİ')+')'),...(r.guncel_mevki?[escapeText(r.guncel_mevki)+' (TARİHÎ MEVKİ; KÖY DEĞİL)']:[])].join(' · '); const source=r.dogrulama_kaynagi||''; const sourceHtml=/^https:\/\//.test(source)?'<div><a target="_blank" rel="noopener noreferrer" href="'+escapeText(source)+'">DOĞRULAMA KAYNAĞI</a></div>':'';
-  return '<tr><td><strong>'+escapeText(r.defter)+'</strong></td><td>'+escapeText(r.tarihi_birim)+'</td><td>'+escapeText(r.tur)+'</td><td>'+escapeText(r.gunumuz_koy||'—')+'</td><td>'+escapeText(candidates||'—')+'</td><td>'+escapeText(linked||'—')+'</td><td class="status">'+escapeText(r.eslesme_seviyesi||'')+'<div class="muted">'+escapeText(note)+'</div>'+sourceHtml+'</td></tr>';
- }).join('')||'<tr><td colspan="7">BU ARAMADA KAYIT BULUNAMADI.</td></tr>';
+  const note=[r.eslesme_aciklamasi||r.durum,r.ek_tarihi_kanit||''].filter(Boolean).join(' | '); const linked=[...(r.bagli_guncel_yerler||[]).map(x=>escapeText(typeof x==='string'?x:x.yer)+' ('+escapeText(x.tip||'İLİŞKİ')+')'),...(r.guncel_mevki?[escapeText(r.guncel_mevki)+' (TARİHÎ MEVKİ; KÖY DEĞİL)']:[])].join(' · '); const source=r.dogrulama_kaynagi||''; const sourceHtml=/^https:\/\//.test(source)?'<div><a target="_blank" rel="noopener noreferrer" href="'+escapeText(source)+'">DOĞRULAMA KAYNAĞI</a></div>':'';
+  return '<tr><td><strong>'+escapeText(r.defter)+'</strong></td><td>'+escapeText(r.tarihi_birim)+'</td><td>'+escapeText((r.tarihi_ad_varyantlari||[]).join(' · ')||'—')+'</td><td>'+escapeText(r.tur)+'</td><td>'+escapeText(r.gunumuz_koy||'—')+'</td><td>'+escapeText(candidates||'—')+'</td><td>'+escapeText(linked||'—')+'</td><td class="status">'+escapeText(r.eslesme_seviyesi||'')+'<div class="muted">'+escapeText(note)+'</div>'+sourceHtml+'</td></tr>';
+ }).join('')||'<tr><td colspan="8">BU ARAMADA KAYIT BULUNAMADI.</td></tr>';
 }
 q.addEventListener('input',render);status.addEventListener('change',render);
 fetch('./catalog/kastamonu_merkez_akkaya_1845_divan_defter_esleme.json?v=20261118-crosswalk2').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{rows=data.records||[];render()}).catch(e=>{sum.textContent='KAYIT DOSYASI YÜKLENEMEDİ: '+e.message});
