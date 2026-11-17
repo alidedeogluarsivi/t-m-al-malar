@@ -177,7 +177,13 @@
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
       "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
-      "ek_tarihi_kaynaklar": []
+      "ek_tarihi_kaynaklar": [],
+      "tarihi_ad_varyantlari": [
+        "DERECİK"
+      ],
+      "ek_tarihi_kanit": "1582 Kastamonu tahrir listesinde DERECİK yer alıyor; 1845 defterindeki GAMER (ATİK DERECİK) ile tarihî ad devamlılığına işaret ediyor, güncel DERE köyüne eşitlemek için yeterli değil.",
+      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme",
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4059",
@@ -221,7 +227,12 @@
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL",
+      "tarihi_ad_varyantlari": [
+        "KABALAR DER KARASU"
+      ],
+      "ek_tarihi_kanit": "1582 tahririnde KABALAR DER KARASU adı var. Güncel Taşköprü veya İnebolu Kabalar köyleriyle aynı kabul edilemez.",
+      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4061",
@@ -353,7 +364,12 @@
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL",
+      "tarihi_ad_varyantlari": [
+        "ÇUKURVİRAN"
+      ],
+      "ek_tarihi_kanit": "1582 köy listesinde ve 18. yüzyıl Akkaya avarız tablosunda kayıtlıdır; güncel köy bağı henüz belli değil.",
+      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4071",
@@ -375,8 +391,13 @@
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Danaseküsü adı kaynakta doğrulandı; Sulusökü ile aynı köy olduğuna dair kanıt bulunmadığından aday kaldırıldı."
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL",
+      "eslesme_aciklamasi": "Danaseküsü adı kaynakta doğrulandı; Sulusökü ile aynı köy olduğuna dair kanıt bulunmadığından aday kaldırıldı.",
+      "tarihi_ad_varyantlari": [
+        "DANASEKÜSÜ"
+      ],
+      "ek_tarihi_kanit": "1582 tahrir ve 18. yüzyıl Akkaya avarız listesinde DANASEKÜSÜ kaydı bulunuyor. Güncel Sulusökü'ye doğrudan bağlamamak gerekir.",
+      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4072",
@@ -400,7 +421,12 @@
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
-      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL",
+      "tarihi_ad_varyantlari": [
+        "BÜRNÜK / BÜRNİK"
+      ],
+      "ek_tarihi_kanit": "1582 tahrir listesinde BÜRNİK; 18. yüzyıl avarız listesinde BÜRNÜK mevcut. Bunlar tarihî ad varyantlarıdır; güncel köy muhtarlığı tespit edilmiş değil.",
+      "ek_tarihi_kanit_url": "https://www.academia.edu/108527942/Osmanl%C4%B1_Devri_Ba%C5%9Flar%C4%B1nda_Kastamonu_Kazas%C4%B1nda_N%C3%BCfus_ve_Yerle%C5%9Fme"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4073",
@@ -416,11 +442,12 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [
+        "Bük",
         "Bükköy"
       ],
-      "eslesme_aciklamasi": "Kısa tarihî Bük adı birden fazla yere karşılık gelebilir; yalnız aday",
-      "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "eslesme_aciklamasi": "Kastamonu Merkez'in güncel köy listelerinde Bük yazılışı da bulunuyor; sitedeki yerleşim envanterinde Bükköy var. Bunların tek köyün iki yazımı mı yoksa ayrı coğrafi kaydı mı olduğu doğrulanmadan kesin köy adı atanmamalıdır.",
+      "aday_kaynak": "https://www.kastamonuistiklal.com/kastamonunun-koyleri-tek-listede-hangi-ilcede-kac-koy-var",
+      "eslesme_seviyesi": "GÜNCEL KÖY ADI ADAYI; İDARÎ KOD KONTROLÜ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -515,7 +542,13 @@
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
       "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
-      "ek_tarihi_kaynaklar": []
+      "ek_tarihi_kaynaklar": [],
+      "tarihi_ad_varyantlari": [
+        "MAVLE"
+      ],
+      "ek_tarihi_kanit": "Ömer Döşemetaş (2019), Akkaya nahiyesi 18. yüzyıl avarız tablosunda MAVLE adı geçiyor. 1845 MAVLA ile aynı tarihî bölgenin yazılış varyantı olarak incelenmeli.",
+      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577",
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4077",
@@ -802,7 +835,13 @@
       "ek_tarihi_kaynaklar": [],
       "guncel_mevki": "Balatlar mevkii (Akkaya bölgesi, Kastamonu)",
       "eslesme_aciklamasi": "Kastamonu Akkaya mevkiinde Zımmiyan-ı Balatlar adlı tarihî gayrimüslim yerleşimi ve ibadet yeri belgelerde anılıyor; günümüzdeki köy sınırı ve muhtarlığı tespit edilmedi.",
-      "dogrulama_kaynagi": "https://kitap.tyb.org.tr/kitap/insan_tarih_sehir_kitap.pdf"
+      "dogrulama_kaynagi": "https://kitap.tyb.org.tr/kitap/insan_tarih_sehir_kitap.pdf",
+      "tarihi_ad_varyantlari": [
+        "BALATLAR"
+      ],
+      "ek_tarihi_kanit": "1582 tahrir listesinde BALATLAR; 18. yüzyıl Akkaya avarız tablosunda ZIMMIYAN-I BALATLAR MAA SAHİBİ ÇİFTLİK kayıtları mevcut. Güncel muhtarlık bağı bilinmiyor.",
+      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577",
+      "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4086",
