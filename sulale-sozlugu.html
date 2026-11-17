@@ -74,7 +74,88 @@ function ingest(obj,path){
 function optionize(select,vals,placeholder,keep){select.textContent="";const base=document.createElement("option");base.value="";base.textContent=placeholder;select.append(base);for(const s of vals){let o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)}if(vals.includes(keep))select.value=keep}
 function sortTR(a,b){return a.localeCompare(b,"tr")}
 function distinct(items,field){return [...new Set(items.map(x=>x[field]).filter(valid))].sort(sortTR)}
-let officialManifest=null,officialProvince=null,secondaryLinks=[],requestNum=0;
+let officialManifest=null,officialProvince=null,secondaryLinks=[],requestNum=0,streetRequest=0;
+const streetCache=new Map();
+const STREET_BASE="https://raw.githubusercontent.com/onurusluca/turkey-geo-api/main/data/jsonl/";
+function currentPlate(){
+ if(!officialManifest||!il.value)return null;
+ return Object.keys(officialManifest.provinces).find(k=>norm(officialManifest.provinces[k])===norm(il.value))||null;
+}
+async function loadStreetProvince(plate){
+ const k=String(Number(plate));
+ if(streetCache.has(k))return streetCache.get(k);
+ const task=(async()=>{
+  const base=STREET_BASE+"province-"+k+"/";
+  const [ns,ss]=await Promise.all(["neighborhoods.jsonl","streets.jsonl"].map(async file=>{
+   const response=await fetch(base+file,{signal:AbortSignal.timeout(25000),cache:"force-cache"});
+   if(!response.ok)throw Error("Sokak kaynağı erişilemiyor: "+file);
+   return response.text();
+  }));
+  const byId=new Map();
+  for(const line of ns.split("\n")){
+   if(!line.trim())continue;
+   try{const x=JSON.parse(line);byId.set(String(x.id),x)}catch(_){}
+  }
+  const byParent=new Map();
+  for(const line of ss.split("\n")){
+   if(!line.trim())continue;
+   let x;try{x=JSON.parse(line)}catch(_){continue}
+   const id=String(x.neighborhood_id??x.neighborhood_registration_no??"");
+   if(!id)continue;
+   const title=String(x.full_official_name||x.name||"").trim();
+   if(!title)continue;
+   if(!byParent.has(id))byParent.set(id,new Set());
+   byParent.get(id).add(title);
+  }
+  return {byId,byParent};
+ })();
+ streetCache.set(k,task);
+ task.catch(()=>streetCache.delete(k));
+ return task;
+}
+async function appendNationwideStreets(){
+ const call=++streetRequest;
+ if(!il.value||!ilce.value||!koy.value)return;
+ const plate=currentPlate();
+ if(!plate)return;
+ const note=byId("addressSourceNote");
+ const parentName=koy.value,districtName=ilce.value,provinceName=il.value;
+ if(note)note.textContent="BAĞLI SOKAK / CADDE / KÜME EVLER YÜKLENİYOR…";
+ try{
+  const data=await loadStreetProvince(plate);
+  if(call!==streetRequest||provinceName!==il.value||districtName!==ilce.value||parentName!==koy.value)return;
+  const target=comparePlace(parentName);
+  const currentDistricts=officialProvince?.districts||{};
+  const parentId=currentDistricts[districtName]?.muhtarliklar?.[parentName]?.id;
+
+  const matched=[];
+  for(const [id,n] of data.byId){
+   if(parentId&&String(parentId)===id){matched.push(id);continue;}
+   if(comparePlace(n.full_official_name||n.name||"")!==target)continue;
+   const districtCode=Number(n.district_id);
+   
+   if(Number(n.province_id)!==Number(plate))continue;
+   // District check via official district label is performed using verified parent id where present.
+   // Otherwise only unique matches within the selected province can be used safely.
+   matched.push(id);
+  }
+  const uniqueNames=new Set();
+  if(parentId&&data.byParent.has(String(parentId)))for(const name of data.byParent.get(String(parentId)))uniqueNames.add(name);
+  else if(matched.length===1&&data.byParent.has(matched[0]))for(const name of data.byParent.get(matched[0]))uniqueNames.add(name);
+  const existing=[...koyAlti.options].map(o=>o.value).filter(Boolean);
+  const merged=[...new Set([...existing,...uniqueNames])].sort(sortTR);
+  const current=koyAlti.value;
+  selectOptions(koyAlti,merged,"TÜM BAĞLI YERLEŞİMLER");
+  if(merged.includes(current))koyAlti.value=current;
+  if(note)note.textContent=uniqueNames.size
+   ?uniqueNames.size+" SOKAK / CADDE / KÜME EVLER KAYDI İLAVE EDİLDİ. KAYNAK: 2026 AÇIK ADRES DİZİNİ (NVİ SİSTEMİYLE BAĞIMSIZ DOĞRULAMA GEREKEBİLİR)."
+   :"BU MUHTARLIK İÇİN EK SOKAK / CADDE KAYDI BULUNAMADI; VARSA BAĞLI YERLEŞİM KAYITLARI KORUNDU.";
+ }catch(err){
+  if(call!==streetRequest)return;
+  if(note)note.textContent="SOKAK / CADDE KAYNAĞINA ERİŞİLEMEDİ. MEVCUT BAĞLI YERLEŞİMLER KORUNDU.";
+  console.warn("Ülke geneli sokak verisi:",err);
+ }
+}
 const comparePlace=s=>norm(s).replace(/ (KÖYÜ|MAHALLESİ|MAHALLESI)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
 async function loadOfficial(path){
  const res=await fetch("./official-addresses/"+path+"?v=20261118-row4",{cache:"no-cache"});
@@ -100,6 +181,7 @@ function resetResultsOnSelection(){
  byId("more").hidden=true;
 }
 async function refreshFilters(changed){
+ ++streetRequest;
  if(changed==="il"){
   const sequence=++requestNum;officialProvince=null;
   if(il.value&&officialManifest){
@@ -137,6 +219,7 @@ async function refreshFilters(changed){
   const secondary=secondaryLinks.some(row=>norm(row.il)===norm(il.value)&&norm(row.ilce)===norm(ilce.value)&&koy.value&&comparePlace(row.muhtarlik)===comparePlace(koy.value));
   const hint=byId("addressSourceNote");
   if(hint)hint.textContent=secondary?"BU MUHTARLIĞIN SOKAK ADLARI İKİNCİL ADRES DİZİNİNDEN GELMEKTEDİR; NVİ ADRES KODUYLA HENÜZ DOĞRULANMAMIŞTIR. ARA SONUÇLARI YALNIZ ARŞİV EŞLEŞMELERİDİR.":"";
+  if(koy.value&&ilce.value)void appendNationwideStreets();
 
  }
  resetResultsOnSelection();
