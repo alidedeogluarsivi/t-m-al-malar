@@ -273,10 +273,14 @@ byId("queryGo").addEventListener("click",()=>{
  if(!all.length){byId("summary").textContent="ARŞİV KAYITLARI HENÜZ YÜKLENMEDİ. YÜKLEME TAMAMLANINCA TEKRAR ARA DÜĞMESİNE BASIN.";return;}
  searched=true;render(true);
  byId("summary").scrollIntoView({behavior:"smooth",block:"start"});
- if(query.value.trim()){
-   const matches=current.filter(x=>norm(x.name).includes(norm(query.value.trim())));
-   const full=matches.find(x=>norm(x.name)===norm(query.value.trim()))||matches[0];
-   if(full)window.ArchiveStats?.recordFamily(full.name);
+ if(current.length&&window.ArchiveStats){
+   if(query.value.trim()){
+     const matches=current.filter(x=>norm(x.name).includes(norm(query.value.trim())));
+     const full=matches.find(x=>norm(x.name)===norm(query.value.trim()))||matches[0];
+     if(full)window.ArchiveStats.recordFamily(full.name);
+   }else if(koy.value){
+     window.ArchiveStats.recordVillage(koy.value);
+   }
  }
 });
 query.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();byId("queryGo").click()}});
@@ -292,4 +296,4 @@ byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value=
  await refreshFilters("il");
  byId("summary").textContent="SEÇİM YAPIP ARA DÜĞMESİNE BASIN.";
 })().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
-</script><script defer src="./site-stats.js?v=20261118e"></script></body></html>
+</script><script defer src="./site-stats.js?v=20261118-fix5"></script></body></html>
