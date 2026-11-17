@@ -122,7 +122,11 @@ byId("queryGo").addEventListener("click",()=>{
  if(!all.length){byId("summary").textContent="ARŞİV KAYITLARI HENÜZ YÜKLENMEDİ. YÜKLEME TAMAMLANINCA TEKRAR ARA DÜĞMESİNE BASIN.";return;}
  searched=true;render(true);
  byId("summary").scrollIntoView({behavior:"smooth",block:"start"});
- if(query.value.trim()&&current.some(x=>norm(x.name).includes(norm(query.value.trim()))))window.ArchiveStats?.recordFamily(query.value.trim());
+ if(query.value.trim()){
+   const matches=current.filter(x=>norm(x.name).includes(norm(query.value.trim())));
+   const full=matches.find(x=>norm(x.name)===norm(query.value.trim()))||matches[0];
+   if(full)window.ArchiveStats?.recordFamily(full.name);
+ }
 });
 query.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();byId("queryGo").click()}});
 byId("more").addEventListener("click",()=>render(false));
@@ -136,4 +140,4 @@ byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value=
  refreshFilters("status");
  byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";
 })().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
-</script><script defer src="./site-stats.js?v=20261118c"></script></body></html>
+</script><script defer src="./site-stats.js?v=20261118e"></script></body></html>
