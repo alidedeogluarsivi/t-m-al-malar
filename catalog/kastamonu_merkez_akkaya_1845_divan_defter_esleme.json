@@ -630,15 +630,73 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "VAKIF KAYDINDA ESKİ-YENİ YER ADI",
+      "eslesme_seviyesi": "DİVAN ALANI VE BAĞLI YERLEŞİMLER KAYNAKLI; KARAŞ TEK KARŞILIK DEĞİL",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
         "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
-      "eslesme_aciklamasi": "Vakıf listesinde Karaş (Küplüözü) eşleştirmesi açıkça verilir.",
-      "dogrulama_kaynagi": "https://www.kastamonuguncel.com/haber/17793314/cobanogullari-beyi-atabeygazi-turbesi"
+      "eslesme_aciklamasi": "Küplüözü tarihî divanı, Karaş ve Uzunoluk başta olmak üzere kaynakta tek tek belirtilen köy ve mahalleleri kapsamaktadır. Hangi 1845 hanesinin hangi bugünkü yerleşime ait olduğu defterden ayrıca tespit edilmelidir.",
+      "dogrulama_kaynagi": "https://www.ttk.gov.tr/wp-content/uploads/2022/04/03-CevdetYakupoglu.pdf",
+      "bagli_guncel_yerler": [
+        {
+          "yer": "Karaş",
+          "tip": "DİVAN İÇİNDEKİ KÖY"
+        },
+        {
+          "yer": "Uzunoluk (Ceval)",
+          "tip": "DİVAN İÇİNDEKİ KÖY"
+        },
+        {
+          "yer": "Aynacı (İğdir)",
+          "tip": "TARİHÎ AD İLE BELİRTİLEN YER"
+        },
+        {
+          "yer": "Davut",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Demirci (Demirciler)",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Karacılar (Karahacılar)",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Kuş (Kuşoğlu)",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Hasankadı (Kadıoğlu)",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Deveboynu",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Hedenlioğlu",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Tülek",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Mesin (Selim)",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Akdelioğlu",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        },
+        {
+          "yer": "Kınalar",
+          "tip": "DİVAN İÇİNDEKİ YER"
+        }
+      ]
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4082",
