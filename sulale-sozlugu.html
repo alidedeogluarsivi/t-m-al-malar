@@ -112,7 +112,7 @@ byId("more").addEventListener("click",()=>render(false));
 byId("print").addEventListener("click",()=>window.print());
 byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";query.value="";onlyVerified.checked=true;refreshFilters("status")});
 (async()=>{
- const requests=await Promise.allSettled(paths.map(async path=>{const res=await fetch(path+"?v=20261117-nesil2", {cache:"no-cache"});if(!res.ok)throw Error(path+" HTTP "+res.status);return {path,txt:await res.text()}}));
+ const requests=await Promise.allSettled(paths.map(async path=>{const res=await fetch(path+"?v=20261118-source-v3", {cache:"no-cache"});if(!res.ok)throw Error(path+" HTTP "+res.status);return {path,txt:await res.text()}}));
  requests.forEach((r,i)=>{if(r.status!=="fulfilled"){errors.push(paths[i]);return;}const {txt,path}=r.value;for(const line of txt.split(/\r?\n/)){if(!line.trim())continue;try{ingest(JSON.parse(line),path)}catch(e){errors.push(path+" : PARSE")}}});
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
  byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI YÜKLENDİ."+(errors.length?" "+errors.length+" DOSYADA YÜKLEME SORUNU VAR.":"");
