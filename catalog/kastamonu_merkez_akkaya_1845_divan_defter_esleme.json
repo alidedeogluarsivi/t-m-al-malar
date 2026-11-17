@@ -358,13 +358,13 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Girdallı",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
+      "eslesme_aciklamasi": "Kastamonu Merkez Girdallı köyünün eski adı Çukurviran veya Çukurhan olarak kaydedilmiştir. Tarihî Akkaya Çukurviran divanının tamamı ile bugünkü Girdallı köyü sınırları bire bir aynı kabul edilmemelidir.",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "AKADEMİK ESKİ-YENİ KÖY ADI KAYDIYLA DESTEKLENİYOR",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -372,10 +372,14 @@
       ],
       "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL",
       "tarihi_ad_varyantlari": [
-        "ÇUKURVİRAN"
+        "ÇUKURVİRAN",
+        "ÇUKURHAN",
+        "ÇUKURVİRANI"
       ],
       "ek_tarihi_kanit": "1582 köy listesinde ve 18. yüzyıl Akkaya avarız tablosunda kayıtlıdır; güncel köy bağı henüz belli değil.",
-      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577"
+      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577",
+      "dogrulama_kaynagi": "https://acikerisim.aku.edu.tr/server/api/core/bitstreams/355e0837-b24f-44af-a8e4-9fe26f661801/content",
+      "ikincil_kaynak": "https://www.devletarsivleri.gov.tr/cdn?fileId=231"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4071",
