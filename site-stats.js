@@ -60,7 +60,7 @@ async function request(action,key,value){
 async function ensureIndex(){
  if(publicIndex)return publicIndex;
  try{
-  const r=await fetch("./recent-search-index.json?v=20261118-stat3",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
+  const r=await fetch("./recent-search-index.json?v=20261118-family5",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
   if(!r.ok)throw Error("index missing");
   const parsed=await r.json();
   if(parsed&&parsed.village&&parsed.family){publicIndex=parsed;return parsed}
