@@ -2592,6 +2592,24 @@ function renderFamilyDistribution(rows,q){
   vCount.textContent=placeCount+' YER';
   document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'})
 }
+function recordSubmittedFinderSearch(){
+ const el=document.getElementById('finderSearch');const q=(el&&el.value||'').trim();
+ if(q.length<2||!window.ArchiveStats||!archive.length)return;
+ const nq=searchNorm(q);
+ const village=archive.find(function(x){return x.koy&&searchNorm(x.koy)===nq});
+ if(village){window.ArchiveStats.recordVillage(village.koy);return;}
+ let name='';
+ for(const x of archive){
+  const families=(x.sulaleler||[]);
+  for(const f of families){
+   if(typeof f!=='string')continue;
+   if(searchNorm(f)===nq){name=f;break}
+   if(!name&&searchNorm(f).includes(nq))name=f;
+  }
+  if(name&&searchNorm(name)===nq)break;
+ }
+ if(name)window.ArchiveStats.recordFamily(name);
+}
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
   if(!fp)return;
@@ -2615,8 +2633,8 @@ function initFinder(){
     finderLimit=24;runFinder()
   };
   fd.onchange=function(){finderLimit=24;runFinder()};
-  document.getElementById('finderGo').onclick=function(){finderLimit=24;runFinder()};
-  document.getElementById('finderSearch').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();finderLimit=24;runFinder()}};
+  document.getElementById('finderGo').onclick=async function(){finderLimit=24;await runFinder();recordSubmittedFinderSearch()};
+  document.getElementById('finderSearch').onkeydown=async function(e){if(e.key==='Enter'){e.preventDefault();finderLimit=24;await runFinder();recordSubmittedFinderSearch()}};
   document.getElementById('finderSearch').oninput=function(){clearTimeout(searchTimer);searchTimer=setTimeout(function(){finderLimit=24;runFinder()},180)};
   document.querySelectorAll('[data-find-tip]').forEach(function(btn){btn.onclick=function(){document.getElementById('finderSearch').value=btn.getAttribute('data-find-tip');finderLimit=24;runFinder()}});
 }
@@ -2759,8 +2777,8 @@ dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=tru
 vSel.onchange=function(){if(vSel.value===''){if(subSel){subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE MAHALLE / KÖY SEÇİN</option>'}return}const row=currentVillages[Number(vSel.value)];if(!row)return;refreshSubsettlements(row.name);if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
 subSel.onchange=function(){if(subSel.value==='')return;const row=currentVillages[Number(subSel.value)];if(row){renderSideVillage(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}};
 document.getElementById('search').oninput=function(e){if(e.target.value.trim().length<2)document.getElementById('searchPanel').classList.remove('show')};
-document.getElementById('searchBtn').onclick=function(){const v=document.getElementById('search').value||'';document.getElementById('finderSearch').value=v;document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'});finderLimit=24;runFinder()};
-document.getElementById('search').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('finderSearch').value=e.target.value||'';finderLimit=24;runFinder();document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'})}};
+document.getElementById('searchBtn').onclick=async function(){const v=document.getElementById('search').value||'';document.getElementById('finderSearch').value=v;document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'});finderLimit=24;await runFinder();recordSubmittedFinderSearch()};
+document.getElementById('search').onkeydown=async function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('finderSearch').value=e.target.value||'';finderLimit=24;await runFinder();recordSubmittedFinderSearch();document.getElementById('finderSearch').scrollIntoView({behavior:'smooth',block:'center'})}};
 document.getElementById('close').onclick=function(){drawer.classList.remove('open')};
 document.getElementById('homeBtn').onclick=showTurkey;
 const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapInfoClose.onclick=function(){document.getElementById('mapInfoCard').style.display='none'};
