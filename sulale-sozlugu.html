@@ -252,7 +252,7 @@ function render(reset){
   const unique=new Map;
   group.rows.forEach(x=>{const k=norm(x.name);if(!unique.has(k))unique.set(k,{name:x.name,candidate:x.candidate,defter:new Set,sources:new Set,years:new Set,hane:new Set});let p=unique.get(k);if(!x.candidate)p.candidate=false;if(x.defter)p.defter.add(x.defter);if(x.year)p.years.add(x.year);if(x.hane)p.hane.add(x.hane);x.sources.forEach(y=>p.sources.add(y))});
   for(const v of [...unique.values()].sort((a,b)=>sortTR(a.name,b.name))){
-   const span=document.createElement("span");span.className="pill";
+   const span=document.createElement("span");span.className="pill";span.tabIndex=0;span.setAttribute("role","button");span.title="SÜLALEYİ SON ARAMALARA KAYDET";span.addEventListener("click",()=>window.ArchiveStats?.recordFamily(v.name));span.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();window.ArchiveStats?.recordFamily(v.name)}});
    span.innerHTML=esc(v.name)+(v.candidate?" <small>YER EŞLEŞMESİ ADAY</small>":"")+
    (v.defter.size?'<small>DEFTER: '+esc([...v.defter].join(" · "))+'</small>':"")+
    (v.years.size?'<small>YIL: '+esc([...v.years].join(" · "))+'</small>':"")+
@@ -296,4 +296,4 @@ byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value=
  await refreshFilters("il");
  byId("summary").textContent="SEÇİM YAPIP ARA DÜĞMESİNE BASIN.";
 })().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
-</script><script defer src="./site-stats.js?v=20261118-stat4"></script></body></html>
+</script><script defer src="./site-stats.js?v=20261118-family5"></script></body></html>
