@@ -44,6 +44,7 @@ const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
 function add(row,candidate){
  const name=upper(row.name);if(!valid(name))return;
  const city=upper(row.il),district=upper(row.ilce),place=upper(row.koy),subplace=upper(row.koyAlti);
+ candidate=!!candidate||!valid(city)||!valid(district)||!valid(place);
  const key=[norm(city),norm(district),norm(place),norm(subplace),norm(name),norm(row.defter),norm(row.year),norm(row.hane)].join("|");
  const cur=recordMap.get(key);if(cur){if(!candidate)cur.candidate=false;if(row.source)cur.sources.add(row.source);return;}
  recordMap.set(key,{name,il:city,ilce:district,koy:place,koyAlti:subplace,defter:clean(row.defter),year:clean(row.year),hane:clean(row.hane),candidate, sources:new Set(row.source?[row.source]:[])});
