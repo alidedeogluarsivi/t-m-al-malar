@@ -6,14 +6,15 @@
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat");
+const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat"),status=$("recentSearchStatus");
 const COUNT="https://countapi.mileshilliard.com/api/v1/";
 const PREFIX="alidedeogluarsivi_last_search_v3_";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
 const TYPES={village:{el:villages,n:3},family:{el:families,n:5}};
 let publicIndex=null,localIndex={village:{},family:{}};
-let lastRefresh=0,refreshBusy=false;
+let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
+function statusText(msg){if(status)status.textContent=msg;}
 function normalize(x){return String(x||"").trim().replace(/\s+/g," ").slice(0,90).toLocaleUpperCase("tr-TR").normalize("NFC");}
 function nameId(name){
  let hash=14695981039346656037n;
@@ -73,6 +74,7 @@ async function readShared(type){
  const slots=[...new Set(Array.from({length:Math.min(limit,position)},(_,i)=>(position-1-i)%limit))];
  const vals=await Promise.all(slots.map(async slot=>{try{return await request("get",base+"slot_"+slot)}catch(_){return 0}}));
  const lookup=await ensureIndex();
+ if(!lookup)throw Error("İSİM DİZİNİ YÜKLENEMEDİ");
  const names=[];
  for(const raw of vals){
   const id=String(raw);
@@ -92,18 +94,24 @@ async function refresh(){
     if(r.ok){const data=await r.json();draw("village",data.villages||[],false);draw("family",data.families||[],false);return}
    }catch(_){}
   }
+  let sharedRead=0,sharedErrors=0;
   await Promise.all(Object.keys(TYPES).map(async type=>{
    if(!TYPES[type].el)return;
    try{
     const rows=await readShared(type);
+    sharedRead++;
     if(rows.length){draw(type,rows,false);return;}
     const own=local(type);draw(type,own,!!own.length);
    }catch(_){
+    sharedErrors++;
     const own=local(type);
     draw(type,own,!!own.length);
     if(!own.length)TYPES[type].el.textContent="ORTAK SAYAÇ ERİŞİLEMİYOR";
    }
   }));
+  sharedHealthy=sharedRead>0;
+  if(sharedHealthy)statusText("ORTAK ARAMA SAYACI BAĞLI");
+  else if(sharedErrors)statusText("ORTAK SAYAÇ BAĞLANTISI YOK · YALNIZ BU CİHAZDAKİ ARAMALAR GÖRÜNÜYOR");
  }finally{refreshBusy=false;lastRefresh=Date.now()}
 }
 async function record(type,name){
@@ -112,6 +120,7 @@ async function record(type,name){
  if(name.length<2)return;
  saveLocal(type,name);
  if(TYPES[type].el)draw(type,local(type),true);
+ statusText("ARAMA KAYDI ORTAK SAYAÇA GÖNDERİLİYOR…");
  if(api){
   try{
    const r=await fetch(api,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,name}),signal:AbortSignal.timeout(5000)});
@@ -126,8 +135,12 @@ async function record(type,name){
   const seq=await request("hit",base+"position");
   const slot=(seq-1)%TYPES[type].n;
   await request("set",base+"slot_"+slot,id);
+  const saved=await request("get",base+"slot_"+slot);
+  if(saved!==Number(id))throw Error("Ortak sayaç kayıt doğrulaması başarısız");
+  sharedHealthy=true;
+  statusText("ARAMA ORTAK SAYAÇA KAYDEDİLDİ");
   void refresh();
- }catch(e){console.warn("Ortak arama sayacına erişilemedi:",e.message)}
+ }catch(e){sharedHealthy=false;statusText("ARAMA YALNIZ BU CİHAZDA KAYDEDİLDİ · ORTAK SAYACA ULAŞILAMIYOR");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
 }
 window.ArchiveStats={
  recordVillage:name=>record("village",name),
