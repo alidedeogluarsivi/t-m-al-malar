@@ -2593,22 +2593,26 @@ function renderFamilyDistribution(rows,q){
   document.querySelector('.mapcard').scrollIntoView({behavior:'smooth',block:'start'})
 }
 function recordSubmittedFinderSearch(){
- const el=document.getElementById('finderSearch');const q=(el&&el.value||'').trim();
- if(q.length<2||!window.ArchiveStats||!archive.length)return;
+ const el=document.getElementById('finderSearch');
+ const q=(el&&el.value||'').trim();
+ if(!q||!window.ArchiveStats||!archive.length)return;
  const nq=searchNorm(q);
- const village=archive.find(function(x){return x.koy&&searchNorm(x.koy)===nq});
- if(village){window.ArchiveStats.recordVillage(village.koy);return;}
- let name='';
- for(const x of archive){
-  const families=(x.sulaleler||[]);
-  for(const f of families){
-   if(typeof f!=='string')continue;
-   if(searchNorm(f)===nq){name=f;break}
-   if(!name&&searchNorm(f).includes(nq))name=f;
+ const exactVillage=archive.find(function(r){return r.koy&&searchNorm(r.koy)===nq});
+ if(exactVillage){window.ArchiveStats.recordVillage(exactVillage.koy);return;}
+ let village='',family='';
+ for(const r of archive){
+  if(!village&&r.koy&&searchNorm(r.koy).includes(nq))village=r.koy;
+  for(const f of r.sulaleler||[]){
+   const name=typeof f==='string'?f:(f&&typeof f==='object'?(f.sulale||f.ad||f.name||''):'');
+   if(!name)continue;
+   const k=searchNorm(name);
+   if(k===nq){family=name;break}
+   if(!family&&k.includes(nq))family=name;
   }
-  if(name&&searchNorm(name)===nq)break;
+  if(family&&searchNorm(family)===nq)break;
  }
- if(name)window.ArchiveStats.recordFamily(name);
+ if(family){window.ArchiveStats.recordFamily(family);return;}
+ if(village)window.ArchiveStats.recordVillage(village);
 }
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
@@ -2906,5 +2910,5 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
-<script defer src="./site-stats.js?v=20261118e"></script>
+<script defer src="./site-stats.js?v=20261118-fix5"></script>
 </body></html>
