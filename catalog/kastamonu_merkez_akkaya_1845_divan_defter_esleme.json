@@ -35,7 +35,7 @@
         "Aşağıelyakut",
         "Yukarıelyakut"
       ],
-      "eslesme_aciklamasi": "Tarihî Elyakut ile aynı kökten gelen iki güncel köy; defterdeki karyelerin dağılımı doğrulanmadı",
+      "eslesme_aciklamasi": "Tarihî Elyakut/Alyakut adı ve güncel Aşağıelyakut ile Yukarıelyakut adları doğrulandı; köy bazında ayrım kesinleşmedi",
       "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3454308",
       "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
@@ -204,7 +204,7 @@
         "Eceoğlu"
       ],
       "eslesme_aciklamasi": "Tarihî Eyiceoğlu / Eceoğlu ad yakınlığı; bağımsız eski-yeni yer belgesi kontrolü",
-      "aday_kaynak": null,
+      "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
       "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
@@ -236,12 +236,10 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Gökçukur"
-      ],
-      "eslesme_aciklamasi": "Yalnızca Çukur ortak kökü var; doğrudan eşleştirme kanıtı değil",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4071",
@@ -272,12 +270,10 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Bürme"
-      ],
-      "eslesme_aciklamasi": "Bürünük ile Bürme aynı yer kabul edilemez; yalnız ad benzerliği, başka delil gerekli",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4073",
@@ -316,7 +312,7 @@
         "Aşağıelyakut",
         "Yukarıelyakut"
       ],
-      "eslesme_aciklamasi": "Alyakut/Elyakut yazım yakınlığı; güncel iki ayrı köy kesin biçimde dağıtılamadı",
+      "eslesme_aciklamasi": "Tarihî Elyakut/Alyakut adı ve güncel Aşağıelyakut ile Yukarıelyakut adları doğrulandı; köy bazında ayrım kesinleşmedi",
       "aday_kaynak": null,
       "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
@@ -389,8 +385,8 @@
       "gunumuz_koy_adaylari": [
         "Gelinören"
       ],
-      "eslesme_aciklamasi": "Tarihî Gelinviran/Gelinveren - güncel Gelinören eşleşmesini destekleyen yerel tarih kaynakları",
-      "aday_kaynak": "https://turizm.kastamonu.edu.tr/images/2018/KastamonuEfsanaleri.pdf",
+      "eslesme_aciklamasi": "Gelinviran / Gelinveren tarihî adının aynı bölgede geçtiği ve güncel Gelinören adı bulunduğu için güçlü aday; karye-mülk sürekliliği ayrıca doğrulanacak",
+      "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
       "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
     },
     {
