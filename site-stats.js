@@ -64,5 +64,5 @@ async function today(){
  }catch(_){daily.textContent="—";}
 }
 today();load();
-if(village||family)window.addEventListener("focus",load);
+if(village||family){window.addEventListener("focus",load);setInterval(function(){if(!document.hidden)load()},60000)}
 })();
