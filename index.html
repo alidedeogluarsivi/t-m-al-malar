@@ -155,7 +155,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
 <section class="archiveStatsTop" aria-label="Arşiv istatistikleri"><div class="archiveStatsTopInner"><div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div><div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
   <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
-  <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div>
+  <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div><small id="recentSearchStatus" style="display:block;margin-top:7px;font-size:11px;font-weight:800;color:#fff">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
 </div></div></section>
 <img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli">
 <div class="shell">
@@ -2910,5 +2910,5 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
-<script defer src="./site-stats.js?v=20261118-stat3"></script>
+<script defer src="./site-stats.js?v=20261118-stat4"></script>
 </body></html>
