@@ -16,7 +16,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4053",
@@ -37,7 +43,13 @@
       ],
       "eslesme_aciklamasi": "Tarihî Elyakut/Alyakut adı ve güncel Aşağıelyakut ile Yukarıelyakut adları doğrulandı; köy bazında ayrım kesinleşmedi",
       "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3454308",
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4054",
@@ -53,7 +65,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4055",
@@ -69,7 +87,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4056",
@@ -85,7 +109,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4057",
@@ -105,7 +135,13 @@
       ],
       "eslesme_aciklamasi": "Başviran/başören ad benzerliği, başka ilçelerde de kullanılmış; Kastamonu Merkez karşılığı belgesiz kesinleştirilmez",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4058",
@@ -121,7 +157,8 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4059",
@@ -137,7 +174,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4060",
@@ -153,7 +196,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4061",
@@ -169,7 +218,14 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - AYNI ADLI BAŞKA İLÇE RİSKİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Kızılkilise adı Taşköprü belgelerinde de geçtiği için Merkez Kızılkese veya Taşköprü Kızılkese ile özdeşlik kurulamaz."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4062",
@@ -185,7 +241,8 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4066",
@@ -205,7 +262,13 @@
       ],
       "eslesme_aciklamasi": "Tarihî Eyiceoğlu / Eceoğlu ad yakınlığı; bağımsız eski-yeni yer belgesi kontrolü",
       "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4069",
@@ -221,7 +284,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4070",
@@ -239,7 +308,13 @@
       "gunumuz_koy_adaylari": [],
       "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4071",
@@ -254,8 +329,17 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "gunumuz_koy_adaylari": [
+        "Sulusökü"
+      ],
+      "eslesme_seviyesi": "ADAY - YER ADI SÜREKLİLİĞİ DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Danaseküsü / Dana Sökücü tarihî kayıtları ile güncel Sulusökü arasında yalnız ad kökü benzerliği var; bağlantı henüz ispatlanmadı."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4072",
@@ -273,7 +357,13 @@
       "gunumuz_koy_adaylari": [],
       "eslesme_aciklamasi": "Yalnız sözcük benzerliği köy devamlılığını ispatlamaz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4073",
@@ -293,7 +383,13 @@
       ],
       "eslesme_aciklamasi": "Kısa tarihî Bük adı birden fazla yere karşılık gelebilir; yalnız aday",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4074",
@@ -314,7 +410,8 @@
       ],
       "eslesme_aciklamasi": "Tarihî Elyakut/Alyakut adı ve güncel Aşağıelyakut ile Yukarıelyakut adları doğrulandı; köy bazında ayrım kesinleşmedi",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4075",
@@ -335,7 +432,13 @@
       ],
       "eslesme_aciklamasi": "Merkez ilçesi güncel kaydında iki Çavundur ayrımı var; tarihî divana hangisinin ait olduğu kesin değil",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4076",
@@ -351,7 +454,8 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4077",
@@ -367,7 +471,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4078",
@@ -387,7 +497,13 @@
       ],
       "eslesme_aciklamasi": "Gelinviran / Gelinveren tarihî adının aynı bölgede geçtiği ve güncel Gelinören adı bulunduğu için güçlü aday; karye-mülk sürekliliği ayrıca doğrulanacak",
       "aday_kaynak": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4079",
@@ -408,7 +524,13 @@
       ],
       "eslesme_aciklamasi": "Boğaz adlı tarihî divanın aynı kökten gelen modern yerleşimlerle bağlantısı henüz kanıtlanmadı",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4080",
@@ -424,7 +546,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4081",
@@ -440,7 +568,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4082",
@@ -463,7 +597,13 @@
       ],
       "eslesme_aciklamasi": "Kuyucuk adlı tarihî divanın güncel kuyucak/kuyucağı köylerinden hangisine karşılık geldiği belirsiz",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK"
+      "eslesme_seviyesi": "ADAY - KARYE İÇERİĞİYLE DOĞRULANACAK",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4083",
@@ -478,8 +618,17 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "gunumuz_koy_adaylari": [
+        "Kadıoğlu"
+      ],
+      "eslesme_seviyesi": "ADAY - YALNIZ YEREL AD ÇALIŞMASI GEREKİYOR",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Kızoğlu ile Kadıoğlu aynı yer kabul edilmedi; ad benzerliğinden öte kaynak bulunması gerekli."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4084",
@@ -495,7 +644,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4085",
@@ -511,7 +666,8 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4086",
@@ -527,7 +683,8 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "ek_tarihi_kaynaklar": []
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4087",
@@ -543,7 +700,13 @@
       "durum": "TARİHÎ DİVAN ADI VE GÜNCEL KÖY ADI AYNI; TÜM DİVAN KARYELERİ BU KÖYE ATANMADI",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "eslesme_seviyesi": "AYNI ADLI GÜNCEL KÖY",
-      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı"
+      "eslesme_aciklamasi": "Divan ismi ile köy adı benzerliği; divanın içindeki tüm karyeler aktarılmadı",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4088",
@@ -558,8 +721,18 @@
       "gunumuz_koy": null,
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ"
+      "gunumuz_koy_adaylari": [
+        "Yürekveren"
+      ],
+      "eslesme_seviyesi": "ADAY - AKADEMİK KAYNAKTA KESİNLİK OLMADIĞI BELİRTİLİYOR",
+      "ek_tarihi_kaynaklar": [
+        "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
+        "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
+        "Sibel Kundakçı, Orçun Nalezen, Osmanlı Devri Başlarında Kastamonu Kazası'nda Nüfus ve Yerleşme (1582 köy listesi)"
+      ],
+      "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
+      "eslesme_aciklamasi": "Yürekveren ile tarihî Yörükviran bağı akademik kaynakta ihtimal olarak geçiyor, kesin değildir; Taşköprü'de aynı tarihî adın geçmesi karışıklık riski yaratır",
+      "aday_kaynak": "https://dergipark.org.tr/en/download/article-file/3293640"
     }
   ],
   "source_notes": [
@@ -567,5 +740,7 @@
     "Kastamonu Merkez güncel yerleşim envanteri",
     "İsmail Bilaloğlu, 66 No'lu Kastamonu Şer'iyye Sicilinin Transkripsiyonu, 2025",
     "Kastamonu Merkez Köy Adları üzerine akademik yayınlar"
-  ]
+  ],
+  "research_updated": "2026-11-18",
+  "research_scope": "1845 fihristi + 1582 yerleşim listesi + 1712-1728 Şer'iyye sicili + 18. yüzyıl avarız incelemesi"
 }
