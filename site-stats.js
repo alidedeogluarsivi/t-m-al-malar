@@ -8,10 +8,13 @@
 const $=id=>document.getElementById(id);
 const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat"),status=$("recentSearchStatus");
 const COUNT="https://countapi.mileshilliard.com/api/v1/";
-const PREFIX="alidedeogluarsivi_last_search_v3_";
+const PREFIX="alidedeogluarsivi_last_search_v4_";
+const LEGACY_PREFIX="alidedeogluarsivi_last_search_v3_";
+const OWN_KEY="alidedeoglu_recent_own_searches_v4";
+const OLD_OWN_KEY="alidedeoglu_recent_own_searches_v3";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
-const TYPES={village:{el:villages,n:3},family:{el:families,n:5}};
+const TYPES={village:{el:villages,n:10,legacy:3},family:{el:families,n:10,legacy:5}};
 let publicIndex=null,localIndex={village:{},family:{}};
 let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
 function statusText(msg){if(status)status.textContent=msg;}
@@ -27,13 +30,13 @@ function saveLocal(type,name){
  const normalized=normalize(name);if(!normalized||normalized.length<2)return;
  const id=nameId(name);
  localIndex[type][id]=name.trim();
- try{const store=JSON.parse(localStorage.getItem("alidedeoglu_recent_own_searches_v3")||"{}");
+ try{const store=JSON.parse(localStorage.getItem(OWN_KEY)||localStorage.getItem(OLD_OWN_KEY)||"{}");
   const rows=Array.isArray(store[type])?store[type]:[];
   store[type]=[name.trim(),...rows.filter(x=>normalize(x)!==normalized)].slice(0,TYPES[type].n);
-  localStorage.setItem("alidedeoglu_recent_own_searches_v3",JSON.stringify(store));
+  localStorage.setItem(OWN_KEY,JSON.stringify(store));
  }catch(_){}
 }
-function local(type){try{return JSON.parse(localStorage.getItem("alidedeoglu_recent_own_searches_v3")||"{}")[type]||[]}catch(_){return []}}
+function local(type){try{return (JSON.parse(localStorage.getItem(OWN_KEY)||localStorage.getItem(OLD_OWN_KEY)||"{}")[type]||[]).slice(0,10)}catch(_){return []}}
 function draw(type,names,isLocal){
  const el=TYPES[type].el;if(!el)return;
  el.replaceChildren();
@@ -45,7 +48,7 @@ function draw(type,names,isLocal){
   if(unique.length>=TYPES[type].n)break;
  }
  if(!unique.length){el.textContent="HENÜZ KAYIT YOK";return;}
- unique.forEach((name,i)=>{if(i)el.append(document.createTextNode(" · "));const s=document.createElement("span");s.textContent=name;el.append(s)});
+ unique.forEach((name,i)=>{const s=document.createElement("span");s.className="archiveRecentItem";s.textContent=String(i+1)+". "+name;el.append(s)});
  if(isLocal){const small=document.createElement("small");small.textContent=" (BU TARAYICIDA)";el.append(small);}
 }
 async function request(action,key,value){
@@ -67,8 +70,8 @@ async function ensureIndex(){
  }catch(e){console.warn("Arama isim indeksi henüz hazır değil:",e.message)}
  return null;
 }
-async function readShared(type){
- const limit=TYPES[type].n,base=PREFIX+type+"_";
+async function readShared(type,legacy){
+ const limit=legacy?TYPES[type].legacy:TYPES[type].n,base=(legacy?LEGACY_PREFIX:PREFIX)+type+"_";
  const position=await request("get",base+"position");
  if(position<1)return [];
  const slots=[...new Set(Array.from({length:Math.min(limit,position)},(_,i)=>(position-1-i)%limit))];
@@ -98,9 +101,12 @@ async function refresh(){
   await Promise.all(Object.keys(TYPES).map(async type=>{
    if(!TYPES[type].el)return;
    try{
-    const rows=await readShared(type);
+    const rows=await readShared(type,false);
     sharedRead++;
     if(rows.length){draw(type,rows,false);return;}
+    let legacy=[];
+    try{legacy=await readShared(type,true)}catch(_){}
+    if(legacy.length){draw(type,legacy,false);return;}
     const own=local(type);draw(type,own,!!own.length);
    }catch(_){
     sharedErrors++;
@@ -162,6 +168,6 @@ async function today(){
 void today();void refresh();
 if(villages||families){
  window.addEventListener("focus",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
- setInterval(()=>{if(!document.hidden)void refresh()},60000);
+ setInterval(()=>{if(!document.hidden)void refresh()},15000);
 }
 })();
