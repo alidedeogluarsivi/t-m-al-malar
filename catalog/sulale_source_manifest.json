@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18-hacihamza-koy-alti",
+  "version": "2026-11-18-oguz-hacihamza-village-correspondences",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -105,12 +105,13 @@
     "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson",
     "catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson",
     "catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson",
-    "catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson"
+    "catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson",
+    "catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson"
   ],
   "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
   "counts": {
     "root": 6,
-    "catalog": 98
+    "catalog": 99
   },
   "rebuild_scope": "all_provinces_all_districts_all_villages"
 }
