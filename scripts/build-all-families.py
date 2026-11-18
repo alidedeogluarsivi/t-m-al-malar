@@ -3,6 +3,7 @@
 Do not invent locality for any row. Distinct conflicting locality records remain distinct.
 """
 import json
+import gzip
 from collections import Counter
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
@@ -102,5 +103,6 @@ for rel in paths:
 report["export_rows"]=len(records)
 records.sort(key=lambda r:tuple(str(r.get(k) or "") for k in ["İL","İLÇE","KÖY","SÜLALE ADI (STANDART)","DEFTER NO"]))
 OUT.write_text("".join(json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n" for row in records),encoding="utf-8")
+(ROOT/"catalog/sulale_tum_arsiv.ndjson.gz").write_bytes(gzip.compress(OUT.read_bytes(),compresslevel=9,mtime=0))
 REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps({k:v for k,v in report.items() if k!="files"},ensure_ascii=False))
