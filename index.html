@@ -1424,7 +1424,7 @@ function archiveForProvinceVillage(districtName,name){
   if(!exact.length&&norm(districtName)==='merkez'){
     exact=archiveIndex.get(key(il,il,name))||[];
   }
-  return exact.length?mergeRecords(exact):null
+  return extendVillageFromBulk(name,exact.length?mergeRecords(exact):null)
 }
 function openProvinceVillage(name,districtName){
   showRecord(name,archiveForProvinceVillage(districtName,name),districtName,selectedProvince&&selectedProvince.name)
@@ -1760,6 +1760,59 @@ function mergeRecords(rows){
   rows.forEach(function(r){['defterler','sulaleler','haneler','gorevli_notlari','taramalar','kaynak_pdf','durumlar'].forEach(function(field){(r[field]||[]).forEach(function(v){pushUnique(field,v)})});if(!base.il&&r.il)base.il=r.il;if(!base.ilce&&r.ilce)base.ilce=r.ilce;if(!base.koy&&r.koy)base.koy=r.koy});
   return base
 }
+const villageFamilyOverlayCache=new Map();
+let activeVillageFamilyOverlay=null;
+function getVillageOverlayFor(name){
+ if(!selectedDistrict||!activeVillageFamilyOverlay)return null;
+ const d=activeVillageFamilyOverlay.districts&&activeVillageFamilyOverlay.districts[norm(selectedDistrict.name)];
+ if(!d)return null;
+ if(d[norm(name)])return d[norm(name)];
+ const want=norm(name).replace(/(koyu|mahallesi)$/,'');
+ const hits=Object.keys(d).filter(function(k){return k.replace(/(koyu|mahallesi)$/,'')===want});
+ return hits.length===1?d[hits[0]]:null
+}
+function extendVillageFromBulk(name,base){
+ const o=getVillageOverlayFor(name);
+ if(!o)return base;
+ const r=base||{id:'bulk|'+name,il:selectedProvince.name,ilce:selectedDistrict.name,koy:name,defterler:[],sulaleler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[]};
+ const known=new Set((r.sulaleler||[]).map(function(x){return norm(typeof x==='string'?x:'')}));
+ r.sulaleler=r.sulaleler||[];
+ for(const n of o.families||[]){if(!known.has(norm(n))){r.sulaleler.push(n);known.add(norm(n))}}
+ r.overlayCandidates=(o.candidate_families||[]).filter(function(n){return !known.has(norm(n))});
+ r.overlaySources=o.sources||[];
+ return r
+}
+function getProvinceBulk(plate){
+ const code=String(Number(plate)).padStart(2,'0');
+ if(!villageFamilyOverlayCache.has(code)){
+  const pending=fetch('./catalog/il_koy_sulale/'+code+'.json?v=20261118-bulk3',{cache:'force-cache'})
+   .then(function(res){if(res.status===404)return null;if(!res.ok)throw Error('TOPLU SÜLALE '+res.status);return res.json()});
+  villageFamilyOverlayCache.set(code,pending);
+  pending.catch(function(){villageFamilyOverlayCache.delete(code)})
+ }
+ return villageFamilyOverlayCache.get(code)
+}
+async function fillBulkFamilies(local,requestId){
+ const plate=Number(String(selectedProvince&&selectedProvince.id||'').replace('TR-P-',''));
+ if(!plate||plate<1||plate>81)return;
+ try{
+  const data=await getProvinceBulk(plate);
+  if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
+  activeVillageFamilyOverlay=data;
+  const group=data&&data.districts&&data.districts[norm(local.name)];
+  if(group){
+   const seen=new Set(currentVillages.map(function(x){return norm(x.name)}));
+   for(const record of Object.values(group)){
+    if(!record||!record.name||seen.has(norm(record.name)))continue;
+    seen.add(norm(record.name));
+    currentVillages.push({name:record.name,kind:localityKind(record.name,{}),parent:'',record:null,has:false})
+   }
+  }
+  for(const x of currentVillages){x.record=archiveForVillage(x.name);x.has=!!x.record}
+  currentVillages.sort(function(a,b){return a.has!==b.has?a.has?-1:1:a.name.localeCompare(b.name,'tr')});
+  refreshHierarchy();renderVillageList();renderPreview()
+ }catch(e){console.warn('KÖY BAZLI SÜLALE DOSYASI',e)}
+}
 function archiveForVillage(name){
   const il=selectedProvince&&selectedProvince.name;
   const ilce=selectedDistrict&&selectedDistrict.name;
@@ -1858,6 +1911,7 @@ async function selectDistrict(local,geoFeature){
   const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
   const requestId=++districtRequestSeq;
   selectedDistrict={id:local.id,name:local.name};
+  activeVillageFamilyOverlay=null;
   previewLimit=36;
   level='district';
   const fastDf=geoFeature || (districtGeo&&districtGeo.features||[]).find(function(x){
@@ -1876,6 +1930,7 @@ async function selectDistrict(local,geoFeature){
   refreshHierarchy();
   renderVillageList();
   void fillAllDistrictSettlements(local,requestId);
+  void fillBulkFamilies(local,requestId);
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
 
@@ -2128,6 +2183,12 @@ function showRecord(name,r,ilce,il){
     }
     if(archiveLayerPrefs.families&&fams.length){
       h+='<div class="section"><h3>SÜLALE / LAKAP ADLARI</h3>'+fams.map(function(x){return'<span class="family">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div>'
+    }
+    if(archiveLayerPrefs.families&&(r.overlayCandidates||[]).length){
+      h+='<div class="section"><h3>KÖY EŞLEŞMESİ KONTROL EDİLECEK SÜLALELER</h3><div class="notice">BU İSİMLERİN GÜNCEL MUHTARLIK EŞLEŞMESİ KESİNLEŞMEDİ.</div>'+r.overlayCandidates.map(function(x){return '<span class="family">'+esc(x)+' (ADAY)</span>'}).join('')+'</div>';
+    }
+    if((r.overlaySources||[]).length){
+      h+='<div class="section"><h3>TOPLU ÇALIŞMA KAYNAKLARI</h3>'+r.overlaySources.map(function(x){return '<div class="record">'+esc(x)+'</div>'}).join('')+'</div>';
     }
     if(staff.length){
       h+='<div class="section"><h3>İMAM / MUHTAR / KETHÜDA / GÖREVLİ</h3>'+staff.map(function(x){return'<div class="record">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>'
