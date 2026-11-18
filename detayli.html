@@ -255,7 +255,7 @@ function renderVillageList(){
   vList.querySelectorAll('[data-i]').forEach(el=>el.onclick=()=>openVillage(currentVillages[Number(el.dataset.i)].properties._displayName));
 }
 function openVillage(name){showVillage(name,recFor(name))}
-async function loadArchive(){for(const f of ARCH){const t=await txt(f);for(const line of t.split(/\r?\n/)){if(!line.trim())continue;const x=JSON.parse(line);if(x._summary){summary=x._summary;continue}archive.push(x)}}for(const r of archive){
+async function loadArchive(){const responses=await Promise.allSettled(ARCH.map(f=>txt(f)));for(const response of responses){if(response.status!=='fulfilled'){console.warn('ARŞİV DOSYASI YÜKLENEMEDİ',response.reason);continue}for(const line of response.value.split(/\r?\n/)){if(!line.trim())continue;try{const x=JSON.parse(line);if(x._summary){summary=x._summary;continue}archive.push(x)}catch(e){}}}for(const r of archive){
   if(!(r.il&&r.ilce&&r.koy))continue;
   const k=key(r.il,r.ilce,r.koy),existing=archiveIndex.get(k);
   if(!existing){archiveIndex.set(k,r);continue}
