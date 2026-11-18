@@ -1,5 +1,5 @@
 {
-  "source_count": 103,
+  "source_count": 104,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -335,7 +335,7 @@
       "il": "ÇORUM",
       "ilce": 13,
       "koy": 95,
-      "confirmed_family_places": 2415,
+      "confirmed_family_places": 2426,
       "candidate_family_places": 56
     },
     "17": {
