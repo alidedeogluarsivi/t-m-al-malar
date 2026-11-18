@@ -1,5 +1,5 @@
 {
-  "source_count": 109,
+  "source_count": 110,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -180,9 +180,9 @@
     "37": {
       "il": "KASTAMONU",
       "ilce": 22,
-      "koy": 86,
+      "koy": 87,
       "confirmed_family_places": 667,
-      "candidate_family_places": 52
+      "candidate_family_places": 58
     },
     "38": {
       "il": "KAYSERİ",

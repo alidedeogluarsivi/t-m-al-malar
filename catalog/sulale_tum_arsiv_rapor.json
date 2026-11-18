@@ -108,11 +108,12 @@
     "catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson": 8,
     "catalog/uguz_1891_kisla_pelitcik_20261118.ndjson": 0,
     "catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson": 6,
-    "catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson": 44
+    "catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson": 44,
+    "catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson": 289
   },
-  "source_rows": 16594,
-  "family_mentions": 37575,
-  "export_rows": 30643,
-  "candidate": 10272,
+  "source_rows": 16621,
+  "family_mentions": 37958,
+  "export_rows": 30932,
+  "candidate": 10278,
   "source_missing": []
 }
