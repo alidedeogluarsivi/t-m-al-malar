@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-19-carsamba1834-90-kesin-32-tarihi-yerlesim",
+  "version": "2026-11-19-samsun-1834-excel-toplu-104-karye",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -116,12 +116,20 @@
     "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson",
     "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson",
     "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson",
-    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson"
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_01_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_02_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_03_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_04_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_05_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_06_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_07_20261119.ndjson",
+    "catalog/samsun_1834_excel_toplu_08_20261119.ndjson"
   ],
-  "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
+  "notes": "Samsun 1834 Excel aktarımı: tarihî karyeler, açık oğul lakapları, hane bilgileri; güncel köyü belirsiz kayıtlar kesin eşleşme sayılmaz; defter numarası kaynak sayfası bazında doğrulanmalıdır.",
   "counts": {
     "root": 6,
-    "catalog": 99
+    "catalog": 117
   },
   "rebuild_scope": "all_provinces_all_districts_all_villages"
 }
