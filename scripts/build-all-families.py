@@ -46,8 +46,12 @@ def first_year(o):
     return get(o,["DEFTER YILI","YIL","yil"])
 def first_hane(o):
     return get(o,["HANE NO","hane_no"])
+def corrupt_place(value):
+    x=txt(value).upper().replace(" ","")
+    return x in {"YL","DYL","YDL","YLL","YLI","YIL","Y"} or (len(x)<=3 and x.isalpha() and x not in {"ADA","OVA"})
 def is_candidate(o, il, ilce, koy):
     if not all([il,ilce,koy]) or any(s.upper() in EMPTY for s in [il,ilce,koy]):return True
+    if corrupt_place(koy) or corrupt_place(ilce):return True
     check=get(o,["EŞLEŞME DURUMU","DOĞRULAMA","yerlesim_eslesme_durumu","eslesme_durumu"])
     if any(x in check.upper() for x in ["ADAY","BELİRSİZ","KONTROL","ŞÜPHE","BEKLİYOR","DOĞRULANMADI"]):return True
     if any(any(t in txt(x).upper() for t in ["EŞLEŞMESİ KONTROL EDİLECEK","GÜNCEL ADRES DOĞRULAMASI","GÜNCEL YERLEŞİM EŞLEŞMESİ DOĞRULANMADI","AİDİYETİ DOĞRULANMADI","KONTROL BEKLİYOR","EŞLEŞME BEKLİYOR"]) for x in (o.get("durumlar") or []) if isinstance(x,str)):return True
@@ -124,7 +128,7 @@ PROVINCIAL={}
 missing_province=[]
 for row in records:
     province,district,village=(txt(row.get(x)) for x in ("İL","İLÇE","KÖY"))
-    if not province or not district or not village:continue
+    if not province or not district or not village or corrupt_place(district) or corrupt_place(village):continue
     plate=PLATE_BY_NAME.get(norm_key(province))
     if not plate:
         missing_province.append((province,district,village))
