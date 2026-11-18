@@ -48,9 +48,9 @@ def is_candidate(o, il, ilce, koy):
     if not all([il,ilce,koy]) or any(s.upper() in EMPTY for s in [il,ilce,koy]):return True
     check=get(o,["EŞLEŞME DURUMU","DOĞRULAMA","yerlesim_eslesme_durumu","eslesme_durumu"])
     if any(x in check.upper() for x in ["ADAY","BELİRSİZ","KONTROL","ŞÜPHE","BEKLİYOR","DOĞRULANMADI"]):return True
-    if any(any(t in txt(x).upper() for t in ["EŞLEŞMESİ KONTROL EDİLECEK","GÜNCEL ADRES DOĞRULAMASI","GÜNCEL YERLEŞİM EŞLEŞMESİ DOĞRULANMADI"]) for x in o.get("durumlar",[]) if isinstance(x,str)):return True
+    if any(any(t in txt(x).upper() for t in ["EŞLEŞMESİ KONTROL EDİLECEK","GÜNCEL ADRES DOĞRULAMASI","GÜNCEL YERLEŞİM EŞLEŞMESİ DOĞRULANMADI"]) for x in (o.get("durumlar") or []) if isinstance(x,str)):return True
     return False
-seen=set()
+seen={}
 records=[]
 report={"files":{},"source_rows":0,"family_mentions":0,"export_rows":0,"candidate":0,"source_missing":[]}
 paths=json.loads(MANIFEST.read_text(encoding="utf-8")).get("paths",[])
@@ -82,13 +82,18 @@ for rel in paths:
         for name in names:
             report["family_mentions"]+=1
             key=(il.casefold(),ilce.casefold(),koy.casefold(),child.casefold(),name.casefold(),defter,hane)
-            if key in seen:continue
-            seen.add(key)
+            if key in seen:
+                previous=records[seen[key]]
+                if previous["EŞLEŞME DURUMU"].startswith("ADAY") and not candidate:
+                    previous["EŞLEŞME DURUMU"]="KAYNAKTAKİ YERLEŞİM"
+                    report["candidate"]-=1
+                continue
+            seen[key]=len(records)
             # Only archive-derived names and directly recorded location metadata.
             row={"SÜLALE ADI (STANDART)":name,"İL":il,"İLÇE":ilce,"KÖY":koy,
                  "KÖY ALTI":child,"SOKAK":sokak,"CADDE":cadde,
                  "DEFTER NO":defter,"DEFTER YILI":year,"HANE NO":hane,
-                 "KAYNAK PDF":source or rel,
+                 "KAYNAK PDF":source,"KAYNAK DOSYA":rel,
                  "EŞLEŞME DURUMU":"ADAY — GÜNCEL YERLEŞİM DOĞRULANMADI" if candidate else "KAYNAKTAKİ YERLEŞİM"}
             records.append(row)
             file_count+=1
