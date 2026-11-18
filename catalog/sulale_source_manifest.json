@@ -98,6 +98,7 @@
     "catalog/sulale_yer_eslesmeleri_20261118.ndjson",
     "catalog/tercume_ayrintilari_20261112.ndjson",
     "catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson",
+    "catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson",
     "catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson",
     "catalog/vezirkopru_karkucak_1845.ndjson",
     "catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson",
@@ -106,6 +107,6 @@
   "notes": "Kaynak dosyaları otomatik dahil edilir; tarihî/güncel eşleştirmeler arşivdeki kanıtlara göre ayrılır.",
   "counts": {
     "root": 6,
-    "catalog": 94
+    "catalog": 95
   }
 }
