@@ -1,5 +1,5 @@
 {
-  "source_count": 111,
+  "source_count": 112,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -180,8 +180,8 @@
     "37": {
       "il": "KASTAMONU",
       "ilce": 22,
-      "koy": 87,
-      "confirmed_family_places": 667,
+      "koy": 88,
+      "confirmed_family_places": 703,
       "candidate_family_places": 58
     },
     "38": {

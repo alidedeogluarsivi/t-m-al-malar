@@ -110,11 +110,12 @@
     "catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson": 6,
     "catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson": 44,
     "catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson": 289,
-    "catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson": 25
+    "catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson": 25,
+    "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson": 36
   },
-  "source_rows": 16694,
-  "family_mentions": 37983,
-  "export_rows": 30957,
+  "source_rows": 16740,
+  "family_mentions": 38029,
+  "export_rows": 30993,
   "candidate": 10278,
   "source_missing": []
 }
