@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-18",
+  "source": "catalog/il_koy_sulale/{il-plaka}.json",
+  "note": "Sayılar incelenen mevcut derleme dizinindendir; güncel idarî köylerin tamamını ifade etmez.",
+  "districts": [
+    {
+      "il": "SİNOP",
+      "ilce": "DURAĞAN",
+      "yerlesim": 56,
+      "sulale_baglantisi": 350,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SİNOP",
+      "ilce": "BOYABAT",
+      "yerlesim": 117,
+      "sulale_baglantisi": 1007,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SİNOP",
+      "ilce": "SARAYDÜZÜ",
+      "yerlesim": 43,
+      "sulale_baglantisi": 228,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "HAVZA",
+      "yerlesim": 54,
+      "sulale_baglantisi": 704,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "LADİK",
+      "yerlesim": 62,
+      "sulale_baglantisi": 811,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "ÇARŞAMBA",
+      "yerlesim": 48,
+      "sulale_baglantisi": 550,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "ALAÇAM",
+      "yerlesim": 52,
+      "sulale_baglantisi": 1049,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "BAFRA",
+      "yerlesim": 60,
+      "sulale_baglantisi": 443,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "TERME",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "TEKKEKÖY",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "AYVACIK",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "ASARCIK",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "SAMSUN",
+      "ilce": "SALIPAZARI",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "ORDU",
+      "ilce": "FATSA",
+      "yerlesim": 0,
+      "sulale_baglantisi": 0,
+      "durum": "KAYIT YOK; HAZIR TERCÜME KÜTÜPHANESİNDEN TEYİT GEREKİYOR"
+    },
+    {
+      "il": "ORDU",
+      "ilce": "ÜNYE",
+      "yerlesim": 1,
+      "sulale_baglantisi": 21,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "BOLU",
+      "ilce": "DÖRTDİVAN",
+      "yerlesim": 5,
+      "sulale_baglantisi": 34,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "ÇANKIRI",
+      "ilce": "ELDİVAN",
+      "yerlesim": 8,
+      "sulale_baglantisi": 106,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "ÇANKIRI",
+      "ilce": "KORGUN",
+      "yerlesim": 9,
+      "sulale_baglantisi": 280,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "ÇANKIRI",
+      "ilce": "ILGAZ",
+      "yerlesim": 10,
+      "sulale_baglantisi": 193,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "ÇANKIRI",
+      "ilce": "ŞABANÖZÜ",
+      "yerlesim": 15,
+      "sulale_baglantisi": 228,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    },
+    {
+      "il": "UŞAK",
+      "ilce": "KARAHALLI",
+      "yerlesim": 2,
+      "sulale_baglantisi": 96,
+      "durum": "KISMİ KAYIT; TÜM KÖYLERİN TAMAMLANDIĞI DOĞRULANMADI"
+    }
+  ],
+  "historical_kazas": [
+    {
+      "name": "SAZ",
+      "source": "catalog/saz_1956_1845_pdf_sulale_dizini.ndjson",
+      "current_district": "KASTAMONU / TOSYA",
+      "note": "TARİHÎ KAZA; GÜNCEL İLÇE OLARAK ARANMAMALI"
+    },
+    {
+      "name": "HACIHAMZA",
+      "source": "catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson",
+      "current_district": "ÇORUM / KARGI",
+      "note": "TARİHÎ KAZA; GÜNCEL İLÇE OLARAK ARANMAMALI"
+    },
+    {
+      "name": "ÜĞÜZ / OĞUZ",
+      "source": "catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson",
+      "current_district": "ÇORUM / KARGI",
+      "note": "TARİHÎ KAZA; BUGÜNKÜ OĞUZLAR İLÇESİYLE OTOMATİK ÖZDEŞLEŞTİRİLMEYECEK"
+    }
+  ]
+}
