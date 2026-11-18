@@ -64,11 +64,13 @@
     "catalog/havza_2210_tercume_dogrulanmis_20261112.ndjson",
     "catalog/havza_48yerlesim_494sulale_20261112.ndjson",
     "catalog/karabuk_nfs_full.ndjson",
+    "catalog/karahalli_1834_kutuphane_sulaleleri.ndjson",
     "catalog/kars_zarusad_verified.ndjson",
     "catalog/kastamonu_akkaya_1845_dogrulanmis_koy_kartlari.ndjson",
     "catalog/kastamonu_akkaya_akcatas_4055_1846_karye_sulaleleri.ndjson",
     "catalog/kaza_sulale_verified_20261111.ndjson",
     "catalog/kesap_1131_ek1_sulaleler_20261112.ndjson",
+    "catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson",
     "catalog/ladik_2234_41koy_sulaleler_20261112.ndjson",
     "catalog/ladik_2234_6mahalle_sulaleler_20261112.ndjson",
     "catalog/mamali_kizilkoca_2092_verified_20261112.ndjson",
@@ -76,6 +78,7 @@
     "catalog/sabanozu_1845_25_yerlesim_nfs_fihrist.ndjson",
     "catalog/sabanozu_1845_guncel_koy_tum_dogrulanmis_sulaleler.ndjson",
     "catalog/sabanozu_1845_nfs3562_dogrulanmis_ek_kayitlar.ndjson",
+    "catalog/saz_1956_1845_pdf_sulale_dizini.ndjson",
     "catalog/saz_hacihamza_oguz_1845.ndjson",
     "catalog/sinop_ayancik_terze_cukur_nfs915_sulaleler_20261113.ndjson",
     "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson",
@@ -101,6 +104,6 @@
   "notes": "Kaynak dosyaları otomatik dahil edilir; tarihî/güncel eşleştirmeler arşivdeki kanıtlara göre ayrılır.",
   "counts": {
     "root": 6,
-    "catalog": 89
+    "catalog": 92
   }
 }
