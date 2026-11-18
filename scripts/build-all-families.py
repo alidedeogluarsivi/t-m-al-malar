@@ -155,3 +155,31 @@ for plate,content in PROVINCIAL.items():
 (TARGET/"manifest.json").write_text(json.dumps({"source_count":len(paths),"province_count":len(PROVINCIAL),"provinces":province_summary,"unmapped_province_count":len(missing_province)},ensure_ascii=False,indent=2),encoding="utf-8")
 print("Village-to-family overlays:",len(PROVINCIAL),"provinces; unresolved province rows:",len(missing_province))
 # Publish each province separately so villages open quickly.
+
+
+# One lightweight confirmed village-family feed for map, search, and full inventory.
+# Only the confirmed families from the province overlays enter sulaleler.
+COMMON=ROOT/"catalog/sulale_koy_ortak.ndjson"
+rows_common=[]
+for plate,content in sorted(PROVINCIAL.items()):
+    for district,villages in sorted(content["districts"].items()):
+        for vkey,v in sorted(villages.items()):
+            confirmed=list(dict.fromkeys(v.get("families",[])))
+            candidates=list(dict.fromkeys(v.get("candidate_families",[])))
+            if not confirmed and not candidates:
+                continue
+            rows_common.append({
+                "id":"toplu-sulale|"+plate+"|"+district+"|"+vkey,
+                "il":content["province"],
+                "ilce":district,
+                "koy":v["name"],
+                "sulaleler":confirmed,
+                "overlayCandidates":candidates,
+                "defterler":[{"tur":"NÜFUS / TEMETTUAT KAYNAK DİZİNİ","defter":d} for d in v.get("defterler",[]) if d],
+                "kaynak_dosyalari":v.get("sources",[]),
+                "haneler":[],
+                "durumlar":["KAYNAK DOSYALARINDAN KÖY BAZINDA DERLENDİ; DOĞRULANMAYAN EŞLEŞMELER AYRI TUTULDU."],
+                "arsiv_karti":True
+            })
+COMMON.write_text("".join(json.dumps(o,ensure_ascii=False,separators=(",",":"))+"\n" for o in rows_common),encoding="utf-8")
+print("Unified village-family feed:",len(rows_common),"villages",sum(len(r["sulaleler"]) for r in rows_common),"confirmed links")
