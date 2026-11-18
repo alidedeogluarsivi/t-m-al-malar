@@ -1,5 +1,5 @@
 {
-  "source_count": 105,
+  "source_count": 106,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -180,8 +180,8 @@
     "37": {
       "il": "KASTAMONU",
       "ilce": 22,
-      "koy": 84,
-      "confirmed_family_places": 653,
+      "koy": 85,
+      "confirmed_family_places": 661,
       "candidate_family_places": 52
     },
     "38": {
@@ -334,9 +334,9 @@
     "19": {
       "il": "ÇORUM",
       "ilce": 13,
-      "koy": 97,
+      "koy": 95,
       "confirmed_family_places": 2435,
-      "candidate_family_places": 56
+      "candidate_family_places": 47
     },
     "17": {
       "il": "ÇANAKKALE",
