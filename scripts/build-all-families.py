@@ -154,3 +154,4 @@ for plate,content in PROVINCIAL.items():
     (TARGET/(plate+".json")).write_text(json.dumps(content,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (TARGET/"manifest.json").write_text(json.dumps({"source_count":len(paths),"province_count":len(PROVINCIAL),"provinces":province_summary,"unmapped_province_count":len(missing_province)},ensure_ascii=False,indent=2),encoding="utf-8")
 print("Village-to-family overlays:",len(PROVINCIAL),"provinces; unresolved province rows:",len(missing_province))
+# Publish each province separately so villages open quickly.
