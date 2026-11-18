@@ -112,13 +112,21 @@
     "catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson": 289,
     "catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson": 25,
     "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson": 36,
-    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson": 557,
-    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson": 534,
-    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson": 364
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson": 563,
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson": 545,
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson": 389,
+    "catalog/samsun_1834_excel_toplu_01_20261119.ndjson": 92,
+    "catalog/samsun_1834_excel_toplu_02_20261119.ndjson": 112,
+    "catalog/samsun_1834_excel_toplu_03_20261119.ndjson": 60,
+    "catalog/samsun_1834_excel_toplu_04_20261119.ndjson": 108,
+    "catalog/samsun_1834_excel_toplu_05_20261119.ndjson": 76,
+    "catalog/samsun_1834_excel_toplu_06_20261119.ndjson": 111,
+    "catalog/samsun_1834_excel_toplu_07_20261119.ndjson": 125,
+    "catalog/samsun_1834_excel_toplu_08_20261119.ndjson": 69
   },
-  "source_rows": 16862,
-  "family_mentions": 39532,
-  "export_rows": 32448,
-  "candidate": 10781,
+  "source_rows": 16966,
+  "family_mentions": 40418,
+  "export_rows": 33243,
+  "candidate": 11479,
   "source_missing": []
 }
