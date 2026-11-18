@@ -171,7 +171,7 @@ function selectOptions(el,items,placeholder){
 async function setupOfficial(){
  try{
   officialManifest=await loadOfficial("manifest.json");
-  optionize(il,Object.values(officialManifest.provinces).sort(sortTR),"TÜM İLLER","");
+  optionize(il,[...new Set([...Object.values(officialManifest.provinces),...distinct(all,"il")])].sort(sortTR),"TÜM İLLER","");
   try{const extra=await loadOfficial("secondary-address-links.json");secondaryLinks=extra.records||[]}catch(e){console.warn("Ek adres bağlantıları okunamadı:",e)}
 
  }catch(e){console.warn(e);optionize(il,distinct(all,"il"),"TÜM İLLER","")}
@@ -288,14 +288,14 @@ byId("more").addEventListener("click",()=>render(false));
 byId("print").addEventListener("click",()=>window.print());
 byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=false;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
 async function readFamilyFile(path){
- const response=await fetch(path+"?v=20261118-complete2",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
+ const response=await fetch(path+"?v=20261118-complete3",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
  if(!response.ok)throw Error(path+" HTTP "+response.status);
  return response.text();
 }
 async function getCompiledFamilyFeed(){
  if(typeof DecompressionStream==="function"){
   try{
-   const response=await fetch("catalog/sulale_tum_arsiv.ndjson.gz?v=20261118-complete2",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
+   const response=await fetch("catalog/sulale_tum_arsiv.ndjson.gz?v=20261118-complete3",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
    if(response.ok&&response.body){
     const stream=response.body.pipeThrough(new DecompressionStream("gzip"));
     return await new Response(stream).text();
@@ -320,7 +320,15 @@ async function loadAllFamilySources(){
  try{
   const data=await getCompiledFamilyFeed();
   await ingestFamilyText(data,"catalog/sulale_tum_arsiv.ndjson");
-  return {complete:true,files:93};
+  let count=95;
+  try{
+   const reportResponse=await fetch("catalog/sulale_tum_arsiv_rapor.json?v=20261118-complete3",{cache:"no-cache"});
+   if(reportResponse.ok){
+    const report=await reportResponse.json();
+    if(report.files)count=Object.keys(report.files).length;
+   }
+  }catch(_){}
+  return {complete:true,files:count};
  }catch(e){console.warn("Toplu arşiv kataloğu kullanılamıyor, bütün kaynaklar ayrı ayrı okunacak.",e)}
  let allPaths=paths.slice();
  try{
