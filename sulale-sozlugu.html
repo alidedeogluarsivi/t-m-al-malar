@@ -160,7 +160,7 @@ async function appendNationwideStreets(){
 }
 const comparePlace=s=>norm(s).replace(/ (KÖYÜ|MAHALLESİ|MAHALLESI)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
 async function loadOfficial(path){
- const res=await fetch("./official-addresses/"+path+"?v=20261118-row4",{cache:"no-cache"});
+ const res=await fetch("./official-addresses/"+path+"?v=20261118-villagefix2",{cache:"no-cache"});
  if(!res.ok)throw Error("Dosya yüklenemedi");
  return res.json();
 }
@@ -267,7 +267,7 @@ function render(reset){
  if(!grouped.length)byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN KAYIT BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
 }
 for(const [node,id] of [[il,"il"],[ilce,"ilce"],[koy,"koy"],[koyAlti,"koyAlti"]])node.addEventListener("change",()=>refreshFilters(id));
-onlyVerified.addEventListener("change",()=>refreshFilters("il"));
+onlyVerified.addEventListener("change",()=>resetResultsOnSelection());
 query.addEventListener("input",()=>{if(searched){searched=false;byId("results").replaceChildren();byId("summary").textContent="ARAMAK İÇİN ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;}});
 byId("queryGo").addEventListener("click",()=>{
  if(!all.length){byId("summary").textContent="ARŞİV KAYITLARI HENÜZ YÜKLENMEDİ. YÜKLEME TAMAMLANINCA TEKRAR ARA DÜĞMESİNE BASIN.";return;}
@@ -352,12 +352,21 @@ async function loadAllFamilySources(){
  }));
  return {complete:errors.length===0,files:allPaths.length};
 }
+// Yerleşim filtreleri arşiv kataloğundan bağımsız ve ilk anda yüklenir.
+const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>console.warn("Yerleşim dizini:",e));
 (async()=>{
+ await officialReady;
  const meta=await loadAllFamilySources();
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
  byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI · "+meta.files+" KAYNAK DOSYASI."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
- await setupOfficial();
- await refreshFilters("il");
+ // Mevcut kullanici il/ilce/koy secimini bozmadan, arsiv eklerini ilgili listelere kat.
+ if(!il.value){const names=[...new Set([...Array.from(il.options).map(o=>o.value).filter(Boolean),...distinct(all,"il")])].sort(sortTR);optionize(il,names,"TÜM İLLER","");}
+ else if(ilce.value){
+  const district=officialProvince?.districts?.[ilce.value];
+  const extra=distinct(all.filter(x=>norm(x.il)===norm(il.value)&&norm(x.ilce)===norm(ilce.value)),"koy");
+  const names=[...new Set([...Object.keys(district?.muhtarliklar||{}),...extra])].sort(sortTR);
+  const selected=koy.value;optionize(koy,names,"TÜM KÖY / MAHALLE",selected);koy.disabled=!names.length;
+ }
  byId("summary").textContent="İL, İLÇE, KÖY VE SÜLALE SEÇİMİ YAPIP ARA DÜĞMESİNE BASIN.";
 })().catch(e=>{byId("progress").textContent="ARŞİV KAYITLARI YÜKLENEMEDİ: "+e.message});
 </script><script defer src="./site-stats.js?v=20261118-family5"></script></body></html>
