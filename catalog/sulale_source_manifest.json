@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18-saz-dereseku-historical",
+  "version": "2026-11-18-hacihamza-excel-missing44",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -109,7 +109,8 @@
     "catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson",
     "catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson",
     "catalog/uguz_1891_kisla_pelitcik_20261118.ndjson",
-    "catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson"
+    "catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson",
+    "catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson"
   ],
   "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
   "counts": {
