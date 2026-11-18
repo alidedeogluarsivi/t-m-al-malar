@@ -106,11 +106,12 @@
     "catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson": 12,
     "catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson": 30,
     "catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson": 8,
-    "catalog/uguz_1891_kisla_pelitcik_20261118.ndjson": 0
+    "catalog/uguz_1891_kisla_pelitcik_20261118.ndjson": 0,
+    "catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson": 6
   },
-  "source_rows": 16584,
-  "family_mentions": 37525,
-  "export_rows": 30593,
+  "source_rows": 16585,
+  "family_mentions": 37531,
+  "export_rows": 30599,
   "candidate": 10284,
   "source_missing": []
 }
