@@ -1,0 +1,92 @@
+{
+  "tarihi_kaza": "ÜĞÜZ / OĞUZ",
+  "defter": "BOA NFS.d.1891",
+  "calisma_yili": "1845",
+  "tarih_notu": "NFS.d.1891 fihrist verileri, 1845 başlıklı mevcut arşiv çalışmasından aktarıldı.",
+  "kaynaklar": [
+    "UGUZ_1845_1891_NUFUS_DEFTERI_TERCUME_TASLAGI_DOLDURULMUS.xlsx",
+    "UGUZ_1845_1891_NUFUS_DEFTERI_TERCUME_TASLAGI_GUNCEL.xlsx",
+    "ÇORUM KARGI BADEMCE KÖYÜ 1845 TARİHLİ NÜFUS DEFTERİ.pdf"
+  ],
+  "durum": "YEDİ KÖYÜN SAYIM FİHRİSTİ VAR; TERCÜME EXCEL'İNDE 1.510 SATIRIN SÜLALE VE KİŞİ SÜTUNLARI BOŞTUR. BADEMCE HARİÇ BAŞKA KÖY İÇİN DOĞRULANMIŞ SÜLALE OKUMASI BULUNMADI.",
+  "yerlesimler": [
+    {
+      "il": "Kastamonu",
+      "ilce": "Tosya",
+      "koy": "Çevlik",
+      "varak": "3",
+      "hane": 109,
+      "erkek": 365,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Kargı",
+      "koy": "Pelitçik / Kışla Mezrası",
+      "varak": "12",
+      "hane": 7,
+      "erkek": 21,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Kastamonu",
+      "ilce": "Tosya",
+      "koy": "Ortalıca",
+      "varak": "13",
+      "hane": 84,
+      "erkek": 328,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Kastamonu",
+      "ilce": "Tosya",
+      "koy": "Karaköy",
+      "varak": "22",
+      "hane": 39,
+      "erkek": 172,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Kargı",
+      "koy": "Oğuzköy",
+      "varak": "27",
+      "hane": 29,
+      "erkek": 121,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Kargı",
+      "koy": "Pelitçik",
+      "varak": "32",
+      "hane": 54,
+      "erkek": 257,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    },
+    {
+      "il": "Çorum",
+      "ilce": "Kargı",
+      "koy": "Arık",
+      "varak": "38",
+      "hane": 38,
+      "erkek": 152,
+      "sulale_sayisi": "KAYNAKTA OKUNMUŞ KAYIT YOK",
+      "kaynak_durumu": "ORİJİNAL DEFTER GÖRÜNTÜSÜNDEN NFS.d.1891 HANE OKUMASI GEREKİYOR"
+    }
+  ],
+  "tamamlanan_bademce": {
+    "il": "Çorum",
+    "ilce": "Kargı",
+    "koy": "Bademce",
+    "kaynak": "BOA NFS.d.1891",
+    "dogrulanmis_farkli_sulale": 14
+  },
+  "uyari": "SÜLALELERİ KAYNAK OLMADAN DİĞER 7 KÖYE PAYLAŞTIRMAK YASAKTIR."
+}
