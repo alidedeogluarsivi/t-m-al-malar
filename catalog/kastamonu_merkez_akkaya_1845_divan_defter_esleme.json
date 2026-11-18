@@ -221,7 +221,7 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "TARİHÎ KARYE VE DİVAN AKKAYA BAĞI DOĞRULANDI; GÜNCEL MUHTARLIK BELİRSİZ",
+      "eslesme_seviyesi": "TARİHÎ KABALAR-KARASU COĞRAFYASI ÇOKLU BELGELİ; GÜNCEL MUHTARLIK BELİRSİZ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -231,12 +231,25 @@
       "tarihi_ad_varyantlari": [
         "KABALAR DER KARASU"
       ],
-      "ek_tarihi_kanit": "1582 Kastamonu tahririnde Kabalar der Karasu olarak geçer. Giresun Üniversitesi yayını Kabalar'ı Karasu köyü yakınında gösterir. Bu tarihî coğrafî bağ 1845 Akkaya/Kabalar için dikkate alınmalıdır; İnebolu Kabalar farklı belgelere bağlıdır.",
-      "ek_tarihi_kanit_url": "https://kddb.giresun.edu.tr/Files/ckFiles/kddb-giresun-edu-tr/Yaylacilik_ve_Yayla_Kulturu_Sempozyumu_kitabi.pdf",
+      "ek_tarihi_kanit": "1789 tarihli tereke kaydında Akkaya nahiyesindeki Kabalar'da harem menzilleri, ortakçı evleri ve Karasu Nehri'nden gelen değirmenler anılır. 1582 tahririnde Kabalar der Karasu adıyla kayıtlıdır. Güncel Kastamonu Merkez köyü/muhtarlığı bu bilgilerle kesinleşmez.",
+      "ek_tarihi_kanit_url": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
       "ayni_adli_yanlis_ilce_uyarisi": "İNEBOLU'ya bağlı Kabalar Divanı için ML.VRD.TMT.d.3883'te Abdioğlu, Sökü, Gökköy, Çeliköy, Aravlı sayılır. Bu ayrı defteri 1845 Akkaya/Kabalar ML.VRD.TMT.d.4060 ile karıştırma.",
       "sicil_kaniti": "Kastamonu Şer'iyye Sicili aktarımında 'Medine-i Kastamonu muzâfâtından Akkaya Nahiyesine tabi Kabalar Karyesi' ibaresi bulunur. Aynı adın 1845 temettuat fihristinde divan olması, karye ve divan düzeylerinin ayrılığını gerektirir.",
       "sicil_kaynagi": "https://acikerisim.kastamonu.edu.tr/server/api/core/bitstreams/67a51e69-0e7f-4dfe-9c1c-e0e146ff7301/content",
-      "karisik_defter_kaynagi": "https://makale.isam.org.tr/server/api/core/bitstreams/73548a52-04a8-4ce8-ba43-36c01bf71d46/content"
+      "karisik_defter_kaynagi": "https://makale.isam.org.tr/server/api/core/bitstreams/73548a52-04a8-4ce8-ba43-36c01bf71d46/content",
+      "tarihi_cografi_iliski": [
+        {
+          "tip": "NEHİR",
+          "yer": "KARASU NEHRİ",
+          "belge": "66 NUMARALI KASTAMONU ŞERİYYE SİCİLİ, TEREKE, 1789"
+        },
+        {
+          "tip": "TARİHÎ YERLEŞİM",
+          "yer": "KARASU KÖYÜ YAKINLARI",
+          "belge": "KASTAMONU KAZASI YAYLAKLARI 1487-1582, KABALAR KÖYÜ"
+        }
+      ],
+      "eslesme_aciklamasi": "Kabalar'ın Karasu nehri ve eski Karasu köyü çevresiyle bağlantısı doğrulandı; güncel başka ilçedeki Kabalar köyleri ile özdeş değildir."
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4061",
@@ -365,7 +378,7 @@
       "gunumuz_koy_adaylari": [],
       "eslesme_aciklamasi": "Kastamonu Merkez Girdallı köyünün eski adı Çukurviran veya Çukurhan olarak kaydedilmiştir. Tarihî Akkaya Çukurviran divanının tamamı ile bugünkü Girdallı köyü sınırları bire bir aynı kabul edilmemelidir.",
       "aday_kaynak": null,
-      "eslesme_seviyesi": "AKADEMİK ESKİ-YENİ KÖY ADI KAYDIYLA DESTEKLENİYOR",
+      "eslesme_seviyesi": "TARİHÎ KARYE VE YAYLAK KANITI VAR; GÜNCEL KONUM AKADEMİK KAYNAKTA TESPİTSİZ",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -377,8 +390,8 @@
         "ÇUKURHAN",
         "ÇUKURVİRANI"
       ],
-      "ek_tarihi_kanit": "1860'lar Osmanlı panayır izninde Çukurviran ve Geyikli divanlarının arasında Karadere adlı mevki açıkça anılır. Bu, tarihî divanın coğrafi yönünü destekler; tüm karyelerini Girdallı'ya bağlamaz.",
-      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/114342",
+      "ek_tarihi_kanit": "KASTAMONU KAZASI YAYLAKLARI (1487-1582) çalışması, Çukurviran'ın güncel yerinin tespit edilemediğini açıkça belirtir; 1582 tahririnde köye bağlı yaylak kaydı bulunur.",
+      "ek_tarihi_kanit_url": "https://giramer.giresun.edu.tr/Files/ckFiles/giramer-giresun-edu-tr/Kitaplar/yaylacilik_kitabi_tamami_14012020_SON.pdf",
       "dogrulama_kaynagi": "https://acikerisim.aku.edu.tr/server/api/core/bitstreams/355e0837-b24f-44af-a8e4-9fe26f661801/content",
       "ikincil_kaynak": "https://www.devletarsivleri.gov.tr/cdn?fileId=231"
     },
@@ -560,13 +573,13 @@
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
       "gunumuz_koy_adaylari": [],
-      "eslesme_seviyesi": "EŞLEŞME YOK - KARYE LİSTESİ GEREKLİ",
+      "eslesme_seviyesi": "XVIII. YÜZYIL / 1845 YER ADI SÜREKLİLİĞİ; GÜNCEL MUHTARLIK BELİRSİZ",
       "ek_tarihi_kaynaklar": [],
       "tarihi_ad_varyantlari": [
         "MAVLE"
       ],
-      "ek_tarihi_kanit": "Ömer Döşemetaş (2019), Akkaya nahiyesi 18. yüzyıl avarız tablosunda MAVLE adı geçiyor. 1845 MAVLA ile aynı tarihî bölgenin yazılış varyantı olarak incelenmeli.",
-      "ek_tarihi_kanit_url": "https://dergipark.org.tr/en/download/article-file/886577",
+      "ek_tarihi_kanit": "XVIII. yüzyıl Akkaya nahiyesi avarız tablosunda Mavle yer alır; 1845 TMT.d.4076 Mavla kaydıyla karşılaştırıldı.",
+      "ek_tarihi_kanit_url": "https://isamveri.org/pdfsbv/G01308/2019_2/2019_2_DOSEMETASO.pdf",
       "tarihi_kayit_dogrulama": "EN AZ İKİ DÖNEMDE YER ADI KANITI; MODERN MUHTARLIK AİDİYETİ AYRI KONTROL"
     },
     {
