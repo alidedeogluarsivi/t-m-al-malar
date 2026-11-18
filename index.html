@@ -157,7 +157,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
   <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
   <div class="archiveRecent"><div><strong>SON ARANAN 3 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 5 AİLE / SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div><small id="recentSearchStatus" style="display:block;margin-top:7px;font-size:11px;font-weight:800;color:#fff">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
 </div></div></section>
-<img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli">
+<img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli" decoding="async" fetchpriority="low">
 <div class="shell">
 <nav aria-label="Basın haberleri" style="margin:12px 0;padding:13px 17px;background:#fff;border:2px solid #172f3f;border-radius:12px;text-align:center"><a href="./haberler.html" style="font-size:17px;font-weight:900;color:#172f3f;text-decoration:underline">BASINDA BİZ · HABERLER · 7 KAYNAKLI YAYIN ↗</a></nav>
 <section class="hero">
@@ -3023,7 +3023,7 @@ bindHistoricalControls();
   if(mc)mc.classList.add('mapDormant');
   statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
-  setTimeout(warmArchive,0);
+  if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:12000})}else{setTimeout(warmArchive,3500)}
   if(!mapActivated)statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
