@@ -1,5 +1,5 @@
 {
-  "source_count": 95,
+  "source_count": 98,
   "province_count": 54,
   "provinces": {
     "03": {
@@ -187,8 +187,8 @@
     "37": {
       "il": "KASTAMONU",
       "ilce": 23,
-      "koy": 79,
-      "confirmed_family_places": 506,
+      "koy": 87,
+      "confirmed_family_places": 670,
       "candidate_family_places": 52
     },
     "38": {
@@ -313,9 +313,9 @@
     "64": {
       "il": "UŞAK",
       "ilce": 11,
-      "koy": 14,
+      "koy": 15,
       "confirmed_family_places": 254,
-      "candidate_family_places": 7
+      "candidate_family_places": 174
     },
     "65": {
       "il": "VAN",
@@ -342,7 +342,7 @@
       "il": "ÇANKIRI",
       "ilce": 15,
       "koy": 71,
-      "confirmed_family_places": 1409,
+      "confirmed_family_places": 1445,
       "candidate_family_places": 15
     },
     "19": {
