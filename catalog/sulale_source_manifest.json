@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18",
+  "version": "2026-11-18-koy-sulale-toplu-yeniden-derleme",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -104,9 +104,10 @@
     "catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson",
     "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson"
   ],
-  "notes": "Kaynak dosyaları otomatik dahil edilir; tarihî/güncel eşleştirmeler arşivdeki kanıtlara göre ayrılır.",
+  "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
   "counts": {
     "root": 6,
     "catalog": 95
-  }
+  },
+  "rebuild_scope": "all_provinces_all_districts_all_villages"
 }
