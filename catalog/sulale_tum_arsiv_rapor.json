@@ -103,11 +103,12 @@
     "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson": 180,
     "catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson": 209,
     "catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson": 82,
-    "catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson": 12
+    "catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson": 12,
+    "catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson": 30
   },
-  "source_rows": 16579,
-  "family_mentions": 37487,
-  "export_rows": 30555,
+  "source_rows": 16582,
+  "family_mentions": 37517,
+  "export_rows": 30585,
   "candidate": 10302,
   "source_missing": []
 }
