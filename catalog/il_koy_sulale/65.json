@@ -1,1 +1,1 @@
-{"province":"VAN","districts":{"CATAK":{"Y L":{"name":"Y L","families":["ALİ USTA OĞULLARI"],"candidate_families":[],"defterler":["1840"],"sources":["catalog/sulale_01.ndjson"]}}}}
+{"province":"VAN","districts":{"CATAK":{"KAYNAK-YERLESIM-BELIRSIZ":{"name":"KÖY ADI BELİRSİZ (ÇATAK 1840 KAYNAK PDF)","families":[],"candidate_families":["ALİ USTA OĞULLARI"],"defterler":["1840"],"sources":["catalog/sulale_01.ndjson","ÇATAK KÖYÜ 1840 YILI NÜFUS DEFTERİ.pdf"]}}}}
