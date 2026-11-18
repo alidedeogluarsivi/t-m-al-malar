@@ -46,7 +46,15 @@ const paths=[
  root+"sulale_yer_eslesmeleri_20261118.ndjson",
  root+"carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson",
  root+"carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson",
- root+"carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson"
+ root+"carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_01_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_02_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_03_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_04_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_05_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_06_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_07_20261119.ndjson",
+ root+"samsun_1834_excel_toplu_08_20261119.ndjson"
 ];
 const byId=id=>document.getElementById(id), il=byId("il"),ilce=byId("ilce"),koy=byId("koy"),koyAlti=byId("koyAlti"),query=byId("query"),onlyVerified=byId("onlyVerified");
 const clean=s=>String(s??"").trim().replace(/\s+/g," ");
@@ -65,7 +73,7 @@ function add(row,candidate){
 function ingest(obj,path){
  if(!obj||obj._summary)return;
  if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
-  const mappedCandidate=obj.guncel_eslesme?.kesin===false || !!obj.yerlesim_eslesme_durumu || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
+  const mappedCandidate=obj.guncel_eslesme?.kesin===false || obj.eslesme_kesin===false || !!obj.yerlesim_eslesme_durumu || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
   for(const name of obj.sulaleler){if(typeof name!=="string")continue;
    add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).map(x=>x.defter).filter(Boolean).join(", "),source:(obj.kaynak_pdf||[]).filter(x=>typeof x==="string").join(", ")},mappedCandidate);
   }return;
