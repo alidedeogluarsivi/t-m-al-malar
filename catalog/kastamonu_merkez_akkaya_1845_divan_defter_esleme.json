@@ -467,16 +467,13 @@
       "tur": "DİVAN",
       "gunumuz_il": "Kastamonu",
       "gunumuz_ilce": "Merkez",
-      "gunumuz_koy": null,
+      "gunumuz_koy": "Bük",
       "durum": "GÜNCEL KÖY VE KÖY ALTI EŞLEŞMESİ İÇİN DEFTERİN KARYE SATIRLARI GEREKLİ",
       "kaynak": "BOA TEMETTUAT FİHRİSTİ",
-      "gunumuz_koy_adaylari": [
-        "Bük (resmî idarî kayıtlardaki ad)",
-        "Bükköy (köy yerleşim adı)"
-      ],
-      "eslesme_aciklamasi": "Güncel idarî BÜK ve yerleşim BÜKKÖY adlarının aynı kayıtta geçtiği doğrulandı. 1845 BÜK divanındaki bütün karyelerin güncel Bük köyüne ait olduğu henüz ispatlanmadı.",
+      "gunumuz_koy_adaylari": [],
+      "eslesme_aciklamasi": "Kastamonu Merkez köy listesinde Bük bulunuyor; İl Müdürlüğü raporunda Merkez-Bük / Bükköy olarak geçer. 1845 Bük Divanı'nın tüm köylerinin buraya bağlandığı sonucu çıkarılamaz.",
       "aday_kaynak": "https://www.kastamonuistiklal.com/kastamonunun-koyleri-tek-listede-hangi-ilcede-kac-koy-var",
-      "eslesme_seviyesi": "GÜNCEL KÖY ADI İKİ RESMÎ/YEREL BİÇİMİYLE DOĞRULANDI; 1845 DİVAN HANELERİ BEKLİYOR",
+      "eslesme_seviyesi": "GÜNCEL BÜK KÖYÜNÜN ADI VE BÜKKÖY YERLEŞİM ADI DOĞRULANDI; DİVANIN TÜM KARYELERİ AYRI",
       "ek_tarihi_kaynaklar": [
         "Huri Aloğlu, 30 Numaralı Kastamonu Şer'iyye Sicilinin Transkripsiyonu ve Değerlendirilmesi (2019), s.185-186, Akkaya nahiyesi köy listesi",
         "Ömer Döşemetaş, Osmanlı Devleti'nde Avarız Vergisi: XVIII. Yüzyılın İkinci Çeyreğinde Kastamonu Örneği (2019), Akkaya nahiyesi tablosu",
@@ -484,7 +481,8 @@
       ],
       "tarihi_kayit_dogrulama": "OSMANLI KAYNAKLARINDA AKKAYA YERLEŞİM ADI",
       "guncel_ad_dogrulamasi": "Kastamonu Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 2017/11 jeolojik-jeoteknik etüt listesi: KASTAMONU / MERKEZ / MERKEZ-BÜK / BÜKKÖY",
-      "dogrulama_kaynagi": "https://webdosya.csb.gov.tr/db/kastamonu/menu/raporlar-listesi-ayfer23_20220223104710.pdf"
+      "dogrulama_kaynagi": "https://webdosya.csb.gov.tr/db/kastamonu/menu/raporlar-listesi-ayfer23_20220223104710.pdf",
+      "gunumuz_koy_adi_kaynagi": "https://www.kastamonuistiklal.com/kastamonunun-koyleri-tek-listede-hangi-ilcede-kac-koy-var"
     },
     {
       "defter": "BOA ML.VRD.TMT.d.4074",
