@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18-koy-sulale-toplu-yeniden-derleme",
+  "version": "2026-11-18-sabanozu-eldivan-eksik-sulaleler",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -102,12 +102,14 @@
     "catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson",
     "catalog/vezirkopru_karkucak_1845.ndjson",
     "catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson",
-    "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson"
+    "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson",
+    "catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson",
+    "catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson"
   ],
   "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
   "counts": {
     "root": 6,
-    "catalog": 95
+    "catalog": 97
   },
   "rebuild_scope": "all_provinces_all_districts_all_villages"
 }
