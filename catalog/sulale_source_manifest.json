@@ -61,6 +61,7 @@
     "catalog/corum_1924_1917_full.ndjson",
     "catalog/corum_osmancik_kuzhayat_nfs2257_1846_20261113.ndjson",
     "catalog/eflani_trasli_3513_1845_20261113.ndjson",
+    "catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson",
     "catalog/havza_2210_tercume_dogrulanmis_20261112.ndjson",
     "catalog/havza_48yerlesim_494sulale_20261112.ndjson",
     "catalog/karabuk_nfs_full.ndjson",
@@ -70,6 +71,7 @@
     "catalog/kastamonu_akkaya_akcatas_4055_1846_karye_sulaleleri.ndjson",
     "catalog/kaza_sulale_verified_20261111.ndjson",
     "catalog/kesap_1131_ek1_sulaleler_20261112.ndjson",
+    "catalog/korgun_1845_ildizim_dikenli_sulale_ekleri.ndjson",
     "catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson",
     "catalog/ladik_2234_41koy_sulaleler_20261112.ndjson",
     "catalog/ladik_2234_6mahalle_sulaleler_20261112.ndjson",
@@ -104,6 +106,6 @@
   "notes": "Kaynak dosyaları otomatik dahil edilir; tarihî/güncel eşleştirmeler arşivdeki kanıtlara göre ayrılır.",
   "counts": {
     "root": 6,
-    "catalog": 92
+    "catalog": 94
   }
 }
