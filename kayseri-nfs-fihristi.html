@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAYSERİ NFS FİHRİST İNDEKSİ | ALİDEDEOĞLU ARŞİVİ</title>
+<meta name="description" content="Kayseri Osmanlı nüfus defterleri: 1845-1846 NFS, köy, sayfa, hane ve erkek fihristi.">
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-weight:700}header,main,footer{max-width:1450px;margin:auto;padding:18px}header{border-bottom:3px solid #111}h1{font-size:clamp(22px,3vw,34px);margin:16px 0 6px}h2{font-size:20px}a{color:#111}p{line-height:1.55}small{line-height:1.5}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px;margin:18px 0}.stat{border:2px solid #111;padding:12px;text-align:center}.stat b{display:block;font-size:27px}.stat span{font-size:12px}.filters{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:8px;margin:18px 0}.filters input,.filters select,.filters button{padding:13px;border:2px solid #111;font-weight:700;background:#fff;color:#111}.filters button{cursor:pointer;background:#111;color:#fff}table{width:100%;border-collapse:collapse;font-size:13px}th{position:sticky;top:0;background:#111;color:#fff;text-align:left}th,td{padding:9px 7px;border-bottom:1px solid #bbb;vertical-align:top}tbody tr:nth-child(even){background:#f4f4f4}.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.wrap{max-height:70vh;overflow:auto;border:2px solid #111}caption{text-align:left;font-weight:900;margin-bottom:9px}.note{border-left:4px solid #111;padding:8px 12px;background:#f2f2f2;font-size:13px}footer{border-top:2px solid #111;margin-top:18px;font-size:12px}@media(max-width:800px){.filters{grid-template-columns:1fr 1fr}.wrap{overflow:auto}table{min-width:850px}}@media(max-width:500px){.filters{grid-template-columns:1fr}}
+</style></head>
+<body><header><a href="./index.html">ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a><h1>KAYSERİ – NÜFUS DEFTERLERİ FİHRİST İNDEKSİ</h1><p>1845–1846 KAYSE EXCEL · TARİHÎ KARYE / MAHALLE · BOA NFS.d. · SAYFA · HANE · ERKEK</p><p class="note">BU SAYFA 13 FİHRİST TABLOSUNUN 257 SATIRINI GÖSTERİR. AYNI KÖYÜN FARKLI DEFTERLERDEKİ KAYDI AYRI SATIRDIR. SAYFA NUMARASI VARAK OLARAK SUNULMAZ. ŞÜPHELİ YER ADLARI VE İLÇESİ BELİRSİZ KAYITLAR KORUNUR.</p></header>
+<main><div class="stats"><div class="stat"><b id="records">—</b><span>FİHRİST SATIRI</span></div><div class="stat"><b id="households">—</b><span>HANE TOPLAMI</span></div><div class="stat"><b id="men">—</b><span>ERKEK TOPLAMI</span></div><div class="stat"><b id="books">—</b><span>NFS DEFTERİ</span></div></div>
+<div class="filters"><input id="q" aria-label="Köy veya defter ara" placeholder="KÖY, MAHALLE, DEFTER NO ARA…"><select id="district" aria-label="İlçe seç"><option value="">TÜM İLÇELER</option></select><select id="book" aria-label="Defter seç"><option value="">TÜM NFS DEFTERLERİ</option></select><button id="reset" type="button">TEMİZLE</button></div>
+<p id="status" role="status">FİHRİST YÜKLENİYOR…</p><div class="wrap"><table><thead><tr><th>SIRA</th><th>BUGÜNKÜ İLÇE</th><th>TARİHÎ YERLEŞİM / KÖY</th><th>DEFTER NO</th><th class="num">SAYFA</th><th class="num">HANE</th><th class="num">ERKEK</th><th>KONTROL</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="note">KAYNAK: KULLANICI TARAFINDAN SAĞLANAN KAYSE.XLSX DOSYASI. GÜNCEL İL/İLÇE/KÖY ADLARI KAYNAKTAKİ NOTLARA GÖRE ÖN EŞLEŞMEDİR. 2023 NUMARALI DEFTERDE BAĞIMSIZ TEZDEKİ SAYILARLA FARK GÖRÜLEBİLİR; EXCEL ASIL ALINMIŞTIR.</p></main>
+<footer>ALİDEDEOĞLU ARŞİVİ · BOA NFS.d. FİHRİSTİ · SON GÜNCELLEME 19 KASIM 2026</footer>
+<script>
+"use strict";
+const URL="catalog/kayseri_kayse_xlsx_13_fihrist_20261119.ndjson?v=20261119-kayse257-index2";
+let all=[];const el=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const norm=s=>String(s??"").toLocaleUpperCase("tr-TR");
+const fmt=n=>Number(n||0).toLocaleString("tr-TR");
+function filter(){const q=norm(el("q").value.trim()),d=el("district").value,b=el("book").value;
+ const selected=all.filter(r=>(!d||(r.ilce||"")===d)&&(!b||(r.defterler?.[0]?.defter||"")===b)&&(!q||norm([r.ilce,r.koy,r.tarihi_karye,r.defterler?.[0]?.defter].join(" ")).includes(q)));
+ el("rows").innerHTML=selected.map((r,i)=>{const f=r.defterler?.[0]||{},attention=(r.durumlar||[]).join(" ").includes("KONTROL")||!r.ilce;
+ return "<tr><td>"+(i+1)+"</td><td>"+esc(r.ilce||"İLÇE BELİRSİZ")+"</td><td>"+esc(r.tarihi_karye||r.koy)+"</td><td>"+esc(f.defter)+"</td><td class='num'>"+esc(f.sayfa??"—")+"</td><td class='num'>"+esc(r.hane??"—")+"</td><td class='num'>"+esc(r.erkek??"—")+"</td><td>"+(attention?"EŞLEŞME / OKUNUŞ KONTROLÜ":"FİHRİST KAYDI")+"</td></tr>"}).join("");
+ el("status").textContent=fmt(selected.length)+" SATIR · "+fmt(selected.reduce((n,r)=>n+(Number(r.hane)||0),0))+" HANE · "+fmt(selected.reduce((n,r)=>n+(Number(r.erkek)||0),0))+" ERKEK. BU TOPLAMLAR FİHRİST SATIRLARININ TOPLAMIDIR.";
+}
+async function init(){try{const response=await fetch(URL,{cache:"no-cache"});if(!response.ok)throw Error("HTTP "+response.status);
+ all=(await response.text()).split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line)).filter(x=>x.defterler?.length);
+ const districts=[...new Set(all.map(x=>x.ilce||"").filter(Boolean))].sort((a,b)=>a.localeCompare(b,"tr"));
+ const books=[...new Set(all.map(x=>x.defterler[0].defter))].sort((a,b)=>a.localeCompare(b,"tr"));
+ el("district").innerHTML='<option value="">TÜM İLÇELER</option>'+districts.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
+ el("book").innerHTML='<option value="">TÜM NFS DEFTERLERİ</option>'+books.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
+ el("records").textContent=fmt(all.length);el("households").textContent=fmt(all.reduce((n,x)=>n+(Number(x.hane)||0),0));el("men").textContent=fmt(all.reduce((n,x)=>n+(Number(x.erkek)||0),0));el("books").textContent=fmt(books.length);
+ filter();
+ }catch(e){el("status").textContent="KAYNAK FİHRİST YÜKLENEMEDİ: "+e.message;}}
+el("q").addEventListener("input",filter);el("district").addEventListener("change",filter);el("book").addEventListener("change",filter);el("reset").addEventListener("click",()=>{el("q").value="";el("district").value="";el("book").value="";filter()});init();
+</script></body></html>
