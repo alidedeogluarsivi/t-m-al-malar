@@ -26,5 +26,9 @@ jobs:
           git add catalog/sulale_tum_arsiv.ndjson catalog/sulale_tum_arsiv.ndjson.gz catalog/sulale_tum_arsiv_rapor.json
           if ! git diff --cached --quiet; then
             git commit -m "Compile every available archival family name into single dictionary"
-            git push
+            for n in 1 2 3 4 5; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then break; fi
+              sleep 2
+            done
           fi
