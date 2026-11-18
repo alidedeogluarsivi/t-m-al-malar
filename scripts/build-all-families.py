@@ -107,3 +107,50 @@ OUT.write_text("".join(json.dumps(row,ensure_ascii=False,separators=(",",":"))+"
 (ROOT/"catalog/sulale_tum_arsiv.ndjson.gz").write_bytes(gzip.compress(OUT.read_bytes(),compresslevel=9,mtime=0))
 REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps({k:v for k,v in report.items() if k!="files"},ensure_ascii=False))
+
+
+# Country-wide province -> district -> village -> family directory.
+# This is used by the actual village cards, not only by the surname dictionary.
+import unicodedata
+def norm_key(value):
+    x=unicodedata.normalize("NFD",txt(value).casefold().replace("ı","i"))
+    return "".join(c for c in x if unicodedata.category(c)!="Mn").upper()
+PLATES=json.loads((ROOT/"official-addresses/manifest.json").read_text(encoding="utf-8"))["provinces"]
+PLATE_BY_NAME={norm_key(name):plate for plate,name in PLATES.items()}
+PROVINCIAL={}
+missing_province=[]
+for row in records:
+    province,district,village=(txt(row.get(x)) for x in ("İL","İLÇE","KÖY"))
+    if not province or not district or not village:continue
+    plate=PLATE_BY_NAME.get(norm_key(province))
+    if not plate:
+        missing_province.append((province,district,village))
+        continue
+    target=PROVINCIAL.setdefault(plate,{"province":PLATES[plate],"districts":{}})
+    cell=target["districts"].setdefault(norm_key(district),{}).setdefault(norm_key(village),{
+        "name":village,"families":[],"candidate_families":[],"defterler":[],"sources":[]})
+    family=txt(row.get("SÜLALE ADI (STANDART)"))
+    if row.get("EŞLEŞME DURUMU","").startswith("ADAY"):
+        if family not in cell["candidate_families"] and family not in cell["families"]:cell["candidate_families"].append(family)
+    else:
+        if family not in cell["families"]:cell["families"].append(family)
+        if family in cell["candidate_families"]:cell["candidate_families"].remove(family)
+    d=txt(row.get("DEFTER NO"))
+    if d and d not in cell["defterler"]:cell["defterler"].append(d)
+    src=txt(row.get("KAYNAK DOSYA"))
+    if src and src not in cell["sources"]:cell["sources"].append(src)
+TARGET=ROOT/"catalog/il_koy_sulale"
+TARGET.mkdir(parents=True,exist_ok=True)
+province_summary={}
+for plate,content in PROVINCIAL.items():
+    for district,villages in content["districts"].items():
+        for v in villages.values():
+            v["families"].sort()
+            v["candidate_families"].sort()
+    province_summary[plate]={"il":content["province"],"ilce":len(content["districts"]),
+                             "koy":sum(map(len,content["districts"].values())),
+                             "confirmed_family_places":sum(len(v["families"]) for d in content["districts"].values() for v in d.values()),
+                             "candidate_family_places":sum(len(v["candidate_families"]) for d in content["districts"].values() for v in d.values())}
+    (TARGET/(plate+".json")).write_text(json.dumps(content,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+(TARGET/"manifest.json").write_text(json.dumps({"source_count":len(paths),"province_count":len(PROVINCIAL),"provinces":province_summary,"unmapped_province_count":len(missing_province)},ensure_ascii=False,indent=2),encoding="utf-8")
+print("Village-to-family overlays:",len(PROVINCIAL),"provinces; unresolved province rows:",len(missing_province))
