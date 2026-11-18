@@ -1775,9 +1775,12 @@ function extendVillageFromBulk(name,base){
  const o=getVillageOverlayFor(name);
  if(!o)return base;
  const r=base||{id:'bulk|'+name,il:selectedProvince.name,ilce:selectedDistrict.name,koy:name,defterler:[],sulaleler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[]};
- const known=new Set((r.sulaleler||[]).map(function(x){return norm(typeof x==='string'?x:'')}));
- r.sulaleler=r.sulaleler||[];
- for(const n of o.families||[]){if(!known.has(norm(n))){r.sulaleler.push(n);known.add(norm(n))}}
+ const candidateNames=new Set((o.candidate_families||[]).map(function(n){return norm(n)}));
+ // The province index is authoritative for explicitly unverified family links.
+ // Do not allow older archive feeds to restore candidates as confirmed families.
+ r.sulaleler=(r.sulaleler||[]).filter(function(n){return !candidateNames.has(norm(typeof n==='string'?n:''))});
+ const known=new Set(r.sulaleler.map(function(x){return norm(typeof x==='string'?x:'')}));
+ for(const n of o.families||[]){if(!known.has(norm(n))&&!candidateNames.has(norm(n))){r.sulaleler.push(n);known.add(norm(n))}}
  r.overlayCandidates=(o.candidate_families||[]).filter(function(n){return !known.has(norm(n))});
  r.overlaySources=o.sources||[];
  return r
@@ -1785,7 +1788,7 @@ function extendVillageFromBulk(name,base){
 function getProvinceBulk(plate){
  const code=String(Number(plate)).padStart(2,'0');
  if(!villageFamilyOverlayCache.has(code)){
-  const pending=fetch('./catalog/il_koy_sulale/'+code+'.json?v=20261118-bulk101',{cache:'no-cache'})
+  const pending=fetch('./catalog/il_koy_sulale/'+code+'.json?v=20261118-bulk102',{cache:'no-cache'})
    .then(function(res){if(res.status===404)return null;if(!res.ok)throw Error('TOPLU SÜLALE '+res.status);return res.json()});
   villageFamilyOverlayCache.set(code,pending);
   pending.catch(function(){villageFamilyOverlayCache.delete(code)})
