@@ -1942,7 +1942,8 @@ async function selectDistrict(local,geoFeature){
       currentVillages=buildVillageRows();
       refreshHierarchy();
       renderVillageList();
-      void fillAllDistrictSettlements(local,requestId)
+      void fillAllDistrictSettlements(local,requestId);
+      void fillBulkFamilies(local,requestId)
     });
   }
   // Prefer smaller point geometries on all devices to avoid blocking UI.
@@ -1979,6 +1980,7 @@ async function selectDistrict(local,geoFeature){
       refreshHierarchy();
       renderVillageList();
       void fillAllDistrictSettlements(local,requestId);
+      void fillBulkFamilies(local,requestId);
       renderSideDistrict(selectedProvince.name,local.name);
       renderDistrictVillageView(local,df,vfeats,pfeats);
       renderPreview()
@@ -2420,6 +2422,19 @@ function loadArchive(){
 }
 function score(r){return (r.defterler||[]).length*4+(r.sulaleler||[]).length*2+(r.haneler||[]).length+(r.gorevli_notlari||[]).length*2+(r.taramalar||[]).length}
 function previewRows(){
+  if(selectedProvince&&selectedDistrict&&activeVillageFamilyOverlay){
+    const p=norm(selectedProvince.name),d=norm(selectedDistrict.name);
+    const rows=archive.filter(function(r){return norm(canonicalProvince(r.il||''))===p&&norm(r.ilce||'')===d});
+    const map=new Map();
+    for(const r of rows){if(r.koy)map.set(norm(r.koy),r)}
+    for(const item of currentVillages){
+      if(!item.name)continue;
+      const key=norm(item.name);
+      const merged=archiveForVillage(item.name);
+      if(merged)map.set(key,merged);
+    }
+    return [...map.values()].sort(function(a,b){return (a.koy||'').localeCompare(b.koy||'','tr')});
+  }
   if(selectedProvince){
     return archive.filter(function(r){
       if(norm(canonicalProvince(r.il||''))!==norm(selectedProvince.name))return false;
