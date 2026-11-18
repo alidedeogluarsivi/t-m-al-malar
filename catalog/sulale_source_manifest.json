@@ -87,6 +87,7 @@
     "catalog/sulale_04.ndjson",
     "catalog/sulale_05.ndjson",
     "catalog/sulale_06.ndjson",
+    "catalog/sulale_unresolved_verified_import.ndjson",
     "catalog/sulale_verified_v2_compact.ndjson",
     "catalog/sulale_yer_eslesmeleri_20261118.ndjson",
     "catalog/tercume_ayrintilari_20261112.ndjson",
@@ -99,6 +100,6 @@
   "notes": "Kaynak dosyaları otomatik dahil edilir; tarihî/güncel eşleştirmeler arşivdeki kanıtlara göre ayrılır.",
   "counts": {
     "root": 6,
-    "catalog": 87
+    "catalog": 88
   }
 }
