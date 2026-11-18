@@ -1823,7 +1823,7 @@ function archiveForVillage(name){
   if(!exact.length && il && ilce && norm(ilce)==='merkez'){
     exact=archiveIndex.get(key(il,il,name))||[];
   }
-  return exact.length?mergeRecords(exact):null
+  return extendVillageFromBulk(name,exact.length?mergeRecords(exact):null)
 }
 let settlementLoadPromise=null;
 function ensureSettlements(){
