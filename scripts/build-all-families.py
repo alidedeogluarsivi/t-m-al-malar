@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "catalog/sulale_source_manifest.json"
+# Full rebuild: catalog includes the unresolved archival family import as well.
 OUT = ROOT / "catalog/sulale_tum_arsiv.ndjson"
 REPORT = ROOT / "catalog/sulale_tum_arsiv_rapor.json"
 EMPTY = {"", "-", "BELİRSİZ", "BİLİNMİYOR", "NULL", "YOK", "NONE"}
