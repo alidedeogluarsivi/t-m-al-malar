@@ -7,12 +7,13 @@
     "HANE/ERKEK SAYILARI TERCÜME SAYFASI YEKÛNLARINDAN ALINMIŞTIR, TEKRAR EDEN KARYELER NEDENİYLE TEKİL SAYIM OLDUĞU VARSAYILMAMALIDIR.",
     "SADECE GÜNCEL KÖY EŞLEŞMESİ ÖNCEKİ ARŞİVDE KESİN OLARAK İŞARETLİ 89 SAYFA GÜNCEL KÖYE YÜKLENMİŞTİR.",
     "KAYNAKTA KAYITLI OĞLU/OĞULLARI İBARELERİ OĞULLARI OLARAK STANDARTLAŞTIRILDI; LAKAP ÜZERİNDEN TÜRETİLENLER ADAY, BELİRSİZLER ORİJİNAL HANE REİSİ LAKABI OLARAK KORUNDU.",
-    "EXCEL DOSYASINDA OSMANLICA BELGE GÖRSELİ YER ALMADIĞINDAN GÖRÜNTÜ YÜKLENMEMİŞTİR; OSMANLI ARŞİVİ DEFTER KÜNYESİ KAYDEDİLDİ."
+    "EXCEL DOSYASINDA OSMANLICA BELGE GÖRSELİ YER ALMADIĞINDAN GÖRÜNTÜ YÜKLENMEMİŞTİR; OSMANLI ARŞİVİ DEFTER KÜNYESİ KAYDEDİLDİ.",
+    "19 KASIM 2026 EK KONTROL: KIZILOT / ÇARŞAMBA RESMÎ MEB ADRESİNDEN, BAYRAMLU / BAYRAMLI İSE ÖNCEKİ ARŞİV KÖY EŞLEŞTİRMESİNDEN GÜNCELLENDİ."
   ],
   "sayilar": {
     "total_sayfa": 122,
-    "eslesmis_sayfa": 89,
-    "eslesmemis_sayfa": 33,
+    "eslesmis_sayfa": 90,
+    "eslesmemis_sayfa": 32,
     "hane_yekun": 1904,
     "erkek_yekun": 5139,
     "hane_reisi_okumasi": 1901,
@@ -21,7 +22,7 @@
   },
   "ilce_dagilimi": {
     "Ayvacık": 2,
-    "Çarşamba": 72,
+    "Çarşamba": 73,
     "Salıpazarı": 8,
     "Tekkeköy": 7
   },
@@ -32,13 +33,6 @@
       "hane": 2,
       "erkek": 5,
       "sulale_adedi": 2
-    },
-    {
-      "tarihi_karye": "Kızılot",
-      "excel_sayfa": "kızılot",
-      "hane": 11,
-      "erkek": 39,
-      "sulale_adedi": 7
     },
     {
       "tarihi_karye": "Karabahçe",
