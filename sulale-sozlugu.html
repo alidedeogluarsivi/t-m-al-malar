@@ -18,7 +18,7 @@
 <div class="searchAction"><button id="queryGo" type="button">ARA</button></div>
 </div>
 <p class="hint">KÖY / MAHALLE SEÇİLİNCE ONA BAĞLI YERLEŞİMLER DÖRDÜNCÜ KUTUDA OTOMATİK LİSTELENİR. ARA SONUÇLARI YALNIZ ARŞİV EŞLEŞMELERİNDEN GELİR.</p><p class="hint" id="addressSourceNote"></p>
-<div class="check"><input id="onlyVerified" type="checkbox" checked><label for="onlyVerified">SADECE YERLEŞİM EŞLEŞMESİ GÜÇLÜ KAYITLAR (ADAYLARI GİZLE)</label></div>
+<div class="check"><input id="onlyVerified" type="checkbox"><label for="onlyVerified">YALNIZ KESİN YERLEŞİM EŞLEŞMELERİNİ GÖSTER (ADAYLARI GİZLE)</label></div>
 <div class="buttons"><button id="reset">FİLTRELERİ TEMİZLE</button><button id="print">YAZDIR / PDF OLARAK KAYDET</button></div>
 <p id="summary" class="meta"></p><div id="results"></div><div class="buttons"><button id="more" hidden>DAHA FAZLA KÖY GÖSTER</button></div>
 <footer>ALİDEDEOĞLU ARŞİVİ · NFS / TMT / SOY KÜTÜĞÜ VERİLERİ. YERİ BELİRSİZ VEYA ADAY OLAN KAYITLAR KESİN YERLEŞİM OLARAK SUNULMAZ. YERLEŞİM/KAYNAK KONTROLÜ DEVAM ETMEKTEDİR.</footer></main>
@@ -69,7 +69,7 @@ function ingest(obj,path){
  if(!name)return;
  const status=obj["EŞLEŞME DURUMU"]||obj["DOĞRULAMA"]||"";
  const isCandidate=!!obj["EŞLEŞME DURUMU"]&&/ADAY|BELİRSİZ|KONTROL|ŞÜPHE/i.test(status);
- add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:obj["DEFTER NO"]||obj["DEFTER NUMARASI"],year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:obj["KAYNAK PDF"]||obj["ARŞİV PDF NO"]},isCandidate);
+ add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:obj["DEFTER NO"]||obj["DEFTER NUMARASI"],year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:obj["KAYNAK PDF"]||obj["ARŞİV PDF NO"]||obj["KAYNAK DOSYA"]},isCandidate);
 }
 function optionize(select,vals,placeholder,keep){select.textContent="";const base=document.createElement("option");base.value="";base.textContent=placeholder;select.append(base);for(const s of vals){let o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)}if(vals.includes(keep))select.value=keep}
 function sortTR(a,b){return a.localeCompare(b,"tr")}
@@ -286,14 +286,52 @@ byId("queryGo").addEventListener("click",()=>{
 query.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();byId("queryGo").click()}});
 byId("more").addEventListener("click",()=>render(false));
 byId("print").addEventListener("click",()=>window.print());
-byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=true;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
+byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=false;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
+async function readFamilyFile(path){
+ const response=await fetch(path+"?v=20261118-complete1",{cache:"no-cache",signal:AbortSignal.timeout(25000)});
+ if(!response.ok)throw Error(path+" HTTP "+response.status);
+ return response.text();
+}
+function ingestFamilyText(text,path){
+ for(const line of text.split(/\r?\n/)){
+  if(!line.trim())continue;
+  try{ingest(JSON.parse(line),path)}catch(e){errors.push(path+" : SATIR HATASI")}
+ }
+}
+async function loadAllFamilySources(){
+ try{
+  const data=await readFamilyFile("catalog/sulale_tum_arsiv.ndjson");
+  ingestFamilyText(data,"catalog/sulale_tum_arsiv.ndjson");
+  return {complete:true,files:93};
+ }catch(e){console.warn("Toplu arşiv kataloğu kullanılamıyor, bütün kaynaklar ayrı ayrı okunacak.",e)}
+ let allPaths=paths.slice();
+ try{
+  const r=await fetch("catalog/sulale_source_manifest.json?v=20261118-complete1",{cache:"no-cache",signal:AbortSignal.timeout(12000)});
+  if(r.ok){
+   const obj=await r.json();
+   if(Array.isArray(obj.paths)&&obj.paths.length)allPaths=obj.paths.filter(x=>/^(catalog\/)?[a-zA-Z0-9_-]+\.ndjson$/.test(x));
+  }
+ }catch(e){console.warn(e)}
+ let index=0,completed=0;
+ const concurrency=Math.min(10,allPaths.length);
+ await Promise.all(Array.from({length:concurrency},async()=>{
+  while(index<allPaths.length){
+   const path=allPaths[index++];
+   try{ingestFamilyText(await readFamilyFile(path),path)}
+   catch(e){errors.push(path+" : YÜKLENEMEDİ")}
+   completed++;
+   if(completed%8===0||completed===allPaths.length)
+    byId("progress").textContent="ARŞİV SÜLALELERİ TOPLANIYOR: "+completed+" / "+allPaths.length+" KAYNAK DOSYASI.";
+  }
+ }));
+ return {complete:errors.length===0,files:allPaths.length};
+}
 (async()=>{
- const requests=await Promise.allSettled(paths.map(async path=>{const res=await fetch(path+"?v=20261118-source-v3", {cache:"no-cache"});if(!res.ok)throw Error(path+" HTTP "+res.status);return {path,txt:await res.text()}}));
- requests.forEach((r,i)=>{if(r.status!=="fulfilled"){errors.push(paths[i]);return;}const {txt,path}=r.value;for(const line of txt.split(/\r?\n/)){if(!line.trim())continue;try{ingest(JSON.parse(line),path)}catch(e){errors.push(path+" : PARSE")}}});
+ const meta=await loadAllFamilySources();
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
- byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI YÜKLENDİ."+(errors.length?" "+errors.length+" DOSYADA YÜKLEME SORUNU VAR.":"");
+ byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI · "+meta.files+" KAYNAK DOSYASI."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
  await setupOfficial();
  await refreshFilters("il");
- byId("summary").textContent="SEÇİM YAPIP ARA DÜĞMESİNE BASIN.";
-})().catch(e=>{byId("progress").textContent="KAYITLAR YÜKLENEMEDİ: "+e.message});
+ byId("summary").textContent="İL, İLÇE, KÖY VE SÜLALE SEÇİMİ YAPIP ARA DÜĞMESİNE BASIN.";
+})().catch(e=>{byId("progress").textContent="ARŞİV KAYITLARI YÜKLENEMEDİ: "+e.message});
 </script><script defer src="./site-stats.js?v=20261118-family5"></script></body></html>
