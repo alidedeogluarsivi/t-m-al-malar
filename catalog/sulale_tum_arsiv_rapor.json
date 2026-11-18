@@ -112,13 +112,13 @@
     "catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson": 289,
     "catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson": 25,
     "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson": 36,
-    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson": 556,
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson": 557,
     "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson": 534,
     "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson": 364
   },
   "source_rows": 16862,
   "family_mentions": 39532,
-  "export_rows": 32447,
-  "candidate": 10784,
+  "export_rows": 32448,
+  "candidate": 10781,
   "source_missing": []
 }
