@@ -1820,6 +1820,40 @@ function renderVillageList(){
   }).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';
   vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})
 }
+const officialProvinceCache=new Map();
+function officialProvinceData(plate){
+ const p=String(plate).padStart(2,'0');
+ if(!officialProvinceCache.has(p)){
+  const task=fetch('./official-addresses/'+p+'.json?v=20261118-villagefix1',{cache:'force-cache'})
+   .then(function(r){if(!r.ok)throw Error('Yerleşim kaynağı HTTP '+r.status);return r.json()});
+  officialProvinceCache.set(p,task);
+  task.catch(function(){officialProvinceCache.delete(p)});
+ }
+ return officialProvinceCache.get(p);
+}
+async function fillAllDistrictSettlements(local,requestId){
+ if(!selectedProvince||!local)return;
+ const province=selectedProvince.name;
+ const district=local.name;
+ const plate=Number(String(selectedProvince.id||'').replace('TR-P-',''));
+ if(!plate||plate<1||plate>81)return;
+ try{
+  const data=await officialProvinceData(plate);
+  if(requestId!==districtRequestSeq||!selectedProvince||selectedProvince.name!==province||!selectedDistrict||selectedDistrict.id!==local.id)return;
+  const districtName=Object.keys(data.districts||{}).find(function(x){return norm(x)===norm(district)});
+  if(!districtName)return;
+  const d=data.districts[districtName];
+  const oldNames=new Set(currentVillages.map(function(x){return norm(x.name)}));
+  for(const name of Object.keys(d.muhtarliklar||{})){
+   const n=norm(name);
+   if(!n||oldNames.has(n))continue;
+   oldNames.add(n);
+   currentVillages.push({name:name,kind:/MAHALLE/i.test(name)?'MAHALLE':'KÖY',parent:'',record:null,has:false});
+  }
+  currentVillages.sort(function(a,b){if(a.has!==b.has)return a.has?-1:1;return a.name.localeCompare(b.name,'tr')});
+  refreshHierarchy();renderVillageList();
+ }catch(e){console.warn('Resmî ilçe yerleşimleri yüklenemedi',e)}
+}
 async function selectDistrict(local,geoFeature){
   const drawerEl=document.getElementById('drawer');if(drawerEl)drawerEl.classList.remove('open');
   const requestId=++districtRequestSeq;
@@ -1841,6 +1875,7 @@ async function selectDistrict(local,geoFeature){
   vSel.disabled=false;
   refreshHierarchy();
   renderVillageList();
+  void fillAllDistrictSettlements(local,requestId);
   renderSideDistrict(selectedProvince.name,local.name);
   statusEl.textContent=local.name.toLocaleUpperCase('tr-TR')+' · KÖY/MAHALLELER VE ETİKETLER YÜKLENİYOR…';
 
@@ -1851,7 +1886,8 @@ async function selectDistrict(local,geoFeature){
       if(!data||requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
       refreshHierarchy();
-      renderVillageList()
+      renderVillageList();
+      void fillAllDistrictSettlements(local,requestId)
     });
   }
   // Prefer smaller point geometries on all devices to avoid blocking UI.
@@ -1885,7 +1921,9 @@ async function selectDistrict(local,geoFeature){
     loadArchive().then(function(){
       if(requestId!==districtRequestSeq||!selectedDistrict||selectedDistrict.id!==local.id)return;
       currentVillages=buildVillageRows();
+      refreshHierarchy();
       renderVillageList();
+      void fillAllDistrictSettlements(local,requestId);
       renderSideDistrict(selectedProvince.name,local.name);
       renderDistrictVillageView(local,df,vfeats,pfeats);
       renderPreview()
