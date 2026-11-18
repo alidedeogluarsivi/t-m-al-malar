@@ -1,5 +1,5 @@
 {
-  "source_count": 101,
+  "source_count": 103,
   "province_count": 54,
   "provinces": {
     "03": {
@@ -341,9 +341,9 @@
     "18": {
       "il": "ÇANKIRI",
       "ilce": 15,
-      "koy": 71,
-      "confirmed_family_places": 1516,
-      "candidate_family_places": 15
+      "koy": 82,
+      "confirmed_family_places": 1700,
+      "candidate_family_places": 75
     },
     "19": {
       "il": "ÇORUM",
