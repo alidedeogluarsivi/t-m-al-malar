@@ -85,7 +85,8 @@
     "catalog/sulale_04.ndjson": 253,
     "catalog/sulale_05.ndjson": 252,
     "catalog/sulale_06.ndjson": 239,
-    "catalog/sulale_verified_v2_compact.ndjson": 564,
+    "catalog/sulale_unresolved_verified_import.ndjson": 59,
+    "catalog/sulale_verified_v2_compact.ndjson": 544,
     "catalog/sulale_yer_eslesmeleri_20261118.ndjson": 17,
     "catalog/tercume_ayrintilari_20261112.ndjson": 0,
     "catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson": 0,
@@ -94,9 +95,9 @@
     "catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson": 50,
     "catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson": 180
   },
-  "source_rows": 15565,
-  "family_mentions": 36186,
-  "export_rows": 29307,
-  "candidate": 9205,
+  "source_rows": 15630,
+  "family_mentions": 36251,
+  "export_rows": 29346,
+  "candidate": 9244,
   "source_missing": []
 }
