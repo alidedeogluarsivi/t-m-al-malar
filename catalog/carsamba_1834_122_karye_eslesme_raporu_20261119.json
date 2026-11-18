@@ -1,0 +1,266 @@
+{
+  "calisma": "ÇARŞAMBA KAZASI 1834 / TARİHÎ ARIM–ÖKSE–AYVACIK",
+  "kaynak": "çarşamba 1834 (Otomatik kaydedildi).xlsx",
+  "arsiv_kunyesi": "BOA NFS.d.975 (BAZI ESKİ KATALOG KAYITLARINDA BOA NFS.d.975 / NFS.d.976)",
+  "tarih": "1834",
+  "notlar": [
+    "HANE/ERKEK SAYILARI TERCÜME SAYFASI YEKÛNLARINDAN ALINMIŞTIR, TEKRAR EDEN KARYELER NEDENİYLE TEKİL SAYIM OLDUĞU VARSAYILMAMALIDIR.",
+    "SADECE GÜNCEL KÖY EŞLEŞMESİ ÖNCEKİ ARŞİVDE KESİN OLARAK İŞARETLİ 89 SAYFA GÜNCEL KÖYE YÜKLENMİŞTİR.",
+    "KAYNAKTA KAYITLI OĞLU/OĞULLARI İBARELERİ OĞULLARI OLARAK STANDARTLAŞTIRILDI; LAKAP ÜZERİNDEN TÜRETİLENLER ADAY, BELİRSİZLER ORİJİNAL HANE REİSİ LAKABI OLARAK KORUNDU.",
+    "EXCEL DOSYASINDA OSMANLICA BELGE GÖRSELİ YER ALMADIĞINDAN GÖRÜNTÜ YÜKLENMEMİŞTİR; OSMANLI ARŞİVİ DEFTER KÜNYESİ KAYDEDİLDİ."
+  ],
+  "sayilar": {
+    "total_sayfa": 122,
+    "eslesmis_sayfa": 89,
+    "eslesmemis_sayfa": 33,
+    "hane_yekun": 1904,
+    "erkek_yekun": 5139,
+    "hane_reisi_okumasi": 1901,
+    "sulale_baglanti": 1503,
+    "adayi_ayri": 283
+  },
+  "ilce_dagilimi": {
+    "Ayvacık": 2,
+    "Çarşamba": 72,
+    "Salıpazarı": 8,
+    "Tekkeköy": 7
+  },
+  "eslesmemis_karyeler": [
+    {
+      "tarihi_karye": "Kabalı",
+      "excel_sayfa": "kabalı",
+      "hane": 2,
+      "erkek": 5,
+      "sulale_adedi": 2
+    },
+    {
+      "tarihi_karye": "Kızılot",
+      "excel_sayfa": "kızılot",
+      "hane": 11,
+      "erkek": 39,
+      "sulale_adedi": 7
+    },
+    {
+      "tarihi_karye": "Karabahçe",
+      "excel_sayfa": "karabahçe (2)",
+      "hane": 11,
+      "erkek": 37,
+      "sulale_adedi": 7
+    },
+    {
+      "tarihi_karye": "İblak Ma Dikenliklü",
+      "excel_sayfa": "iblakMaaDikenliklü",
+      "hane": 12,
+      "erkek": 33,
+      "sulale_adedi": 11
+    },
+    {
+      "tarihi_karye": "Eğercülü",
+      "excel_sayfa": "eğercülü (2)",
+      "hane": 5,
+      "erkek": 17,
+      "sulale_adedi": 5
+    },
+    {
+      "tarihi_karye": "Ahallı",
+      "excel_sayfa": "ahallı",
+      "hane": 5,
+      "erkek": 14,
+      "sulale_adedi": 4
+    },
+    {
+      "tarihi_karye": "Aşağı Karaağaç",
+      "excel_sayfa": "aşkarağaç",
+      "hane": 8,
+      "erkek": 21,
+      "sulale_adedi": 6
+    },
+    {
+      "tarihi_karye": "Ayazma",
+      "excel_sayfa": "ayazma",
+      "hane": 8,
+      "erkek": 21,
+      "sulale_adedi": 7
+    },
+    {
+      "tarihi_karye": "Badıllu",
+      "excel_sayfa": "badıllu",
+      "hane": 12,
+      "erkek": 34,
+      "sulale_adedi": 10
+    },
+    {
+      "tarihi_karye": "Düzyaykın",
+      "excel_sayfa": "düzyaykın",
+      "hane": 8,
+      "erkek": 20,
+      "sulale_adedi": 7
+    },
+    {
+      "tarihi_karye": "Fernek",
+      "excel_sayfa": "fernek",
+      "hane": 13,
+      "erkek": 29,
+      "sulale_adedi": 12
+    },
+    {
+      "tarihi_karye": "Hacı Danışmanlu",
+      "excel_sayfa": "hacıdanışmanlu",
+      "hane": 7,
+      "erkek": 22,
+      "sulale_adedi": 5
+    },
+    {
+      "tarihi_karye": "Hacıbeylü",
+      "excel_sayfa": "hacıbeylü",
+      "hane": 29,
+      "erkek": 74,
+      "sulale_adedi": 22
+    },
+    {
+      "tarihi_karye": "Karaağaç Suğculu",
+      "excel_sayfa": "karaağaçSuğculu",
+      "hane": 8,
+      "erkek": 20,
+      "sulale_adedi": 6
+    },
+    {
+      "tarihi_karye": "Kumarlu",
+      "excel_sayfa": "kumarlu",
+      "hane": 22,
+      "erkek": 67,
+      "sulale_adedi": 18
+    },
+    {
+      "tarihi_karye": "Kuşdoğanlı",
+      "excel_sayfa": "kuşdoğanlı",
+      "hane": 21,
+      "erkek": 62,
+      "sulale_adedi": 17
+    },
+    {
+      "tarihi_karye": "Küçük Yaykın",
+      "excel_sayfa": "küçükyaykın",
+      "hane": 17,
+      "erkek": 57,
+      "sulale_adedi": 12
+    },
+    {
+      "tarihi_karye": "Ma Maraş (Marmaş)",
+      "excel_sayfa": "maMaraşMarmaş",
+      "hane": 7,
+      "erkek": 24,
+      "sulale_adedi": 6
+    },
+    {
+      "tarihi_karye": "Sarımsak",
+      "excel_sayfa": "sarımsak",
+      "hane": 8,
+      "erkek": 20,
+      "sulale_adedi": 6
+    },
+    {
+      "tarihi_karye": "Tepecik",
+      "excel_sayfa": "tepecik",
+      "hane": 12,
+      "erkek": 22,
+      "sulale_adedi": 10
+    },
+    {
+      "tarihi_karye": "Yukarı Karaağaç",
+      "excel_sayfa": "YkKaraağaç",
+      "hane": 16,
+      "erkek": 41,
+      "sulale_adedi": 10
+    },
+    {
+      "tarihi_karye": "Araplu",
+      "excel_sayfa": "araplu",
+      "hane": 17,
+      "erkek": 46,
+      "sulale_adedi": 10
+    },
+    {
+      "tarihi_karye": "Çarşaf",
+      "excel_sayfa": "çarşaf",
+      "hane": 5,
+      "erkek": 11,
+      "sulale_adedi": 4
+    },
+    {
+      "tarihi_karye": "Gömen Ma Bağcaköy",
+      "excel_sayfa": "gömenMaBağcaköy",
+      "hane": 11,
+      "erkek": 22,
+      "sulale_adedi": 11
+    },
+    {
+      "tarihi_karye": "Güdedi",
+      "excel_sayfa": "güdedi",
+      "hane": 12,
+      "erkek": 30,
+      "sulale_adedi": 11
+    },
+    {
+      "tarihi_karye": "Hacı Danışmanlı",
+      "excel_sayfa": "hacıdanışmanlı",
+      "hane": 6,
+      "erkek": 12,
+      "sulale_adedi": 5
+    },
+    {
+      "tarihi_karye": "İçlü",
+      "excel_sayfa": "içlü",
+      "hane": 14,
+      "erkek": 36,
+      "sulale_adedi": 12
+    },
+    {
+      "tarihi_karye": "Karamaslu",
+      "excel_sayfa": "karamaslu",
+      "hane": 17,
+      "erkek": 40,
+      "sulale_adedi": 15
+    },
+    {
+      "tarihi_karye": "Katırağazı",
+      "excel_sayfa": "katırağazı",
+      "hane": 5,
+      "erkek": 10,
+      "sulale_adedi": 5
+    },
+    {
+      "tarihi_karye": "Köselü (Ökse)",
+      "excel_sayfa": "köseliÖkse",
+      "hane": 16,
+      "erkek": 33,
+      "sulale_adedi": 13
+    },
+    {
+      "tarihi_karye": "Manamut",
+      "excel_sayfa": "manamut",
+      "hane": 13,
+      "erkek": 24,
+      "sulale_adedi": 11
+    },
+    {
+      "tarihi_karye": "Sarımsak",
+      "excel_sayfa": "sarımsakk",
+      "hane": 8,
+      "erkek": 20,
+      "sulale_adedi": 6
+    },
+    {
+      "tarihi_karye": "Semayil",
+      "excel_sayfa": "semayil",
+      "hane": 9,
+      "erkek": 14,
+      "sulale_adedi": 9
+    }
+  ],
+  "kaynak_dosyalar": [
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson",
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson",
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson"
+  ]
+}
