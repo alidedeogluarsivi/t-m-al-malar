@@ -643,6 +643,7 @@ async function activateMapUI(opts){
   if(dock)dock.classList.add('open');
   if(!mapActivated){
     mapActivated=true;
+    statusEl.textContent='HARİTA HAZIRLANIYOR · EN FAZLA 7 SANİYE BEKLEYİN';
     await ensureMapBaseData();
     initBaseMap();
     showTurkey();
@@ -1629,7 +1630,7 @@ function selectProvinceFeature(f){
 }
 async function loadDistrictGeo(){
   if(districtGeo)return districtGeo;
-  districtGeo=await getJSON(DIST_REMOTE);
+  districtGeo=await withTimeout(getJSON(DIST_REMOTE),6500,{type:'FeatureCollection',features:[]});
   return districtGeo
 }
 
@@ -1734,7 +1735,7 @@ async function selectProvinceByName(name,id){
           }
         }).catch(function(e){console.warn('İl arşivi sessiz yüklenemedi',e)})
       };
-      if('requestIdleCallback' in window)requestIdleCallback(enrichProvince,{timeout:1800});else setTimeout(enrichProvince,1200);
+      // İl düzeyinde tüm ilçelerin nokta dosyalarını topluca indirmek mobil cihazları kilitliyordu.\n      // İlçe seçimiyle yalnızca ilgili ilçenin köyleri yüklenir.\n      // enrichProvince intentionally deferred until an explicit district selection.
       return
     }
   }catch(e){
