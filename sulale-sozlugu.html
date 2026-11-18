@@ -288,20 +288,38 @@ byId("more").addEventListener("click",()=>render(false));
 byId("print").addEventListener("click",()=>window.print());
 byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=false;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
 async function readFamilyFile(path){
- const response=await fetch(path+"?v=20261118-complete1",{cache:"no-cache",signal:AbortSignal.timeout(25000)});
+ const response=await fetch(path+"?v=20261118-complete2",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
  if(!response.ok)throw Error(path+" HTTP "+response.status);
  return response.text();
 }
-function ingestFamilyText(text,path){
- for(const line of text.split(/\r?\n/)){
+async function getCompiledFamilyFeed(){
+ if(typeof DecompressionStream==="function"){
+  try{
+   const response=await fetch("catalog/sulale_tum_arsiv.ndjson.gz?v=20261118-complete2",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
+   if(response.ok&&response.body){
+    const stream=response.body.pipeThrough(new DecompressionStream("gzip"));
+    return await new Response(stream).text();
+   }
+  }catch(e){console.warn("Sıkıştırılmış katalog kullanılamadı:",e)}
+ }
+ return readFamilyFile("catalog/sulale_tum_arsiv.ndjson");
+}
+async function ingestFamilyText(text,path){
+ const lines=text.split(/\r?\n/);
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i];
   if(!line.trim())continue;
   try{ingest(JSON.parse(line),path)}catch(e){errors.push(path+" : SATIR HATASI")}
+  if(i&&i%800===0){
+   byId("progress").textContent="SÜLALELER OKUNUYOR: "+i.toLocaleString("tr-TR")+" / "+lines.length.toLocaleString("tr-TR");
+   await new Promise(resolve=>setTimeout(resolve,0));
+  }
  }
 }
 async function loadAllFamilySources(){
  try{
-  const data=await readFamilyFile("catalog/sulale_tum_arsiv.ndjson");
-  ingestFamilyText(data,"catalog/sulale_tum_arsiv.ndjson");
+  const data=await getCompiledFamilyFeed();
+  await ingestFamilyText(data,"catalog/sulale_tum_arsiv.ndjson");
   return {complete:true,files:93};
  }catch(e){console.warn("Toplu arşiv kataloğu kullanılamıyor, bütün kaynaklar ayrı ayrı okunacak.",e)}
  let allPaths=paths.slice();
@@ -317,7 +335,7 @@ async function loadAllFamilySources(){
  await Promise.all(Array.from({length:concurrency},async()=>{
   while(index<allPaths.length){
    const path=allPaths[index++];
-   try{ingestFamilyText(await readFamilyFile(path),path)}
+   try{await ingestFamilyText(await readFamilyFile(path),path)}
    catch(e){errors.push(path+" : YÜKLENEMEDİ")}
    completed++;
    if(completed%8===0||completed===allPaths.length)
