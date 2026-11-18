@@ -1,0 +1,30 @@
+name: Compile complete family dictionary
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/build-all-families.py
+      - catalog/sulale_source_manifest.json
+  schedule:
+    - cron: '0 5 * * 1'
+permissions:
+  contents: write
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build all archival family records
+        run: python scripts/build-all-families.py
+      - name: Commit complete catalog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog/sulale_tum_arsiv.ndjson catalog/sulale_tum_arsiv_rapor.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Compile every available archival family name into single dictionary"
+            git push
+          fi
