@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-19-uguz-cevlik-46-read-translations",
+  "version": "2026-11-19-carsamba1834-122-karye-hane-lakap",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -113,7 +113,10 @@
     "catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson",
     "catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson",
     "catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson",
-    "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson"
+    "catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson",
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson",
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson",
+    "catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson"
   ],
   "notes": "101 arşiv kaynak dosyasındaki bütün doğrulanmış köy-sülale kayıtları il/ilçe/köy dizinine yeniden işlenir. Güncel köyü teyitsiz tarihî yerleşimler aday olarak korunur; baba adları sülale kayıtlarından türetilmez.",
   "counts": {
