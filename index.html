@@ -89,7 +89,12 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .familyProvinceResult:hover,.familyProvinceResult:focus{outline:3px solid #d5b06b;background:#fffaf0}
 
 /* 2026-11-11 · LİSTE ÖNCELİKLİ / İSTEĞE BAĞLI HARİTA */
-.workbench.mapClosed{display:none}
+.workbench.workbench.mapClosed{display:grid;grid-template-columns:minmax(280px,380px) minmax(0,1fr)}
+.workbench.mapClosed .sidebar{grid-column:1 / -1;max-width:100%;overflow:visible}
+.workbench.mapClosed .sidebody{overflow:visible}
+.workbench.mapClosed .mapcard{display:none}
+@media(max-width:850px){.workbench.mapClosed{display:block}}
+
 .workbench.mapOpen{display:grid}
 .mapcard.mapDormant{display:none}
 .resultActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
