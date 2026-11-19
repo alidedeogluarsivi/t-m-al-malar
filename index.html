@@ -2289,7 +2289,9 @@ function hasOfficialArchiveRecord(r){
 }
 async function loadArchiveCore(){
   archive=[];summary={};
-  if(!settlements)settlements=[];
+  // Güncel köy eşleştirmesi arşiv dosyalarından ÖNCE hazır olmalı.
+  // Aksi halde son eklenen Çerkeş kayıtları yalnız tarihî adlarıyla kalır.
+  try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
   const raw=[];
   // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
   const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106'])));
