@@ -2291,9 +2291,21 @@ async function loadArchiveCore(){
   archive=[];summary={};
   if(!settlements)settlements=[];
   const raw=[];
-  const archiveResults=await Promise.allSettled(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106']).map(function(f){return withTimeout(getText(f),6500)}));
+  // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
+  const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106'])));
+  const archiveResults=new Array(archivePaths.length);
+  let nextArchivePath=0;
+  async function archiveWorker(){
+    while(nextArchivePath<archivePaths.length){
+      const i=nextArchivePath++;
+      try{archiveResults[i]={status:'fulfilled',value:await withTimeout(getText(archivePaths[i]),20000)}}
+      catch(e){archiveResults[i]={status:'rejected',reason:e}}
+    }
+  }
+  await Promise.all(Array.from({length:Math.min(20,archivePaths.length)},function(){return archiveWorker()}));
   const archiveTexts=archiveResults.filter(function(x){return x.status==='fulfilled'}).map(function(x){return x.value});
-  archiveResults.filter(function(x){return x.status==='rejected'}).forEach(function(x){console.warn('Arşiv dosyası yüklenemedi',x.reason)});
+  const failedArchives=archiveResults.map(function(x,i){return x.status==='rejected'?archivePaths[i]:null}).filter(Boolean);
+  if(failedArchives.length)console.warn('Yüklenemeyen arşiv dosyaları:',failedArchives);
   if(!archiveTexts.length)throw new Error('Hiçbir arşiv dosyası yüklenemedi');
   for(const t of archiveTexts){
     t.split(/\r?\n/).forEach(function(line){
