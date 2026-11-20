@@ -1,0 +1,59 @@
+{
+  "il": "SİVAS",
+  "date": "2026-11-21",
+  "repo": "alidedeogluarsivi/t-m-al-malar",
+  "source_scope": "Sivas historical NFS 1831-1844, broader Sivas eyalet NFS catalogue, modern Sivas 17-district settlement gazetteer, library family transcription index and centre 1844-45 TMT",
+  "counts": {
+    "nfs_historical_fihrist_rows": 819,
+    "nfs_historical_distinct_registers": 13,
+    "modern_name_single_candidates": 156,
+    "modern_village_cards": 147,
+    "modern_name_ambiguous_rows": 9,
+    "unmatched_rows": 654,
+    "additional_edit_distance_candidates_not_mapped": 91,
+    "locality_names_in_17_districts": 1377,
+    "library_pdf_documents": 62,
+    "library_family_transcription_cards": 9,
+    "library_family_names_in_those_cards": 118,
+    "nfs_broader_eyalet_catalogue_entries": 402,
+    "nfs_sivas_sancak": 252,
+    "nfs_divrigi_sancak": 33,
+    "nfs_other_or_mixed": 117,
+    "tmt_centre_historical_neighbourhoods": 59,
+    "tmt_centre_defter_refs": 184
+  },
+  "outputs": [
+    "catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson",
+    "catalog/sivas_17_ilce_guncel_yer_adlari_20261121.json",
+    "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
+    "catalog/sivas_1831_1844_nfs_eslesme_kontrol_20261121.json",
+    "catalog/sivas_1831_1844_nfs_ek_91_osmanlica_ad_okunus_adayi_20261121.json",
+    "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
+    "catalog/sivas_kutuphane_62_pdf_calisma_envanteri_20261121.json",
+    "catalog/sivas_eyaleti_nfs_402_katalog_20261121.json",
+    "catalog/sivas_merkez_1844_1845_tmt_59_mahalle_184_defter_20261121.json",
+    "catalog/il_koy_sulale/58.json",
+    "sivas-nfs-koy-varak-fihristi.html"
+  ],
+  "published_search_files": [
+    "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
+    "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson"
+  ],
+  "unified_site_pages": [
+    "index.html",
+    "detayli.html",
+    "sulale-sozlugu.html"
+  ],
+  "quality_caveats": [
+    "156 single-name matches are candidates based on historic-kaza-limited present-day place names, not independent proof of the historical location.",
+    "819 original index rows are available in the separate searchable fihrist page, not all given unverified coordinates.",
+    "9 ambiguous matches and 654 unmatched originals are not forced onto the live map.",
+    "91 fuzzy spelling alternatives are held for manual review and are NOT live mapped.",
+    "402 NFS catalogue entries cover the historical Sivas eyalet. 117 other/mixed records cannot be treated as modern Sivas district villages.",
+    "59 TMT mahalle labels have not been given invented modern mahalle identities.",
+    "Only the 9 family cards with already-indexed family names were integrated. The other 62 PDF inventory entries require their actual content checked before extracting new families.",
+    "Legacy district-wise Sivas family index duplicate keys consolidated (Gemerek/Cepni, Imranli/Cukuryurt, Sarkisla/Akcasu, Yildizeli/Direkli Sarikaya).",
+    "Previous chat's separate Sivas(3).xlsx is not accessible in current file retrieval; only PDF master fihrist and comprehensive library inventory were accessed.",
+    "Live domain/browser rendering has not been independently visually verified."
+  ]
+}
