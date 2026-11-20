@@ -139,6 +139,24 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .archiveStatsTop .archiveRecent p{font-size:12px!important}
 .archiveStatsTop .archiveLiveCounters b{font-size:19px}
 @media(max-width:600px){.archiveStatsTop{padding:8px}.archiveStatsTopInner{gap:6px}.archiveStatsTop .archiveLiveStats{width:100%}}
+
+/* 2026-11-20: FAMILY SEARCH — LEGIBLE IN-PLACE ARCHIVE DETAILS */
+.drawer{z-index:180;overscroll-behavior:contain}
+.drawer .dhead{flex:0 0 auto;padding:20px 58px 17px 19px}
+.drawer .dhead h2{font:800 clamp(22px,3vw,29px)/1.22 system-ui,Arial,sans-serif;overflow-wrap:anywhere;color:#fff}
+.drawer .dhead p{font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+.drawer .dbody{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;font-size:16px}
+.drawer .section h3{font:800 17px/1.4 system-ui,Arial,sans-serif}
+.drawer .family{font-size:15px;line-height:1.45;font-weight:800;padding:8px 10px;overflow-wrap:anywhere;max-width:100%}
+.drawer .record{font-size:14px;line-height:1.65}
+.drawer .kv{font-size:13px;grid-template-columns:minmax(105px,34%) minmax(0,1fr)}
+.drawer .kv span{overflow-wrap:anywhere}
+.drawer .notice{font-size:13px;line-height:1.55}
+.familyFocus{padding:16px 15px;margin:0 0 13px;background:#fff8df;border:2px solid #b78a36;border-radius:12px;color:#292116;overflow-wrap:anywhere}
+.familyFocus small{display:block;font-size:13px;font-weight:900;letter-spacing:.04em;margin-bottom:8px}
+.familyFocus strong{display:block;font-size:clamp(19px,3vw,25px);font-weight:900;line-height:1.35;color:#181818}
+.familyFocus .familyPlace{display:block;font-weight:750;font-size:15px;margin-top:8px}
+@media(max-width:620px){.drawer{inset:0;width:100%;border-radius:0}.drawer .dbody{padding:15px}.drawer .dhead{padding:20px 54px 16px 16px}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -2015,7 +2033,7 @@ async function selectDistrict(local,geoFeature){
   }
 }
 function villagePopupHtml(name,r){const d=(r&&r.defterler||[]).filter(function(x){return x&&x.defter}).slice(0,3);const fam=archiveLayerPrefs.families?(r&&r.sulaleler||[]).slice(0,12):[];return '<div style="min-width:190px;max-width:310px"><b>'+esc(name)+'</b><br><small>'+esc([selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name].filter(Boolean).join(' / '))+'</small>'+(d.length?'<p>'+d.map(function(x){return esc([x.tur,x.defter,x.yil,x.varak?'VARAK '+x.varak:''].filter(Boolean).join(' · '))}).join('<br>')+'</p>':'<p>DOĞRULANMIŞ DEFTER BİLGİSİ YOK</p>')+(fam.length?'<b>SÜLALELER</b><br>'+fam.map(function(x){return esc(typeof x==='object'?JSON.stringify(x):x)}).join(' · '):'')+'</div>'}
-function openVillage(name){const r=archiveForVillage(name);renderSideVillage(name,r,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);const idx=currentVillages.findIndex(function(x){return norm(x.name)===norm(name)});if(idx>=0)vSel.value=String(idx)}
+function openVillage(name){const r=archiveForVillage(name);renderSideVillage(name,r,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);const idx=currentVillages.findIndex(function(x){return norm(x.name)===norm(name)});if(idx>=0)vSel.value=String(idx);showRecord(name,r,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}
 function valueLine(label,v){return v?'<div><b>'+esc(label)+'</b><span>'+esc(v)+'</span></div>':''}
 function hasDisplayValue(v){
   if(v==null)return false;
@@ -2237,7 +2255,25 @@ function showRecord(name,r,ilce,il){
     }
     if(!h)h='<div class="empty"><b>BU YERLEŞİM İÇİN GÖSTERİLECEK ARŞİV VERİSİ YOK.</b></div>'
   }
-  document.getElementById('vbody').innerHTML=h;
+  // Place the searched family above long register details, rather than below them.
+  const familyNeedle=searchNorm(lastSearchQuery||'');
+  const matched=(r&&familyNeedle&&(r.sulaleler||[]).length)
+    ? matchedFamilies(r,familyNeedle).filter(function(x){return typeof x==='string'}).slice(0,12)
+    : [];
+  if(matched.length){
+    h='<div class="familyFocus"><small>ARADIĞINIZ SÜLALE / LAKAP</small>'
+      +matched.map(function(x){return'<strong>'+esc(x)+'</strong>'}).join('')
+      +'<span class="familyPlace">'+esc([il||(r&&r.il),ilce||(r&&r.ilce),name].filter(Boolean).join(' / '))+'</span></div>'+h;
+  }else if(r&&(r.sulaleler||[]).length){
+    const uniqueNames=Array.from(new Set((r.sulaleler||[]).filter(function(x){return typeof x==='string'})));
+    h='<div class="familyFocus"><small>BU YERLEŞİMİN SÜLALELERİ ('+uniqueNames.length+')</small>'
+      +uniqueNames.slice(0,12).map(function(x){return'<strong>'+esc(x)+'</strong>'}).join('')
+      +(uniqueNames.length>12?'<span class="familyPlace">DİĞER SÜLALELER AŞAĞIDA</span>':'')
+      +'</div>'+h;
+  }
+  const contentEl=document.getElementById('vbody');
+  contentEl.innerHTML=h;
+  contentEl.scrollTop=0;
   drawer.classList.add('open')
 }
 function settlementNamesFor(il,ilce){
