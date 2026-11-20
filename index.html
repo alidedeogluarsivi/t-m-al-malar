@@ -206,7 +206,6 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>E-SATIŞ PDF</span></div>
-<div class="stat"><b id="placeStat">—</b><span>YERLEŞİM KARTI</span></div>
 <div class="stat"><b id="familyStat">—</b><span>TEKİL SÜLALE</span></div>
 <div class="stat"><b id="mappedStat">—</b><span>HARİTAYA BAĞLI KART</span></div>
 </div>
@@ -2486,7 +2485,6 @@ async function loadArchiveCore(){
   archive.forEach(function(r){(r.sulaleler||[]).forEach(function(x){famCount.add(searchNorm(typeof x==='object'?JSON.stringify(x):x))})});
   document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
-  document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
   document.getElementById('familyStat').textContent=famCount.size.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
