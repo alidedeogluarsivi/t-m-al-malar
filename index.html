@@ -159,6 +159,8 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 </style>
 </head>
 <body>
+<a href="./ogullari-harita-dizini.html" style="display:inline-block;background:#17384e;color:#fff;font-weight:800;padding:11px 15px;border-radius:8px;margin:8px 0;text-decoration:none">4.498 SÜLALE · 270 YERLEŞİM · HARİTA DİZİNİ</a>
+
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
 <section class="archiveStatsTop" aria-label="Arşiv istatistikleri"><div class="archiveStatsTopInner"><div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div><div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
   <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
@@ -3046,6 +3048,20 @@ bindHistoricalControls();
   if(wb){wb.classList.remove('mapOpen');wb.classList.add('mapClosed')}
   if(mc)mc.classList.add('mapDormant');
   statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
+  // Direct link from the 2026-11-20 family/place map index.
+  // Keep the underlying village record and its provenance, never fabricate a pin.
+  const mapLink=new URLSearchParams(window.location.search);
+  const requestedIl=mapLink.get('map_il'),requestedIlce=mapLink.get('map_ilce'),requestedKoy=mapLink.get('map_koy');
+  if(requestedIl&&requestedIlce&&requestedKoy){
+    loadArchive().then(function(){
+      const found=archive.find(function(r){
+        return norm(r.il)===norm(requestedIl)&&norm(r.ilce)===norm(requestedIlce)&&norm(r.koy)===norm(requestedKoy)
+      });
+      const record=found||{il:requestedIl,ilce:requestedIlce,koy:requestedKoy,sulaleler:[],defterler:[],
+        durumlar:['GÜNCEL HARİTA GEOMETRİSİ VE EŞLEŞME KONTROL EDİLMELİ']};
+      return showRecordOnMap(record)
+    }).catch(function(e){console.warn('Sülale harita bağlantısı açılamadı',e);statusEl.textContent='KÖY HARİTA BAĞLANTISI YÜKLENEMEDİ'});
+  }
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
   if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:12000})}else{setTimeout(warmArchive,3500)}
   if(!mapActivated)statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
