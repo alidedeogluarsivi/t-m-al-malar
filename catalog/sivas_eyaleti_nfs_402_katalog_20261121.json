@@ -1,0 +1,2821 @@
+{
+  "ara": "Sivas eyaleti",
+  "toplam": 402,
+  "dipnot": "Tarihî eyalet sınırı güncel Sivas ili değildir; diğer sancaklar haritaya otomatik eşlenmez",
+  "defterler": [
+    {
+      "defter": "BOA NFS.d.2120",
+      "hicri": "H-27-04-1261",
+      "katolog_ozeti": "Ankara, Sivas, Konya vilayeti, (Bozok?), Sivas, Kırşehir, Kengırı (Çankırı) sancağı, Budaközü (Ankara eyaleti), İnallıballı (Sivas eyaleti), Keskin (Ankara eyaleti), Kırşehir sancağı (Konya eyaleti), Keskin (Konya eyaleti), Kengırı Keskini (Ankara eyaleti, Kengırı), Çiçekdağı nahiyesi (Kırşehri sancağı), Konur (Kırşehri sancağı), Gümüşkan Madeni (Ankara eyaleti), İç nahiyesi (Kırşehri sancağı), Bozluk nahiyesi (Kırşehri sancağı) kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2134",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez, Ezinepazarı, Akdağ, Hakala (Argoma), Geldiklan, Varay, Zünnunabad, Gelingiras, Kedegara (Köprü) kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2135",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2136",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ezinepazar nahiyesi, Akdağ nah. kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2137",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hakala (Argoma) nahiyesi, Geldiklan nah, Varay kaza kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2138",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras, Havza kaza defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2139",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2140",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş, Hacıköy, Zeytun, Merzifon kaza defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2141",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüşmadeni, Hacıköy, Zünnunabad kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2142",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2143",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez, Akdağ, Geldiklan, Gümüş, Hacıköy, Merzifon kazası, reaya defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2144",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Erbaa (Akdağ, Hakala, Geldiklan, Ezinepazarı nahiyeleri) kaza defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2145",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı,Erbaa (Akdağ, Hakala, Geldiklan, Ezinepazarı nahiyeleri) kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2146",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Akdağ nahiyesi kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2147",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Akdağ nahiyesi kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2148",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Akdağ nahiyesi kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2151",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2152",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kaza defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2153",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kaza defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2154",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2155",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2156",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2157",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, reaya defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2158",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2159",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2160",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2161",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Amasya merkez kazası, Kıpti müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2164",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ezinepazar nahiyesi kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2165",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ezinepazar nahiyesi kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2167",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Geldiklan nahiyesi kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2168",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Geldiklan nahiyesi kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2169",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Geldiklan kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2171",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2172",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2173",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2174",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2175",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2177",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gelingiras kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2179",
+      "hicri": "H-29-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kaza defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2180",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş Maden-i hümayunu kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2181",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2182",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2183",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş Maden-i hümayunu kazası defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2186",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2187",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2188",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Gümüş kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2191",
+      "hicri": "H-29-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköyü kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2192",
+      "hicri": "H-29-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, reaya defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2193",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2194",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2195",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2196",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, reaya defteri. ahtt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2197",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hacıköy kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2201",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hakala nahiyesi kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2202",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Hakala nahiyesi kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2205",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2206",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2207",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2208",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2209",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2210",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2211",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Havza merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2215",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2216",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2217",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2218",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2219",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2220",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2221",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2222",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2230",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ladik kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2231",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ladik kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2232",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ladik kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2233",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Ladik kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2236",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2237",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2238",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2239",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2240",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2241",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2242",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Merzifon merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2248",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Varay kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2249",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Varay kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2250",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Varay kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2251",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Varay kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2253",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zeytun kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2254",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zeytun kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2255",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zeytun kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2256",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zeytun kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2258",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2259",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. ahtt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2260",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2261",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2262",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2263",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2264",
+      "hicri": "H-29-12-1262",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Zünnunabad kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2265",
+      "hicri": "H-29-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı, Kedegara kazası defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2266",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Amasya sancağı. Varay, Zünnunabad, Gelingiras, Kedegara (Vezirköprüsü), Gümüş, Hacıköyü, Zeytun, Merzifon, Havza, Ladik kazası defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2267",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı,Sivas, Hafik (Hafikili) nahiyesi, Artukabad, Hüseyinabad, Mecidözü, Turhal, Kazabad, Niksar, Sivasili, Yıldızili, Erbaa (İrek, Taşabad, Sonisa, Karayaka nahiyeleri), Karakuş, Tozanlu, İlbeyli, Kilmigad, İnallı (İnanlı) kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2268",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı,Sivas, Hafik (Hafikili) nahiyesi, Artukabad, Hüseyinabad, Mecidözü, (Kavilli ve Milli aşireti), Turhal, Kazabad, (Sağıncı, Badıllı ve Mahyatlı aşiretleri) kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2269",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2270",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2271",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2272",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İnallu (Hüseyinabad) kazası, müslim defteri. ahtt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2273",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. ahtt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2274",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2275",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli, Sivasili, Tozanlı, İlbeyli, Erbaa (Kilmigad, İrek, Taşabad, Sonisa), İnallu Aşireti, Karayaka, (Kuşlu aşireti), Karakuş kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2276",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2277",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2278",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kaza kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2279",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad, İrek (Erbaa kazasına tabi) kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2280",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "1246Sivas eyaleti, Sivas sancağı, Taşabad kazası, müslim defteri. ahtt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2281",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas?, Niksar sancağı, Sonisa, Karayaka (Erbaa kazasına tabi) kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2282",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karakuş kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2283",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad, Komenat nahiyesi, Kafirni nah, Zile, Meşhedabad nah, (Cihanbeyli, Pespanlı?, ..., Çağırganlı, .. aşireti, Zile'ye tabi), Ortapare (Akkuzulu, Çepni, Gökçeli .. topluluğusi, Ortapare'ye tabi), Yörükan-ı Zile, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2284",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2285",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, Kafirni (Kafirli) nah kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2286",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2287",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Hafik (Hafikili) nahiyesi, Artukabad, Hüseyinabad, Mecidözü, Turhal, Kazabad, Niksar, Karakuş, Sivasili, İrek, Taşabad, Sonisa, Karayaka, Zile, Meşhedabad nahiyesi, Ortapare, İlbeyli, Kilmigad, Yıldızeli, Tokad, Komanad nahiyesi, Kafirni nahiyesi, Tozanlı, İnanlı kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2288",
+      "hicri": "H-01-09-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez, Sivasili, Yıldızeli, Zile, Artukabad, Hüseyinabad, Mecidözü, Kazabad, Tokad, Niksar, İrek, Taşabad, Karayaka, Erbaa, Sonisa, Yeniil, Tonus, Hafik (Hafikili) nahiyesi, Komenat nah, Tozanlı nahiyesi kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2289",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas kazası, reaya defteri. ahtt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2290",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2291",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik nahiyesi kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2292",
+      "hicri": "H-29-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Niksar, Yeniilçe, Hüseyinabad, Mecidözü, Artukabad, Kazabad, Erbaa, Sivasili kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2293",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2294",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2295",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2296",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, müslim defteri. a.g.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2297",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2298",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, reaya defteri. a.g.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2299",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2300",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Artukabad kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2302",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Ballu Kabilesi Kazası kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2303",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, müslim defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2304",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, müslim defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2305",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2306",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, reaya defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2307",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, reaya defteri. (agtt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2308",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2309",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2310",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2311",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Niksar sancağı, İrek kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2313",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik Nahiyesi, Sivasili kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2314",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2315",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2316",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2317",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik Nahiyesi, Sivasili (Aşiretler) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2318",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2319",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2320",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2321",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2322",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2323",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2324",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2325",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik Nahiyesi, Sivasili kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2326",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik Nahiyesi, Sivasili kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2327",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2328",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik (Hafikili) kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2329",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2330",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2331",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hafik (Hafikili) kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2332",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2333",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2334",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2335",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2336",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2337",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2339",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2340",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2341",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2342",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2343",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İlbeyli kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2345",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İnallıballı (İnallı) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2346",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, İnallıballı (İnallı) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2348",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kafirni nah kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2349",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kafirni Nahiyesi kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2350",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karakuş kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2351",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karakuş kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2352",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karayaka kazası kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2353",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karayaka kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2354",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karayaka kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2355",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karayaka kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2356",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Karayaka kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2357",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabat kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2358",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabat kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2359",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabat kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2360",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabat kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2361",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2362",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2363",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2364",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kazabad kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2365",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2366",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2367",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2368",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2369",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2370",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kilmigad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2371",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2372",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, Kafirni (Kafirli) ve Dönekseabad nahiyesi, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2373",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2374",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2375",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Komenat nahiyesi, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2376",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2377",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2378",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2379",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2380",
+      "hicri": "H-29-12-1250",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim aşiretler defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2381",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı Mecidözü kazası, müslim aşiretler defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2382",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, müslim aşiretler defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2383",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü, Varay kazası, müslim aşiretler defteri.. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2384",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü, Varay kazası, müslim aşiretler defteri.. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2385",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2386",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2387",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2388",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2389",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2390",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kasabası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2391",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2392",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2393",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2394",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2395",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Niksar muhassıllığı, Niksar kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2396",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Niksar kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2397",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Niksar muhassıllığı, Niksar ve İrek kazası, reaya defteri. agytt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2399",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2400",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2401",
+      "hicri": "H-29-12-1251",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez ve Yıldızeli kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2402",
+      "hicri": "H-29-12-1252",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2403",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2404",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2405",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2406",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2407",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kaza defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2408",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2409",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2410",
+      "hicri": "H-29-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. (agtt)s",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2411",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2412",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2413",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2414",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2415",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2416",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2417",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kaza defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2418",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2419",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2420",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2421",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2422",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2423",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2424",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2425",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2426",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2427",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2428",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2429",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2430",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2431",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2432",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2433",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2434",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2435",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2436",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2437",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2438",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sonisa (Erbaa) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2439",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sonisa (Erbaa) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2440",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sonisa (Erbaa) kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2441",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sonisa, İrek kasabası, Karayaka (Erbaa) kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2442",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sonisa, İrek kasabası, Karayaka (Erbaa) kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2443",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Şarkipare kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2444",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Şarkipare kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2445",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Şarkipare kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2446",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Taşabad kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2447",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Taşabad (Erbaa) kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2448",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Taşabad kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2449",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Taşabad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2450",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2451",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, müslim defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2452",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kasabası ve Komenat nahiyesi reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2453",
+      "hicri": "H-10-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2454",
+      "hicri": "H-05-04-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kaza defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2455",
+      "hicri": "H-08-12-1253",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2456",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2457",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2458",
+      "hicri": "H-29-07-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, müslim defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2459",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2460",
+      "hicri": "H-29-01-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2461",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2462",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2463",
+      "hicri": "H-29-07-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (a.g.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2464",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2465",
+      "hicri": "H-29-01-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2466",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2467",
+      "hicri": "H-29-01-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (agtt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2468",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (a.g.y.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2469",
+      "hicri": "H-29-01-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad merkez kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2473",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tonus kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2474",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Tonus kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2475",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tonus kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2476",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tonus Nahiyesi kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2477",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Tonus kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2478",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tozanlı nahiyesi, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2479",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tozanlı nahiyesi, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2480",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tozanlı nahiyesi, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2481",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tozanlı nahiyesi, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2482",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2483",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası Kıpti defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2484",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2485",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2486",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2487",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2488",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2489",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2491",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2492",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2493",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2494",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2495",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. ahtt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2496",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, müslim defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2497",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2498",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2499",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2500",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2501",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2502",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2503",
+      "hicri": "H-29-12-1255",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2504",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2505",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yıldızeli kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2507",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2508",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2509",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile (Kuştaş, Meşhedabad, Kızılkümbet, Acacı, Yenimüsliman, Kireçli nahiyeleri), müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2510",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile (Geldiklan, Varay, Meşhedabad, Acacı, Kuştaş, Kızılkunbed nahiyeleri), Yörükan-ı Zile (Hüseyinabad, Artukabad, Kazaabad) kazası, müslim aşiretler defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2511",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile (Kızılkunbed Kireçli, Kuştaş, Meşhedabad, Yenimüsliman nahiyeleri), Yörükan-ı Zile (Hüseyinabad, Artukabad) kazası, yabancı müslim defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2512",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2513",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2514",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, Kıpti reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2515",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, müslim defteri. ahtt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2516",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Zile muhassıllığı, Zile merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2517",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Zile muhassıllığı, Zile (Kireçli, Yenimüsliman, Meşhedabad (Salurmeşhed), Kuştaş, Acacı, Kızılkunbed nahiyeleri), müslim defteri. ahtt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2518",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile (Kireçli, Yenimüsliman, Meşhedabad (Salurmeşhed), Kuştaş, Acacı, Kızılkünbed nahiyeleri), müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2519",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile merkez kazası, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2520",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2521",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, reaya defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2522",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2523",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, reaya cizye ve nüfus defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2524",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2525",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yörükân-ı Zile kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2526",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Yörükân-ı Zile kabile ve aşiretlerinin bulunduğu Bozok, Kengırı (Çankırı), Çorum, Kırşehir, Amasya, Çorum, Kırşehir (Çiçek nahiyesi) livalarındaki müslim defteri. (a.g.y.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2527",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağına tabi Zile, Amasya, İlbeyli kazaları, Kırşehir?e tabi Çiçek nahiyesi, Bozok sancağına tabi Sorgun ve Kızılkoca kazalarındaki müslim aşiretler defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2528",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile, Artukabad, Kazabad, Taşabad, İrek, Erbaa, Sonisa, Kilmigad, Turhal kazalarındaki müslim aşiretler defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2529",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Zile, Hüseyinabad, Mecidözü, İnallıballı (İnallı) kazalarındaki müslim aşiretler defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2530",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Hüseyinabad, Mecidözü, İnallıballı (İnallı) kazalarındaki müslim aşiretler defteri. (a.g.y.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2531",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Mecidözü , Hüseyinabad , İnallıballı (İnallı) kazalarındaki müslim aşiretler defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2532",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili, Divriği, Kuruçay, Karahisar-ı Şarki kazalarındaki müslim aşiretler defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2533",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili, Divriği, Kuruçay, Karahisar-ı Şarki kazalarındaki müslim aşiretler defteri. (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2534",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili, Divriği, Kuruçay, Karahisar-ı Şarki kazalarındaki müslim aşiretler defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2535",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, Çukuryurt köyü reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2536",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivasili kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2537",
+      "hicri": "H-29-12-1249",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Hafik nahiyesi, Sivasili ve (agytt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2538",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Hafik kazası icmal defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2539",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Tokad kasabası, Dönekseabad, Kafirni (Kafirli) ve Tozanlı nahiyeleri icmal defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2540",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Turhal, Artukabad, Tokad, Komenat, Kafirni (Kafirli), Ortapare kazası icmal defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2541",
+      "hicri": "H-26-07-1260",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Hafik (Hafikili) nahiyesi, Tokad, Kafirni (Kafirli), Komenat, Tozanlı nahiyeleri, Zile, Kazabad, Mecidözü, Niksar, Yıldızeli, Artukabad, Hüseyinabad, Kilmigad, Taşabad, Sonisa, Karayaka, İrek, İlbeylü, Karakuş, Turhal, İnallıballı (İnallı), Sivasili kazası icmal defteri. (a.g.y.tt)",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2542",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Sivas ve Bozok sancaklarına tabi Hüseyinabad, Karahisar-ı Behramşah, Zile kazalarındaki Haremeyn Aşiretinin icmal defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2543",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Sivas, Hafik (Hafikili) nahiyesi, Kürmeşli aşireti, Koçgirli aşireti, Zile, (Bağırgan kabilesi, Cihanbeyli aşireti), Tokad, Kafirni (Kafirli), Komenat nahiyeleri, Darende, Sivasili, Yıldızeli, İrek, Karayaka, Mecidözü, Kavillü aşireti, Ortapare, Yüzdepare, Kilmigad, Sonisa, İlbeylü, Turhal, Artukabad, Taşabad, Karakuş, İnallu, Kuşlu aşireti, Kangal nahiyesi, Kazabad (Badıllı, Sağancı ve Selmanlı aşiretleri), Deliktaş Derbendi, Aşudi ve Tozanlı nahiyeleri, Şarkipare, Ballu, Gürün, Tonus, Emlak, Gedik-i Çubuk, Alacahan Derbendi, Niksar, Divriği, Hüseyinabad kazası icmal defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2544",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği, Haremeynü'ş-şerifeyn'e tabi Deliktaş Derbendi, Kangal karyesi, Aşudi, Alacahan Derbendi, Gürün ve Maden-i Hümayun-ı Keban'a tabi Ayvalıdere nahiyesi, müslim defteri. (agytt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2545",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Darende, Aşudi karyesi, Deliktaş Derbendi, Alacahan Derbendi kazası, reaya defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2546",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2547",
+      "hicri": "H-29-12-1246",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Darende, Aşudi karyesi, Deliktaş Derbendi, Alacahan Derbendi, Gürün, Divriği, kazası, reaya defteri. ahtt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2548",
+      "hicri": "H-29-12-1250",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kasabası, Hikme nahiyesi, Kesme nahiyesi defteri. (agytt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2549",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Aşudi nahiyesi, müslim defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2550",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Aşudi nahiyesi, müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2551",
+      "hicri": "H-29-12-1247",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Darende kazası, müslim defteri. (agytt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2553",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Deliklitaş nahiyesi, müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2554",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği merkez kazası, müslim defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2555",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği nahiyeleri (Hikme, Vartan, Anzahr?, Sivir, Kesme, Hamo, Zeniski), müslim defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2556",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, müslim defteri. (agytt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2557",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği, Hikme (Hökme), Vartan, Kesme nahiyeleri kazası, reaya defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2558",
+      "hicri": "H-29-12-1254",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. ahtt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2559",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği merkez kazası, müslim defteri. a.g.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2560",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği merkez kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2561",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği nahiyeleri (Hikme nahiyesi, Vartan, Anzahr?, Sivir, Kesme, Hamo, Zeniski), müslim defteri. a.g.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2562",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği nahiyeleri (Hikme nahiyesi, Vartan, Anzahr?, Sivir, Kesme, Hamo, Zeniski) müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2563",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. a.g.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2564",
+      "hicri": "H-29-12-1257",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. (a.g.y.tt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2565",
+      "hicri": "H-29-12-1258",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. (a.g.y.tt)",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2566",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Divriği kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2568",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, müslim defteri. agytt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2569",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, müslim defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2570",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2571",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2572",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2573",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2574",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Gürün kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2575",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği kazası, Kangal nahiyesi, müslim defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2576",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kangal nahiyesi, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2577",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kangal kazası, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2578",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kangal nahiyesi, reaya defteri. agytt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2579",
+      "hicri": "H-29-12-1256",
+      "katolog_ozeti": "Sivas eyaleti, Sivas sancağı, Kangal nahiyesi, reaya defteri. a.g.y.tt",
+      "kapsam": "SİVAS SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2580",
+      "hicri": "H-29-12-1259",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Kangal nahiyesi, reaya defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2582",
+      "hicri": "H-29-12-1260",
+      "katolog_ozeti": "Sivas eyaleti, Divriği sancağı, Darende, Gürün kazası icmal defteri. a.g.y.tt",
+      "kapsam": "DİVRİĞİ SANCAĞI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2583",
+      "hicri": "H-30-12-1248",
+      "katolog_ozeti": "Sivas eyaleti, Sivas livasına tabi Sivas kasabası, Sivasili, İlbeyli, Çorum, Yeniil, Kangal nahiyesi, Tonus nahiyesi, Tokad, Komenat nahiyesi, Kafirni nahiyesi, Tozanlı, Kilmigad, İrek, Taşabad, Artukabad, Sonisa, Karayaka, İnallı, Ballı, Turhal, Hüseyinabad, Zile, Ortapare, Kazabad, Niksar, Karakuş kazası ile Çorum livasına tabi Hacıhamza, Saz, İskilib, Katar nahiyesi, Bayat nahiyesi, Osmancık kazası ile Divriği ve Aşudi nahiyesi yoklama icmal defteri.",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    },
+    {
+      "defter": "BOA NFS.d.2584",
+      "hicri": "H-29-12-1261",
+      "katolog_ozeti": "Sivas eyaletine tabi Sivas, Hafik nahiyesi, Tokad, Kafirni (Kafirli) nahiyesi, Komenat nahiyesi, Tozanlı nahiyesi, Zile, Kazabad, Mecidözü, Niksar, Yıldızeli, Artukabad, Hüseyinabad, Kilmigad, Taşabad, Sonisa, Karayaka, İrek, İlbeylü, Karakuş, Turhal, İnallıballı, Şarkipare, Sivasili, Aşudi nahiyesi, Kangal nahiyesi, Gürün nahiyesi, Tonus nahiyesi, Darende, Amasya, Geldiklan, Veray, Zünnunabad, Gelingiras, Kedegara (Vezirköprü), Gümüş, Hacıköy, Zeytun, Merzifon, Merzifonabad, Havza, Ladik, Divriği ile müstakil sancak olan Bozok ve Kayseri sancaklarına tabi Yozgad (Kızılkoca), Sorgun, Gedik-i Çubuk, Emlak, Karahisar-ı Behramşah, Akdağ, Süleymanlı, Selmanlı, Boğazlıyan, Kayseri, Sarıoğlan, Zamantı, Karahisar-ı Develi, İncesu, Develi kazası icmal defteri. a.g.y.tt",
+      "kapsam": "DİĞER / KARMA EYALET KAYDI",
+      "kaynak": "NFS_D_YENI_10000_KAYIT_TAM_LISTE.txt"
+    }
+  ]
+}
