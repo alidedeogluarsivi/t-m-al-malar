@@ -168,6 +168,9 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .sideInfoTags span,.sideInfoTags button{font-size:14px;line-height:1.4;padding:7px 9px;overflow-wrap:anywhere;border-radius:7px;max-width:100%}
 .sideInfoRecord{font-size:14px;line-height:1.55;padding:10px 12px;overflow-wrap:anywhere}
 @media(max-width:1050px){.sideInfo{max-height:none}}
+
+/* ÜSTTEKİ 4.498 SÜLALE / 270 YERLEŞİM ÖZEL MENÜSÜ KALDIRILDI */
+a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -3116,4 +3119,14 @@ bindHistoricalControls();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
 <script defer src="./site-stats.js?v=20261119-last10"></script>
+<script>
+/* Önceki sürümlerden kalabilecek özel üst şeritleri de gizle */
+(function(){
+ function removeLegacyHeader(){
+   document.querySelectorAll('a[href*="ogullari-harita-dizini.html"]').forEach(function(a){a.remove()});
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",removeLegacyHeader,{once:true});
+ else removeLegacyHeader();
+})();
+</script>
 </body></html>
