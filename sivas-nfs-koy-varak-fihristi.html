@@ -52,19 +52,19 @@ const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,
 const fold=s=>String(s||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
 let rows=[],limit=65,known=new Map(),double=new Set();
 function render(){const q=fold($("q").value),d=$("defter").value,status=$("durum").value;
- const hits=rows.filter(x=>(!q||fold([x.tarihi_karye,x.defter,x.varak,x.kaynak_sira,(known.get(x.kaynak_sira)||{}).current].join(" ")).includes(q))&&(!d||x.defter===d)&&(!status||(status==="candidate" ? known.has(x.kaynak_sira) : !known.has(x.kaynak_sira))));
+ const hits=rows.filter(x=>(!q||fold([x.tarihi_karye,x.defter,x.varak,x.kaynak_sira,(known.get(x.kaynak_sira+'|'+x.defter)||{}).current].join(" ")).includes(q))&&(!d||x.defter===d)&&(!status||(status==="candidate" ? known.has(x.kaynak_sira+'|'+x.defter) : !known.has(x.kaynak_sira+'|'+x.defter))));
  $("stat").textContent=hits.length+" / "+rows.length+" TARİHÎ FİHRİST SATIRI";
- $("body").innerHTML=hits.slice(0,limit).map(x=>{const m=known.get(x.kaynak_sira),href=m?"./index.html?map_il=Sivas&map_ilce="+encodeURIComponent(m.ilce)+"&map_koy="+encodeURIComponent(m.koy):"";
+ $("body").innerHTML=hits.slice(0,limit).map(x=>{const m=known.get(x.kaynak_sira+'|'+x.defter),href=m?"./index.html?map_il=Sivas&map_ilce="+encodeURIComponent(m.ilce)+"&map_koy="+encodeURIComponent(m.koy):"";
  const cell=(label,content)=>'<td data-label="'+label+'">'+content+'</td>';
- return'<tr>'+cell('YIL / SIRA',esc(x.yil)+' · '+esc(x.kaynak_sira))+cell('BOA DEFTERİ',esc(x.defter))+cell('VARAK',esc(x.varak))+cell('TARİHÎ AD','<b>'+esc(x.tarihi_karye)+'</b>')+cell('GÜNCEL YER',m?'<a href="'+href+'">'+esc(m.current)+'</a>':'—')+cell('DURUM',m?'<span class="flag">TEKİL AD ADAYI · BELGE TEYİDİ GEREKİR</span>':double.has(x.kaynak_sira)?'<span class="flag">BİRDEN FAZLA YER ADAYI</span>':'TARİHÎ KAYIT; GÜNCEL YER BEKLİYOR')+'</tr>'}).join("");
+ return'<tr>'+cell('YIL / SIRA',esc(x.yil)+' · '+esc(x.kaynak_sira))+cell('BOA DEFTERİ',esc(x.defter))+cell('VARAK',esc(x.varak))+cell('TARİHÎ AD','<b>'+esc(x.tarihi_karye)+'</b>')+cell('GÜNCEL YER',m?'<a href="'+href+'">'+esc(m.current)+'</a>':'—')+cell('DURUM',m?'<span class="flag">TEKİL AD ADAYI · BELGE TEYİDİ GEREKİR</span>':double.has(x.kaynak_sira+'|'+x.defter)?'<span class="flag">BİRDEN FAZLA YER ADAYI</span>':'TARİHÎ KAYIT; GÜNCEL YER BEKLİYOR')+'</tr>'}).join("");
  $("more").hidden=hits.length<=limit;
 }
 $("q").oninput=$("defter").onchange=$("durum").onchange=()=>{limit=65;render()};$("more").onclick=()=>{limit+=65;render()};
 (async()=>{try{
  const [a,b,c]=await Promise.all(["./catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson","./catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson","./catalog/sivas_1831_1844_nfs_eslesme_kontrol_20261121.json"].map(async f=>{const r=await fetch(f);if(!r.ok)throw Error(f+" HTTP "+r.status);return r.text()}));
  rows=a.trim().split(/\r?\n/).map(JSON.parse);
- for(const card of b.trim().split(/\r?\n/).map(JSON.parse)){for(const n of (card.durumlar||[]).filter(x=>x.startsWith("FİHRİST SIRA:")).flatMap(x=>x.replace("FİHRİST SIRA:","").split(",").map(y=>+y.trim()))){known.set(n,{ilce:card.ilce,koy:card.koy,current:card.ilce+" / "+card.koy})}}
- const audit=JSON.parse(c);for(const a of audit.adayi_iki_veya_daha_fazla_guncel_yerlesimde_gorulen||[])double.add(a.sira);
+ for(const card of b.trim().split(/\r?\n/).map(JSON.parse)){const nums=(card.durumlar||[]).filter(x=>x.startsWith("FİHRİST SIRA:")).flatMap(x=>x.replace("FİHRİST SIRA:","").split(",").map(y=>+y.trim()));nums.forEach((n,i)=>{const id=n+"|"+(card.defterler[i]?.defter||"");known.set(id,{ilce:card.ilce,koy:card.koy,current:card.ilce+" / "+card.koy})})}
+ const audit=JSON.parse(c);for(const a of audit.adayi_iki_veya_daha_fazla_guncel_yerlesimde_gorulen||[])double.add(a.sira+'|'+a.defter);
  const defters=[...new Set(rows.map(x=>x.defter))].sort();$("defter").innerHTML='<option value="">BÜTÜN NFS DEFTERLERİ</option>'+defters.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");render();
 }catch(err){$("stat").textContent="KAYIT YÜKLEME HATASI: "+err.message}})();
 </script>
