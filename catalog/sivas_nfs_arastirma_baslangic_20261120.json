@@ -1,0 +1,52 @@
+{
+  "province": "SİVAS",
+  "date": "2026-11-20",
+  "status": "SİVAS ARAŞTIRMASI BAŞLATILDI; TARİHÎ COĞRAFYA EŞLEŞMESİ SÜRÜYOR",
+  "sources": [
+    {
+      "defter": "BOA NFS.d.2544",
+      "miladi_yil": "1831",
+      "historical_coverage": [
+        "Divriği",
+        "Deliktaş Derbendi",
+        "Kangal karyesi",
+        "Aşudi",
+        "Alacahan Derbendi",
+        "Gürün"
+      ],
+      "evidence": "sivas ili köy nufus defterleri.pdf, sayfa 32–35; kaynak yer listesindeki MÜRSEL/MURSAL varak 60",
+      "example": {
+        "place": "MÜRSEL / MURSAL",
+        "varak": 60,
+        "records": "Hane ve erkek sayısı henüz doğrulanmadı"
+      }
+    },
+    {
+      "defter": "BOA NFS.d.1055",
+      "miladi_yil": "1835",
+      "historical_district": "Gevezid/Gevezi",
+      "evidence": "Önceki kullanıcı fihrist okuması, bu oturumda kaynak Excel aslına erişilemedi",
+      "examples": [
+        {
+          "place": "YALMAN",
+          "varak": 12,
+          "hane": 3,
+          "erkek": 10
+        },
+        {
+          "place": "YUMRUTAŞ",
+          "varak": 9,
+          "hane": 1,
+          "erkek": 2,
+          "note": "H.1257 sonradan kayıt açıklaması"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "Kangal 1840 fihristi önceki sohbetlerde sivas(3).xlsx dosyası içinde incelendi; bu oturumdaki kütüphane aramasında dosyanın kendisi erişilebilir bulunmadı.",
+    "Sivas tarihî kaza/karye adları bugünkü ilçe-köy karşılığı kesinleşmeden harita pinine dönüştürülmeyecek.",
+    "NFS.d.2544 içindeki MÜRSEL ile bugünkü köy adı yalnız ad benzerliğiyle eşitlenmeyecek."
+  ],
+  "published_to_map": false
+}
