@@ -157,6 +157,17 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .familyFocus strong{display:block;font-size:clamp(19px,3vw,25px);font-weight:900;line-height:1.35;color:#181818}
 .familyFocus .familyPlace{display:block;font-weight:750;font-size:15px;margin-top:8px}
 @media(max-width:620px){.drawer{inset:0;width:100%;border-radius:0}.drawer .dbody{padding:15px}.drawer .dhead{padding:20px 54px 16px 16px}}
+
+/* BAFRA SÜLALE OKUNABİLİRLİĞİ — 20 KASIM 2026 */
+.sideInfo{max-height:none;overflow:visible;scroll-margin-top:14px}
+.sideInfoHead h3{font:800 21px/1.3 system-ui,Arial,sans-serif}
+.sideInfoHead p{font-size:14px;line-height:1.45}
+.sideInfoBody{font-size:15px;line-height:1.65;padding:14px 15px}
+.sideInfoSec b.title{font-size:15px;line-height:1.4;font-weight:900}
+.sideInfoTags{gap:7px}
+.sideInfoTags span,.sideInfoTags button{font-size:14px;line-height:1.4;padding:7px 9px;overflow-wrap:anywhere;border-radius:7px;max-width:100%}
+.sideInfoRecord{font-size:14px;line-height:1.55;padding:10px 12px;overflow-wrap:anywhere}
+@media(max-width:1050px){.sideInfo{max-height:none}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -2170,7 +2181,7 @@ function renderSideVillage(name,r,ilce,il){
   }
   if((r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))body+='<div class="sideInfoSec"><b>TARİHÎ YERLEŞİM KAYDI</b><br>Kaynakta belirtilen köy veya divan adıyla gösterilir. Güncel köy/mahalle eşleştirmesi kesinleştirilmemiştir.</div>';
   const fams=(r.sulaleler||[]).filter(Boolean);
-  if(archiveLayerPrefs.families&&fams.length)body+='<div class="sideInfoSec"><b class="title">SÜLALE / LAKAP</b><div class="sideInfoTags">'+fams.slice(0,60).map(function(x){return'<span>'+esc(typeof x==='object'?JSON.stringify(x):x)+'</span>'}).join('')+'</div></div>';
+  if(archiveLayerPrefs.families&&fams.length)body+='<div class="sideInfoSec"><b class="title">SÜLALE / LAKAP</b><div class="sideInfoTags">'+Array.from(new Set(fams.map(function(x){return typeof x==='object'?JSON.stringify(x):String(x)}))).map(function(x){return'<span>'+esc(x)+'</span>'}).join('')+'</div></div>';
   const staff=(r.gorevli_notlari||[]).filter(isSafeHistoricalStaff);
   if(staff.length)body+='<div class="sideInfoSec"><b class="title">İMAM / MUHTAR / GÖREVLİ</b>'+staff.slice(0,30).map(function(x){return'<div class="sideInfoRecord">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</div>'}).join('')+'</div>';
   const pdfs=(r.kaynak_pdf||[]).filter(function(x){return /^https?:\/\//i.test(String(x||''))});
