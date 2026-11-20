@@ -17,11 +17,36 @@ td a{font-weight:750;color:#145f7b}
 .flag{font-size:12px;font-weight:750;color:#925200}
 button{margin:15px 0;padding:12px 20px;background:#17384e;color:white;border:0;border-radius:8px;font:inherit;font-weight:800;cursor:pointer}
 @media(max-width:700px){.toolbar{grid-template-columns:1fr}table,thead,tbody,tr,td{display:block}thead{display:none}tr{margin:12px 0;border:1px solid #dbd4c9;background:#fff;border-radius:10px;padding:8px}td{border:0;padding:4px 10px}td:before{content:attr(data-label) " · ";font-weight:800}}
+
+.inventory{margin-top:30px;padding-top:20px;border-top:2px solid #d8d0c1}
+.inventory h2{font-size:23px}.inventory input{margin:10px 0}
+.inventory article{background:#fff;padding:12px 15px;margin:9px 0;border:1px solid #ddd4c8;border-radius:9px}
+.inventory .meta{font-size:13px;color:#626970}.inventory .warn{color:#8b5511;font-size:13px;font-weight:800}
+.inventory summary{font-weight:800;cursor:pointer;padding:8px 0}.inventory button{font-size:14px}
 </style></head><body><header><a href="./index.html">ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a>
 <h1>SİVAS – NFS KÖY / MAHALLE / VARAK FİHRİSTİ</h1><p>13 DEFTER · 819 KAYIT · 1831–1844</p></header>
 <main><div class="note"><b>KAYNAK VE YERLEŞİM UYARISI:</b> Tarihî kaza sınırları bugünkü ilçe sınırlarıyla aynı değildir. Güncel köyle aynı adı taşıyan 156 kayıt, 17 ilçe harita listesi üzerinden <b>eşleştirme adayı</b> olarak işaretlenmiştir. Bu kayıtlardan 9'u birden fazla güncel yerleşim adayı taşıdığı için haritaya tek bir köy olarak atanmadı. Kaynak fihristi hane ve erkek sayısı içermez; bu sayılar uydurulmaz.</div>
 <div class="toolbar"><input id="q" aria-label="Fihrist ara" placeholder="KÖY, TARİHÎ AD, DEFTER VEYA VARAK ARA"><select id="defter" aria-label="Defter seç"><option value="">BÜTÜN NFS DEFTERLERİ</option></select><select id="durum" aria-label="Eşleştirme durumu"><option value="">BÜTÜN DURUMLAR</option><option value="candidate">GÜNCEL AD ADAYI</option><option value="pending">HENÜZ EŞLEŞMEDİ</option></select></div>
-<p id="stat" class="stat">FİHRİST YÜKLENİYOR…</p><table><thead><tr><th>YIL / SIRA</th><th>BOA DEFTERİ</th><th>VARAK</th><th>TARİHÎ AD</th><th>GÜNCEL YER ADI</th><th>DURUM</th></tr></thead><tbody id="body"></tbody></table><button id="more" hidden>DAHA FAZLA KAYIT</button></main>
+<p id="stat" class="stat">FİHRİST YÜKLENİYOR…</p><table><thead><tr><th>YIL / SIRA</th><th>BOA DEFTERİ</th><th>VARAK</th><th>TARİHÎ AD</th><th>GÜNCEL YER ADI</th><th>DURUM</th></tr></thead><tbody id="body"></tbody></table><button id="more" hidden>DAHA FAZLA KAYIT</button>
+<section class="inventory" id="sivasPdfInventory">
+<h2>KÜTÜPHANE – KÖY, AİLE VE TOPLU TERCÜMELER</h2>
+<p>62 PDF kaydının dosya adı, türü, arşiv PDF numarası ve çalışma yılı. Bu listedeki PDF- numarası Osmanlı defter numarası değildir.</p>
+<input id="pdfQ" type="search" placeholder="PDF NUMARASI, KÖY, SÜLALE VEYA ESER ADI ARA" aria-label="Kütüphane çalışmaları ara">
+<div class="stat" id="pdfStatus">PDF ENVANTERİ YÜKLENİYOR…</div><div id="pdfResults"></div><button id="pdfMore" hidden>DAHA FAZLA ESER</button>
+</section>
+<section class="inventory" id="sivasCatalog">
+<h2>TARİHÎ SİVAS EYALETİ – NFS KATALOĞU</h2>
+<p>10.000 kayıtlık BOA katalog dökümünde Sivas eyaleti geçen 402 kayıt. Sivas ve Divriği sancakları ayrıldı; diğer eyalet kayıtları bugünkü Sivas köyü diye kabul edilmedi.</p>
+<input id="catalogQ" type="search" placeholder="NFS DEFTER NO, KAZA VEYA KATALOG AÇIKLAMASI ARA" aria-label="Sivas eyaleti NFS defter kataloğu ara">
+<div class="stat" id="catalogStatus">NFS KATALOĞU YÜKLENİYOR…</div><div id="catalogResults"></div><button id="catalogMore" hidden>DAHA FAZLA KÜNYE</button>
+</section>
+<section class="inventory" id="sivasTmt">
+<h2>SİVAS MERKEZ – 1844–1845 TEMETTUAT FİHRİSTİ</h2>
+<p>59 tarihî mahalle, 184 ML.VRD.TMT.d. defteri. Aynı mahallede birden fazla defter bulunabilir; güncel mahalleye kesin eşleşme otomatik yapılmadı.</p>
+<input id="tmtQ" type="search" placeholder="MAHALLE VEYA BOA ML.VRD.TMT.d. NUMARASI ARA" aria-label="Temettuat fihristi ara">
+<div class="stat" id="tmtStatus">TMT FİHRİSTİ YÜKLENİYOR…</div><div id="tmtResults"></div>
+</section>
+</main>
 <script>
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fold=s=>String(s||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
@@ -42,4 +67,27 @@ $("q").oninput=$("defter").onchange=$("durum").onchange=()=>{limit=65;render()};
  const audit=JSON.parse(c);for(const a of audit.adayi_iki_veya_daha_fazla_guncel_yerlesimde_gorulen||[])double.add(a.sira);
  const defters=[...new Set(rows.map(x=>x.defter))].sort();$("defter").innerHTML='<option value="">BÜTÜN NFS DEFTERLERİ</option>'+defters.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");render();
 }catch(err){$("stat").textContent="KAYIT YÜKLEME HATASI: "+err.message}})();
-</script></body></html>
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fold=s=>String(s||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
+const sources=[
+ {url:"./catalog/sivas_kutuphane_62_pdf_calisma_envanteri_20261121.json",body:"pdfResults",stat:"pdfStatus",input:"pdfQ",more:"pdfMore",count:25,
+ read:data=>data.kayitlar, match:x=>[x.pdf_no,x.dosya,x.kategori,x.yil].join(" "),
+ view:x=>'<article><b>'+safe(x.pdf_no)+' · '+safe(x.dosya)+'</b><div class="meta">'+safe(x.kategori)+' · '+safe(x.yil||"YIL: KAYNAKTAN KONTROL EDİLECEK")+'</div></article>'},
+ {url:"./catalog/sivas_eyaleti_nfs_402_katalog_20261121.json",body:"catalogResults",stat:"catalogStatus",input:"catalogQ",more:"catalogMore",count:25,
+ read:data=>data.defterler,match:x=>[x.defter,x.kapsam,x.katolog_ozeti].join(" "),
+ view:x=>'<article><b>'+safe(x.defter)+'</b> · '+safe(x.hicri)+'<div class="meta">'+safe(x.kapsam)+'</div><div>'+safe(x.katolog_ozeti)+'</div></article>'},
+ {url:"./catalog/sivas_merkez_1844_1845_tmt_59_mahalle_184_defter_20261121.json",body:"tmtResults",stat:"tmtStatus",input:"tmtQ",count:70,
+ read:data=>data.mahalles,match:x=>[x.tarihi_mahalle,...x.defterler].join(" "),
+ view:x=>'<article><b>'+safe(x.tarihi_mahalle)+'</b><div class="meta">'+safe(x.defterler.join(" · "))+'</div>'+(x.uyari?'<div class="warn">'+safe(x.uyari)+'</div>':'')+'</article>'}
+];
+sources.forEach(cfg=>{let data=[],visible=cfg.count;
+const render=()=>{const q=fold($(cfg.input).value),found=data.filter(x=>fold(cfg.match(x)).includes(q));$(cfg.stat).textContent=found.length+" KAYIT";$(cfg.body).innerHTML=found.slice(0,visible).map(cfg.view).join("");if(cfg.more)$(cfg.more).hidden=found.length<=visible};
+$(cfg.input).addEventListener("input",()=>{visible=cfg.count;render()});if(cfg.more)$(cfg.more).addEventListener("click",()=>{visible+=25;render()});
+fetch(cfg.url).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(payload=>{data=cfg.read(payload);render()}).catch(e=>{$(cfg.stat).textContent="DOSYA YÜKLENEMEDİ: "+e.message})});
+})();
+</script>
+</body></html>
