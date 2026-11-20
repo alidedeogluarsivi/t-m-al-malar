@@ -1,0 +1,3989 @@
+{
+  "kaynak": "sivas TÜM DEFTERLER.pdf",
+  "koy_fihrist_satiri": 819,
+  "haritada_tekil_ad_eslesmesi_satiri": 156,
+  "harita_adayi_olan_yerlesim_karti": 147,
+  "adayi_iki_veya_daha_fazla_guncel_yerlesimde_gorulen": [
+    {
+      "sira": 118,
+      "ad": "EYMİR",
+      "defter": "BOA NFS.d.2432",
+      "varak": 18
+    },
+    {
+      "sira": 364,
+      "ad": "KARAPINAR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 25
+    },
+    {
+      "sira": 539,
+      "ad": "KARASAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 49
+    },
+    {
+      "sira": 551,
+      "ad": "MÜRSEL/MURSAL",
+      "defter": "BOA NFS.d.2544",
+      "varak": 60
+    },
+    {
+      "sira": 620,
+      "ad": "AKPINAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 125
+    },
+    {
+      "sira": 622,
+      "ad": "BAŞÖREN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 126
+    },
+    {
+      "sira": 696,
+      "ad": "ACIPINAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 22
+    },
+    {
+      "sira": 752,
+      "ad": "ACIPINAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 88
+    },
+    {
+      "sira": 793,
+      "ad": "KIZILCAKIŞLA",
+      "defter": "BOA NFS.d.2083",
+      "varak": 25
+    }
+  ],
+  "diger_kayitlar": [
+    {
+      "sira": 1,
+      "ad": "MİŞAZ-KOYULHİSAR",
+      "defter": "BOA NFS.d.1069",
+      "varak": 1
+    },
+    {
+      "sira": 4,
+      "ad": "EBEKES",
+      "defter": "BOA NFS.d.1069",
+      "varak": 8
+    },
+    {
+      "sira": 6,
+      "ad": "FİSİLEK",
+      "defter": "BOA NFS.d.1069",
+      "varak": 10
+    },
+    {
+      "sira": 7,
+      "ad": "BOSTANKOLU",
+      "defter": "BOA NFS.d.1069",
+      "varak": 11
+    },
+    {
+      "sira": 8,
+      "ad": "GÜNDİR",
+      "defter": "BOA NFS.d.1069",
+      "varak": 12
+    },
+    {
+      "sira": 9,
+      "ad": "BAHÇE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 12
+    },
+    {
+      "sira": 13,
+      "ad": "KARACIK",
+      "defter": "BOA NFS.d.1069",
+      "varak": 17
+    },
+    {
+      "sira": 14,
+      "ad": "YEHELFAN",
+      "defter": "BOA NFS.d.1069",
+      "varak": 17
+    },
+    {
+      "sira": 15,
+      "ad": "GÜLERTAŞ",
+      "defter": "BOA NFS.d.1069",
+      "varak": 18
+    },
+    {
+      "sira": 16,
+      "ad": "İŞDU ŞEBEN",
+      "defter": "BOA NFS.d.1069",
+      "varak": 18
+    },
+    {
+      "sira": 17,
+      "ad": "KURUCAOVA",
+      "defter": "BOA NFS.d.1069",
+      "varak": 19
+    },
+    {
+      "sira": 18,
+      "ad": "UŞAR-OŞAR-AVŞAR",
+      "defter": "BOA NFS.d.1069",
+      "varak": 20
+    },
+    {
+      "sira": 19,
+      "ad": "MEYKASBEL",
+      "defter": "BOA NFS.d.1069",
+      "varak": 21
+    },
+    {
+      "sira": 22,
+      "ad": "SELVE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 23
+    },
+    {
+      "sira": 23,
+      "ad": "KALEZİR-AŞAĞIKALE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 23
+    },
+    {
+      "sira": 24,
+      "ad": "TURHAN",
+      "defter": "BOA NFS.d.1069",
+      "varak": 25
+    },
+    {
+      "sira": 25,
+      "ad": "MUSRİ",
+      "defter": "BOA NFS.d.1069",
+      "varak": 25
+    },
+    {
+      "sira": 26,
+      "ad": "KALEBALA￾YUKARIKALE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 26
+    },
+    {
+      "sira": 27,
+      "ad": "KANSA",
+      "defter": "BOA NFS.d.1069",
+      "varak": 33
+    },
+    {
+      "sira": 28,
+      "ad": "ÇİFTLİK MUHRI",
+      "defter": "BOA NFS.d.1069",
+      "varak": 33
+    },
+    {
+      "sira": 31,
+      "ad": "KATIFA",
+      "defter": "BOA NFS.d.1069",
+      "varak": 34
+    },
+    {
+      "sira": 32,
+      "ad": "TEKUŞE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 34
+    },
+    {
+      "sira": 33,
+      "ad": "EKSİ-SUGÖZE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 35
+    },
+    {
+      "sira": 36,
+      "ad": "GELAY-KILIÇPINAR",
+      "defter": "BOA NFS.d.1069",
+      "varak": 37
+    },
+    {
+      "sira": 37,
+      "ad": "MENTE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 38
+    },
+    {
+      "sira": 38,
+      "ad": "BESLE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 38
+    },
+    {
+      "sira": 39,
+      "ad": "CURKU",
+      "defter": "BOA NFS.d.1069",
+      "varak": 38
+    },
+    {
+      "sira": 40,
+      "ad": "EMİRLER",
+      "defter": "BOA NFS.d.1069",
+      "varak": 39
+    },
+    {
+      "sira": 42,
+      "ad": "MUSAFİRUZ￾SARIHARMAN",
+      "defter": "BOA NFS.d.1069",
+      "varak": 40
+    },
+    {
+      "sira": 43,
+      "ad": "ŞAHNAÇİMEN￾ÇİCEKÖZÜ",
+      "defter": "BOA NFS.d.1069",
+      "varak": 40
+    },
+    {
+      "sira": 46,
+      "ad": "ÇİFTLİK BULANU",
+      "defter": "BOA NFS.d.1069",
+      "varak": 42
+    },
+    {
+      "sira": 47,
+      "ad": "ULYALAR",
+      "defter": "BOA NFS.d.1069",
+      "varak": 42
+    },
+    {
+      "sira": 48,
+      "ad": "AYA YAZI",
+      "defter": "BOA NFS.d.1069",
+      "varak": 43
+    },
+    {
+      "sira": 49,
+      "ad": "KAYABAŞ ÇİFTLİĞİ GÜÇEPE",
+      "defter": "BOA NFS.d.1069",
+      "varak": 43
+    },
+    {
+      "sira": 50,
+      "ad": "KABALIKAYA",
+      "defter": "BOA NFS.d.1069",
+      "varak": 44
+    },
+    {
+      "sira": 52,
+      "ad": "BADILLI AŞİRETİ",
+      "defter": "BOA NFS.d.1069",
+      "varak": 45
+    },
+    {
+      "sira": 54,
+      "ad": "İLYAS",
+      "defter": "BOA NFS.d.1080",
+      "varak": 4
+    },
+    {
+      "sira": 56,
+      "ad": "ÇALKÖY",
+      "defter": "BOA NFS.d.1080",
+      "varak": 5
+    },
+    {
+      "sira": 60,
+      "ad": "NOHUTTEKESİ￾DEMİRKONAK",
+      "defter": "BOA NFS.d.1080",
+      "varak": 8
+    },
+    {
+      "sira": 61,
+      "ad": "ORSEKÜ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 10
+    },
+    {
+      "sira": 63,
+      "ad": "GÜMÜŞTİN",
+      "defter": "BOA NFS.d.1080",
+      "varak": 12
+    },
+    {
+      "sira": 65,
+      "ad": "TAHUD BIRN",
+      "defter": "BOA NFS.d.1080",
+      "varak": 14
+    },
+    {
+      "sira": 66,
+      "ad": "GÖZÜKÜÇÜK DEVAMI",
+      "defter": "BOA NFS.d.1080",
+      "varak": 15
+    },
+    {
+      "sira": 67,
+      "ad": "ÇOBANLI TEKESİ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 16
+    },
+    {
+      "sira": 68,
+      "ad": "GÖLLÜ BADULAR",
+      "defter": "BOA NFS.d.1080",
+      "varak": 17
+    },
+    {
+      "sira": 69,
+      "ad": "KANLITAŞ-REFAHİYE",
+      "defter": "BOA NFS.d.1080",
+      "varak": 18
+    },
+    {
+      "sira": 70,
+      "ad": "CELLAT",
+      "defter": "BOA NFS.d.1080",
+      "varak": 20
+    },
+    {
+      "sira": 71,
+      "ad": "KEYNA",
+      "defter": "BOA NFS.d.1080",
+      "varak": 20
+    },
+    {
+      "sira": 72,
+      "ad": "YUKARIYENİKÖY",
+      "defter": "BOA NFS.d.1080",
+      "varak": 21
+    },
+    {
+      "sira": 73,
+      "ad": "KARAYAKUB TEKKESİ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 22
+    },
+    {
+      "sira": 76,
+      "ad": "AĞVANIS-GÖLOVA MERKEZ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 28
+    },
+    {
+      "sira": 77,
+      "ad": "EKREK-ÇALKAYA",
+      "defter": "BOA NFS.d.1080",
+      "varak": 30
+    },
+    {
+      "sira": 78,
+      "ad": "DANKOŞ-GÖZÖREN",
+      "defter": "BOA NFS.d.1080",
+      "varak": 30
+    },
+    {
+      "sira": 79,
+      "ad": "DİBEK",
+      "defter": "BOA NFS.d.1080",
+      "varak": 31
+    },
+    {
+      "sira": 80,
+      "ad": "KULA",
+      "defter": "BOA NFS.d.1080",
+      "varak": 32
+    },
+    {
+      "sira": 81,
+      "ad": "BULGAD-BULHAD￾GÖZLÜCE",
+      "defter": "BOA NFS.d.1080",
+      "varak": 32
+    },
+    {
+      "sira": 82,
+      "ad": "KENERBEY",
+      "defter": "BOA NFS.d.1080",
+      "varak": 33
+    },
+    {
+      "sira": 83,
+      "ad": "GARUR-KARUL￾BOĞAZKÖY",
+      "defter": "BOA NFS.d.1080",
+      "varak": 34
+    },
+    {
+      "sira": 85,
+      "ad": "ALIBUK",
+      "defter": "BOA NFS.d.1080",
+      "varak": 36
+    },
+    {
+      "sira": 86,
+      "ad": "BUFŞEYH",
+      "defter": "BOA NFS.d.1080",
+      "varak": 37
+    },
+    {
+      "sira": 87,
+      "ad": "AĞCAVİRAN",
+      "defter": "BOA NFS.d.1080",
+      "varak": 37
+    },
+    {
+      "sira": 89,
+      "ad": "HURBEGI",
+      "defter": "BOA NFS.d.1080",
+      "varak": 40
+    },
+    {
+      "sira": 93,
+      "ad": "EYMÜR",
+      "defter": "BOA NFS.d.1080",
+      "varak": 42
+    },
+    {
+      "sira": 95,
+      "ad": "dümlüç",
+      "defter": "BOA NFS.d.1080",
+      "varak": 43
+    },
+    {
+      "sira": 97,
+      "ad": "UTARI",
+      "defter": "BOA NFS.d.1080",
+      "varak": 46
+    },
+    {
+      "sira": 99,
+      "ad": "BAHATTİNŞEYH￾DOĞANTEPE",
+      "defter": "BOA NFS.d.1080",
+      "varak": 48
+    },
+    {
+      "sira": 101,
+      "ad": "TEFAKLI AŞİRETİ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 52
+    },
+    {
+      "sira": 102,
+      "ad": "GEZANLU AŞİRETİ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 53
+    },
+    {
+      "sira": 103,
+      "ad": "ŞAFAKLI",
+      "defter": "BOA NFS.d.1080",
+      "varak": 54
+    },
+    {
+      "sira": 104,
+      "ad": "KENCİYAN AŞİRETİ",
+      "defter": "BOA NFS.d.1080",
+      "varak": 54
+    },
+    {
+      "sira": 105,
+      "ad": "CAYKUVİRAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 3
+    },
+    {
+      "sira": 106,
+      "ad": "UZAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 4
+    },
+    {
+      "sira": 107,
+      "ad": "ALANYURT MA KAMIŞ￾HAFİK",
+      "defter": "BOA NFS.d.2432",
+      "varak": 4
+    },
+    {
+      "sira": 108,
+      "ad": "EBLINÜ",
+      "defter": "BOA NFS.d.2432",
+      "varak": 5
+    },
+    {
+      "sira": 111,
+      "ad": "ERGANUBU",
+      "defter": "BOA NFS.d.2432",
+      "varak": 8
+    },
+    {
+      "sira": 115,
+      "ad": "KUŞCU HASAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 14
+    },
+    {
+      "sira": 116,
+      "ad": "YAYAN HEYVANI",
+      "defter": "BOA NFS.d.2432",
+      "varak": 15
+    },
+    {
+      "sira": 117,
+      "ad": "KERİZ",
+      "defter": "BOA NFS.d.2432",
+      "varak": 17
+    },
+    {
+      "sira": 119,
+      "ad": "ZARA",
+      "defter": "BOA NFS.d.2432",
+      "varak": 19
+    },
+    {
+      "sira": 121,
+      "ad": "SADULAH DİVAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 26
+    },
+    {
+      "sira": 122,
+      "ad": "FILAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 26
+    },
+    {
+      "sira": 126,
+      "ad": "ADEMFAKI",
+      "defter": "BOA NFS.d.2432",
+      "varak": 29
+    },
+    {
+      "sira": 129,
+      "ad": "ŞEYH MEREZBAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 30
+    },
+    {
+      "sira": 131,
+      "ad": "ÇAĞCAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 34
+    },
+    {
+      "sira": 134,
+      "ad": "PINARKAYA NAMI KEMERDEKAHISAR",
+      "defter": "BOA NFS.d.2432",
+      "varak": 39
+    },
+    {
+      "sira": 137,
+      "ad": "BULACAN",
+      "defter": "BOA NFS.d.2432",
+      "varak": 40
+    },
+    {
+      "sira": 139,
+      "ad": "YAKUB",
+      "defter": "BOA NFS.d.2491",
+      "varak": 1
+    },
+    {
+      "sira": 140,
+      "ad": "NEVRUS",
+      "defter": "BOA NFS.d.2491",
+      "varak": 4
+    },
+    {
+      "sira": 141,
+      "ad": "BURUDTAN?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 14
+    },
+    {
+      "sira": 142,
+      "ad": "KARKIN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 25
+    },
+    {
+      "sira": 143,
+      "ad": "YUSUFOĞLANI",
+      "defter": "BOA NFS.d.2491",
+      "varak": 32
+    },
+    {
+      "sira": 144,
+      "ad": "YAKUBOĞLANI-MERKEZ￾SİVAS",
+      "defter": "BOA NFS.d.2491",
+      "varak": 22
+    },
+    {
+      "sira": 145,
+      "ad": "SARIYER",
+      "defter": "BOA NFS.d.2491",
+      "varak": 42
+    },
+    {
+      "sira": 146,
+      "ad": "HERKELE",
+      "defter": "BOA NFS.d.2491",
+      "varak": 47
+    },
+    {
+      "sira": 150,
+      "ad": "DEMİRBEÇİK?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 61
+    },
+    {
+      "sira": 151,
+      "ad": "KAHKEL",
+      "defter": "BOA NFS.d.2491",
+      "varak": 66
+    },
+    {
+      "sira": 153,
+      "ad": "GÜNEYBEĞLİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 75
+    },
+    {
+      "sira": 154,
+      "ad": "KİREMÜDLÜ DİĞERADI CAMALIYURT",
+      "defter": "BOA NFS.d.2491",
+      "varak": 80
+    },
+    {
+      "sira": 156,
+      "ad": "KARACAVİRAN-ÖREN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 81
+    },
+    {
+      "sira": 157,
+      "ad": "HAMZAŞEYH ? KIRMACIOĞLU",
+      "defter": "BOA NFS.d.2491",
+      "varak": 88
+    },
+    {
+      "sira": 158,
+      "ad": "TAŞEK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 89
+    },
+    {
+      "sira": 159,
+      "ad": "MUMCUÇİFLİĞİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 90
+    },
+    {
+      "sira": 160,
+      "ad": "YILANLI ÇİFLİĞİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 91
+    },
+    {
+      "sira": 161,
+      "ad": "AVLAĞMAN?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 91
+    },
+    {
+      "sira": 162,
+      "ad": "MERMER CİVANI?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 95
+    },
+    {
+      "sira": 163,
+      "ad": "KIZILCA",
+      "defter": "BOA NFS.d.2491",
+      "varak": 96
+    },
+    {
+      "sira": 164,
+      "ad": "ÇELEBİLER",
+      "defter": "BOA NFS.d.2491",
+      "varak": 100
+    },
+    {
+      "sira": 165,
+      "ad": "KUZVİRAN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 101
+    },
+    {
+      "sira": 166,
+      "ad": "DÖNGEL",
+      "defter": "BOA NFS.d.2491",
+      "varak": 103
+    },
+    {
+      "sira": 167,
+      "ad": "KURT LAPA",
+      "defter": "BOA NFS.d.2491",
+      "varak": 105
+    },
+    {
+      "sira": 168,
+      "ad": "TEKKE ÖZ?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 114
+    },
+    {
+      "sira": 169,
+      "ad": "HIDIRNALI",
+      "defter": "BOA NFS.d.2491",
+      "varak": 116
+    },
+    {
+      "sira": 170,
+      "ad": "AĞÇAHAN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 119
+    },
+    {
+      "sira": 171,
+      "ad": "TOKUŞ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 121
+    },
+    {
+      "sira": 172,
+      "ad": "KAN-AVCIPINAR",
+      "defter": "BOA NFS.d.2491",
+      "varak": 125
+    },
+    {
+      "sira": 175,
+      "ad": "ÇAKMAK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 133
+    },
+    {
+      "sira": 178,
+      "ad": "ÖYÜK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 139
+    },
+    {
+      "sira": 180,
+      "ad": "AYNAPINAR DİĞERADI AYNEBEĞ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 147
+    },
+    {
+      "sira": 181,
+      "ad": "KÜRTLER",
+      "defter": "BOA NFS.d.2491",
+      "varak": 148
+    },
+    {
+      "sira": 182,
+      "ad": "VELADDİN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 149
+    },
+    {
+      "sira": 183,
+      "ad": "KELİMOĞLU DİĞERADI ŞEHRÜHAYRANLI",
+      "defter": "BOA NFS.d.2491",
+      "varak": 151
+    },
+    {
+      "sira": 184,
+      "ad": "AĞGİ MAA KİSECİK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 152
+    },
+    {
+      "sira": 185,
+      "ad": "TEKKE ÇELTİK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 154
+    },
+    {
+      "sira": 186,
+      "ad": "BAL SUR",
+      "defter": "BOA NFS.d.2491",
+      "varak": 156
+    },
+    {
+      "sira": 187,
+      "ad": "KARACALA ÇİFLİĞİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 157
+    },
+    {
+      "sira": 188,
+      "ad": "KADALUN DİĞERADI KARAMEHMEDOĞLU ÖİFLİĞİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 158
+    },
+    {
+      "sira": 189,
+      "ad": "BEZBECİ TERLAMI?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 159
+    },
+    {
+      "sira": 190,
+      "ad": "SARIHASAN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 159
+    },
+    {
+      "sira": 193,
+      "ad": "TÜRÜN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 173
+    },
+    {
+      "sira": 195,
+      "ad": "YEĞİ YAPAN DİĞERADI MÜRTAZA PAŞA ÇİFLİĞİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 181
+    },
+    {
+      "sira": 196,
+      "ad": "SEKÜ VELİ ÇİFLİĞİ DİĞERADI KAZGAN?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 183
+    },
+    {
+      "sira": 197,
+      "ad": "OVACIK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 185
+    },
+    {
+      "sira": 198,
+      "ad": "ALAHACI",
+      "defter": "BOA NFS.d.2491",
+      "varak": 187
+    },
+    {
+      "sira": 199,
+      "ad": "KIZIL ?",
+      "defter": "BOA NFS.d.2491",
+      "varak": 191
+    },
+    {
+      "sira": 202,
+      "ad": "MENTEŞ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 198
+    },
+    {
+      "sira": 203,
+      "ad": "DİBEKKAYA",
+      "defter": "BOA NFS.d.2491",
+      "varak": 202
+    },
+    {
+      "sira": 207,
+      "ad": "BOSTAN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 209
+    },
+    {
+      "sira": 208,
+      "ad": "ŞABAN",
+      "defter": "BOA NFS.d.2491",
+      "varak": 211
+    },
+    {
+      "sira": 209,
+      "ad": "SERAK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 212
+    },
+    {
+      "sira": 210,
+      "ad": "HALİD CEDİR",
+      "defter": "BOA NFS.d.2491",
+      "varak": 213
+    },
+    {
+      "sira": 211,
+      "ad": "GAZİ",
+      "defter": "BOA NFS.d.2491",
+      "varak": 224
+    },
+    {
+      "sira": 213,
+      "ad": "ÖBES",
+      "defter": "BOA NFS.d.2491",
+      "varak": 232
+    },
+    {
+      "sira": 214,
+      "ad": "İĞDECİK",
+      "defter": "BOA NFS.d.2491",
+      "varak": 239
+    },
+    {
+      "sira": 216,
+      "ad": "KARAÖZÜ",
+      "defter": "BOA NFS.d.2078",
+      "varak": 4
+    },
+    {
+      "sira": 218,
+      "ad": "ALPAÖZÜ",
+      "defter": "BOA NFS.d.2078",
+      "varak": 7
+    },
+    {
+      "sira": 222,
+      "ad": "ALAKİLİSE",
+      "defter": "BOA NFS.d.2078",
+      "varak": 21
+    },
+    {
+      "sira": 224,
+      "ad": "OSMANCIK NAMI ÇATAKCI",
+      "defter": "BOA NFS.d.2078",
+      "varak": 22
+    },
+    {
+      "sira": 225,
+      "ad": "BULSAN/YOLSAN",
+      "defter": "BOA NFS.d.2078",
+      "varak": 23
+    },
+    {
+      "sira": 226,
+      "ad": "VİRANYURD",
+      "defter": "BOA NFS.d.2078",
+      "varak": 24
+    },
+    {
+      "sira": 228,
+      "ad": "MESCİDLİ",
+      "defter": "BOA NFS.d.2078",
+      "varak": 26
+    },
+    {
+      "sira": 229,
+      "ad": "ÖYÜK",
+      "defter": "BOA NFS.d.2078",
+      "varak": 26
+    },
+    {
+      "sira": 230,
+      "ad": "ORTA",
+      "defter": "BOA NFS.d.2078",
+      "varak": 28
+    },
+    {
+      "sira": 236,
+      "ad": "KAVAK",
+      "defter": "BOA NFS.d.2078",
+      "varak": 34
+    },
+    {
+      "sira": 238,
+      "ad": "ŞARKALI",
+      "defter": "BOA NFS.d.2078",
+      "varak": 35
+    },
+    {
+      "sira": 240,
+      "ad": "MEZRA",
+      "defter": "BOA NFS.d.2078",
+      "varak": 37
+    },
+    {
+      "sira": 242,
+      "ad": "ÇALA APDAL",
+      "defter": "BOA NFS.d.2078",
+      "varak": 38
+    },
+    {
+      "sira": 243,
+      "ad": "GÜDÜL",
+      "defter": "BOA NFS.d.2078",
+      "varak": 39
+    },
+    {
+      "sira": 246,
+      "ad": "EĞRECİK",
+      "defter": "BOA NFS.d.2078",
+      "varak": 40
+    },
+    {
+      "sira": 247,
+      "ad": "SARIÖKÜZ",
+      "defter": "BOA NFS.d.2078",
+      "varak": 41
+    },
+    {
+      "sira": 250,
+      "ad": "KADI",
+      "defter": "BOA NFS.d.2078",
+      "varak": 43
+    },
+    {
+      "sira": 251,
+      "ad": "KÜMBED",
+      "defter": "BOA NFS.d.2078",
+      "varak": 44
+    },
+    {
+      "sira": 252,
+      "ad": "TORUL",
+      "defter": "BOA NFS.d.2078",
+      "varak": 45
+    },
+    {
+      "sira": 254,
+      "ad": "EĞDİG?",
+      "defter": "BOA NFS.d.2078",
+      "varak": 48
+    },
+    {
+      "sira": 255,
+      "ad": "KARACAVİRAN",
+      "defter": "BOA NFS.d.2078",
+      "varak": 49
+    },
+    {
+      "sira": 256,
+      "ad": "TACIRLI",
+      "defter": "BOA NFS.d.2078",
+      "varak": 50
+    },
+    {
+      "sira": 257,
+      "ad": "İLYASHACILI",
+      "defter": "BOA NFS.d.2078",
+      "varak": 50
+    },
+    {
+      "sira": 259,
+      "ad": "ÇAKAL",
+      "defter": "BOA NFS.d.2078",
+      "varak": 52
+    },
+    {
+      "sira": 261,
+      "ad": "defterin başı eksik",
+      "defter": "BOA NFS.d.2554",
+      "varak": 1
+    },
+    {
+      "sira": 262,
+      "ad": "TRABALİ",
+      "defter": "BOA NFS.d.2554",
+      "varak": 4
+    },
+    {
+      "sira": 263,
+      "ad": "SAREVEN?",
+      "defter": "BOA NFS.d.2554",
+      "varak": 5
+    },
+    {
+      "sira": 264,
+      "ad": "EBCIN",
+      "defter": "BOA NFS.d.2554",
+      "varak": 9
+    },
+    {
+      "sira": 267,
+      "ad": "KARAYUSUFOĞLU",
+      "defter": "BOA NFS.d.2554",
+      "varak": 18
+    },
+    {
+      "sira": 269,
+      "ad": "BERDAYNE",
+      "defter": "BOA NFS.d.2554",
+      "varak": 23
+    },
+    {
+      "sira": 270,
+      "ad": "KÜÜKHÜSEYİN",
+      "defter": "BOA NFS.d.2554",
+      "varak": 24
+    },
+    {
+      "sira": 271,
+      "ad": "SENAYNE",
+      "defter": "BOA NFS.d.2554",
+      "varak": 26
+    },
+    {
+      "sira": 272,
+      "ad": "KARAMAHMUDOĞLU",
+      "defter": "BOA NFS.d.2554",
+      "varak": 28
+    },
+    {
+      "sira": 273,
+      "ad": "KÜLÇE CAMİİ",
+      "defter": "BOA NFS.d.2554",
+      "varak": 30
+    },
+    {
+      "sira": 274,
+      "ad": "CEDİD MUSTAFA PAŞA",
+      "defter": "BOA NFS.d.2554",
+      "varak": 34
+    },
+    {
+      "sira": 275,
+      "ad": "DÜLTBEK",
+      "defter": "BOA NFS.d.2554",
+      "varak": 37
+    },
+    {
+      "sira": 276,
+      "ad": "KÖRTELİ MESCİD",
+      "defter": "BOA NFS.d.2554",
+      "varak": 38
+    },
+    {
+      "sira": 277,
+      "ad": "HACI KIMRI",
+      "defter": "BOA NFS.d.2554",
+      "varak": 40
+    },
+    {
+      "sira": 278,
+      "ad": "BEDESTAN",
+      "defter": "BOA NFS.d.2554",
+      "varak": 42
+    },
+    {
+      "sira": 279,
+      "ad": "MERCAN TEPESİ",
+      "defter": "BOA NFS.d.2554",
+      "varak": 44
+    },
+    {
+      "sira": 280,
+      "ad": "KOÇ MUSTAFA PAŞA",
+      "defter": "BOA NFS.d.2554",
+      "varak": 44
+    },
+    {
+      "sira": 281,
+      "ad": "BAHÇE",
+      "defter": "BOA NFS.d.2554",
+      "varak": 46
+    },
+    {
+      "sira": 282,
+      "ad": "GEMANKEŞ",
+      "defter": "BOA NFS.d.2554",
+      "varak": 48
+    },
+    {
+      "sira": 283,
+      "ad": "DİLLUOĞLU",
+      "defter": "BOA NFS.d.2554",
+      "varak": 50
+    },
+    {
+      "sira": 284,
+      "ad": "HAMAM SUFLA",
+      "defter": "BOA NFS.d.2554",
+      "varak": 51
+    },
+    {
+      "sira": 285,
+      "ad": "HACIOSMAN",
+      "defter": "BOA NFS.d.2554",
+      "varak": 53
+    },
+    {
+      "sira": 286,
+      "ad": "ERKUSU",
+      "defter": "BOA NFS.d.2554",
+      "varak": 56
+    },
+    {
+      "sira": 287,
+      "ad": "TONUS MERKEZ",
+      "defter": "BOA NFS.d.2474",
+      "varak": 3
+    },
+    {
+      "sira": 290,
+      "ad": "EBESİLİ",
+      "defter": "BOA NFS.d.2474",
+      "varak": 11
+    },
+    {
+      "sira": 292,
+      "ad": "MEZRAA",
+      "defter": "BOA NFS.d.2474",
+      "varak": 14
+    },
+    {
+      "sira": 294,
+      "ad": "ŞARAKLI",
+      "defter": "BOA NFS.d.2474",
+      "varak": 16
+    },
+    {
+      "sira": 295,
+      "ad": "BEKDİĞİN",
+      "defter": "BOA NFS.d.2474",
+      "varak": 17
+    },
+    {
+      "sira": 297,
+      "ad": "KÜPELİ",
+      "defter": "BOA NFS.d.2474",
+      "varak": 19
+    },
+    {
+      "sira": 298,
+      "ad": "BEGINÖZÜ",
+      "defter": "BOA NFS.d.2474",
+      "varak": 20
+    },
+    {
+      "sira": 299,
+      "ad": "KARACALI",
+      "defter": "BOA NFS.d.2474",
+      "varak": 22
+    },
+    {
+      "sira": 300,
+      "ad": "İKİNCİOĞLU",
+      "defter": "BOA NFS.d.2474",
+      "varak": 23
+    },
+    {
+      "sira": 301,
+      "ad": "SAVCIN",
+      "defter": "BOA NFS.d.2474",
+      "varak": 24
+    },
+    {
+      "sira": 302,
+      "ad": "yapalı",
+      "defter": "BOA NFS.d.2474",
+      "varak": 26
+    },
+    {
+      "sira": 303,
+      "ad": "PAZARCU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 3
+    },
+    {
+      "sira": 304,
+      "ad": "TÜRKÜRÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 3
+    },
+    {
+      "sira": 305,
+      "ad": "ATÇEKMEZ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 4
+    },
+    {
+      "sira": 306,
+      "ad": "ALİCU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 4
+    },
+    {
+      "sira": 307,
+      "ad": "YUKARIHAMÖZÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 4
+    },
+    {
+      "sira": 308,
+      "ad": "AŞAĞIHAMÖZÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 5
+    },
+    {
+      "sira": 309,
+      "ad": "MARSULAR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 5
+    },
+    {
+      "sira": 310,
+      "ad": "DÜGALU KOCGIRILI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 5
+    },
+    {
+      "sira": 311,
+      "ad": "BUGUN BID?",
+      "defter": "BOA NFS.d.2534",
+      "varak": 6
+    },
+    {
+      "sira": 312,
+      "ad": "ESKİCEMLEN DERMEFNI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 6
+    },
+    {
+      "sira": 313,
+      "ad": "ÜĞÜR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 6
+    },
+    {
+      "sira": 314,
+      "ad": "DÜYCANOĞLU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 7
+    },
+    {
+      "sira": 315,
+      "ad": "KÜRT KLAVUZ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 7
+    },
+    {
+      "sira": 316,
+      "ad": "ESKIRBELAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 7
+    },
+    {
+      "sira": 317,
+      "ad": "DIBANER GÖL MA KIZILKALE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 8
+    },
+    {
+      "sira": 318,
+      "ad": "CULALI DAMI KÜŞLEKKÖYÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 9
+    },
+    {
+      "sira": 319,
+      "ad": "CEMAL KIZILKALEKÖY",
+      "defter": "BOA NFS.d.2534",
+      "varak": 9
+    },
+    {
+      "sira": 320,
+      "ad": "CANDIR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 9
+    },
+    {
+      "sira": 321,
+      "ad": "ESKİKEŞLEK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 10
+    },
+    {
+      "sira": 322,
+      "ad": "KILIÇ DEREKÖYÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 10
+    },
+    {
+      "sira": 323,
+      "ad": "BAĞLAR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 10
+    },
+    {
+      "sira": 324,
+      "ad": "DEDEBOYUN DEREKÖYÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 11
+    },
+    {
+      "sira": 325,
+      "ad": "DERE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 11
+    },
+    {
+      "sira": 326,
+      "ad": "DERE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 12
+    },
+    {
+      "sira": 327,
+      "ad": "ESKİ ALANBUND KÖYÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 12
+    },
+    {
+      "sira": 328,
+      "ad": "KAMOĞLU KALEDELBA KÖYÜ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 13
+    },
+    {
+      "sira": 329,
+      "ad": "AARUN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 13
+    },
+    {
+      "sira": 330,
+      "ad": "KÜŞLEK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 13
+    },
+    {
+      "sira": 331,
+      "ad": "TUZLA",
+      "defter": "BOA NFS.d.2534",
+      "varak": 13
+    },
+    {
+      "sira": 332,
+      "ad": "CERID",
+      "defter": "BOA NFS.d.2534",
+      "varak": 14
+    },
+    {
+      "sira": 333,
+      "ad": "KUYUKAYA",
+      "defter": "BOA NFS.d.2534",
+      "varak": 14
+    },
+    {
+      "sira": 334,
+      "ad": "SINAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 14
+    },
+    {
+      "sira": 335,
+      "ad": "GÜSLEK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 15
+    },
+    {
+      "sira": 336,
+      "ad": "BOĞAZVİRAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 15
+    },
+    {
+      "sira": 337,
+      "ad": "KARALAS",
+      "defter": "BOA NFS.d.2534",
+      "varak": 15
+    },
+    {
+      "sira": 338,
+      "ad": "KÜRCE GUZLE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 16
+    },
+    {
+      "sira": 339,
+      "ad": "KÜRCE TONA MA GALI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 16
+    },
+    {
+      "sira": 341,
+      "ad": "SARYAZ DERBALAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 17
+    },
+    {
+      "sira": 342,
+      "ad": "HERMAD",
+      "defter": "BOA NFS.d.2534",
+      "varak": 17
+    },
+    {
+      "sira": 343,
+      "ad": "MASRE DEDE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 17
+    },
+    {
+      "sira": 344,
+      "ad": "ŞEYHLI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 17
+    },
+    {
+      "sira": 345,
+      "ad": "MUMUOĞLU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 18
+    },
+    {
+      "sira": 346,
+      "ad": "ÇAY",
+      "defter": "BOA NFS.d.2534",
+      "varak": 18
+    },
+    {
+      "sira": 347,
+      "ad": "KABAN KAYNAS",
+      "defter": "BOA NFS.d.2534",
+      "varak": 18
+    },
+    {
+      "sira": 348,
+      "ad": "TEKKE CUGRU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 18
+    },
+    {
+      "sira": 349,
+      "ad": "KELICEK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 18
+    },
+    {
+      "sira": 350,
+      "ad": "KASURU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 19
+    },
+    {
+      "sira": 351,
+      "ad": "KUZVİRAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 19
+    },
+    {
+      "sira": 352,
+      "ad": "TOZEK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 19
+    },
+    {
+      "sira": 353,
+      "ad": "KAYRACU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 19
+    },
+    {
+      "sira": 354,
+      "ad": "ORTADEM ABBAS",
+      "defter": "BOA NFS.d.2534",
+      "varak": 20
+    },
+    {
+      "sira": 355,
+      "ad": "DANIŞUK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 20
+    },
+    {
+      "sira": 356,
+      "ad": "KARACAVİRAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 20
+    },
+    {
+      "sira": 357,
+      "ad": "TABAKLU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 21
+    },
+    {
+      "sira": 358,
+      "ad": "HESENDAL",
+      "defter": "BOA NFS.d.2534",
+      "varak": 21
+    },
+    {
+      "sira": 359,
+      "ad": "KABAK DBE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 21
+    },
+    {
+      "sira": 360,
+      "ad": "KANI DUŞAN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 22
+    },
+    {
+      "sira": 361,
+      "ad": "MESCİDLİ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 22
+    },
+    {
+      "sira": 362,
+      "ad": "KIZILDEPE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 22
+    },
+    {
+      "sira": 363,
+      "ad": "ESKİKIZILDEPE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 24
+    },
+    {
+      "sira": 365,
+      "ad": "GEVANLU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 25
+    },
+    {
+      "sira": 366,
+      "ad": "AGIZKEBİR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 26
+    },
+    {
+      "sira": 367,
+      "ad": "GELALI KAM MEŞHUR",
+      "defter": "BOA NFS.d.2534",
+      "varak": 26
+    },
+    {
+      "sira": 368,
+      "ad": "KOZ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 26
+    },
+    {
+      "sira": 369,
+      "ad": "KUMOĞLU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 26
+    },
+    {
+      "sira": 370,
+      "ad": "ABEŞ",
+      "defter": "BOA NFS.d.2534",
+      "varak": 27
+    },
+    {
+      "sira": 371,
+      "ad": "BAZAR YALAGI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 27
+    },
+    {
+      "sira": 372,
+      "ad": "GÖKTEPE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 27
+    },
+    {
+      "sira": 373,
+      "ad": "DERE",
+      "defter": "BOA NFS.d.2534",
+      "varak": 27
+    },
+    {
+      "sira": 374,
+      "ad": "AVNUNBURNU",
+      "defter": "BOA NFS.d.2534",
+      "varak": 28
+    },
+    {
+      "sira": 375,
+      "ad": "CAFURUN",
+      "defter": "BOA NFS.d.2534",
+      "varak": 28
+    },
+    {
+      "sira": 376,
+      "ad": "YENI DERBAYALAK",
+      "defter": "BOA NFS.d.2534",
+      "varak": 29
+    },
+    {
+      "sira": 377,
+      "ad": "ALACAMI",
+      "defter": "BOA NFS.d.2534",
+      "varak": 29
+    },
+    {
+      "sira": 378,
+      "ad": "İSLAMALİ",
+      "defter": "BOA NFS.d.2569",
+      "varak": 3
+    },
+    {
+      "sira": 379,
+      "ad": "MALI",
+      "defter": "BOA NFS.d.2569",
+      "varak": 7
+    },
+    {
+      "sira": 380,
+      "ad": "SARICALI",
+      "defter": "BOA NFS.d.2569",
+      "varak": 9
+    },
+    {
+      "sira": 381,
+      "ad": "GEBUN",
+      "defter": "BOA NFS.d.2569",
+      "varak": 10
+    },
+    {
+      "sira": 382,
+      "ad": "TELBEN",
+      "defter": "BOA NFS.d.2569",
+      "varak": 11
+    },
+    {
+      "sira": 383,
+      "ad": "SARHBEGAZ",
+      "defter": "BOA NFS.d.2569",
+      "varak": 13
+    },
+    {
+      "sira": 384,
+      "ad": "GATERVİRANI?",
+      "defter": "BOA NFS.d.2569",
+      "varak": 14
+    },
+    {
+      "sira": 385,
+      "ad": "GAN TARUF",
+      "defter": "BOA NFS.d.2569",
+      "varak": 14
+    },
+    {
+      "sira": 386,
+      "ad": "BEKCİGARI",
+      "defter": "BOA NFS.d.2569",
+      "varak": 15
+    },
+    {
+      "sira": 387,
+      "ad": "KERBEKVIRAN",
+      "defter": "BOA NFS.d.2569",
+      "varak": 15
+    },
+    {
+      "sira": 389,
+      "ad": "SAMALLU",
+      "defter": "BOA NFS.d.2569",
+      "varak": 17
+    },
+    {
+      "sira": 390,
+      "ad": "ABUCANAR?",
+      "defter": "BOA NFS.d.2569",
+      "varak": 17
+    },
+    {
+      "sira": 391,
+      "ad": "ŞERAKLU",
+      "defter": "BOA NFS.d.2569",
+      "varak": 17
+    },
+    {
+      "sira": 392,
+      "ad": "AHI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 1
+    },
+    {
+      "sira": 393,
+      "ad": "CUMEN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 2
+    },
+    {
+      "sira": 394,
+      "ad": "HARDEKLEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 3
+    },
+    {
+      "sira": 395,
+      "ad": "MECTAR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 6
+    },
+    {
+      "sira": 396,
+      "ad": "SUZUZ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 7
+    },
+    {
+      "sira": 397,
+      "ad": "TECTEYARKLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 8
+    },
+    {
+      "sira": 398,
+      "ad": "URUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 9
+    },
+    {
+      "sira": 399,
+      "ad": "ARŞUYENI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 10
+    },
+    {
+      "sira": 400,
+      "ad": "MUGAZIN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 11
+    },
+    {
+      "sira": 401,
+      "ad": "VAZLAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 11
+    },
+    {
+      "sira": 402,
+      "ad": "KARAHİSAR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 12
+    },
+    {
+      "sira": 403,
+      "ad": "UDEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 14
+    },
+    {
+      "sira": 404,
+      "ad": "MERSAL",
+      "defter": "BOA NFS.d.2555",
+      "varak": 17
+    },
+    {
+      "sira": 405,
+      "ad": "TUMACA",
+      "defter": "BOA NFS.d.2555",
+      "varak": 18
+    },
+    {
+      "sira": 406,
+      "ad": "DERTAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 19
+    },
+    {
+      "sira": 407,
+      "ad": "GÜNDUREN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 21
+    },
+    {
+      "sira": 408,
+      "ad": "KIZILCAVIRAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 25
+    },
+    {
+      "sira": 409,
+      "ad": "PEKUSKOZ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 27
+    },
+    {
+      "sira": 410,
+      "ad": "SEKIGAKIR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 27
+    },
+    {
+      "sira": 411,
+      "ad": "GÜRES,N",
+      "defter": "BOA NFS.d.2555",
+      "varak": 28
+    },
+    {
+      "sira": 412,
+      "ad": "ANZAHR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 30
+    },
+    {
+      "sira": 413,
+      "ad": "TÜLNEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 34
+    },
+    {
+      "sira": 414,
+      "ad": "AVLAKMAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 35
+    },
+    {
+      "sira": 415,
+      "ad": "MESBE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 37
+    },
+    {
+      "sira": 416,
+      "ad": "ELINES",
+      "defter": "BOA NFS.d.2555",
+      "varak": 38
+    },
+    {
+      "sira": 417,
+      "ad": "UCGAR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 39
+    },
+    {
+      "sira": 418,
+      "ad": "GARNEN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 40
+    },
+    {
+      "sira": 419,
+      "ad": "BAHŞİ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 42
+    },
+    {
+      "sira": 420,
+      "ad": "KIRKEBRI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 45
+    },
+    {
+      "sira": 421,
+      "ad": "GÜMEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 46
+    },
+    {
+      "sira": 422,
+      "ad": "SEKİMÜSLİM",
+      "defter": "BOA NFS.d.2555",
+      "varak": 47
+    },
+    {
+      "sira": 423,
+      "ad": "GAGUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 48
+    },
+    {
+      "sira": 424,
+      "ad": "KÖRGISU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 48
+    },
+    {
+      "sira": 425,
+      "ad": "TOGUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 49
+    },
+    {
+      "sira": 426,
+      "ad": "GÜDEŞ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 59
+    },
+    {
+      "sira": 427,
+      "ad": "HUZREK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 60
+    },
+    {
+      "sira": 428,
+      "ad": "BAGNAK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 61
+    },
+    {
+      "sira": 429,
+      "ad": "DEGEZDEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 62
+    },
+    {
+      "sira": 430,
+      "ad": "FAKNALIOĞLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 62
+    },
+    {
+      "sira": 431,
+      "ad": "SİVİR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 64
+    },
+    {
+      "sira": 432,
+      "ad": "PERESTEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 66
+    },
+    {
+      "sira": 433,
+      "ad": "PUDGE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 71
+    },
+    {
+      "sira": 434,
+      "ad": "PATA",
+      "defter": "BOA NFS.d.2555",
+      "varak": 74
+    },
+    {
+      "sira": 435,
+      "ad": "GAHDEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 77
+    },
+    {
+      "sira": 436,
+      "ad": "ŞEMAKDAR-SANCAKDAR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 78
+    },
+    {
+      "sira": 437,
+      "ad": "AKÇATAM",
+      "defter": "BOA NFS.d.2555",
+      "varak": 79
+    },
+    {
+      "sira": 438,
+      "ad": "HACKE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 79
+    },
+    {
+      "sira": 439,
+      "ad": "KÜMESERM",
+      "defter": "BOA NFS.d.2555",
+      "varak": 81
+    },
+    {
+      "sira": 440,
+      "ad": "GAMHU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 82
+    },
+    {
+      "sira": 441,
+      "ad": "AREKE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 85
+    },
+    {
+      "sira": 442,
+      "ad": "VAZDEGARAZ AŞİRET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 89
+    },
+    {
+      "sira": 443,
+      "ad": "CAN MUCURKE AŞİRET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 90
+    },
+    {
+      "sira": 444,
+      "ad": "EVANLI DERESI AŞİRET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 90
+    },
+    {
+      "sira": 446,
+      "ad": "KÖRTELARLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 97
+    },
+    {
+      "sira": 447,
+      "ad": "CALTI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 100
+    },
+    {
+      "sira": 448,
+      "ad": "REBAT",
+      "defter": "BOA NFS.d.2555",
+      "varak": 101
+    },
+    {
+      "sira": 449,
+      "ad": "TURDIN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 103
+    },
+    {
+      "sira": 450,
+      "ad": "BOSTAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 105
+    },
+    {
+      "sira": 451,
+      "ad": "ZIMARA",
+      "defter": "BOA NFS.d.2555",
+      "varak": 108
+    },
+    {
+      "sira": 452,
+      "ad": "TERBEGAR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 110
+    },
+    {
+      "sira": 453,
+      "ad": "KIRENEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 112
+    },
+    {
+      "sira": 454,
+      "ad": "HERKEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 113
+    },
+    {
+      "sira": 455,
+      "ad": "HUNURE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 114
+    },
+    {
+      "sira": 456,
+      "ad": "ÖMERLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 117
+    },
+    {
+      "sira": 457,
+      "ad": "KARAKEBAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 118
+    },
+    {
+      "sira": 458,
+      "ad": "CERNE",
+      "defter": "BOA NFS.d.2555",
+      "varak": 121
+    },
+    {
+      "sira": 459,
+      "ad": "GARESCIK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 122
+    },
+    {
+      "sira": 460,
+      "ad": "RAŞULU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 123
+    },
+    {
+      "sira": 461,
+      "ad": "HAMO",
+      "defter": "BOA NFS.d.2555",
+      "varak": 126
+    },
+    {
+      "sira": 462,
+      "ad": "KALEDELİ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 128
+    },
+    {
+      "sira": 463,
+      "ad": "GAVUR TAMI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 132
+    },
+    {
+      "sira": 464,
+      "ad": "ZANZABET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 133
+    },
+    {
+      "sira": 465,
+      "ad": "AĞILDERESİ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 135
+    },
+    {
+      "sira": 466,
+      "ad": "EVRENEK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 137
+    },
+    {
+      "sira": 467,
+      "ad": "MERENRI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 139
+    },
+    {
+      "sira": 468,
+      "ad": "EĞREK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 141
+    },
+    {
+      "sira": 469,
+      "ad": "SAGIRTAŞ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 143
+    },
+    {
+      "sira": 470,
+      "ad": "SAGIRTAŞ VEKNI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 143
+    },
+    {
+      "sira": 471,
+      "ad": "SEN AZAŞİRETİ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 145
+    },
+    {
+      "sira": 472,
+      "ad": "CAMURCU AŞRİET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 146
+    },
+    {
+      "sira": 473,
+      "ad": "KUMERAŞLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 150
+    },
+    {
+      "sira": 474,
+      "ad": "ZENİSKİ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 151
+    },
+    {
+      "sira": 475,
+      "ad": "KABUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 158
+    },
+    {
+      "sira": 477,
+      "ad": "ARUKLU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 162
+    },
+    {
+      "sira": 478,
+      "ad": "SAVRUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 164
+    },
+    {
+      "sira": 479,
+      "ad": "NORŞİN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 167
+    },
+    {
+      "sira": 480,
+      "ad": "MURVENA",
+      "defter": "BOA NFS.d.2555",
+      "varak": 170
+    },
+    {
+      "sira": 481,
+      "ad": "TOĞAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 172
+    },
+    {
+      "sira": 482,
+      "ad": "PERU NASUR",
+      "defter": "BOA NFS.d.2555",
+      "varak": 173
+    },
+    {
+      "sira": 483,
+      "ad": "KARBAGAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 175
+    },
+    {
+      "sira": 484,
+      "ad": "KINESCIK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 175
+    },
+    {
+      "sira": 485,
+      "ad": "GÜMÜŞ FENLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 176
+    },
+    {
+      "sira": 486,
+      "ad": "KIRIKGOZ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 177
+    },
+    {
+      "sira": 487,
+      "ad": "BAGDUDERESI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 178
+    },
+    {
+      "sira": 488,
+      "ad": "PAŞANCUK",
+      "defter": "BOA NFS.d.2555",
+      "varak": 179
+    },
+    {
+      "sira": 489,
+      "ad": "SARANCAN AŞİRET",
+      "defter": "BOA NFS.d.2555",
+      "varak": 179
+    },
+    {
+      "sira": 490,
+      "ad": "DİNIKTAŞ",
+      "defter": "BOA NFS.d.2555",
+      "varak": 180
+    },
+    {
+      "sira": 491,
+      "ad": "SOFİPELANGI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 181
+    },
+    {
+      "sira": 492,
+      "ad": "MUGRU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 182
+    },
+    {
+      "sira": 493,
+      "ad": "KARU",
+      "defter": "BOA NFS.d.2555",
+      "varak": 183
+    },
+    {
+      "sira": 494,
+      "ad": "ESKI-EMIRHAN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 184
+    },
+    {
+      "sira": 496,
+      "ad": "HEREKNUN BAĞCISUN",
+      "defter": "BOA NFS.d.2555",
+      "varak": 186
+    },
+    {
+      "sira": 497,
+      "ad": "CIHANBEYLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 191
+    },
+    {
+      "sira": 498,
+      "ad": "ZARA",
+      "defter": "BOA NFS.d.2555",
+      "varak": 193
+    },
+    {
+      "sira": 499,
+      "ad": "KABANLI",
+      "defter": "BOA NFS.d.2555",
+      "varak": 197
+    },
+    {
+      "sira": 499,
+      "ad": "MERCAN MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 2
+    },
+    {
+      "sira": 501,
+      "ad": "GÜRTELLI MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 5
+    },
+    {
+      "sira": 502,
+      "ad": "KARAYUSUFOĞLU MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 6
+    },
+    {
+      "sira": 506,
+      "ad": "KARAMAHMUDOĞLU MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 12
+    },
+    {
+      "sira": 507,
+      "ad": "HUREVENK MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 12
+    },
+    {
+      "sira": 508,
+      "ad": "ERZUS MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 15
+    },
+    {
+      "sira": 509,
+      "ad": "BOSTAN MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 16
+    },
+    {
+      "sira": 510,
+      "ad": "GEMANKEŞ MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 17
+    },
+    {
+      "sira": 511,
+      "ad": "BERDEYA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 19
+    },
+    {
+      "sira": 513,
+      "ad": "MUSTAFAPAŞA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 21
+    },
+    {
+      "sira": 515,
+      "ad": "BAHÇE MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 24
+    },
+    {
+      "sira": 516,
+      "ad": "SENATYA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 25
+    },
+    {
+      "sira": 517,
+      "ad": "HAMAM SUFLA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 26
+    },
+    {
+      "sira": 518,
+      "ad": "TURABALİ MESCIDI MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 28
+    },
+    {
+      "sira": 519,
+      "ad": "DURANBEY MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 29
+    },
+    {
+      "sira": 520,
+      "ad": "KÜÇÜKHÜSEYİNOĞLU MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 29
+    },
+    {
+      "sira": 521,
+      "ad": "HACIKUMRUOĞLU MESCİDİ MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 30
+    },
+    {
+      "sira": 523,
+      "ad": "ELCISAPEN? MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 32
+    },
+    {
+      "sira": 524,
+      "ad": "ŞEMSIBAZIRGAN MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 34
+    },
+    {
+      "sira": 525,
+      "ad": "KOCAMUSTAFAPAŞA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 36
+    },
+    {
+      "sira": 526,
+      "ad": "CAMİKEBİR MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 38
+    },
+    {
+      "sira": 527,
+      "ad": "SIN TAHRIRDE BOZAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 41
+    },
+    {
+      "sira": 528,
+      "ad": "DİVRİĞİ KARASI ETRAFINDA BULUNAN YAZILMAYAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 42
+    },
+    {
+      "sira": 529,
+      "ad": "PALHA",
+      "defter": "BOA NFS.d.2544",
+      "varak": 44
+    },
+    {
+      "sira": 530,
+      "ad": "PÜDKE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 44
+    },
+    {
+      "sira": 531,
+      "ad": "IKIHANLI AKÇATAM",
+      "defter": "BOA NFS.d.2544",
+      "varak": 45
+    },
+    {
+      "sira": 532,
+      "ad": "PEŞMAKDAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 45
+    },
+    {
+      "sira": 533,
+      "ad": "HAŞKE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 46
+    },
+    {
+      "sira": 534,
+      "ad": "KAHVIK-KENHUBEK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 46
+    },
+    {
+      "sira": 535,
+      "ad": "MUR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 46
+    },
+    {
+      "sira": 537,
+      "ad": "SUSUZVİRAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 47
+    },
+    {
+      "sira": 538,
+      "ad": "ÖDÜK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 48
+    },
+    {
+      "sira": 541,
+      "ad": "KAFIRTAM",
+      "defter": "BOA NFS.d.2544",
+      "varak": 50
+    },
+    {
+      "sira": 542,
+      "ad": "HAMER",
+      "defter": "BOA NFS.d.2544",
+      "varak": 51
+    },
+    {
+      "sira": 543,
+      "ad": "KARSUCUK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 51
+    },
+    {
+      "sira": 544,
+      "ad": "ÇETME",
+      "defter": "BOA NFS.d.2544",
+      "varak": 52
+    },
+    {
+      "sira": 545,
+      "ad": "SORUK/SORUN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 53
+    },
+    {
+      "sira": 546,
+      "ad": "GÜRDELERLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 54
+    },
+    {
+      "sira": 547,
+      "ad": "ÇALTI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 56
+    },
+    {
+      "sira": 548,
+      "ad": "KURDUN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 57
+    },
+    {
+      "sira": 549,
+      "ad": "DUSDAL",
+      "defter": "BOA NFS.d.2544",
+      "varak": 57
+    },
+    {
+      "sira": 550,
+      "ad": "İNZGAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 58
+    },
+    {
+      "sira": 552,
+      "ad": "GÜDEŞ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 61
+    },
+    {
+      "sira": 553,
+      "ad": "TÜLUK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 62
+    },
+    {
+      "sira": 554,
+      "ad": "KERKIDI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 63
+    },
+    {
+      "sira": 555,
+      "ad": "GÜMEK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 63
+    },
+    {
+      "sira": 556,
+      "ad": "HARSU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 64
+    },
+    {
+      "sira": 557,
+      "ad": "ZANTANTA",
+      "defter": "BOA NFS.d.2544",
+      "varak": 65
+    },
+    {
+      "sira": 558,
+      "ad": "MERENDI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 66
+    },
+    {
+      "sira": 560,
+      "ad": "ULUKMAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 67
+    },
+    {
+      "sira": 561,
+      "ad": "VENK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 68
+    },
+    {
+      "sira": 562,
+      "ad": "VEZALDAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 68
+    },
+    {
+      "sira": 564,
+      "ad": "SAGIRTAŞ VENKI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 70
+    },
+    {
+      "sira": 565,
+      "ad": "SAGIRTAŞ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 70
+    },
+    {
+      "sira": 566,
+      "ad": "DOĞAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 71
+    },
+    {
+      "sira": 567,
+      "ad": "PENEKANE KIRIB REBAT",
+      "defter": "BOA NFS.d.2544",
+      "varak": 71
+    },
+    {
+      "sira": 568,
+      "ad": "ZİYANKAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 72
+    },
+    {
+      "sira": 570,
+      "ad": "HUTREK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 76
+    },
+    {
+      "sira": 571,
+      "ad": "LORŞUN/ORŞUN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 76
+    },
+    {
+      "sira": 573,
+      "ad": "KALUN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 79
+    },
+    {
+      "sira": 574,
+      "ad": "EĞREK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 80
+    },
+    {
+      "sira": 575,
+      "ad": "KİLİSECIK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 80
+    },
+    {
+      "sira": 576,
+      "ad": "ARŞUTUN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 81
+    },
+    {
+      "sira": 577,
+      "ad": "SENCAK ÇİFTLİK VELİ PAŞAZADENIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 81
+    },
+    {
+      "sira": 578,
+      "ad": "SOFUR PELANGASI VEİ PAŞAZADENIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 82
+    },
+    {
+      "sira": 579,
+      "ad": "ERKELI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 82
+    },
+    {
+      "sira": 580,
+      "ad": "MAHADIM",
+      "defter": "BOA NFS.d.2544",
+      "varak": 83
+    },
+    {
+      "sira": 581,
+      "ad": "DOĞUD/DOĞUR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 83
+    },
+    {
+      "sira": 582,
+      "ad": "ŞIKI ÇİFTLİĞİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 87
+    },
+    {
+      "sira": 583,
+      "ad": "KEMEŞ VENKI ÇİFTLİĞİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 87
+    },
+    {
+      "sira": 585,
+      "ad": "KARAKEBAK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 89
+    },
+    {
+      "sira": 586,
+      "ad": "ZENSEKI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 90
+    },
+    {
+      "sira": 587,
+      "ad": "ZEMRE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 92
+    },
+    {
+      "sira": 588,
+      "ad": "PANIK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 93
+    },
+    {
+      "sira": 589,
+      "ad": "ESKI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 94
+    },
+    {
+      "sira": 590,
+      "ad": "HAPA",
+      "defter": "BOA NFS.d.2544",
+      "varak": 94
+    },
+    {
+      "sira": 591,
+      "ad": "ORANBEK/EVRENIK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 95
+    },
+    {
+      "sira": 592,
+      "ad": "SAMUNA SAYE SEN AĞILDERESI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 96
+    },
+    {
+      "sira": 593,
+      "ad": "KÜRESIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 97
+    },
+    {
+      "sira": 594,
+      "ad": "MURVANA",
+      "defter": "BOA NFS.d.2544",
+      "varak": 98
+    },
+    {
+      "sira": 595,
+      "ad": "AHI KULCE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 99
+    },
+    {
+      "sira": 596,
+      "ad": "HAZER GELEK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 100
+    },
+    {
+      "sira": 597,
+      "ad": "VARTAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 102
+    },
+    {
+      "sira": 598,
+      "ad": "KUMSEKUR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 103
+    },
+    {
+      "sira": 599,
+      "ad": "GARSI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 103
+    },
+    {
+      "sira": 600,
+      "ad": "KIZILCAVİRAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 104
+    },
+    {
+      "sira": 601,
+      "ad": "TIMSI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 105
+    },
+    {
+      "sira": 602,
+      "ad": "GAKRI ŞIKI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 106
+    },
+    {
+      "sira": 603,
+      "ad": "GÖTÜRDAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 106
+    },
+    {
+      "sira": 604,
+      "ad": "ÖMERLİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 107
+    },
+    {
+      "sira": 605,
+      "ad": "HEYNURA",
+      "defter": "BOA NFS.d.2544",
+      "varak": 107
+    },
+    {
+      "sira": 606,
+      "ad": "AMERKE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 109
+    },
+    {
+      "sira": 607,
+      "ad": "GÜRGÜSU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 110
+    },
+    {
+      "sira": 608,
+      "ad": "KAGNUD",
+      "defter": "BOA NFS.d.2544",
+      "varak": 110
+    },
+    {
+      "sira": 609,
+      "ad": "PERSUPEK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 111
+    },
+    {
+      "sira": 610,
+      "ad": "MAHA/MAHU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 112
+    },
+    {
+      "sira": 611,
+      "ad": "PAŞUNCUK ÇİFTLİĞİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 113
+    },
+    {
+      "sira": 612,
+      "ad": "TUMLACA ÇİFTLİĞİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 114
+    },
+    {
+      "sira": 614,
+      "ad": "SAVAŞ KALESİ NAM MAK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 119
+    },
+    {
+      "sira": 615,
+      "ad": "KANGAL",
+      "defter": "BOA NFS.d.2544",
+      "varak": 120
+    },
+    {
+      "sira": 616,
+      "ad": "CUBNARLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 122
+    },
+    {
+      "sira": 619,
+      "ad": "KÜRD DEBASI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 124
+    },
+    {
+      "sira": 621,
+      "ad": "AĞIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 126
+    },
+    {
+      "sira": 623,
+      "ad": "HÖBUK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 127
+    },
+    {
+      "sira": 624,
+      "ad": "VELİPAŞAZA ÇİFTİĞİ YENICE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 128
+    },
+    {
+      "sira": 626,
+      "ad": "ÇUKPESUZLARLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 130
+    },
+    {
+      "sira": 627,
+      "ad": "ZÜK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 130
+    },
+    {
+      "sira": 628,
+      "ad": "TALIBAZ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 131
+    },
+    {
+      "sira": 629,
+      "ad": "İSMAİLBEYÇİFTLİĞİ",
+      "defter": "BOA NFS.d.2544",
+      "varak": 131
+    },
+    {
+      "sira": 630,
+      "ad": "ÇAMŞENCU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 132
+    },
+    {
+      "sira": 631,
+      "ad": "MEZRAA ETKE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 133
+    },
+    {
+      "sira": 633,
+      "ad": "GÜRÜN CAMİİ KEBİR MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 138
+    },
+    {
+      "sira": 634,
+      "ad": "SEMUKLU MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 143
+    },
+    {
+      "sira": 635,
+      "ad": "MUSTAFA MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 145
+    },
+    {
+      "sira": 636,
+      "ad": "CAMI MEYDAN MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 149
+    },
+    {
+      "sira": 637,
+      "ad": "USTAOSMAN CAMII MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 152
+    },
+    {
+      "sira": 638,
+      "ad": "ORTACAMII MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 154
+    },
+    {
+      "sira": 639,
+      "ad": "KESAK KEHI MH",
+      "defter": "BOA NFS.d.2544",
+      "varak": 159
+    },
+    {
+      "sira": 640,
+      "ad": "TELIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 162
+    },
+    {
+      "sira": 641,
+      "ad": "KOYUNCULU ŞERKLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 169
+    },
+    {
+      "sira": 644,
+      "ad": "GÜBLAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 173
+    },
+    {
+      "sira": 645,
+      "ad": "SAZ ÇAKAK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 176
+    },
+    {
+      "sira": 646,
+      "ad": "AYVALU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 182
+    },
+    {
+      "sira": 647,
+      "ad": "BU CIVARCDA KIŞLAKCI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 185
+    },
+    {
+      "sira": 648,
+      "ad": "ULU SALUR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 186
+    },
+    {
+      "sira": 649,
+      "ad": "BU CIVARCDA KIŞLAKCI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 186
+    },
+    {
+      "sira": 650,
+      "ad": "SÜLEYMAN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 187
+    },
+    {
+      "sira": 651,
+      "ad": "ALVAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 189
+    },
+    {
+      "sira": 652,
+      "ad": "KIZLCAŞAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 190
+    },
+    {
+      "sira": 653,
+      "ad": "BU CIVARCDA KIŞLAKCI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 191
+    },
+    {
+      "sira": 654,
+      "ad": "SULTANLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 191
+    },
+    {
+      "sira": 655,
+      "ad": "BU CIVARCDA KIŞLAKCI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 192
+    },
+    {
+      "sira": 656,
+      "ad": "ÇÜRMU/ÇORMU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 192
+    },
+    {
+      "sira": 657,
+      "ad": "KULANCAK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 194
+    },
+    {
+      "sira": 658,
+      "ad": "MADEN HUMAYIN",
+      "defter": "BOA NFS.d.2544",
+      "varak": 197
+    },
+    {
+      "sira": 659,
+      "ad": "BU CIVARCDA KIŞLAKCI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 198
+    },
+    {
+      "sira": 660,
+      "ad": "SOHLER",
+      "defter": "BOA NFS.d.2544",
+      "varak": 198
+    },
+    {
+      "sira": 661,
+      "ad": "AYVALU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 200
+    },
+    {
+      "sira": 662,
+      "ad": "SOFİLER",
+      "defter": "BOA NFS.d.2544",
+      "varak": 202
+    },
+    {
+      "sira": 663,
+      "ad": "ALVAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 202
+    },
+    {
+      "sira": 664,
+      "ad": "KIZILCAŞAR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 203
+    },
+    {
+      "sira": 665,
+      "ad": "SULTANLI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 204
+    },
+    {
+      "sira": 666,
+      "ad": "SALUR",
+      "defter": "BOA NFS.d.2544",
+      "varak": 204
+    },
+    {
+      "sira": 667,
+      "ad": "SELICALI",
+      "defter": "BOA NFS.d.2544",
+      "varak": 205
+    },
+    {
+      "sira": 668,
+      "ad": "ÇORMU",
+      "defter": "BOA NFS.d.2544",
+      "varak": 206
+    },
+    {
+      "sira": 669,
+      "ad": "KULANCAK",
+      "defter": "BOA NFS.d.2544",
+      "varak": 207
+    },
+    {
+      "sira": 670,
+      "ad": "BECYE",
+      "defter": "BOA NFS.d.2544",
+      "varak": 209
+    },
+    {
+      "sira": 671,
+      "ad": "İMARMET",
+      "defter": "BOA NFS.d.2313",
+      "varak": 1
+    },
+    {
+      "sira": 672,
+      "ad": "ŞEMKÜREK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 2
+    },
+    {
+      "sira": 674,
+      "ad": "SERPENCEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 3
+    },
+    {
+      "sira": 675,
+      "ad": "AKVİRAN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 4
+    },
+    {
+      "sira": 676,
+      "ad": "COKES",
+      "defter": "BOA NFS.d.2313",
+      "varak": 4
+    },
+    {
+      "sira": 677,
+      "ad": "HIRBEY",
+      "defter": "BOA NFS.d.2313",
+      "varak": 4
+    },
+    {
+      "sira": 678,
+      "ad": "MAMLUCUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 6
+    },
+    {
+      "sira": 680,
+      "ad": "GÜRN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 8
+    },
+    {
+      "sira": 681,
+      "ad": "APARDI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 9
+    },
+    {
+      "sira": 682,
+      "ad": "KIZILCAKIIŞLA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 11
+    },
+    {
+      "sira": 683,
+      "ad": "TATLICIK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 12
+    },
+    {
+      "sira": 684,
+      "ad": "EBUKES",
+      "defter": "BOA NFS.d.2313",
+      "varak": 13
+    },
+    {
+      "sira": 686,
+      "ad": "GULAM",
+      "defter": "BOA NFS.d.2313",
+      "varak": 14
+    },
+    {
+      "sira": 687,
+      "ad": "KARACAŞAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 15
+    },
+    {
+      "sira": 688,
+      "ad": "HACIMIRZA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 16
+    },
+    {
+      "sira": 689,
+      "ad": "GESEREK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 17
+    },
+    {
+      "sira": 692,
+      "ad": "AFAT",
+      "defter": "BOA NFS.d.2313",
+      "varak": 19
+    },
+    {
+      "sira": 693,
+      "ad": "KIRPIRAK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 19
+    },
+    {
+      "sira": 695,
+      "ad": "CELAL?",
+      "defter": "BOA NFS.d.2313",
+      "varak": 20
+    },
+    {
+      "sira": 697,
+      "ad": "GIRACIK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 23
+    },
+    {
+      "sira": 699,
+      "ad": "KARABUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 26
+    },
+    {
+      "sira": 700,
+      "ad": "PAGARC",
+      "defter": "BOA NFS.d.2313",
+      "varak": 28
+    },
+    {
+      "sira": 701,
+      "ad": "TAHSEKSEZ",
+      "defter": "BOA NFS.d.2313",
+      "varak": 29
+    },
+    {
+      "sira": 702,
+      "ad": "PADI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 30
+    },
+    {
+      "sira": 703,
+      "ad": "KERENE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 30
+    },
+    {
+      "sira": 705,
+      "ad": "KALENDIR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 32
+    },
+    {
+      "sira": 706,
+      "ad": "CERHIN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 33
+    },
+    {
+      "sira": 707,
+      "ad": "TURUS",
+      "defter": "BOA NFS.d.2313",
+      "varak": 34
+    },
+    {
+      "sira": 708,
+      "ad": "TOŞANLI/TUŞANLI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 35
+    },
+    {
+      "sira": 709,
+      "ad": "TURHISAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 38
+    },
+    {
+      "sira": 710,
+      "ad": "GEMSIN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 38
+    },
+    {
+      "sira": 711,
+      "ad": "YENI NAMIDIGER ACIPINAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 39
+    },
+    {
+      "sira": 712,
+      "ad": "TUDREKE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 40
+    },
+    {
+      "sira": 713,
+      "ad": "ÇIN YENICE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 41
+    },
+    {
+      "sira": 714,
+      "ad": "YARHIAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 42
+    },
+    {
+      "sira": 715,
+      "ad": "KOCHISAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 45
+    },
+    {
+      "sira": 718,
+      "ad": "SOFILER",
+      "defter": "BOA NFS.d.2313",
+      "varak": 50
+    },
+    {
+      "sira": 719,
+      "ad": "GURE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 50
+    },
+    {
+      "sira": 720,
+      "ad": "HURHUN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 51
+    },
+    {
+      "sira": 721,
+      "ad": "AZİR/AZİZ",
+      "defter": "BOA NFS.d.2313",
+      "varak": 53
+    },
+    {
+      "sira": 722,
+      "ad": "KINISE-KILISE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 54
+    },
+    {
+      "sira": 724,
+      "ad": "SANUKE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 58
+    },
+    {
+      "sira": 725,
+      "ad": "OREKIR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 59
+    },
+    {
+      "sira": 726,
+      "ad": "BEKDIKLI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 60
+    },
+    {
+      "sira": 727,
+      "ad": "DÖGER",
+      "defter": "BOA NFS.d.2313",
+      "varak": 61
+    },
+    {
+      "sira": 728,
+      "ad": "SARICA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 64
+    },
+    {
+      "sira": 732,
+      "ad": "VENK SAGIR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 72
+    },
+    {
+      "sira": 733,
+      "ad": "BAŞCIBUYUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 72
+    },
+    {
+      "sira": 734,
+      "ad": "HARAR",
+      "defter": "BOA NFS.d.2313",
+      "varak": 74
+    },
+    {
+      "sira": 735,
+      "ad": "KUKERIN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 74
+    },
+    {
+      "sira": 736,
+      "ad": "ISHAGA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 75
+    },
+    {
+      "sira": 737,
+      "ad": "GELASDIK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 76
+    },
+    {
+      "sira": 738,
+      "ad": "ZANBAKAL",
+      "defter": "BOA NFS.d.2313",
+      "varak": 77
+    },
+    {
+      "sira": 739,
+      "ad": "MALUC",
+      "defter": "BOA NFS.d.2313",
+      "varak": 77
+    },
+    {
+      "sira": 740,
+      "ad": "EYMIRHAN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 78
+    },
+    {
+      "sira": 741,
+      "ad": "BOGAZKESEN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 79
+    },
+    {
+      "sira": 742,
+      "ad": "MAMUGA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 80
+    },
+    {
+      "sira": 743,
+      "ad": "EMRDDELI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 82
+    },
+    {
+      "sira": 746,
+      "ad": "YISCABIN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 84
+    },
+    {
+      "sira": 747,
+      "ad": "HOŞKAM",
+      "defter": "BOA NFS.d.2313",
+      "varak": 85
+    },
+    {
+      "sira": 749,
+      "ad": "HOŞVENK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 85
+    },
+    {
+      "sira": 750,
+      "ad": "TURNUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 86
+    },
+    {
+      "sira": 751,
+      "ad": "SIGIIK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 86
+    },
+    {
+      "sira": 753,
+      "ad": "ATA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 89
+    },
+    {
+      "sira": 754,
+      "ad": "SETEKLI",
+      "defter": "BOA NFS.d.2313",
+      "varak": 90
+    },
+    {
+      "sira": 755,
+      "ad": "KARAKUMELEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 91
+    },
+    {
+      "sira": 758,
+      "ad": "KULLUCE",
+      "defter": "BOA NFS.d.2313",
+      "varak": 93
+    },
+    {
+      "sira": 761,
+      "ad": "ÇATVIRAN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 95
+    },
+    {
+      "sira": 762,
+      "ad": "MEHADEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 96
+    },
+    {
+      "sira": 763,
+      "ad": "DEMIRCILEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 97
+    },
+    {
+      "sira": 764,
+      "ad": "OKCUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 98
+    },
+    {
+      "sira": 765,
+      "ad": "KIM",
+      "defter": "BOA NFS.d.2313",
+      "varak": 98
+    },
+    {
+      "sira": 766,
+      "ad": "TURYENK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 99
+    },
+    {
+      "sira": 768,
+      "ad": "KARACAVIRAN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 99
+    },
+    {
+      "sira": 769,
+      "ad": "KESREDEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 99
+    },
+    {
+      "sira": 773,
+      "ad": "YERAS",
+      "defter": "BOA NFS.d.2313",
+      "varak": 103
+    },
+    {
+      "sira": 774,
+      "ad": "YALCIK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 104
+    },
+    {
+      "sira": 775,
+      "ad": "BEYLUKAYA",
+      "defter": "BOA NFS.d.2313",
+      "varak": 104
+    },
+    {
+      "sira": 776,
+      "ad": "BURUNSUN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 105
+    },
+    {
+      "sira": 777,
+      "ad": "UCUK/OCUK/AVCUK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 105
+    },
+    {
+      "sira": 778,
+      "ad": "DEMIRCILEK",
+      "defter": "BOA NFS.d.2313",
+      "varak": 106
+    },
+    {
+      "sira": 780,
+      "ad": "AFAS",
+      "defter": "BOA NFS.d.2313",
+      "varak": 107
+    },
+    {
+      "sira": 781,
+      "ad": "SETIN",
+      "defter": "BOA NFS.d.2313",
+      "varak": 108
+    },
+    {
+      "sira": 782,
+      "ad": "KÜÇÜK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 2
+    },
+    {
+      "sira": 783,
+      "ad": "CENAM",
+      "defter": "BOA NFS.d.2083",
+      "varak": 4
+    },
+    {
+      "sira": 784,
+      "ad": "TUZLA",
+      "defter": "BOA NFS.d.2083",
+      "varak": 4
+    },
+    {
+      "sira": 785,
+      "ad": "MAKSUDLU",
+      "defter": "BOA NFS.d.2083",
+      "varak": 6
+    },
+    {
+      "sira": 786,
+      "ad": "DÖLLEK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 8
+    },
+    {
+      "sira": 787,
+      "ad": "ÖYÜK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 8
+    },
+    {
+      "sira": 789,
+      "ad": "MERKESIN",
+      "defter": "BOA NFS.d.2083",
+      "varak": 10
+    },
+    {
+      "sira": 790,
+      "ad": "ŞEHİRKIŞLA/ŞARKIŞLA",
+      "defter": "BOA NFS.d.2083",
+      "varak": 11
+    },
+    {
+      "sira": 791,
+      "ad": "YALTUN",
+      "defter": "BOA NFS.d.2083",
+      "varak": 19
+    },
+    {
+      "sira": 792,
+      "ad": "ÇAYIRŞEYH",
+      "defter": "BOA NFS.d.2083",
+      "varak": 20
+    },
+    {
+      "sira": 795,
+      "ad": "LISANLI",
+      "defter": "BOA NFS.d.2083",
+      "varak": 29
+    },
+    {
+      "sira": 796,
+      "ad": "SARACLAR",
+      "defter": "BOA NFS.d.2083",
+      "varak": 30
+    },
+    {
+      "sira": 797,
+      "ad": "GEMEREK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 30
+    },
+    {
+      "sira": 798,
+      "ad": "CIKSAYAK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 35
+    },
+    {
+      "sira": 800,
+      "ad": "SULTAN",
+      "defter": "BOA NFS.d.2083",
+      "varak": 37
+    },
+    {
+      "sira": 801,
+      "ad": "YÜREĞİR KEBİR",
+      "defter": "BOA NFS.d.2083",
+      "varak": 37
+    },
+    {
+      "sira": 802,
+      "ad": "PURGIL SAGIR",
+      "defter": "BOA NFS.d.2083",
+      "varak": 39
+    },
+    {
+      "sira": 803,
+      "ad": "ARIFLER",
+      "defter": "BOA NFS.d.2083",
+      "varak": 39
+    },
+    {
+      "sira": 804,
+      "ad": "DEMURCILI",
+      "defter": "BOA NFS.d.2083",
+      "varak": 40
+    },
+    {
+      "sira": 805,
+      "ad": "PIRACIK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 40
+    },
+    {
+      "sira": 806,
+      "ad": "AYDALLI",
+      "defter": "BOA NFS.d.2083",
+      "varak": 41
+    },
+    {
+      "sira": 807,
+      "ad": "ZEYNI",
+      "defter": "BOA NFS.d.2083",
+      "varak": 41
+    },
+    {
+      "sira": 808,
+      "ad": "YUNUSVİRANI",
+      "defter": "BOA NFS.d.2083",
+      "varak": 41
+    },
+    {
+      "sira": 810,
+      "ad": "IKICEK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 43
+    },
+    {
+      "sira": 811,
+      "ad": "TOPAÇ KEBİR",
+      "defter": "BOA NFS.d.2083",
+      "varak": 43
+    },
+    {
+      "sira": 812,
+      "ad": "TOPAÇ SAGIR",
+      "defter": "BOA NFS.d.2083",
+      "varak": 44
+    },
+    {
+      "sira": 813,
+      "ad": "SERBAN",
+      "defter": "BOA NFS.d.2083",
+      "varak": 44
+    },
+    {
+      "sira": 814,
+      "ad": "KALINCA",
+      "defter": "BOA NFS.d.2083",
+      "varak": 44
+    },
+    {
+      "sira": 815,
+      "ad": "KABAK",
+      "defter": "BOA NFS.d.2083",
+      "varak": 45
+    },
+    {
+      "sira": 816,
+      "ad": "FAKHALLU",
+      "defter": "BOA NFS.d.2083",
+      "varak": 46
+    },
+    {
+      "sira": 817,
+      "ad": "KUZCA",
+      "defter": "BOA NFS.d.2083",
+      "varak": 46
+    },
+    {
+      "sira": 818,
+      "ad": "KARAKUZ 52",
+      "defter": "BOA NFS.d.2083",
+      "varak": 46
+    }
+  ],
+  "uyari": "Tekil modern ad eşleşmeleri de coğrafi kimlik açısından aday statüsündedir; doğrulanmış hane/sülale tercümesi üretmez."
+}
