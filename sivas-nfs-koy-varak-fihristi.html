@@ -34,6 +34,13 @@ button{margin:15px 0;padding:12px 20px;background:#17384e;color:white;border:0;b
 <input id="pdfQ" type="search" placeholder="PDF NUMARASI, KÖY, SÜLALE VEYA ESER ADI ARA" aria-label="Kütüphane çalışmaları ara">
 <div class="stat" id="pdfStatus">PDF ENVANTERİ YÜKLENİYOR…</div><div id="pdfResults"></div><button id="pdfMore" hidden>DAHA FAZLA ESER</button>
 </section>
+
+<section class="inventory" id="sivas545">
+<h2>KÜTÜPHANE – 545 NFS DEFTER KÜNYESİ</h2>
+<p>61 sayfalık SİVAS NÜFUS DEFTERLERİ.PDF kaynak listesindeki 545 BOA defter numarası, Hicrî tarih ve katalog özeti. Karışık eyalet ve başka sancak kayıtları bugünkü Sivas ilçelerine doğrudan taşınmadı.</p>
+<input id="catalog545Q" type="search" placeholder="NFS DEFTER NO, HİCRÎ TARİH, KAZA VEYA ÖZET ARA" aria-label="545 defter kataloğu ara">
+<div class="stat" id="catalog545Status">545 KÜNYE YÜKLENİYOR…</div><div id="catalog545Results"></div><button id="catalog545More" hidden>DAHA FAZLA KÜNYE</button>
+</section>
 <section class="inventory" id="sivasCatalog">
 <h2>TARİHÎ SİVAS EYALETİ – NFS KATALOĞU</h2>
 <p>10.000 kayıtlık BOA katalog dökümünde Sivas eyaleti geçen 402 kayıt. Sivas ve Divriği sancakları ayrıldı; diğer eyalet kayıtları bugünkü Sivas köyü diye kabul edilmedi.</p>
@@ -77,6 +84,9 @@ const sources=[
  {url:"./catalog/sivas_kutuphane_62_pdf_calisma_envanteri_20261121.json",body:"pdfResults",stat:"pdfStatus",input:"pdfQ",more:"pdfMore",count:25,
  read:data=>data.kayitlar, match:x=>[x.pdf_no,x.dosya,x.kategori,x.yil].join(" "),
  view:x=>'<article><b>'+safe(x.pdf_no)+' · '+safe(x.dosya)+'</b><div class="meta">'+safe(x.kategori)+' · '+safe(x.yil||"YIL: KAYNAKTAN KONTROL EDİLECEK")+'</div></article>'},
+ {url:"./catalog/sivas_kutuphane_545_nfs_kunye_ve_aciklama_20261121.json",body:"catalog545Results",stat:"catalog545Status",input:"catalog545Q",more:"catalog545More",count:25,
+ read:data=>data["kayıtlar"],match:x=>[x.defter,x.hicri,x.ozet].join(" "),
+ view:x=>'<article><b>'+safe(x.defter)+'</b> · '+safe(x.hicri)+'<div>'+safe(x.ozet)+'</div></article>'},
  {url:"./catalog/sivas_eyaleti_nfs_402_katalog_20261121.json",body:"catalogResults",stat:"catalogStatus",input:"catalogQ",more:"catalogMore",count:25,
  read:data=>data.defterler,match:x=>[x.defter,x.kapsam,x.katolog_ozeti].join(" "),
  view:x=>'<article><b>'+safe(x.defter)+'</b> · '+safe(x.hicri)+'<div class="meta">'+safe(x.kapsam)+'</div><div>'+safe(x.katolog_ozeti)+'</div></article>'},
