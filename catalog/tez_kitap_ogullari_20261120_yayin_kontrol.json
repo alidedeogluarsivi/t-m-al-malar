@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-20",
+  "status": "YAYINLANDI; YER EŞLEŞMELERİ İÇİN EK KONTROL GEREKİYOR",
+  "data_files": [
+    "catalog/tez_kitap_ogullari_20261120_parca_1.ndjson",
+    "catalog/tez_kitap_ogullari_20261120_parca_2.ndjson"
+  ],
+  "record_counts": {
+    "part_1": 2249,
+    "part_2": 2249,
+    "total": 4498,
+    "duplicate_records_in_uploaded_files": 0,
+    "missing_defter_array": 0,
+    "historical_and_current_name_differing_rows": 2618
+  },
+  "site_integrations": [
+    "index.html",
+    "detayli.html",
+    "sulale-sozlugu.html"
+  ],
+  "pending_records_not_published": 2330,
+  "notes": [
+    "Tarihî karye ve bugünkü yer adının farklı olması tek başına yanlış eşleştirme kanıtı değildir; fakat kaynak bazında denetlenmelidir.",
+    "Yükleme eski katalog dosyalarını değiştirmeden iki yeni katalog dosyası eklenerek yapıldı.",
+    "Bu kontrol dosyası tüm özgün NFS/TMT kayıtlarının arşiv görüntülerinden tek tek doğrulandığı anlamına gelmez.",
+    "Önceki görüşmede geçen 186 dosyalık ayrı yayın paketi bu oturumda erişilebilir değildir.",
+    "Canlı alan adı üzerinden sayfa dağıtımı ayrıca doğrulanmalıdır."
+  ]
+}
