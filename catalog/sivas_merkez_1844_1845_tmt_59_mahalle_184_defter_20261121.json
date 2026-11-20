@@ -1,0 +1,790 @@
+{
+  "il": "SİVAS",
+  "historical_area": "SİVAS MERKEZ",
+  "yil": "1844–1845",
+  "source_url": "https://www.kafkas.edu.tr/dosyalar/KAUIIBFD/image/C%C4%B0LT%209%20SAYI%2017/02.pdf",
+  "kapsam": "59 tarihî mahalle ve 184 temettuat defteri",
+  "mahalles": [
+    {
+      "sira": 1,
+      "tarihi_mahalle": "Abdülkerim",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14481"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 2,
+      "tarihi_mahalle": "Abdülvahab-ı Gazi",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14448"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 3,
+      "tarihi_mahalle": "Akça Bölge",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14517",
+        "BOA ML.VRD.TMT.d.14518",
+        "BOA ML.VRD.TMT.d.14554",
+        "BOA ML.VRD.TMT.d.14562"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 4,
+      "tarihi_mahalle": "Akdeğirmen",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14447",
+        "BOA ML.VRD.TMT.d.14537",
+        "BOA ML.VRD.TMT.d.14539",
+        "BOA ML.VRD.TMT.d.14535",
+        "BOA ML.VRD.TMT.d.14472"
+      ],
+      "defter_sayisi": 5,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 5,
+      "tarihi_mahalle": "Alibaba",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14444",
+        "BOA ML.VRD.TMT.d.14459",
+        "BOA ML.VRD.TMT.d.14526"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 6,
+      "tarihi_mahalle": "Bab-ı Kayseri",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14450",
+        "BOA ML.VRD.TMT.d.14468",
+        "BOA ML.VRD.TMT.d.14548",
+        "BOA ML.VRD.TMT.d.14427",
+        "BOA ML.VRD.TMT.d.14489"
+      ],
+      "defter_sayisi": 5,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 7,
+      "tarihi_mahalle": "Bahtiyar Bostan",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14439",
+        "BOA ML.VRD.TMT.d.14515"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 8,
+      "tarihi_mahalle": "Baldır Bazarı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14430",
+        "BOA ML.VRD.TMT.d.14445",
+        "BOA ML.VRD.TMT.d.14509"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 9,
+      "tarihi_mahalle": "Billur (Pulur)",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14470"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 10,
+      "tarihi_mahalle": "Cami-i Kebir",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14487",
+        "BOA ML.VRD.TMT.d.14496",
+        "BOA ML.VRD.TMT.d.14538",
+        "BOA ML.VRD.TMT.d.13713"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 11,
+      "tarihi_mahalle": "Çavuşbaşı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.16523"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 12,
+      "tarihi_mahalle": "Demircilerardı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14467",
+        "BOA ML.VRD.TMT.d.14549",
+        "BOA ML.VRD.TMT.d.14453",
+        "BOA ML.VRD.TMT.d.14494"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 13,
+      "tarihi_mahalle": "Ece",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14528",
+        "BOA ML.VRD.TMT.d.14551",
+        "BOA ML.VRD.TMT.d.14543",
+        "BOA ML.VRD.TMT.d.14218",
+        "BOA ML.VRD.TMT.d.14464",
+        "BOA ML.VRD.TMT.d.14506",
+        "BOA ML.VRD.TMT.d.14508"
+      ],
+      "defter_sayisi": 7,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 14,
+      "tarihi_mahalle": "Ferhat Bostan",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14424",
+        "BOA ML.VRD.TMT.d.14480",
+        "BOA ML.VRD.TMT.d.14482",
+        "BOA ML.VRD.TMT.d.14419",
+        "BOA ML.VRD.TMT.d.14426",
+        "BOA ML.VRD.TMT.d.14493"
+      ],
+      "defter_sayisi": 6,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 15,
+      "tarihi_mahalle": "Ganem",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14446",
+        "BOA ML.VRD.TMT.d.14460"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 16,
+      "tarihi_mahalle": "Gök Hüssam",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14484",
+        "BOA ML.VRD.TMT.d.14485"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 17,
+      "tarihi_mahalle": "Gök Medrese",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14469",
+        "BOA ML.VRD.TMT.d.14471",
+        "BOA ML.VRD.TMT.d.14541",
+        "BOA ML.VRD.TMT.d.14270",
+        "BOA ML.VRD.TMT.d.14558"
+      ],
+      "defter_sayisi": 5,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 18,
+      "tarihi_mahalle": "Gökçe Bostan",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14417",
+        "BOA ML.VRD.TMT.d.14567",
+        "BOA ML.VRD.TMT.d.14408"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 19,
+      "tarihi_mahalle": "Hacı Mahmut",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14423",
+        "BOA ML.VRD.TMT.d.14474",
+        "BOA ML.VRD.TMT.d.16791"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 20,
+      "tarihi_mahalle": "Hacı Mehmet",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14477",
+        "BOA ML.VRD.TMT.d.14504",
+        "BOA ML.VRD.TMT.d.16761"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 21,
+      "tarihi_mahalle": "Hacı Veli",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14436",
+        "BOA ML.VRD.TMT.d.14490"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 22,
+      "tarihi_mahalle": "Hacı Zahit",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14557",
+        "BOA ML.VRD.TMT.d.14497",
+        "BOA ML.VRD.TMT.d.16736",
+        "BOA ML.VRD.TMT.d.16756"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 23,
+      "tarihi_mahalle": "Hamamardı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.13119",
+        "BOA ML.VRD.TMT.d.13675",
+        "BOA ML.VRD.TMT.d.16724",
+        "BOA ML.VRD.TMT.d.16725"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 24,
+      "tarihi_mahalle": "Hoca Ali Çavuş",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14409",
+        "BOA ML.VRD.TMT.d.14410",
+        "BOA ML.VRD.TMT.d.14513"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 25,
+      "tarihi_mahalle": "Hoca Hüssam",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.17787",
+        "BOA ML.VRD.TMT.d.16727"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 26,
+      "tarihi_mahalle": "Hoca İmam",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14407",
+        "BOA ML.VRD.TMT.d.14511",
+        "BOA ML.VRD.TMT.d.14565"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 27,
+      "tarihi_mahalle": "İmaret",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14413",
+        "BOA ML.VRD.TMT.d.14415",
+        "BOA ML.VRD.TMT.d.14503",
+        "BOA ML.VRD.TMT.d.14578"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 28,
+      "tarihi_mahalle": "Kabalı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14458",
+        "BOA ML.VRD.TMT.d.14507",
+        "BOA ML.VRD.TMT.d.14577",
+        "BOA ML.VRD.TMT.d.14547"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 29,
+      "tarihi_mahalle": "Kaleardı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14525",
+        "BOA ML.VRD.TMT.d.14536",
+        "BOA ML.VRD.TMT.d.14546"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 30,
+      "tarihi_mahalle": "Kale-i Atik",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14449",
+        "BOA ML.VRD.TMT.d.14491",
+        "BOA ML.VRD.TMT.d.14544",
+        "BOA ML.VRD.TMT.d.13791"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 31,
+      "tarihi_mahalle": "Kale-i Cedid",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14476"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 32,
+      "tarihi_mahalle": "Keçibula",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14456",
+        "BOA ML.VRD.TMT.d.14527",
+        "BOA ML.VRD.TMT.d.14531",
+        "BOA ML.VRD.TMT.d.13660"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 33,
+      "tarihi_mahalle": "Kılavuz",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14492"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 34,
+      "tarihi_mahalle": "Kırcık",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14463",
+        "BOA ML.VRD.TMT.d.14522",
+        "BOA ML.VRD.TMT.d.14530"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 35,
+      "tarihi_mahalle": "Köhnecivan",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14486",
+        "BOA ML.VRD.TMT.d.14501",
+        "BOA ML.VRD.TMT.d.14502",
+        "BOA ML.VRD.TMT.d.13876"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 36,
+      "tarihi_mahalle": "Kösedere-i Müslim",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14559",
+        "BOA ML.VRD.TMT.d.14217",
+        "BOA ML.VRD.TMT.d.14533",
+        "BOA ML.VRD.TMT.d.14540"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 37,
+      "tarihi_mahalle": "Kösedere-i Zımmi",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14499",
+        "BOA ML.VRD.TMT.d.14438",
+        "BOA ML.VRD.TMT.d.16862"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 38,
+      "tarihi_mahalle": "Kurt Mescid",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14452",
+        "BOA ML.VRD.TMT.d.14519"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 39,
+      "tarihi_mahalle": "Küçükbengiler",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14411",
+        "BOA ML.VRD.TMT.d.14462",
+        "BOA ML.VRD.TMT.d.14478",
+        "BOA ML.VRD.TMT.d.14521"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 40,
+      "tarihi_mahalle": "Küçükkenisa",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14505",
+        "BOA ML.VRD.TMT.d.14421"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 41,
+      "tarihi_mahalle": "Küçükminare",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14412",
+        "BOA ML.VRD.TMT.d.14523",
+        "BOA ML.VRD.TMT.d.14566",
+        "BOA ML.VRD.TMT.d.14406",
+        "BOA ML.VRD.TMT.d.14466",
+        "BOA ML.VRD.TMT.d.14550"
+      ],
+      "defter_sayisi": 6,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 42,
+      "tarihi_mahalle": "Oğlan Çavuş",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14441",
+        "BOA ML.VRD.TMT.d.17176",
+        "BOA ML.VRD.TMT.d.17178"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 43,
+      "tarihi_mahalle": "Osmanpaşa",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14495",
+        "BOA ML.VRD.TMT.d.14498",
+        "BOA ML.VRD.TMT.d.14545",
+        "BOA ML.VRD.TMT.d.17170"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 44,
+      "tarihi_mahalle": "Örtülüpınar",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14442",
+        "BOA ML.VRD.TMT.d.14457",
+        "BOA ML.VRD.TMT.d.14555"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 45,
+      "tarihi_mahalle": "Paşabey",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14405",
+        "BOA ML.VRD.TMT.d.14524"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 46,
+      "tarihi_mahalle": "Pazar",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.145552",
+        "BOA ML.VRD.TMT.d.14556"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false,
+      "uyari": "Kaynak metninde 145552 sayısı görülüyor; özgün defter no ayrıca teyit edilmeli"
+    },
+    {
+      "sira": 47,
+      "tarihi_mahalle": "Sarı Şeyh",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14420",
+        "BOA ML.VRD.TMT.d.14422",
+        "BOA ML.VRD.TMT.d.14500",
+        "BOA ML.VRD.TMT.d.14416",
+        "BOA ML.VRD.TMT.d.14542",
+        "BOA ML.VRD.TMT.d.14561",
+        "BOA ML.VRD.TMT.d.14794"
+      ],
+      "defter_sayisi": 7,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 48,
+      "tarihi_mahalle": "Sofu Himmet",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14532",
+        "BOA ML.VRD.TMT.d.17269"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 49,
+      "tarihi_mahalle": "Şah Hüseyin",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14429",
+        "BOA ML.VRD.TMT.d.14516",
+        "BOA ML.VRD.TMT.d.14418",
+        "BOA ML.VRD.TMT.d.17328"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 50,
+      "tarihi_mahalle": "Şems-i Ferraş",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14431",
+        "BOA ML.VRD.TMT.d.14488",
+        "BOA ML.VRD.TMT.d.14529"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 51,
+      "tarihi_mahalle": "Hamurkesen",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14440"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 52,
+      "tarihi_mahalle": "Şeyh Çoban",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14454",
+        "BOA ML.VRD.TMT.d.14465",
+        "BOA ML.VRD.TMT.d.14510",
+        "BOA ML.VRD.TMT.d.14606"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 53,
+      "tarihi_mahalle": "Tokmakkapı",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14455",
+        "BOA ML.VRD.TMT.d.14560"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 54,
+      "tarihi_mahalle": "Üryan-ı Müslim",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14437",
+        "BOA ML.VRD.TMT.d.14483",
+        "BOA ML.VRD.TMT.d.14433",
+        "BOA ML.VRD.TMT.d.13477"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 55,
+      "tarihi_mahalle": "Üryan-ı Zımmi",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14434",
+        "BOA ML.VRD.TMT.d.14435",
+        "BOA ML.VRD.TMT.d.14451",
+        "BOA ML.VRD.TMT.d.17542"
+      ],
+      "defter_sayisi": 4,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 56,
+      "tarihi_mahalle": "Veledbey",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14414"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 57,
+      "tarihi_mahalle": "Yahyabey",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14563"
+      ],
+      "defter_sayisi": 1,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 58,
+      "tarihi_mahalle": "Zaviye-i Alibaba",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14475",
+        "BOA ML.VRD.TMT.d.14553"
+      ],
+      "defter_sayisi": 2,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    },
+    {
+      "sira": 59,
+      "tarihi_mahalle": "Zilkar",
+      "defterler": [
+        "BOA ML.VRD.TMT.d.14443",
+        "BOA ML.VRD.TMT.d.14461",
+        "BOA ML.VRD.TMT.d.14534"
+      ],
+      "defter_sayisi": 3,
+      "kaynak": "Sivas 1844–1845 Temettüat Defterleri Üzerine Bir Çalışma (2018), Tablo 1",
+      "konum": "SİVAS MERKEZ TARİHÎ MAHALLE",
+      "guncel_mahalle_eslesme_kesin": false
+    }
+  ],
+  "notes": [
+    "Kaynak tablodaki bazı mahalleler birden fazla defterde mükerrerdir.",
+    "Başlıklar bugünkü mahalle sınırlarına doğrulanmadan atanmaz.",
+    "Hane sayıları her defter için bağımsız hane toplamı varsayılmaz.",
+    "Pazar mahalle kaynak numarası 145552 ayrıca kontrol edilmelidir."
+  ]
+}
