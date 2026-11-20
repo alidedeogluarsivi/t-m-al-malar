@@ -1,5 +1,5 @@
 {
-  "source_count": 123,
+  "source_count": 124,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -265,8 +265,8 @@
       "il": "SAMSUN",
       "ilce": 11,
       "koy": 373,
-      "confirmed_family_places": 4730,
-      "candidate_family_places": 443
+      "confirmed_family_places": 4805,
+      "candidate_family_places": 424
     },
     "54": {
       "il": "SAKARYA",
@@ -286,8 +286,8 @@
       "il": "SİVAS",
       "ilce": 12,
       "koy": 30,
-      "confirmed_family_places": 371,
-      "candidate_family_places": 6
+      "confirmed_family_places": 416,
+      "candidate_family_places": 7
     },
     "60": {
       "il": "TOKAT",
@@ -305,9 +305,9 @@
     },
     "64": {
       "il": "UŞAK",
-      "ilce": 7,
-      "koy": 10,
-      "confirmed_family_places": 132,
+      "ilce": 8,
+      "koy": 14,
+      "confirmed_family_places": 214,
       "candidate_family_places": 167
     },
     "66": {
@@ -334,8 +334,8 @@
     "19": {
       "il": "ÇORUM",
       "ilce": 13,
-      "koy": 94,
-      "confirmed_family_places": 2502,
+      "koy": 95,
+      "confirmed_family_places": 2512,
       "candidate_family_places": 35
     },
     "17": {
