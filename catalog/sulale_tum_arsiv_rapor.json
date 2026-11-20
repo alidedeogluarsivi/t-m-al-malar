@@ -123,11 +123,12 @@
     "catalog/samsun_1834_excel_toplu_06_20261119.ndjson": 115,
     "catalog/samsun_1834_excel_toplu_07_20261119.ndjson": 148,
     "catalog/samsun_1834_excel_toplu_08_20261119.ndjson": 83,
-    "catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson": 10
+    "catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson": 10,
+    "catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson": 68
   },
-  "source_rows": 16967,
-  "family_mentions": 40428,
-  "export_rows": 33422,
+  "source_rows": 17051,
+  "family_mentions": 40496,
+  "export_rows": 33490,
   "candidate": 11224,
   "source_missing": []
 }

@@ -1,5 +1,5 @@
 {
-  "source_count": 124,
+  "source_count": 125,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -284,9 +284,9 @@
     },
     "58": {
       "il": "SİVAS",
-      "ilce": 12,
-      "koy": 30,
-      "confirmed_family_places": 416,
+      "ilce": 13,
+      "koy": 31,
+      "confirmed_family_places": 475,
       "candidate_family_places": 7
     },
     "60": {
