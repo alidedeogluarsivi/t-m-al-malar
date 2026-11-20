@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1834 Bafra Sülale Envanteri | Alidedeoğlu Arşivi</title>
+<meta name="description" content="BOA NFS.d.972 Bafra kazası 1834-1844 tarihî sülale, köy ve hane dizini. 1053 sülale başlığı ve 19 Mayıs güncel köy eşleştirmeleri.">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8f6f1;color:#181818;font:16px/1.6 system-ui,Arial,sans-serif}
+header{background:#162f40;color:white;padding:23px max(16px,calc((100% - 1150px)/2))}header a{color:#fff}h1{font-size:clamp(22px,3vw,33px);line-height:1.25;margin:10px 0}
+main{max-width:1150px;padding:18px 15px 80px;margin:auto}
+.notice{border-left:4px solid #9d7437;background:#fff3d2;padding:14px 17px;margin:12px 0;border-radius:6px}
+input{font:inherit;width:100%;padding:14px;border:2px solid #a79a84;border-radius:9px;position:sticky;top:0;background:white;z-index:2}
+.stats{font-weight:800;margin:12px 0}article{background:white;border:1px solid #ddd4c8;border-radius:11px;padding:15px;margin:12px 0}
+h2{font-size:20px;margin:0 0 5px}.tag{display:inline-block;background:#f1f1ed;border:1px solid #ddd;padding:3px 7px;margin:3px 3px 3px 0;border-radius:5px;font-size:13px}
+.pair{display:grid;grid-template-columns:minmax(160px,1fr) minmax(80px,.38fr);gap:10px;padding:7px 8px;border-bottom:1px solid #eee;font-size:15px}.pair b{overflow-wrap:anywhere}
+.small{font-size:13px;color:#59616a}details summary{cursor:pointer;font-weight:800;padding:10px 0}button{padding:12px;font:inherit;border-radius:8px;border:1px solid #aaa;background:white;cursor:pointer}
+@media(max-width:520px){.pair{grid-template-columns:1fr;gap:0}}
+</style></head>
+<body><header><a href="./index.html">ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a><h1>BAFRA KAZASI · 1834–1844 SÜLALE ENVANTERİ</h1><p>OSMANLI DEVLET ARŞİVİ · BOA NFS.d.972 · SÜLALE / TARİHÎ KÖY / HANE NUMARASI</p></header>
+<main><div class="notice"><b>TARİHÎ VE GÜNCEL YERLEŞİMLER AYRILMIŞTIR.</b> Bu dizin Bafra kazasının tarihî kayıtlarıdır; bütün yerleşimlerin günümüzde Bafra ilçesinde olduğu anlamına gelmez. <b>Düzköy ve Kuşkayası</b> kayıtları günümüzde Samsun / 19 Mayıs ilçesiyle ayrıca eşleştirilmiştir. Engiz Çiftliği kayıtları güncel yer karşılığı incelemesi olarak ayrılmıştır. İsimler ve hane numaraları kaynak dizindeki okunuşla korunmuştur.</div>
+<p><a href="./index.html?map_il=Samsun&map_ilce=19%20May%C4%B1s&map_koy=D%C3%BCzk%C3%B6y">19 MAYIS / DÜZKÖY HARİTA KAYDI</a> · <a href="./index.html?map_il=Samsun&map_ilce=19%20May%C4%B1s&map_koy=Ku%C5%9Fkayas%C4%B1">19 MAYIS / KUŞKAYASI HARİTA KAYDI</a></p>
+<input id="q" type="search" placeholder="SÜLALE, TARİHÎ KÖY VEYA HANE NO ARA" aria-label="Bafra sülale dizini ara">
+<div id="stats" class="stats">KAYITLAR YÜKLENİYOR…</div><div id="items"></div><button id="more" hidden>DAHA FAZLA GÖSTER</button>
+</main>
+<script>
+"use strict";
+const files=["catalog/bafra_1834_nfs972_tarihi_sulale_dizini_a_t_20261120.ndjson","catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson"];
+const el=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm=s=>String(s??"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[ı]/g,"i").replace(/[^a-z0-9]+/g," ");
+let cards=[],limit=24;
+function render(){
+ const q=norm(el("q").value).trim(),hits=cards.filter(x=>!q||x.search.includes(q));
+ el("stats").textContent=hits.length+" TARİHÎ YERLEŞİM · "+hits.reduce((a,x)=>a+x.haneler.length,0).toLocaleString("tr-TR")+" SÜLALE–HANE REFERANSI";
+ el("items").innerHTML=hits.slice(0,limit).map(x=>'<article><h2>'+esc(x.tarihi_karye)+'</h2>'
+ +'<p class="small">TARİHÎ KAZA: BAFRA · BOA NFS.d.972 · '+x.haneler.length+' HANE REFERANSI</p>'
+ +(norm(x.tarihi_karye)==="duzkoy"?'<p><a href="./index.html?map_il=Samsun&map_ilce=19%20May%C4%B1s&map_koy=D%C3%BCzk%C3%B6y">19 MAYIS / DÜZKÖY HARİTADA AÇ</a></p>':'')
+ +(norm(x.tarihi_karye)==="kuskayasi"?'<p><a href="./index.html?map_il=Samsun&map_ilce=19%20May%C4%B1s&map_koy=Ku%C5%9Fkayas%C4%B1">19 MAYIS / KUŞKAYASI HARİTADA AÇ</a></p>':'')
+ +'<details '+(q?'open':'')+'><summary>SÜLALE VE HANE NUMARALARI</summary>'
+ +x.haneler.filter(h=>!q||norm([x.tarihi_karye,h.sulale,h.hane_no].join(" ")).includes(q)).map(h=>'<div class="pair"><b>'+esc(h.sulale)+'</b><span>HANE '+esc(h.hane_no)+'</span></div>').join('')
+ +'</details></article>').join("")||'<p>ARANAN KAYIT BULUNAMADI.</p>';
+ el("more").hidden=limit>=hits.length;
+}
+el("q").oninput=()=>{limit=24;render()};el("more").onclick=()=>{limit+=24;render()};
+(async()=>{try{const texts=await Promise.all(files.map(async f=>{const r=await fetch(f,{cache:"no-store"});if(!r.ok)throw Error(f+" HTTP "+r.status);return r.text()}));const all=new Map();
+for(const t of texts)for(const line of t.split(/\r?\n/)){if(!line.trim())continue;const x=JSON.parse(line);if(x._summary)continue;const k=norm(x.tarihi_karye);
+if(!all.has(k))all.set(k,{tarihi_karye:x.tarihi_karye,haneler:[]});all.get(k).haneler.push(...(x.haneler||[]))}
+cards=[...all.values()].sort((a,b)=>a.tarihi_karye.localeCompare(b.tarihi_karye,"tr"));cards.forEach(x=>x.search=norm([x.tarihi_karye,...x.haneler.map(h=>h.sulale),...x.haneler.map(h=>h.hane_no)].join(" ")));render();
+}catch(e){el("stats").textContent="ENVANTER YÜKLENEMEDİ";el("items").textContent=String(e)}})();
+</script></body></html>
