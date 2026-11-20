@@ -1,0 +1,571 @@
+{
+  "alacahan": {
+    "id": "sivas-ek-alacahan-2544",
+    "il": "Sivas",
+    "ilce": "Kangal",
+    "koy": "Alacahan",
+    "tarihi_karye": "ALACAHAN",
+    "defterler": [
+      {
+        "tur": "NÜFUS",
+        "defter": "BOA NFS.d.2544",
+        "yil": 1831,
+        "varak": "134",
+        "hane": 72,
+        "erkek": 137,
+        "tarihi_kaza": "ALACAHAN",
+        "aciklama": "HAZIR TERCÜME S.17: 72 HANE / 137 ERKEK. VARAK 134 AYRI 819 SATIRLIK FİHRİSTTEN."
+      }
+    ],
+    "sulaleler": [
+      "HAŞİMZADE",
+      "HAŞİM BEY ZADE",
+      "MİR MAHMUD OĞULLARI",
+      "GÜLÜŞ OĞULLARI",
+      "KÜÇÜK ABDULLAH OĞULLARI",
+      "AZİM OĞULLARI",
+      "ABDULREZZAK OĞULLARI",
+      "EMİN AĞA OĞULLARI",
+      "VELİ HACI OĞULLARI",
+      "BABA OĞULLARI",
+      "OSMAN OĞULLARI",
+      "CELEBİ OĞULLARI",
+      "CERİD OĞULLARI",
+      "KARA ALİ OĞULLARI",
+      "KARA MUSTAFA OĞULLARI",
+      "HACI MEHMED OĞULLARI",
+      "KARA MUSA OĞULLARI",
+      "KEL MEMİŞ OĞULLARI",
+      "SARI OĞULLARI",
+      "ÇIRAKCI OĞULLARI",
+      "OKÇU OĞULLARI",
+      "HASAN OĞULLARI",
+      "DELİ MAMU OĞULLARI",
+      "DANACI OĞULLARI",
+      "NALBANDLAR",
+      "KÖR VELİ OĞULLARI",
+      "HOCA ALİ OĞULLARI",
+      "ABDURRAHMAN OĞULLARI",
+      "SOFIRLI GÖK HİMMET OĞULLARI",
+      "SOFIRLI ÇAVUŞ OĞULLARI",
+      "SOFİRLİ SOLAK OĞULLARI",
+      "SOFIRLI KARA HALİL OĞULLARI",
+      "SOFIRLI OSMAN OĞULLARI",
+      "AĞZI BULAŞIK OĞULLARI",
+      "SOFIRLI HALİD OĞULLARI",
+      "SOFIRLI HORUM ALİ OĞULLARI",
+      "SOFIRLI CIRAK OĞULLARI",
+      "KEL HASAN OĞULLARI",
+      "ARAB OSMAN OĞULLARI",
+      "SOFIRLI AZİZ OĞULLARI",
+      "SOFIRLI OĞULLARI",
+      "HOT OĞULLARI",
+      "BUZCE OĞULLARI",
+      "ÖMERCE OĞULLARI",
+      "SOFIRLI CELAB OĞULLARI",
+      "KUMAZ OĞULLARI",
+      "BÜZCE OĞULLARI",
+      "SEBEB OĞULLARI",
+      "ACEM ALİ OĞULLARI",
+      "ÇÖKEŞLİ OĞULLARI",
+      "SIRIN OĞULLARI",
+      "BULANCAKLI OĞULLARI"
+    ],
+    "haneler": [
+      {
+        "sulale": "ÇÖKEŞLİ OĞULLARI",
+        "sira": 122,
+        "adi": "AHMED",
+        "baba_adi": "OSMAN",
+        "yasi": 71,
+        "miladi_dogum": 1760
+      },
+      {
+        "sulale": "ÇÖKEŞLİ OĞULLARI",
+        "sira": 123,
+        "yakinlik": "OĞLU",
+        "adi": "OSMAN",
+        "baba_adi": "AHMED",
+        "yasi": 23,
+        "miladi_dogum": 1808
+      }
+    ],
+    "arsiv_karti": true,
+    "eslesme_kesin": true,
+    "durumlar": [
+      "TERCÜME S.2–17 OKUNDU; 72 HANE VE 137 ERKEK",
+      "HEME? VE SEVEK/HEVEK BELİRSİZ OKUNUŞLARI ANA SÜLALE DİZİNİNE ALINMADI",
+      "SÜLALE ADLARI KAYNAK YAZIMIYLA KORUNDU; YAZILMAMIŞ HANELERE LAKAP VERİLMEDİ",
+      "ÇÖKEŞLİ OĞULLARI YAZIMI AYRI AİLE TERCÜMESİYLE DOĞRULANDI; SIRA 122–123 GENEL TERCÜMEDEN."
+    ],
+    "cografi_kaynak": "https://www.kangal.gov.tr/ihale-ilani-2026-koydes-programindaki-kangal-ilcesi-alacahan-koyu-terfi-tesisi-yenileme-isi"
+  },
+  "karasar": {
+    "id": "sivas-ek-karasar-2555",
+    "il": "Sivas",
+    "ilce": "Divriği",
+    "koy": "Karasar",
+    "tarihi_karye": "KARASAR",
+    "defterler": [
+      {
+        "tur": "NÜFUS",
+        "defter": "BOA NFS.d.2555",
+        "yil": null,
+        "erkek": 69,
+        "tarihi_kaza": "DİVRİĞİ",
+        "divan": "VARTAN NAHİYESİ",
+        "aciklama": "TERCÜMEDE 1–69 KİŞİ SIRASI; HANE NUMARASI YOK. BAŞLIK 1840, SON AÇIKLAMA 1834 DER; GENEL FİHRİST 1838 VERİR. YIL TEYİT BEKLİYOR."
+      }
+    ],
+    "sulaleler": [
+      "MOLLA OĞULLARI",
+      "ÇOKDAR OĞULLARI",
+      "AMUS OĞULLARI",
+      "PERKECİ OĞULLARI",
+      "DELİ HASAN OĞULLARI",
+      "MÜRTAZA OĞULLARI",
+      "KARA VELİ OĞULLARI",
+      "YUSUF OĞULLARI",
+      "EMİR SÜLEYMAN OĞULLARI",
+      "KÖSE MÜRTAZ OĞULLARI",
+      "DELİ HÜSEYİN OĞULLARI",
+      "ABBAS OĞULLARI",
+      "ÇOKADAR OĞULLARI",
+      "OSMAN OĞULLARI",
+      "KÖSE OĞULLARI",
+      "CANBAZ OĞULLARI"
+    ],
+    "haneler": [],
+    "gorevli_notlari": [
+      "KÖY MUHTARI HASAN; MOLLA OĞLU ALİ BİN HÜSEYİN’İN OĞLU; SIRA 2; YAŞ 50."
+    ],
+    "arsiv_karti": true,
+    "eslesme_kesin": true,
+    "durumlar": [
+      "69 KİŞİ SATIRI OKUNDU; KİŞİ SIRASI HANE NO OLARAK KULLANILMADI",
+      "TARİH ÇELİŞKİSİ NEDENİYLE DOĞUM YILI HESAPLANMADI"
+    ],
+    "cografi_kaynak": "https://sivas.tarimorman.gov.tr/Lists/Duyuru/Attachments/874/Diviri%C4%9Fi%20%C4%B0l%C3%A7esi.pdf"
+  },
+  "karasar_kisiler": [
+    {
+      "sira": 1,
+      "metin": "MOLLA OĞLU ALİ BİN HÜSEYİN",
+      "yas": 85,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 2,
+      "metin": "OĞLU KÖY MUHTARI HASAN",
+      "yas": 50,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 3,
+      "metin": "DİĞER OĞLU HÜSEYİN",
+      "yas": 40,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 4,
+      "metin": "DİĞER OĞLU İBRAHİM",
+      "yas": 28,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 5,
+      "metin": "TORUNU SÜLEYMAN BİN HASAN",
+      "yas": 5,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 6,
+      "metin": "DİĞER TORUNU MUSTAFA BİN İBRAHİM",
+      "yas": 1,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 7,
+      "metin": "MOLLA OĞLU AHMED BİN ALİ",
+      "yas": 50,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 8,
+      "metin": "OĞLU İSMAİL",
+      "yas": 23,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 9,
+      "metin": "ÇOKDAR OĞLU MUSTAFA",
+      "yas": 50,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 10,
+      "metin": "İSMAİLİN HASAN",
+      "yas": 45,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 11,
+      "metin": "OĞLU HASAN",
+      "yas": 1,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 12,
+      "metin": "AMUS OĞLU ALİ BİN ALİ",
+      "yas": 35,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 13,
+      "metin": "PERKECİ OĞLU MUSA BİN MUHAMMED",
+      "yas": 55,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 14,
+      "metin": "OĞLU MAFER",
+      "yas": 25,
+      "pdf_sayfa": 1
+    },
+    {
+      "sira": 15,
+      "metin": "DİĞER OĞLU MUHAMMED",
+      "yas": 7,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 16,
+      "metin": "DELİ HASAN OĞLU RMİN BİN İSMAİL",
+      "yas": 60,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 17,
+      "metin": "OĞLU İSMAİL",
+      "yas": 30,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 18,
+      "metin": "DİĞER OĞLU AHMED",
+      "yas": 23,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 19,
+      "metin": "MÜRTAZA OĞLU İBRAHİM",
+      "yas": 55,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 20,
+      "metin": "OĞLU SÜLEYMAN",
+      "yas": 25,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 21,
+      "metin": "DİĞER OĞLU İSMAİL",
+      "yas": 20,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 22,
+      "metin": "KARA VELİ OĞLU AHMED BİN VELİ",
+      "yas": 35,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 23,
+      "metin": "YUSUF OĞLU VELİ BİN YUSUF",
+      "yas": 65,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 24,
+      "metin": "GÖBEKSİZ BEKİR BİN HASAN",
+      "yas": 40,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 25,
+      "metin": "OĞLU YUSUF",
+      "yas": 11,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 26,
+      "metin": "DİĞER OĞLU ALİ",
+      "yas": 10,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 27,
+      "metin": "EMİR SÜLEYMAN OĞLU ALİ BİN EYĞB",
+      "yas": 50,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 28,
+      "metin": "OĞLU EYÜB",
+      "yas": 12,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 29,
+      "metin": "KARINDAŞININ OĞLU SÜLEYMAN BİN YAKUB",
+      "yas": 15,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 30,
+      "metin": "KÖSE MÜRTAZ OĞLU MUHAMMED BİN MÜRTAZ",
+      "yas": 48,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 31,
+      "metin": "OĞLU VELİ",
+      "yas": 7,
+      "pdf_sayfa": 2
+    },
+    {
+      "sira": 32,
+      "metin": "DİĞER OĞLU MÜRTAZ",
+      "yas": 1,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 33,
+      "metin": "KARINDAŞI MUSTAFA",
+      "yas": 55,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 34,
+      "metin": "OĞLU HÜSEYİN",
+      "yas": 22,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 35,
+      "metin": "DELİ HÜSEYİN OĞLU KAŞEM BİN MUHAMMED",
+      "yas": 60,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 36,
+      "metin": "AMUS OĞLU HÜSEYİN BİN HASAN",
+      "yas": 30,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 37,
+      "metin": "OĞLU HÜSEYİN",
+      "yas": 10,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 38,
+      "metin": "DİĞER OĞLU MUSTAFA",
+      "yas": 1,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 39,
+      "metin": "ABBAS OĞLU SÜLEYMAN BİN HÜSEYİN",
+      "yas": 30,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 40,
+      "metin": "OĞLU ABBAS",
+      "yas": 2,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 41,
+      "metin": "ÇOKADAR OĞLU EYÜB BİN İBRAHİM",
+      "yas": 60,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 42,
+      "metin": "OĞLU MUHAMMED",
+      "yas": 22,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 43,
+      "metin": "OSMAN OĞLU HALİL BİN MUHAMMED",
+      "yas": 50,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 44,
+      "metin": "OĞLU İBRAHİM",
+      "yas": 20,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 45,
+      "metin": "DİĞER OĞLU MUHAMMED",
+      "yas": 19,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 46,
+      "metin": "DİĞER OĞLU VELİ",
+      "yas": 7,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 47,
+      "metin": "AMUS OĞLU ALİ BİN MUHAMMED",
+      "yas": 40,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 48,
+      "metin": "OSMAN OĞLU YUSUF BİN MUHAMMED",
+      "yas": 45,
+      "pdf_sayfa": 3
+    },
+    {
+      "sira": 49,
+      "metin": "OĞLU FEYZİ",
+      "yas": 11,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 50,
+      "metin": "DİĞER OĞLU İBRAHİM",
+      "yas": 2,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 51,
+      "metin": "OSMAN OĞLU HİMMET BİN SALİH",
+      "yas": 45,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 52,
+      "metin": "OĞLU OSMAN",
+      "yas": 2,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 53,
+      "metin": "DİĞER OĞLU CİDER?",
+      "yas": 2,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 54,
+      "metin": "KÖSE OĞLU İBRAHİM BİN HASAN",
+      "yas": 38,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 55,
+      "metin": "OĞLU CAFER",
+      "yas": 9,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 56,
+      "metin": "DİĞER OĞLU HASAN",
+      "yas": 2,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 57,
+      "metin": "CANBAZ OĞLU FEYZİ BİN AHMED",
+      "yas": 60,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 58,
+      "metin": "OĞLU ALİ",
+      "yas": 10,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 59,
+      "metin": "DİĞER OĞLU VELİADDİN",
+      "yas": 2,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 60,
+      "metin": "AHMED BİN HÜSEYİN",
+      "yas": 70,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 61,
+      "metin": "KARINDAŞI CAFER",
+      "yas": 80,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 62,
+      "metin": "OĞLU MUHAMMED",
+      "yas": 5,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 63,
+      "metin": "CANBAZ OĞLU MUHAMMED BİN AHMED",
+      "yas": 70,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 64,
+      "metin": "OĞLU HÜSEYİN",
+      "yas": 21,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 65,
+      "metin": "KARINDAŞININ OĞLU HASAN BİN HÜSEYİN",
+      "yas": 40,
+      "pdf_sayfa": 4
+    },
+    {
+      "sira": 66,
+      "metin": "DİĞER KARINDAŞININ OĞLU YAKUB BİN MUSTAFA",
+      "yas": 30,
+      "pdf_sayfa": 5
+    },
+    {
+      "sira": 67,
+      "metin": "KARINDAŞI AHMED BİN MUSTAFA",
+      "yas": 22,
+      "pdf_sayfa": 5
+    },
+    {
+      "sira": 68,
+      "metin": "PERKECİ OĞLU ALİ BİN MAHMUD",
+      "yas": 55,
+      "pdf_sayfa": 5
+    },
+    {
+      "sira": 69,
+      "metin": "KARINDAŞI HASAN",
+      "yas": 21,
+      "pdf_sayfa": 5
+    }
+  ],
+  "belirsiz_sulaleler": [
+    "HEME? OĞULLARI",
+    "SEVEK / HEVEK OĞULLARI"
+  ],
+  "tuzlagozu": "28 SAYFANIN METNİ OKUNDU. BOA TMT NUMARASI YAZILI METİNDE BULUNAMADI; KÜNYE TEYİDİ BEKLİYOR. 85 NUMARALI HANE BAŞLIĞI VAR; 44 VE 45 BAŞLIKLARI YOK. KÖY DIŞI MAL SAHİPLERİ AYRI BÖLÜMDEDİR."
+}

@@ -25,9 +25,21 @@ button{margin:15px 0;padding:12px 20px;background:#17384e;color:white;border:0;b
 .inventory summary{font-weight:800;cursor:pointer;padding:8px 0}.inventory button{font-size:14px}
 </style></head><body><header><a href="./index.html">ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a>
 <h1>SİVAS – NFS KÖY / MAHALLE / VARAK FİHRİSTİ</h1><p>13 DEFTER · 819 KAYIT · 1831–1844</p></header>
-<main><div class="note"><b>KAYNAK VE YERLEŞİM UYARISI:</b> Tarihî kaza sınırları bugünkü ilçe sınırlarıyla aynı değildir. Güncel köyle aynı adı taşıyan 156 kayıt, 17 ilçe harita listesi üzerinden <b>eşleştirme adayı</b> olarak işaretlenmiştir. Bu kayıtlardan 9'u birden fazla güncel yerleşim adayı taşıdığı için haritaya tek bir köy olarak atanmadı. Kaynak fihristi hane ve erkek sayısı içermez; bu sayılar uydurulmaz.</div>
+<main><div class="note"><b>KAYNAK VE YERLEŞİM UYARISI:</b> Tarihî kaza sınırları bugünkü ilçe sınırlarıyla aynı değildir. Güncel köyle aynı adı taşıyan 156 kayıt, 17 ilçe harita listesi üzerinden <b>eşleştirme adayı</b> olarak işaretlenmiştir. Ayrıca 9 kayıt birden fazla güncel yerleşim adayı taşıdığı için haritaya tek bir köy olarak atanmadı. Kaynak fihristi hane ve erkek sayısı içermez; bu sayılar uydurulmaz.</div>
 <div class="toolbar"><input id="q" aria-label="Fihrist ara" placeholder="KÖY, TARİHÎ AD, DEFTER VEYA VARAK ARA"><select id="defter" aria-label="Defter seç"><option value="">BÜTÜN NFS DEFTERLERİ</option></select><select id="durum" aria-label="Eşleştirme durumu"><option value="">BÜTÜN DURUMLAR</option><option value="candidate">GÜNCEL AD ADAYI</option><option value="pending">HENÜZ EŞLEŞMEDİ</option></select></div>
 <p id="stat" class="stat">FİHRİST YÜKLENİYOR…</p><table><thead><tr><th>YIL / SIRA</th><th>BOA DEFTERİ</th><th>VARAK</th><th>TARİHÎ AD</th><th>GÜNCEL YER ADI</th><th>DURUM</th></tr></thead><tbody id="body"></tbody></table><button id="more" hidden>DAHA FAZLA KAYIT</button>
+
+<section class="inventory" id="sivasEkNufus">
+<h2>EK FİHRİSTLER – HANE VE ERKEK SAYILARI</h2>
+<p>9 defterden 332 satır. Kangal, Aşudi, Gürün, Hafik, Gedikçubuk, Sivasili, Yıldızeli, Tonus ve Koyulhisar. Önceki 819 satırlık dizinle örtüşen kayıtlar vardır; iki liste toplamı benzersiz köy sayısı değildir.</p>
+<input id="ekQ" type="search" placeholder="KÖY, TARİHÎ KAZA VEYA DEFTER NO ARA" aria-label="Ek nüfus fihristleri ara">
+<div class="stat" id="ekStatus">EK FİHRİSTLER YÜKLENİYOR…</div><div id="ekResults"></div><button id="ekMore" hidden>DAHA FAZLA KAYIT</button>
+<details><summary>DEFTER TARİHİ VE TOPLAM KONTROLLERİ</summary><div id="ekAudit"></div></details>
+</section>
+<section class="inventory" id="sivasEkAile">
+<h2>ALACAHAN VE KARASAR – OKUNAN TERCÜMELER</h2>
+<div id="ekAileResults">TERCÜMELER YÜKLENİYOR…</div>
+</section>
 
 <section class="inventory" id="sivas91">
 <h2>OSMANLICA OKUNUŞ KONTROLÜ – 91 EK ADAY</h2>
@@ -88,6 +100,10 @@ const $=id=>document.getElementById(id);
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fold=s=>String(s||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
 const sources=[
+ {url:"./catalog/sivas_1835_1842_ek_hane_erkek_fihristi_20261121.json",body:"ekResults",stat:"ekStatus",input:"ekQ",more:"ekMore",count:25,
+ read:data=>{ $("ekAudit").innerHTML=data.defter_kontrol.map(x=>'<article><b>'+safe(x.defter)+'</b> · '+safe(x.satir)+' SATIR<div>KAYNAK TOPLAMI: '+safe(x.kaynak_hane)+' HANE / '+safe(x.kaynak_erkek)+' ERKEK</div><div>SATIRLARDAN HESAPLANAN: '+safe(x.satir_hane)+' HANE / '+safe(x.satir_erkek)+' ERKEK</div><div class="warn">'+safe([x.uyari,x.tarih_notu].filter(Boolean).join(' '))+'</div></article>').join('');return data.kayitlar;},
+ match:x=>[x.yer,x.defter,x.tarihi_kaza,x.ilce,x.guncel_yer,x.yil].join(' '),
+ view:x=>'<article><b>'+safe(x.yer)+'</b><div>'+safe(x.defter)+' · '+safe(x.yil||'1840 / 1845: TARİH TEYİDİ BEKLİYOR')+' · VARAK / SAYFA '+safe(x.varak_sayfa)+'</div><div><b>'+safe(x.hane)+' HANE · '+safe(x.erkek)+' ERKEK</b></div>'+(x.guncel_yer?'<div>ÇALIŞMA EŞLEŞMESİ: '+safe(x.ilce)+' / '+safe(x.guncel_yer)+'</div>':'<div class="meta">GÜNCEL YER EŞLEŞMESİ BEKLİYOR</div>')+'<div class="warn">'+safe((x.notlar||[]).join(' '))+'</div></article>'},
  {url:"./catalog/sivas_1831_1844_nfs_ek_91_osmanlica_ad_okunus_adayi_20261121.json",body:"variantResults",stat:"variantStatus",input:"variantQ",more:"variantMore",count:25,
  read:data=>data.adaylar,match:x=>[x.defter,x.tarihi_yer,x.ilce_adayi,x.koy_adayi].join(" "),
  view:x=>'<article><b>'+safe(x.tarihi_yer)+'</b> · '+safe(x.defter)+' / VARAK '+safe(x.varak)+'<div class="meta">GÜNCEL AD ADAYI: '+safe(x.ilce_adayi)+' / '+safe(x.koy_adayi)+' · HARF FARKI: '+safe(x.harf_duzeltme_mesafesi)+'</div><div class="warn">KAYNAK COĞRAFYASI DOĞRULANMADI</div></article>'},
@@ -108,6 +124,9 @@ sources.forEach(cfg=>{let data=[],visible=cfg.count;
 const render=()=>{const q=fold($(cfg.input).value),found=data.filter(x=>fold(cfg.match(x)).includes(q));$(cfg.stat).textContent=found.length+" KAYIT";$(cfg.body).innerHTML=found.slice(0,visible).map(cfg.view).join("");if(cfg.more)$(cfg.more).hidden=found.length<=visible};
 $(cfg.input).addEventListener("input",()=>{visible=cfg.count;render()});if(cfg.more)$(cfg.more).addEventListener("click",()=>{visible+=25;render()});
 fetch(cfg.url).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(payload=>{data=cfg.read(payload);render()}).catch(e=>{$(cfg.stat).textContent="DOSYA YÜKLENEMEDİ: "+e.message})});
+fetch('./catalog/sivas_ek_tercume_inceleme_20261121.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(d=>{
+ $('ekAileResults').innerHTML=[d.alacahan,d.karasar].map(c=>'<article><h2>'+safe(c.ilce)+' / '+safe(c.koy)+'</h2>'+c.defterler.map(x=>'<div><b>'+safe(x.defter)+'</b> · '+safe(x.yil||'TARİH TEYİDİ BEKLİYOR')+(x.hane?' · '+safe(x.hane)+' HANE':'')+(x.erkek?' · '+safe(x.erkek)+' ERKEK':'')+'</div><div class="warn">'+safe(x.aciklama)+'</div>').join('')+'<p>'+safe(c.sulaleler.join(' · '))+'</p></article>').join('');
+}).catch(e=>{$('ekAileResults').textContent='TERCÜME YÜKLENEMEDİ: '+e.message});
 })();
 </script>
 </body></html>

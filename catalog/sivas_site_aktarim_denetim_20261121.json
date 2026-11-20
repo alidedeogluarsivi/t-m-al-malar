@@ -36,11 +36,15 @@
     "catalog/sivas_merkez_1844_1845_tmt_59_mahalle_184_defter_20261121.json",
     "catalog/il_koy_sulale/58.json",
     "sivas-nfs-koy-varak-fihristi.html",
-    "catalog/sivas_kutuphane_545_nfs_kunye_ve_aciklama_20261121.json"
+    "catalog/sivas_kutuphane_545_nfs_kunye_ve_aciklama_20261121.json",
+    "catalog/sivas_1835_1842_ek_hane_erkek_fihristi_20261121.json",
+    "catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson",
+    "catalog/sivas_ek_tercume_inceleme_20261121.json"
   ],
   "published_search_files": [
     "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
-    "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson"
+    "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
+    "catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson"
   ],
   "unified_site_pages": [
     "index.html",
@@ -65,5 +69,24 @@
     "Tarihî fihrist sıra 499 iki farklı defterde bulunduğu için sayfa içi anahtar sıra + BOA defteridir.",
     "Sivas sorgulama sayfasında 545 katalog, 402 eyalet kataloğu, 62 PDF, 59 TMT mahalle ve 91 yeni yazım adayı ayrı dizinler halinde sunulur.",
     "Yeni üst/ilçe özel menü eklenmedi."
-  ]
+  ],
+  "ek_inceleme_20261121": {
+    "ek_fihrist_satir": 332,
+    "ek_fihrist_defter": 9,
+    "onceki_13_deftere_eklenen_yeni_defter_kodu": 7,
+    "guncel_calisma_eslesmesi": 82,
+    "aile_tercume_karti": 2,
+    "alacahan_lakap": 52,
+    "karasar_lakap": 16,
+    "karasar_kisi": 69,
+    "alacahan_hane": 72,
+    "alacahan_erkek": 137,
+    "hane_toplami_celiskisi": "NFS.d.2315 KAYNAK 644 / 2607; SATIR HESABI 1948 / 7757",
+    "tarih_celiskileri": [
+      "NFS.d.2084: AYNI İÇERİK İKİ DOSYADA 1840 / 1845",
+      "KARASAR NFS.d.2555: BAŞLIK 1840, AÇIKLAMA 1834, GENEL FİHRİST 1838"
+    ],
+    "tuzlagozu_tmt": "28 SAYFA METNİ OKUNDU; BOA NUMARASI YOK; KÖYLERE SÜLALE AKTARIMI YAPILMADI",
+    "mukerrer": "GEDİKÇUBUK 1845 DOSYASI AYNI 38 SATIRI TEKRARLAR; İKİNCİ KEZ EKLENMEDİ"
+  }
 }
