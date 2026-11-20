@@ -1,0 +1,566 @@
+{
+  "il": "SİVAS",
+  "toplam": 62,
+  "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+  "not": "Arşiv PDF numaraları BOA defter numaraları değildir",
+  "kayitlar": [
+    {
+      "pdf_no": "PDF-000043",
+      "dosya": "AKÇASU KÖYÜ 1840 YILI SOYKÜTÜĞÜ SİVAS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000081",
+      "dosya": "ALACAHAN 1831 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1831",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000082",
+      "dosya": "ALACAHAN ÇÖKEŞLİOĞULLARI 1831 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": "1831",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000377",
+      "dosya": "ÇANDIR(LAR) KÖYÜ-KOYULHİSAR 1836-1846 YILLARI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1836, 1846",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000378",
+      "dosya": "CANİKLİOĞULLARI SİVAS.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000503",
+      "dosya": "ÇOBANSARAY KÖYÜ SİVAS YILDIZELİ 1838 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000734",
+      "dosya": "GEMEREK ÇEBNI HANE LSITE.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000735",
+      "dosya": "GEMEREK İNKIŞLA 1840 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000736",
+      "dosya": "GEMEREK LISTE.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000737",
+      "dosya": "GEMEREK MERKEZ 1840 YILI SOY KÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000780",
+      "dosya": "GÜRÜN 1840.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000805",
+      "dosya": "HAFİK 1838 YILI.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000936",
+      "dosya": "KANGAL 1840.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-000971",
+      "dosya": "KARASAR DİVRİĞİ 1840.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001146",
+      "dosya": "KOYULHISAR 1835.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1835",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001147",
+      "dosya": "KOYULHISAR ORTASEKI KOYU 1835 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1835",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001148",
+      "dosya": "KOYULHİSAR YENİCE SALKIOĞULLARI 1835 YILI NFS.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": "1835",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001256",
+      "dosya": "NEFS-İ TONUS 1842.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001301",
+      "dosya": "ORTA SEKİ KOYULHİSAR SİVAS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001426",
+      "dosya": "SARICA-GÜRÜN 1831 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1831",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001427",
+      "dosya": "SARICA-GÜRÜN 1840 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001429",
+      "dosya": "sarıkaya köyü -yıldızeli- 1838 yılı nüfus defteri.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001438",
+      "dosya": "ŞARKIŞLA HACIHIDIROĞULLARI 1831-1846.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": "1831, 1846",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001439",
+      "dosya": "Şarkışla HANELER.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001442",
+      "dosya": "ŞARKIŞLA MERKEZ 1840 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001443",
+      "dosya": "ŞARKIŞLA YÜREĞİL KÖYLERİ 1840 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001525",
+      "dosya": "SİVAS ALTINYAYLA DELİİLYAS 1842 YILI SOY KÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001526",
+      "dosya": "SİVAS ALTINYAYLA SERİNYAYLA 1842 YILI NFS.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001527",
+      "dosya": "SIVAS ALTINYAYLA TONUS MERKEZ 1842.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001528",
+      "dosya": "SİVAS ASIRETLER 1838.pdf",
+      "kategori": "AŞİRET",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001529",
+      "dosya": "SİVAS AŞÜDİ 1840.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001530",
+      "dosya": "SİVAS CUUBK EMLK BOĞALIYAN 1830.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1830",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001531",
+      "dosya": "SİVAS GEDİKÇUBUK 1840.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001532",
+      "dosya": "SİVAS GEDİKÇUBUK 1845.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1845",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001533",
+      "dosya": "SİVAS GEMEREK AKÇAŞAR KÖYÜ 1830-1845 YILI NFS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1830, 1845",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001534",
+      "dosya": "SİVAS GEMEREK ÇEPNİ KÖYÜ 1840 YILI SOY KÜTÜĞÜ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001535",
+      "dosya": "sivas  ili köy nufus defterleri.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001536",
+      "dosya": "SİVAS İMRANLI ÇUKURYURT KÖYÜ 1838 YILI NFS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001537",
+      "dosya": "SİVAS KOYLERI NUFUS DEFTER FIHRISTI.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001538",
+      "dosya": "SİVAS KOYULHİSAR AKSU KÖYÜ 1838 YILI NFS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001539",
+      "dosya": "SİVAS NÜFUS DEFTERLERİ.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001540",
+      "dosya": "SİVAS ŞARKIŞLA KALECİK AŞIK OĞLU NFS TARAMA.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001541",
+      "dosya": "SİVAS ŞARKIŞLA KALECİK KÖYÜ 1840 YILI NFS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001542",
+      "dosya": "SİVAS ŞARKIŞLA KAYMAK KÖYÜ 1840 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1840",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001543",
+      "dosya": "SİVAS TONUS 1842.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001544",
+      "dosya": "sivas TÜM DEFTERLER.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001545",
+      "dosya": "SİVAS ULAŞ KÜPELİ KÖYÜ 1842 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001546",
+      "dosya": "SİVAS YILDIZELİ MUMCUÇİFTLİĞİ 1838 YILI NFS.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001547",
+      "dosya": "SİVAS YILDIZELİ YENİYAPAN KÖYÜ 1838 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001548",
+      "dosya": "SİVASİLİ 1838 YILI.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001634",
+      "dosya": "TONUS DELİİLYAS ÖRNEK.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001635",
+      "dosya": "TONUS MERKEZ 1842 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1842",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001684",
+      "dosya": "tuzlagözü sivas temettuat.pdf",
+      "kategori": "TEMETTUAT",
+      "defter_no": null,
+      "yil": null,
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001799",
+      "dosya": "YILDIZELI 1838 YILI HANE LISTESI.pdf",
+      "kategori": "FİHRİST/LİSTE",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001800",
+      "dosya": "YILDIZELİ 1838 YILI.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001801",
+      "dosya": "YILDIZELİ AKPINAR KÖYÜ 1838 YILI SOY KÜTÜĞÜ.pdf",
+      "kategori": "KÖY TERCÜMESİ",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001802",
+      "dosya": "YILDIZELİ DİREKLİSARIKAYA 1838 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001803",
+      "dosya": "YILDIZELİ MERKEZ 1838 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001804",
+      "dosya": "YILDIZELİ VE KILMIGAD 1838.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001805",
+      "dosya": "YILDIZELİ YAĞLIDERE 1838 YILI NÜFUS DEFTERİ.pdf",
+      "kategori": "KAZA/TOPLU TERCÜME",
+      "defter_no": null,
+      "yil": "1838",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001841",
+      "dosya": "ZARA MÜRTAZAAĞAOĞULLARI 1843 YILI SOYKÜTÜĞÜ(1).pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": "1843",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    },
+    {
+      "pdf_no": "PDF-001842",
+      "dosya": "ZARA MÜRTAZAAĞAOĞULLARI 1843 YILI SOYKÜTÜĞÜ.pdf",
+      "kategori": "AİLE",
+      "defter_no": null,
+      "yil": "1843",
+      "kaynak": "ALIDEDEOGLU_ARSIVI_MASTER_ENVANTER_V7.xlsx",
+      "durum": "DOSYA ENVANTERİNDEN TESPİT; İÇERİK/HANE KAYDI PDF İÇİNDEN AYRICA DOĞRULANACAK"
+    }
+  ]
+}
