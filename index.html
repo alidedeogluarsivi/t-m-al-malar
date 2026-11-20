@@ -2167,6 +2167,7 @@ async function renderSideDistrict(il,ilce){
 function renderSideVillage(name,r,ilce,il){
   let body='<div class="sideInfoSec"><b class="title">YERLEŞİM</b>'+esc([il,ilce,name].filter(Boolean).join(' / '))+'</div>';
   const local=localSourcesFor(il,ilce,name);
+  if(r&&r.eslesme_kesin===false)body+='<div class="sideInfoSec"><b>GÜNCEL KÖY EŞLEŞMESİ ADAY</b><p>BU KAYITTA TARİHÎ KÖY İLE GÜNCEL KÖY AYNI ADI TAŞIYOR; BELGE ÜZERİNDEN EK TEYİT GEREKİYOR.</p></div>';
   if(!r){
     body+=local.length?localSourcesSection(local,'side'):'<div class="sideInfoSec"><div class="sideInfoRecord">BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI HENÜZ YOK.</div></div>';
     setSideInfo(name,(ilce||'')+' / KÖY-MAHALLE',body);return
@@ -2200,6 +2201,7 @@ function showRecord(name,r,ilce,il){
   if(!r){
     h=local.length?localSourcesSection(local,'section'):'<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b></div>'
   }else{
+    if(r.eslesme_kesin===false)h+='<div class="notice"><b>YERLEŞİM EŞLEŞMESİ ADAYI</b><p>GÜNCEL KÖY ADI İLE TARİHÎ AD EŞLEŞİYOR; TARİHÎ YER KİMLİĞİ İÇİN EK ARŞİV TEYİDİ GEREKİR.</p></div>';
     if((r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))h+='<div class="notice"><b>TARİHÎ YERLEŞİM KAYDI</b><br>Kaynakta belirtilen köy veya divan adıyla gösterilir. Güncel köy/mahalle eşleştirmesi kesinleştirilmemiştir.</div>';
     const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
     const fams=(r.sulaleler||[]).filter(function(x){return x!=null&&String(typeof x==='object'?JSON.stringify(x):x).trim()!==''});
