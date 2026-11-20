@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-19-samsun-1834-excel-toplu-104-karye",
+  "version": "2026-11-21-sehrikurucay-nfs-tmt",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -124,12 +124,13 @@
     "catalog/samsun_1834_excel_toplu_05_20261119.ndjson",
     "catalog/samsun_1834_excel_toplu_06_20261119.ndjson",
     "catalog/samsun_1834_excel_toplu_07_20261119.ndjson",
-    "catalog/samsun_1834_excel_toplu_08_20261119.ndjson"
+    "catalog/samsun_1834_excel_toplu_08_20261119.ndjson",
+    "catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson"
   ],
   "notes": "Samsun 1834 Excel aktarımı: tarihî karyeler, açık oğul lakapları, hane bilgileri; güncel köyü belirsiz kayıtlar kesin eşleşme sayılmaz; defter numarası kaynak sayfası bazında doğrulanmalıdır.",
   "counts": {
     "root": 6,
-    "catalog": 117
+    "catalog": 118
   },
   "rebuild_scope": "all_provinces_all_districts_all_villages"
 }
