@@ -28,6 +28,13 @@ button{margin:15px 0;padding:12px 20px;background:#17384e;color:white;border:0;b
 <main><div class="note"><b>KAYNAK VE YERLEŞİM UYARISI:</b> Tarihî kaza sınırları bugünkü ilçe sınırlarıyla aynı değildir. Güncel köyle aynı adı taşıyan 156 kayıt, 17 ilçe harita listesi üzerinden <b>eşleştirme adayı</b> olarak işaretlenmiştir. Bu kayıtlardan 9'u birden fazla güncel yerleşim adayı taşıdığı için haritaya tek bir köy olarak atanmadı. Kaynak fihristi hane ve erkek sayısı içermez; bu sayılar uydurulmaz.</div>
 <div class="toolbar"><input id="q" aria-label="Fihrist ara" placeholder="KÖY, TARİHÎ AD, DEFTER VEYA VARAK ARA"><select id="defter" aria-label="Defter seç"><option value="">BÜTÜN NFS DEFTERLERİ</option></select><select id="durum" aria-label="Eşleştirme durumu"><option value="">BÜTÜN DURUMLAR</option><option value="candidate">GÜNCEL AD ADAYI</option><option value="pending">HENÜZ EŞLEŞMEDİ</option></select></div>
 <p id="stat" class="stat">FİHRİST YÜKLENİYOR…</p><table><thead><tr><th>YIL / SIRA</th><th>BOA DEFTERİ</th><th>VARAK</th><th>TARİHÎ AD</th><th>GÜNCEL YER ADI</th><th>DURUM</th></tr></thead><tbody id="body"></tbody></table><button id="more" hidden>DAHA FAZLA KAYIT</button>
+
+<section class="inventory" id="sivas91">
+<h2>OSMANLICA OKUNUŞ KONTROLÜ – 91 EK ADAY</h2>
+<p>Bu satırlar yalnız bir veya iki harf farkıyla bulunan güncel yer adı adaylarıdır. Yanlış eşleşme ihtimali bulunduğundan harita kaydı olarak kesinleştirilmedi.</p>
+<input id="variantQ" type="search" placeholder="TARİHÎ KARYE, DEFTER VEYA ADAY KÖY ARA" aria-label="Osmanlıca ad okunuş adayları ara">
+<div class="stat" id="variantStatus">ADAYLAR YÜKLENİYOR…</div><div id="variantResults"></div><button id="variantMore" hidden>DAHA FAZLA ADAY</button>
+</section>
 <section class="inventory" id="sivasPdfInventory">
 <h2>KÜTÜPHANE – KÖY, AİLE VE TOPLU TERCÜMELER</h2>
 <p>62 PDF kaydının dosya adı, türü, arşiv PDF numarası ve çalışma yılı. Bu listedeki PDF- numarası Osmanlı defter numarası değildir.</p>
@@ -81,6 +88,9 @@ const $=id=>document.getElementById(id);
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fold=s=>String(s||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
 const sources=[
+ {url:"./catalog/sivas_1831_1844_nfs_ek_91_osmanlica_ad_okunus_adayi_20261121.json",body:"variantResults",stat:"variantStatus",input:"variantQ",more:"variantMore",count:25,
+ read:data=>data.adaylar,match:x=>[x.defter,x.tarihi_yer,x.ilce_adayi,x.koy_adayi].join(" "),
+ view:x=>'<article><b>'+safe(x.tarihi_yer)+'</b> · '+safe(x.defter)+' / VARAK '+safe(x.varak)+'<div class="meta">GÜNCEL AD ADAYI: '+safe(x.ilce_adayi)+' / '+safe(x.koy_adayi)+' · HARF FARKI: '+safe(x.harf_duzeltme_mesafesi)+'</div><div class="warn">KAYNAK COĞRAFYASI DOĞRULANMADI</div></article>'},
  {url:"./catalog/sivas_kutuphane_62_pdf_calisma_envanteri_20261121.json",body:"pdfResults",stat:"pdfStatus",input:"pdfQ",more:"pdfMore",count:25,
  read:data=>data.kayitlar, match:x=>[x.pdf_no,x.dosya,x.kategori,x.yil].join(" "),
  view:x=>'<article><b>'+safe(x.pdf_no)+' · '+safe(x.dosya)+'</b><div class="meta">'+safe(x.kategori)+' · '+safe(x.yil||"YIL: KAYNAKTAN KONTROL EDİLECEK")+'</div></article>'},
