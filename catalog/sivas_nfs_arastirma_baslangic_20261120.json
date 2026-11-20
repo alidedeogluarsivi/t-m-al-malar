@@ -1,7 +1,7 @@
 {
   "province": "SİVAS",
   "date": "2026-11-20",
-  "status": "SİVAS ARAŞTIRMASI BAŞLATILDI; TARİHÎ COĞRAFYA EŞLEŞMESİ SÜRÜYOR",
+  "status": "SİVAS 13 DEFTER / 819 TARİHÎ YERLEŞİM FİHRİSTİ / 545 GENİŞ NFS KÜNYESİ İNCELENDİ; MODERN COĞRAFYA EŞLEŞMESİ SÜRÜYOR",
   "sources": [
     {
       "defter": "BOA NFS.d.2544",
@@ -48,5 +48,123 @@
     "Sivas tarihî kaza/karye adları bugünkü ilçe-köy karşılığı kesinleşmeden harita pinine dönüştürülmeyecek.",
     "NFS.d.2544 içindeki MÜRSEL ile bugünkü köy adı yalnız ad benzerliğiyle eşitlenmeyecek."
   ],
-  "published_to_map": false
+  "published_to_map": false,
+  "fihrist_20261120": {
+    "source": "sivas TÜM DEFTERLER.pdf",
+    "source_pages": 104,
+    "source_label": "SİVAS İLİ KÖYLERİNE AİT 1830-1845 YILLARI ARASI DEFTER FİHRİSTLERİ",
+    "records": 819,
+    "source_sequence_note": "1-818 sıra; 499 hem NFS.d.2555 KABANLI (s.197) hem NFS.d.2544 MERCAN MH (s.2) için kullanılmıştır",
+    "unique_defters": 13,
+    "groups": [
+      {
+        "defter": "BOA NFS.d.1069",
+        "year": 1835,
+        "region": "Koyulhisar",
+        "fihrist_satiri": 52
+      },
+      {
+        "defter": "BOA NFS.d.1080",
+        "year": 1835,
+        "region": "Suşehri/Akıncılar/Gölova tarihî kapsam",
+        "fihrist_satiri": 52
+      },
+      {
+        "defter": "BOA NFS.d.2078",
+        "year": 1841,
+        "region": "Emlak (Şarkışla/Gemerek)",
+        "fihrist_satiri": 46
+      },
+      {
+        "defter": "BOA NFS.d.2083",
+        "year": 1840,
+        "region": "Gedikçubuk tarihî kaza",
+        "fihrist_satiri": 37
+      },
+      {
+        "defter": "BOA NFS.d.2313",
+        "year": 1834,
+        "region": "Hafik/Sivasili",
+        "fihrist_satiri": 111
+      },
+      {
+        "defter": "BOA NFS.d.2432",
+        "year": 1844,
+        "region": "Sivasili/Zara/Hafik",
+        "fihrist_satiri": 34
+      },
+      {
+        "defter": "BOA NFS.d.2474",
+        "year": 1844,
+        "region": "Tonus",
+        "fihrist_satiri": 16
+      },
+      {
+        "defter": "BOA NFS.d.2491",
+        "year": 1838,
+        "region": "Yıldızeli",
+        "fihrist_satiri": 76
+      },
+      {
+        "defter": "BOA NFS.d.2534",
+        "year": 1844,
+        "region": "Kuruçay",
+        "fihrist_satiri": 75
+      },
+      {
+        "defter": "BOA NFS.d.2544",
+        "year": 1831,
+        "region": "Divriği/Deliktaş/Kangal/Aşudi/Alacahan/Gürün (karma)",
+        "fihrist_satiri": 172
+      },
+      {
+        "defter": "BOA NFS.d.2554",
+        "year": 1838,
+        "region": "Divriği",
+        "fihrist_satiri": 26
+      },
+      {
+        "defter": "BOA NFS.d.2555",
+        "year": 1838,
+        "region": "Divriği Hamo nahiyesi",
+        "fihrist_satiri": 108
+      },
+      {
+        "defter": "BOA NFS.d.2569",
+        "year": 1844,
+        "region": "Gürün",
+        "fihrist_satiri": 14
+      }
+    ],
+    "examples": [
+      {
+        "defter": "BOA NFS.d.2544",
+        "varak": 60,
+        "place": "MÜRSEL/MURSAL"
+      },
+      {
+        "defter": "BOA NFS.d.2544",
+        "varak": 120,
+        "place": "KANGAL"
+      },
+      {
+        "defter": "BOA NFS.d.2544",
+        "varak": 134,
+        "place": "ALACAHAN"
+      },
+      {
+        "defter": "BOA NFS.d.1069",
+        "varak": 7,
+        "place": "SİSORTA-ORTAKENT"
+      }
+    ],
+    "catalog_source": "SİVAS NÜFUS DEFTERLERİ.pdf",
+    "catalog_nfs_entries": 545,
+    "notes": [
+      "Katalog 545 adet tarihî Sivas bağlantılı geniş künye içerir; modern Sivas iliyle birebir örtüşmez.",
+      "Hane ve erkek sayıları 819 satırlı fihristte bulunmadığından eklenmedi.",
+      "Tarihî ve güncel köy adları tek başına eşleşmiş kabul edilmez.",
+      "Güncel yerleşim geometrisi ve arşiv varakları teyit edilmeden haritaya yeni nokta oluşturulmaz."
+    ]
+  }
 }
