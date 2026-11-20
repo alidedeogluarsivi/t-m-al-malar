@@ -20,7 +20,9 @@
     "nfs_divrigi_sancak": 33,
     "nfs_other_or_mixed": 117,
     "tmt_centre_historical_neighbourhoods": 59,
-    "tmt_centre_defter_refs": 184
+    "tmt_centre_defter_refs": 184,
+    "nfs_library_detailed_catalogue_entries": 545,
+    "additional_fuzzy_candidates_reserved_for_review": 91
   },
   "outputs": [
     "catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson",
@@ -33,7 +35,8 @@
     "catalog/sivas_eyaleti_nfs_402_katalog_20261121.json",
     "catalog/sivas_merkez_1844_1845_tmt_59_mahalle_184_defter_20261121.json",
     "catalog/il_koy_sulale/58.json",
-    "sivas-nfs-koy-varak-fihristi.html"
+    "sivas-nfs-koy-varak-fihristi.html",
+    "catalog/sivas_kutuphane_545_nfs_kunye_ve_aciklama_20261121.json"
   ],
   "published_search_files": [
     "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
@@ -54,6 +57,13 @@
     "Only the 9 family cards with already-indexed family names were integrated. The other 62 PDF inventory entries require their actual content checked before extracting new families.",
     "Legacy district-wise Sivas family index duplicate keys consolidated (Gemerek/Cepni, Imranli/Cukuryurt, Sarkisla/Akcasu, Yildizeli/Direkli Sarikaya).",
     "Previous chat's separate Sivas(3).xlsx is not accessible in current file retrieval; only PDF master fihrist and comprehensive library inventory were accessed.",
-    "Live domain/browser rendering has not been independently visually verified."
+    "Live domain/browser rendering has not been independently visually verified.",
+    "545 katalog ile 402 Sivas eyaleti künye listesi örtüşebilir; 947 benzersiz defter olarak toplanmaz."
+  ],
+  "notes_after_audit": [
+    "Dört önceki PDF arşiv ID eşleştirmesi ana envantere göre düzeltildi: Akçasu, Ortaseki, Kalecik ve İmranlı-Çukuryurt.",
+    "Tarihî fihrist sıra 499 iki farklı defterde bulunduğu için sayfa içi anahtar sıra + BOA defteridir.",
+    "Sivas sorgulama sayfasında 545 katalog, 402 eyalet kataloğu, 62 PDF, 59 TMT mahalle ve 91 yeni yazım adayı ayrı dizinler halinde sunulur.",
+    "Yeni üst/ilçe özel menü eklenmedi."
   ]
 }
