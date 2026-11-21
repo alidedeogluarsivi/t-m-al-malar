@@ -36,7 +36,7 @@ function render(){
   const url="./index.html?map_il="+encodeURIComponent(g.il)+"&map_ilce="+encodeURIComponent(g.ilce)+"&map_koy="+encodeURIComponent(g.koy);
   const fam=[...new Set(g.rows.flatMap(r=>r.sulaleler||[]))].sort((a,b)=>a.localeCompare(b,"tr"));
   const historical=[...new Set(g.rows.map(r=>r.tarihi_karye).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"tr"));
-  const sources=[...new Set(g.rows.flatMap(r=>(r.defterler||[]).map(d=>d.defter).filter(Boolean)))].sort();
+  const sources=[...new Set(g.rows.flatMap(r=>(r.defterler||[]).flatMap(d=>{const m=String(d.defter||"").match(/(?:BOA\s*)?(?:NFS\.d\.|ML\.VRD\.TMT\.d\.)\s*\d+/gi)||[];return m.map(x=>/^BOA/i.test(x)?x:"BOA "+x)})))].sort();
   return '<article class="place"><h2>'+esc(g.il)+' / '+esc(g.ilce)+' / '+esc(g.koy)+'</h2><div class="small">'+g.rows.length+' SÜLALE–YER KAYDI · '+fam.length+' SÜLALE ADI</div><p><a href="'+url+'">HARİTADA VE KÖY KAYDINDA AÇ</a></p><details><summary>TARİHÎ YER ADLARI ('+historical.length+')</summary><p>'+historical.map(esc).join(" · ")+'</p></details><details><summary>BOA KAYNAKLARI ('+sources.length+')</summary><p>'+sources.map(esc).join(" · ")+'</p></details><details><summary>SÜLALELER ('+fam.length+')</summary><ul class="families">'+fam.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></details></article>'
  }).join("")||'<p>BU ARAMAYA UYGUN YERLEŞİM BULUNAMADI.</p>';
  $("more").hidden=hits.length<=limit;
