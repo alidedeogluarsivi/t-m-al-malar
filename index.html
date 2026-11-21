@@ -2336,6 +2336,39 @@ function isJunkVillageName(s){
   if(!n)return true;
   return ['icindekiler','talebe','isimler','hastalik','muhtar','imam','koyleri','kazasi','toplu','soyadtespiti','kopya'].includes(n)
 }
+// Site-wide archive citation policy: clan sources cite only original BOA NFS/TMT registers.
+// Never turn PDF page numbers into Ottoman archive folio numbers.
+function originalRegisterRefs(value){
+  const str=String(value||'');
+  const refs=[];
+  const re=/(?:BOA\s*)?(NFS\s*\.\s*d\s*\.|ML\s*\.\s*VRD\s*\.\s*TMT\s*\.\s*d\s*\.)\s*(\d+)/gi;
+  let m;
+  while((m=re.exec(str))){
+    const prefix=/^NFS/i.test(m[1])?'NFS.d.':'ML.VRD.TMT.d.';
+    const id='BOA '+prefix+m[2];
+    if(!refs.includes(id))refs.push(id);
+  }
+  return refs
+}
+function cleanOfficialDefter(d){
+  if(!d||typeof d!=='object')return [];
+  const refs=originalRegisterRefs(d.defter||d.defter_no||d['DEFTER NO']);
+  return refs.map(function(ref){
+    const clean={defter:ref,tur:ref.includes('NFS.d.')?'NFS':'TMT'};
+    for(const key of ['yil','hicri','varak','varak_turu','sayfa','hane','erkek','tarihi_kaza','tarihi_ad','sancak','divan','asiret','kayit_adi']){
+      if(d[key]!=null&&d[key]!=='')clean[key]=d[key];
+    }
+    return clean;
+  })
+}
+function sanitizeArchiveFamilyRecord(x){
+  if(!x||typeof x!=='object')return x;
+  x.defterler=(Array.isArray(x.defterler)?x.defterler:[]).flatMap(cleanOfficialDefter);
+  // Secondary literature can be preserved in research files but never cited as clan evidence.
+  x.kaynak_pdf=[];
+  x.overlaySources=[];
+  return x
+}
 function hasOfficialArchiveRecord(r){
   return !!(r&&r.il&&r.ilce&&r.koy&&!isJunkVillageName(r.koy)&&(
     r.arsiv_karti===true ||
@@ -2370,7 +2403,7 @@ async function loadArchiveCore(){
     t.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
       try{
-        const x=JSON.parse(line);
+        const x=sanitizeArchiveFamilyRecord(JSON.parse(line));
         if(x._summary){summary=Object.assign(summary,x._summary);return}
         if(!x.il&&x.ilce)x.il=inferProvinceFromDistrict(x.ilce);
         if(x.il&&x.ilce&&x.koy){
@@ -2421,7 +2454,7 @@ async function loadArchiveCore(){
           const hane=item['HANE NO'];
           if(hane!==null&&hane!==undefined&&String(hane).trim())record.haneler.push({sulale:sulale,hane_no:String(hane)});
           if(item['KAYNAK PDF'])record.kaynak_pdf.push(item['KAYNAK PDF']);
-          raw.push(record)
+          raw.push(sanitizeArchiveFamilyRecord(record))
         })
       }catch(e){}
     })
