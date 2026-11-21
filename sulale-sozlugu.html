@@ -105,6 +105,35 @@ function officialArchiveCitation(d){
  const folio=String(d.varak||"").trim();
  return refs.map(ref=>ref+(folio?" · "+(d.varak_turu==="KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI"?"KÖY BAŞLANGIÇ VARAĞI ":"VARAK ")+folio:"")).join(" · ");
 }
+const deltaArchivePaths=[
+  "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
+  "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
+  "catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson",
+  "catalog/bafra_1834_nfs972_guncel_tekil_koyler_20261120.ndjson",
+  "catalog/bafra_1834_nfs972_19mayis_engiz_ciftligi_inceleme_20261120.ndjson",
+  "catalog/bafra_1834_nfs972_19mayis_duzkoy_kuskayasi_sulaleler_20261120.ndjson",
+  "catalog/tez_kitap_ogullari_20261120_parca_1.ndjson",
+  "catalog/tez_kitap_ogullari_20261120_parca_2.ndjson",
+  "catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v6.ndjson",
+  "catalog/cerkes_dikenli_1841_nfs1850_sulaleler_20261119.ndjson",
+  "catalog/kayseri_kayse_xlsx_13_fihrist_20261119.ndjson",
+  "catalog/of_1834_nfs1139_1140_sulale_koy_ilce_20261119.ndjson",
+  "catalog/merzifon_1846_nfs2243_48_mahalle_karye_20261119.ndjson",
+  "catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson",
+  "catalog/sulale_koy_ortak.ndjson",
+  "catalog/sulale_koy_ortak_parca_2.ndjson",
+  "catalog/sulale_koy_ortak_parca_3.ndjson",
+  "catalog/sulale_koy_ortak_parca_4.ndjson",
+  "catalog/sulale_koy_ortak_parca_5.ndjson",
+  "catalog/sulale_koy_ortak_parca_6.ndjson",
+  "catalog/sulale_koy_ortak_parca_7.ndjson",
+  "catalog/sulale_koy_ortak_parca_8.ndjson",
+  "catalog/tokat_erbaa_catalan_1838_1843_nfs_20261118.ndjson",
+  "catalog/uguz_1891_1845_8koy_fihrist.ndjson",
+  "catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson"
+];
+const villageArchiveCards=new Map();
+function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),comparePlace(koy)].join("|")}
 const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
 function add(row,candidate){
  const name=standardFamilyLabel(row.name);if(!valid(name))return;
@@ -322,7 +351,18 @@ function render(reset){
  byId("results").append(frag);visible+=batch.length;byId("more").hidden=visible>=grouped.length;
  const uniqueFamilies=new Set(current.map(x=>ArchiveFamilyTotals.key(x.name)).filter(Boolean));
  byId("summary").textContent=current.length.toLocaleString("tr-TR")+" SÜLALE KAYDI · "+uniqueFamilies.size.toLocaleString("tr-TR")+" FARKLI SÜLALE ADI · "+grouped.length.toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+visible.toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
- if(!grouped.length)byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN KAYIT BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
+ if(!grouped.length){
+  const card=(!query.value.trim()&&koy.value)?villageArchiveCards.get(archiveVillageKey(il.value,ilce.value,koy.value)):null;
+  if(card&&card.defterler?.length){
+    const section=document.createElement("div");section.className="empty";section.style.textAlign="left";
+    const d=card.defterler[0];
+    const head=document.createElement("strong");head.textContent="BU KÖYÜN NÜFUS FİHRİSTİ VAR; SÜLALE KAYDI HENÜZ KATALOĞA AKTARILMAMIŞ.";section.append(head);
+    const p=document.createElement("p");p.textContent="TARİHÎ AD: "+(d.tarihi_ad||card.koy)+" · KAZA: "+(d.tarihi_kaza||"BELİRTİLMEDİ")+" · SANCAK: "+(d.sancak||"BELİRTİLMEDİ");section.append(p);
+    const detail=document.createElement("p");detail.textContent="KAYNAK: "+((card.defterler||[]).map(d=>officialArchiveCitation(d)).filter(Boolean).join(" · ")||"DEFTER KÜNYESİ DENETLENİYOR")+" · SAYFA: "+(d.sayfa||d.varak||"—")+" · HANE: "+(d.hane||"—")+" · ERKEK: "+(d.erkek||"—");section.append(detail);
+    const note=document.createElement("p");note.textContent="SÜLALE ADLARININ BULUNMAMASI NÜFUS DEFTERİNİN BULUNMADIĞI ANLAMINA GELMEZ. DOĞRULANMAYAN AİLE ADLARI GÖSTERİLMİYOR.";section.append(note);
+    byId("results").replaceChildren(section);
+  }else byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN SÜLALE KAYDI BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
+ }
 }
 for(const [node,id] of [[il,"il"],[ilce,"ilce"],[koy,"koy"],[koyAlti,"koyAlti"]])node.addEventListener("change",()=>refreshFilters(id));
 onlyVerified.addEventListener("change",()=>resetResultsOnSelection());
@@ -374,6 +414,33 @@ async function ingestFamilyText(text,path){
   }
  }
 }
+async function loadFreshArchiveAdditions(){
+ const jobs=[...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"];
+ let index=0,success=0,newRows=0;
+ async function worker(){
+  while(index<jobs.length){
+   const path=jobs[index++];
+   try{
+    const data=await readFamilyFile(path);
+    for(const line of data.split(/\r?\n/)){
+     if(!line.trim())continue;
+     let obj;try{obj=JSON.parse(line)}catch(_){continue}
+     if(obj.il&&obj.ilce&&obj.koy&&Array.isArray(obj.defterler)&&obj.defterler.length){
+      const key=archiveVillageKey(obj.il,obj.ilce,obj.koy);
+      const existing=villageArchiveCards.get(key);
+      if(!existing||(!(existing.sulaleler||[]).length&&(obj.sulaleler||[]).length)||(!(existing.defterler||[]).length&&obj.defterler.length))villageArchiveCards.set(key,obj);
+     }
+     if(path!=="catalog/archive_library_verified_20261111.ndjson" || (obj.sulaleler||[]).length){
+      ingest(obj,path);newRows++;
+     }
+    }
+    success++;
+   }catch(e){errors.push(path+" : EK KAYITLAR YÜKLENEMEDİ");console.warn("Sözlük güncel arşiv kaynağı okunamadı",path,e)}
+  }
+ }
+ await Promise.all(Array.from({length:Math.min(7,jobs.length)},()=>worker()));
+ return {files:success,rows:newRows};
+}
 async function loadAllFamilySources(){
  try{
   const data=await getCompiledFamilyFeed();
@@ -415,6 +482,7 @@ const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>cons
 (async()=>{
  await officialReady;
  const meta=await loadAllFamilySources();
+ const added=await loadFreshArchiveAdditions();
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
   // Unique modern district names permit province recovery without guessing a historical kaza.
   const districtProvinces=new Map;
@@ -433,7 +501,7 @@ const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>cons
   }
   if(unresolvedDistricts.size)console.warn("İl eşleştirmesi ayrıca kaza–defter okuması gerektiren yerler:",[...unresolvedDistricts]);
   if(provinceRecovered)console.info("İli tekil ilçe eşleşmesinden tamamlanan aile kayıtları:",provinceRecovered);
- byId("progress").textContent="KATALOG YÜKLENDİ"+(meta.files?" · "+meta.files+" KAYNAK DOSYASI":"")+"."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
+ byId("progress").textContent="KATALOG YÜKLENDİ"+(meta.files?" · "+(meta.files+added.files-1)+" KAYNAK DOSYASI":"")+"."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
  // Mevcut kullanici il/ilce/koy secimini bozmadan, arsiv eklerini ilgili listelere kat.
  if(!il.value){const names=[...new Set([...Array.from(il.options).map(o=>o.value).filter(Boolean),...distinct(all,"il")])].sort(sortTR);optionize(il,names,"TÜM İLLER","");}
  else if(ilce.value){
