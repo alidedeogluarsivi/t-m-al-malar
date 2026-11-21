@@ -1037,41 +1037,50 @@ function addNationwideVillageDots(){
     nationwideRenderedIds.add(id);
   });
 }
+let nationwideDotsReadyPromise=null;
+let nationwideDotsLoaded=false;
 function startNationwideVillageDots(){
-  if(nationwideVillageLoadStarted||!archive.length||!districtList.length)return;
+  if(nationwideDotsReadyPromise)return nationwideDotsReadyPromise;
+  if(!archive.length||!districtList.length)return Promise.resolve(false);
   nationwideVillageLoadStarted=true;
-  const familyRows=archive.filter(function(x){return (x.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}) || (x.sulaleler||[]).filter(Boolean).length>0});
-  const provinceSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))}));
-  const districtSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
-  const jobs=districtList.filter(function(d){
-    const province=provinceData.features.find(function(f){return PROVINCE_MAP[canonicalProvince((f.properties||{}).name||'')]===d.parent_id});
-    const il=province&&canonicalProvince(province.properties.name);
-    return il&&provinceSet.has(norm(il))&&districtSet.has(norm(il)+'|'+norm(d.name))
-  }).map(function(d){
-    const province=provinceData.features.find(function(f){return PROVINCE_MAP[canonicalProvince((f.properties||{}).name||'')]===d.parent_id});
-    return{district:d,il:canonicalProvince(province.properties.name)}
+  const indexed=archive.filter(function(x){return (x.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)})||(x.sulaleler||[]).filter(Boolean).length>0});
+  const wanted=new Set(indexed.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
+  const idToProvince=new Map();
+  (provinceData&&provinceData.features||[]).forEach(function(f){
+    const il=canonicalProvince((f.properties||{}).name||''),pid=PROVINCE_MAP[il];
+    if(pid)idToProvince.set(String(pid),il)
   });
-  let cursor=0,loaded=0;
-  async function worker(){
-    while(cursor<jobs.length){
-      const job=jobs[cursor++];
-      const gj=await loadDistrictPointGeo(job.district).catch(function(){return null});
-      if(!gj)continue;
-      (gj.features||[]).forEach(function(f){
-        const name=(f.properties||{}).name||'';
-        if(!nationwidePointMatches(job.il,job.district.name,name))return;
-        const ll=featureLabelLatLng(f);
-        if(!ll)return;
-        const id=key(job.il,job.district.name,name);
-        nationwideVillagePointCache.set(id,{il:job.il,ilce:job.district.name,koy:name,ll:ll})
-      });
-      loaded++;
-      if(level==='turkey'&&nationwideVillageLayer&&loaded%8===0)addNationwideVillageDots();
-      await new Promise(function(resolve){setTimeout(resolve,12)})
+  const jobs=districtList.map(function(d){return{district:d,il:idToProvince.get(String(d.parent_id))}})
+    .filter(function(j){return j.il&&wanted.has(norm(j.il)+'|'+norm(j.district.name))});
+  let next=0,completed=0,success=0;
+  nationwideDotsReadyPromise=(async function(){
+    async function worker(){
+      while(next<jobs.length){
+        const job=jobs[next++];
+        try{
+          const gj=await loadDistrictPointGeo(job.district);
+          (gj&&gj.features||[]).forEach(function(f){
+            const name=(f.properties||{}).name||'';
+            if(!nationwidePointMatches(job.il,job.district.name,name))return;
+            const ll=featureLabelLatLng(f);
+            if(!ll)return;
+            const id=key(job.il,job.district.name,name);
+            nationwideVillagePointCache.set(id,{il:job.il,ilce:job.district.name,koy:name,ll:ll})
+          });
+          success++;
+        }catch(e){console.warn('Köy nokta dosyası yüklenemedi:',job.district.name,e)}
+        completed++;
+      }
     }
-  }
-  // Start after first paint. A single low-priority worker avoids saturating mobile devices.
-  setTimeout(function(){worker().then(function(){if(level==='turkey')addNationwideVillageDots()}).catch(function(e){console.warn('Sülale noktaları kademeli yüklenemedi',e)})},180)
+    await Promise.all(Array.from({length:Math.min(16,jobs.length||1)},function(){return worker()}));
+    nationwideDotsLoaded=true;
+    if(level==='turkey'&&nationwideVillageLayer){
+      addNationwideVillageDots();
+      statusEl.textContent='TÜRKİYE · '+nationwideVillagePointCache.size+' KAYITLI KÖY KIRMIZI NOKTAYLA GÖSTERİLİYOR';
+    }
+    return true
+  })().catch(function(e){nationwideDotsReadyPromise=null;console.warn('Toplu kırmızı nokta yükleme başarısız',e);return false});
+  return nationwideDotsReadyPromise
 }
 function renderBaseTurkey(){
   useLeafletMap();initBaseMap();clearBaseLayer();
@@ -1084,9 +1093,13 @@ function renderBaseTurkey(){
   nationwideVillageLayer=L.layerGroup();
   adminLayer=L.layerGroup([outlines,nationwideVillageLayer]).addTo(baseMap);
   addRumeliArchiveLayer(adminLayer);
-  addNationwideVillageDots();
-  startNationwideVillageDots();
-  statusEl.textContent='TÜRKİYE · SÜLALE KAYDI OLAN YERLER KIRMIZI NOKTA · İL / NOKTA ÜZERİNE TIKLAYIN';
+  if(nationwideDotsLoaded){
+    addNationwideVillageDots();
+    statusEl.textContent='TÜRKİYE · '+nationwideVillagePointCache.size+' KAYITLI KÖYÜN TÜM KIRMIZI NOKTALARI';
+  }else{
+    void startNationwideVillageDots();
+    statusEl.textContent='KAYITLI KÖY NOKTALARI TOPLU HAZIRLANIYOR';
+  }
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
 function addProvinceDistrictDensityDots(feats,layerGroup){
@@ -2531,12 +2544,9 @@ async function loadArchiveCore(){
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
-  // The national map can open before async NFS/TMT datasets finish loading.
-  // Trigger the red archive pins once the index is actually ready.
-  if(level==='turkey'&&baseMap&&nationwideVillageLayer){
-    startNationwideVillageDots();
-    addNationwideVillageDots();
-  }
+  // Start preparing all verified point coordinates as soon as the archive is indexed,
+  // even if the map is still closed. A map click then reuses the prepared cache.
+  void startNationwideVillageDots();
   return archive
 }
 let archivePromise=null;
