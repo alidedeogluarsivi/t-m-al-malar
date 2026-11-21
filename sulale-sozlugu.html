@@ -133,7 +133,7 @@ const deltaArchivePaths=[
   "catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson"
 ];
 const villageArchiveCards=new Map();
-function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),comparePlace(koy)].join("|")}
+function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),norm(koy).replace(/ (KÖYÜ|MAHALLESİ|MAHALLESI)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim()].join("|")}
 // Arşiv fihristi bulunan köyler, sülale listesi henüz aktarılmamış olsa bile kaybolmaz.
 villageArchiveCards.set(archiveVillageKey("YOZGAT","ŞEFAATLİ","DEDELİ"),{
  il:"YOZGAT",ilce:"ŞEFAATLİ",koy:"DEDELİ",
