@@ -228,20 +228,28 @@ async function showRadius(center){
  radiusLayer.clearLayers();
  regionRing=L.circle(origin,{radius,color:'#b32929',weight:1,fill:false,interactive:false}).addTo(map);
  const nearby=Array.from(loadedPoints.values()).flat().filter(p=>map.distance(origin,[p.lat,p.lng])<=radius);
- // A radius query can use adjacent districts without reloading the whole country.
- if(chosenProvince){
-  const neighbors=neighborsForProvince(chosenProvince).filter(d=>d.id!==chosenDistrict?.id);
+ // Exact 25km radius (50km diameter), including nearby districts across province borders.
+ try{
+  const geometry=await getDistrictGeometry();
+  if(token!==radiusRequest)return;
+  const pad=radius/111000,lonPad=pad/Math.max(.3,Math.cos(origin.lat*Math.PI/180));
+  const area=L.latLngBounds([origin.lat-pad,origin.lng-lonPad],[origin.lat+pad,origin.lng+lonPad]);
+  const ids=new Set();
+  const neighbors=(geometry.features||[]).filter(f=>intersectsView(f,area)).map(f=>{
+   const id=f.properties&&f.properties.id;if(!id||ids.has(id))return null;ids.add(id);
+   return districts.find(d=>d.id===id)
+  }).filter(d=>d&&d.id!==chosenDistrict?.id).slice(0,18);
   let cursor=0;async function work(){
    while(cursor<neighbors.length&&token===radiusRequest){
     const d=neighbors[cursor++];
     try{const ps=await loadDistrictPoints(d);if(token!==radiusRequest)return;
-      for(const p of ps)if(map.distance(origin,[p.lat,p.lng])<=radius)nearby.push(p)
+     for(const p of ps)if(map.distance(origin,[p.lat,p.lng])<=radius)nearby.push(p)
     }catch(e){}
     await new Promise(done=>setTimeout(done,0))
    }
   }
-  await Promise.all(Array.from({length:Math.min(3,neighbors.length)},()=>work()))
- }
+  await Promise.all(Array.from({length:Math.min(2,neighbors.length)},()=>work()))
+ }catch(e){console.warn('Yakın çevre sınır verisi yüklenemedi',e)}
  if(token!==radiusRequest)return;
  // Do not add 100s of duplicate HTML markers. Show nearby items only if coordinates are visible.
  const near=nearby.filter(p=>map.getBounds().pad(.1).contains([p.lat,p.lng]));
