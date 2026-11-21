@@ -975,15 +975,66 @@ async function showNearbySettlements(latlng){
 const nationwideVillagePointCache=new Map();
 let nationwideVillageLoadStarted=false,nationwideVillageLayer=null;
 let nationwideRenderedLayer=null,nationwideRenderedIds=new Set(),nationwidePointRenderer=null;
+let nationwideLabelLayer=null,nationwideLabelTimer=null;
 function nationwidePointMatches(il,ilce,koy){
   const candidates=archiveIndex.get(key(il,ilce,koy))||[];
   return candidates.some(function(r){return (r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}) || (r.sulaleler||[]).filter(Boolean).length>0})
 }
 let nationwideDotRefreshTimer=null;
 let nationwideDotRefreshMap=null;
+function archivePinDetails(il,ilce,koy){
+ const rows=archiveIndex.get(key(il,ilce,koy))||[],seen=new Set(),defs=[];
+ rows.forEach(function(r){(r.defterler||[]).forEach(function(d){
+  if(!d||!d.defter)return;
+  const k=[d.defter,d.yil,d.sayfa,d.varak,d.kayit_adi].join('|');
+  if(!seen.has(k)){seen.add(k);defs.push(d)}
+ })});
+ let h='<b>'+esc(koy)+'</b><div>'+esc(il)+' / '+esc(ilce)+'</div>';
+ if(!defs.length)h+='<p>SÜLALE KAYDI · DEFTER KÜNYESİ EKSİK</p>';
+ else h+=defs.slice(0,12).map(function(d){
+  return '<div style="margin-top:6px;border-top:1px solid #ddd;padding-top:5px"><b>'+esc(d.defter)+'</b>'+
+  (d.tarihi_kaza?'<br>KAZA: '+esc(d.tarihi_kaza):'')+
+  (d.kayit_adi?'<br>TARİHÎ KÖY: '+esc(d.kayit_adi):'')+
+  (d.yil?'<br>YIL: '+esc(d.yil):'')+
+  (d.varak!=null?'<br>VARAK: '+esc(d.varak):'')+
+  (d.sayfa!=null?'<br>SAYFA: '+esc(d.sayfa):'')+
+  (d.hane!=null?'<br>HANE: '+esc(d.hane):'')+
+  (d.erkek!=null?'<br>ERKEK: '+esc(d.erkek):'')+'</div>'
+ }).join('');
+ return h;
+}
+function showNationalPinRecord(item){
+ const rows=archiveIndex.get(key(item.il,item.ilce,item.koy))||[];
+ showRecord(item.koy,mergeRecords(rows),item.ilce,item.il)
+}
+function refreshNationwideLabels(){
+ if(!baseMap||!window.L)return;
+ if(nationwideLabelLayer){baseMap.removeLayer(nationwideLabelLayer);nationwideLabelLayer=null}
+ const z=baseMap.getZoom();
+ if(level!=='turkey'||z<9)return;
+ const bounds=baseMap.getBounds().pad(.08),items=[];
+ nationwideVillagePointCache.forEach(function(item){if(item&&item.ll&&bounds.contains(item.ll))items.push(item)});
+ nationwideLabelLayer=L.layerGroup().addTo(baseMap);
+ const limit=z>=13?180:z>=11?120:80;
+ items.slice(0,limit).forEach(function(item){
+  const rows=archiveIndex.get(key(item.il,item.ilce,item.koy))||[];
+  const d=rows.flatMap(function(r){return r.defterler||[]}).find(function(x){return x&&x.defter});
+  const title=esc(item.koy),detail=d?(d.tarihi_kaza||d.kayit_adi||''):'';
+  const m=L.marker(item.ll,{pane:'archiveLabels',interactive:true,keyboard:false,zIndexOffset:3500,
+   icon:L.divIcon({className:'',html:'<div class="mapClickLabel village hasArchive">'+title+(detail?'<div style="font-size:9px;font-weight:600">'+esc(detail)+'</div>':'')+'</div>',iconSize:null,iconAnchor:[0,0]})});
+  m.bindPopup(function(){return archivePinDetails(item.il,item.ilce,item.koy)},{maxWidth:360});
+  m.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);showNationalPinRecord(item)});
+  nationwideLabelLayer.addLayer(m)
+ })
+}
+function scheduleNationwideLabels(){
+ if(nationwideLabelTimer)clearTimeout(nationwideLabelTimer);
+ nationwideLabelTimer=setTimeout(refreshNationwideLabels,130)
+}
 function addNationwideVillageDots(){
   if(level!=='turkey'||!baseMap||!nationwideVillageLayer)return;
   if(nationwideRenderedLayer!==nationwideVillageLayer){
+    if(nationwideLabelLayer&&baseMap){baseMap.removeLayer(nationwideLabelLayer);nationwideLabelLayer=null}
     nationwideRenderedLayer=nationwideVillageLayer;
     nationwideRenderedIds.clear();
     nationwidePointRenderer=null;
@@ -998,7 +1049,7 @@ function addNationwideVillageDots(){
     nationwideDotRefreshMap=baseMap;
     baseMap.on('moveend zoomend',function(){
       clearTimeout(nationwideDotRefreshTimer);
-      nationwideDotRefreshTimer=setTimeout(addNationwideVillageDots,160);
+      nationwideDotRefreshTimer=setTimeout(function(){addNationwideVillageDots();scheduleNationwideLabels()},160);
     });
   }
   const bounds=baseMap.getBounds().pad(.18);
@@ -1024,18 +1075,16 @@ function addNationwideVillageDots(){
     const small=baseMap.getZoom()<7;
     const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:small?4:7,color:'#980000',weight:small?1:1.8,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
+    dot.bindPopup(function(){return archivePinDetails(item.il,item.ilce,item.koy)},{maxWidth:360});
     dot.on('click',function(e){
       if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
-      const provinceId=PROVINCE_MAP[item.il];
-      if(!provinceId)return;
-      selectProvinceByName(item.il,provinceId).then(function(){
-        if(level==='province')openProvinceVillage(item.koy,item.ilce);
-      });
+      showNationalPinRecord(item);
     });
     nationwideVillageLayer.addLayer(dot);
     nationwideVillageLayer._archiveDots.set(id,dot);
     nationwideRenderedIds.add(id);
   });
+  scheduleNationwideLabels();
 }
 let nationwideDotsReadyPromise=null;
 let nationwideDotsLoaded=false;
