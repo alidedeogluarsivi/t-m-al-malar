@@ -2176,7 +2176,7 @@ function renderSideVillage(name,r,ilce,il){
   const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
   if(defs.length){
     body+='<div class="sideInfoSec"><b class="title">NFS / TEMETTUAT</b>'+defs.map(function(d){
-      const parts=[d.tur,d.asiret?'AŞİRET '+d.asiret:'',d.kayit_adi?'DEFTERDE '+d.kayit_adi:'',d.defter,d.yil,d.varak?'VARAK '+d.varak:'',d.sayfa?'SAYFA '+d.sayfa:'',d.hane?'HANE '+d.hane:'',d.erkek?'ERKEK '+d.erkek:''].filter(Boolean);
+      const parts=[d.tur,d.asiret?'AŞİRET '+d.asiret:'',d.kayit_adi?'DEFTERDE '+d.kayit_adi:'',d.defter,d.yil,d.varak?(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'KÖY BAŞLANGIÇ VARAĞI ':'VARAK ')+d.varak:'',d.sayfa?'SAYFA '+d.sayfa:'',d.hane?'HANE '+d.hane:'',d.erkek?'ERKEK '+d.erkek:''].filter(Boolean);
       const hist=[d.tarihi_kaza||d.kaza,d.sancak||d.tarihi_sancak,d.vilayet||d.eyalet||d.tarihi_vilayet||d.tarihi_eyalet].filter(Boolean);
       return'<div class="sideInfoRecord"><strong>'+esc(parts.join(' · '))+'</strong>'+(hist.length?'<br>'+esc(hist.join(' → ')):'')+'</div>'
     }).join('')+'</div>'
