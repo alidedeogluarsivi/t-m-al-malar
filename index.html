@@ -1351,6 +1351,17 @@ function renderBaseDistrict(df,vf,pf){
       }
     });
     layers.push(villagePolys);if(!boundsLayer)boundsLayer=villagePolys;
+    // A real red dot for every village with archival data, even when polygons exist.
+    const archiveDots=L.layerGroup(),dotRenderer=L.canvas({padding:.5});
+    vf.forEach(function(f){
+      const n=(f.properties||{}).name||'',ll=featureLabelLatLng(f),r=archiveForVillage(n);
+      if(!ll||!r)return;
+      const dot=L.circleMarker(ll,{renderer:dotRenderer,radius:6,color:'#930000',weight:1.6,fillColor:'#f00',fillOpacity:1});
+      dot.bindPopup(function(){return archivePinDetails(selectedProvince.name,selectedDistrict.name,n)},{maxWidth:360});
+      dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);openVillage(n);void showVillageRadius50(n,ll)});
+      archiveDots.addLayer(dot)
+    });
+    layers.push(archiveDots);
 
     setAdaptiveLabels(vf.map(function(f){
       const n=(f.properties&&f.properties.name)||'',ll=featureLabelLatLng(f),has=!!archiveForVillage(n);
