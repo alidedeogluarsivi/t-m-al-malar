@@ -242,7 +242,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="./sulale-sozlugu.html" style="display:inline-block;background:#111;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">🔎 İL / İLÇE / KÖY SÜLALE SÖZLÜĞÜ</a> <a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./map.html?v=20261121-temiz" style="display:inline-block;background:#1c5944;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">YERADLARI HARİTASI</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a><a class="waNavBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener">WHATSAPP · AİLE BAZINDA ARAŞTIRMA</a></div>
 <div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYI AÇ</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
 
-<div class="workbench mapOpen" id="workbench">
+<div class="workbench mapClosed" id="workbench">
 <aside class="sidebar">
 <div class="sidehead"><div class="eyebrow">KOLAY BULUCU</div><h2>İl → İlçe → Köy</h2><p>Seçim kutuları harita geometrisinden bağımsız çalışır. Harita sınırı varsa aynı anda görüntülenir.</p></div>
 <div class="sidebody">
@@ -256,7 +256,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </div>
 </aside>
 
-<section class="mapcard" id="mapCard">
+<section class="mapcard mapDormant" id="mapCard">
 <div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">İLİN ÜZERİNE TIKLAYIN</div></div>
 <div class="histTools"><button id="period1830Btn" data-period="nfs" type="button">1830–1850 · NÜFUS DEFTERLERİ</button><button id="period1890Btn" data-period="1890" type="button">1890 · OSMANLI İDARÎ</button><button id="modernLayerBtn" data-period="modern" class="active" type="button">GÜNÜMÜZ</button></div><div id="histInfo" class="histInfo"></div><div id="histPeriodNote" class="histPeriodNote">GÜNÜMÜZ İL · İLÇE · KÖY SINIRLARI</div>
 <div id="baseMap" class="baseMap" aria-label="Harita altlığı"></div><div id="mapZoomHint" class="mapZoomHint">YAKLAŞTIKÇA YER ADLARI AÇILIR</div><div id="mapInfoCard" class="mapInfoCard"><button id="mapInfoClose" type="button">×</button><div id="mapInfoTitle" class="mapInfoTitle">TÜRKİYE</div><div id="mapInfoBody" class="mapInfoBody">HARİTADA BİR İLE TIKLAYIN.</div></div><svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası" style="display:none"></svg>
@@ -3157,8 +3157,8 @@ document.getElementById('close').onclick=function(){drawer.classList.remove('ope
 document.getElementById('homeBtn').onclick=showTurkey;
 const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapInfoClose.onclick=function(){document.getElementById('mapInfoCard').style.display='none'};
 document.getElementById('qSearch').onclick=function(){const s=document.getElementById('search');s.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){s.focus()},250)};
-document.getElementById('qMap').onclick=function(){activateMapUI()};
-const mapDockBtn=document.getElementById('mapDockBtn');if(mapDockBtn)mapDockBtn.onclick=function(){activateMapUI()};
+document.getElementById('qMap').onclick=function(){window.location.href='./map.html?v=20261121-yeni'};
+const mapDockBtn=document.getElementById('mapDockBtn');if(mapDockBtn)mapDockBtn.onclick=function(){window.location.href='./map.html?v=20261121-yeni'};
 document.getElementById('qTop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
 document.getElementById('backBtn').onclick=function(){if(level==='district'&&selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else{const n=selectedProvince.name,id=selectedProvince.id;selectProvinceByName(n,id)}}else showTurkey()};
 document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!e.target.closest('#searchBtn')&&!e.target.closest('#searchPanel'))document.getElementById('searchPanel').classList.remove('show')});
@@ -3274,7 +3274,7 @@ bindHistoricalControls();
   if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
   if(mc)mc.classList.remove('mapDormant');
   statusEl.textContent='HARİTA AÇILIYOR';
-  await activateMapUI({scroll:false});
+  // Separate rebuilt map.html owns map interaction; avoid loading old map on homepage.
   // Direct link from the 2026-11-20 family/place map index.
   // Keep the underlying village record and its provenance, never fabricate a pin.
   const mapLink=new URLSearchParams(window.location.search);
