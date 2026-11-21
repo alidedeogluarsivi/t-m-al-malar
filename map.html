@@ -176,7 +176,7 @@ function showDetails(p){
  else{
   const seen=new Set();for(const rec of list){
    for(const d of rec.defterler||[]){
-    const sig=[d.defter,d.yil,d.sayfa,d.varak].join('|');if(!d.defter||seen.has(sig))continue;seen.add(sig);
+    const sig=[d.defter,d.yil,d.sayfa,d.varak,d.kayit_adi,d.divan].join('|');if(!d.defter||seen.has(sig))continue;seen.add(sig);
     html+='<div class="source"><b>'+esc(d.defter)+'</b>'+
       '<div>'+esc([d.tur,d.yil].filter(Boolean).join(' · '))+'</div>'+
       (d.tarihi_kaza||rec.tarihi_kaza?'<div>TAHRİR / KAZA: '+esc(d.tarihi_kaza||rec.tarihi_kaza)+'</div>':'')+
@@ -185,6 +185,9 @@ function showDetails(p){
       (d.varak!=null?'<div>VARAK: '+esc(d.varak)+'</div>':'')+
       (d.hane!=null?'<div>HANE: '+esc(d.hane)+'</div>':'')+
       (d.erkek!=null?'<div>ERKEK: '+esc(d.erkek)+'</div>':'')+
+      (d.divan?'<div>DİVAN: '+esc(d.divan)+'</div>':'')+
+      (d.eslesme_durumu?'<div>'+esc(d.eslesme_durumu)+'</div>':'')+
+      (d.aciklama?'<div>'+esc(d.aciklama)+'</div>':'')+
       '</div>'
    }
   }
@@ -213,7 +216,7 @@ async function ingestNDJSON(path){
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const sources=['./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;
   if(level==='district')renderPlaces();
   const title=$('detailTitle').textContent;
