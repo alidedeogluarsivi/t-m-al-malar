@@ -1070,9 +1070,11 @@ function startNationwideVillageDots(){
           success++;
         }catch(e){console.warn('Köy nokta dosyası yüklenemedi:',job.district.name,e)}
         completed++;
+        // Let native select inputs and user clicks run between heavy geometry batches.
+        await new Promise(function(resolve){setTimeout(resolve,25)});
       }
     }
-    await Promise.all(Array.from({length:Math.min(16,jobs.length||1)},function(){return worker()}));
+    await Promise.all(Array.from({length:Math.min(3,jobs.length||1)},function(){return worker()}));
     nationwideDotsLoaded=true;
     if(level==='turkey'&&nationwideVillageLayer){
       addNationwideVillageDots();
@@ -2413,7 +2415,7 @@ async function loadArchiveCore(){
       catch(e){archiveResults[i]={status:'rejected',reason:e}}
     }
   }
-  await Promise.all(Array.from({length:Math.min(20,archivePaths.length)},function(){return archiveWorker()}));
+  await Promise.all(Array.from({length:Math.min(5,archivePaths.length)},function(){return archiveWorker()}));
   const archiveTexts=archiveResults.filter(function(x){return x.status==='fulfilled'}).map(function(x){return x.value});
   const failedArchives=archiveResults.map(function(x,i){return x.status==='rejected'?archivePaths[i]:null}).filter(Boolean);
   if(failedArchives.length)console.warn('Yüklenemeyen arşiv dosyaları:',failedArchives);
@@ -2544,9 +2546,8 @@ async function loadArchiveCore(){
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
-  // Start preparing all verified point coordinates as soon as the archive is indexed,
-  // even if the map is still closed. A map click then reuses the prepared cache.
-  void startNationwideVillageDots();
+  // Give the location selectors a chance to handle input first.
+  setTimeout(function(){void startNationwideVillageDots()},0);
   return archive
 }
 let archivePromise=null;
@@ -3170,8 +3171,10 @@ bindHistoricalControls();
     }).catch(function(e){console.warn('Sülale harita bağlantısı açılamadı',e);statusEl.textContent='KÖY HARİTA BAĞLANTISI YÜKLENEMEDİ'});
   }
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
-  // Prepare archive records and all red village pins immediately, not at browser idle.
-  warmArchive();
+  // Keep the native il/ilce/koy selectors responsive before heavy archive indexing.
+  // Map dots prepare in small batches and appear together when ready.
+  if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:4000})}
+  else{setTimeout(warmArchive,1000)}
   if(!mapActivated)statusEl.textContent='HARİTA BAŞLATILAMADI · HARİTAYI AÇ DÜĞMESİYLE YENİDEN DENEYİN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
