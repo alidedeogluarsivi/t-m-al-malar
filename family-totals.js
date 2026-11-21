@@ -20,6 +20,8 @@
   async function show() {
     try {
       const s = await load(), count = document.getElementById('familyStat'), names = document.getElementById('familyNameStat'), totals = document.getElementById('familyTotals');
+      const unique = document.getElementById('familyUniqueStat');
+      if (unique) {unique.textContent = format(s.unique_names); unique.title = s.name_definition;}
       if (count) {count.textContent = format(s.records); count.title = s.record_definition;}
       if (names) {names.textContent = format(s.unique_names) + ' FARKLI SÜLALE ADI'; names.title = s.name_definition;}
       if (totals) {totals.textContent = format(s.records) + ' SÜLALE KAYDI · ' + format(s.unique_names) + ' FARKLI SÜLALE ADI'; totals.title = s.record_definition + ' ' + s.name_definition;}
