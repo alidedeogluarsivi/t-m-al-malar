@@ -106,6 +106,7 @@ function officialArchiveCitation(d){
  return refs.map(ref=>ref+(folio?" · "+(d.varak_turu==="KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI"?"KÖY BAŞLANGIÇ VARAĞI ":"VARAK ")+folio:"")).join(" · ");
 }
 const deltaArchivePaths=[
+  "catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson",
   "catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson",
   "catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121",
   "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
@@ -163,7 +164,7 @@ function ingest(obj,path){
  if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
   const mappedCandidate=obj.guncel_eslesme?.kesin===false || obj.eslesme_kesin===false || !!obj.yerlesim_eslesme_durumu || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
   for(const name of obj.sulaleler){if(typeof name!=="string")continue;
-   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:(obj.defterler||[]).map(officialArchiveCitation).filter(Boolean).join(" · ")},mappedCandidate);
+   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:(obj.defterler||[]).map(officialArchiveCitation).filter(Boolean).join(" · ")||obj.yerel_kaynaklar?.[0]?.kaynak},mappedCandidate);
   }return;
  }
  const name=obj["SÜLALE ADI (STANDART)"]||obj["STANDART SÜLALE ADI"]||obj.sulale||obj.sulale_adi;

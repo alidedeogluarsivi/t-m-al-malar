@@ -253,6 +253,10 @@ function showDetails(p){
    }
   }
   if(!seen.size)html+='<p>YERLEŞİM KAYDI VAR; DEFTER KÜNYESİ HENÜZ GİRİLMEDİ.</p>';
+  for(const source of list.flatMap(r=>r.yerel_kaynaklar||[])){
+   const citation=source.kaynak?'<div>'+(/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak)+'</a>':esc(source.kaynak))+'</div>':'';
+   html+='<div class="source"><b>'+esc([source.tarih,source.tur].filter(Boolean).join(' · '))+'</b><div>'+esc(source.ozet)+'</div>'+citation+'</div>';
+  }
   const citations=list.flatMap(r=>r.sulale_kayitlari||[]);
   if(citations.length){
    html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
@@ -297,7 +301,7 @@ async function loadProvinceFamilies(province){
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const sources=['./catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;++archiveVersion;
   if(level==='district'&&chosenDistrict){
    currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
