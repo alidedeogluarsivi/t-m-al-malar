@@ -800,10 +800,9 @@ function setAdaptiveLabels(specs,mode){
 }
 function adaptiveLabelThreshold(spec){
   if(adaptiveLabelMode==='district'){
-    if(spec.hasArchive)return 11;
-    return 13
+    return 0
   }
-  if(adaptiveLabelMode==='province')return 8;
+  if(adaptiveLabelMode==='province'||adaptiveLabelMode==='country')return 0;
   return 99
 }
 function updateAdaptiveLabels(){
@@ -818,7 +817,7 @@ function updateAdaptiveLabels(){
     visible.push(spec)
   }
   visible.sort(function(a,b){return Number(!!b.hasArchive)-Number(!!a.hasArchive)});
-  const limit=adaptiveLabelMode==='district'?(z>=14?140:z>=13?80:30):30;
+  const limit=adaptiveLabelMode==='district'?(z>=13?230:170):adaptiveLabelMode==='country'?100:110;
   adaptiveLabelLayer=L.layerGroup().addTo(baseMap);
   visible.slice(0,limit).forEach(function(spec){
     const m=L.marker(spec.ll,{
@@ -1141,16 +1140,15 @@ function renderBaseTurkey(){
     style:function(f){const n=canonicalProvince((f.properties&&f.properties.name)||'');const c=provinceArchiveCounts.get(norm(n))||0;return{color:c?'#a84040':'#9a6b4f',weight:c?1.6:1,fillColor:c?'#e4b0a8':'#f6ead8',fillOpacity:c ? .06 : .025,bubblingMouseEvents:false}},
     onEachFeature:function(f,l){const n=canonicalProvince((f.properties&&f.properties.name)||'');l.bindTooltip(n,{sticky:true,direction:'top',className:'mapHoverLabel'});l.on('click',function(){selectProvinceFeature(f)})}
   });
-  nationwideVillageLayer=L.layerGroup();
-  adminLayer=L.layerGroup([outlines,nationwideVillageLayer]).addTo(baseMap);
+  // Hiyerarsi: ulke seviyesinde YALNIZ ILLER; koy noktalari bu seviyede cizilmez.
+  nationwideVillageLayer=null;
+  adminLayer=L.layerGroup([outlines]).addTo(baseMap);
   addRumeliArchiveLayer(adminLayer);
-  if(nationwideDotsLoaded){
-    addNationwideVillageDots();
-    statusEl.textContent='TÜRKİYE · '+nationwideVillagePointCache.size+' KAYITLI KÖYÜN TÜM KIRMIZI NOKTALARI';
-  }else{
-    void startNationwideVillageDots();
-    statusEl.textContent='KAYITLI KÖY NOKTALARI TOPLU HAZIRLANIYOR';
-  }
+  setAdaptiveLabels(feats.map(function(f){
+    const n=canonicalProvince((f.properties||{}).name||''),ll=featureLabelLatLng(f);
+    return ll?{name:n,ll:ll,kind:'province',hasArchive:!!provinceArchiveCounts.get(norm(n)),onClick:function(){selectProvinceFeature(f)}}:null
+  }).filter(Boolean),'country');
+  statusEl.textContent='TURKIYE · BIR ILE TIKLAYIN → ILCELER';
   if(outlines.getBounds().isValid())baseMap.fitBounds(outlines.getBounds(),{padding:[10,10]})
 }
 function addProvinceDistrictDensityDots(feats,layerGroup){
@@ -1210,20 +1208,7 @@ function renderBaseProvince(feats){
       }}:null
     }).filter(Boolean),'province')
   }
-  // Keep verified village-level archive dots visible at province scale too.
-  // Reuse the nationwide coordinate cache; never invent or move a settlement.
-  const provinceName=selectedProvince&&selectedProvince.name||'';
-  const provinceDots=L.layerGroup();
-  const provinceRenderer=L.canvas({padding:.4});
-  nationwideVillagePointCache.forEach(function(item){
-    if(!item||!item.ll||norm(canonicalProvince(item.il))!==norm(canonicalProvince(provinceName)))return;
-    const dot=L.circleMarker(item.ll,{renderer:provinceRenderer,radius:7,color:'#980000',weight:1.8,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
-    dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
-    dot.bindPopup(function(){return archivePinDetails(item.il,item.ilce,item.koy)},{maxWidth:360});
-    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);showNationalPinRecord(item)});
-    provinceDots.addLayer(dot)
-  });
-  provinceDots.addTo(adminLayer);
+  // Il seviyesinde koy noktasi yok; ilceye tiklandiginda koyler acilir.
   if(historical)addHistoricalProvinceLayer(feats,adminLayer);
   if(polygonLayer.getBounds().isValid())baseMap.fitBounds(polygonLayer.getBounds(),{padding:[24,24],maxZoom:10});
   scheduleNationwideLabels()
@@ -2597,8 +2582,7 @@ async function loadArchiveCore(){
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
-  // Give the location selectors a chance to handle input first.
-  setTimeout(function(){void startNationwideVillageDots()},0);
+  // Koy koordinatlari yalniz secilen ilce ve 50km cevre icin yuklenir.
   return archive
 }
 let archivePromise=null;
