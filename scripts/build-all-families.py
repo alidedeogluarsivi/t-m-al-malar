@@ -88,6 +88,9 @@ for rel in paths:
         source=get(o,["KAYNAK PDF","ARŞİV PDF NO"])
         explicit_candidates=set(txt(x).casefold() for x in o.get("overlayCandidates",[]) if isinstance(x,str))
         for name in names:
+            # Reused historical indexes retain this plural source spelling.
+            if il.upper().replace("İ","I")=="SIVAS" and name.upper()=="KÖSEMAHMUDLAR":
+                name="KÖSEMAHMUD OĞULLARI"
             family_candidate=candidate or name.casefold() in explicit_candidates
             report["family_mentions"]+=1
             key=(il.casefold(),ilce.casefold(),koy.casefold(),child.casefold(),name.casefold(),defter,hane)
