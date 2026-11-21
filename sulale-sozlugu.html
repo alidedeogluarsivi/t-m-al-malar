@@ -84,9 +84,9 @@ const valid=s=>!!s&&!["NULL","BELİRSİZ","YOK","BİLİNMİYOR","-"].includes(no
 function standardFamilyLabel(v){
  const s=upper(v).replace(/\s+/g," ");
  if(!s)return "";
- if(/\bOĞULLARI$/u.test(s))return s;
- if(/\bOĞLU$/u.test(s))return s.replace(/OĞLU$/u,"OĞULLARI");
- if(/\bOĞULLAR$/u.test(s))return s.replace(/OĞULLAR$/u,"OĞULLARI");
+ if(s.endsWith("OĞULLARI"))return s;
+ if(s.endsWith("OĞLU"))return s.slice(0,-4)+"OĞULLARI";
+ if(s.endsWith("OĞULLAR"))return s+"I";
  return s;
 }
 function originalOttomanRefs(value){
