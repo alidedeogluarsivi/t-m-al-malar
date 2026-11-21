@@ -134,6 +134,12 @@ const deltaArchivePaths=[
 ];
 const villageArchiveCards=new Map();
 function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),comparePlace(koy)].join("|")}
+// Arşiv fihristi bulunan köyler, sülale listesi henüz aktarılmamış olsa bile kaybolmaz.
+villageArchiveCards.set(archiveVillageKey("YOZGAT","ŞEFAATLİ","DEDELİ"),{
+ il:"YOZGAT",ilce:"ŞEFAATLİ",koy:"DEDELİ",
+ defterler:[{tur:"NÜFUS",defter:"NFS.d.2095",yil:"1845/1846",sayfa:"53",hane:"32",erkek:"91",tarihi_kaza:"KIZILKOCA",tarihi_ad:"DEDELÜ NAM-I HACIMAHMUDLU",sancak:"BOZOK"}],sulaleler:[]
+});
+
 const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
 function add(row,candidate){
  const name=standardFamilyLabel(row.name);if(!valid(name))return;
@@ -350,9 +356,10 @@ function render(reset){
  }
  byId("results").append(frag);visible+=batch.length;byId("more").hidden=visible>=grouped.length;
  const uniqueFamilies=new Set(current.map(x=>ArchiveFamilyTotals.key(x.name)).filter(Boolean));
- byId("summary").textContent=current.length.toLocaleString("tr-TR")+" SÜLALE KAYDI · "+uniqueFamilies.size.toLocaleString("tr-TR")+" FARKLI SÜLALE ADI · "+grouped.length.toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+visible.toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
+ const knownVillage=(!query.value.trim()&&koy.value)?villageArchiveCards.get(archiveVillageKey(il.value,ilce.value,koy.value)):null;
+ byId("summary").textContent=current.length.toLocaleString("tr-TR")+" SÜLALE KAYDI · "+uniqueFamilies.size.toLocaleString("tr-TR")+" FARKLI SÜLALE ADI · "+(grouped.length||(knownVillage?1:0)).toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+(visible||(knownVillage?1:0)).toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
  if(!grouped.length){
-  const card=(!query.value.trim()&&koy.value)?villageArchiveCards.get(archiveVillageKey(il.value,ilce.value,koy.value)):null;
+  const card=(koy.value&&!query.value.trim())?villageArchiveCards.get(archiveVillageKey(il.value,ilce.value,koy.value)):null;
   if(card&&card.defterler?.length){
     const section=document.createElement("div");section.className="empty";section.style.textAlign="left";
     const d=card.defterler[0];
@@ -368,7 +375,7 @@ for(const [node,id] of [[il,"il"],[ilce,"ilce"],[koy,"koy"],[koyAlti,"koyAlti"]]
 onlyVerified.addEventListener("change",()=>resetResultsOnSelection());
 query.addEventListener("input",()=>{if(searched){searched=false;byId("results").replaceChildren();byId("summary").textContent="ARAMAK İÇİN ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;}});
 byId("queryGo").addEventListener("click",()=>{
- if(!all.length){byId("summary").textContent="ARŞİV KAYITLARI HENÜZ YÜKLENMEDİ. YÜKLEME TAMAMLANINCA TEKRAR ARA DÜĞMESİNE BASIN.";return;}
+ if(!all.length&&!villageArchiveCards.has(archiveVillageKey(il.value,ilce.value,koy.value))){byId("summary").textContent="ARŞİV KAYITLARI HENÜZ YÜKLENMEDİ. YÜKLEME TAMAMLANINCA TEKRAR ARA DÜĞMESİNE BASIN.";return;}
  searched=true;render(true);
  byId("summary").scrollIntoView({behavior:"smooth",block:"start"});
  if(current.length&&window.ArchiveStats){
