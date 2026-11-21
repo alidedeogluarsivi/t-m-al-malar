@@ -242,11 +242,11 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="./sulale-sozlugu.html" style="display:inline-block;background:#111;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">🔎 İL / İLÇE / KÖY SÜLALE SÖZLÜĞÜ</a> <a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a><a class="waNavBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener">WHATSAPP · AİLE BAZINDA ARAŞTIRMA</a></div>
 <div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYI AÇ</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
 
-<div class="workbench mapClosed" id="workbench">
+<div class="workbench mapOpen" id="workbench">
 <aside class="sidebar">
 <div class="sidehead"><div class="eyebrow">KOLAY BULUCU</div><h2>İl → İlçe → Köy</h2><p>Seçim kutuları harita geometrisinden bağımsız çalışır. Harita sınırı varsa aynı anda görüntülenir.</p></div>
 <div class="sidebody">
-<div class="mapModeNotice"><b>LİSTE ÖNCELİKLİ GÖRÜNÜM</b><br>Önce arayın ve kaydı bulun. Harita yalnız “HARİTADA GÖSTER” denildiğinde açılır.</div>
+<div class="mapModeNotice"><b>HARİTA VE KÖY LİSTESİ BİRLİKTE AÇIK</b><br>İl, ilçe ve köy seçebilir veya harita üzerinden yakınlaşabilirsiniz.</div>
 <div class="step">1. İL SEÇ &nbsp;→&nbsp; 2. İLÇE SEÇ &nbsp;→&nbsp; 3. KÖY / MAHALLE SEÇ</div>
 <div class="stickyLocationSearch" aria-label="Sabit yerleşim sorgulama"><div class="stickyLocationTitle">SABİT YERLEŞİM SORGULAMA · İL / İLÇE / KÖY / KÖY ALTI</div><div class="stickyLocationFields"><div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
 <div class="field"><label>İLÇE</label><select id="districtSelect" disabled><option value="">ÖNCE İL SEÇİN</option></select></div>
@@ -256,7 +256,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </div>
 </aside>
 
-<section class="mapcard mapDormant" id="mapCard">
+<section class="mapcard" id="mapCard">
 <div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">İLİN ÜZERİNE TIKLAYIN</div></div>
 <div class="histTools"><button id="period1830Btn" data-period="nfs" type="button">1830–1850 · NÜFUS DEFTERLERİ</button><button id="period1890Btn" data-period="1890" type="button">1890 · OSMANLI İDARÎ</button><button id="modernLayerBtn" data-period="modern" class="active" type="button">GÜNÜMÜZ</button></div><div id="histInfo" class="histInfo"></div><div id="histPeriodNote" class="histPeriodNote">GÜNÜMÜZ İL · İLÇE · KÖY SINIRLARI</div>
 <div id="baseMap" class="baseMap" aria-label="Harita altlığı"></div><div id="mapZoomHint" class="mapZoomHint">YAKLAŞTIKÇA YER ADLARI AÇILIR</div><div id="mapInfoCard" class="mapInfoCard"><button id="mapInfoClose" type="button">×</button><div id="mapInfoTitle" class="mapInfoTitle">TÜRKİYE</div><div id="mapInfoBody" class="mapInfoBody">HARİTADA BİR İLE TIKLAYIN.</div></div><svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası" style="display:none"></svg>
@@ -693,6 +693,7 @@ async function activateMapUI(opts){
     await ensureMapBaseData();
     initBaseMap();
     showTurkey();
+    if(baseMap)setTimeout(function(){try{baseMap.invalidateSize(true)}catch(e){}},120);
     setTimeout(function(){loadDistrictGeo().catch(function(e){console.warn('İlçe sınırları yüklenemedi',e)})},80);
   }else if(baseMap){
     setTimeout(function(){try{baseMap.invalidateSize()}catch(e){}},0)
@@ -1285,10 +1286,10 @@ function addDot(x,y,archiveHas){const c=document.createElementNS(SVG_NS,'circle'
 function render(features,kind,onClick,showDots){clearMap();if(!features||!features.length){statusEl.textContent='Bu seviyede harita geometrisi bulunamadı.';updateHistoricalOverlay();return}const pr=projector(features);features.forEach(function(f){const p=document.createElementNS(SVG_NS,'path');p.setAttribute('d',geometryPath(f.geometry,pr));p.setAttribute('fill-rule','evenodd');p.setAttribute('class','geo '+kind+(f.properties&&f.properties._has?' has':''));p.addEventListener('click',function(){onClick(f)});svg.appendChild(p)});features.forEach(function(f){const cc=center(f,pr),name=(f.properties&&(f.properties._displayName||f.properties.name))||'';if(showDots)addDot(cc[0],cc[1],!!(f.properties&&f.properties._has));addText(name,cc[0],cc[1]-5,kind==='province'?'provinceLabel':kind==='district'?'districtLabel':'villageLabel')});svg.setAttribute('viewBox','0 0 1000 620');updateHistoricalOverlay()}
 function renderTurkeyOverview(){
   clearMap();
-  if(window.L){useLeafletMap();renderBaseTurkey();updateHistoricalOverlay();return}
+  if(window.L&&baseMap){useLeafletMap();renderBaseTurkey();updateHistoricalOverlay();return}
   useSvgMap();
   const features=provinceData&&provinceData.features||[];
-  if(!features.length)return;
+  if(!features.length){statusEl.textContent='İL HARİTA VERİSİ YÜKLENEMEDİ · YENİDEN DENEYİN';return}
   const pr=projector(features);
   const maxCount=Math.max(1,...Array.from(provinceArchiveCounts.values()));
 
@@ -3132,9 +3133,10 @@ bindHistoricalControls();
   fillProvinces();
   initFinder();
   const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard');
-  if(wb){wb.classList.remove('mapOpen');wb.classList.add('mapClosed')}
-  if(mc)mc.classList.add('mapDormant');
-  statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
+  if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
+  if(mc)mc.classList.remove('mapDormant');
+  statusEl.textContent='HARİTA AÇILIYOR';
+  await activateMapUI({scroll:false});
   // Direct link from the 2026-11-20 family/place map index.
   // Keep the underlying village record and its provenance, never fabricate a pin.
   const mapLink=new URLSearchParams(window.location.search);
@@ -3151,7 +3153,7 @@ bindHistoricalControls();
   }
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
   if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:12000})}else{setTimeout(warmArchive,3500)}
-  if(!mapActivated)statusEl.textContent='LİSTE HAZIR · HARİTA YALNIZ İSTENİNCE AÇILIR';
+  if(!mapActivated)statusEl.textContent='HARİTA BAŞLATILAMADI · HARİTAYI AÇ DÜĞMESİYLE YENİDEN DENEYİN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
