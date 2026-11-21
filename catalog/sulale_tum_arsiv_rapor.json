@@ -130,19 +130,20 @@
     "catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson": 211,
     "catalog/sivas_68_ek_sulale_20261121.ndjson": 68,
     "catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson": 27,
-    "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson": 1
+    "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson": 1,
+    "catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson": 34
   },
-  "source_rows": 17841,
-  "family_mentions": 41334,
-  "export_rows": 34328,
+  "source_rows": 17843,
+  "family_mentions": 41368,
+  "export_rows": 34362,
   "candidate": 11224,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 30281,
-    "unique_names": 7779,
-    "source_rows": 34328,
-    "places": 1898,
+    "records": 30315,
+    "unique_names": 7785,
+    "source_rows": 34362,
+    "places": 1899,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }

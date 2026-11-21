@@ -1,5 +1,5 @@
 {
-  "source_count": 131,
+  "source_count": 132,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -292,8 +292,8 @@
     "60": {
       "il": "TOKAT",
       "ilce": 13,
-      "koy": 46,
-      "confirmed_family_places": 306,
+      "koy": 47,
+      "confirmed_family_places": 340,
       "candidate_family_places": 68
     },
     "61": {
