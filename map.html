@@ -62,7 +62,8 @@ function clearPlaces(){++radiusRequest;++viewportToken;currentPoints=[];placeLay
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
 function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
-function provinceID(p){const n=p.id??p.properties?.id??p.properties?.plate_code??p.properties?.plaka;return /^TR-P-/.test(String(n))?String(n):'TR-P-'+String(n).padStart(2,'0')}
+const PLATE_BY_NAME=new Map(["Adana","Adıyaman","Afyonkarahisar","Ağrı","Amasya","Ankara","Antalya","Artvin","Aydın","Balıkesir","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Isparta","Mersin","İstanbul","İzmir","Kars","Kastamonu","Kayseri","Kırklareli","Kırşehir","Kocaeli","Konya","Kütahya","Malatya","Manisa","Kahramanmaraş","Mardin","Muğla","Muş","Nevşehir","Niğde","Ordu","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas","Tekirdağ","Tokat","Trabzon","Tunceli","Şanlıurfa","Uşak","Van","Yozgat","Zonguldak","Aksaray","Bayburt","Karaman","Kırıkkale","Batman","Şırnak","Bartın","Ardahan","Iğdır","Yalova","Karabük","Kilis","Osmaniye","Düzce"].map((name,i)=>[norm(name),'TR-P-'+String(i+1).padStart(2,'0')]));
+function provinceID(p){return PLATE_BY_NAME.get(norm(p?.properties?.name))||''}
 function neighborsForProvince(p){const id=provinceID(p);return districts.filter(d=>d.parent_id===id).sort((a,b)=>a.name.localeCompare(b.name,'tr'))}
 function itemList(arr,title,label,click,has){
  $('listTitle').textContent=title;$('listCount').textContent=arr.length+' KAYIT';
