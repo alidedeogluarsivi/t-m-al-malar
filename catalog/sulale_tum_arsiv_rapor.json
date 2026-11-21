@@ -7,7 +7,7 @@
     "archive_5.ndjson": 2,
     "archive_verified.ndjson": 5574,
     "catalog/alacam_full_1834_1837.ndjson": 1044,
-    "catalog/archive_library_verified_20261111.ndjson": 507,
+    "catalog/archive_library_verified_20261111.ndjson": 557,
     "catalog/bafra_972_49yerlesim_378hane_sulaleler_20261112.ndjson": 347,
     "catalog/bafra_972_mahalle_tercume_20261112.ndjson": 21,
     "catalog/cankiri_1833_3mahalle_sulaleler_20261112.ndjson": 109,
@@ -92,7 +92,7 @@
     "catalog/sulale_06.ndjson": 237,
     "catalog/sulale_overlay_kontrol.ndjson": 1,
     "catalog/sulale_unresolved_verified_import.ndjson": 59,
-    "catalog/sulale_verified_v2_compact.ndjson": 545,
+    "catalog/sulale_verified_v2_compact.ndjson": 544,
     "catalog/sulale_yer_eslesmeleri_20261118.ndjson": 17,
     "catalog/tercume_ayrintilari_20261112.ndjson": 0,
     "catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson": 0,
@@ -132,9 +132,9 @@
     "catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson": 27,
     "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson": 1
   },
-  "source_rows": 17839,
-  "family_mentions": 41284,
-  "export_rows": 34279,
+  "source_rows": 17841,
+  "family_mentions": 41334,
+  "export_rows": 34328,
   "candidate": 11224,
   "source_missing": []
 }
