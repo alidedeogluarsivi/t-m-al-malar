@@ -1011,9 +1011,9 @@ function refreshNationwideLabels(){
  if(!baseMap||!window.L)return;
  if(nationwideLabelLayer){baseMap.removeLayer(nationwideLabelLayer);nationwideLabelLayer=null}
  const z=baseMap.getZoom();
- if(level!=='turkey'||z<8)return;
+ if(!['turkey','province'].includes(level)||z<8)return;
  const bounds=baseMap.getBounds().pad(.08),items=[];
- nationwideVillagePointCache.forEach(function(item){if(item&&item.ll&&bounds.contains(item.ll))items.push(item)});
+ nationwideVillagePointCache.forEach(function(item){if(item&&item.ll&&bounds.contains(item.ll)&& (level!=='province'||(selectedProvince&&norm(canonicalProvince(item.il))===norm(canonicalProvince(selectedProvince.name)))))items.push(item)});
  nationwideLabelLayer=L.layerGroup().addTo(baseMap);
  const limit=z>=13?180:z>=11?120:60;
  items.slice(0,limit).forEach(function(item){
@@ -1219,12 +1219,14 @@ function renderBaseProvince(feats){
     if(!item||!item.ll||norm(canonicalProvince(item.il))!==norm(canonicalProvince(provinceName)))return;
     const dot=L.circleMarker(item.ll,{renderer:provinceRenderer,radius:7,color:'#980000',weight:1.8,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
-    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);openProvinceVillage(item.koy,item.ilce)});
+    dot.bindPopup(function(){return archivePinDetails(item.il,item.ilce,item.koy)},{maxWidth:360});
+    dot.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);showNationalPinRecord(item)});
     provinceDots.addLayer(dot)
   });
   provinceDots.addTo(adminLayer);
   if(historical)addHistoricalProvinceLayer(feats,adminLayer);
-  if(polygonLayer.getBounds().isValid())baseMap.fitBounds(polygonLayer.getBounds(),{padding:[24,24],maxZoom:10})
+  if(polygonLayer.getBounds().isValid())baseMap.fitBounds(polygonLayer.getBounds(),{padding:[24,24],maxZoom:10});
+  scheduleNationwideLabels()
 }
 function historicalDivansForRecord(r){
   if(!r)return[];
