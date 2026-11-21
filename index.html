@@ -2537,13 +2537,16 @@ async function loadArchiveCore(){
           }
         }
       }catch(e){}
-    })
+    });
+    await new Promise(function(resolve){setTimeout(resolve,0)})
   }
   // Kaynaksız sülale-köy eşleştirmeleri geçici olarak yayından çıkarıldı.
   // Doğrulanmış katalog yalnızca defter ve hane kanıtı bulunan satırları sunabilir.
   try{
     const verified=await withTimeout(getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-allfamilies'),6500);
-    verified.split(/\r?\n/).forEach(function(line){
+    const verifiedLines=verified.split(/\r?\n/);
+    for(let vi=0;vi<verifiedLines.length;vi+=500){
+      verifiedLines.slice(vi,vi+500).forEach(function(line){
       if(!line.trim())return;
       try{
         const item=JSON.parse(line);
@@ -2577,7 +2580,9 @@ async function loadArchiveCore(){
           raw.push(sanitizeArchiveFamilyRecord(record))
         })
       }catch(e){}
-    })
+      });
+      await new Promise(function(resolve){setTimeout(resolve,0)})
+    }
   }catch(e){console.warn('Doğrulanmış sülale kataloğu okunamadı',e)}
 
   // Performans: eski 6 parçalı sülale katalogları ilk açılışta tekrar yüklenmez.
@@ -2590,7 +2595,8 @@ async function loadArchiveCore(){
       if(k&&!arr.some(function(x){return sig(x)===k}))arr.push(v)
     })
   }
-  raw.forEach(function(r){
+  for(let ri=0;ri<raw.length;ri+=400){
+    raw.slice(ri,ri+400).forEach(function(r){
     const k=key(canonicalProvince(r.il||''),r.ilce||'',r.koy||'');
     if(!k||k==='||')return;
     let t=merged.get(k);
@@ -2605,7 +2611,9 @@ async function loadArchiveCore(){
     pushUnique(t.taramalar,r.taramalar,function(x){return norm(typeof x==='object'?JSON.stringify(x):x)});
     pushUnique(t.kaynak_pdf,r.kaynak_pdf,function(x){return norm(x)});
     pushUnique(t.durumlar,r.durumlar,function(x){return norm(x)});
-  });
+    });
+    await new Promise(function(resolve){setTimeout(resolve,0)})
+  }
   archive=Array.from(merged.values()).filter(hasOfficialArchiveRecord);
   archiveIndex=new Map();
   archiveDistrictIndex=new Map();
