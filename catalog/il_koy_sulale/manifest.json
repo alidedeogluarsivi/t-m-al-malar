@@ -1,5 +1,5 @@
 {
-  "source_count": 125,
+  "source_count": 131,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -95,9 +95,9 @@
     },
     "11": {
       "il": "BİLECİK",
-      "ilce": 2,
-      "koy": 4,
-      "confirmed_family_places": 31,
+      "ilce": 3,
+      "koy": 5,
+      "confirmed_family_places": 32,
       "candidate_family_places": 0
     },
     "20": {
@@ -284,16 +284,16 @@
     },
     "58": {
       "il": "SİVAS",
-      "ilce": 13,
-      "koy": 31,
-      "confirmed_family_places": 475,
+      "ilce": 15,
+      "koy": 38,
+      "confirmed_family_places": 928,
       "candidate_family_places": 7
     },
     "60": {
       "il": "TOKAT",
-      "ilce": 12,
-      "koy": 45,
-      "confirmed_family_places": 298,
+      "ilce": 13,
+      "koy": 46,
+      "confirmed_family_places": 306,
       "candidate_family_places": 68
     },
     "61": {

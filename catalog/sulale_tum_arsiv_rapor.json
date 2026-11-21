@@ -124,11 +124,17 @@
     "catalog/samsun_1834_excel_toplu_07_20261119.ndjson": 148,
     "catalog/samsun_1834_excel_toplu_08_20261119.ndjson": 83,
     "catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson": 10,
-    "catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson": 68
+    "catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson": 68,
+    "catalog/sivas_691_sulale_koy_parca_1_20261121.ndjson": 240,
+    "catalog/sivas_691_sulale_koy_parca_2_20261121.ndjson": 240,
+    "catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson": 211,
+    "catalog/sivas_68_ek_sulale_20261121.ndjson": 68,
+    "catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson": 27,
+    "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson": 1
   },
-  "source_rows": 17051,
-  "family_mentions": 40496,
-  "export_rows": 33490,
+  "source_rows": 17838,
+  "family_mentions": 41283,
+  "export_rows": 34277,
   "candidate": 11224,
   "source_missing": []
 }
