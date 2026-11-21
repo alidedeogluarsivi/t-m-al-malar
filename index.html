@@ -1919,9 +1919,10 @@ function renderVillageList(){
   const mn=currentVillages.filter(function(x){return x.kind==='MAHALLE'}).length;
   const hn=currentVillages.filter(function(x){return !['KÖY','MAHALLE'].includes(x.kind)}).length;
   const an=currentVillages.filter(function(x){return x.has}).length;
-  vCount.textContent=an+' ARŞİV · '+vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ':'');
+  const missing=currentVillages.length-an;
+  vCount.textContent=an+' ARŞİV · '+missing+' FİHRİST EKSİK · '+vn+' KÖY · '+mn+' MAHALLE'+(hn?' · '+hn+' TARİHÎ':'');
   vList.innerHTML=currentVillages.length?currentVillages.map(function(x,i){
-    return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted">—</span>')+'</div>'
+    return'<div class="vitem '+(x.has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(x.name)+'</b><br><small>'+esc(x.kind)+'</small></span>'+(x.has?'<span class="badge">ARŞİV</span>':'<span class="muted" title="Bu köye doğrulanmış NFS/TMT arşiv kaydı henüz bağlanmadı">FİHRİST EKSİK</span>')+'</div>'
   }).join(''):'<div class="empty">Bu ilçe için yerleşim listesi bulunamadı.</div>';
   vList.querySelectorAll('[data-i]').forEach(function(el){el.onclick=function(){openVillage(currentVillages[Number(el.dataset.i)].name)}})
 }
@@ -1953,7 +1954,8 @@ async function fillAllDistrictSettlements(local,requestId){
    const n=norm(name);
    if(!n||oldNames.has(n))continue;
    oldNames.add(n);
-   currentVillages.push({name:name,kind:/MAHALLE/i.test(name)?'MAHALLE':'KÖY',parent:'',record:null,has:false});
+   const found=archiveForVillage(name);
+   currentVillages.push({name:name,kind:/MAHALLE/i.test(name)?'MAHALLE':'KÖY',parent:'',record:found,has:!!found});
   }
   currentVillages.sort(function(a,b){if(a.has!==b.has)return a.has?-1:1;return a.name.localeCompare(b.name,'tr')});
   refreshHierarchy();renderVillageList();
@@ -2174,7 +2176,7 @@ function renderSideVillage(name,r,ilce,il){
   const local=localSourcesFor(il,ilce,name);
   if(r&&r.eslesme_kesin===false)body+='<div class="sideInfoSec"><b>GÜNCEL KÖY EŞLEŞMESİ ADAY</b><p>BU KAYITTA TARİHÎ KÖY İLE GÜNCEL KÖY AYNI ADI TAŞIYOR; BELGE ÜZERİNDEN EK TEYİT GEREKİYOR.</p></div>';
   if(!r){
-    body+=local.length?localSourcesSection(local,'side'):'<div class="sideInfoSec"><div class="sideInfoRecord">BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI HENÜZ YOK.</div></div>';
+    body+='<div class="sideInfoSec"><div class="sideInfoRecord"><b>FİHRİST EKSİK</b><br>BU GÜNCEL KÖY / MAHALLE LİSTEDE VAR, ANCAK NFS / TMT DEFTER NUMARASI, VARAK, HANE VE ERKEK NÜFUSU BU YERLEŞİME HENÜZ DOĞRULANARAK BAĞLANMADI. VERİ YOKLUĞU, TARİHÎ DEFTERİN OLMADIĞI ANLAMINA GELMEZ.</div></div>'+(local.length?localSourcesSection(local,'side'):'');
     setSideInfo(name,(ilce||'')+' / KÖY-MAHALLE',body);return
   }
   const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
@@ -2204,7 +2206,7 @@ function showRecord(name,r,ilce,il){
   let h='';
   const local=localSourcesFor(il||(r&&r.il),ilce||(r&&r.ilce),name);
   if(!r){
-    h=local.length?localSourcesSection(local,'section'):'<div class="empty"><b>BU YERLEŞİM İÇİN EŞLEŞEN ARŞİV KARTI YOK.</b></div>'
+    h='<div class="section"><h3>ARŞİV KAPSAMI</h3><div class="notice"><b>NFS / TMT FİHRİSTİ HENÜZ EŞLEŞTİRİLMEDİ.</b><p>BU YERLEŞİM GÜNCEL YERLEŞİM LİSTESİNDE BULUNUYOR. DEFTER, VARAK, HANE VE ERKEK NÜFUSU BİLGİSİ DOĞRULANMADIKÇA YAYINLANMIYOR. BU, KÖYE AİT TARİHÎ KAYIT BULUNMADIĞI ANLAMINA GELMEZ.</p></div></div>'+(local.length?localSourcesSection(local,'section'):'')
   }else{
     if(r.eslesme_kesin===false)h+='<div class="notice"><b>YERLEŞİM EŞLEŞMESİ ADAYI</b><p>GÜNCEL KÖY ADI İLE TARİHÎ AD EŞLEŞİYOR; TARİHÎ YER KİMLİĞİ İÇİN EK ARŞİV TEYİDİ GEREKİR.</p></div>';
     if((r.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK'))h+='<div class="notice"><b>TARİHÎ YERLEŞİM KAYDI</b><br>Kaynakta belirtilen köy veya divan adıyla gösterilir. Güncel köy/mahalle eşleştirmesi kesinleştirilmemiştir.</div>';
