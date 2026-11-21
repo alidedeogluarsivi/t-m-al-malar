@@ -33,9 +33,11 @@ select,input{width:100%;border:1px solid #cbd4cc;background:#fff;color:var(--ink
 <body>
 <header><button id="menu" type="button">☰</button><a href="./index.html">← ARŞİVE DÖN</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><span>GÜNCEL KÖYLER · TARİHÎ NFS / TMT</span></header>
 <main><aside id="side">
-<div class="filters"><div class="crumb" id="crumb">TÜRKİYE</div><div class="sub">İl → ilçe → köy seçin. Haritayı serbestçe gezdirin; kırmızı noktalar arşiv kaydı bulunan yerleri gösterir.</div>
+<div class="filters"><div class="crumb" id="crumb">TÜRKİYE</div><div class="sub">İl → ilçe → köy → köy altı mahalle seçin. Haritayı serbestçe gezdirin; kırmızı noktalar arşiv kaydı bulunan yerleri gösterir.</div>
 <select id="province"><option value="">İL SEÇİN</option></select>
 <select id="district" disabled><option value="">ÖNCE İL SEÇİN</option></select>
+<select id="village" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select>
+<select id="hamlet" disabled><option value="">KÖY ALTI MAHALLE</option></select>
 <input id="search" placeholder="Köy / mahalle ara" aria-label="Yerleşim ara">
 <button id="back" type="button" style="border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px;padding:8px">ÜST SEVİYEYE DÖN</button>
 </div><div class="listtop"><span id="listTitle">İLLER</span><span class="tiny" id="listCount"></span></div><div id="items"></div>
@@ -56,12 +58,12 @@ let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.l
 let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map();
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
-function clearPlaces(){++radiusRequest;placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
+function clearPlaces(){++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
 function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
-function provinceID(p){return 'TR-P-'+String(p.id).padStart(2,'0')}
-function neighborsForProvince(p){return districts.filter(d=>d.parent_id===provinceID(p))}
+function provinceID(p){const n=p.id??p.properties?.id??p.properties?.plate_code??p.properties?.plaka;return /^TR-P-/.test(String(n))?String(n):'TR-P-'+String(n).padStart(2,'0')}
+function neighborsForProvince(p){const id=provinceID(p);return districts.filter(d=>d.parent_id===id).sort((a,b)=>a.name.localeCompare(b.name,'tr'))}
 function itemList(arr,title,label,click,has){
  $('listTitle').textContent=title;$('listCount').textContent=arr.length+' KAYIT';
  let q=norm($('search').value),list=q?arr.filter(x=>norm(label(x)).includes(q)):arr;
@@ -81,6 +83,7 @@ function drawProvinceLayer(){
   onEachFeature:(f,l)=>{const n=f.properties.name;l.on('click',()=>openProvince(n));l.bindTooltip(n,{className:'province-label',direction:'center',permanent:true,opacity:1})}
  }).addTo(map);
 }
+function resetVillageSelectors(){$('village').disabled=true;$('village').innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';$('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE</option>'}
 function resetCountry(){
  ++selectionToken;level='country';chosenProvince=null;chosenDistrict=null;clearPlaces();clearDistrictLayer();
  $('province').value='';$('district').disabled=true;$('district').innerHTML='<option>ÖNCE İL SEÇİN</option>';
@@ -106,9 +109,9 @@ async function openProvince(name){
  void getDistrictGeometry().then(data=>{
   if(token!==selectionToken||level!=='province')return;
   const wanted=new Map(arr.map(d=>[d.id,d]));
-  const fs=(data.features||[]).filter(f=>wanted.has(f.properties?.id) || (String(f.properties?.parent_id)===provinceID(p)));
+  const fs=(data.features||[]).filter(f=>wanted.has(f.properties?.id) && wanted.get(f.properties.id).parent_id===provinceID(p));
   districtLayer=L.geoJSON({type:'FeatureCollection',features:fs},{style:{color:'#648875',weight:1.2,fillColor:'#c8d8c7',fillOpacity:.12},onEachFeature:(f,l)=>{
-   const local=wanted.get(f.properties?.id)||arr.find(d=>norm(d.name)===norm(f.properties?.name));
+   const local=wanted.get(f.properties?.id);
    if(!local)return;
    l.bindTooltip(local.name,{permanent:true,direction:'center',className:'label',opacity:1});
    l.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);openDistrict(local)})
@@ -118,14 +121,14 @@ async function openProvince(name){
 }
 function districtInfo(d){return chosenProvince?chosenProvince.properties.name+' / '+d.name:d.name}
 async function openDistrict(d){
- const local=typeof d==='string'?districts.find(x=>x.id===d):d;if(!local||!chosenProvince)return;
+ const local=typeof d==='string'?districts.find(x=>x.id===d):d;if(!local||!chosenProvince||local.parent_id!==provinceID(chosenProvince))return;
  const token=++selectionToken;chosenDistrict=local;level='district';clearPlaces();clearDistrictLayer();
  $('district').value=local.id;$('crumb').textContent=chosenProvince.properties.name.toLocaleUpperCase('tr-TR')+' / '+local.name.toLocaleUpperCase('tr-TR');
  $('detail').classList.remove('open');itemList([],'KÖYLER',x=>x.name,()=>{});
  status('KÖYLER YÜKLENİYOR · '+districtInfo(local));
  try{
   const pts=await loadDistrictPoints(local);if(token!==selectionToken)return;
-  currentPoints=pts;let feats=pts.map(p=>p.feature);
+  currentPoints=pts;populateVillageSelectors();let feats=pts.map(p=>p.feature);
   if(feats.length)map.fitBounds(L.featureGroup(feats.map(f=>L.circleMarker([f.geometry.coordinates[1],f.geometry.coordinates[0]],{radius:1}))).getBounds(),{padding:[40,40],maxZoom:11,animate:false});
   renderPlaces();renderDistrictItems();
   status(local.name+' · '+pts.length+' YERLEŞİM · KIRMIZI: ARŞİV KAYDI');
@@ -143,6 +146,14 @@ function pointKey(il,ilce,koy){
  }
  return province+'|'+district+'|'+place
 }
+function populateVillageSelectors(){
+ const known=new Map();for(const p of currentPoints){const parent=p.parentVillage;if(parent){if(!known.has(norm(parent)))known.set(norm(parent),{name:parent,place:null});}else if(!known.has(norm(p.name)))known.set(norm(p.name),{name:p.name,place:p})}
+ const list=[...known.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+ $('village').innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+list.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');$('village').disabled=false;
+ $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';
+}
+function selectVillage(name){const k=norm(name);$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';const children=currentPoints.filter(p=>norm(p.parentVillage)===k);$('hamlet').innerHTML+=children.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!children.length;
+ const own=currentPoints.find(p=>norm(p.name)===k&&!p.parentVillage);if(own){map.setView([own.lat,own.lng],Math.max(11,map.getZoom()),{animate:false});selectPlace(own)}else if(children.length){map.setView([children[0].lat,children[0].lng],11,{animate:false})}renderDistrictItems();}
 function renderDistrictItems(){
  const currentKeys=new Set(currentPoints.map(p=>pointKey(p.il,p.ilce,p.name)));
  const prefix=norm(chosenProvince.properties.name)+'|'+norm(chosenDistrict.name)+'|';
@@ -152,7 +163,8 @@ function renderDistrictItems(){
   const row=list.find(r=>r.yerlesim_anahtari_sabit||r.sulale_kayitlari?.length);
   if(row)withoutPoint.push({name:row.koy,il:row.il,ilce:row.ilce})
  }
- itemList(currentPoints.concat(withoutPoint),'KÖY / MAHALLE',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
+ const key=norm($('village').value);const pts=key?currentPoints.filter(p=>norm(p.name)===key||norm(p.parentVillage)===key):currentPoints;
+ itemList(pts.concat(key?[]:withoutPoint),key?'KÖY / KÖY ALTI':'KÖY / MAHALLE',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
 }
 function appendKnownArchivePoints(points, district, province){
  const list=points.slice();
@@ -179,7 +191,7 @@ async function loadDistrictPoints(d){
  }
  const gj=await json('./geo/points/'+encodeURIComponent(d.id)+'.geojson');
  const province=provinces.find(p=>provinceID(p)===d.parent_id);
- const points=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates)).map(f=>({name:f.properties.name,il:province?.properties.name||'',ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],feature:f}));
+ const points=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates)).map(f=>({name:f.properties.name,il:province?.properties.name||'',ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],kind:f.properties.kind||'',parentVillage:f.properties.parent_village||f.properties.village||f.properties.koy_adi||f.properties.parent_name||'',feature:f}));
  const arr=loadedArchive?appendKnownArchivePoints(points,d,province?.properties.name):points;
  loadedPoints.set(d.id,arr);
  return arr
@@ -187,16 +199,16 @@ async function loadDistrictPoints(d){
 function renderPlaces(){
  if(level!=='district')return;
  placeLayer.clearLayers();labels.clearLayers();
- const bounds=map.getBounds().pad(.15),zoom=map.getZoom(),seen=new Set(),visible=[];
- for(const rows of loadedPoints.values())for(const p of rows){if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
+ const bounds=map.getBounds().pad(.10),zoom=map.getZoom(),seen=new Set(),visible=[];
+ for(const rows of loadedPoints.values())for(const p of rows){if(visible.length>=650)break;if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
  // Circles use Canvas, never thousands of HTML elements.
  for(const p of visible){
   const marked=hasRecord(p);
   const d=L.circleMarker([p.lat,p.lng],{radius:marked?5.5:3.7,color:marked?'#a4131e':'#8c978f',weight:1.4,fillColor:marked?'#e2222b':'#c0c8c0',fillOpacity:1,bubblingMouseEvents:false}).addTo(placeLayer);
   d.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);selectPlace(p)})
  }
- if(zoom>=10){
-  const max=zoom>=12?145:85;for(const p of visible.slice(0,max)){
+ if(zoom>=11){
+  const max=zoom>=12?80:40;for(const p of visible.slice(0,max)){
    L.marker([p.lat,p.lng],{interactive:true,keyboard:false,icon:L.divIcon({className:'',html:'<span style="background:#fffffff2;border:1px solid '+(hasRecord(p)?'#d65353':'#d3dcd2')+';border-radius:3px;font-size:11px;font-weight:650;padding:2px 4px;white-space:nowrap;color:#243b2b;position:relative;top:-18px;left:7px">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(labels)
   }
  }
@@ -266,7 +278,7 @@ function ensureArchive(){
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;
   if(level==='district'&&chosenDistrict){
    currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
-   loadedPoints.set(chosenDistrict.id,currentPoints);
+   loadedPoints.set(chosenDistrict.id,currentPoints);populateVillageSelectors();
    renderPlaces();renderDistrictItems()
   }
   const title=$('detailTitle').textContent;
@@ -330,7 +342,7 @@ async function loadViewportPoints(){
  try{
   const data=await getDistrictGeometry();if(token!==viewportToken||level!=='district')return;
   const localById=new Map(districts.map(d=>[d.id,d]));
-  const tasks=(data.features||[]).filter(f=>intersectsView(f,bounds)).map(f=>localById.get(f.properties?.id)).filter(Boolean).filter(d=>!loadedPoints.has(d.id)).slice(0,8);
+  const tasks=(data.features||[]).filter(f=>intersectsView(f,bounds)).map(f=>localById.get(f.properties?.id)).filter(Boolean).filter(d=>!loadedPoints.has(d.id)).slice(0,3);
   let i=0;async function worker(){while(i<tasks.length&&token===viewportToken){
    const d=tasks[i++];try{await loadDistrictPoints(d)}catch(e){}
    await new Promise(done=>setTimeout(done,0))
@@ -339,7 +351,7 @@ async function loadViewportPoints(){
   if(token===viewportToken)renderPlaces()
  }catch(e){console.warn('Görünür bölge noktaları yüklenemedi',e)}
 }
-map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},130)});
+map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},230)});
 map.on('click',()=>{if(level==='district'){$('detail').classList.remove('open')}});
 $('close').onclick=()=>{$('detail').classList.remove('open')};
 $('menu').onclick=()=>{$('side').classList.toggle('open')};
@@ -348,11 +360,13 @@ $('search').oninput=()=>{if(level==='country')itemList(provinces,'İLLER',x=>x.p
  else if(chosenDistrict)renderDistrictItems()};
 $('province').onchange=e=>e.target.value?openProvince(e.target.value):resetCountry();
 $('district').onchange=e=>{if(e.target.value)openDistrict(e.target.value);else if(chosenProvince)openProvince(chosenProvince.properties.name)};
+$('village').onchange=e=>{if(e.target.value)selectVillage(e.target.value);else{ $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';renderDistrictItems()}};
+$('hamlet').onchange=e=>{const p=currentPoints.find(p=>p.name===e.target.value&&norm(p.parentVillage)===norm($('village').value));if(p){map.setView([p.lat,p.lng],13,{animate:false});selectPlace(p)}};
 $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosenProvince.properties.name);else resetCountry()};
 (async function init(){
  try{
   const [p,d,m]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json'),json('./geo/points-manifest.json')]);
-  provinces=p.features||[];districts=d||[];pointsManifest=m;provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
+  provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);pointsManifest=m;provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
   $('province').innerHTML='<option value="">İL SEÇİN</option>'+provinces.map(p=>'<option value="'+esc(p.properties.name)+'">'+esc(p.properties.name)+'</option>').join('');
   resetCountry()
  }catch(e){status('HARİTA VERİSİ AÇILAMADI: '+String(e.message||e))}
