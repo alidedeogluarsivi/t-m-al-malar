@@ -106,7 +106,8 @@ function officialArchiveCitation(d){
  return refs.map(ref=>ref+(folio?" · "+(d.varak_turu==="KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI"?"KÖY BAŞLANGIÇ VARAĞI ":"VARAK ")+folio:"")).join(" · ");
 }
 const deltaArchivePaths=[
-  "catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson",
+  "catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson",
+  "catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121",
   "catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
   "catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
   "catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson",
@@ -260,7 +261,7 @@ async function appendNationwideStreets(){
 }
 const comparePlace=s=>norm(s).replace(/ (KOYU|KÖYÜ|MAHALLESI|MAHALLESİ)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
 async function loadOfficial(path){
- const res=await fetch("./official-addresses/"+path+"?v=20261118-villagefix2",{cache:"no-cache"});
+ const res=await fetch("./official-addresses/"+path+(path.includes("?")?"&":"?")+"v=20261118-villagefix2",{cache:"no-cache"});
  if(!res.ok)throw Error("Dosya yüklenemedi");
  return res.json();
 }
@@ -401,7 +402,7 @@ byId("more").addEventListener("click",()=>render(false));
 byId("print").addEventListener("click",()=>window.print());
 byId("reset").addEventListener("click",()=>{il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=false;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
 async function readFamilyFile(path){
- const response=await fetch(path+"?v=20261118-complete101",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
+ const response=await fetch(path+(path.includes("?")?"&":"?")+"v=20261118-complete101",{cache:"no-cache",signal:AbortSignal.timeout(35000)});
  if(!response.ok)throw Error(path+" HTTP "+response.status);
  return response.text();
 }

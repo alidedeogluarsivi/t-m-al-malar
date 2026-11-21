@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taşköprü Havzası 1831–1845 | Alidedeoğlu Arşivi</title>
+<style>
+body{margin:0;background:#f7f3eb;color:#142d3f;font:1rem system-ui,sans-serif}
+header,main{max-width:1100px;margin:auto;padding:1rem}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+h1{font:700 clamp(1.5rem,4vw,2.5rem) Georgia,serif;margin:0}
+a{color:#17384e}
+#download{background:#17384e;color:white;text-decoration:none;border-radius:.5rem;padding:.65rem .95rem;font-weight:700}
+#map{display:block;width:100%;height:auto}
+#viewer{display:block;overflow:auto}
+#viewer.full #map{width:8640px;max-width:none}
+</style>
+</head>
+<body>
+<header>
+<a href="../haritalar.html">← Haritalar</a>
+<h1>Taşköprü Havzası 1831–1845</h1>
+<a id="download" download="TASKOPRU_HAVZASI_1831_1845.png" hidden>PNG indir · 8640 × 8870</a>
+</header>
+<main>
+<p id="status" role="status">Tam çözünürlüklü harita yükleniyor…</p>
+<a id="viewer" aria-label="Haritayı gerçek boyutuna getir">
+<img id="map" src="./taskopru-havzasi-1831-1845.webp" alt="Taşköprü, Güney ve Gökçeağaç tarihî kaza, divan ve karyeleri haritası" width="8640" height="8870">
+</a>
+</main>
+<script>
+const preview=document.getElementById('map');
+const viewer=document.getElementById('viewer');
+const download=document.getElementById('download');
+const status=document.getElementById('status');
+const fileParts=['00','01','02','03','04','05'];
+async function loadMap(){
+ const bytes=await Promise.all(fileParts.map(async part=>{
+  const response=await fetch('./taskopru-png/'+part+'.part');
+  if(!response.ok)throw Error(response.status);
+  return response.arrayBuffer();
+ }));
+ const png=new Blob(bytes,{type:'image/png'});
+ const url=URL.createObjectURL(png);
+ preview.src=url;
+ download.href=url;
+ download.hidden=false;
+ viewer.href=url;
+ viewer.addEventListener('click',event=>{
+  event.preventDefault();
+  const full=viewer.classList.toggle('full');
+  viewer.setAttribute('aria-label',full?'Haritayı ekrana sığdır':'Haritayı gerçek boyutuna getir');
+ });
+ status.textContent='Haritaya dokunarak gerçek boyutta inceleyebilirsiniz.';
+}
+loadMap().catch(()=>{status.textContent='Tam çözünürlüklü harita yüklenemedi. Önizleme aşağıda açık.'});
+</script>
+</body>
+</html>

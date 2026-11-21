@@ -139,6 +139,7 @@ function pointKey(il,ilce,koy){
  if(province==='kastamonu'){
   place=place.replace(/\s+mahallesi$/,'');
   if(district==='abana'&&place==='abana merkez')place='abana ilce merkezi';
+  if(district==='taskopru'||district==='hanonu')place=place.replace(/[\s-]+/g,'');
  }
  return province+'|'+district+'|'+place
 }
@@ -148,17 +149,38 @@ function renderDistrictItems(){
  const withoutPoint=[];
  for(const [key,list] of records){
   if(!key.startsWith(prefix)||currentKeys.has(key))continue;
-  const row=list.find(r=>r.sulale_kayitlari?.length);
+  const row=list.find(r=>r.yerlesim_anahtari_sabit||r.sulale_kayitlari?.length);
   if(row)withoutPoint.push({name:row.koy,il:row.il,ilce:row.ilce})
  }
  itemList(currentPoints.concat(withoutPoint),'KÖY / MAHALLE',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
 }
+function appendKnownArchivePoints(points, district, province){
+ const list=points.slice();
+ const keys=new Set(points.map(p=>pointKey(p.il,p.ilce,p.name)));
+ const prefix=norm(province)+'|'+norm(district.name)+'|';
+ for(const [key, rows] of records){
+  if(!key.startsWith(prefix)||keys.has(key))continue;
+  const rec=rows.find(r=>Array.isArray(r.konum)&&r.konum.length===2&&r.konum.every(Number.isFinite));
+  if(!rec)continue;
+  const [lng,lat]=rec.konum;
+  const feature={type:'Feature',geometry:{type:'Point',coordinates:[lng,lat]},properties:{name:rec.koy}};
+  list.push({name:rec.koy,il:province,ilce:district.name,lng,lat,feature});
+ }
+ return list;
+}
 function hasRecord(p){return records.has(pointKey(p.il,p.ilce,p.name))}
 async function loadDistrictPoints(d){
- if(loadedPoints.has(d.id))return loadedPoints.get(d.id);
+ if(loadedPoints.has(d.id)){
+  if(loadedArchive){
+   const province=provinces.find(p=>provinceID(p)===d.parent_id);
+   loadedPoints.set(d.id,appendKnownArchivePoints(loadedPoints.get(d.id),d,province?.properties.name))
+  }
+  return loadedPoints.get(d.id)
+ }
  const gj=await json('./geo/points/'+encodeURIComponent(d.id)+'.geojson');
  const province=provinces.find(p=>provinceID(p)===d.parent_id);
- const arr=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates)).map(f=>({name:f.properties.name,il:province?.properties.name||'',ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],feature:f}));
+ const points=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates)).map(f=>({name:f.properties.name,il:province?.properties.name||'',ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],feature:f}));
+ const arr=loadedArchive?appendKnownArchivePoints(points,d,province?.properties.name):points;
  loadedPoints.set(d.id,arr);
  return arr
 }
@@ -240,9 +262,13 @@ async function ingestNDJSON(path){
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const sources=['./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;
-  if(level==='district')renderPlaces();
+  if(level==='district'&&chosenDistrict){
+   currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
+   loadedPoints.set(chosenDistrict.id,currentPoints);
+   renderPlaces();renderDistrictItems()
+  }
   const title=$('detailTitle').textContent;
   if(chosenDistrict){const p=currentPoints.find(x=>x.name===title);if(p)showDetails(p)}
  })();
