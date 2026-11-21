@@ -133,7 +133,7 @@ const deltaArchivePaths=[
   "catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson"
 ];
 const villageArchiveCards=new Map();
-function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),norm(koy).replace(/ (KÖYÜ|MAHALLESİ|MAHALLESI)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim()].join("|")}
+function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),norm(koy).replace(/ (KOYU|KÖYÜ|MAHALLESI|MAHALLESİ)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim()].join("|")}
 // Arşiv fihristi bulunan köyler, sülale listesi henüz aktarılmamış olsa bile kaybolmaz.
 villageArchiveCards.set(archiveVillageKey("YOZGAT","ŞEFAATLİ","DEDELİ"),{
  il:"YOZGAT",ilce:"ŞEFAATLİ",koy:"DEDELİ",
@@ -250,7 +250,7 @@ async function appendNationwideStreets(){
   console.warn("Ülke geneli sokak verisi:",err);
  }
 }
-const comparePlace=s=>norm(s).replace(/ (KÖYÜ|MAHALLESİ|MAHALLESI)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
+const comparePlace=s=>norm(s).replace(/ (KOYU|KÖYÜ|MAHALLESI|MAHALLESİ)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
 async function loadOfficial(path){
  const res=await fetch("./official-addresses/"+path+"?v=20261118-villagefix2",{cache:"no-cache"});
  if(!res.ok)throw Error("Dosya yüklenemedi");
