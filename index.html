@@ -868,7 +868,57 @@ function clickableLabel(name,feature,kind,onClick){
   return marker
 }
 function clearNearbyLayer(){
+  villageRadiusRequest++;
   if(nearbyLayer&&baseMap){baseMap.removeLayer(nearbyLayer);nearbyLayer=null}
+}
+
+let villageRadiusRequest=0;
+function nearbyDistrictBBox(feature,lat,lon,dy,dx){
+ const geometry=feature&&feature.geometry;if(!geometry||!geometry.coordinates)return false;
+ let minlat=90,maxlat=-90,minlon=180,maxlon=-180;
+ function visit(a){if(typeof a[0]==='number'){minlon=Math.min(minlon,a[0]);maxlon=Math.max(maxlon,a[0]);minlat=Math.min(minlat,a[1]);maxlat=Math.max(maxlat,a[1])}else for(const v of a)visit(v)}
+ visit(geometry.coordinates);
+ return minlat<=lat+dy&&maxlat>=lat-dy&&minlon<=lon+dx&&maxlon>=lon-dx
+}
+async function showVillageRadius50(name,ll){
+ if(!baseMap||!ll)return;
+ const request=++villageRadiusRequest,center=L.latLng(ll[0],ll[1]),radius=25000;
+ clearNearbyLayer();const current=++villageRadiusRequest;
+ const layer=nearbyLayer=L.layerGroup().addTo(baseMap);
+ L.circle(center,{radius:radius,color:'#960000',weight:2,fillColor:'#ff0000',fillOpacity:.02,interactive:false}).addTo(layer);
+ const seen=new Set(),byId=new Map();
+ (provinceData&&provinceData.features||[]).forEach(function(f){const il=canonicalProvince((f.properties||{}).name||''),id=PROVINCE_MAP[il];if(id)byId.set(String(id),il)});
+ const dy=radius/111000,dx=radius/(111000*Math.max(.3,Math.cos(center.lat*Math.PI/180)));
+ const jobs=((districtGeo&&districtGeo.features)||[]).filter(function(f){return nearbyDistrictBBox(f,center.lat,center.lng,dy,dx)}).map(function(f){
+  const prop=f.properties||{},il=byId.get(String(prop.parent_id)),district=districtList.find(function(d){return String(d.id)===String(prop.id)})||districtList.find(function(d){return String(d.parent_id)===String(prop.parent_id)&&norm(d.name)===norm(prop.name)});
+  return il&&district?{il:il,district:district}:null
+ }).filter(Boolean);
+ if(selectedDistrict&&!jobs.some(function(j){return j.district.id===selectedDistrict.id})){
+  const d=districtList.find(function(d){return d.id===selectedDistrict.id});
+  if(d&&selectedProvince)jobs.unshift({district:d,il:selectedProvince.name})
+ }
+ function place(gj,job){
+  (gj&&gj.features||[]).forEach(function(f){
+   const n=(f.properties||{}).name||'',c=f.geometry&&f.geometry.coordinates;
+   if(!n||!c||c.length<2)return;
+   const pos=L.latLng(c[1],c[0]);if(baseMap.distance(center,pos)>radius)return;
+   const id=key(job.il,job.district.name,n);if(seen.has(id))return;seen.add(id);
+   const records=archiveIndex.get(id)||[],has=records.length>0;
+   const dot=L.circleMarker(pos,{radius:has?5:3.5,color:has?'#a00000':'#777',weight:1,fillColor:has?'#f00':'#aaa',fillOpacity:1}).addTo(layer);
+   dot.bindPopup(function(){return has?archivePinDetails(job.il,job.district.name,n):'<b>'+esc(n)+'</b><br>'+esc(job.il)+' / '+esc(job.district.name)+'<br>FİHRİST HENÜZ EŞLEŞTİRİLMEDİ'},{maxWidth:350});
+   const label=L.marker(pos,{pane:'archiveLabels',interactive:true,keyboard:false,zIndexOffset:3500,icon:L.divIcon({className:'',html:'<div class="mapClickLabel village'+(has?' hasArchive':'')+'">'+esc(n)+'</div>',iconSize:null,iconAnchor:[0,0]})}).addTo(layer);
+   function click(e){if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);showRecord(n,has?mergeRecords(records):null,job.district.name,job.il);dot.openPopup()}
+   dot.on('click',click);label.on('click',click)
+  })
+ }
+ let next=0;
+ async function worker(){while(next<jobs.length&&current===villageRadiusRequest){
+  const job=jobs[next++];
+  try{place(await loadDistrictPointGeo(job.district),job)}catch(e){console.warn('Çevre köy yükleme hatası',e)}
+  await new Promise(function(done){setTimeout(done,20)})
+ }}
+ void Promise.all(Array.from({length:Math.min(3,jobs.length)},function(){return worker()})).then(function(){if(current===villageRadiusRequest)statusEl.textContent=name.toLocaleUpperCase('tr-TR')+' · 50 KM ÇAPINDA '+seen.size+' KÖY'});
+ baseMap.fitBounds(L.circle(center,{radius:radius}).getBounds(),{padding:[25,25],maxZoom:11,animate:false});
 }
 function settlementPointRows(){
   const out=[];
@@ -1297,14 +1347,14 @@ function renderBaseDistrict(df,vf,pf){
         const n=(f.properties&&f.properties.name)||'';
         l.bindTooltip(n,{permanent:false,sticky:true,direction:'top',className:'mapHoverLabel',opacity:.94});
         l.bindPopup(function(){return villagePopupHtml(n,archiveForVillage(n))},{maxWidth:340});
-        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
+        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);const ll=featureLabelLatLng(f);if(ll)void showVillageRadius50(n,ll)})
       }
     });
     layers.push(villagePolys);if(!boundsLayer)boundsLayer=villagePolys;
 
     setAdaptiveLabels(vf.map(function(f){
       const n=(f.properties&&f.properties.name)||'',ll=featureLabelLatLng(f),has=!!archiveForVillage(n);
-      return ll?{name:n,ll:ll,kind:'village',hasArchive:has,onClick:function(){openVillage(n)}}:null
+      return ll?{name:n,ll:ll,kind:'village',hasArchive:has,onClick:function(){openVillage(n);void showVillageRadius50(n,ll)}}:null
     }).filter(Boolean),'district')
   }else if(pf&&pf.length){
     const points=L.geoJSON({type:'FeatureCollection',features:pf},{
@@ -1314,13 +1364,13 @@ function renderBaseDistrict(df,vf,pf){
       },
       onEachFeature:function(f,l){
         const n=(f.properties&&f.properties.name)||'';
-        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);if(l.getLatLng)baseMap.panTo(l.getLatLng());else if(l.getBounds&&l.getBounds().isValid())baseMap.panTo(l.getBounds().getCenter())})
+        l.on('click',function(e){if(e&&e.originalEvent)L.DomEvent.stop(e.originalEvent);openVillage(n);const ll=featureLabelLatLng(f);if(ll)void showVillageRadius50(n,ll)})
       }
     });
     layers.push(points);if(!boundsLayer)boundsLayer=points;
     setAdaptiveLabels(pf.map(function(f){
       const n=(f.properties&&f.properties.name)||'',co=f.geometry&&f.geometry.coordinates,has=!!archiveForVillage(n);
-      return co&&co.length>=2?{name:n,ll:[co[1],co[0]],kind:'village',hasArchive:has,onClick:function(){openVillage(n)}}:null
+      return co&&co.length>=2?{name:n,ll:[co[1],co[0]],kind:'village',hasArchive:has,onClick:function(){openVillage(n);void showVillageRadius50(n,[co[1],co[0]])}}:null
     }).filter(Boolean),'district')
   }
 
