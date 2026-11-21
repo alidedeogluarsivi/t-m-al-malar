@@ -52,11 +52,11 @@ const fmtKm=n=>Math.round(n/1000);
 const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false});
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 let provinces=[],districts=[],pointsManifest=null,level='country',chosenProvince=null,chosenDistrict=null;
-let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),regionRing=null;
+let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),radiusLayer=L.layerGroup().addTo(map),regionRing=null;
 let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,provinceGeometryByName=new Map();
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
-function clearPlaces(){++radiusRequest;placeLayer.clearLayers();labels.clearLayers();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
+function clearPlaces(){++radiusRequest;placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
 function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
@@ -212,7 +212,7 @@ async function ingestNDJSON(path){
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./archive_verified.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const sources=['./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;
   if(level==='district')renderPlaces();
   const title=$('detailTitle').textContent;
@@ -224,6 +224,7 @@ let radiusRequest=0;
 async function showRadius(center){
  const token=++radiusRequest,origin=L.latLng(center.lat,center.lng),radius=25000;
  if(regionRing){map.removeLayer(regionRing);regionRing=null}
+ radiusLayer.clearLayers();
  regionRing=L.circle(origin,{radius,color:'#b32929',weight:1,fill:false,interactive:false}).addTo(map);
  const nearby=Array.from(loadedPoints.values()).flat().filter(p=>map.distance(origin,[p.lat,p.lng])<=radius);
  // A radius query can use adjacent districts without reloading the whole country.
@@ -246,7 +247,8 @@ async function showRadius(center){
  const present=new Set(currentPoints.map(p=>pointKey(p.il,p.ilce,p.name)));
  for(const p of near.slice(0,150)){
   if(present.has(pointKey(p.il,p.ilce,p.name)))continue;
-  L.circleMarker([p.lat,p.lng],{radius:hasRecord(p)?5:3,color:hasRecord(p)?'#bc0f20':'#9da49a',fillColor:hasRecord(p)?'#ea212a':'#b9c0b6',fillOpacity:1,weight:1}).on('click',()=>selectPlace(p)).addTo(placeLayer)
+  L.circleMarker([p.lat,p.lng],{radius:hasRecord(p)?5:3,color:hasRecord(p)?'#bc0f20':'#9da49a',fillColor:hasRecord(p)?'#ea212a':'#b9c0b6',fillOpacity:1,weight:1}).on('click',()=>selectPlace(p)).addTo(radiusLayer);
+  L.marker([p.lat,p.lng],{interactive:true,keyboard:false,icon:L.divIcon({className:'',html:'<span style="position:relative;left:7px;top:-18px;background:#fffffff0;border:1px solid #d0d8d1;border-radius:3px;padding:2px 4px;white-space:nowrap;font-size:11px;font-weight:650">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(radiusLayer)
  }
  status('SEÇİLEN YER · 50 KM ÇAP · '+nearby.length+' YERLEŞİM');
 }
