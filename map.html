@@ -56,7 +56,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,att
 let provinces=[],districts=[],pointsManifest=null,level='country',chosenProvince=null,chosenDistrict=null;
 const pointCanvas=L.canvas({padding:.12});
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),radiusLayer=L.layerGroup().addTo(map),regionRing=null;
-let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;
+let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;const provinceFamilyPromises=new Map();let selectedPlace=null;
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
 function clearPlaces(){lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
@@ -130,7 +130,7 @@ async function openDistrict(d){
  status('KÖYLER YÜKLENİYOR · '+districtInfo(local));
  try{
   const pts=await loadDistrictPoints(local);if(token!==selectionToken)return;
-  currentPoints=pts;populateVillageSelectors();let feats=pts.map(p=>p.feature);
+  currentPoints=pts;populateVillageSelectors();void loadProvinceFamilies(chosenProvince);let feats=pts.map(p=>p.feature);
   if(feats.length){const b=L.latLngBounds(feats.map(f=>[f.geometry.coordinates[1],f.geometry.coordinates[0]]));if(b.isValid())map.fitBounds(b,{padding:[40,40],maxZoom:11,animate:false})}
   renderPlaces();renderDistrictItems();
   status(local.name+' · '+pts.length+' YERLEŞİM · KIRMIZI: ARŞİV KAYDI');
@@ -148,14 +148,15 @@ function pointKey(il,ilce,koy){
  }
  return province+'|'+district+'|'+place
 }
+function districtArchiveCards(){if(!chosenProvince||!chosenDistrict)return [];const prefix=norm(chosenProvince.properties.name)+'|'+norm(chosenDistrict.name)+'|';const out=[];for(const [key,rows] of records){if(!key.startsWith(prefix))continue;const row=rows[0];if(row?.koy&&!currentPoints.some(p=>pointKey(p.il,p.ilce,p.name)===key))out.push({name:row.koy,il:row.il,ilce:row.ilce,feature:null})}return out}
 function populateVillageSelectors(){
- const known=new Map();for(const p of currentPoints){const parent=p.parentVillage;if(parent){if(!known.has(norm(parent)))known.set(norm(parent),{name:parent,place:null});}else if(!known.has(norm(p.name)))known.set(norm(p.name),{name:p.name,place:p})}
+ const known=new Map();for(const p of currentPoints.concat(districtArchiveCards())){const parent=p.parentVillage;if(parent){if(!known.has(norm(parent)))known.set(norm(parent),{name:parent,place:null});}else if(!known.has(norm(p.name)))known.set(norm(p.name),{name:p.name,place:p})}
  const list=[...known.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
  $('village').innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+list.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');$('village').disabled=false;
  $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';
 }
 function selectVillage(name){const k=norm(name);$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';const children=currentPoints.filter(p=>norm(p.parentVillage)===k);$('hamlet').innerHTML+=children.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!children.length;
- const own=currentPoints.find(p=>norm(p.name)===k&&!p.parentVillage);if(own){map.setView([own.lat,own.lng],Math.max(11,map.getZoom()),{animate:false});selectPlace(own)}else if(children.length){map.setView([children[0].lat,children[0].lng],11,{animate:false})}renderDistrictItems();}
+ const own=currentPoints.concat(districtArchiveCards()).find(p=>norm(p.name)===k&&!p.parentVillage);if(own){if(Number.isFinite(own.lat)&&Number.isFinite(own.lng))map.setView([own.lat,own.lng],Math.max(11,map.getZoom()),{animate:false});selectPlace(own)}else if(children.length){map.setView([children[0].lat,children[0].lng],11,{animate:false})}renderDistrictItems();}
 function renderDistrictItems(){
  const currentKeys=new Set(currentPoints.map(p=>pointKey(p.il,p.ilce,p.name)));
  const prefix=norm(chosenProvince.properties.name)+'|'+norm(chosenDistrict.name)+'|';
@@ -166,7 +167,7 @@ function renderDistrictItems(){
   if(row)withoutPoint.push({name:row.koy,il:row.il,ilce:row.ilce})
  }
  const key=norm($('village').value);const pts=key?currentPoints.filter(p=>norm(p.name)===key||norm(p.parentVillage)===key):currentPoints;
- itemList(pts.concat(key?[]:withoutPoint),key?'KÖY / KÖY ALTI':'KÖY / MAHALLE',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
+ itemList(pts.concat(key?withoutPoint.filter(p=>norm(p.name)===key):withoutPoint),'KÖY / MAHALLE / KÖY ALTI',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
 }
 function appendKnownArchivePoints(points, district, province){
  const list=points.slice();
@@ -219,6 +220,7 @@ function renderPlaces(force=false){
  }
 }
 function selectPlace(p){
+ selectedPlace=p;
  const k=pointKey(p.il,p.ilce,p.name);
  $('detailTitle').textContent=p.name;$('detailBody').innerHTML='<div class="tiny">'+esc(p.il)+' / '+esc(p.ilce)+'</div><p>ARŞİV KAYDI KONTROL EDİLİYOR…</p>';$('detail').classList.add('open');
  showDetails(p);
@@ -229,7 +231,7 @@ function selectPlace(p){
 function showDetails(p){
  const list=records.get(pointKey(p.il,p.ilce,p.name))||[],b=$('detailBody');
  let html='<div class="tiny">'+esc(p.il)+' / '+esc(p.ilce)+'</div>';
- if(!loadedArchive){html+='<p>Arşiv kataloğu yükleniyor…</p>';b.innerHTML=html;return}
+ if(!loadedArchive&&!list.length){html+='<p>Arşiv kataloğu yükleniyor…</p>';b.innerHTML=html;return}
  if(!list.length){html+='<p>BU KÖYE DOĞRULANMIŞ NFS/TMT FİHRİSTİ HENÜZ BAĞLANMADI.</p>'}
  else{
   const seen=new Set();for(const rec of list){
@@ -276,6 +278,21 @@ async function ingestNDJSON(path){
   }
  }catch(e){console.warn('Arşiv okunamadı:',path,e)}
 }
+async function loadProvinceFamilies(province){
+ const code=provinceID(province).slice(-2);if(!code)return;
+ if(provinceFamilyPromises.has(code))return provinceFamilyPromises.get(code);
+ const task=(async()=>{try{const data=await json('./catalog/il_koy_sulale/'+code+'.json');const il=province.properties.name;
+ for(const [districtName,villages] of Object.entries(data.districts||{}))for(const row of Object.values(villages||{})){
+  if(!row||!row.name)continue;
+  const district=districts.find(d=>d.parent_id===provinceID(province)&&norm(d.name)===norm(districtName));if(!district)continue;
+  const key=pointKey(il,district.name,row.name);
+  if(!records.has(key))records.set(key,[]);
+  const list=records.get(key);if(list.some(r=>r._provinceFamilyIndex))continue;
+  list.push({il,ilce:district.name,koy:row.name,sulaleler:row.families||[],defterler:(row.defterler||[]).filter(Boolean).map(defter=>({defter})),_provinceFamilyIndex:true});
+ }
+ ++archiveVersion;if(chosenProvince&&provinceID(chosenProvince)===provinceID(province)&&chosenDistrict){populateVillageSelectors();renderDistrictItems();renderPlaces(true);if(selectedPlace)showDetails(selectedPlace)}
+ }catch(e){console.warn('İl sülale dizini okunamadı',code,e)}})();provinceFamilyPromises.set(code,task);return task
+}
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
@@ -286,8 +303,7 @@ function ensureArchive(){
    loadedPoints.set(chosenDistrict.id,currentPoints);populateVillageSelectors();
    renderPlaces();renderDistrictItems()
   }
-  const title=$('detailTitle').textContent;
-  if(chosenDistrict){const p=currentPoints.find(x=>x.name===title);if(p)showDetails(p)}
+  if(selectedPlace)showDetails(selectedPlace)
  })();
  return archivePromise
 }
