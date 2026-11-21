@@ -132,12 +132,13 @@
     "catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson",
     "catalog/sivas_68_ek_sulale_20261121.ndjson",
     "catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson",
-    "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson"
+    "catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson",
+    "catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson"
   ],
   "notes": "Samsun 1834 Excel aktarımı: tarihî karyeler, açık oğul lakapları, hane bilgileri; güncel köyü belirsiz kayıtlar kesin eşleşme sayılmaz; defter numarası kaynak sayfası bazında doğrulanmalıdır.\n2026-11-21: Sülale kaynakları yalnız BOA NFS.d. / ML.VRD.TMT.d. defter numarası ve belgeli varak ile gösterilir; PDF/tez/kitap adı kaynak sayılmaz.",
   "counts": {
     "root": 6,
-    "catalog": 119
+    "catalog": 126
   },
   "rebuild_scope": "all_provinces_all_districts_all_villages",
   "sivas_27_revision": "2026-11-21-kucukyuregil-mismilirmak",
