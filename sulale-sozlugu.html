@@ -95,6 +95,13 @@ function originalOttomanRefs(value){
  }
  return arr;
 }
+function officialArchiveCitation(d){
+ if(!d||typeof d!=="object")return "";
+ const refs=originalOttomanRefs(d.defter);
+ if(!refs.length)return "";
+ const folio=String(d.varak||"").trim();
+ return refs.map(ref=>ref+(folio?" · "+(d.varak_turu==="KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI"?"KÖY BAŞLANGIÇ VARAĞI ":"VARAK ")+folio:"")).join(" · ");
+}
 const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
 function add(row,candidate){
  const name=standardFamilyLabel(row.name);if(!valid(name))return;
@@ -109,14 +116,14 @@ function ingest(obj,path){
  if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
   const mappedCandidate=obj.guncel_eslesme?.kesin===false || obj.eslesme_kesin===false || !!obj.yerlesim_eslesme_durumu || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
   for(const name of obj.sulaleler){if(typeof name!=="string")continue;
-   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:""},mappedCandidate);
+   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:(obj.defterler||[]).map(officialArchiveCitation).filter(Boolean).join(" · ")},mappedCandidate);
   }return;
  }
  const name=obj["SÜLALE ADI (STANDART)"]||obj["STANDART SÜLALE ADI"]||obj.sulale||obj.sulale_adi;
  if(!name)return;
  const status=obj["EŞLEŞME DURUMU"]||obj["DOĞRULAMA"]||"";
  const isCandidate=!!obj["EŞLEŞME DURUMU"]&&/ADAY|BELİRSİZ|KONTROL|ŞÜPHE/i.test(status);
- add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:originalOttomanRefs(obj["DEFTER NO"]||obj["DEFTER NUMARASI"]).join(", "),year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:""},isCandidate);
+ add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:originalOttomanRefs(obj["DEFTER NO"]||obj["DEFTER NUMARASI"]).join(", "),year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:officialArchiveCitation({defter:obj["DEFTER NO"]||obj["DEFTER NUMARASI"],varak:obj["VARAK"]||obj["VARAK NO"]})},isCandidate);
 }
 function optionize(select,vals,placeholder,keep){select.textContent="";const base=document.createElement("option");base.value="";base.textContent=placeholder;select.append(base);for(const s of vals){let o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)}if(vals.includes(keep))select.value=keep}
 function sortTR(a,b){return a.localeCompare(b,"tr")}
