@@ -4,6 +4,7 @@ Do not invent locality for any row. Distinct conflicting locality records remain
 """
 import json
 import gzip
+from family_stats import family_totals
 from collections import Counter
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
@@ -112,6 +113,7 @@ for rel in paths:
             report["candidate"]+=family_candidate
     report["files"][rel]=file_count
 report["export_rows"]=len(records)
+report["family_stats"]=family_totals(records)
 records.sort(key=lambda r:tuple(str(r.get(k) or "") for k in ["İL","İLÇE","KÖY","SÜLALE ADI (STANDART)","DEFTER NO"]))
 OUT.write_text("".join(json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n" for row in records),encoding="utf-8")
 (ROOT/"catalog/sulale_tum_arsiv.ndjson.gz").write_bytes(gzip.compress(OUT.read_bytes(),compresslevel=9,mtime=0))
@@ -193,3 +195,4 @@ for plate,content in sorted(PROVINCIAL.items()):
             })
 COMMON.write_text("".join(json.dumps(o,ensure_ascii=False,separators=(",",":"))+"\n" for o in rows_common),encoding="utf-8")
 print("Unified village-family feed:",len(rows_common),"villages",sum(len(r["sulaleler"]) for r in rows_common),"confirmed links")
+

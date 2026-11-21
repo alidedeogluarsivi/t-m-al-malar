@@ -209,7 +209,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>E-SATIŞ PDF</span></div>
-<div class="stat"><b id="familyStat">—</b><span>TEKİL SÜLALE</span></div>
+<div class="stat"><a href="./sulale-sozlugu.html" style="color:inherit;text-decoration:none" aria-label="Bütün sülale kayıtlarını sözlükte aç"><b id="familyStat">—</b></a><span>SÜLALE KAYDI</span><small id="familyNameStat" style="display:block;margin-top:6px;font-size:10px;color:#dbe8ed">— FARKLI SÜLALE ADI</small></div>
 <div class="stat"><b id="mappedStat">—</b><span>HARİTAYA BAĞLI KART</span></div>
 </div>
 </section>
@@ -268,6 +268,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="searchPanel" class="searchpanel"></div>
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
+<script src="./family-totals.js?v=20261121-shared-totals"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 <script>
@@ -2520,11 +2521,8 @@ async function loadArchiveCore(){
     salesMap=new Map((sales.items||[]).map(function(x){return[x.id,x]}));
     salesCount=Number(sales.count||salesMap.size||0);
   }catch(e){salesMap=new Map();salesCount=0}
-  const famCount=new Set();
-  archive.forEach(function(r){(r.sulaleler||[]).forEach(function(x){if(typeof x!=='string')return;const name=standardFamilyName(x);const k=searchNorm(name);if(k)famCount.add(k)})});
   document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
-  document.getElementById('familyStat').textContent=famCount.size.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
   return archive
@@ -3166,4 +3164,5 @@ bindHistoricalControls();
 })();
 </script>
 </body></html>
+
 

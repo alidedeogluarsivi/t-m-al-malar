@@ -43,7 +43,7 @@ h1{margin:0;font:500 clamp(34px,5vw,62px)/1 Georgia,'Times New Roman',serif;lett
     <div><p class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</p><h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1><p class="sub">Köy, hane ve aile seviyesinde yürütülen arşiv çalışmalarının harita tabanlı kataloğu. İl seçin, ilçeye inin, köyü listeden veya haritadan seçin; mevcut defter, hane, erkek nüfus, imam–muhtar, sülale, Temettuat ve tarama bilgilerini tek kartta görün.</p></div>
     <div class="trust"><b>Kaynak temelli araştırma</b>Doğrulanmayan bilgi köye zorla bağlanmaz. Eski yer adları ve idari eşleşmeler kanıt düzeyine göre ayrı tutulur.</div>
   </div>
-  <div class="stats"><div class="stat"><strong id="pdfStat">—</strong><span>ARŞİV PDF DOSYASI</span></div><div class="stat"><strong id="pageStat">—</strong><span>E-SATIŞ / KAYNAK SAYFA</span></div><div class="stat"><strong id="placeStat">—</strong><span>YÜKLENEN YERLEŞİM KARTI</span></div><div class="stat"><strong id="familyStat">—</strong><span>TEKİL SÜLALE</span></div></div>
+  <div class="stats"><div class="stat"><strong id="pdfStat">—</strong><span>ARŞİV PDF DOSYASI</span></div><div class="stat"><strong id="pageStat">—</strong><span>E-SATIŞ / KAYNAK SAYFA</span></div><div class="stat"><strong id="placeStat">—</strong><span>YÜKLENEN YERLEŞİM KARTI</span></div><div class="stat"><a href="./sulale-sozlugu.html" style="color:inherit;text-decoration:none" aria-label="Bütün sülale kayıtlarını sözlükte aç"><strong id="familyStat">—</strong></a><span>SÜLALE KAYDI</span><small id="familyNameStat" style="display:block;margin-top:6px;color:#c9d8e1">— FARKLI SÜLALE ADI</small></div></div>
 </section>
 
 <div class="globalSearch"><div class="lead">Köyünüzü bulun</div><input id="search" placeholder="Köy, ilçe, defter veya sülale adı yazın…"><div class="hint">Haritaya tıklamadan da arayabilirsiniz.</div></div>
@@ -71,6 +71,7 @@ h1{margin:0;font:500 clamp(34px,5vw,62px)/1 Georgia,'Times New Roman',serif;lett
 <div id="searchPanel" class="searchPanel"></div>
 <div id="drawer" class="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
+<script src="./family-totals.js?v=20261121-shared-totals"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
@@ -278,7 +279,7 @@ async function loadArchive(){const responses=await Promise.allSettled(ARCH.map(f
   for(const f of ['sulaleler','defterler','haneler','gorevli_notlari','taramalar','durumlar'])appendUnique(f);
 }
 archive=Array.from(archiveIndex.values());
-  document.getElementById('pdfStat').textContent=(summary.pdf_toplam||1879).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||37678).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');const uniqueFamilies=new Set();archive.forEach(r=>(r.sulaleler||[]).forEach(f=>{if(f)uniqueFamilies.add(norm(typeof f==='string'?f:JSON.stringify(f)))}));document.getElementById('familyStat').textContent=uniqueFamilies.size.toLocaleString('tr-TR');
+  document.getElementById('pdfStat').textContent=(summary.pdf_toplam||1879).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||37678).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
 }
 function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
 
@@ -310,4 +311,5 @@ document.addEventListener('click',e=>{if(!e.target.closest('#search')&&!e.target
 (async()=>{try{[provinceData,settlementsData,districtListData]=await Promise.all([json(PROV),json(SETTLEMENTS),json(DIST_LOCAL)]);fillProvinceSelect();showTurkey();loadArchive().catch(console.error)}catch(e){console.error(e);statusEl.textContent='Türkiye haritası veya yerleşim verisi yüklenemedi.'}})();
 </script>
 </body></html>
+
 

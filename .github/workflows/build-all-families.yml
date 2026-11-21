@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - scripts/build-all-families.py
+      - scripts/family_stats.py
       - catalog/sulale_source_manifest.json
   schedule:
     - cron: '0 5 * * 1'
@@ -32,3 +33,4 @@ jobs:
               sleep 2
             done
           fi
+
