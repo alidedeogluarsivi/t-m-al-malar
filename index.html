@@ -2228,7 +2228,7 @@ function showRecord(name,r,ilce,il){
           +valueLine('EŞLEŞME',d.eslesme_durumu)
           +valueLine('KAYIT NOTU',d.aciklama);
         if(lines||d.defter){
-          h+='<div class="record">'+(lines?'<div class="kv">'+lines+'</div>':'')+(d.defter?'<div class="notice"><b>KAYNAK:</b> BOA '+esc(d.defter)+'</div>':'')+'</div>'
+          h+='<div class="record">'+(lines?'<div class="kv">'+lines+'</div>':'')+(d.defter?'<div class="notice"><b>KAYNAK:</b> '+esc(d.defter)+(d.varak?' · '+(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'KÖY BAŞLANGIÇ VARAĞI ':'VARAK ')+esc(d.varak):'')+'</div>':'')+'</div>'
         }
       });
       h+='</div>'
@@ -2258,7 +2258,7 @@ function showRecord(name,r,ilce,il){
     }
     const official=defs.filter(function(d){return d.defter});
     if(official.length){
-      h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>BOA '+esc(d.defter)+'</b></div>'}).join('')+'</div>'
+      h+='<div class="section"><h3>KAYNAK</h3>'+official.map(function(d){return'<div class="record"><b>'+esc(d.defter)+'</b>'+(d.varak?' · VARAK '+esc(d.varak):'')+'</div>'}).join('')+'</div>'
     }
     const sale=salesMap.get(r.id);
     if(sale&&sale.sale){
