@@ -977,7 +977,7 @@ let nationwideVillageLoadStarted=false,nationwideVillageLayer=null;
 let nationwideRenderedLayer=null,nationwideRenderedIds=new Set(),nationwidePointRenderer=null;
 function nationwidePointMatches(il,ilce,koy){
   const candidates=archiveIndex.get(key(il,ilce,koy))||[];
-  return candidates.some(function(r){return (r.sulaleler||[]).filter(Boolean).length>0})
+  return candidates.some(function(r){return (r.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}) || (r.sulaleler||[]).filter(Boolean).length>0})
 }
 let nationwideDotRefreshTimer=null;
 let nationwideDotRefreshMap=null;
@@ -1003,7 +1003,7 @@ function addNationwideVillageDots(){
   }
   const bounds=baseMap.getBounds().pad(.18);
   const zoom=baseMap.getZoom();
-  // Sülale kaydı olan her doğrulanmış yerleşim ülke ölçeğinde de görünür.
+  // Defter veya sülale kaydı olan her konumu eşleşmiş yerleşim ülke ölçeğinde görünür.
   // Canvas kullanıldığı için binlerce nokta tek çizim yüzeyinde tutulur.
   const desired=new Set();
   nationwideVillagePointCache.forEach(function(item,id){
@@ -1022,7 +1022,7 @@ function addNationwideVillageDots(){
     if(nationwideRenderedIds.has(id))return;
     const item=nationwideVillagePointCache.get(id);
     const small=baseMap.getZoom()<7;
-    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:small?3.2:6,color:'#980000',weight:small?0.8:1.5,fillColor:'#f00',fillOpacity:small?.9:1,bubblingMouseEvents:false});
+    const dot=L.circleMarker(item.ll,{renderer:nationwidePointRenderer,pane:'archiveVillageDots',radius:small?4:7,color:'#980000',weight:small?1:1.8,fillColor:'#f00',fillOpacity:1,bubblingMouseEvents:false});
     dot.bindTooltip(item.il+' / '+item.ilce+' / '+item.koy,{direction:'top'});
     dot.on('click',function(e){
       if(e&&e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);
@@ -1040,7 +1040,7 @@ function addNationwideVillageDots(){
 function startNationwideVillageDots(){
   if(nationwideVillageLoadStarted||!archive.length||!districtList.length)return;
   nationwideVillageLoadStarted=true;
-  const familyRows=archive.filter(function(x){return (x.sulaleler||[]).filter(Boolean).length>0});
+  const familyRows=archive.filter(function(x){return (x.defterler||[]).some(function(d){return d&&hasDisplayValue(d.defter)}) || (x.sulaleler||[]).filter(Boolean).length>0});
   const provinceSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))}));
   const districtSet=new Set(familyRows.map(function(x){return norm(canonicalProvince(x.il||''))+'|'+norm(x.ilce||'')}));
   const jobs=districtList.filter(function(d){
@@ -2531,6 +2531,12 @@ async function loadArchiveCore(){
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
+  // The national map can open before async NFS/TMT datasets finish loading.
+  // Trigger the red archive pins once the index is actually ready.
+  if(level==='turkey'&&baseMap&&nationwideVillageLayer){
+    startNationwideVillageDots();
+    addNationwideVillageDots();
+  }
   return archive
 }
 let archivePromise=null;
