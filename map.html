@@ -59,7 +59,7 @@ let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.l
 let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;const provinceFamilyPromises=new Map();let selectedPlace=null;
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
-function clearPlaces(){lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
+function clearPlaces(){selectedPlace=null;lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
 function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
@@ -153,7 +153,8 @@ function populateVillageSelectors(){
  const known=new Map();for(const p of currentPoints.concat(districtArchiveCards())){const parent=p.parentVillage;if(parent){if(!known.has(norm(parent)))known.set(norm(parent),{name:parent,place:null});}else if(!known.has(norm(p.name)))known.set(norm(p.name),{name:p.name,place:p})}
  const list=[...known.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
  $('village').innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+list.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');$('village').disabled=false;
- $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';
+ const loose=currentPoints.filter(p=>!p.parentVillage&&/MEZRA|KÖY ALTI|KÖYALTI|YAYLA|KOM|ÇİFTLİK|OBASI|BAĞLI/i.test(p.kind));
+ $('hamlet').innerHTML='<option value="">KÖY ALTI / BAĞLI YERLEŞİM</option>'+loose.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!loose.length;
 }
 function selectVillage(name){const k=norm(name);$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';const children=currentPoints.filter(p=>norm(p.parentVillage)===k);$('hamlet').innerHTML+=children.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!children.length;
  const own=currentPoints.concat(districtArchiveCards()).find(p=>norm(p.name)===k&&!p.parentVillage);if(own){if(Number.isFinite(own.lat)&&Number.isFinite(own.lng))map.setView([own.lat,own.lng],Math.max(11,map.getZoom()),{animate:false});selectPlace(own)}else if(children.length){map.setView([children[0].lat,children[0].lng],11,{animate:false})}renderDistrictItems();}
@@ -257,7 +258,7 @@ function showDetails(p){
    html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
   }
   const citedNames=new Set(citations.map(f=>norm(f.ad)));
-  const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))].slice(0,40);
+  const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
   if(f.length)html+='<div class="source"><b>SÜLALELER</b><div>'+f.map(esc).join(' · ')+'</div></div>'
  }
  b.innerHTML=html
@@ -382,7 +383,7 @@ $('search').oninput=()=>{if(level==='country')itemList(provinces,'İLLER',x=>x.p
 $('province').onchange=e=>e.target.value?openProvince(e.target.value):resetCountry();
 $('district').onchange=e=>{if(e.target.value)openDistrict(e.target.value);else if(chosenProvince)openProvince(chosenProvince.properties.name)};
 $('village').onchange=e=>{if(e.target.value)selectVillage(e.target.value);else{ $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';renderDistrictItems()}};
-$('hamlet').onchange=e=>{const p=currentPoints.find(p=>p.name===e.target.value&&norm(p.parentVillage)===norm($('village').value));if(p){map.setView([p.lat,p.lng],13,{animate:false});selectPlace(p)}};
+$('hamlet').onchange=e=>{const p=currentPoints.find(p=>p.name===e.target.value&&(!p.parentVillage||norm(p.parentVillage)===norm($('village').value)));if(p){map.setView([p.lat,p.lng],13,{animate:false});selectPlace(p)}};
 $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosenProvince.properties.name);else resetCountry()};
 (async function init(){
  try{
