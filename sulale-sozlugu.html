@@ -78,9 +78,26 @@ const clean=s=>String(s??"").trim().replace(/\s+/g," ");
 const norm=s=>clean(s).toLocaleUpperCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/İ/g,"I").replace(/ı/g,"I");
 const upper=s=>clean(s).toLocaleUpperCase("tr-TR");
 const valid=s=>!!s&&!["NULL","BELİRSİZ","YOK","BİLİNMİYOR","-"].includes(norm(s));
+function standardFamilyLabel(v){
+ const s=upper(v).replace(/\s+/g," ");
+ if(!s)return "";
+ if(/\bOĞULLARI$/u.test(s))return s;
+ if(/\bOĞLU$/u.test(s))return s.replace(/OĞLU$/u,"OĞULLARI");
+ if(/\bOĞULLAR$/u.test(s))return s.replace(/OĞULLAR$/u,"OĞULLARI");
+ return s;
+}
+function originalOttomanRefs(value){
+ const re=/(?:BOA\s*)?(NFS\s*\.\s*d\s*\.|ML\s*\.\s*VRD\s*\.\s*TMT\s*\.\s*d\s*\.)\s*(\d+)/gi;
+ let m,arr=[];
+ while((m=re.exec(String(value||"")))){
+   const v="BOA "+(/^NFS/i.test(m[1])?"NFS.d.":"ML.VRD.TMT.d.")+m[2];
+   if(!arr.includes(v))arr.push(v);
+ }
+ return arr;
+}
 const recordMap=new Map; let all=[],current=[],visible=0;let errors=[];
 function add(row,candidate){
- const name=upper(row.name);if(!valid(name))return;
+ const name=standardFamilyLabel(row.name);if(!valid(name))return;
  const city=upper(row.il),district=upper(row.ilce),place=upper(row.koy),subplace=upper(row.koyAlti),street=upper(row.sokak),avenue=upper(row.cadde);
  candidate=!!candidate||!valid(city)||!valid(district)||!valid(place);
  const key=[norm(city),norm(district),norm(place),norm(subplace),norm(street),norm(avenue),norm(name),norm(row.defter),norm(row.year),norm(row.hane)].join("|");
@@ -92,14 +109,14 @@ function ingest(obj,path){
  if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
   const mappedCandidate=obj.guncel_eslesme?.kesin===false || obj.eslesme_kesin===false || !!obj.yerlesim_eslesme_durumu || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
   for(const name of obj.sulaleler){if(typeof name!=="string")continue;
-   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).map(x=>x.defter).filter(Boolean).join(", "),source:(obj.kaynak_pdf||[]).filter(x=>typeof x==="string").join(", ")},mappedCandidate);
+   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:""},mappedCandidate);
   }return;
  }
  const name=obj["SÜLALE ADI (STANDART)"]||obj["STANDART SÜLALE ADI"]||obj.sulale||obj.sulale_adi;
  if(!name)return;
  const status=obj["EŞLEŞME DURUMU"]||obj["DOĞRULAMA"]||"";
  const isCandidate=!!obj["EŞLEŞME DURUMU"]&&/ADAY|BELİRSİZ|KONTROL|ŞÜPHE/i.test(status);
- add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:obj["DEFTER NO"]||obj["DEFTER NUMARASI"],year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:obj["KAYNAK PDF"]||obj["ARŞİV PDF NO"]||obj["KAYNAK DOSYA"]},isCandidate);
+ add({name,il:obj["İL"]||obj.il,ilce:obj["İLÇE"]||obj.ilce,koy:obj["KÖY"]||obj["KÖY/KARYE/MAHALLE"]||obj.koy,koyAlti:obj["KÖY ALTI YERLEŞİMİ"]||obj["KÖY ALTI"]||obj["BAĞLI MAHALLE"]||obj.koy_alti_yerlesimi||obj.koy_alti||obj.bagli_mahalle||obj.mezra||obj.ciftlik||"",sokak:obj["SOKAK"]||obj["SOKAK ADI"]||obj.sokak_adi||obj.sokak||"",cadde:obj["CADDE"]||obj["CADDE ADI"]||obj.cadde_adi||obj.cadde||"",defter:originalOttomanRefs(obj["DEFTER NO"]||obj["DEFTER NUMARASI"]).join(", "),year:obj["DEFTER YILI"]||obj["YIL"],hane:obj["HANE NO"],source:""},isCandidate);
 }
 function optionize(select,vals,placeholder,keep){select.textContent="";const base=document.createElement("option");base.value="";base.textContent=placeholder;select.append(base);for(const s of vals){let o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)}if(vals.includes(keep))select.value=keep}
 function sortTR(a,b){return a.localeCompare(b,"tr")}
@@ -395,6 +412,23 @@ const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>cons
  await officialReady;
  const meta=await loadAllFamilySources();
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
+  // Unique modern district names permit province recovery without guessing a historical kaza.
+  const districtProvinces=new Map;
+  for(const x of all){
+    if(!valid(x.il)||!valid(x.ilce))continue;
+    const k=norm(x.ilce);
+    if(!districtProvinces.has(k))districtProvinces.set(k,new Set);
+    districtProvinces.get(k).add(x.il);
+  }
+  let provinceRecovered=0,unresolvedDistricts=new Set;
+  for(const x of all){
+    if(valid(x.il))continue;
+    const names=districtProvinces.get(norm(x.ilce));
+    if(names&&names.size===1){x.il=[...names][0];provinceRecovered++}
+    else unresolvedDistricts.add(x.ilce||"TARİHÎ KAZA KAYDI");
+  }
+  if(unresolvedDistricts.size)console.warn("İl eşleştirmesi ayrıca kaza–defter okuması gerektiren yerler:",[...unresolvedDistricts]);
+  if(provinceRecovered)console.info("İli tekil ilçe eşleşmesinden tamamlanan aile kayıtları:",provinceRecovered);
  byId("progress").textContent=all.length.toLocaleString("tr-TR")+" SÜLALE / YERLEŞİM / KAYNAK SATIRI · "+meta.files+" KAYNAK DOSYASI."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
  // Mevcut kullanici il/ilce/koy secimini bozmadan, arsiv eklerini ilgili listelere kat.
  if(!il.value){const names=[...new Set([...Array.from(il.options).map(o=>o.value).filter(Boolean),...distinct(all,"il")])].sort(sortTR);optionize(il,names,"TÜM İLLER","");}
