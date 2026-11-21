@@ -28,6 +28,7 @@
 "use strict";
 const root="catalog/";
 const paths=[
+ root+"bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson",
  root+"sivas_ek_koy_nufus_sulale_20261121.ndjson",
  root+"sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson",
  root+"sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson",
@@ -287,7 +288,8 @@ function render(reset){
   article.append(names);frag.append(article);
  }
  byId("results").append(frag);visible+=batch.length;byId("more").hidden=visible>=grouped.length;
- byId("summary").textContent=current.length.toLocaleString("tr-TR")+" KAYNAK SATIRI · "+grouped.length.toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+visible.toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
+ const uniqueFamilies=new Set(current.map(x=>norm(x.name).replace(/\s*OĞULLARI$/u,"").replace(/\s*OĞLU$/u,"")).filter(Boolean));
+ byId("summary").textContent=uniqueFamilies.size.toLocaleString("tr-TR")+" TEKİL SÜLALE · "+current.length.toLocaleString("tr-TR")+" KAYNAK SATIRI · "+grouped.length.toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+visible.toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
  if(!grouped.length)byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN KAYIT BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
 }
 for(const [node,id] of [[il,"il"],[ilce,"ilce"],[koy,"koy"],[koyAlti,"koyAlti"]])node.addEventListener("change",()=>refreshFilters(id));
@@ -345,6 +347,7 @@ async function loadAllFamilySources(){
   const data=await getCompiledFamilyFeed();
   await ingestFamilyText(data,"catalog/sulale_tum_arsiv.ndjson");
   await ingestFamilyText(await readFamilyFile("catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson"),"catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson");
+   await ingestFamilyText(await readFamilyFile("catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson"),"catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson");
   let count=95;
   try{
    const reportResponse=await fetch("catalog/sulale_tum_arsiv_rapor.json?v=20261118-complete101",{cache:"no-cache"});
