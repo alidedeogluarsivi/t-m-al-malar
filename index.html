@@ -756,18 +756,11 @@ function initBaseMap(){
     clearTimeout(labelRefreshTimer);
     labelRefreshTimer=setTimeout(updateAdaptiveLabels,90)
   });
-  let viewportTimer=null;
-  baseMap.on('moveend',function(){
-    clearTimeout(viewportTimer);
-    viewportTimer=setTimeout(function(){
-      if(baseMap&&baseMap.getZoom()>=9){void showVillageRadius50('GÖRÜNEN BÖLGE',[baseMap.getCenter().lat,baseMap.getCenter().lng])}
-      else{clearNearbyLayer();updateAdaptiveLabels()}
-    },150)
-  });
+  // Panning is light: only visible labels change. Full neighborhood scans are click-only.
   baseMap.on('click',function(e){
-    if(!e||!e.latlng)return;
-    if(baseMap.getZoom()>=9){clearTimeout(viewportTimer);void showVillageRadius50('SEÇİLEN BÖLGE',[e.latlng.lat,e.latlng.lng])}
-  })
+    if(!e||!e.latlng||baseMap.getZoom()<9||level==='turkey')return;
+    void showVillageRadius50('SEÇİLEN BÖLGE',[e.latlng.lat,e.latlng.lng])
+  });
 }
 function clearBaseLayer(){if(adminLayer&&baseMap){baseMap.removeLayer(adminLayer);adminLayer=null}if(nationwideLabelLayer&&baseMap){baseMap.removeLayer(nationwideLabelLayer);nationwideLabelLayer=null}if(adaptiveLabelLayer&&baseMap){baseMap.removeLayer(adaptiveLabelLayer);adaptiveLabelLayer=null}adaptiveLabelSpecs=[];adaptiveLabelMode='';clearNearbyLayer()}
 function useLeafletMap(){
@@ -821,8 +814,7 @@ function updateAdaptiveLabels(){
   if(adaptiveLabelLayer){baseMap.removeLayer(adaptiveLabelLayer);adaptiveLabelLayer=null}
   if(!adaptiveLabelSpecs.length)return;
   const z=baseMap.getZoom(),bounds=baseMap.getBounds(),visible=[];
-  // Nearby labels own close-in view; do not duplicate full province/district markers.
-  if(z>=9)return;
+  // Labels follow map bounds when panning; no new network request is needed.
   for(const spec of adaptiveLabelSpecs){
     if(z<adaptiveLabelThreshold(spec))continue;
     if(!archiveLayerPrefs.subsettlements&&isSubsettlementName(spec.name))continue;
@@ -830,7 +822,7 @@ function updateAdaptiveLabels(){
     visible.push(spec)
   }
   visible.sort(function(a,b){return Number(!!b.hasArchive)-Number(!!a.hasArchive)});
-  const limit=adaptiveLabelMode==='district'?(z>=13?230:170):adaptiveLabelMode==='country'?100:110;
+  const limit=adaptiveLabelMode==='district'?(z>=13?85:55):adaptiveLabelMode==='country'?100:110;
   adaptiveLabelLayer=L.layerGroup().addTo(baseMap);
   visible.slice(0,limit).forEach(function(spec){
     const m=L.marker(spec.ll,{
@@ -904,7 +896,7 @@ async function showVillageRadius50(name,ll){
  clearNearbyLayer();const current=villageRadiusRequest;
  const layer=nearbyLayer=L.layerGroup().addTo(baseMap);
  // Old region labels and markers are removed immediately.
- L.circle(center,{radius:radius,color:'#960000',weight:2,fillColor:'#ff0000',fillOpacity:.02,interactive:false}).addTo(layer);
+ L.circle(center,{radius:radius,color:'#960000',weight:1.3,fillColor:'#ff0000',fillOpacity:0,interactive:false}).addTo(layer);
  const seen=new Set(),byId=new Map();
  (provinceData&&provinceData.features||[]).forEach(function(f){const il=canonicalProvince((f.properties||{}).name||''),id=PROVINCE_MAP[il];if(id)byId.set(String(id),il)});
  const dy=radius/111000,dx=radius/(111000*Math.max(.3,Math.cos(center.lat*Math.PI/180)));
@@ -921,7 +913,7 @@ async function showVillageRadius50(name,ll){
    const n=(f.properties||{}).name||'',c=f.geometry&&f.geometry.coordinates;
    if(!n||!c||c.length<2)return;
    const pos=L.latLng(c[1],c[0]);if(baseMap.distance(center,pos)>radius)return;
-   const id=key(job.il,job.district.name,n);if(seen.has(id)||current!==villageRadiusRequest)return;seen.add(id);
+   const id=key(job.il,job.district.name,n);if(seen.has(id)||current!==villageRadiusRequest||seen.size>=85)return;seen.add(id);
    const records=archiveIndex.get(id)||[],has=records.length>0;
    const dot=L.circleMarker(pos,{radius:has?5:3.5,color:has?'#a00000':'#777',weight:1,fillColor:has?'#f00':'#aaa',fillOpacity:1}).addTo(layer);
    dot.bindPopup(function(){return has?archivePinDetails(job.il,job.district.name,n):'<b>'+esc(n)+'</b><br>'+esc(job.il)+' / '+esc(job.district.name)+'<br>FİHRİST HENÜZ EŞLEŞTİRİLMEDİ'},{maxWidth:350});
