@@ -51,14 +51,15 @@ select,input{width:100%;border:1px solid #cbd4cc;background:#fff;color:var(--ink
 const $=id=>document.getElementById(id), norm=v=>String(v||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i').replace(/ğ/g,'g').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ç/g,'c');
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtKm=n=>Math.round(n/1000);
-const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false});
+const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 let provinces=[],districts=[],pointsManifest=null,level='country',chosenProvince=null,chosenDistrict=null;
+const pointCanvas=L.canvas({padding:.12});
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),radiusLayer=L.layerGroup().addTo(map),regionRing=null;
-let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map();
+let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
-function clearPlaces(){++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
+function clearPlaces(){lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
 function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
@@ -81,7 +82,7 @@ function drawProvinceLayer(){
  if(provinceLayer){map.removeLayer(provinceLayer);provinceLayer=null}
  provinceLayer=L.geoJSON({type:'FeatureCollection',features:provinces},{
   style:{color:'#75917e',weight:1.1,fillColor:'#eaf1e8',fillOpacity:.07},
-  onEachFeature:(f,l)=>{const n=f.properties.name;l.on('click',()=>openProvince(n));l.bindTooltip(n,{className:'province-label',direction:'center',permanent:true,opacity:1})}
+  onEachFeature:(f,l)=>{const n=f.properties.name;l.on('click',()=>openProvince(n));l.bindTooltip(n,{className:'province-label',direction:'center',permanent:false,sticky:true,opacity:1})}
  }).addTo(map);
 }
 function resetVillageSelectors(){$('village').disabled=true;$('village').innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';$('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE</option>'}
@@ -114,7 +115,7 @@ async function openProvince(name){
   districtLayer=L.geoJSON({type:'FeatureCollection',features:fs},{style:{color:'#648875',weight:1.2,fillColor:'#c8d8c7',fillOpacity:.12},onEachFeature:(f,l)=>{
    const local=wanted.get(f.properties?.id);
    if(!local)return;
-   l.bindTooltip(local.name,{permanent:true,direction:'center',className:'label',opacity:1});
+   l.bindTooltip(local.name,{permanent:false,sticky:true,direction:'center',className:'label',opacity:1});
    l.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);openDistrict(local)})
   }}).addTo(map)
  }).catch(e=>console.warn('İlçe geometrisi açılamadı:',e));
@@ -130,7 +131,7 @@ async function openDistrict(d){
  try{
   const pts=await loadDistrictPoints(local);if(token!==selectionToken)return;
   currentPoints=pts;populateVillageSelectors();let feats=pts.map(p=>p.feature);
-  if(feats.length)map.fitBounds(L.featureGroup(feats.map(f=>L.circleMarker([f.geometry.coordinates[1],f.geometry.coordinates[0]],{radius:1}))).getBounds(),{padding:[40,40],maxZoom:11,animate:false});
+  if(feats.length){const b=L.latLngBounds(feats.map(f=>[f.geometry.coordinates[1],f.geometry.coordinates[0]]));if(b.isValid())map.fitBounds(b,{padding:[40,40],maxZoom:11,animate:false})}
   renderPlaces();renderDistrictItems();
   status(local.name+' · '+pts.length+' YERLEŞİM · KIRMIZI: ARŞİV KAYDI');
   void ensureArchive().then(()=>{if(token===selectionToken){renderPlaces();renderDistrictItems()}});
@@ -197,20 +198,23 @@ async function loadDistrictPoints(d){
  loadedPoints.set(d.id,arr);
  return arr
 }
-function renderPlaces(){
+function renderPlaces(force=false){
  if(level!=='district')return;
- placeLayer.clearLayers();labels.clearLayers();
  const bounds=map.getBounds().pad(.10),zoom=map.getZoom(),seen=new Set(),visible=[];
- for(const rows of loadedPoints.values())for(const p of rows){if(visible.length>=650)break;if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
+ const signature=[zoom,bounds.getSouth().toFixed(2),bounds.getWest().toFixed(2),bounds.getNorth().toFixed(2),bounds.getEast().toFixed(2),archiveVersion,loadedPoints.size].join('|');
+ if(!force&&signature===lastRenderSignature)return;
+ lastRenderSignature=signature;placeLayer.clearLayers();labels.clearLayers();
+ const capacity=zoom<9?220:zoom<12?450:650;
+ outer:for(const rows of loadedPoints.values())for(const p of rows){if(visible.length>=capacity)break outer;if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
  // Circles use Canvas, never thousands of HTML elements.
  for(const p of visible){
   const marked=hasRecord(p);
-  const d=L.circleMarker([p.lat,p.lng],{radius:marked?5.5:3.7,color:marked?'#a4131e':'#8c978f',weight:1.4,fillColor:marked?'#e2222b':'#c0c8c0',fillOpacity:1,bubblingMouseEvents:false}).addTo(placeLayer);
+  const d=L.circleMarker([p.lat,p.lng],{radius:marked?5.5:3.7,color:marked?'#a4131e':'#8c978f',weight:1.4,fillColor:marked?'#e2222b':'#c0c8c0',fillOpacity:1,bubblingMouseEvents:false,renderer:pointCanvas}).addTo(placeLayer);
   d.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);selectPlace(p)})
  }
  if(zoom>=11){
-  const max=zoom>=12?80:40;for(const p of visible.slice(0,max)){
-   L.marker([p.lat,p.lng],{interactive:true,keyboard:false,icon:L.divIcon({className:'',html:'<span style="background:#fffffff2;border:1px solid '+(hasRecord(p)?'#d65353':'#d3dcd2')+';border-radius:3px;font-size:11px;font-weight:650;padding:2px 4px;white-space:nowrap;color:#243b2b;position:relative;top:-18px;left:7px">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(labels)
+  const max=zoom>=12?55:30;for(const p of visible.slice(0,max)){
+   L.marker([p.lat,p.lng],{interactive:false,keyboard:false,icon:L.divIcon({className:'',html:'<span style="background:#fffffff2;border:1px solid '+(hasRecord(p)?'#d65353':'#d3dcd2')+';border-radius:3px;font-size:11px;font-weight:650;padding:2px 4px;white-space:nowrap;color:#243b2b;position:relative;top:-18px;left:7px">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(labels)
   }
  }
 }
@@ -268,7 +272,7 @@ async function ingestNDJSON(path){
   const raw=await response.text(),lines=raw.split(/\r?\n/);
   for(let i=0;i<lines.length;i+=250){
    for(const line of lines.slice(i,i+250)){if(!line||line.indexOf('"_summary"')>=0)continue;try{insertArchive(JSON.parse(line))}catch(e){}}
-   if(i%1000===0)await new Promise(done=>setTimeout(done,0))
+   await new Promise(done=>setTimeout(done,0))
   }
  }catch(e){console.warn('Arşiv okunamadı:',path,e)}
 }
@@ -276,7 +280,7 @@ function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
  const sources=['./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
- archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;
+ archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;++archiveVersion;
   if(level==='district'&&chosenDistrict){
    currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
    loadedPoints.set(chosenDistrict.id,currentPoints);populateVillageSelectors();
@@ -349,10 +353,10 @@ async function loadViewportPoints(){
    await new Promise(done=>setTimeout(done,0))
   }}
   await Promise.all(Array.from({length:Math.min(2,tasks.length)},()=>worker()));
-  if(token===viewportToken)renderPlaces()
+  if(token===viewportToken)renderPlaces(true)
  }catch(e){console.warn('Görünür bölge noktaları yüklenemedi',e)}
 }
-map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},230)});
+map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},280)});
 map.on('click',()=>{if(level==='district'){$('detail').classList.remove('open')}});
 $('close').onclick=()=>{$('detail').classList.remove('open')};
 $('menu').onclick=()=>{$('side').classList.toggle('open')};
