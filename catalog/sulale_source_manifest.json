@@ -139,5 +139,6 @@
     "root": 6,
     "catalog": 119
   },
-  "rebuild_scope": "all_provinces_all_districts_all_villages"
+  "rebuild_scope": "all_provinces_all_districts_all_villages",
+  "sivas_27_revision": "2026-11-21-kucukyuregil-mismilirmak"
 }
