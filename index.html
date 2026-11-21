@@ -3170,7 +3170,8 @@ bindHistoricalControls();
     }).catch(function(e){console.warn('Sülale harita bağlantısı açılamadı',e);statusEl.textContent='KÖY HARİTA BAĞLANTISI YÜKLENEMEDİ'});
   }
   const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
-  if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:12000})}else{setTimeout(warmArchive,3500)}
+  // Prepare archive records and all red village pins immediately, not at browser idle.
+  warmArchive();
   if(!mapActivated)statusEl.textContent='HARİTA BAŞLATILAMADI · HARİTAYI AÇ DÜĞMESİYLE YENİDEN DENEYİN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
