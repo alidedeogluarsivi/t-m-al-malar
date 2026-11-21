@@ -53,7 +53,7 @@ const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCan
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 let provinces=[],districts=[],pointsManifest=null,level='country',chosenProvince=null,chosenDistrict=null;
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),radiusLayer=L.layerGroup().addTo(map),regionRing=null;
-let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,provinceGeometryByName=new Map();
+let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map();
 const status=m=>{$('status').textContent=m};
 const mobileClose=()=>{$('side').classList.remove('open')};
 function clearPlaces(){++radiusRequest;placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
@@ -146,7 +146,8 @@ async function loadDistrictPoints(d){
 function renderPlaces(){
  if(level!=='district')return;
  placeLayer.clearLayers();labels.clearLayers();
- const bounds=map.getBounds().pad(.15),zoom=map.getZoom(),visible=currentPoints.filter(p=>bounds.contains([p.lat,p.lng]));
+ const bounds=map.getBounds().pad(.15),zoom=map.getZoom(),seen=new Set(),visible=[];
+ for(const rows of loadedPoints.values())for(const p of rows){if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
  // Circles use Canvas, never thousands of HTML elements.
  for(const p of visible){
   const marked=hasRecord(p);
@@ -252,7 +253,32 @@ async function showRadius(center){
  }
  status('SEÇİLEN YER · 50 KM ÇAP · '+nearby.length+' YERLEŞİM');
 }
-map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(renderPlaces,100)});
+const districtBoundsCache=new WeakMap();
+function intersectsView(f,bounds){
+ let b=districtBoundsCache.get(f);
+ if(!b){let south=90,north=-90,west=180,east=-180;
+  function walk(a){if(typeof a[0]==='number'){west=Math.min(west,a[0]);east=Math.max(east,a[0]);south=Math.min(south,a[1]);north=Math.max(north,a[1])}
+    else for(const v of a)walk(v)}
+  walk(f.geometry.coordinates);b={south,north,west,east};districtBoundsCache.set(f,b)
+ }
+ return b.south<=bounds.getNorth()&&b.north>=bounds.getSouth()&&b.west<=bounds.getEast()&&b.east>=bounds.getWest()
+}
+async function loadViewportPoints(){
+ if(level!=='district'||map.getZoom()<9)return;
+ const token=++viewportToken,bounds=map.getBounds().pad(.12);
+ try{
+  const data=await getDistrictGeometry();if(token!==viewportToken||level!=='district')return;
+  const localById=new Map(districts.map(d=>[d.id,d]));
+  const tasks=(data.features||[]).filter(f=>intersectsView(f,bounds)).map(f=>localById.get(f.properties?.id)).filter(Boolean).filter(d=>!loadedPoints.has(d.id)).slice(0,8);
+  let i=0;async function worker(){while(i<tasks.length&&token===viewportToken){
+   const d=tasks[i++];try{await loadDistrictPoints(d)}catch(e){}
+   await new Promise(done=>setTimeout(done,0))
+  }}
+  await Promise.all(Array.from({length:Math.min(2,tasks.length)},()=>worker()));
+  if(token===viewportToken)renderPlaces()
+ }catch(e){console.warn('Görünür bölge noktaları yüklenemedi',e)}
+}
+map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},130)});
 map.on('click',()=>{if(level==='district'){$('detail').classList.remove('open')}});
 $('close').onclick=()=>{$('detail').classList.remove('open')};
 $('menu').onclick=()=>{$('side').classList.toggle('open')};
