@@ -255,7 +255,22 @@ function renderVillageList(){
   vList.querySelectorAll('[data-i]').forEach(el=>el.onclick=()=>openVillage(currentVillages[Number(el.dataset.i)].properties._displayName));
 }
 function openVillage(name){showVillage(name,recFor(name))}
-async function loadArchive(){const responses=await Promise.allSettled(ARCH.map(f=>txt(f)));for(const response of responses){if(response.status!=='fulfilled'){console.warn('ARŞİV DOSYASI YÜKLENEMEDİ',response.reason);continue}for(const line of response.value.split(/\r?\n/)){if(!line.trim())continue;try{const x=JSON.parse(line);if(x._summary){summary=x._summary;continue}archive.push(x)}catch(e){}}}for(const r of archive){
+function cleanOriginalArchiveRefs(v){
+ const re=/(?:BOA\s*)?(NFS\s*\.\s*d\s*\.|ML\s*\.\s*VRD\s*\.\s*TMT\s*\.\s*d\s*\.)\s*(\d+)/gi;
+ const values=[];let m;
+ while((m=re.exec(String(v||"")))){const code="BOA "+(/^NFS/i.test(m[1])?"NFS.d.":"ML.VRD.TMT.d.")+m[2];if(!values.includes(code))values.push(code)}
+ return values
+}
+function originalOnly(r){
+ if(!r||typeof r!=="object")return r;
+ r.defterler=(r.defterler||[]).flatMap(d=>cleanOriginalArchiveRefs(d&&d.defter).map(code=>{
+ const row={defter:code,tur:code.includes("NFS.d.")?"NFS":"TMT"};
+ for(const k of ["yil","hicri","varak","varak_turu","hane","erkek","tarihi_kaza","tarihi_ad","sancak","divan"])if(d[k]!=null&&d[k]!=="")row[k]=d[k];
+ return row;
+ }));
+ return r;
+}
+async function loadArchive(){const responses=await Promise.allSettled(ARCH.map(f=>txt(f)));for(const response of responses){if(response.status!=='fulfilled'){console.warn('ARŞİV DOSYASI YÜKLENEMEDİ',response.reason);continue}for(const line of response.value.split(/\r?\n/)){if(!line.trim())continue;try{const x=originalOnly(JSON.parse(line));if(x._summary){summary=x._summary;continue}archive.push(x)}catch(e){}}}for(const r of archive){
   if(!(r.il&&r.ilce&&r.koy))continue;
   const k=key(r.il,r.ilce,r.koy),existing=archiveIndex.get(k);
   if(!existing){archiveIndex.set(k,r);continue}
@@ -271,7 +286,7 @@ function showVillage(vn,r){
  document.getElementById('vtitle').textContent=vn;document.getElementById('vloc').textContent=(selectedDistrict?.name||r?.ilce||'')+' / '+(selectedProvince?.name||r?.il||'');
  let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy haritada mevcut; arşiv kaydı kesinleştiğinde buraya eklenecek.</div>'}else{
  const defs=r.defterler||[],fam=r.sulaleler||[],scans=r.taramalar||[],gos=r.gorevli_notlari||[];
- h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">'+(d.tur?'<b>'+esc(d.tur)+'</b><br>':'')+(d.defter?'Defter: <b>'+esc(d.defter)+'</b> ':'')+(d.yil?'· Yıl: '+esc(d.yil):'')+(d.varak?'<br>Varak: <b>'+esc(d.varak)+'</b>':'')+(d.sayfa?' · Sayfa: '+esc(d.sayfa):'')+(d.hane?'<br>Hane: <b>'+esc(d.hane)+'</b>':'')+(d.erkek?' · Erkek: <b>'+esc(d.erkek)+'</b>':'')+(d.eslesme_durumu?'<br>'+esc(d.eslesme_durumu):'')+(d.aciklama?'<br>'+esc(d.aciklama):'')+'</div>'}h+='</div>';
+ h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">'+(d.tur?'<b>'+esc(d.tur)+'</b><br>':'')+(d.defter?'Defter: <b>'+esc(d.defter)+'</b> ':'')+(d.yil?'· Yıl: '+esc(d.yil):'')+(d.varak?'<br>'+(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'Köy başlangıç varağı':'Varak')+': <b>'+esc(d.varak)+'</b>':'')+(d.sayfa?' · Sayfa: '+esc(d.sayfa):'')+(d.hane?'<br>Hane: <b>'+esc(d.hane)+'</b>':'')+(d.erkek?' · Erkek: <b>'+esc(d.erkek)+'</b>':'')+(d.eslesme_durumu?'<br>'+esc(d.eslesme_durumu):'')+(d.aciklama?'<br>'+esc(d.aciklama):'')+'</div>'}h+='</div>';
  h+='<div class="section"><h3>İMAM / MUHTAR / GÖREVLİ</h3>'+(gos.length?gos.map(g=>'<div class="record">'+esc(g)+'</div>').join(''):'<div class="empty">Görevli bilgisi henüz tespit edilmedi.</div>')+'</div>';
  h+='<div class="section"><h3>SÜLALE ADLARI</h3>'+(fam.length?fam.map(f=>'<span class="family">'+esc(f)+'</span>').join(''):'<div class="empty">Sülale bilgisi henüz bağlanmadı.</div>')+'</div>';
  h+='<div class="section"><h3>ARŞİV TARAMASI / ÇALIŞMA DOSYALARI</h3>'+(scans.length?scans.slice(0,100).map(s=>'<div class="record"><b>'+esc(s.ad||'ARŞİV KAYDI')+'</b>'+(s.yil?' · '+esc(s.yil):'')+(s.tur?' · '+esc(s.tur):'')+'</div>').join(''):'<div class="empty">Ayrı tarama kaydı bulunmuyor.</div>')+'</div>';
