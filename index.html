@@ -3316,7 +3316,8 @@ bindHistoricalControls();
   // Map dots prepare in small batches and appear together when ready.
   if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:4000})}
   else{setTimeout(warmArchive,1000)}
-  if(!mapActivated)statusEl.textContent='HARİTA BAŞLATILAMADI · HARİTAYI AÇ DÜĞMESİYLE YENİDEN DENEYİN';
+  // Restore initial map and hierarchical selectors without changing archive datasets.
+  await activateMapUI({scroll:false}).catch(function(e){console.error('Harita başlangıç hatası',e);statusEl.textContent='HARİTA YÜKLENEMEDİ · YENİDEN DENEYİN';});
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script>
