@@ -328,7 +328,7 @@ async function loadProvinceFamilies(province){
   const list=records.get(key);if(list.some(r=>r._provinceFamilyIndex))continue;
   list.push({il,ilce:district.name,koy:row.name,sulaleler:row.families||[],defterler:(row.defterler||[]).filter(Boolean).map(defter=>({defter})),_provinceFamilyIndex:true});
  }
- ++archiveVersion;if(chosenProvince&&provinceID(chosenProvince)===provinceID(province)&&chosenDistrict){populateVillageSelectors();renderDistrictItems();renderPlaces(true);if(selectedPlace)showDetails(selectedPlace)}
+ ++archiveVersion;if(level!=='district')renderNationwide();if(chosenProvince&&provinceID(chosenProvince)===provinceID(province)&&chosenDistrict){populateVillageSelectors();renderDistrictItems();renderPlaces(true);if(selectedPlace)showDetails(selectedPlace)}
  }catch(e){console.warn('İl sülale dizini okunamadı',code,e)}})();provinceFamilyPromises.set(code,task);return task
 }
 function ensureArchive(){
@@ -397,7 +397,7 @@ function intersectsView(f,bounds){
  return b.south<=bounds.getNorth()&&b.north>=bounds.getSouth()&&b.west<=bounds.getEast()&&b.east>=bounds.getWest()
 }
 async function loadViewportPoints(){
- if(map.getZoom()<7)return;
+ if(map.getZoom()<6)return;
  const token=++viewportToken,bounds=map.getBounds().pad(.12);
  try{
   const data=await getDistrictGeometry();if(token!==viewportToken)return;
@@ -428,7 +428,12 @@ $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosen
   const [p,d,m]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json'),json('./geo/points-manifest.json')]);
   provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);pointsManifest=m;provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
   $('province').innerHTML='<option value="">İL SEÇİN</option>'+provinces.map(p=>'<option value="'+esc(p.properties.name)+'">'+esc(p.properties.name)+'</option>').join('');
-  resetCountry()
+  resetCountry();
+  // Load archive records even when no province or district is selected.
+  void ensureArchive().then(()=>renderNationwide());
+  // Populate family flags nationwide, not only after entering a district.
+  void (async()=>{for(let i=0;i<provinces.length;i+=5){await Promise.all(provinces.slice(i,i+5).map(loadProvinceFamilies));renderNationwide();await new Promise(done=>setTimeout(done,0))}})();
+  void loadViewportPoints();
  }catch(e){status('HARİTA VERİSİ AÇILAMADI: '+String(e.message||e))}
 })();
 })();
