@@ -379,7 +379,7 @@ function render(reset){
     const head=document.createElement("strong");head.textContent=card.sulaleler?.length?"BU YERLEŞİMİN SÜLALE KAYITLARI ARŞİVDE VAR; ARAMA EŞLEŞMESİ DENETLENİYOR.":"BU YERLEŞİMİN ARŞİV KARTI VAR; SÜLALE LİSTESİ BULUNMADI.";section.append(head);
     const p=document.createElement("p");p.textContent="TARİHÎ AD: "+(d.tarihi_ad||card.koy)+" · KAZA: "+(d.tarihi_kaza||"BELİRTİLMEDİ")+" · SANCAK: "+(d.sancak||"BELİRTİLMEDİ");section.append(p);
     const detail=document.createElement("p");detail.textContent="KAYNAK: "+((card.defterler||[]).map(d=>officialArchiveCitation(d)).filter(Boolean).join(" · ")||"DEFTER KÜNYESİ DENETLENİYOR")+" · SAYFA: "+(d.sayfa||d.varak||"—")+" · HANE: "+(d.hane||"—")+" · ERKEK: "+(d.erkek||"—");section.append(detail); if(card.sulaleler?.length){const families=document.createElement("p");families.textContent="SÜLALELER: "+card.sulaleler.join(" · ");section.append(families)}
-    const note=document.createElement("p");note.textContent="SÜLALE ADLARININ BULUNMAMASI NÜFUS DEFTERİNİN BULUNMADIĞI ANLAMINA GELMEZ. DOĞRULANMAYAN AİLE ADLARI GÖSTERİLMİYOR.";section.append(note);
+    const note=document.createElement("p");note.textContent=card.sulaleler?.length?"ARŞİVDEKİ SÜLALE ADLARI GÖSTERİLİYOR. DEFTER VE GÜNCEL YERLEŞİM EŞLEŞMELERİ AYRICA DENETLENMELİDİR.":"SÜLALE ADI HENÜZ TESPİT EDİLMEMİŞTİR; NÜFUS FİHRİSTİ KAYDI KORUNUR.";section.append(note);
     byId("results").replaceChildren(section);
   }else byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN SÜLALE KAYDI BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
  }
