@@ -3308,8 +3308,30 @@ bindHistoricalControls();
   if(!mapActivated)statusEl.textContent='HARİTA BAŞLATILAMADI · HARİTAYI AÇ DÜĞMESİYLE YENİDEN DENEYİN';
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
+<script>
+/* Independent compiled family counters: do not wait for 174 village files. */
+(function(){
+ async function updateFamilyCounters(){
+  const unique=document.getElementById("familyUniqueStat");
+  const total=document.getElementById("familyStat");
+  if(!unique||!total)return;
+  try{
+   const response=await fetch("./catalog/sulale_tum_arsiv_rapor.json?v=20261122-counters",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
+   if(!response.ok)throw Error("HTTP "+response.status);
+   const report=await response.json(),stats=report.family_stats||{};
+   const n=Number(stats.unique_names),r=Number(stats.records);
+   if(!Number.isSafeInteger(n)||!Number.isSafeInteger(r)||n<0||r<0)throw Error("Geçersiz sayaç");
+   unique.textContent=n.toLocaleString("tr-TR");
+   total.textContent=r.toLocaleString("tr-TR");
+   unique.title=total.title="Son derlenen arşiv kataloğundan; canlı ziyaret sayısı değildir";
+  }catch(e){console.warn("Sülale sayaçları:",e);unique.textContent="—";total.textContent="—"}
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",updateFamilyCounters,{once:true});
+ else void updateFamilyCounters();
+})();
+</script>
 <script src="./historical-1890.js?v=20261111-perf1"></script>
-<script defer src="./site-stats.js?v=20261119-last10"></script>
+<script defer src="./site-stats.js?v=20261122-counters-fix"></script>
 <script>
 /* Önceki sürümlerden kalabilecek özel üst şeritleri de gizle */
 (function(){
