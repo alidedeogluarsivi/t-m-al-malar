@@ -436,14 +436,16 @@ async function ingestFamilyText(text,path){
  }
 }
 async function loadFreshArchiveAdditions(){
- let manifest={paths:[]}; try{const manifestResponse=await fetch("catalog/sulale_source_manifest.json?v=20261122-audit2",{cache:"no-cache",signal:AbortSignal.timeout(12000)});if(manifestResponse.ok)manifest=await manifestResponse.json();else errors.push("SÜLALE KAYNAK LİSTESİ HTTP "+manifestResponse.status)}catch(e){errors.push("SÜLALE KAYNAK LİSTESİ OKUNAMADI");console.warn(e)} const jobs=[...new Set([...(manifest.paths||[]),...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"])];
+ let manifest={paths:[]}; try{const manifestResponse=await fetch("catalog/sulale_source_manifest.json?v=20261122-audit2",{cache:"no-cache",signal:AbortSignal.timeout(12000)});if(manifestResponse.ok)manifest=await manifestResponse.json();else errors.push("SÜLALE KAYNAK LİSTESİ HTTP "+manifestResponse.status)}catch(e){errors.push("SÜLALE KAYNAK LİSTESİ OKUNAMADI");console.warn(e)} const jobs=[...new Set([...(manifest.paths||[]),...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"])].filter(path=>!/^catalog\/(sulale_tum_arsiv|sulale_koy_ortak)\.ndjson$/.test(path));
  let index=0,success=0,newRows=0;
  async function worker(){
   while(index<jobs.length){
    const path=jobs[index++];
    try{
     const data=await readFamilyFile(path);
+    let lineNumber=0;
     for(const line of data.split(/\r?\n/)){
+     if(++lineNumber%600===0)await new Promise(resolve=>setTimeout(resolve,0));
      if(!line.trim())continue;
      let obj;try{obj=JSON.parse(line)}catch(_){continue}
      if(obj.il&&obj.ilce&&obj.koy&&(Array.isArray(obj.defterler)&&obj.defterler.length || Array.isArray(obj.sulaleler)&&obj.sulaleler.length || Array.isArray(obj.sulale_kayitlari)&&obj.sulale_kayitlari.length)){
@@ -459,7 +461,7 @@ async function loadFreshArchiveAdditions(){
    }catch(e){errors.push(path+" : EK KAYITLAR YÜKLENEMEDİ");console.warn("Sözlük güncel arşiv kaynağı okunamadı",path,e)}
   }
  }
- await Promise.all(Array.from({length:Math.min(7,jobs.length)},()=>worker()));
+ await Promise.all(Array.from({length:Math.min(4,jobs.length)},()=>worker()));
  return {files:success,rows:newRows};
 }
 async function loadAllFamilySources(){
