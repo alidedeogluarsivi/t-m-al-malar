@@ -71,11 +71,14 @@ def main():
     provinces = {key(name): plate for plate, name in read(ROOT / "official-addresses/manifest.json")["provinces"].items()}
     provinces["afyon"] = "03"
     district_ids = {}
+    district_labels = {}
+    province_names = read(ROOT / "official-addresses/manifest.json")["provinces"]
     locations = defaultdict(dict)
     for district in read(ROOT / "districts-local.json"):
         plate, district_id = district["plate_code"], district["id"]
         name_key = key(district["name"])
         district_ids[plate, name_key] = district_id
+        district_labels[district_id] = [province_names[plate], district["name"]]
         if provinces.get(name_key) == plate:
             district_ids[plate, "merkez"] = district_id
         file = ROOT / "geo/points" / f"{district_id}.geojson"
@@ -154,6 +157,7 @@ def main():
 
 
     groups = defaultdict(list)
+    family_places = defaultdict(list)
     missing = nfs_count = family_count = 0
     for (district_id, _), row in sorted(entries.items()):
         if not row["families"] and not row["docs"]:
@@ -166,7 +170,10 @@ def main():
         with_kaza = {number for number, kaza in row["docs"] if kaza}
         refs = sorted({(int(number), kazas.get(key(kaza), "")) for number, kaza in row["docs"]
                        if kaza or number not in with_kaza})
-        family_names = sorted({key(name): name for name in sorted(row["families"])}.values()) if not refs else []
+        names = sorted({key(name): name for name in sorted(row["families"])}.values())
+        if names:
+            family_places[district_id].append([row["name"], lat, lon, names])
+        family_names = names if not refs else []
         other_kazas = sorted({key(name): name for name in sorted(row["kazas"])}.values()) if not refs else []
         groups[district_id].append([row["name"], lat, lon, int(bool(row["families"])), refs, family_names, other_kazas])
         nfs_count += bool(refs)
@@ -174,6 +181,10 @@ def main():
     result = {"nfs": nfs_count, "family": family_count, "unmapped": missing, "districts": groups}
     destination = ROOT / "geo/archive-points.json"
     destination.write_text(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    family_index = [[*district_labels[district], rows] for district, rows in family_places.items()]
+    destination.with_name("archive-family-points.json").write_text(
+        json.dumps(family_index, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8"
+    )
     print(f"{nfs_count} NFS, {family_count} family-only, {missing} without coordinates")
 
 

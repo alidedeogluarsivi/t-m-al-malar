@@ -51,7 +51,7 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <label><input type="checkbox" id="modern"> Günümüz ilçe sınırları</label>
 <label><input type="checkbox" id="points" checked> Karyeler</label>
 </div>
-<form id="find" role="search"><input id="query" type="search" aria-label="Arşiv kayıtlarında ara" placeholder="Karye, kaza veya NFS kodu"><button>Ara</button></form>
+<form id="find" role="search"><input id="query" type="search" aria-label="Arşiv kayıtlarında ara" placeholder="Karye, kaza, NFS veya sülale"><button>Ara</button></form>
 <p id="status" role="status">Arşiv dizini yükleniyor…</p>
 <section id="result" aria-live="polite"></section>
 <details>
@@ -63,9 +63,10 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <a href="https://dergipark.org.tr/tr/pub/ttkbelleten/article/1337426">1831 idarî taksimat çalışması</a></p>
 </details>
 </aside>
-<div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend"><strong>Yaklaşık tarihî sınırlar</strong><span><i></i>Eyalet / vilâyet</span><span><i class="sanjak"></i>Sancak</span><span><i class="county"></i>Kaza</span><span><i class="village"></i>NFS karyesi</span></div></div>
+<div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend"><strong>Yaklaşık tarihî sınırlar</strong><span><i></i>Eyalet / vilâyet</span><span><i class="sanjak"></i>Sancak</span><span><i class="county"></i>Kaza</span><span><i class="village"></i>NFS karyesi</span><span><i class="village" style="background:#1769ce"></i>Sülale araması</span></div></div>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./archive-family-search.js"></script>
 <script src="./tarihi-nfs.js"></script>
 </body>
 </html>

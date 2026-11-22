@@ -55,7 +55,8 @@ main{height:calc(100dvh - 54px)}
 .dhead{gap:8px;flex:none}
 .dhead small{display:block;color:#536a7b;font-size:.72rem;font-weight:700}
 #detailTitle{font-family:Georgia,serif;font-size:1.4rem}
-#archiveFind{position:relative;flex:1;max-width:420px;margin-left:auto;min-width:140px}
+#archiveFind{position:relative;display:flex;gap:5px;flex:1;max-width:420px;margin-left:auto;min-width:140px}
+#archiveFind>button{padding:4px 9px;background:#edf3f8;color:#17384e;border:1px solid #acbdc9;border-radius:6px;font-size:.82rem}
 #archiveQuery{min-height:34px;padding:6px 10px;font-size:.85rem;border-color:#acbdc9}
 #archiveResults{position:absolute;top:calc(100% + 6px);inset-inline:0;background:white;color:var(--ink);border:1px solid #cbd7df;border-radius:8px;max-height:min(65vh,460px);overflow:auto;box-shadow:0 8px 26px #132f4333}
 #archiveResults p{font-size:.85rem;padding:0 12px}
@@ -76,10 +77,17 @@ main{height:calc(100dvh - 54px)}
  #archiveFind{min-width:0}
  #detail{top:auto;bottom:50px;max-height:34vh}
 }
+.map-full-link{display:none}.embedded .map-home-link{display:none}.embedded .map-full-link{display:inline}.embedded header strong{display:none}
+.map-legend .legend-match{background:#1769ce}
+@media(max-width:420px){
+ header{gap:6px;padding-inline:6px}header a{font-size:10px}
+ #archiveFind{min-width:0}#archiveQuery{font-size:.76rem}#archiveFind>button{padding-inline:6px}
+}
 </style></head>
 <body>
-<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a href="./index.html">← ARŞİVE DÖN</a><a href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Tarihî sınırlar</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
- <input id="archiveQuery" type="search" autocomplete="off" aria-label="Arşiv haritasında ara" aria-controls="archiveResults" placeholder="Köy, ilçe veya NFS kodu ara">
+<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← ARŞİVE DÖN</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Tarihî sınırlar</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
+ <input id="archiveQuery" type="search" autocomplete="off" aria-label="Arşiv haritasında ara" aria-controls="archiveResults" placeholder="Köy, ilçe, NFS kodu veya sülale">
+ <button type="submit" aria-label="Haritada ara">Ara</button>
  <div id="archiveResults" hidden aria-label="Arşiv arama sonuçları"></div>
 </form></header>
 <main><aside id="side">
@@ -97,14 +105,17 @@ main{height:calc(100dvh - 54px)}
  <span><i class="legend-nfs"></i>NFS defteri <b id="nfsCount"></b></span>
  <span><i class="legend-family"></i>Sülale kaydı <b id="familyCount"></b></span>
  <span><i class="legend-border"></i>Günümüz ilçe sınırı</span>
+ <span id="familyLegend" style="display:none"><i class="legend-match"></i>Sülale araması</span>
 </div>
 <div id="status" role="status">Harita hazırlanıyor…</div></div>
 <section id="detail" aria-labelledby="detailTitle"><div class="dhead"><div><small>YERLEŞİM ARŞİVİ</small><strong id="detailTitle">KÖY</strong></div><button id="close" type="button" class="close" aria-label="Kapat">×</button></div><div id="detailBody"></div></section>
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./archive-family-search.js"></script>
 <script>
 (function(){
 'use strict';
+if(new URLSearchParams(location.search).get('embed')==='1')document.body.classList.add('embedded');
 const $=id=>document.getElementById(id), norm=v=>String(v||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i').replace(/ğ/g,'g').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ç/g,'c');
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
@@ -117,6 +128,7 @@ const pointPane=map.createPane('archivePoints');
 pointPane.style.zIndex='430';
 const pointCanvas=L.canvas({padding:.12,pane:'archivePoints'});
 const overviewLayer=L.layerGroup().addTo(map);
+const familySearchLayer=ArchiveFamilySearch.createLayer(map);
 const nearbyList=new Map();
 const NEARBY_LIMIT=10;
 let nearbyFocus=null;
@@ -533,6 +545,8 @@ function showDetails(p){
  const list=records.get(pointKey(p.il,p.ilce,p.name))||[],b=$('detailBody');
  let html='<div class="tiny">GÜNÜMÜZ · '+esc(p.il)+' / '+esc(p.ilce)+'</div>';
  const item=metadata(p),docs=documentLabels(p),cards=registerCards(list);
+ const matches=familyResults.find(place=>pointKey(place.il,place.ilce,place.name)===pointKey(p.il,p.ilce,p.name));
+ if(matches)html+='<div class="source"><b>SÜLALE EŞLEŞMESİ</b><div>'+matches.matches.map(esc).join(' · ')+'</div></div>';
  if(item?.kazas.length)html+='<div class="source"><b>TARİHÎ KAZA</b><div>'+item.kazas.map(esc).join(' · ')+'</div></div>';
  if(docs.length)html+='<h2 class="archive-section">NFS defteri ve tarihî kaza</h2>'+docs.map(doc=>'<div>'+esc(doc)+'</div>').join('');
  for(const [label,items] of [['Nüfus defteri içeriği',cards.filter(c=>c.nfs)],['Diğer arşiv kayıtları',cards.filter(c=>!c.nfs)]]){
@@ -751,7 +765,7 @@ async function loadViewportPoints(){
   if(token===viewportToken)renderPlaces(true);
  }catch(e){console.warn('Görünür ilçe sınırları:',e)}
 }
-let finderOpen=false;
+let finderOpen=false, familyQueryId=0, familyResults=[];
 function closeFinder(){
  finderOpen=false;
  $('archiveResults').hidden=true;
@@ -761,8 +775,9 @@ function renderFinder(){
  root.replaceChildren();
  if(!finderOpen||query.length<2){root.hidden=true;return []}
  const register=query.match(/^(?:nfs[ .-]*(?:d[ .-]*)?)?0*(\d+)$/)?.[1];
+ const familyOnly=/^sulale\s*:/i.test(query);
  const placeQuery=placeNameKey(query),choices=[];
- if(!register){
+ if(!register&&!familyOnly){
   for(const province of provinces){
    const name=province.properties.name;
    if(norm(name).includes(query))choices.push({name,info:'İl',open:()=>openProvince(name)});
@@ -774,12 +789,23 @@ function renderFinder(){
     open:()=>{openProvince(province.properties.name);openDistrict(district)}});
   }
  }
- for(const p of archivePointList){
+ for(const p of familyOnly?[]:archivePointList){
   const label=norm([p.name,p.il,p.ilce].join(' '));
   if(register?!p.refs.some(([code])=>String(code)===register):!(label.includes(query)||(placeQuery&&placeNameKey(p.name).includes(placeQuery))))continue;
   choices.push({name:p.name,info:p.il+' / '+p.ilce+(register?' · NFS.d.'+register:''),open:()=>selectPlace(p)});
  }
- const matches=choices.sort((a,b)=>Number(norm(b.name)===query)-Number(norm(a.name)===query)||a.name.localeCompare(b.name,'tr')).slice(0,35);
+ if(!register){
+  const existing=new Set();
+  for(const result of familyResults){
+   const key=pointKey(result.il,result.ilce,result.name);
+   if(existing.has(key))continue;
+   existing.add(key);
+   choices.push({name:result.name,info:result.il+' / '+result.ilce+' · '+result.matches.join(', '),
+    family:true,open:()=>selectPlace(archivePoints.get(key)||result)});
+  }
+ }
+ const matches=choices.sort((a,b)=>Number(!!b.family)-Number(!!a.family)||
+  Number(norm(b.name)===query)-Number(norm(a.name)===query)||a.name.localeCompare(b.name,'tr')).slice(0,35);
  root.hidden=false;
  if(!matches.length){
   const empty=document.createElement('p');empty.textContent='Eşleşen yerleşim bulunamadı.';root.append(empty);
@@ -792,8 +818,47 @@ function renderFinder(){
  }
  return matches;
 }
-$('archiveQuery').oninput=$('archiveQuery').onfocus=()=>{finderOpen=true;renderFinder()};
-$('archiveFind').onsubmit=e=>{e.preventDefault();const first=renderFinder()?.[0];if(first){closeFinder();first.open()}};
+async function updateFamilySearch(fit){
+ const token=++familyQueryId;
+ const input=$('archiveQuery');
+ const query=input.value.trim().replace(/^s[üu]lale\s*:/i,'').trim();
+ const register=norm(query).match(/^(?:nfs[ .-]*(?:d[ .-]*)?)?0*(\d+)$/);
+ if(!query||register||query.length<3){
+  familyResults=[];familySearchLayer.clearLayers();$('familyLegend').style.display='none';
+  renderFinder();return false;
+ }
+ try{
+  const found=await ArchiveFamilySearch.find(query);
+  if(token!==familyQueryId)return false;
+  familyResults=found;
+  ArchiveFamilySearch.show(familySearchLayer,found,place=>
+    selectPlace(archivePoints.get(pointKey(place.il,place.ilce,place.name))||place));
+  $('familyLegend').style.display=found.length?'inline-flex':'none';
+  if(fit&&found.length){
+   clearNearby();setDetailOpen(false);selectedPlace=null;
+   ArchiveFamilySearch.fit(map,found);
+   status(found.length+' YERLEŞİM · SÜLALE ARAMASI');
+  }
+  renderFinder();
+  return found.length>0;
+ }catch(error){
+  if(token===familyQueryId)status('SÜLALE ARAMASI AÇILAMADI');
+  return false;
+ }
+}
+$('archiveQuery').onfocus=()=>{finderOpen=true;renderFinder()};
+$('archiveQuery').oninput=()=>{
+ finderOpen=true;familyResults=[];familySearchLayer.clearLayers();
+ $('familyLegend').style.display='none';renderFinder();void updateFamilySearch(false);
+};
+$('archiveFind').onsubmit=async e=>{
+ e.preventDefault();
+ const submitted=$('archiveQuery').value;
+ if(await updateFamilySearch(true)){closeFinder();return}
+ if($('archiveQuery').value!==submitted)return;
+ const first=renderFinder()?.[0];
+ if(first){closeFinder();first.open()}
+};
 $('archiveFind').onkeydown=e=>{
  if(e.key==='Escape'){$('archiveQuery').focus();closeFinder()}
  if(e.key==='ArrowDown'&&e.target===$('archiveQuery')){

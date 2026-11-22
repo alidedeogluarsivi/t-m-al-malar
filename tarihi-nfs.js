@@ -12,6 +12,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19,attrib
 const boundaries = L.layerGroup().addTo(map);
 const villages = L.layerGroup().addTo(map);
 const adminNames = L.layerGroup().addTo(map);
+const familySearchLayer = ArchiveFamilySearch.createLayer(map);
 const adminClasses = ['county','sanjak','eyalet'];
 const boundaryStyles = [
   {color:'#88403c',dashArray:'2 4',weight:1.8},
@@ -202,12 +203,49 @@ function showCatalogue(rows) {
 $('find').onsubmit=async event=>{
   event.preventDefault();
   if(!active)return;
-  const query=norm($('query').value).trim();
-  if(!query)return;
+  const value=$('query').value.trim();
+  const familyOnly=/^s[üu]lale\s*:/i.test(value);
+  const searchText=value.replace(/^s[üu]lale\s*:/i,'').trim();
+  const query=norm(searchText);
+  familySearchLayer.clearLayers();
+  if(!query){++searchId;$('result').replaceChildren();return;}
   const token=++searchId;
   const number=query.match(/^(?:boa\s+)?(?:nfs[.\s]*(?:d[.\s]*)?)?(\d+)$/)?.[1];
   const rows=active.records.filter(row=>number?row[0]===Number(number):
     norm(row.slice(2,9).join(' ')).includes(query));
+  if(!number){
+    try{
+      const families=await ArchiveFamilySearch.find(searchText);
+      if(token!==searchId)return;
+      if(families.length){
+        const open=place=>{
+          if(place.lat!=null)map.setView([place.lat,place.lng],Math.max(10,map.getZoom()));
+          const linked=active.records.filter(row=>row[9]!=null&&
+            Math.abs(row[9]-place.lng)<.0001&&Math.abs(row[10]-place.lat)<.0001);
+          if(linked.length)showRecord(linked[0],false);
+          else $('result').innerHTML='<h2>'+esc(place.name)+'</h2><p>'+esc(place.il)+' / '+esc(place.ilce)+
+            '</p><p>Sülale kaydı: '+place.matches.map(esc).join(', ')+'</p>';
+        };
+        ArchiveFamilySearch.show(familySearchLayer,families,open);
+        ArchiveFamilySearch.fit(map,families);
+        list(count(families.length)+' yerleşim · Sülale araması',families,place=>
+          '<b>'+esc(place.name)+'</b><br><small>'+esc(place.il)+' / '+esc(place.ilce)+' · '+place.matches.map(esc).join(', ')+'</small>',open);
+        const hint=document.createElement('p');hint.className='note';
+        hint.textContent='Mavi noktalar genel sülale dizinindeki yerleşimlerdir. Tarihî sınırlar seçili defter yılına aittir.';
+        $('result').insertBefore(hint,$('result').children[1]);
+        if(rows.length&&!familyOnly){
+          const switchResults=document.createElement('button');switchResults.type='button';switchResults.textContent='Karye ve kaza sonuçlarını göster';
+          switchResults.onclick=()=>list(count(rows.length)+' fihrist kaydı · '+$('year').value,rows,recordTitle,row=>showRecord(row,true));
+          $('result').prepend(switchResults);
+        }
+        return;
+      }
+    }catch(error){
+      if(token!==searchId)return;
+      if(familyOnly){$('result').textContent='Sülale araması açılamadı.';return;}
+    }
+    if(familyOnly){$('result').textContent='Konumu eşleştirilen sülale kaydı bulunamadı.';return;}
+  }
   if(rows.length){list(count(rows.length)+' fihrist kaydı · '+$('year').value,rows,recordTitle,row=>showRecord(row,true));return;}
   if(number){
     $('result').textContent='Defter kataloğu aranıyor…';
@@ -253,6 +291,7 @@ $('modern').onchange=async()=>{
     if($('modern').checked)modern.addTo(map).bringToBack();
   }catch(error){$('modern').checked=false;$('status').textContent='Günümüz ilçe sınırları yüklenemedi.';}
 };
+$('query').oninput=()=>{++searchId;familySearchLayer.clearLayers()};
 $('level').onchange=()=>draw();
 $('points').onchange=()=>draw();
 for(const id of ['province','sanjak','county'])$(id).onchange=()=>{
