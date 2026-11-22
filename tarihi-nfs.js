@@ -24,16 +24,6 @@ function options(id, values) {
   input.replaceChildren(new Option('Tümü',''), ...pairs(values).map(value => new Option(value,value)));
   if ([...input.options].some(option => option.value === old)) input.value = old;
 }
-function recordMatches(row) {
-  return [['province',2],['sanjak',3],['county',4]].every(([id,col]) =>
-    !$(id).value || norm($(id).value) === norm(row[col]));
-}
-function refreshFilters() {
-  options('province',active.records.map(row => row[2]));
-  const province = active.records.filter(row => !$('province').value || norm(row[2]) === norm($('province').value));
-  options('sanjak',province.map(row => row[3]));
-  options('county',province.filter(row => !$('sanjak').value || norm(row[3]) === norm($('sanjak').value)).map(row => row[4]));
-}
 function card(row) {
   const [number,,eyalet,sancak,kaza,historical,il,ilce,place,lon,lat,page,hane,erkek,grade,source,divan] = row;
   const identity = [eyalet,sancak,kaza,divan].filter(Boolean).map(esc).join(' / ');
@@ -88,10 +78,9 @@ async function showArea(area) {
 function draw(fit=false) {
   if(!active)return;
   boundaries.clearLayers();villages.clearLayers();
-  const province=$('province').value,sanjak=$('sanjak').value;
-  const rows=active.records.filter(recordMatches);
-  const areas=active.areas.filter(([level,eyalet,district]) => level===1 &&
-    (!province||norm(eyalet)===norm(province)) && (!sanjak||norm(district)===norm(sanjak)));
+  const sanjak = norm($('sanjak').value);
+  const rows = active.records.filter(row => !sanjak || norm(row[3]) === sanjak);
+  const areas = active.areas.filter(([level,,name]) => level === 1 && (!sanjak || norm(name) === sanjak));
   ArchivePeriodMap.draw(boundaries,areas,{onSelect:showArea});
   const displayed=new Set();
   for(const row of rows){
@@ -209,11 +198,7 @@ $('modern').onchange=async()=>{
 };
 $('query').oninput=()=>{++searchId;familySearchLayer.clearLayers()};
 $('points').onchange=()=>draw();
-for(const id of ['province','sanjak','county'])$(id).onchange=()=>{
-  if(id==='province')$('sanjak').value='';
-  if(id!=='county')$('county').value='';
-  refreshFilters();draw(true);
-};
+$('sanjak').onchange=()=>draw(true);
 
 (async()=>{
   try{
@@ -230,6 +215,7 @@ for(const id of ['province','sanjak','county'])$(id).onchange=()=>{
       ' NFS satırı tarandı. 1831–1850 tarihli '+count(metadata.periodRegisters)+' katalog kaydı, '+count(metadata.observations)+
       ' fihrist satırı ve '+count(metadata.mapped)+' konumlu eşleşme var. Çelişkili '+count(metadata.ambiguousPoints)+' nokta-yıl sınır hesabının dışında tutuldu.';
     active.records=await periodRecords;
-    refreshFilters();draw();
+    options('sanjak',[...areas.filter(area => area[0] === 1).map(area => area[2]), ...active.records.map(row => row[3])]);
+    draw();
   }catch(error){$('status').textContent='Arşiv dizini açılamadı: '+error.message;}
 })();
