@@ -411,27 +411,35 @@ function redrawCountryDots(){
 }
 async function scanCountryPreview(){
  if(countryScanStarted)return;countryScanStarted=true;
- await ensureArchive();
- for(let i=0;i<provinces.length;i+=6){
-  await Promise.all(provinces.slice(i,i+6).map(loadProvinceFamilies));
-  await new Promise(done=>setTimeout(done,0));
- }
- const ids=pointsManifest.files||[];let cursor=0;
- async function worker(){
-  while(cursor<ids.length){
-   const filename=ids[cursor++],id=filename.replace(/\.geojson$/,'');
-   const d=districts.find(x=>x.id===id);if(!d)continue;
-   try{await loadDistrictPoints(d)}catch(e){console.warn('Ön izleme konum dosyası',id,e)}
-   countryScanDone++;
-   if(countryScanDone%25===0){
-    redrawCountryDots();
-    if(level==='country')status('TÜRKİYE ÖN İZLEME · '+countryScanDone+'/'+ids.length+' İLÇE TARANDI · KIRMIZI NFS / YEŞİL SÜLALE');
-    await new Promise(done=>setTimeout(done,0));
+ // Load geographic positions immediately; do not block all dots behind 100+ archives.
+ const ids=pointsManifest.files||[],districtById=new Map(districts.map(d=>[d.id,d]));
+ const geoTask=(async()=>{
+  let cursor=0;
+  async function worker(){
+   while(cursor<ids.length){
+    const filename=ids[cursor++],id=filename.replace(/\.geojson$/,'');
+    const d=districtById.get(id);if(!d)continue;
+    try{await loadDistrictPoints(d)}catch(e){console.warn('Konum dosyası yüklenemedi',id,e)}
+    countryScanDone++;
+    if(countryScanDone%20===0){
+     redrawCountryDots();
+     if(level==='country')status('KONUM YÜKLENİYOR '+countryScanDone+'/'+ids.length+' · KIRMIZI NFS / YEŞİL SÜLALE');
+     await new Promise(done=>setTimeout(done,0));
+    }
    }
   }
- }
- await Promise.all(Array.from({length:4},worker));
- redrawCountryDots();if(level==='country')status('TÜRKİYE ÖN İZLEME · '+countryScanDone+' İLÇE KONUM DOSYASI İNCELENDİ');
+  await Promise.all(Array.from({length:6},worker));redrawCountryDots();
+ })();
+ const familyTask=(async()=>{
+  for(let i=0;i<provinces.length;i+=6){
+   await Promise.all(provinces.slice(i,i+6).map(loadProvinceFamilies));
+   redrawCountryDots();await new Promise(done=>setTimeout(done,0));
+  }
+ })();
+ const archiveTask=ensureArchive().then(()=>redrawCountryDots()).catch(e=>console.warn('Arşiv tarama hatası',e));
+ await Promise.allSettled([geoTask,familyTask,archiveTask]);
+ redrawCountryDots();
+ if(level==='country')status('ÖN İZLEME · '+countryScanDone+'/'+ids.length+' İLÇE KONUMU · KIRMIZI NFS / YEŞİL SÜLALE');
 }
 map.on('moveend zoomend',()=>redrawCountryDots());
 async function init(){
