@@ -2475,7 +2475,7 @@ function settlementNamesFor(il,ilce){
 }
 const settlementNameIndexes=new Map();
 function settlementNameIndex(il,ilce){
-  const districtKey=norm(canonicalProvince(il))+'|'+norm(ilce);
+  const districtKey=JSON.stringify([canonicalProvince(il),ilce]);
   if(!settlementNameIndexes.has(districtKey)){
     const exact=new Map(),entries=[];
     for(const name of settlementNamesFor(il,ilce)){
