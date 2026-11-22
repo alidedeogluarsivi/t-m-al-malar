@@ -5,6 +5,10 @@ on:
     paths:
       - scripts/build-all-families.py
       - scripts/family_stats.py
+      - 'catalog/**/*.ndjson'
+      - '!catalog/sulale_tum_arsiv.ndjson'
+      - '!catalog/sulale_koy_ortak.ndjson'
+      - '!catalog/il_koy_sulale/**'
       - catalog/sulale_source_manifest.json
   schedule:
     - cron: '0 5 * * 1'
