@@ -295,11 +295,12 @@ async function refreshFilters(changed){
    const plate=Object.keys(officialManifest.provinces).find(k=>norm(officialManifest.provinces[k])===norm(il.value));
    if(plate){try{const data=await loadOfficial(plate+".json");if(sequence!==requestNum)return;officialProvince=data}catch(e){console.warn(e)}}
   }
-  const names=il.value?(officialProvince?Object.keys(officialProvince.districts):distinct(all.filter(x=>norm(x.il)===norm(il.value)),"ilce")):[];
+  const names=il.value?[...new Set([...Object.keys(officialProvince?.districts||{}),...distinct(all.filter(x=>norm(x.il)===norm(il.value)),"ilce")])]:[];
   selectOptions(ilce,names.sort(sortTR),"TÜM İLÇELER");
  }
  if(changed==="il"||changed==="ilce"){
-  const off=Object.keys(officialProvince?.districts?.[ilce.value]?.muhtarliklar||{});
+  const officialDistrictName=Object.keys(officialProvince?.districts||{}).find(x=>norm(x)===norm(ilce.value))||ilce.value;
+  const off=Object.keys(officialProvince?.districts?.[officialDistrictName]?.muhtarliklar||{});
   const local=ilce.value?all.filter(x=>norm(x.il)===norm(il.value)&&norm(x.ilce)===norm(ilce.value)).map(x=>x.koy).filter(valid):[];
   selectOptions(koy,[...new Set([...off,...local])].sort(sortTR),"TÜM KÖY / MAHALLE");
  }
@@ -524,6 +525,7 @@ const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>cons
  byId("progress").textContent="KATALOG YÜKLENDİ"+(meta.files?" · "+(meta.files+added.files-1)+" KAYNAK DOSYASI":"")+"."+(errors.length?" "+errors.length+" KAYNAK/SATIR DENETİMİ GEREKİYOR.":" TAMAMI OKUNDU.");
  // Mevcut kullanici il/ilce/koy secimini bozmadan, arsiv eklerini ilgili listelere kat.
  if(!il.value){const names=[...new Set([...Array.from(il.options).map(o=>o.value).filter(Boolean),...distinct(all,"il")])].sort(sortTR);optionize(il,names,"TÜM İLLER","");}
+ else if(!ilce.value){const names=[...new Set([...Object.keys(officialProvince?.districts||{}),...distinct(all.filter(x=>norm(x.il)===norm(il.value)),"ilce")])].sort(sortTR);optionize(ilce,names,"TÜM İLÇELER","");ilce.disabled=!names.length;}
  else if(ilce.value){
   const district=officialProvince?.districts?.[ilce.value];
   const extra=distinct(all.filter(x=>norm(x.il)===norm(il.value)&&norm(x.ilce)===norm(ilce.value)),"koy");
