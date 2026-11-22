@@ -164,18 +164,15 @@ async function openDistrict(d){
  }
  if(token===selectionToken)void ensureArchive();
 }
-const placeNameKey=name=>norm(name).replace(/\s+(mahallesi|koyu)$/,'');
+const placeNameKey=name=>norm(name).trim().replace(/\s+(mahallesi|koyu)$/,'').replace(/[^a-z0-9]/g,'');
 function districtKey(il,ilce){
  const province=norm(il)==='afyon'?'afyonkarahisar':norm(il),district=norm(ilce);
  return province+'|'+(district===province?'merkez':district);
 }
 function pointKey(il,ilce,koy){
- const region=districtKey(il,ilce),district=norm(ilce);
+ const region=districtKey(il,ilce);
  let place=placeNameKey(koy);
- if(region.startsWith('kastamonu|')){
-  if(district==='abana'&&place==='abana merkez')place='abana ilce merkezi';
-  if(district==='taskopru'||district==='hanonu')place=place.replace(/[\s-]+/g,'');
- }
+ if(region==='kastamonu|abana'&&place==='abanamerkez')place='abanailcemerkezi';
  return region+'|'+place;
 }
 const addressRequests=new Map();
@@ -187,13 +184,24 @@ function cachedJSON(path,cache){
 }
 async function loadAttachedPlaces(province,district){
  const code=provinceID(province).slice(-2),il=province.properties.name,ilce=district.name;
- const data=await cachedJSON('./official-addresses/'+code+'.json',addressRequests);
+ const [data,secondary]=await Promise.all([
+  cachedJSON('./official-addresses/'+code+'.json',addressRequests),
+  cachedJSON('./official-addresses/secondary-address-links.json',addressRequests).catch(error=>{
+   console.warn('Ek yerleşim dizini:',error);return null;
+  })
+ ]);
  const addresses=Object.entries(data.districts||{}).find(([name])=>districtKey(il,name)===districtKey(il,ilce))?.[1];
  const places=Object.keys(addresses?.muhtarliklar||{}).map(name=>({name,il,ilce}));
  for(const [parentVillage,rows] of Object.entries(addresses?.baglilar||{})){
   for(const row of rows){
    const name=typeof row==='string'?row:row.name;
    if(name)places.push({name,parentVillage,il,ilce});
+  }
+ }
+ for(const row of secondary?.records||[]){
+  if(districtKey(row.il,row.ilce)!==districtKey(il,ilce))continue;
+  for(const child of row.children||[]){
+   if(child.name)places.push({name:child.name,parentVillage:row.muhtarlik,il,ilce});
   }
  }
  return places;
