@@ -186,8 +186,8 @@ function appendKnownArchivePoints(points, district, province){
 }
 function recordKind(p){
  const rows=records.get(pointKey(p.il,p.ilce,p.name))||[];
- const hasNfs=rows.some(r=>(r.defterler||[]).some(d=>/NFS|NÜFUS|FIHR|FİHR/i.test([d.tur,d.defter].join(' '))));
- const hasFamily=rows.some(r=>(r.sulale_kayitlari||[]).length||(r.sulaleler||[]).length||r._provinceFamilyIndex);
+ const hasNfs=rows.some(r=>(r.defterler||[]).some(d=>/NFS|NÜFUS|FIHR|FİHR/i.test([typeof d==='string'?d:[d.tur,d.defter].join(' ')].join(' '))));
+ const hasFamily=rows.some(r=>(r.sulale_kayitlari||[]).length||(r.sulaleler||[]).length||(r.families||[]).length||r._provinceFamilyIndex);
  return hasNfs?'nfs':hasFamily?'family':rows.length?'nfs':'none';
 }
 function hasRecord(p){return recordKind(p)!=='none'}
@@ -196,6 +196,14 @@ function renderNationwide(){
  nationwideLayer.clearLayers();
  if(level==='district')return;
  const bounds=map.getBounds().pad(.12),seen=new Set();
+ for(const rows of loadedPoints.values())for(const p of rows){
+  if(!bounds.contains([p.lat,p.lng]))continue;
+  const key=pointKey(p.il,p.ilce,p.name);if(seen.has(key))continue;
+  const kind=recordKind(p);if(kind==='none')continue;
+  seen.add(key);
+  const dot=L.circleMarker([p.lat,p.lng],{radius:map.getZoom()<8?4:6,color:'#fff',weight:1.2,fillColor:kind==='nfs'?'#d6212d':'#15803d',fillOpacity:1,bubblingMouseEvents:false,renderer:pointCanvas}).addTo(nationwideLayer);
+  dot.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);selectPlace(p)});
+ }
  for(const rows of records.values()){
   const r=rows.find(x=>Array.isArray(x.konum)&&x.konum.length===2&&x.konum.every(Number.isFinite));
   if(!r)continue;
@@ -389,18 +397,18 @@ function intersectsView(f,bounds){
  return b.south<=bounds.getNorth()&&b.north>=bounds.getSouth()&&b.west<=bounds.getEast()&&b.east>=bounds.getWest()
 }
 async function loadViewportPoints(){
- if(level!=='district'||map.getZoom()<9)return;
+ if(map.getZoom()<7)return;
  const token=++viewportToken,bounds=map.getBounds().pad(.12);
  try{
-  const data=await getDistrictGeometry();if(token!==viewportToken||level!=='district')return;
+  const data=await getDistrictGeometry();if(token!==viewportToken)return;
   const localById=new Map(districts.map(d=>[d.id,d]));
-  const tasks=(data.features||[]).filter(f=>intersectsView(f,bounds)).map(f=>localById.get(f.properties?.id)).filter(Boolean).filter(d=>!loadedPoints.has(d.id)).slice(0,3);
+  const tasks=(data.features||[]).filter(f=>intersectsView(f,bounds)).map(f=>localById.get(f.properties?.id)).filter(Boolean).filter(d=>!loadedPoints.has(d.id)).slice(0,8);
   let i=0;async function worker(){while(i<tasks.length&&token===viewportToken){
    const d=tasks[i++];try{await loadDistrictPoints(d)}catch(e){}
    await new Promise(done=>setTimeout(done,0))
   }}
   await Promise.all(Array.from({length:Math.min(2,tasks.length)},()=>worker()));
-  if(token===viewportToken)renderPlaces(true)
+  if(token===viewportToken){renderPlaces(true);if(tasks.length===8)void loadViewportPoints()}
  }catch(e){console.warn('Görünür bölge noktaları yüklenemedi',e)}
 }
 map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},280)});
