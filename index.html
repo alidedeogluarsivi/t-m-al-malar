@@ -127,6 +127,10 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .archiveRecent strong{display:block;font-size:11px;letter-spacing:.04em;margin-bottom:5px}
 .archiveRecent p{margin:0!important;color:#fff!important;font-size:13px!important;line-height:1.65!important;overflow-wrap:anywhere;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 10px;align-content:start;min-height:34px}
 .archiveRecentItem{display:block;overflow-wrap:anywhere;padding:2px 0;border-bottom:1px solid #ffffff1a}
+/* Recent search markers: village red, family blue; counters and archive data unchanged. */
+#recentVillages .archiveRecentItem::before,#recentFamilies .archiveRecentItem::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;box-shadow:0 0 0 1px #ffffff66}
+#recentVillages .archiveRecentItem::before{background:#ed3b42}
+#recentFamilies .archiveRecentItem::before{background:#49a9f5}
 @media(max-width:720px){.archiveRecent p{grid-template-columns:1fr}}
 @media(max-width:600px){.archiveRecent{grid-template-columns:1fr}}
 
