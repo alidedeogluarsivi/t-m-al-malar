@@ -29,19 +29,24 @@ select,input{width:100%;border:1px solid #cbd4cc;background:#fff;color:var(--ink
 .marker-grey{background:#adb4ae;border:1px solid white;border-radius:50%}
 #menu{display:none}
 @media(max-width:760px){main{grid-template-columns:1fr}aside{position:absolute;top:54px;left:0;width:min(310px,90vw);bottom:0;transform:translateX(-100%);transition:transform .16s;box-shadow:5px 0 18px #0002}aside.open{transform:none}#menu{display:inline-block;background:var(--green);color:white;border:0;border-radius:5px;padding:6px 10px}header{gap:9px;padding:0 10px}header strong{font-size:13px}header span{display:none}}
+header{background:#17384e;color:#fff;border-bottom-color:#295064}
+header a,header span{color:#ebf3f7}
+:where(a,button,input,select):focus-visible{outline:3px solid #b57926;outline-offset:2px}
+main{height:calc(100dvh - 54px)}
+.item b,header a{font-size:14px}
 </style></head>
 <body>
-<header><button id="menu" type="button">☰</button><a href="./index.html">← ARŞİVE DÖN</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><span>GÜNCEL KÖYLER · TARİHÎ NFS / TMT</span></header>
+<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a href="./index.html">← ARŞİVE DÖN</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><span>GÜNCEL KÖYLER · TARİHÎ NFS / TMT</span></header>
 <main><aside id="side">
 <div class="filters"><div class="crumb" id="crumb">TÜRKİYE</div><div class="sub">İl → ilçe → köy → köy altı mahalle seçin. Haritayı serbestçe gezdirin; kırmızı noktalar arşiv kaydı bulunan yerleri gösterir.</div>
-<select id="province"><option value="">İL SEÇİN</option></select>
-<select id="district" disabled><option value="">ÖNCE İL SEÇİN</option></select>
-<select id="village" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select>
-<select id="hamlet" disabled><option value="">KÖY ALTI MAHALLE</option></select>
+<select id="province" aria-label="İl"><option value="">İL SEÇİN</option></select>
+<select id="district" aria-label="İlçe" disabled><option value="">ÖNCE İL SEÇİN</option></select>
+<select id="village" aria-label="Köy veya mahalle" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select>
+<select id="hamlet" aria-label="Bağlı yerleşim" disabled><option value="">KÖY ALTI MAHALLE</option></select>
 <input id="search" placeholder="Köy / mahalle ara" aria-label="Yerleşim ara">
 <button id="back" type="button" style="border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px;padding:8px">ÜST SEVİYEYE DÖN</button>
 </div><div class="listtop"><span id="listTitle">İLLER</span><span class="tiny" id="listCount"></span></div><div id="items"></div>
-</aside><div class="mapwrap"><div id="map"></div><div id="status">Harita hazırlanıyor…</div>
+</aside><div class="mapwrap"><div id="map"></div><div id="status" role="status">Harita hazırlanıyor…</div>
 <div id="detail"><div class="dhead"><strong id="detailTitle">KÖY</strong><button id="close" type="button" class="close" aria-label="Kapat">×</button></div><div id="detailBody"></div></div>
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -53,31 +58,39 @@ const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const fmtKm=n=>Math.round(n/1000);
 const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
-let provinces=[],districts=[],pointsManifest=null,level='country',chosenProvince=null,chosenDistrict=null;
+let provinces=[],districts=[],level='country',chosenProvince=null,chosenDistrict=null;
 const pointCanvas=L.canvas({padding:.12});
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),radiusLayer=L.layerGroup().addTo(map),regionRing=null;
-let currentPoints=[],loadedPoints=new Map(),records=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;const provinceFamilyPromises=new Map();let selectedPlace=null;
+let currentPoints=[],attachedPlaces=[],loadedPoints=new Map(),pointRequests=new Map(),records=new Map(),districtRecords=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,provinceGeometryByName=new Map(),lastRenderSignature='',archiveVersion=0;const provinceFamilyPromises=new Map();let selectedPlace=null;
 const status=m=>{$('status').textContent=m};
-const mobileClose=()=>{$('side').classList.remove('open')};
-function clearPlaces(){selectedPlace=null;lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
+function setMobileMenu(open){
+ $('side').classList.toggle('open',open);
+ $('menu').setAttribute('aria-expanded',String(open));
+}
+const mobileClose=()=>setMobileMenu(false);
+function clearPlaces(){selectedPlace=null;lastRenderSignature='';++radiusRequest;++viewportToken;currentPoints=[];attachedPlaces=[];placeLayer.clearLayers();labels.clearLayers();radiusLayer.clearLayers();resetVillageSelectors();if(regionRing){map.removeLayer(regionRing);regionRing=null}}
 function clearDistrictLayer(){if(districtLayer){map.removeLayer(districtLayer);districtLayer=null}}
 async function getDistrictGeometry(){if(!districtGeoPromise)districtGeoPromise=json('./geo/districts.geojson').catch(e=>{districtGeoPromise=null;throw e});return districtGeoPromise}
-function plate(id){return String(id||'').split('-').slice(-2,-1)[0]||''}
 const PLATE_BY_NAME=new Map(["Adana","Adıyaman","Afyonkarahisar","Ağrı","Amasya","Ankara","Antalya","Artvin","Aydın","Balıkesir","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Isparta","Mersin","İstanbul","İzmir","Kars","Kastamonu","Kayseri","Kırklareli","Kırşehir","Kocaeli","Konya","Kütahya","Malatya","Manisa","Kahramanmaraş","Mardin","Muğla","Muş","Nevşehir","Niğde","Ordu","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas","Tekirdağ","Tokat","Trabzon","Tunceli","Şanlıurfa","Uşak","Van","Yozgat","Zonguldak","Aksaray","Bayburt","Karaman","Kırıkkale","Batman","Şırnak","Bartın","Ardahan","Iğdır","Yalova","Karabük","Kilis","Osmaniye","Düzce"].map((name,i)=>[norm(name),'TR-P-'+String(i+1).padStart(2,'0')]));
+PLATE_BY_NAME.set('afyon','TR-P-03');
 function provinceID(p){return PLATE_BY_NAME.get(norm(p?.properties?.name))||''}
 function neighborsForProvince(p){const id=provinceID(p);return districts.filter(d=>d.parent_id===id).sort((a,b)=>a.name.localeCompare(b.name,'tr'))}
 function itemList(arr,title,label,click,has){
- $('listTitle').textContent=title;$('listCount').textContent=arr.length+' KAYIT';
- let q=norm($('search').value),list=q?arr.filter(x=>norm(label(x)).includes(q)):arr;
- const root=$('items');root.textContent='';
+ const q=norm($('search').value),list=q?arr.filter(x=>norm(label(x)).includes(q)):arr;
+ $('listTitle').textContent=title;$('listCount').textContent=list.length+' KAYIT';
+ const root=$('items'),fragment=document.createDocumentFragment();
  for(const x of list.slice(0,550)){
   const btn=document.createElement('button');btn.className='item';btn.type='button';
   const tx=document.createElement('span');tx.innerHTML='<b>'+esc(label(x))+'</b>';
-  const dot=document.createElement('span');dot.className=has&&has(x)?'red':'muted';dot.textContent=has&&has(x)?'●':'›';
-  btn.append(tx,dot);btn.onclick=()=>{click(x);mobileClose()};root.append(btn)
+  const marked=has?.(x);
+  const dot=document.createElement('span');dot.className=marked?'red':'muted';dot.textContent=marked?'●':'›';
+  if(marked)dot.setAttribute('aria-label','Arşiv kaydı');else dot.setAttribute('aria-hidden','true');
+  btn.append(tx,dot);btn.onclick=()=>click(x);fragment.append(btn);
  }
+ root.replaceChildren(fragment);
+ if(!list.length&&q)root.textContent='Aramanıza uygun yer bulunamadı.';
 }
-async function json(path){let r=await fetch(path,{cache:'force-cache'});if(!r.ok)throw Error(path+' · HTTP '+r.status);return r.json()}
+async function json(path){let r=await fetch(path,{signal:AbortSignal.timeout(18000)});if(!r.ok)throw Error(path+' · HTTP '+r.status);return r.json()}
 function drawProvinceLayer(){
  if(provinceLayer){map.removeLayer(provinceLayer);provinceLayer=null}
  provinceLayer=L.geoJSON({type:'FeatureCollection',features:provinces},{
@@ -87,6 +100,7 @@ function drawProvinceLayer(){
 }
 function resetVillageSelectors(){$('village').disabled=true;$('village').innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';$('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE</option>'}
 function resetCountry(){
+ $('search').value='';
  ++selectionToken;level='country';chosenProvince=null;chosenDistrict=null;clearPlaces();clearDistrictLayer();
  $('province').value='';$('district').disabled=true;$('district').innerHTML='<option>ÖNCE İL SEÇİN</option>';
  $('crumb').textContent='TÜRKİYE';$('detail').classList.remove('open');drawProvinceLayer();
@@ -96,6 +110,7 @@ function resetCountry(){
 }
 async function openProvince(name){
  const p=provinces.find(x=>norm(x.properties.name)===norm(name));if(!p)return;
+ $('search').value='';
  const token=++selectionToken;level='province';chosenProvince=p;chosenDistrict=null;clearPlaces();clearDistrictLayer();
  // Load this province's family index independently of the large national archive.
  void loadProvinceFamilies(p).catch(e=>console.warn('İl sülale verisi:',e));
@@ -121,65 +136,126 @@ async function openProvince(name){
    l.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);openDistrict(local)})
   }}).addTo(map)
  }).catch(e=>console.warn('İlçe geometrisi açılamadı:',e));
- mobileClose();
 }
 function districtInfo(d){return chosenProvince?chosenProvince.properties.name+' / '+d.name:d.name}
 async function openDistrict(d){
  const local=typeof d==='string'?districts.find(x=>x.id===d):d;if(!local||!chosenProvince||local.parent_id!==provinceID(chosenProvince))return;
+ $('search').value='';
  const token=++selectionToken;chosenDistrict=local;level='district';clearPlaces();clearDistrictLayer();
  // Preserve the current province's indexed families even if bulk archive loading is slow.
  void loadProvinceFamilies(chosenProvince).catch(e=>console.warn('İl sülale verisi:',e));
  $('district').value=local.id;$('crumb').textContent=chosenProvince.properties.name.toLocaleUpperCase('tr-TR')+' / '+local.name.toLocaleUpperCase('tr-TR');
  $('detail').classList.remove('open');itemList([],'KÖYLER',x=>x.name,()=>{});
  status('KÖYLER YÜKLENİYOR · '+districtInfo(local));
+ const province=chosenProvince;
+ void loadAttachedPlaces(province,local).then(places=>{
+  if(token!==selectionToken)return;
+  attachedPlaces=places;populateVillageSelectors();renderDistrictItems();
+ }).catch(e=>console.warn('Bağlı yerleşimler:',e));
  try{
   const pts=await loadDistrictPoints(local);if(token!==selectionToken)return;
-  currentPoints=pts;populateVillageSelectors();void loadProvinceFamilies(chosenProvince);let feats=pts.map(p=>p.feature);
-  if(feats.length){const b=L.latLngBounds(feats.map(f=>[f.geometry.coordinates[1],f.geometry.coordinates[0]]));if(b.isValid())map.fitBounds(b,{padding:[40,40],maxZoom:11,animate:false})}
+  currentPoints=pts;populateVillageSelectors();
+  const bounds=L.latLngBounds(pts.map(p=>[p.lat,p.lng]));
+  if(bounds.isValid())map.fitBounds(bounds,{padding:[40,40],maxZoom:11,animate:false});
   renderPlaces();renderDistrictItems();
-  status(local.name+' · '+pts.length+' YERLEŞİM · KIRMIZI: ARŞİV KAYDI');
-  void ensureArchive().then(()=>{if(token===selectionToken){renderPlaces();renderDistrictItems()}});
- }catch(e){if(token===selectionToken)status('KÖY KONUM DOSYASI AÇILAMADI · '+String(e.message||e))}
- mobileClose()
+  status(local.name+' · '+pts.length+' HARİTA NOKTASI · KIRMIZI: ARŞİV KAYDI');
+ }catch(e){
+  if(token===selectionToken){status('KÖY KONUMLARI YÜKLENEMEDİ · LİSTEYİ KULLANABİLİRSİNİZ');console.warn(e)}
+ }
+ if(token===selectionToken)void ensureArchive();
+}
+const placeNameKey=name=>norm(name).replace(/\s+(mahallesi|koyu)$/,'');
+function districtKey(il,ilce){
+ const province=norm(il)==='afyon'?'afyonkarahisar':norm(il),district=norm(ilce);
+ return province+'|'+(district===province?'merkez':district);
 }
 function pointKey(il,ilce,koy){
- const province=norm(il),district=norm(ilce);
- let place=norm(koy);
- if(province==='kastamonu'){
-  place=place.replace(/\s+mahallesi$/,'');
+ const region=districtKey(il,ilce),district=norm(ilce);
+ let place=placeNameKey(koy);
+ if(region.startsWith('kastamonu|')){
   if(district==='abana'&&place==='abana merkez')place='abana ilce merkezi';
   if(district==='taskopru'||district==='hanonu')place=place.replace(/[\s-]+/g,'');
  }
- return province+'|'+district+'|'+place
+ return region+'|'+place;
 }
-function districtArchiveCards(){if(!chosenProvince||!chosenDistrict)return [];const prefix=norm(chosenProvince.properties.name)+'|'+norm(chosenDistrict.name)+'|';const out=[];for(const [key,rows] of records){if(!key.startsWith(prefix))continue;const row=rows[0];if(row?.koy&&!currentPoints.some(p=>pointKey(p.il,p.ilce,p.name)===key))out.push({name:row.koy,il:row.il,ilce:row.ilce,feature:null})}return out}
-function populateVillageSelectors(){
- const known=new Map();for(const p of currentPoints.concat(districtArchiveCards())){const parent=p.parentVillage;if(parent){if(!known.has(norm(parent)))known.set(norm(parent),{name:parent,place:null});}else if(!known.has(norm(p.name)))known.set(norm(p.name),{name:p.name,place:p})}
- const list=[...known.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
- $('village').innerHTML='<option value="">KÖY / MAHALLE SEÇİN</option>'+list.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');$('village').disabled=false;
- const loose=currentPoints.filter(p=>!p.parentVillage&&/MEZRA|KÖY ALTI|KÖYALTI|YAYLA|KOM|ÇİFTLİK|OBASI|BAĞLI/i.test(p.kind));
- $('hamlet').innerHTML='<option value="">KÖY ALTI / BAĞLI YERLEŞİM</option>'+loose.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!loose.length;
+const addressRequests=new Map();
+function cachedJSON(path,cache){
+ if(cache.has(path))return cache.get(path);
+ const request=json(path).catch(e=>{cache.delete(path);throw e});
+ cache.set(path,request);
+ return request;
 }
-function selectVillage(name){const k=norm(name);$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';const children=currentPoints.filter(p=>norm(p.parentVillage)===k);$('hamlet').innerHTML+=children.map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+'</option>').join('');$('hamlet').disabled=!children.length;
- const own=currentPoints.concat(districtArchiveCards()).find(p=>norm(p.name)===k&&!p.parentVillage);if(own){if(Number.isFinite(own.lat)&&Number.isFinite(own.lng))map.setView([own.lat,own.lng],Math.max(11,map.getZoom()),{animate:false});selectPlace(own)}else if(children.length){map.setView([children[0].lat,children[0].lng],11,{animate:false})}renderDistrictItems();}
-function renderDistrictItems(){
- const currentKeys=new Set(currentPoints.map(p=>pointKey(p.il,p.ilce,p.name)));
- const prefix=norm(chosenProvince.properties.name)+'|'+norm(chosenDistrict.name)+'|';
- const withoutPoint=[];
- for(const [key,list] of records){
-  if(!key.startsWith(prefix)||currentKeys.has(key))continue;
-  const row=list.find(r=>r.yerlesim_anahtari_sabit||r.sulale_kayitlari?.length);
-  if(row)withoutPoint.push({name:row.koy,il:row.il,ilce:row.ilce})
+async function loadAttachedPlaces(province,district){
+ const code=provinceID(province).slice(-2),il=province.properties.name,ilce=district.name;
+ const data=await cachedJSON('./official-addresses/'+code+'.json',addressRequests);
+ const addresses=Object.entries(data.districts||{}).find(([name])=>districtKey(il,name)===districtKey(il,ilce))?.[1];
+ const places=Object.keys(addresses?.muhtarliklar||{}).map(name=>({name,il,ilce}));
+ for(const [parentVillage,rows] of Object.entries(addresses?.baglilar||{})){
+  for(const row of rows){
+   const name=typeof row==='string'?row:row.name;
+   if(name)places.push({name,parentVillage,il,ilce});
+  }
  }
- const key=norm($('village').value);const pts=key?currentPoints.filter(p=>norm(p.name)===key||norm(p.parentVillage)===key):currentPoints;
- itemList(pts.concat(key?withoutPoint.filter(p=>norm(p.name)===key):withoutPoint),'KÖY / MAHALLE / KÖY ALTI',x=>x.name+(x.feature?'':' · ARŞİV KARTI'),selectPlace,hasRecord)
+ return places;
+}
+function districtPlaces(){
+ if(!chosenProvince||!chosenDistrict)return [];
+ const region=districtRecords.get(districtKey(chosenProvince.properties.name,chosenDistrict.name));
+ const indexed=[...(region?.values()||[])].map(rows=>{
+  const {koy,il,ilce,bagli_oldugu_koy}=rows[0];
+  return {name:koy,il,ilce,parentVillage:bagli_oldugu_koy};
+ });
+ const locations=new Map();
+ for(const place of [...currentPoints,...attachedPlaces,...indexed]){
+  const key=pointKey(place.il,place.ilce,place.name);
+  const previous=locations.get(key);
+  if(!previous)locations.set(key,place);
+  else if(!previous.parentVillage&&place.parentVillage)locations.set(key,{...previous,parentVillage:place.parentVillage});
+ }
+ return [...locations.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+}
+function options(select,placeholder,entries,value){
+ select.replaceChildren(new Option(placeholder,''),...entries.map(p=>new Option(p.name,p.name)));
+ select.disabled=!entries.length;
+ select.value=entries.some(p=>p.name===value)?value:'';
+}
+function updateHamlets(places){
+ const village=placeNameKey($('village').value);
+ const children=village?places.filter(p=>placeNameKey(p.parentVillage)===village):
+   places.filter(p=>!p.parentVillage&&/MEZRA|KÖY ALTI|KÖYALTI|YAYLA|KOM|ÇİFTLİK|OBASI|BAĞLI/i.test(p.kind||''));
+ options($('hamlet'),'KÖY ALTI / BAĞLI YERLEŞİM',children,$('hamlet').value);
+}
+function populateVillageSelectors(){
+ const places=districtPlaces(),known=new Map();
+ for(const p of places){
+  const name=p.parentVillage||p.name,key=placeNameKey(name);
+  if(!known.has(key)||!p.parentVillage)known.set(key,{name});
+ }
+ options($('village'),'KÖY / MAHALLE SEÇİN',[...known.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr')),$('village').value);
+ updateHamlets(places);
+}
+function focusPlace(place){
+ if(Number.isFinite(place.lat)&&Number.isFinite(place.lng))map.setView([place.lat,place.lng],Math.max(11,map.getZoom()),{animate:false});
+ selectPlace(place);
+}
+function selectVillage(name){
+ const key=placeNameKey(name),places=districtPlaces();
+ updateHamlets(places);
+ const own=places.find(p=>placeNameKey(p.name)===key&&!p.parentVillage);
+ if(own)focusPlace(own);
+ renderDistrictItems();
+}
+function renderDistrictItems(){
+ const key=placeNameKey($('village').value),places=districtPlaces();
+ const visible=key?places.filter(p=>placeNameKey(p.name)===key||placeNameKey(p.parentVillage)===key):places;
+ itemList(visible,'KÖY / MAHALLE / KÖY ALTI',p=>p.name,focusPlace,hasRecord);
 }
 function appendKnownArchivePoints(points, district, province){
  const list=points.slice();
  const keys=new Set(points.map(p=>pointKey(p.il,p.ilce,p.name)));
- const prefix=norm(province)+'|'+norm(district.name)+'|';
- for(const [key, rows] of records){
-  if(!key.startsWith(prefix)||keys.has(key))continue;
+ const region=districtRecords.get(districtKey(province,district.name));
+ for(const [key, rows] of region||[]){
+  if(keys.has(key))continue;
   const rec=rows.find(r=>Array.isArray(r.konum)&&r.konum.length===2&&r.konum.every(Number.isFinite));
   if(!rec)continue;
   const [lng,lat]=rec.konum;
@@ -189,20 +265,22 @@ function appendKnownArchivePoints(points, district, province){
  return list;
 }
 function hasRecord(p){return records.has(pointKey(p.il,p.ilce,p.name))}
-async function loadDistrictPoints(d){
- if(loadedPoints.has(d.id)){
-  if(loadedArchive){
-   const province=provinces.find(p=>provinceID(p)===d.parent_id);
-   loadedPoints.set(d.id,appendKnownArchivePoints(loadedPoints.get(d.id),d,province?.properties.name))
-  }
-  return loadedPoints.get(d.id)
- }
- const gj=await json('./geo/points/'+encodeURIComponent(d.id)+'.geojson');
- const province=provinces.find(p=>provinceID(p)===d.parent_id);
- const points=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates)).map(f=>({name:f.properties.name,il:province?.properties.name||'',ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],kind:f.properties.kind||'',parentVillage:f.properties.parent_village||f.properties.village||f.properties.koy_adi||f.properties.parent_name||'',feature:f}));
- const arr=loadedArchive?appendKnownArchivePoints(points,d,province?.properties.name):points;
- loadedPoints.set(d.id,arr);
- return arr
+function loadDistrictPoints(d){
+ if(loadedPoints.has(d.id))return Promise.resolve(loadedPoints.get(d.id));
+ if(pointRequests.has(d.id))return pointRequests.get(d.id);
+ const request=(async()=>{
+  const gj=await json('./geo/points/'+encodeURIComponent(d.id)+'.geojson');
+  const province=provinces.find(p=>provinceID(p)===d.parent_id)?.properties.name||'';
+  const points=(gj.features||[]).filter(f=>f.geometry?.type==='Point'&&f.geometry.coordinates?.length===2&&f.geometry.coordinates.every(Number.isFinite)).map(f=>({
+   name:f.properties.name,il:province,ilce:d.name,lat:f.geometry.coordinates[1],lng:f.geometry.coordinates[0],
+   kind:f.properties.kind||'',parentVillage:f.properties.parent_village||f.properties.village||f.properties.koy_adi||f.properties.parent_name||'',feature:f
+  }));
+  const complete=loadedArchive?appendKnownArchivePoints(points,d,province):points;
+  loadedPoints.set(d.id,complete);
+  return complete;
+ })().finally(()=>pointRequests.delete(d.id));
+ pointRequests.set(d.id,request);
+ return request;
 }
 function renderPlaces(force=false){
  if(level!=='district')return;
@@ -211,7 +289,8 @@ function renderPlaces(force=false){
  if(!force&&signature===lastRenderSignature)return;
  lastRenderSignature=signature;placeLayer.clearLayers();labels.clearLayers();
  const capacity=zoom<9?220:zoom<12?450:650;
- outer:for(const rows of loadedPoints.values())for(const p of rows){if(visible.length>=capacity)break outer;if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
+ const batches=[currentPoints,...loadedPoints.values()];
+ outer:for(const rows of batches)for(const p of rows){if(visible.length>=capacity)break outer;if(!bounds.contains([p.lat,p.lng]))continue;const k=pointKey(p.il,p.ilce,p.name);if(!seen.has(k)){seen.add(k);visible.push(p)}}
  // Circles use Canvas, never thousands of HTML elements.
  for(const p of visible){
   const marked=hasRecord(p);
@@ -219,18 +298,24 @@ function renderPlaces(force=false){
   d.on('click',e=>{L.DomEvent.stopPropagation(e.originalEvent);selectPlace(p)})
  }
  if(zoom>=11){
-  const max=zoom>=12?55:30;for(const p of visible.slice(0,max)){
-   L.marker([p.lat,p.lng],{interactive:false,keyboard:false,icon:L.divIcon({className:'',html:'<span style="background:#fffffff2;border:1px solid '+(hasRecord(p)?'#d65353':'#d3dcd2')+';border-radius:3px;font-size:11px;font-weight:650;padding:2px 4px;white-space:nowrap;color:#243b2b;position:relative;top:-18px;left:7px">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(labels)
+  const max=zoom>=12?55:30;
+  const labeled=[...visible.filter(hasRecord),...visible.filter(p=>!hasRecord(p))];
+  for(const p of labeled.slice(0,max)){
+   L.marker([p.lat,p.lng],{interactive:true,keyboard:false,bubblingMouseEvents:false,icon:L.divIcon({className:'',html:'<span style="background:#fffffff2;border:1px solid '+(hasRecord(p)?'#d65353':'#d3dcd2')+';border-radius:3px;font-size:11px;font-weight:650;padding:2px 4px;white-space:nowrap;color:#243b2b;position:relative;top:-18px;left:7px">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(labels)
   }
  }
 }
 function selectPlace(p){
  selectedPlace=p;
- const k=pointKey(p.il,p.ilce,p.name);
  $('detailTitle').textContent=p.name;$('detailBody').innerHTML='<div class="tiny">'+esc(p.il)+' / '+esc(p.ilce)+'</div><p>ARŞİV KAYDI KONTROL EDİLİYOR…</p>';$('detail').classList.add('open');
  showDetails(p);
  // Only click loads the 50km neighborhood. Panning never fetches new files.
  if(p.feature)void showRadius(p);
+ else {
+  ++radiusRequest;radiusLayer.clearLayers();
+  if(regionRing){map.removeLayer(regionRing);regionRing=null}
+  status(p.name+' · HARİTA KONUMU BULUNAMADI');
+ }
  mobileClose()
 }
 function showDetails(p){
@@ -263,7 +348,7 @@ function showDetails(p){
   }
   const citations=list.flatMap(r=>r.sulale_kayitlari||[]);
   if(citations.length){
-   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
+   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
   }
   const citedNames=new Set(citations.map(f=>norm(f.ad)));
   const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
@@ -274,12 +359,17 @@ function showDetails(p){
 function insertArchive(rec){
  if(!rec||!rec.il||!rec.ilce||!rec.koy)return;
  const k=pointKey(rec.il,rec.ilce,rec.koy);
- if(!records.has(k))records.set(k,[]);
- records.get(k).push(rec)
+ if(!records.has(k)){
+  const rows=[],region=districtKey(rec.il,rec.ilce);
+  records.set(k,rows);
+  if(!districtRecords.has(region))districtRecords.set(region,new Map());
+  districtRecords.get(region).set(k,rows);
+ }
+ records.get(k).push(rec);
 }
 async function ingestNDJSON(path){
  try{
-  const response=await fetch(path,{cache:'force-cache'});if(!response.ok)return;
+  const response=await fetch(path,{signal:AbortSignal.timeout(18000)});if(!response.ok)throw Error(path+' HTTP '+response.status);
   const raw=await response.text(),lines=raw.split(/\r?\n/);
   for(let i=0;i<lines.length;i+=250){
    for(const line of lines.slice(i,i+250)){if(!line||line.indexOf('"_summary"')>=0)continue;try{insertArchive(JSON.parse(line))}catch(e){}}
@@ -290,23 +380,37 @@ async function ingestNDJSON(path){
 async function loadProvinceFamilies(province){
  const code=provinceID(province).slice(-2);if(!code)return;
  if(provinceFamilyPromises.has(code))return provinceFamilyPromises.get(code);
- const task=(async()=>{try{const data=await json('./catalog/il_koy_sulale/'+code+'.json');const il=province.properties.name;
- for(const [districtName,villages] of Object.entries(data.districts||{}))for(const row of Object.values(villages||{})){
-  if(!row||!row.name)continue;
-  const district=districts.find(d=>d.parent_id===provinceID(province)&&norm(d.name)===norm(districtName));if(!district)continue;
-  const key=pointKey(il,district.name,row.name);
-  if(!records.has(key))records.set(key,[]);
-  const list=records.get(key);if(list.some(r=>r._provinceFamilyIndex))continue;
-  list.push({il,ilce:district.name,koy:row.name,sulaleler:row.families||[],defterler:(row.defterler||[]).filter(Boolean).map(defter=>({defter})),_provinceFamilyIndex:true});
- }
- ++archiveVersion;if(chosenProvince&&provinceID(chosenProvince)===provinceID(province)&&chosenDistrict){populateVillageSelectors();renderDistrictItems();renderPlaces(true);if(selectedPlace)showDetails(selectedPlace)}
- }catch(e){console.warn('İl sülale dizini okunamadı',code,e)}})();provinceFamilyPromises.set(code,task);return task
+ const task=(async()=>{
+  const manifest=await cachedJSON('./catalog/il_koy_sulale/manifest.json',addressRequests);
+  if(!manifest.provinces?.[code])return;
+  const data=await json('./catalog/il_koy_sulale/'+code+'.json'),il=province.properties.name;
+  const localDistricts=new Map(neighborsForProvince(province).map(d=>[districtKey(il,d.name),d]));
+  for(const [districtName,villages] of Object.entries(data.districts||{})){
+   const district=localDistricts.get(districtKey(il,districtName));
+   if(!district)continue;
+   for(const row of Object.values(villages||{})){
+    if(!row?.name)continue;
+    insertArchive({il,ilce:district.name,koy:row.name,sulaleler:row.families||[],
+      defterler:(row.defterler||[]).filter(Boolean).map(defter=>({defter}))});
+   }
+  }
+  ++archiveVersion;
+  if(chosenProvince===province&&chosenDistrict){
+   populateVillageSelectors();renderDistrictItems();renderPlaces(true);
+   if(selectedPlace)showDetails(selectedPlace);
+  }
+ })().catch(error=>{provinceFamilyPromises.delete(code);throw error});
+ provinceFamilyPromises.set(code,task);
+ return task;
 }
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./catalog/bafra_komsupinar_kole_koyu_eslesmesi_20261122.ndjson','./catalog/alacam_full_1834_1837.ndjson','./catalog/bafra_1834_nfs972_19mayis_duzkoy_kuskayasi_sulaleler_20261120.ndjson','./catalog/bafra_1834_nfs972_19mayis_engiz_ciftligi_inceleme_20261120.ndjson','./catalog/bafra_1834_nfs972_guncel_tekil_koyler_20261120.ndjson','./catalog/bafra_1834_nfs972_tarihi_sulale_dizini_a_t_20261120.ndjson','./catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson','./catalog/bafra_972_49yerlesim_378hane_sulaleler_20261112.ndjson','./catalog/bafra_972_mahalle_tercume_20261112.ndjson','./catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson','./catalog/cankiri_1833_3mahalle_sulaleler_20261112.ndjson','./catalog/cankiri_1833_6mahalle_sulaleler_20261112.ndjson','./catalog/cankiri_1833_cetince_sulaleler_20261112.ndjson','./catalog/cankiri_1833_seyh_osman_sulaleler_20261112.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson','./catalog/carsamba_975_1000_seyfelu_hacimaslu_manalu_20261113.ndjson','./catalog/carsamba_975_cibacalu_kaydan_allu_20261113.ndjson','./catalog/carsamba_975_haci_danismanlu_cacil_ustacalu_20261113.ndjson','./catalog/carsamba_975_sadiklu_gobelye_bafracalu_20261113.ndjson','./catalog/carsamba_975_temurlu_kumarli_badillu_20261113.ndjson','./catalog/carsamba_aciklu_975_sulale_20261113.ndjson','./catalog/carsamba_akkuzulu_975_sulale_20261113.ndjson','./catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson','./catalog/carsamba_asagi_alibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_donurlu_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_karaagac_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_taflu_975_sulale_20261113.ndjson','./catalog/carsamba_canlu_975_sulale_20261113.ndjson','./catalog/carsamba_cerciler_975_sulale_20261113.ndjson','./catalog/carsamba_demircilu_975_sulale_20261113.ndjson','./catalog/carsamba_fernek_975_sulale_20261113.ndjson','./catalog/carsamba_hacibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_hasabahce_975_sulale_20261112.ndjson','./catalog/carsamba_helvacali_975_sulale_20261113.ndjson','./catalog/carsamba_helvacali_mahmutlu_975_20261112.ndjson','./catalog/carsamba_kabalu_975_sulale_20261113.ndjson','./catalog/carsamba_karaagac_sugucalusu_975_sulale_20261113.ndjson','./catalog/carsamba_kurtun_975_sulale_20261113.ndjson','./catalog/carsamba_kusculu_975_sulale_20261113.ndjson','./catalog/carsamba_kusdoganlu_975_sulale_20261113.ndjson','./catalog/carsamba_mahmutlu_975_sulale_20261113.ndjson','./catalog/carsamba_namazlu_975_sulale_20261113.ndjson','./catalog/carsamba_omerli_975_sulale_20261113.ndjson','./catalog/carsamba_orta_mahalle_975_tercume_20261112.ndjson','./catalog/carsamba_seyh_habil_975_sulale_20261113.ndjson','./catalog/carsamba_sigirtmac_975_sulale_20261113.ndjson','./catalog/carsamba_tatarlu_975_sulale_20261113.ndjson','./catalog/carsamba_tepecik_975_sulale_20261113.ndjson','./catalog/carsamba_tepecik_yukari_donurlu_975_20261112.ndjson','./catalog/carsamba_uzunlu_975_sulale_20261113.ndjson','./catalog/carsamba_yamanlu_975_sulale_20261113.ndjson','./catalog/carsamba_yaycilar_975_sulale_20261113.ndjson','./catalog/carsamba_yaycilar_asagi_donurlu_975_20261112.ndjson','./catalog/carsamba_yukari_alibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_donurlu_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_karaagac_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_taflu_975_sulale_20261113.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v2.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v3.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v4.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v5.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v6.ndjson','./catalog/cerkes_1841_1842_nfs1850_tum_yerlesimler_20261119.ndjson','./catalog/cerkes_dikenli_1841_nfs1850_sulaleler_20261119.ndjson','./catalog/corum_1924_1917_full.ndjson','./catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson','./catalog/corum_osmancik_kuzhayat_nfs2257_1846_20261113.ndjson','./catalog/eflani_trasli_3513_1845_20261113.ndjson','./catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson','./catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson','./catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson','./catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson','./catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson','./catalog/havza_2210_tercume_dogrulanmis_20261112.ndjson','./catalog/havza_48yerlesim_494sulale_20261112.ndjson','./catalog/karabuk_nfs_full.ndjson','./catalog/karahalli_1834_kutuphane_sulaleleri.ndjson','./catalog/kars_zarusad_verified.ndjson','./catalog/kastamonu_akkaya_1845_dogrulanmis_koy_kartlari.ndjson','./catalog/kastamonu_akkaya_akcatas_4055_1846_karye_sulaleleri.ndjson','./catalog/kayseri_1844_1845_nfs1987_2022_2023_2025_2026_3636_fihrist_20261119.ndjson','./catalog/kayseri_kayse_xlsx_13_fihrist_20261119.ndjson','./catalog/kaza_sulale_verified_20261111.ndjson','./catalog/kesap_1131_ek1_sulaleler_20261112.ndjson','./catalog/kizilkoca_2091_2093_eslesmeyenler_20261121.ndjson','./catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson','./catalog/korgun_1845_ildizim_dikenli_sulale_ekleri.ndjson','./catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson','./catalog/ladik_2234_41koy_sulaleler_20261112.ndjson','./catalog/ladik_2234_6mahalle_sulaleler_20261112.ndjson','./catalog/mamali_kizilkoca_2092_verified_20261112.ndjson','./catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson','./catalog/merzifon_1846_nfs2243_48_mahalle_karye_20261119.ndjson','./catalog/of_1834_nfs1139_1140_sulale_koy_ilce_20261119.ndjson','./catalog/rumeli_nfs.ndjson','./catalog/sabanozu_1845_25_yerlesim_nfs_fihrist.ndjson','./catalog/sabanozu_1845_guncel_koy_tum_dogrulanmis_sulaleler.ndjson','./catalog/sabanozu_1845_nfs3562_dogrulanmis_ek_kayitlar.ndjson','./catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson','./catalog/samsun_1834_excel_toplu_01_20261119.ndjson','./catalog/samsun_1834_excel_toplu_02_20261119.ndjson','./catalog/samsun_1834_excel_toplu_03_20261119.ndjson','./catalog/samsun_1834_excel_toplu_04_20261119.ndjson','./catalog/samsun_1834_excel_toplu_05_20261119.ndjson','./catalog/samsun_1834_excel_toplu_06_20261119.ndjson','./catalog/samsun_1834_excel_toplu_07_20261119.ndjson','./catalog/samsun_1834_excel_toplu_08_20261119.ndjson','./catalog/saz_1956_1845_pdf_sulale_dizini.ndjson','./catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson','./catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson','./catalog/saz_hacihamza_oguz_1845.ndjson','./catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson','./catalog/seydiler_uyuk_cakirogullari_20261122.ndjson','./catalog/sinop_ayancik_terze_cukur_nfs915_sulaleler_20261113.ndjson','./catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson','./catalog/sinop_sulale_kaynak_satirlari.ndjson','./catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson','./catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson','./catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson','./catalog/sivas_27_teyit_bekleyen_sulale_20261121.ndjson','./catalog/sivas_68_ek_sulale_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_1_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_2_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson','./catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson','./catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson','./catalog/sohbet_dogrulanmis_ekler_20261118.ndjson','./catalog/sulale_01.ndjson','./catalog/sulale_02.ndjson','./catalog/sulale_03.ndjson','./catalog/sulale_04.ndjson','./catalog/sulale_05.ndjson','./catalog/sulale_06.ndjson','./catalog/sulale_koy_ortak.ndjson','./catalog/sulale_koy_ortak_parca_2.ndjson','./catalog/sulale_koy_ortak_parca_3.ndjson','./catalog/sulale_koy_ortak_parca_4.ndjson','./catalog/sulale_koy_ortak_parca_5.ndjson','./catalog/sulale_koy_ortak_parca_6.ndjson','./catalog/sulale_koy_ortak_parca_7.ndjson','./catalog/sulale_koy_ortak_parca_8.ndjson','./catalog/sulale_overlay_kontrol.ndjson','./catalog/sulale_tum_arsiv.ndjson','./catalog/sulale_unresolved_verified_import.ndjson','./catalog/sulale_verified_v2_compact.ndjson','./catalog/sulale_yer_eslesmeleri_20261118.ndjson','./catalog/tercume_ayrintilari_20261112.ndjson','./catalog/tez_kitap_ogullari_20261120_parca_1.ndjson','./catalog/tez_kitap_ogullari_20261120_parca_2.ndjson','./catalog/tokat_erbaa_catalan_1838_1843_nfs_20261118.ndjson','./catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson','./catalog/uguz_1891_1845_8koy_fihrist.ndjson','./catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson','./catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson','./catalog/uguz_1891_kisla_pelitcik_20261118.ndjson','./catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson','./catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson','./catalog/vezirkopru_karkucak_1845.ndjson','./catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson','./catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson','./catalog/yozgat_sorgun_2101_2105_lakaplar_20261122.ndjson','./catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson','./catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','./catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
- archivePromise=(async()=>{for(let i=0;i<sources.length;i+=8)await Promise.all(sources.slice(i,i+8).map(ingestNDJSON));loadedArchive=true;++archiveVersion;
+ const sources=['./catalog/bafra_komsupinar_kole_koyu_eslesmesi_20261122.ndjson','./catalog/alacam_full_1834_1837.ndjson','./catalog/bafra_1834_nfs972_19mayis_duzkoy_kuskayasi_sulaleler_20261120.ndjson','./catalog/bafra_1834_nfs972_19mayis_engiz_ciftligi_inceleme_20261120.ndjson','./catalog/bafra_1834_nfs972_guncel_tekil_koyler_20261120.ndjson','./catalog/bafra_1834_nfs972_tarihi_sulale_dizini_a_t_20261120.ndjson','./catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson','./catalog/bafra_972_49yerlesim_378hane_sulaleler_20261112.ndjson','./catalog/bafra_972_mahalle_tercume_20261112.ndjson','./catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson','./catalog/cankiri_1833_3mahalle_sulaleler_20261112.ndjson','./catalog/cankiri_1833_6mahalle_sulaleler_20261112.ndjson','./catalog/cankiri_1833_cetince_sulaleler_20261112.ndjson','./catalog/cankiri_1833_seyh_osman_sulaleler_20261112.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson','./catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson','./catalog/carsamba_975_1000_seyfelu_hacimaslu_manalu_20261113.ndjson','./catalog/carsamba_975_cibacalu_kaydan_allu_20261113.ndjson','./catalog/carsamba_975_haci_danismanlu_cacil_ustacalu_20261113.ndjson','./catalog/carsamba_975_sadiklu_gobelye_bafracalu_20261113.ndjson','./catalog/carsamba_975_temurlu_kumarli_badillu_20261113.ndjson','./catalog/carsamba_aciklu_975_sulale_20261113.ndjson','./catalog/carsamba_akkuzulu_975_sulale_20261113.ndjson','./catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson','./catalog/carsamba_asagi_alibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_donurlu_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_karaagac_975_sulale_20261113.ndjson','./catalog/carsamba_asagi_taflu_975_sulale_20261113.ndjson','./catalog/carsamba_canlu_975_sulale_20261113.ndjson','./catalog/carsamba_cerciler_975_sulale_20261113.ndjson','./catalog/carsamba_demircilu_975_sulale_20261113.ndjson','./catalog/carsamba_fernek_975_sulale_20261113.ndjson','./catalog/carsamba_hacibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_hasabahce_975_sulale_20261112.ndjson','./catalog/carsamba_helvacali_975_sulale_20261113.ndjson','./catalog/carsamba_helvacali_mahmutlu_975_20261112.ndjson','./catalog/carsamba_kabalu_975_sulale_20261113.ndjson','./catalog/carsamba_karaagac_sugucalusu_975_sulale_20261113.ndjson','./catalog/carsamba_kurtun_975_sulale_20261113.ndjson','./catalog/carsamba_kusculu_975_sulale_20261113.ndjson','./catalog/carsamba_kusdoganlu_975_sulale_20261113.ndjson','./catalog/carsamba_mahmutlu_975_sulale_20261113.ndjson','./catalog/carsamba_namazlu_975_sulale_20261113.ndjson','./catalog/carsamba_omerli_975_sulale_20261113.ndjson','./catalog/carsamba_orta_mahalle_975_tercume_20261112.ndjson','./catalog/carsamba_seyh_habil_975_sulale_20261113.ndjson','./catalog/carsamba_sigirtmac_975_sulale_20261113.ndjson','./catalog/carsamba_tatarlu_975_sulale_20261113.ndjson','./catalog/carsamba_tepecik_975_sulale_20261113.ndjson','./catalog/carsamba_tepecik_yukari_donurlu_975_20261112.ndjson','./catalog/carsamba_uzunlu_975_sulale_20261113.ndjson','./catalog/carsamba_yamanlu_975_sulale_20261113.ndjson','./catalog/carsamba_yaycilar_975_sulale_20261113.ndjson','./catalog/carsamba_yaycilar_asagi_donurlu_975_20261112.ndjson','./catalog/carsamba_yukari_alibeylu_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_donurlu_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_karaagac_975_sulale_20261113.ndjson','./catalog/carsamba_yukari_taflu_975_sulale_20261113.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v2.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v3.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v4.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v5.ndjson','./catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v6.ndjson','./catalog/cerkes_1841_1842_nfs1850_tum_yerlesimler_20261119.ndjson','./catalog/cerkes_dikenli_1841_nfs1850_sulaleler_20261119.ndjson','./catalog/corum_1924_1917_full.ndjson','./catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson','./catalog/corum_osmancik_kuzhayat_nfs2257_1846_20261113.ndjson','./catalog/eflani_trasli_3513_1845_20261113.ndjson','./catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson','./catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson','./catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson','./catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson','./catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson','./catalog/havza_2210_tercume_dogrulanmis_20261112.ndjson','./catalog/havza_48yerlesim_494sulale_20261112.ndjson','./catalog/karabuk_nfs_full.ndjson','./catalog/karahalli_1834_kutuphane_sulaleleri.ndjson','./catalog/kars_zarusad_verified.ndjson','./catalog/kastamonu_akkaya_1845_dogrulanmis_koy_kartlari.ndjson','./catalog/kastamonu_akkaya_akcatas_4055_1846_karye_sulaleleri.ndjson','./catalog/kayseri_1844_1845_nfs1987_2022_2023_2025_2026_3636_fihrist_20261119.ndjson','./catalog/kayseri_kayse_xlsx_13_fihrist_20261119.ndjson','./catalog/kaza_sulale_verified_20261111.ndjson','./catalog/kesap_1131_ek1_sulaleler_20261112.ndjson','./catalog/kizilkoca_2091_2093_eslesmeyenler_20261121.ndjson','./catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson','./catalog/korgun_1845_ildizim_dikenli_sulale_ekleri.ndjson','./catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson','./catalog/ladik_2234_41koy_sulaleler_20261112.ndjson','./catalog/ladik_2234_6mahalle_sulaleler_20261112.ndjson','./catalog/mamali_kizilkoca_2092_verified_20261112.ndjson','./catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson','./catalog/merzifon_1846_nfs2243_48_mahalle_karye_20261119.ndjson','./catalog/of_1834_nfs1139_1140_sulale_koy_ilce_20261119.ndjson','./catalog/rumeli_nfs.ndjson','./catalog/sabanozu_1845_25_yerlesim_nfs_fihrist.ndjson','./catalog/sabanozu_1845_guncel_koy_tum_dogrulanmis_sulaleler.ndjson','./catalog/sabanozu_1845_nfs3562_dogrulanmis_ek_kayitlar.ndjson','./catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson','./catalog/samsun_1834_excel_toplu_01_20261119.ndjson','./catalog/samsun_1834_excel_toplu_02_20261119.ndjson','./catalog/samsun_1834_excel_toplu_03_20261119.ndjson','./catalog/samsun_1834_excel_toplu_04_20261119.ndjson','./catalog/samsun_1834_excel_toplu_05_20261119.ndjson','./catalog/samsun_1834_excel_toplu_06_20261119.ndjson','./catalog/samsun_1834_excel_toplu_07_20261119.ndjson','./catalog/samsun_1834_excel_toplu_08_20261119.ndjson','./catalog/saz_1956_1845_pdf_sulale_dizini.ndjson','./catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson','./catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson','./catalog/saz_hacihamza_oguz_1845.ndjson','./catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson','./catalog/seydiler_uyuk_cakirogullari_20261122.ndjson','./catalog/sinop_ayancik_terze_cukur_nfs915_sulaleler_20261113.ndjson','./catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson','./catalog/sinop_sulale_kaynak_satirlari.ndjson','./catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson','./catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson','./catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson','./catalog/sivas_27_teyit_bekleyen_sulale_20261121.ndjson','./catalog/sivas_68_ek_sulale_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_1_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_2_20261121.ndjson','./catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson','./catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson','./catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson','./catalog/sohbet_dogrulanmis_ekler_20261118.ndjson','./catalog/sulale_01.ndjson','./catalog/sulale_02.ndjson','./catalog/sulale_03.ndjson','./catalog/sulale_04.ndjson','./catalog/sulale_05.ndjson','./catalog/sulale_06.ndjson','./catalog/sulale_koy_ortak.ndjson','./catalog/sulale_koy_ortak_parca_2.ndjson','./catalog/sulale_koy_ortak_parca_3.ndjson','./catalog/sulale_koy_ortak_parca_4.ndjson','./catalog/sulale_koy_ortak_parca_5.ndjson','./catalog/sulale_koy_ortak_parca_6.ndjson','./catalog/sulale_koy_ortak_parca_7.ndjson','./catalog/sulale_koy_ortak_parca_8.ndjson','./catalog/sulale_overlay_kontrol.ndjson','./catalog/sulale_unresolved_verified_import.ndjson','./catalog/sulale_verified_v2_compact.ndjson','./catalog/sulale_yer_eslesmeleri_20261118.ndjson','./catalog/tercume_ayrintilari_20261112.ndjson','./catalog/tez_kitap_ogullari_20261120_parca_1.ndjson','./catalog/tez_kitap_ogullari_20261120_parca_2.ndjson','./catalog/tokat_erbaa_catalan_1838_1843_nfs_20261118.ndjson','./catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson','./catalog/uguz_1891_1845_8koy_fihrist.ndjson','./catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson','./catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson','./catalog/uguz_1891_kisla_pelitcik_20261118.ndjson','./catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson','./catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson','./catalog/vezirkopru_karkucak_1845.ndjson','./catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson','./catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson','./catalog/yozgat_sorgun_2101_2105_lakaplar_20261122.ndjson','./catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson','./catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','./catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const uniqueSources=[...new Set(sources.map(path=>path.split('?')[0]))];
+ archivePromise=(async()=>{
+  for(let i=0;i<uniqueSources.length;i+=8)await Promise.all(uniqueSources.slice(i,i+8).map(ingestNDJSON));
+  loadedArchive=true;++archiveVersion;
   if(level==='district'&&chosenDistrict){
    currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
    loadedPoints.set(chosenDistrict.id,currentPoints);populateVillageSelectors();
@@ -322,7 +426,11 @@ async function showRadius(center){
  if(regionRing){map.removeLayer(regionRing);regionRing=null}
  radiusLayer.clearLayers();
  regionRing=L.circle(origin,{radius,color:'#b32929',weight:1,fill:false,interactive:false}).addTo(map);
- const nearby=Array.from(loadedPoints.values()).flat().filter(p=>map.distance(origin,[p.lat,p.lng])<=radius);
+ const nearby=new Map();
+ function addNearby(p){
+  if(map.distance(origin,[p.lat,p.lng])<=radius)nearby.set(pointKey(p.il,p.ilce,p.name),p);
+ }
+ for(const rows of loadedPoints.values())for(const p of rows)addNearby(p);
  // Exact 25km radius (50km diameter), including nearby districts across province borders.
  try{
   const geometry=await getDistrictGeometry();
@@ -338,7 +446,7 @@ async function showRadius(center){
    while(cursor<neighbors.length&&token===radiusRequest){
     const d=neighbors[cursor++];
     try{const ps=await loadDistrictPoints(d);if(token!==radiusRequest)return;
-     for(const p of ps)if(map.distance(origin,[p.lat,p.lng])<=radius)nearby.push(p)
+     for(const p of ps)addNearby(p)
     }catch(e){}
     await new Promise(done=>setTimeout(done,0))
    }
@@ -347,14 +455,14 @@ async function showRadius(center){
  }catch(e){console.warn('Yakın çevre sınır verisi yüklenemedi',e)}
  if(token!==radiusRequest)return;
  // Do not add 100s of duplicate HTML markers. Show nearby items only if coordinates are visible.
- const near=nearby.filter(p=>map.getBounds().pad(.1).contains([p.lat,p.lng]));
+ const near=[...nearby.values()].filter(p=>map.getBounds().pad(.1).contains([p.lat,p.lng]));
  const present=new Set(currentPoints.map(p=>pointKey(p.il,p.ilce,p.name)));
  for(const p of near.slice(0,150)){
   if(present.has(pointKey(p.il,p.ilce,p.name)))continue;
-  L.circleMarker([p.lat,p.lng],{radius:hasRecord(p)?5:3,color:hasRecord(p)?'#bc0f20':'#9da49a',fillColor:hasRecord(p)?'#ea212a':'#b9c0b6',fillOpacity:1,weight:1}).on('click',()=>selectPlace(p)).addTo(radiusLayer);
+  L.circleMarker([p.lat,p.lng],{renderer:pointCanvas,bubblingMouseEvents:false,radius:hasRecord(p)?5:3,color:hasRecord(p)?'#bc0f20':'#9da49a',fillColor:hasRecord(p)?'#ea212a':'#b9c0b6',fillOpacity:1,weight:1}).on('click',()=>selectPlace(p)).addTo(radiusLayer);
   L.marker([p.lat,p.lng],{interactive:true,keyboard:false,icon:L.divIcon({className:'',html:'<span style="position:relative;left:7px;top:-18px;background:#fffffff0;border:1px solid #d0d8d1;border-radius:3px;padding:2px 4px;white-space:nowrap;font-size:11px;font-weight:650">'+esc(p.name)+'</span>',iconSize:[0,0]})}).on('click',()=>selectPlace(p)).addTo(radiusLayer)
  }
- status('SEÇİLEN YER · 50 KM ÇAP · '+nearby.length+' YERLEŞİM');
+ status('SEÇİLEN YER · 50 KM ÇAP · '+nearby.size+' YERLEŞİM');
 }
 const districtBoundsCache=new WeakMap();
 function intersectsView(f,bounds){
@@ -384,19 +492,26 @@ async function loadViewportPoints(){
 map.on('moveend zoomend',()=>{clearTimeout(regionTimer);regionTimer=setTimeout(()=>{renderPlaces();void loadViewportPoints()},280)});
 map.on('click',()=>{if(level==='district'){$('detail').classList.remove('open')}});
 $('close').onclick=()=>{$('detail').classList.remove('open')};
-$('menu').onclick=()=>{$('side').classList.toggle('open')};
+$('menu').onclick=()=>setMobileMenu(!$('side').classList.contains('open'));
 $('search').oninput=()=>{if(level==='country')itemList(provinces,'İLLER',x=>x.properties.name,x=>openProvince(x.properties.name));
  else if(level==='province')itemList(neighborsForProvince(chosenProvince),'İLÇELER',x=>x.name,x=>openDistrict(x));
  else if(chosenDistrict)renderDistrictItems()};
 $('province').onchange=e=>e.target.value?openProvince(e.target.value):resetCountry();
 $('district').onchange=e=>{if(e.target.value)openDistrict(e.target.value);else if(chosenProvince)openProvince(chosenProvince.properties.name)};
-$('village').onchange=e=>{if(e.target.value)selectVillage(e.target.value);else{ $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';renderDistrictItems()}};
-$('hamlet').onchange=e=>{const p=currentPoints.find(p=>p.name===e.target.value&&(!p.parentVillage||norm(p.parentVillage)===norm($('village').value)));if(p){map.setView([p.lat,p.lng],13,{animate:false});selectPlace(p)}};
+$('village').onchange=e=>{
+ if(e.target.value)selectVillage(e.target.value);
+ else {updateHamlets(districtPlaces());renderDistrictItems()}
+};
+$('hamlet').onchange=e=>{
+ const parent=placeNameKey($('village').value);
+ const p=districtPlaces().find(p=>p.name===e.target.value&&placeNameKey(p.parentVillage)===parent);
+ if(p)focusPlace(p);
+};
 $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosenProvince.properties.name);else resetCountry()};
 (async function init(){
  try{
-  const [p,d,m]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json'),json('./geo/points-manifest.json')]);
-  provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);pointsManifest=m;provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
+  const [p,d]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json')]);
+  provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
   $('province').innerHTML='<option value="">İL SEÇİN</option>'+provinces.map(p=>'<option value="'+esc(p.properties.name)+'">'+esc(p.properties.name)+'</option>').join('');
   resetCountry()
  }catch(e){status('HARİTA VERİSİ AÇILAMADI: '+String(e.message||e))}

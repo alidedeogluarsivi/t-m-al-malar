@@ -6,11 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- ACCESS-REPAIR-2026-11-11T15:06Z · no rollback · force Pages refresh -->
 <title>Alidedeoğlu Arşivi | Osmanlı Nüfus, Temettuat ve Sülale Arşivi</title>
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
-<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-<link rel="dns-prefetch" href="//a.basemaps.cartocdn.com">
-<link rel="dns-prefetch" href="//server.arcgisonline.com">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--ink:#142d3f;--muted:#6d7880;--paper:#f7f3eb;--card:#fff;--line:#d8ccb9;--gold:#a7772a;--red:#8c3030;--green:#1f6a46;--green2:#dcefe4;--orange:#d39a36}
 *{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,select,input{font:inherit}
@@ -177,6 +172,13 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 a[href*="ogullari-harita-dizini.html"]{display:none!important}
 
 .familyStatPair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;color:inherit;text-decoration:none}.familyStatPair>div+div{border-left:1px solid #ffffff35;padding-left:12px}.familyStatPair b{font-size:22px;line-height:1.25;white-space:nowrap}.familyStatPair span{display:block;margin-top:5px;line-height:1.4;letter-spacing:.02em}@media(max-width:620px){.familyStatPair{grid-template-columns:1fr;gap:8px}.familyStatPair>div+div{border-left:0;border-top:1px solid #ffffff35;padding-left:0;padding-top:8px}}
+.sectionNav{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 14px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.sectionNav a{display:flex;align-items:center;min-height:42px;padding:7px 12px;color:#17384e;text-decoration:none;font-size:.84rem;font-weight:750;border-radius:8px}
+.sectionNav a:first-child{background:#17384e;color:#fff}
+.sectionNav a:hover{background:#eaeff1;color:#142d3f}
+:where(a,button,input,select):focus-visible{outline:3px solid #b57926;outline-offset:2px}
+.topBanner{margin-top:18px;border-radius:16px;max-height:390px}
+@media(max-width:520px){.sectionNav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.sectionNav a{font-size:.78rem;line-height:1.35}.hero h1{font-size:1.65rem}}
 </style>
 <style id="mobileMapControlFix">
 .archiveLayerToggle{display:block;width:100%;padding:7px 9px;border:0;background:#17384e;color:#fff;border-radius:5px;font:700 12px Arial;cursor:pointer}
@@ -200,14 +202,18 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 
 
 <div class="mapDock" id="mapDock"><button id="mapDockBtn" type="button">🗺 HARİTA</button></div>
-<section class="archiveStatsTop" aria-label="Arşiv istatistikleri"><div class="archiveStatsTopInner"><div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div><div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
-  <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
-  <div class="archiveRecent"><div><strong>SON ARANAN 10 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 10 SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div><small id="recentSearchStatus" style="display:block;margin-top:7px;font-size:11px;font-weight:800;color:#fff">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
-</div></div></section>
-<img class="topBanner" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli" decoding="async" fetchpriority="low">
+
 <div class="shell">
-<nav aria-label="Haftalık e-dergi" style="margin:12px 0;padding:17px;background:#101b2e;border:2px solid #ac8b51;border-radius:12px;text-align:center"><a href="./dergi.html" style="font-size:19px;font-weight:900;color:#fff;text-decoration:underline">ALİDEDEOĞLU ARŞİVİ · HAFTALIK E-DERGİ · OKU / PDF KAYDET</a><div style="color:#e9d7b8;font-size:13px;margin-top:5px">SAYI 01 · YOZGAT / ŞEFAATLİ · ÜCRETSİZ ERİŞİM</div></nav>
-<nav aria-label="Basın haberleri" style="margin:12px 0;padding:13px 17px;background:#fff;border:2px solid #172f3f;border-radius:12px;text-align:center"><a href="./haberler.html" style="font-size:17px;font-weight:900;color:#172f3f;text-decoration:underline">BASINDA BİZ · HABERLER · 7 KAYNAKLI YAYIN ↗</a></nav>
+<nav class="sectionNav" aria-label="Arşiv bölümleri">
+<a href="./sulale-sozlugu.html">İL / İLÇE / KÖY SÜLALE SÖZLÜĞÜ</a>
+<a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener noreferrer">SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a>
+<a href="./satis.html">E-SATIŞ PDF</a>
+<a href="./map.html">YERADLARI HARİTASI</a>
+<a href="./haritalar.html">HARİTALAR</a>
+<a href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener noreferrer">WHATSAPP · AİLE BAZINDA ARAŞTIRMA</a>
+<a href="./dergi.html">HAFTALIK E-DERGİ</a>
+<a href="./haberler.html">BASINDA BİZ</a>
+</nav>
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
 <h1>Osmanlı Nüfus, Temettuat ve Sülale Arşivi</h1>
@@ -227,9 +233,9 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
     <div class="finderMode">LİSTE ÖNCELİKLİ · HARİTA İSTEĞE BAĞLI</div>
   </div>
   <div class="finderGrid">
-    <input id="finderSearch" autocomplete="off" enterkeyhint="search" placeholder="Örn: İmamoğulları, Elvançelebi, NFS.d.2264, Sungurlu…">
-    <select id="finderProvince"><option value="">TÜM İLLER</option></select>
-    <select id="finderDistrict" disabled><option value="">TÜM İLÇELER</option></select>
+    <input id="finderSearch" aria-label="Yer, sülale veya defter ara" autocomplete="off" enterkeyhint="search" placeholder="Örn: İmamoğulları, Elvançelebi, NFS.d.2264, Sungurlu…">
+    <select id="finderProvince" aria-label="İl"><option value="">TÜM İLLER</option></select>
+    <select id="finderDistrict" aria-label="İlçe" disabled><option value="">TÜM İLÇELER</option></select>
     <button id="finderGo" class="finderGo" type="button">ARA</button>
   </div>
   <div class="finderTips">
@@ -239,18 +245,17 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
     <button type="button" data-find-tip="muhtar">MUHTAR</button>
     <button type="button" data-find-tip="imam">İMAM</button>
   </div>
-  <div id="finderResults" class="finderResults"><div id="finderSummary" class="finderSummary"></div><div id="finderList" class="finderList"></div></div>
+  <div id="finderResults" class="finderResults"><div id="finderSummary" class="finderSummary" role="status"></div><div id="finderList" class="finderList"></div></div>
   <div id="listFirstHint" class="mapModeNotice"><b>NASIL KULLANILIR?</b><br>Aradığınız kelimeyi yazın → sonuçları listede görün → kaydı açın. Yalnız konum gerekiyorsa “HARİTADA GÖSTER”e basın.</div>
 </section>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0"><a href="./sulale-sozlugu.html" style="display:inline-block;background:#111;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">🔎 İL / İLÇE / KÖY SÜLALE SÖZLÜĞÜ</a> <a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#6c4b2a;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">📘 SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a><a href="./satis.html" style="display:inline-block;background:#8c3030;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">E-SATIŞ PDF</a><a href="./map.html?v=20261121-temiz" style="display:inline-block;background:#1c5944;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">YERADLARI HARİTASI</a><a href="./haritalar.html" style="display:inline-block;background:#17384e;color:#fff;text-decoration:none;font-weight:900;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px #0002">HARİTALAR</a><a class="waNavBtn" href="https://wa.me/905534642319?text=Merhaba%2C%20Alidedeo%C4%9Flu%20Ar%C5%9Fivi%20%C3%BCzerinden%20aile%20baz%C4%B1nda%20Osmanl%C4%B1%20n%C3%BCfus%20ve%20temettuat%20kay%C4%B1tlar%C4%B1%20i%C3%A7in%20ara%C5%9Ft%C4%B1rma%20talebi%20olu%C5%9Fturmak%20istiyorum.%0A%0AK%C3%B6y%20%2F%20il%C3%A7e%3A%0AArad%C4%B1%C4%9F%C4%B1m%20s%C3%BClale%20%2F%20aile%3A%0ABildi%C4%9Fim%20en%20eski%20ki%C5%9Fi%3A" target="_blank" rel="noopener">WHATSAPP · AİLE BAZINDA ARAŞTIRMA</a></div>
 <div class="quickbar" style="margin-top:8px"><button id="qSearch" type="button">🔎 SÜLALE / ARŞİV ARA</button><button id="qMap" type="button">🗺 HARİTAYI AÇ</button><button id="qTop" type="button">↑ BAŞA DÖN</button><span id="qStatus" class="qstatus">HAZIR</span></div><div class="searchbar"><b>Arşivde ara</b><input id="search" autocomplete="off" enterkeyhint="search" aria-label="Arşiv ve sülale araması" placeholder="Sülale, köy, hane veya defter no yazın…"><button id="searchBtn" class="searchBtn" type="button">ARA</button><small>İl · ilçe · köy · hane ve Türkiye dağılımı.</small></div>
 
 <div class="workbench mapClosed" id="workbench">
 <aside class="sidebar">
 <div class="sidehead"><div class="eyebrow">KOLAY BULUCU</div><h2>İl → İlçe → Köy</h2><p>Seçim kutuları harita geometrisinden bağımsız çalışır. Harita sınırı varsa aynı anda görüntülenir.</p></div>
 <div class="sidebody">
-<div class="mapModeNotice"><b>HARİTA VE KÖY LİSTESİ BİRLİKTE AÇIK</b><br>İl, ilçe ve köy seçebilir veya harita üzerinden yakınlaşabilirsiniz.</div>
+
 <div class="step">1. İL SEÇ &nbsp;→&nbsp; 2. İLÇE SEÇ &nbsp;→&nbsp; 3. KÖY / MAHALLE SEÇ</div>
 <div class="stickyLocationSearch" aria-label="Sabit yerleşim sorgulama"><div class="stickyLocationTitle">SABİT YERLEŞİM SORGULAMA · İL / İLÇE / KÖY / KÖY ALTI</div><div class="stickyLocationFields"><div class="field"><label>İL</label><select id="provinceSelect"><option value="">İL SEÇİN</option></select></div>
 <div class="field"><label>İLÇE</label><select id="districtSelect" disabled><option value="">ÖNCE İL SEÇİN</option></select></div>
@@ -260,7 +265,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </div>
 </aside>
 
-<section class="mapcard mapDormant" id="mapCard">
+<section class="mapcard mapDormant" id="mapCard" aria-label="Arşiv çalışma haritası">
 <div class="maptop"><div id="crumb" class="crumb">TÜRKİYE</div><div id="status" class="mapstatus">İLİN ÜZERİNE TIKLAYIN</div></div>
 <div class="histTools"><button id="period1830Btn" data-period="nfs" type="button">1830–1850 · NÜFUS DEFTERLERİ</button><button id="period1890Btn" data-period="1890" type="button">1890 · OSMANLI İDARÎ</button><button id="modernLayerBtn" data-period="modern" class="active" type="button">GÜNÜMÜZ</button></div><div id="histInfo" class="histInfo"></div><div id="histPeriodNote" class="histPeriodNote">GÜNÜMÜZ İL · İLÇE · KÖY SINIRLARI</div>
 <div id="baseMap" class="baseMap" aria-label="Harita altlığı"></div><div id="mapZoomHint" class="mapZoomHint">YAKLAŞTIKÇA YER ADLARI AÇILIR</div><div id="mapInfoCard" class="mapInfoCard"><button id="mapInfoClose" type="button">×</button><div id="mapInfoTitle" class="mapInfoTitle">TÜRKİYE</div><div id="mapInfoBody" class="mapInfoBody">HARİTADA BİR İLE TIKLAYIN.</div></div><svg id="mapSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" aria-label="Türkiye arşiv haritası" style="display:none"></svg>
@@ -269,6 +274,11 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </section>
 </div>
 
+<section class="archiveStatsTop" aria-label="Arşiv istatistikleri"><div class="archiveStatsTopInner"><div class="visitorHero" aria-label="Toplam ziyaret sayısı"><span>TOPLAM ZİYARET</span><b id="entryStat">—</b></div><div class="archiveLiveStats" aria-label="Ziyaretçi ve arama istatistikleri">
+  <div class="archiveLiveCounters"><span>BUGÜNKÜ ZİYARET <b id="dailyVisitStat">—</b></span></div>
+  <div class="archiveRecent"><div><strong>SON ARANAN 10 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 10 SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div><small id="recentSearchStatus" style="display:block;margin-top:7px;font-size:11px;font-weight:800;color:#fff">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
+</div></div></section>
+<img class="topBanner" loading="lazy" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli" decoding="async" fetchpriority="low">
 <section id="adminHistory" class="adminHistory"><h2 id="adminTitle">OSMANLI İDARÎ GEÇMİŞİ</h2><p id="adminDesc"></p><div id="adminGrid" class="adminGrid"></div><div class="adminSource">KAYNAK: DEVLET ARŞİVLERİ GENEL MÜDÜRLÜĞÜ · OSMANLI YER ADLARI (2017)</div></section><section class="preview"><h2 id="previewTitle">Arşivden Ön İzleme</h2><p id="previewDesc">İl veya ilçe seçtiğinizde o bölgedeki köyler ve kayıtlı sülale adları burada görünür.</p><div id="previewGrid" class="previewgrid"></div></section>
 </div>
 
@@ -276,14 +286,12 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
 <script src="./family-totals.js?v=20261121-dual-counter"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST_LOCAL='./districts-local.json';
 const SETTLEMENTS='./settlements-local.json';
 const LOCAL_SOURCES='./local_sources.json?v=20261107-localhistory';
-const ARCH=['catalog/bafra_komsupinar_kole_koyu_eslesmesi_20261122.ndjson','catalog/bafra_1834_nfs972_tarihi_sulale_dizini_a_t_20261120.ndjson','catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v2.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v3.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v4.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v5.ndjson','catalog/cerkes_1841_1842_nfs1850_tum_yerlesimler_20261119.ndjson','catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson','catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson','catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson','catalog/karahalli_1834_kutuphane_sulaleleri.ndjson','catalog/kayseri_1844_1845_nfs1987_2022_2023_2025_2026_3636_fihrist_20261119.ndjson','catalog/kizilkoca_2091_2093_eslesmeyenler_20261121.ndjson','catalog/korgun_1845_ildizim_dikenli_sulale_ekleri.ndjson','catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson','catalog/sabanozu_1845_nfs3562_dogrulanmis_ek_kayitlar.ndjson','catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson','catalog/saz_1956_1845_pdf_sulale_dizini.ndjson','catalog/seydiler_uyuk_cakirogullari_20261122.ndjson','catalog/sinop_sulale_kaynak_satirlari.ndjson','catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson','catalog/sivas_27_teyit_bekleyen_sulale_20261121.ndjson','catalog/sohbet_dogrulanmis_ekler_20261118.ndjson','catalog/sulale_01.ndjson','catalog/sulale_02.ndjson','catalog/sulale_03.ndjson','catalog/sulale_04.ndjson','catalog/sulale_05.ndjson','catalog/sulale_06.ndjson','catalog/sulale_overlay_kontrol.ndjson','catalog/sulale_tum_arsiv.ndjson','catalog/sulale_unresolved_verified_import.ndjson','catalog/sulale_yer_eslesmeleri_20261118.ndjson','catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson','catalog/yozgat_sorgun_2101_2105_lakaplar_20261122.ndjson','catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson','catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson?v=20261121-tasabad27','catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson?v=20261121-amasya273','catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson?v=20261121-kucukyuregil27','catalog/sivas_691_sulale_koy_parca_1_20261121.ndjson?v=20261121-sivas759','catalog/sivas_691_sulale_koy_parca_2_20261121.ndjson?v=20261121-sivas759','catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson?v=20261121-sivas759','catalog/sivas_68_ek_sulale_20261121.ndjson?v=20261121-sivas759','catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson?v=20261121-yeniuregir1','catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson?v=20261121-ek333hasan','catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson?v=20261121-sivas-aile','catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson?v=20261121-sivas156','catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson?v=20261120-usak-kutuphanesi','catalog/bafra_1834_nfs972_guncel_tekil_koyler_20261120.ndjson?v=20261120-bafra-22-provisional','catalog/bafra_1834_nfs972_19mayis_engiz_ciftligi_inceleme_20261120.ndjson?v=20261120-engiz-aday','catalog/bafra_1834_nfs972_19mayis_duzkoy_kuskayasi_sulaleler_20261120.ndjson?v=20261120-bafra19mayis','catalog/tez_kitap_ogullari_20261120_parca_1.ndjson?v=20261120-ogullari4498','catalog/tez_kitap_ogullari_20261120_parca_2.ndjson?v=20261120-ogullari4498','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v6.ndjson?v=20261119-cerkes-matched-v6',
+const ARCH=['catalog/bafra_komsupinar_kole_koyu_eslesmesi_20261122.ndjson','catalog/bafra_1834_nfs972_tarihi_sulale_dizini_a_t_20261120.ndjson','catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v2.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v3.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v4.ndjson','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v5.ndjson','catalog/cerkes_1841_1842_nfs1850_tum_yerlesimler_20261119.ndjson','catalog/corum_iskilip_sehrikurucay_1830_1845_20261121.ndjson','catalog/eldivan_1845_okunmus_5koy_sulale_20261118.ndjson','catalog/hacihamza_1845_pdf_sulale_dizini_ozet.ndjson','catalog/karahalli_1834_kutuphane_sulaleleri.ndjson','catalog/kayseri_1844_1845_nfs1987_2022_2023_2025_2026_3636_fihrist_20261119.ndjson','catalog/kizilkoca_2091_2093_eslesmeyenler_20261121.ndjson','catalog/korgun_1845_ildizim_dikenli_sulale_ekleri.ndjson','catalog/korgun_1845_kutuphane_sulaleleri_aktarilan.ndjson','catalog/sabanozu_1845_nfs3562_dogrulanmis_ek_kayitlar.ndjson','catalog/sabanozu_1895_1845_9yerlesim_hane_sulale_20261118.ndjson','catalog/saz_1956_1845_pdf_sulale_dizini.ndjson','catalog/seydiler_uyuk_cakirogullari_20261122.ndjson','catalog/sinop_sulale_kaynak_satirlari.ndjson','catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson','catalog/sivas_27_teyit_bekleyen_sulale_20261121.ndjson','catalog/sohbet_dogrulanmis_ekler_20261118.ndjson','catalog/sulale_01.ndjson','catalog/sulale_02.ndjson','catalog/sulale_03.ndjson','catalog/sulale_04.ndjson','catalog/sulale_05.ndjson','catalog/sulale_06.ndjson','catalog/sulale_overlay_kontrol.ndjson','catalog/sulale_unresolved_verified_import.ndjson','catalog/sulale_yer_eslesmeleri_20261118.ndjson','catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson','catalog/yozgat_sorgun_2101_2105_lakaplar_20261122.ndjson','catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson','catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson?v=20261121-tasabad27','catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson?v=20261121-amasya273','catalog/sivas_27_kabul_edilen_koy_sulaleleri_20261121.ndjson?v=20261121-kucukyuregil27','catalog/sivas_691_sulale_koy_parca_1_20261121.ndjson?v=20261121-sivas759','catalog/sivas_691_sulale_koy_parca_2_20261121.ndjson?v=20261121-sivas759','catalog/sivas_691_sulale_koy_parca_3_20261121.ndjson?v=20261121-sivas759','catalog/sivas_68_ek_sulale_20261121.ndjson?v=20261121-sivas759','catalog/bozuyuk_yeniuregir_imamogullari_nfs_1834_1843_20261121.ndjson?v=20261121-yeniuregir1','catalog/sivas_ek_koy_nufus_sulale_20261121.ndjson?v=20261121-ek333hasan','catalog/sivas_hazir_aile_tercumeleri_guncel_koy_20261121.ndjson?v=20261121-sivas-aile','catalog/sivas_1831_1844_nfs_tekil_guncel_ad_eslesmeleri_20261121.ndjson?v=20261121-sivas156','catalog/usak_1831_1846_kutuphane_guncel_ilce_koy_20261120.ndjson?v=20261120-usak-kutuphanesi','catalog/bafra_1834_nfs972_guncel_tekil_koyler_20261120.ndjson?v=20261120-bafra-22-provisional','catalog/bafra_1834_nfs972_19mayis_engiz_ciftligi_inceleme_20261120.ndjson?v=20261120-engiz-aday','catalog/bafra_1834_nfs972_19mayis_duzkoy_kuskayasi_sulaleler_20261120.ndjson?v=20261120-bafra19mayis','catalog/tez_kitap_ogullari_20261120_parca_1.ndjson?v=20261120-ogullari4498','catalog/tez_kitap_ogullari_20261120_parca_2.ndjson?v=20261120-ogullari4498','catalog/cerkes_1841_1842_nfs1850_guncel_koy_eslesmeli_20261119_v6.ndjson?v=20261119-cerkes-matched-v6',
     'catalog/cerkes_dikenli_1841_nfs1850_sulaleler_20261119.ndjson?v=20261119-cerkes1850',
     'catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson?v=20261119-carsamba1834-p1','catalog/carsamba_1834_tercume_122_karye_sulale_parca_2_20261119.ndjson?v=20261119-carsamba1834-p2','catalog/carsamba_1834_tercume_122_karye_sulale_parca_3_20261119.ndjson?v=20261119-carsamba1834-p3','catalog/samsun_1834_excel_toplu_01_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_02_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_03_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_04_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_05_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_06_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_07_20261119.ndjson?v=20261119-samsunimport','catalog/samsun_1834_excel_toplu_08_20261119.ndjson?v=20261119-samsunimport','catalog/uguz_1891_cevlik_46_hane_sulale_20261119.ndjson?v=20261122-kaza1845','catalog/kayseri_kayse_xlsx_13_fihrist_20261119.ndjson?v=20261119-kayse257','catalog/of_1834_nfs1139_1140_sulale_koy_ilce_20261119.ndjson?v=20261119-of1834-1','catalog/merzifon_1846_nfs2243_48_mahalle_karye_20261119.ndjson?v=20261119-merzifon-nfs2243','catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson?v=20261119-gelingiras1','catalog/mecitozu_nfs_2376_2262_fihrist_kargu_20261119.ndjson?v=20261119-mecitozu1','catalog/saz_oguz_hacihamza_1845_tum_koy_sulale_20261118.ndjson?v=20261122-kaza1845','catalog/hacihamza_1845_excel_44_eksik_sulale_20261118.ndjson?v=20261122-kaza1845','catalog/saz_1956_dereseku_tarihi_sulaleler_20261118.ndjson?v=20261122-kaza1845','catalog/uguz_1891_kisla_pelitcik_20261118.ndjson?v=20261122-kaza1845','catalog/saz_1956_sazdagi_cakirlar_20261118.ndjson?v=20261122-kaza1845','catalog/hacihamza_1845_seki_mandira_guney_20261118.ndjson?v=20261122-kaza1845','catalog/hacihamza_1845_obruk_sakizcayi_koy_alti_20261118.ndjson?v=20261122-kaza1845','catalog/sulale_koy_ortak.ndjson?v=20261118-allplaces103','catalog/sulale_koy_ortak_parca_2.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_3.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_4.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_5.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_6.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_7.ndjson?v=20261118-unified54','catalog/sulale_koy_ortak_parca_8.ndjson?v=20261118-unified54','catalog/tokat_erbaa_catalan_1838_1843_nfs_20261118.ndjson?v=20261118-catalan-nfs','catalog/uguz_1891_1845_8koy_fihrist.ndjson?v=20261122-kaza1845','catalog/kastamonu_akkaya_1845_dogrulanmis_koy_kartlari.ndjson?v=20261118-confirmed1','catalog/kastamonu_akkaya_akcatas_4055_1846_karye_sulaleleri.ndjson?v=20261118-akkaya1','catalog/sabanozu_1845_guncel_koy_tum_dogrulanmis_sulaleler.ndjson?v=20261114-sabanozu1','catalog/sabanozu_1845_25_yerlesim_nfs_fihrist.ndjson?v=20261114-sabanozu1','catalog/sinop_ayancik_terze_cukur_nfs915_sulaleler_20261113.ndjson?v=20261113-cukur1','archive_verified.ndjson?v=20261105-allfamilies','archive_1.ndjson?v=20261106-vanfix-1f89354','archive_2.ndjson?v=20261105-directmerge2','archive_3.ndjson?v=20261105-directmerge2','archive_4.ndjson?v=20261105-directmerge2','archive_5.ndjson?v=20261111-corumfix2','catalog/corum_1924_1917_full.ndjson?v=20261111-corum1','catalog/alacam_full_1834_1837.ndjson?v=20261107-alacam-tembel-review2','catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson?v=20261107-sinop1','catalog/karabuk_nfs_full.ndjson?v=20261108-karabuk3','catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson?v=20261108-carsamba2','catalog/vezirkopru_asaginarli_narlisaray_1848.ndjson?v=20261108-asaginarli1','catalog/rumeli_nfs.ndjson?v=20261109-rumeli1','catalog/kaza_sulale_verified_20261111.ndjson?v=20261111-kaza1','catalog/archive_library_verified_20261111.ndjson?v=20261111-library1','catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson?v=20261121-kizilkoca-2091-2093','catalog/saz_hacihamza_oguz_1845.ndjson?v=20261122-kaza1845','catalog/yerlesim_sulale_gorevli_verified_20261112.ndjson?v=20261112-v1','catalog/mamali_kizilkoca_2092_verified_20261112.ndjson?v=20261112-mamali1','catalog/toplu_tez_kaza_kaynaklari_20261112.ndjson?v=20261112-bulk1','catalog/tercume_ayrintilari_20261112.ndjson?v=20261112-tercume1','catalog/havza_2210_tercume_dogrulanmis_20261112.ndjson?v=20261112-havza1','catalog/bafra_972_mahalle_tercume_20261112.ndjson?v=20261112-bafra1','catalog/kesap_1131_ek1_sulaleler_20261112.ndjson?v=20261112-kesap1','catalog/ladik_2234_41koy_sulaleler_20261112.ndjson?v=20261112-ladik41','catalog/ladik_2234_6mahalle_sulaleler_20261112.ndjson?v=20261112-ladik6','catalog/cankiri_1833_cetince_sulaleler_20261112.ndjson?v=20261112-cetince1','catalog/cankiri_1833_3mahalle_sulaleler_20261112.ndjson?v=20261112-cankiri3','catalog/cankiri_1833_6mahalle_sulaleler_20261112.ndjson?v=20261112-cankiri6','catalog/cankiri_1833_seyh_osman_sulaleler_20261112.ndjson?v=20261112-seyhosman1','catalog/havza_48yerlesim_494sulale_20261112.ndjson?v=20261112-havza48','catalog/bafra_972_49yerlesim_378hane_sulaleler_20261112.ndjson?v=20261112-bafra49','catalog/carsamba_orta_mahalle_975_tercume_20261112.ndjson?v=20261112-carsambaorta1','catalog/carsamba_hasabahce_975_sulale_20261112.ndjson?v=20261112-hasabahce1','catalog/carsamba_helvacali_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_mahmutlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yaycilar_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_asagi_donurlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_tepecik_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yukari_donurlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yamanlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_hacibeylu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yukari_alibeylu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_asagi_alibeylu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_kusculu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_sigirtmac_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_kurtun_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_seyh_habil_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_fernek_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_akkuzulu_975_sulale_20261113.ndjson?v=20261113-2','catalog/carsamba_kabalu_975_sulale_20261113.ndjson?v=20261113-2','catalog/carsamba_canlu_975_sulale_20261113.ndjson?v=20261113-2','catalog/carsamba_demircilu_975_sulale_20261113.ndjson?v=20261113-2','catalog/carsamba_aciklu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yukari_taflu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_asagi_karaagac_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_omerli_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_kusdoganlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_yukari_karaagac_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_asagi_taflu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_uzunlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_karaagac_sugucalusu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_namazlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_cerciler_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_tatarlu_975_sulale_20261113.ndjson?v=20261113-1','catalog/carsamba_975_sadiklu_gobelye_bafracalu_20261113.ndjson?v=20261113-1','catalog/carsamba_975_cibacalu_kaydan_allu_20261113.ndjson?v=20261113-1','catalog/carsamba_975_temurlu_kumarli_badillu_20261113.ndjson?v=20261113-1','catalog/carsamba_975_1000_seyfelu_hacimaslu_manalu_20261113.ndjson?v=20261113-1','catalog/carsamba_975_haci_danismanlu_cacil_ustacalu_20261113.ndjson?v=20261113-1','catalog/carsamba_helvacali_mahmutlu_975_20261112.ndjson?v=20261112-helmah1','catalog/carsamba_yaycilar_asagi_donurlu_975_20261112.ndjson?v=20261112-yaydon1','catalog/carsamba_tepecik_yukari_donurlu_975_20261112.ndjson?v=20261112-tepyuk1','catalog/vezirkopru_karkucak_1845.ndjson?v=20261111-karkucak1','catalog/eflani_trasli_3513_1845_20261113.ndjson?v=20261113-trasli1','catalog/corum_osmancik_kuzhayat_nfs2257_1846_20261113.ndjson?v=20261113-kuzhayat1','catalog/vezirkopru_kiranalan_sentepe_2253_2257_20261114.ndjson?v=20261114-kiranalan-sentepe1'];
 const SALES='./sales_catalog.json?v=20261104-2200';
@@ -669,7 +677,24 @@ function districtMapInfo(il,ilce){
     (vs.length?'<div class="mapInfoTags">'+vs.slice(0,24).map(function(x){return'<span>'+esc(x)+'</span>'}).join('')+(vs.length>24?'<span>+'+(vs.length-24)+'</span>':'')+'</div>':'')+
     '<div class="mapInfoHint">HARİTADAKİ KÖY ETİKETİNE / SINIRINA TIKLAYIN → ARŞİV KARTINI AÇIN.</div>'
 }
-let mapActivated=false;
+let mapActivation=null;
+function loadMapAssets(){
+  const leaflet='https://unpkg.com/leaflet@1.9.4/dist/leaflet';
+  const styles=document.createElement('link');
+  styles.rel='stylesheet';
+  styles.href=leaflet+'.css';
+  document.head.append(styles);
+  function script(url){
+    return new Promise(function(resolve,reject){
+      const element=document.createElement('script');
+      element.src=url;
+      element.onload=resolve;
+      element.onerror=reject;
+      document.head.append(element);
+    })
+  }
+  return Promise.allSettled([script(leaflet+'.js'),script('https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js')]);
+}
 let mapBaseDataPromise=null;
 async function ensureMapBaseData(){
   if(provinceData&&provinceData.features&&provinceData.features.length)return;
@@ -691,17 +716,15 @@ async function activateMapUI(opts){
   if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
   if(mc)mc.classList.remove('mapDormant');
   if(dock)dock.classList.add('open');
-  if(!mapActivated){
-    mapActivated=true;
-    statusEl.textContent='HARİTA HAZIRLANIYOR · EN FAZLA 7 SANİYE BEKLEYİN';
-    await ensureMapBaseData();
-    initBaseMap();
-    showTurkey();
-    if(baseMap)setTimeout(function(){try{baseMap.invalidateSize(true)}catch(e){}},120);
-    setTimeout(function(){loadDistrictGeo().catch(function(e){console.warn('İlçe sınırları yüklenemedi',e)})},80);
-  }else if(baseMap){
-    setTimeout(function(){try{baseMap.invalidateSize()}catch(e){}},0)
+  if(!mapActivation){
+    statusEl.textContent='HARİTA HAZIRLANIYOR…';
+    mapActivation=Promise.all([ensureMapBaseData(),loadMapAssets()]).then(function(){
+      initBaseMap();
+      showTurkey();
+    });
   }
+  await mapActivation;
+  if(baseMap)baseMap.invalidateSize();
   if(opts.scroll!==false&&mc)mc.scrollIntoView({behavior:'smooth',block:'start'});
   return Promise.resolve()
 }
@@ -1785,7 +1808,7 @@ function renderDistrictGroups(groups){
   svg.setAttribute('viewBox','0 0 1000 620')
 }
 function fillProvinces(){const names=Object.keys(PROVINCE_MAP).sort(function(a,b){return a.localeCompare(b,'tr')});names.push('RUMELİ');pSel.innerHTML='<option value="">İL SEÇİN</option>'+names.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('')}
-function showTurkey(){level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
+function showTurkey(){++districtRequestSeq;level='turkey';selectedProvince=null;selectedDistrict=null;currentVillages=[];previewLimit=36;hideAdminHistory();const si=document.getElementById('sideInfo');if(si)si.innerHTML='<div class="sideInfoEmpty">HARİTADA BİR İLE TIKLAYIN → İLÇE → KÖY → ARŞİV BİLGİSİ.</div>';renderPreview();const hb=document.getElementById('histInfo');if(hb){hb.innerHTML='';hb.classList.remove('show')}crumb.textContent='TÜRKİYE';statusEl.textContent='YEŞİL İLLERDE OKUNMUŞ KÖY / MAHALLE KAYDI VAR';pSel.value='';dSel.disabled=true;dSel.innerHTML='<option value="">ÖNCE İL SEÇİN</option>';vSel.disabled=true;vSel.innerHTML='<option value="">ÖNCE İLÇE SEÇİN</option>';vList.innerHTML='<div class="empty">Türkiye haritasında yeşil görünen illerde okunmuş köy/mahalle kayıtları vardır. İl üzerindeki sayı, haritaya bağlı okunmuş yer sayısını gösterir.</div>';vCount.textContent='—';renderTurkeyOverview()}
 function rumeliDistricts(){
   const names=Array.from(new Set(archive.filter(function(r){return norm(r.il||'')===norm('RUMELİ')}).map(function(r){return r.ilce}).filter(Boolean)));
   return names.sort(function(a,b){return a.localeCompare(b,'tr')}).map(function(n){return{id:'RUMELI-'+norm(n),name:n,parent_id:'RUMELI'}})
@@ -2406,7 +2429,7 @@ function showRecord(name,r,ilce,il){
       const products=(sale.products||[]).filter(function(p){return p&&(p.tur||p.defter||p.yil)});
       const priced=products.filter(function(p){return Number(p.price_tl)>0});
       h+='<div class="section"><div class="saleBox"><h3>PDF E-SATIŞ</h3>'
-        +(sale.cover_url?'<img class="saleCover" src="'+esc(sale.cover_url)+'" alt="'+esc(name)+' PDF kapak önizlemesi">':'')
+        +(sale.cover_url?'<img class="saleCover" loading="lazy" decoding="async" src="'+esc(sale.cover_url)+'" alt="'+esc(name)+' PDF kapak önizlemesi">':'')
         +'<div class="saleLock">🔒 TAM TERCÜME PDF ÜCRETLİDİR.</div>'
         +'<div class="notice">PDF İÇERİĞİ ÜCRETSİZ AÇILMAZ. KAPAK MEVCUTSA YALNIZCA KAPAK ÖNİZLEMESİ GÖSTERİLİR.</div>'
         +(priced.length?priced.map(function(p){return'<div class="record"><b>'+esc([p.tur,p.yil].filter(Boolean).join(' · '))+'</b>'+(p.defter?'<br>DEFTER NO: '+esc(p.defter):'')+'<div class="salePrice">'+Number(p.price_tl).toLocaleString('tr-TR')+' TL</div>'+(p.price_formula?'<small>'+esc(p.price_formula)+'</small>':'')+'</div>'}).join(''):'<div class="record"><b>FİYAT SATIŞ DOSYASINA GÖRE HESAPLANACAKTIR.</b></div>')
@@ -2525,7 +2548,7 @@ async function loadArchiveCore(){
   try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
   const raw=[];
   // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
-  const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson?v=20261106'])));
+  const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson']).map(function(path){return path.split('?')[0]})));
   const archiveResults=new Array(archivePaths.length);
   let nextArchivePath=0;
   async function archiveWorker(){
@@ -3000,10 +3023,11 @@ function initFinder(){
     if(norm(il)===norm('RUMELİ')){
       fd.disabled=false;fd.innerHTML='<option value="">KAZALAR YÜKLENİYOR…</option>';
       loadArchive().then(function(){
+        if(fp.value!==il)return;
         const ds=rumeliDistricts().map(function(d){return d.name});
         fd.innerHTML='<option value="">TÜM KAZALAR</option>'+ds.map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
         finderLimit=24;runFinder()
-      }).catch(function(){fd.innerHTML='<option value="">RUMELİ KAZALARI YÜKLENEMEDİ</option>'});
+      }).catch(function(){if(fp.value===il)fd.innerHTML='<option value="">RUMELİ KAZALARI YÜKLENEMEDİ</option>'});
       return
     }
     const pid=PROVINCE_MAP[il];
@@ -3025,7 +3049,9 @@ function finderBlob(r){
   finderTextCache.set(r,value);
   return value
 }
+let finderRequest=0;
 async function runFinder(){
+  const request=++finderRequest;
   const input=document.getElementById('finderSearch'),fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict'),box=document.getElementById('finderResults'),list=document.getElementById('finderList'),sum=document.getElementById('finderSummary');
   if(!input||!box||!list||!sum)return;
   const q=input.value.trim(),nq=searchNorm(q),il=fp?fp.value:'',ilce=fd?fd.value:'';
@@ -3035,31 +3061,32 @@ async function runFinder(){
     sum.innerHTML='<span><b>ARŞİV YÜKLENİYOR…</b></span>';
     list.innerHTML='<div class="empty">Arama verileri hazırlanıyor.</div>';
     try{await loadArchive()}catch(e){
+      if(request!==finderRequest)return;
       console.error('Arama arşivi yüklenemedi',e);
       sum.innerHTML='<span><b>ARAMA VERİSİ YÜKLENEMEDİ</b></span>';
       list.innerHTML='<div class="empty">Arşiv dosyaları yanıt vermedi. Sayfayı yenilemeden tekrar ARA düğmesine basabilirsiniz.</div>';
       return
     }
   }
+  if(request!==finderRequest||q!==input.value.trim()||il!==(fp?.value||'')||ilce!==(fd?.value||''))return;
   let rows=archive.filter(function(r){
     if(il&&norm(canonicalProvince(r.il||''))!==norm(il))return false;
-    if(ilce&&norm(r.ilce||'')!==norm(ilce))return false;
+    if(ilce&&norm(r.ilce||'')!==norm(ilce)&&!(norm(il)===norm(ilce)&&norm(r.ilce)==='merkez'))return false;
     if(!nq)return !!(il||ilce);
     return finderBlob(r).includes(nq)
   });
-  rows.sort(function(a,b){
-    function rank(r){
-      if(!nq)return 0;
-      let s=0;
-      if(searchNorm(r.koy||'').includes(nq))s+=40;
-      if((r.sulaleler||[]).some(function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x).includes(nq)}))s+=60;
-      if((r.defterler||[]).some(function(x){return searchNorm(JSON.stringify(x)).includes(nq)}))s+=25;
-      if(searchNorm(r.ilce||'').includes(nq))s+=15;
-      if(searchNorm(r.il||'').includes(nq))s+=10;
-      return s
-    }
-    return rank(b)-rank(a)||(a.koy||'').localeCompare(b.koy||'','tr')
-  });
+  function rank(r){
+    if(!nq)return 0;
+    let s=0;
+    if(searchNorm(r.koy||'').includes(nq))s+=40;
+    if((r.sulaleler||[]).some(function(x){return searchNorm(typeof x==='object'?JSON.stringify(x):x).includes(nq)}))s+=60;
+    if((r.defterler||[]).some(function(x){return searchNorm(JSON.stringify(x)).includes(nq)}))s+=25;
+    if(searchNorm(r.ilce||'').includes(nq))s+=15;
+    if(searchNorm(r.il||'').includes(nq))s+=10;
+    return s
+  }
+  const ranking=new Map(rows.map(function(row){return [row,rank(row)]}));
+  rows.sort(function(a,b){return ranking.get(b)-ranking.get(a)||(a.koy||'').localeCompare(b.koy||'','tr')});
   const visible=rows.slice(0,finderLimit);
   sum.innerHTML='<span><b>'+rows.length.toLocaleString('tr-TR')+'</b> SONUÇ BULUNDU</span><span>'+esc([il,ilce].filter(Boolean).join(' / ')||'TÜRKİYE')+'</span>';
   if(!rows.length){
@@ -3152,7 +3179,13 @@ function renderSearch(q){
   panel.querySelectorAll('[data-s]').forEach(function(el){el.onclick=function(e){if(e&&e.target&&e.target.closest('.showOnMap'))return;const r=visible[Number(el.dataset.s)];panel.classList.remove('show');showRecord(r.koy,r,r.ilce,r.il)}});
   panel.querySelectorAll('[data-search-map]').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const r=visible[Number(btn.getAttribute('data-search-map'))];if(r)showRecordOnMap(r)}})
 }
-pSel.onchange=function(){if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=((provinceData&&provinceData.features)||[]).find(function(x){return norm(canonicalProvince((x.properties&&x.properties.name)||''))===norm(pSel.value)});if(f){selectProvinceFeature(f);return}const id=PROVINCE_MAP[pSel.value];if(id)selectProvinceByName(pSel.value,id)};
+let provinceSelection=0;
+pSel.onchange=async function(){
+ const request=++provinceSelection,requested=pSel.value;
+ await activateMapUI({scroll:false});
+ if(request!==provinceSelection)return;
+ pSel.value=requested;
+ if(!pSel.value){showTurkey();return}if(norm(pSel.value)===norm('RUMELİ')){selectRumeliProvince();return}const f=((provinceData&&provinceData.features)||[]).find(function(x){return norm(canonicalProvince((x.properties&&x.properties.name)||''))===norm(pSel.value)});if(f){selectProvinceFeature(f);return}const id=PROVINCE_MAP[pSel.value];if(id)selectProvinceByName(pSel.value,id)};
 dSel.onchange=function(){if(!dSel.value){selectedDistrict=null;vSel.disabled=true;vSel.innerHTML='<option value="">İLÇE SEÇEREK DARALTIN</option>';currentVillages=[];renderPreview();if(selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else selectProvinceByName(selectedProvince.name,selectedProvince.id)}return}if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ')){const x=rumeliDistricts().find(function(d){return d.id===dSel.value});if(x)selectRumeliDistrict(x.name);return}const local=districtList.find(function(x){return x.id===dSel.value});if(local){let gf=null;if(districtGeo)gf=(districtGeo.features||[]).find(function(x){return x.properties&&(x.properties.id===local.id||(norm(x.properties.name)===norm(local.name)&&x.properties.parent_id===selectedProvince.id))});selectDistrict(local,gf)}};
 vSel.onchange=function(){if(vSel.value===''){if(subSel){subSel.disabled=true;subSel.innerHTML='<option value="">ÖNCE MAHALLE / KÖY SEÇİN</option>'}return}const row=currentVillages[Number(vSel.value)];if(!row)return;refreshSubsettlements(row.name);if(selectedProvince&&norm(selectedProvince.name)===norm('RUMELİ'))showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,'RUMELİ');else openVillage(row.name)};
 subSel.onchange=function(){if(subSel.value==='')return;const row=currentVillages[Number(subSel.value)];if(row){renderSideVillage(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name);showRecord(row.name,row.record,selectedDistrict&&selectedDistrict.name,selectedProvince&&selectedProvince.name)}};
@@ -3162,9 +3195,9 @@ document.getElementById('search').onkeydown=async function(e){if(e.key==='Enter'
 document.getElementById('close').onclick=function(){drawer.classList.remove('open')};
 document.getElementById('homeBtn').onclick=showTurkey;
 const mapInfoClose=document.getElementById('mapInfoClose');if(mapInfoClose)mapInfoClose.onclick=function(){document.getElementById('mapInfoCard').style.display='none'};
-document.getElementById('qSearch').onclick=function(){const s=document.getElementById('search');s.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){s.focus()},250)};
-document.getElementById('qMap').onclick=function(){window.location.href='./map.html?v=20261121-yeni'};
-const mapDockBtn=document.getElementById('mapDockBtn');if(mapDockBtn)mapDockBtn.onclick=function(){window.location.href='./map.html?v=20261121-yeni'};
+document.getElementById('qSearch').onclick=function(){const s=document.getElementById('finderSearch');s.scrollIntoView({behavior:'smooth',block:'center'});s.focus({preventScroll:true})};
+document.getElementById('qMap').onclick=function(){window.location.href='./map.html'};
+const mapDockBtn=document.getElementById('mapDockBtn');if(mapDockBtn)mapDockBtn.onclick=function(){window.location.href='./map.html'};
 document.getElementById('qTop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
 document.getElementById('backBtn').onclick=function(){if(level==='district'&&selectedProvince){if(norm(selectedProvince.name)===norm('RUMELİ'))selectRumeliProvince();else{const n=selectedProvince.name,id=selectedProvince.id;selectProvinceByName(n,id)}}else showTurkey()};
 document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!e.target.closest('#searchBtn')&&!e.target.closest('#searchPanel'))document.getElementById('searchPanel').classList.remove('show')});
@@ -3292,11 +3325,6 @@ bindHistoricalControls();
   villagePointIds=new Set();
   fillProvinces();
   initFinder();
-  const wb=document.getElementById('workbench'),mc=document.getElementById('mapCard');
-  if(wb){wb.classList.remove('mapClosed');wb.classList.add('mapOpen')}
-  if(mc)mc.classList.remove('mapDormant');
-  statusEl.textContent='HARİTA AÇILIYOR';
-  // Separate rebuilt map.html owns map interaction; avoid loading old map on homepage.
   // Direct link from the 2026-11-20 family/place map index.
   // Keep the underlying village record and its provenance, never fabricate a pin.
   const mapLink=new URLSearchParams(window.location.search);
@@ -3311,13 +3339,17 @@ bindHistoricalControls();
       return showRecordOnMap(record)
     }).catch(function(e){console.warn('Sülale harita bağlantısı açılamadı',e);statusEl.textContent='KÖY HARİTA BAĞLANTISI YÜKLENEMEDİ'});
   }
-  const warmArchive=function(){loadArchive().catch(function(e){console.warn('Arşiv özetleri ön yüklenemedi',e)})};
-  // Keep the native il/ilce/koy selectors responsive before heavy archive indexing.
-  // Map dots prepare in small batches and appear together when ready.
-  if('requestIdleCallback' in window){requestIdleCallback(warmArchive,{timeout:4000})}
-  else{setTimeout(warmArchive,1000)}
-  // Restore initial map and hierarchical selectors without changing archive datasets.
-  await activateMapUI({scroll:false}).catch(function(e){console.error('Harita başlangıç hatası',e);statusEl.textContent='HARİTA YÜKLENEMEDİ · YENİDEN DENEYİN';});
+  const preview=document.getElementById('previewTitle');
+  const observer=new IntersectionObserver(function(entries){
+    if(!entries.some(function(entry){return entry.isIntersecting}))return;
+    observer.disconnect();
+    loadArchive().catch(function(e){console.warn('Arşiv özetleri yüklenemedi',e)});
+  });
+  if(preview)observer.observe(preview);
+  getJSON(SALES).then(function(sales){
+    document.getElementById('pageStat').textContent=Number(sales.count||sales.items?.length||0).toLocaleString('tr-TR');
+  }).catch(function(e){console.warn('Satış kataloğu yüklenemedi',e)});
+
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 <script>

@@ -389,7 +389,6 @@ $('district').onchange=e=>{if(e.target.value)openDistrict(e.target.value);else i
 $('village').onchange=e=>{if(e.target.value)selectVillage(e.target.value);else{ $('hamlet').disabled=true;$('hamlet').innerHTML='<option value="">KÖY ALTI MAHALLE SEÇİN</option>';renderDistrictItems()}};
 $('hamlet').onchange=e=>{const p=currentPoints.find(p=>p.name===e.target.value&&(!p.parentVillage||norm(p.parentVillage)===norm($('village').value)));if(p){map.setView([p.lat,p.lng],13,{animate:false});selectPlace(p)}};
 $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosenProvince.properties.name);else resetCountry()};
-(
 // ISOLATED COUNTRY-WIDE PREVIEW: does not change the production map.
 const countryDots=L.layerGroup().addTo(map);
 let countryScanStarted=false,countryScanDone=0;
@@ -445,7 +444,7 @@ async function scanCountryPreview(){
  if(level==='country')status('ÖN İZLEME · '+countryScanDone+'/'+ids.length+' İLÇE KONUMU · KIRMIZI NFS / YEŞİL SÜLALE');
 }
 map.on('moveend zoomend',()=>redrawCountryDots());
-async function init(){
+(async function init(){
  try{
   const [p,d,m]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json'),json('./geo/points-manifest.json')]);
   provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);pointsManifest=m;provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
