@@ -3182,11 +3182,6 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
   if(api){
     (async()=>{
       try{
-        if(sessionStorage.getItem("alidedeoglu_visit_api_v1")!=="1"){
-          const hit=await fetch(api,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type:"visit"}),signal:AbortSignal.timeout(6000)});
-          if(!hit.ok)throw Error("visit HTTP "+hit.status);
-          sessionStorage.setItem("alidedeoglu_visit_api_v1","1");
-        }
         const response=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(6000)});
         if(!response.ok)throw Error("stats HTTP "+response.status);
         const stats=await response.json();
