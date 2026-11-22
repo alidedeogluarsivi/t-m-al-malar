@@ -166,7 +166,7 @@ async function today(){
   if(sessionStorage.getItem(flag)==="1")value=await request("get",key);
   else {value=await request("hit",key);sessionStorage.setItem(flag,"1")}
   daily.textContent=value.toLocaleString("tr-TR");
- }catch(_){daily.textContent="—"}
+ }catch(e){daily.textContent="—";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
 }
 void today();void refresh();
 if(villages||families){
