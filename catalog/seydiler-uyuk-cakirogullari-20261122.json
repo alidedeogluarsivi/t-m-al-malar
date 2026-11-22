@@ -1,0 +1,41 @@
+{
+  "id": "kastamonu-seydiler-uyuk-cakirogullari-20261122",
+  "il": "KASTAMONU",
+  "ilce": "SEYDİLER",
+  "koy": "ÜYÜK",
+  "tarihi_yerlesim": "ÇADIR SEYHLERİ (el yazması başlık okuması, doğrulanacak)",
+  "sulaleler": [
+    "ÇAKIROĞULLARI"
+  ],
+  "divan": null,
+  "tarihi_kaza": null,
+  "defterler": [
+    {
+      "tur": "NFS",
+      "numara": "931",
+      "yil": 1832
+    },
+    {
+      "tur": "NFS",
+      "numara": "932",
+      "yil": 1837
+    },
+    {
+      "tur": "NFS",
+      "numara": "933",
+      "yil": 1840
+    },
+    {
+      "tur": "TMT",
+      "numara": "4355",
+      "yil": 1846
+    },
+    {
+      "tur": "YOKLAMA",
+      "numara": "11189",
+      "yil": 1858
+    }
+  ],
+  "kaynak": "Kullanıcının el yazması araştırma notu, fotoğraf 200230.jpg",
+  "not": "Sülale okuması kullanıcı tarafından ÇAKIROĞULLARI olarak düzeltilmiştir. Defter künyeleri ve divan teyit bekliyor. Bu dosyanın site tarafından otomatik içe alındığı doğrulanmamıştır."
+}
