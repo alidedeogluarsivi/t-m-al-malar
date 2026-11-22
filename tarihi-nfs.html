@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1831–1850 Tarihî İdare Haritası | Alidedeoğlu Arşivi</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+*{box-sizing:border-box}body{margin:0;color:#152c3d;background:#f4f7f7;font:16px system-ui,sans-serif}
+header{background:#17384e;color:#fff;padding:12px 18px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header a{color:#fff;font-weight:700}h1{margin:0;font:700 clamp(1.05rem,2.3vw,1.5rem) Georgia,serif}
+main{display:grid;grid-template-columns:345px minmax(0,1fr);height:calc(100dvh - 54px);min-height:600px}
+aside{padding:15px;background:#fff;overflow:auto;border-right:1px solid #cbd7df}
+.map-space{position:relative;min-height:0}#atlasMap{height:100%;background:#e6edef}
+label{font-weight:700;font-size:.86rem}select,input,button{font:inherit;color:inherit}
+select,input{border:1px solid #afbec8;border-radius:6px;padding:7px 8px;min-width:0;width:100%;background:#fff}
+button{cursor:pointer;background:#eef3f6;border:1px solid #afbec8;border-radius:6px;padding:6px 8px}
+:focus-visible{outline:3px solid #aa772b;outline-offset:2px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.filters label{display:grid;gap:3px}
+.area-filters{display:grid;gap:6px;margin:10px 0}.area-filters label{display:grid;grid-template-columns:70px 1fr;align-items:center}
+.toggles{display:flex;flex-wrap:wrap;gap:5px 12px;margin:8px 0}.toggles input{width:auto}
+form{display:flex;gap:5px}form button{flex:none}
+#status{font-size:.84rem;margin:8px 0}h2{font:700 1.1rem Georgia,serif;margin:12px 0 6px}
+#result{font-size:.83rem}.matches{margin:0;padding:0;list-style:none}
+.matches button{display:block;width:100%;text-align:left;margin-bottom:4px;background:#fff;padding:7px}
+.matches button:hover{background:#e8f0f3}
+small{color:#42586a;font-size:.77rem}.entry{border-left:3px solid #8c774b;padding:6px 9px;margin:8px 0;background:#f4f6f7}
+.entry p{margin:4px 0}.note{font-size:.78rem;color:#465969}.legend{position:absolute;z-index:500;bottom:24px;left:10px;background:#fffffff2;border:1px solid #bdcbd4;padding:6px 9px;border-radius:6px;font-size:.74rem;max-width:260px;pointer-events:none}
+details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weight:700}
+@media(max-width:760px){main{height:auto;min-height:0;grid-template-columns:1fr}.map-space{height:60dvh;min-height:370px;grid-row:1}aside{max-height:none}}
+</style>
+</head>
+<body>
+<header><a href="./map.html">Yerleşim haritası</a><h1>1831–1850 Tarihî İdare Haritası</h1></header>
+<main>
+<aside>
+<div class="filters">
+<label>Defter yılı<select id="year"></select></label>
+<label>Sınır katmanı<select id="level"><option value="0">Kaza</option><option value="1">Sancak</option><option value="2">Eyalet / vilâyet</option></select></label>
+</div>
+<div class="area-filters">
+<label>Eyalet<select id="province"><option value="">Tümü</option></select></label>
+<label>Sancak<select id="sanjak"><option value="">Tümü</option></select></label>
+<label>Kaza<select id="county"><option value="">Tümü</option></select></label>
+</div>
+<div class="toggles">
+<label><input type="checkbox" id="modern"> Günümüz ilçe sınırları</label>
+<label><input type="checkbox" id="points" checked> Karyeler</label>
+</div>
+<form id="find" role="search"><input id="query" type="search" aria-label="Arşiv kayıtlarında ara" placeholder="Karye, kaza veya NFS kodu"><button>Ara</button></form>
+<p id="status" role="status">Arşiv dizini yükleniyor…</p>
+<section id="result" aria-live="polite"></section>
+<details>
+<summary>Kapsam, yöntem ve kaynaklar</summary>
+<p id="coverage" class="note"></p>
+<p>Her görünüm tek defter yılını kullanır. Çizgiler, bugünkü konumu eşleştirilmiş karyelerden türetilen yaklaşık çalışma alanlarını gösterir. En az üç ayrı, doğrusal olmayan nokta gereklidir. Çelişkili üyelikler ve adaylar çizgiyi belirlemez. Sancak ve eyalet alanları, o yıl çizilebilen alt birimlerin birleşimidir. Kesintiler, eldeki kanıtın sınırını gösterir.</p>
+<p>Defter fihristinde yazılan Miladî yıl, karye katmanında korunur. Katalog dizininde tam Hicrî tarihler tabular takvimle çevrilir. Ham katalog tarihi kartta ayrıca görünür.</p>
+<p><a href="https://www.devletarsivleri.gov.tr/varliklar/dosyalar/eskisiteden/yayinlar/genel-mudurluk-yayinlar/osmanli_yer_adlari.pdf">Devlet Arşivleri · Osmanlı Yer Adları</a><br>
+<a href="https://dergipark.org.tr/tr/pub/ttkbelleten/article/1337426">1831 idarî taksimat çalışması</a></p>
+</details>
+</aside>
+<div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend">Kesikli çizgi: karye kayıtlarından türetilen alan<br>● Konumu eşleştirilen NFS karyesi</div></div>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./tarihi-nfs.js"></script>
+</body>
+</html>
