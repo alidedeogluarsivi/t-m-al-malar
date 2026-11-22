@@ -106,9 +106,7 @@ main{height:calc(100dvh - 54px)}
 <div class="map-legend" aria-label="Harita işaretleri">
  <span><i class="legend-nfs"></i>NFS defteri <b id="nfsCount"></b></span>
  <span><i class="legend-family"></i>Sülale kaydı <b id="familyCount"></b></span>
- <span><i class="history-boundary"></i>Eyalet / vilâyet</span>
- <span><i class="history-boundary sancak"></i>Sancak</span>
- <span><i class="history-boundary kaza"></i>Kaza</span>
+ <span><i class="history-boundary sancak"></i>Sancak sınırı</span>
  <span id="periodCoverage" title="Konumu eşleştirilen karyelerden türetilmiştir.">1831–1850 · Yaklaşık sınırlar</span>
  <span id="familyLegend" style="display:none"><i class="legend-match"></i>Sülale araması</span>
 </div>
@@ -118,7 +116,7 @@ main{height:calc(100dvh - 54px)}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./archive-family-audit.js?v=1"></script>
 <script src="./archive-family-search.js?v=2"></script>
-<script src="./archive-period-map.js?v=1"></script>
+<script src="./archive-period-map.js?v=sancak"></script>
 <script>
 (function(){
 'use strict';

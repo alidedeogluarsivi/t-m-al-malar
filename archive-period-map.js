@@ -1,11 +1,6 @@
 (() => {
   'use strict';
-  const styles = [
-    {color:'#8c4338', dashArray:'2 4', weight:1.7},
-    {color:'#285778', dashArray:'7 5', weight:2.7},
-    {color:'#13634b', dashArray:'14 7', weight:4}
-  ];
-  const labels = ['kaza','sancak','vilayet'];
+  const sanjakStyle = {color:'#285778', dashArray:'7 5', weight:2.7};
   const files = new Map();
 
   function load(name) {
@@ -49,22 +44,23 @@
   }
 
   function draw(layer, areas, {onSelect, pane} = {}) {
-    for (const area of [...areas].sort((a,b) => b[0]-a[0])) {
-      const [level, eyalet, sancak, kaza, , type, coordinates] = area;
+    for (const area of areas) {
+      const [level, , sancak, , , type, coordinates] = area;
+      if (level !== 1) continue;
       const outline = L.geoJSON({type, coordinates}, {
-        pane, interactive:!!onSelect, style:{...styles[level], fillOpacity:onSelect ? .035 : .025}
+        pane, interactive:!!onSelect, style:{...sanjakStyle, fillOpacity:onSelect ? .035 : .025}
       });
       if (onSelect) outline.on('click', () => onSelect(area));
       outline.addTo(layer);
       const center = interiorLabelPoint(type, coordinates);
       if (!center) continue;
       const label = document.createElement('span');
-      label.textContent = kaza || sancak || eyalet;
+      label.textContent = sancak;
       const kind = document.createElement('small');
-      kind.textContent = ['KAZA','SANCAK','VİLÂYET'][level];
+      kind.textContent = 'SANCAK';
       label.append(kind);
       L.tooltip({permanent:true, direction:'center', interactive:false,
-        className:'period-admin-name '+labels[level], offset:[0,[-11,4,19][level]]})
+        className:'period-admin-name sancak', offset:[0,4]})
         .setLatLng([center.lat,center.lng]).setContent(label).addTo(layer);
     }
   }

@@ -78,23 +78,20 @@ function recordTitle(row) {
 }
 async function showArea(area) {
   ++searchId;
-  const [level,eyalet,sancak,kaza] = area;
+  const [,eyalet,sancak] = area;
   const tokens=searchId;
   const rows=(await periodRecords).filter(row => norm(row[2])===norm(eyalet) &&
-    (level===2||norm(row[3])===norm(sancak)) && (level!==0||norm(row[4])===norm(kaza)));
+    norm(row[3])===norm(sancak));
   if(tokens!==searchId)return;
-  list((kaza||sancak||eyalet)+' · '+count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));
+  list(sancak+' · '+count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));
 }
 function draw(fit=false) {
   if(!active)return;
   boundaries.clearLayers();villages.clearLayers();
-  const selectedLevel=$('level').value, combined=selectedLevel==='all';
-  const province=$('province').value,sanjak=$('sanjak').value,county=$('county').value;
+  const province=$('province').value,sanjak=$('sanjak').value;
   const rows=active.records.filter(recordMatches);
-  const areas=active.areas.filter(([level,eyalet,district,kaza]) =>
-    (combined||String(level)===selectedLevel) &&
-    (!province||norm(eyalet)===norm(province))&&(!sanjak||level===2||norm(district)===norm(sanjak))&&
-    (!county||level!==0||norm(kaza)===norm(county))).sort((a,b)=>b[0]-a[0]);
+  const areas=active.areas.filter(([level,eyalet,district]) => level===1 &&
+    (!province||norm(eyalet)===norm(province)) && (!sanjak||norm(district)===norm(sanjak)));
   ArchivePeriodMap.draw(boundaries,areas,{onSelect:showArea});
   const displayed=new Set();
   for(const row of rows){
@@ -106,10 +103,7 @@ function draw(fit=false) {
     L.circleMarker([row[10],row[9]],{radius:4,color:'#fff',weight:1,fillColor:'#941d37',fillOpacity:.9,bubblingMouseEvents:false})
       .bindTooltip(label).on('click',()=>showRecord(row,false)).addTo(villages);
   }
-  const coverage=combined?
-    [0,1,2].map((level,i)=>count(areas.filter(area=>area[0]===level).length)+' '+['kaza','sancak','eyalet'][i]).join(' · '):
-    count(areas.length)+' yaklaşık alan';
-  $('status').textContent=coverage+' · '+count(rows.length)+' fihrist satırı';
+  $('status').textContent=count(areas.length)+' sancak sınırı · '+count(rows.length)+' fihrist satırı';
   if(fit){
     const bounds=L.latLngBounds(rows.filter(r=>r[9]!=null&&r[14]).map(r=>[r[10],r[9]]));
     if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18],maxZoom:10});
@@ -214,7 +208,6 @@ $('modern').onchange=async()=>{
   }catch(error){$('modern').checked=false;$('status').textContent='Günümüz ilçe sınırları yüklenemedi.';}
 };
 $('query').oninput=()=>{++searchId;familySearchLayer.clearLayers()};
-$('level').onchange=()=>draw();
 $('points').onchange=()=>draw();
 for(const id of ['province','sanjak','county'])$(id).onchange=()=>{
   if(id==='province')$('sanjak').value='';
