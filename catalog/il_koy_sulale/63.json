@@ -1,1 +1,1 @@
-{"province":"ŞANLIURFA","districts":{"VIRANSEHIR":{"DEMIRCILER":{"name":"DEMİRCİLER","families":["ALEMDAR OĞULLARI"],"candidate_families":[],"defterler":[],"sources":["catalog/sulale_01.ndjson"]}}}}
+{"province":"ŞANLIURFA","districts":{"VIRANSEHIR":{"DEMIRCILER":{"name":"DEMİRCİLER","families":["ALEMDAR OĞULLARI"],"candidate_families":[],"defterler":[],"sources":["catalog/sulale_koy_ortak.ndjson","catalog/sulale_01.ndjson"]}}}}
