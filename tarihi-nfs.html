@@ -28,6 +28,10 @@ small{color:#42586a;font-size:.77rem}.entry{border-left:3px solid #8c774b;paddin
 .entry p{margin:4px 0}.note{font-size:.78rem;color:#465969}.legend{position:absolute;z-index:500;bottom:24px;left:10px;background:#fffffff2;border:1px solid #bdcbd4;padding:6px 9px;border-radius:6px;font-size:.74rem;max-width:260px;pointer-events:none}
 details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weight:700}
 @media(max-width:760px){main{height:auto;min-height:0;grid-template-columns:1fr}.map-space{height:60dvh;min-height:370px;grid-row:1}aside{max-height:none}}
+.legend span{display:flex;align-items:center;gap:6px;margin:2px 0}.legend i{display:inline-block;width:25px;border-top:3px dashed #136248}.legend .sanjak{border-top:2px dashed #244e76}.legend .county{border-top:2px dotted #88403c}.legend .village{border:0;width:7px;height:7px;border-radius:50%;background:#941d37;margin-inline:9px}
+.leaflet-tooltip.admin-name{background:transparent;border:0;box-shadow:none;padding:0;color:#88403c;font-size:.74rem;font-weight:750;text-align:center;pointer-events:none;text-shadow:1px 1px 2px #fff,-1px -1px 2px #fff,1px -1px 2px #fff,-1px 1px 2px #fff}
+.leaflet-tooltip.admin-name.sanjak{color:#244e76;font-size:.83rem;font-weight:800}
+.leaflet-tooltip.admin-name.eyalet{color:#136248;font-size:.96rem;font-weight:900}
 </style>
 </head>
 <body>
@@ -36,7 +40,7 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <aside>
 <div class="filters">
 <label>Defter yılı<select id="year"></select></label>
-<label>Sınır katmanı<select id="level"><option value="0">Kaza</option><option value="1">Sancak</option><option value="2">Eyalet / vilâyet</option></select></label>
+<label>Sınır katmanı<select id="level"><option value="all">Üçü birlikte</option><option value="0">Kaza</option><option value="1">Sancak</option><option value="2">Eyalet / vilâyet</option></select></label>
 </div>
 <div class="area-filters">
 <label>Eyalet<select id="province"><option value="">Tümü</option></select></label>
@@ -59,7 +63,7 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <a href="https://dergipark.org.tr/tr/pub/ttkbelleten/article/1337426">1831 idarî taksimat çalışması</a></p>
 </details>
 </aside>
-<div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend">Kesikli çizgi: karye kayıtlarından türetilen alan<br>● Konumu eşleştirilen NFS karyesi</div></div>
+<div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend"><strong>Yaklaşık tarihî sınırlar</strong><span><i></i>Eyalet / vilâyet</span><span><i class="sanjak"></i>Sancak</span><span><i class="county"></i>Kaza</span><span><i class="village"></i>NFS karyesi</span></div></div>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./tarihi-nfs.js"></script>

@@ -11,7 +11,13 @@ const map = L.map('atlasMap', {preferCanvas:true}).setView([39.4, 34.7], 6);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 const boundaries = L.layerGroup().addTo(map);
 const villages = L.layerGroup().addTo(map);
-const colors = ['#88403c','#244e76','#136248'];
+const adminNames = L.layerGroup().addTo(map);
+const adminClasses = ['county','sanjak','eyalet'];
+const boundaryStyles = [
+  {color:'#88403c',dashArray:'2 4',weight:1.8},
+  {color:'#244e76',dashArray:'7 5',weight:3.3},
+  {color:'#136248',dashArray:'13 7',weight:5}
+];
 const files = new Map();
 let metadata = null, active = null, modern = null, renderId = 0, searchId = 0;
 
@@ -96,23 +102,56 @@ function showArea(area) {
     (level===2||norm(row[3])===norm(sancak)) && (level!==0||norm(row[4])===norm(kaza)));
   list((kaza||sancak||eyalet)+' · '+count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));
 }
+function interiorLabelPoint(type, coordinates) {
+  const polygons=type==='MultiPolygon'?coordinates:[coordinates];
+  let best=null;
+  for(const polygon of polygons){
+    const outer=polygon[0];
+    if(!outer?.length)continue;
+    const lats=outer.map(point=>point[1]);
+    const south=Math.min(...lats), height=Math.max(...lats)-south;
+    for(const fraction of [.5,.3,.7,.15,.85]){
+      const lat=south+height*fraction, edges=[];
+      for(const ring of polygon){
+        for(let i=1;i<ring.length;i++){
+          const [x1,y1]=ring[i-1], [x2,y2]=ring[i];
+          if((y1>lat)===(y2>lat))continue;
+          edges.push(x1+(x2-x1)*(lat-y1)/(y2-y1));
+        }
+      }
+      edges.sort((a,b)=>a-b);
+      for(let i=0;i+1<edges.length;i+=2){
+        const score=(edges[i+1]-edges[i])*height*(1-Math.abs(fraction-.5));
+        if(!best||score>best.score)best={lat,lng:(edges[i]+edges[i+1])/2,score};
+      }
+    }
+  }
+  return best;
+}
 function draw(fit=false) {
   if(!active)return;
-  boundaries.clearLayers();villages.clearLayers();
-  const level=Number($('level').value);
+  boundaries.clearLayers();villages.clearLayers();adminNames.clearLayers();
+  const selectedLevel=$('level').value, combined=selectedLevel==='all';
   const province=$('province').value,sanjak=$('sanjak').value,county=$('county').value;
   const rows=active.records.filter(recordMatches);
-  const areas=active.areas.filter(row => row[0]===level &&
-    (!province||norm(row[1])===norm(province))&&(!sanjak||level===2||norm(row[2])===norm(sanjak))&&
-    (!county||level!==0||norm(row[3])===norm(county)));
+  const areas=active.areas.filter(([level,eyalet,district,kaza]) =>
+    (combined||String(level)===selectedLevel) &&
+    (!province||norm(eyalet)===norm(province))&&(!sanjak||level===2||norm(district)===norm(sanjak))&&
+    (!county||level!==0||norm(kaza)===norm(county))).sort((a,b)=>b[0]-a[0]);
   for(const area of areas){
-    const [type,eyalet,sancak,kaza,pointCount,geometry,coordinates]=area;
+    const [type,eyalet,sancak,kaza,,geometry,coordinates]=area;
     const name=kaza||sancak||eyalet, label=document.createElement('span');
-    label.textContent=name+' · '+pointCount+' konum';
+    label.textContent=name;
     L.geoJSON({type:geometry,coordinates},{
-      style:{color:colors[type],dashArray:'7 4',weight:2,fillOpacity:.10},
+      style:{...boundaryStyles[type],fillOpacity:combined?.035:.10},
       interactive:true
-    }).bindTooltip(label,{sticky:true}).on('click',()=>showArea(area)).addTo(boundaries);
+    }).on('click',()=>showArea(area)).addTo(boundaries);
+    const center=interiorLabelPoint(geometry,coordinates);
+    if(center){
+      L.tooltip({permanent:true,direction:'center',interactive:false,className:'admin-name '+adminClasses[type],
+        offset:[0,combined?[-12,5,22][type]:0]})
+        .setLatLng([center.lat,center.lng]).setContent(label).addTo(adminNames);
+    }
   }
   const displayed=new Set();
   for(const row of rows){
@@ -124,7 +163,10 @@ function draw(fit=false) {
     L.circleMarker([row[10],row[9]],{radius:4,color:'#fff',weight:1,fillColor:'#941d37',fillOpacity:.9,bubblingMouseEvents:false})
       .bindTooltip(label).on('click',()=>showRecord(row,false)).addTo(villages);
   }
-  $('status').textContent=$('year').value+' · '+count(rows.length)+' fihrist satırı · '+count(areas.length)+' yaklaşık alan';
+  const coverage=combined?
+    [0,1,2].map((level,i)=>count(areas.filter(area=>area[0]===level).length)+' '+['kaza','sancak','eyalet'][i]).join(' · '):
+    count(areas.length)+' yaklaşık alan';
+  $('status').textContent=$('year').value+' · '+count(rows.length)+' fihrist satırı · '+coverage;
   if(fit){
     const bounds=L.latLngBounds(rows.filter(r=>r[9]!=null&&r[14]).map(r=>[r[10],r[9]]));
     if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18],maxZoom:10});
