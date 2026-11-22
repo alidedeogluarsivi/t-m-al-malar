@@ -3177,6 +3177,8 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 
 // Ziyaret sayacı: yalnızca toplam ziyaret tutulur.
 (function initVisitorCounter(){
+  const entryEl=document.getElementById('entryStat');
+  if(!entryEl)return;
   const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\\/$/,""):"";
   const api=backend?backend+"/api/site-stats":null;
   if(api){
@@ -3194,7 +3196,6 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
   }
   const base='https://countapi.mileshilliard.com/api/v1';
   const entryKey='alidedeogluarsivi_com_entries_v1';
-  const entryEl=document.getElementById('entryStat');
   function n(v){const x=Number(v);if(v==null||v===''||!Number.isSafeInteger(x)||x<0)throw new Error('Sayaç verisi geçersiz');return x}
   async function counterRequest(action){
     const controller=new AbortController();
