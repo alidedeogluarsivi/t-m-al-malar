@@ -2981,22 +2981,13 @@ function recordSubmittedFinderSearch(){
  const q=(el&&el.value||'').trim();
  if(!q||!window.ArchiveStats||!archive.length)return;
  const nq=searchNorm(q);
- const exactVillage=archive.find(function(r){return r.koy&&searchNorm(r.koy)===nq});
- if(exactVillage){window.ArchiveStats.recordVillage(exactVillage.koy);return;}
- let village='',family='';
- for(const r of archive){
-  if(!village&&r.koy&&searchNorm(r.koy).includes(nq))village=r.koy;
-  for(const f of r.sulaleler||[]){
-   const name=typeof f==='string'?f:(f&&typeof f==='object'?(f.sulale||f.ad||f.name||''):'');
-   if(!name)continue;
-   const k=searchNorm(name);
-   if(k===nq){family=name;break}
-   if(!family&&k.includes(nq))family=name;
-  }
-  if(family&&searchNorm(family)===nq)break;
+ // Record only an exact matched archive name, never the first partial hit.
+ const village=archive.find(r=>r.koy&&searchNorm(r.koy)===nq);
+ if(village){window.ArchiveStats.recordVillage(village.koy);return}
+ for(const r of archive)for(const f of r.sulaleler||[]){
+  const name=typeof f==='string'?f:(f&&typeof f==='object'?(f.sulale||f.ad||f.name||''):'');
+  if(name&&searchNorm(name)===nq){window.ArchiveStats.recordFamily(name);return}
  }
- if(family){window.ArchiveStats.recordFamily(family);return;}
- if(village)window.ArchiveStats.recordVillage(village);
 }
 function initFinder(){
   const fp=document.getElementById('finderProvince'),fd=document.getElementById('finderDistrict');
