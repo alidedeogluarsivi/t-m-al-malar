@@ -139,7 +139,7 @@ const deltaArchivePaths=[
   "catalog/kizilkoca_2091_2093_sulaleler_20261121.ndjson"
 ];
 const villageArchiveCards=new Map();
-function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),norm(koy).replace(/ (KOYU|KÖYÜ|MAHALLESI|MAHALLESİ)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim()].join("|")}
+function archiveVillageKey(il,ilce,koy){return [norm(il),norm(ilce),comparePlace(koy)].join("|")}
 // Arşiv fihristi bulunan köyler, sülale listesi henüz aktarılmamış olsa bile kaybolmaz.
 villageArchiveCards.set(archiveVillageKey("YOZGAT","ŞEFAATLİ","DEDELİ"),{
  il:"YOZGAT",ilce:"ŞEFAATLİ",koy:"DEDELİ",
@@ -263,7 +263,7 @@ async function appendNationwideStreets(){
   console.warn("Ülke geneli sokak verisi:",err);
  }
 }
-const comparePlace=s=>norm(s).replace(/ (KOYU|KÖYÜ|MAHALLESI|MAHALLESİ)$/,"").replace(/[^A-ZÇĞİÖŞÜ0-9]/g,"").trim();
+const comparePlace=s=>norm(s).replace(/\s+(KOYU|KÖYÜ|MAHALLESI|MAHALLESİ|MAH)$/,"").replace(/[^A-Z0-9]/g,"").trim();
 async function loadOfficial(path){
  const res=await fetch("./official-addresses/"+path+(path.includes("?")?"&":"?")+"v=20261118-villagefix2",{cache:"no-cache"});
  if(!res.ok)throw Error("Dosya yüklenemedi");
@@ -373,12 +373,12 @@ function render(reset){
  byId("summary").textContent=current.length.toLocaleString("tr-TR")+" SÜLALE KAYDI · "+uniqueFamilies.size.toLocaleString("tr-TR")+" FARKLI SÜLALE ADI · "+(grouped.length||(knownVillage?1:0)).toLocaleString("tr-TR")+" YERLEŞİM KARTI · "+(visible||(knownVillage?1:0)).toLocaleString("tr-TR")+" KART GÖSTERİLİYOR";
  if(!grouped.length){
   const card=(koy.value&&!query.value.trim())?villageArchiveCards.get(archiveVillageKey(il.value,ilce.value,koy.value)):null;
-  if(card&&card.defterler?.length){
+  if(card&&(card.defterler?.length||card.sulaleler?.length||card.durumlar?.length)){
     const section=document.createElement("div");section.className="empty";section.style.textAlign="left";
-    const d=card.defterler[0];
-    const head=document.createElement("strong");head.textContent="BU KÖYÜN NÜFUS FİHRİSTİ VAR; SÜLALE KAYDI HENÜZ KATALOĞA AKTARILMAMIŞ.";section.append(head);
+    const d=card.defterler?.[0]||{};
+    const head=document.createElement("strong");head.textContent=card.sulaleler?.length?"BU YERLEŞİMİN SÜLALE KAYITLARI ARŞİVDE VAR; ARAMA EŞLEŞMESİ DENETLENİYOR.":"BU YERLEŞİMİN ARŞİV KARTI VAR; SÜLALE LİSTESİ BULUNMADI.";section.append(head);
     const p=document.createElement("p");p.textContent="TARİHÎ AD: "+(d.tarihi_ad||card.koy)+" · KAZA: "+(d.tarihi_kaza||"BELİRTİLMEDİ")+" · SANCAK: "+(d.sancak||"BELİRTİLMEDİ");section.append(p);
-    const detail=document.createElement("p");detail.textContent="KAYNAK: "+((card.defterler||[]).map(d=>officialArchiveCitation(d)).filter(Boolean).join(" · ")||"DEFTER KÜNYESİ DENETLENİYOR")+" · SAYFA: "+(d.sayfa||d.varak||"—")+" · HANE: "+(d.hane||"—")+" · ERKEK: "+(d.erkek||"—");section.append(detail);
+    const detail=document.createElement("p");detail.textContent="KAYNAK: "+((card.defterler||[]).map(d=>officialArchiveCitation(d)).filter(Boolean).join(" · ")||"DEFTER KÜNYESİ DENETLENİYOR")+" · SAYFA: "+(d.sayfa||d.varak||"—")+" · HANE: "+(d.hane||"—")+" · ERKEK: "+(d.erkek||"—");section.append(detail); if(card.sulaleler?.length){const families=document.createElement("p");families.textContent="SÜLALELER: "+card.sulaleler.join(" · ");section.append(families)}
     const note=document.createElement("p");note.textContent="SÜLALE ADLARININ BULUNMAMASI NÜFUS DEFTERİNİN BULUNMADIĞI ANLAMINA GELMEZ. DOĞRULANMAYAN AİLE ADLARI GÖSTERİLMİYOR.";section.append(note);
     byId("results").replaceChildren(section);
   }else byId("results").innerHTML='<div class="empty">BU FİLTRELERLE EŞLEŞEN SÜLALE KAYDI BULUNAMADI. ADAY KAYITLARI GÖSTERMEYİ DENEYEBİLİRSİNİZ.</div>';
@@ -448,7 +448,7 @@ async function loadFreshArchiveAdditions(){
      if(obj.il&&obj.ilce&&obj.koy&&(Array.isArray(obj.defterler)&&obj.defterler.length || Array.isArray(obj.sulaleler)&&obj.sulaleler.length || Array.isArray(obj.sulale_kayitlari)&&obj.sulale_kayitlari.length)){
       const key=archiveVillageKey(obj.il,obj.ilce,obj.koy);
       const existing=villageArchiveCards.get(key);
-      if(!existing||(!(existing.sulaleler||[]).length&&(obj.sulaleler||[]).length)||(!(existing.defterler||[]).length&&obj.defterler.length))villageArchiveCards.set(key,obj);
+      if(!existing)villageArchiveCards.set(key,obj); else { for(const field of ["sulaleler","defterler","sulale_kayitlari","haneler"]){const seen=new Set((existing[field]||[]).map(x=>JSON.stringify(x)));for(const item of obj[field]||[]){const id=JSON.stringify(item);if(!seen.has(id)){(existing[field]||(existing[field]=[])).push(item);seen.add(id)}}} }
      }
      if(path!=="catalog/archive_library_verified_20261111.ndjson" || (obj.sulaleler||[]).length){
       ingest(obj,path);newRows++;
