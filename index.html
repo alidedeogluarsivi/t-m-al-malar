@@ -2473,19 +2473,33 @@ function settlementNamesFor(il,ilce){
   if(!rec&&norm(ilce)===norm(pname))rec=bucket.Merkez||bucket.MERKEZ||null;
   return rec?[...(rec.v||[]),...(rec.m||[])]:[]
 }
+const settlementNameIndexes=new Map();
+function settlementNameIndex(il,ilce){
+  const districtKey=norm(canonicalProvince(il))+'|'+norm(ilce);
+  if(!settlementNameIndexes.has(districtKey)){
+    const exact=new Map(),entries=[];
+    for(const name of settlementNamesFor(il,ilce)){
+      const normalized=norm(name);
+      if(!normalized)continue;
+      entries.push([normalized,name]);
+      if(!exact.has(normalized))exact.set(normalized,name);
+    }
+    settlementNameIndexes.set(districtKey,{exact,entries});
+  }
+  return settlementNameIndexes.get(districtKey);
+}
 function canonicalVillageCandidates(il,ilce,koy){
-  const names=settlementNamesFor(il,ilce);
-  if(!names.length)return[];
+  const names=settlementNameIndex(il,ilce);
+  if(!names.entries.length)return[];
   const nk=norm(koy||'');
-  const exact=names.find(function(x){return norm(x)===nk});
+  const exact=names.exact.get(nk);
   if(exact)return[exact];
   const cleaned=nk.replace(norm(ilce||''),'').replace(/ilcesi|koyu|koyleri|karyesi|kopya|merkez/g,'');
-  const hits=names.filter(function(x){
-    const nx=norm(x);
-    return nx&&(nk.includes(nx)||cleaned.includes(nx))
-  });
-  if(hits.length)return hits;
-  return[]
+  const hits=[];
+  for(const [normalized,name] of names.entries){
+    if(nk.includes(normalized)||cleaned.includes(normalized))hits.push(name);
+  }
+  return hits;
 }
 function inferProvinceFromDistrict(ilce){
   const n=norm(ilce||'');if(!n)return'';
@@ -2546,6 +2560,7 @@ async function loadArchiveCore(){
   // Güncel köy eşleştirmesi arşiv dosyalarından ÖNCE hazır olmalı.
   // Aksi halde son eklenen Çerkeş kayıtları yalnız tarihî adlarıyla kalır.
   try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
+  settlementNameIndexes.clear();
   const raw=[];
   // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
   const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson']).map(function(path){return path.split('?')[0]})));
@@ -2587,7 +2602,7 @@ async function loadArchiveCore(){
   // Kaynaksız sülale-köy eşleştirmeleri geçici olarak yayından çıkarıldı.
   // Doğrulanmış katalog yalnızca defter ve hane kanıtı bulunan satırları sunabilir.
   try{
-    const verified=await withTimeout(getText('catalog/sulale_verified_v2_compact.ndjson?v=20261105-allfamilies'),6500);
+    const verified=await withTimeout(getText('catalog/sulale_verified_v2_compact.ndjson'),6500);
     const verifiedLines=verified.split(/\r?\n/);
     for(let vi=0;vi<verifiedLines.length;vi+=500){
       verifiedLines.slice(vi,vi+500).forEach(function(line){
@@ -2609,8 +2624,7 @@ async function loadArchiveCore(){
           }
         }
         if(!resolvedIl||!resolvedIlce)return;
-        const villages=settlementNamesFor(resolvedIl,resolvedIlce);
-        const direct=villages.find(function(v){return norm(v)===norm(koyRaw)});
+        const direct=settlementNameIndex(resolvedIl,resolvedIlce).exact.get(norm(koyRaw));
         const vc=canonicalVillageCandidates(resolvedIl,resolvedIlce,koyRaw);
         const targets=direct?[direct]:(vc.length===1?vc:[koyRaw]);
         targets.forEach(function(resolvedVillage){
@@ -2632,12 +2646,18 @@ async function loadArchiveCore(){
   // Performans: eski 6 parçalı sülale katalogları ilk açılışta tekrar yüklenmez.
   // Doğrulanmış birleşik kataloglar ARCH üzerinden yüklenir; böylece aynı veri telefonda birkaç kez işlenmez.
   const merged=new Map();
+  const mergedSignatures=new WeakMap();
   function pushUnique(arr,vals,sig){
-    (vals||[]).forEach(function(v){
-      if(v==null)return;
-      const k=sig(v);
-      if(k&&!arr.some(function(x){return sig(x)===k}))arr.push(v)
-    })
+    if(!vals?.length)return;
+    let seen=mergedSignatures.get(arr);
+    if(!seen){seen=new Set();mergedSignatures.set(arr,seen)}
+    for(const value of vals){
+      if(value==null)continue;
+      const signature=sig(value);
+      if(!signature||seen.has(signature))continue;
+      seen.add(signature);
+      arr.push(value);
+    }
   }
   for(let ri=0;ri<raw.length;ri+=400){
     raw.slice(ri,ri+400).forEach(function(r){
