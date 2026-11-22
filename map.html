@@ -48,9 +48,40 @@ main{height:calc(100dvh - 54px)}
 .map-place-label b{font-size:12px}
 #nearby button{width:100%;padding:7px;border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px}
 @media(max-width:760px){.map-legend{right:10px;font-size:.71rem}#detail{top:auto;bottom:50px;max-height:34vh}}
+.mapwrap{display:grid;grid-template-columns:minmax(0,1fr);min-height:0}
+.mapPane{position:relative;min-width:0;min-height:0}
+#detail.open{display:flex;flex-direction:column}
+#detailBody{overflow:auto;min-height:0}
+.dhead{gap:8px;flex:none}
+.dhead small{display:block;color:#536a7b;font-size:.72rem;font-weight:700}
+#detailTitle{font-family:Georgia,serif;font-size:1.4rem}
+#archiveFind{position:relative;flex:1;max-width:420px;margin-left:auto;min-width:140px}
+#archiveQuery{min-height:34px;padding:6px 10px;font-size:.85rem;border-color:#acbdc9}
+#archiveResults{position:absolute;top:calc(100% + 6px);inset-inline:0;background:white;color:var(--ink);border:1px solid #cbd7df;border-radius:8px;max-height:min(65vh,460px);overflow:auto;box-shadow:0 8px 26px #132f4333}
+#archiveResults p{font-size:.85rem;padding:0 12px}
+#archiveResults .item{padding:9px 12px}
+.archive-entry{margin:10px 0;padding:10px 12px;border:1px solid #dae2e8;border-left:3px solid #a22c3c;border-radius:6px}
+.archive-entry.secondary{border-left-color:#526e82}
+.archive-entry h3{margin:0 0 6px;font-size:.9rem;color:#17384e}
+.archive-entry dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:3px 10px}
+.archive-entry dt{color:#42596c;font-weight:650}.archive-entry dd{margin:0;overflow-wrap:anywhere}
+.archive-entry p{margin:7px 0 0}
+.archive-section{font-size:.73rem;font-weight:800;color:#334f64;text-transform:uppercase;margin:.9rem 0 .3rem}
+@media(min-width:1080px){
+ .mapwrap.has-detail{grid-template-columns:minmax(0,1fr) minmax(305px,355px)}
+ #detail{position:static;width:auto;max-height:none;margin:0;border-radius:0;box-shadow:none;border-left:1px solid #cbd7df;overflow:hidden}
+}
+@media(max-width:760px){
+ header strong{display:none}
+ #archiveFind{min-width:0}
+ #detail{top:auto;bottom:50px;max-height:34vh}
+}
 </style></head>
 <body>
-<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a href="./index.html">← ARŞİVE DÖN</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><span>GÜNCEL KÖYLER · TARİHÎ NFS / TMT</span></header>
+<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a href="./index.html">← ARŞİVE DÖN</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
+ <input id="archiveQuery" type="search" autocomplete="off" aria-label="Arşiv haritasında ara" aria-controls="archiveResults" placeholder="Köy, ilçe veya NFS kodu ara">
+ <div id="archiveResults" hidden aria-label="Arşiv arama sonuçları"></div>
+</form></header>
 <main><aside id="side">
 <div class="filters"><div class="crumb" id="crumb">TÜRKİYE</div><div class="sub">İl → ilçe → köy → köy altı mahalle seçin. Haritayı serbestçe gezdirin; haritadaki noktalar arşiv kayıtlarına açılır.</div>
 <select id="province" aria-label="İl"><option value="">İL SEÇİN</option></select>
@@ -61,14 +92,14 @@ main{height:calc(100dvh - 54px)}
 <div id="nearby" hidden><button id="clearNearby" type="button">Çevre seçimini kaldır</button></div>
 <button id="back" type="button" style="border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px;padding:8px">ÜST SEVİYEYE DÖN</button>
 </div><div class="listtop"><span id="listTitle">İLLER</span><span class="tiny" id="listCount"></span></div><div id="items"></div>
-</aside><div class="mapwrap"><div id="map" aria-label="Yerleşim haritası"></div>
+</aside><div class="mapwrap"><div class="mapPane"><div id="map" aria-label="Yerleşim haritası"></div>
 <div class="map-legend" aria-label="Harita işaretleri">
  <span><i class="legend-nfs"></i>NFS defteri <b id="nfsCount"></b></span>
  <span><i class="legend-family"></i>Sülale kaydı <b id="familyCount"></b></span>
  <span><i class="legend-border"></i>Günümüz ilçe sınırı</span>
 </div>
-<div id="status" role="status">Harita hazırlanıyor…</div>
-<div id="detail"><div class="dhead"><strong id="detailTitle">KÖY</strong><button id="close" type="button" class="close" aria-label="Kapat">×</button></div><div id="detailBody"></div></div>
+<div id="status" role="status">Harita hazırlanıyor…</div></div>
+<section id="detail" aria-labelledby="detailTitle"><div class="dhead"><div><small>YERLEŞİM ARŞİVİ</small><strong id="detailTitle">KÖY</strong></div><button id="close" type="button" class="close" aria-label="Kapat">×</button></div><div id="detailBody"></div></section>
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -141,7 +172,7 @@ function resetCountry(){
  $('search').value='';
  ++selectionToken;level='country';chosenProvince=null;chosenDistrict=null;clearPlaces();clearDistrictLayer();
  $('province').value='';$('district').disabled=true;$('district').innerHTML='<option>ÖNCE İL SEÇİN</option>';
- $('crumb').textContent='TÜRKİYE';$('detail').classList.remove('open');drawProvinceLayer();
+ $('crumb').textContent='TÜRKİYE';setDetailOpen(false);drawProvinceLayer();
  if(provinceLayer)map.fitBounds(provinceLayer.getBounds(),{padding:[8,8],animate:false});
  itemList(provinces,'İLLER',x=>x.properties.name,x=>openProvince(x.properties.name));
  status('NOKTAYA TIKLAYARAK KAYDI AÇIN · BOŞ ALAN: 30 KM ÇAP');
@@ -158,7 +189,7 @@ async function openProvince(name){
  $('district').innerHTML='<option value="">İLÇE SEÇİN</option>'+arr.map(d=>'<option value="'+esc(d.id)+'">'+esc(d.name)+'</option>').join('');
  $('crumb').textContent=p.properties.name.toLocaleUpperCase('tr-TR');
  itemList(arr,'İLÇELER',x=>x.name,x=>openDistrict(x));
- $('detail').classList.remove('open');
+ setDetailOpen(false);
  if(provinceLayer)map.removeLayer(provinceLayer);provinceLayer=null;
  const poly=L.geoJSON(p,{style:{color:'#3c6d50',weight:2,fillColor:'#edf4e8',fillOpacity:.08},interactive:false}).addTo(map);provinceLayer=poly;
  map.fitBounds(poly.getBounds(),{padding:[20,20],maxZoom:9,animate:false});
@@ -184,7 +215,7 @@ async function openDistrict(d){
  // Preserve the current province's indexed families even if bulk archive loading is slow.
  void loadProvinceFamilies(chosenProvince).catch(e=>console.warn('İl sülale verisi:',e));
  $('district').value=local.id;$('crumb').textContent=chosenProvince.properties.name.toLocaleUpperCase('tr-TR')+' / '+local.name.toLocaleUpperCase('tr-TR');
- $('detail').classList.remove('open');itemList([],'KÖYLER',x=>x.name,()=>{});
+ setDetailOpen(false);itemList([],'KÖYLER',x=>x.name,()=>{});
  status('KÖYLER YÜKLENİYOR · '+districtInfo(local));
  const province=chosenProvince;
  void loadAttachedPlaces(province,local).then(places=>{
@@ -327,7 +358,11 @@ function dotStyle(p,overview=false){
   color:active?'#142d3f':small?color:'#fff',weight:active?2:small?.35:1.2,fillColor:color,fillOpacity:small?.76:1};
 }
 function addDot(p,layer,overview){
- L.circleMarker([p.lat,p.lng],dotStyle(p,overview)).on('click',()=>selectPlace(p)).addTo(layer);
+ const title=document.createElement('span');
+ title.textContent=p.name;
+ L.circleMarker([p.lat,p.lng],dotStyle(p,overview))
+  .bindTooltip(title,{direction:'top',offset:[0,-4]})
+  .on('click',()=>selectPlace(p)).addTo(layer);
 }
 function documentLabels(p){
  const refs=metadata(p)?.refs||[];
@@ -384,6 +419,7 @@ async function loadNationalArchive(){
  $('nfsCount').textContent=data.nfs.toLocaleString('tr-TR');
  $('familyCount').textContent=data.family.toLocaleString('tr-TR');
  renderOverview();++archiveVersion;
+ if(finderOpen)renderFinder();
  renderPlaces(true);
  if(chosenDistrict){populateVillageSelectors();if(!nearbyCenter)renderDistrictItems()}
  if(nearbyCenter)void showRadius(nearbyCenter,nearbyFocus);
@@ -419,7 +455,6 @@ function renderPlaces(force=false){
   }
   return;
  }
- const marked=archivePointList.filter(p=>bounds.contains([p.lat,p.lng]));
  if(zoom>=10||nearbyCenter){
   const candidates=[...nearbyList.values(),...currentPoints,...[...visiblePointDistricts].flatMap(id=>loadedPoints.get(id)||[])];
   const grey=new Set();
@@ -430,24 +465,30 @@ function renderPlaces(force=false){
    if(grey.size>=600)break;
   }
  }
- if(zoom<10&&!nearbyCenter)return;
- const positions=new Set(),labeled=new Set();
- const nearby=[...nearbyList.values()].sort((a,b)=>Number(!!metadata(b)?.refs.length)-Number(!!metadata(a)?.refs.length));
- for(const p of [...nearby,...marked]){
-  const identity=pointKey(p.il,p.ilce,p.name);
-  if(labeled.has(identity)||!bounds.contains([p.lat,p.lng]))continue;
+ if(!nearbyCenter)return;
+ const positions=new Set();
+ const close=[...nearbyList.values()].filter(p=>bounds.contains([p.lat,p.lng]))
+  .sort((a,b)=>map.distance(nearbyCenter,[a.lat,a.lng])-map.distance(nearbyCenter,[b.lat,b.lng]));
+ for(const p of close){
   const pos=map.latLngToContainerPoint([p.lat,p.lng]);
-  const cell=Math.floor(pos.x/135)+'|'+Math.floor(pos.y/31);
-  if(positions.has(cell)&&p!==selectedPlace)continue;
-  positions.add(cell);labeled.add(identity);labelPlace(p,labels);
-  if(labeled.size>=95)break;
+  const cell=Math.floor(pos.x/150)+'|'+Math.floor(pos.y/35);
+  if(positions.has(cell))continue;
+  positions.add(cell);labelPlace(p,labels);
+  if(positions.size===NEARBY_LIMIT)break;
  }
+}
+function setDetailOpen(open){
+ const detail=$('detail');
+ if(detail.classList.contains('open')===open)return;
+ detail.classList.toggle('open',open);
+ detail.closest('.mapwrap').classList.toggle('has-detail',open);
+ map.invalidateSize({pan:false});
 }
 function selectPlace(p){
  selectedPlace=p;
  $('detailTitle').textContent=p.name;
- $('detail').classList.add('open');
- $('detail').scrollTop=0;
+ setDetailOpen(true);
+ $('detailBody').scrollTop=0;
  showDetails(p);
  if(Number.isFinite(p.lat)&&Number.isFinite(p.lng)){
   $('search').value='';
@@ -460,34 +501,53 @@ function selectPlace(p){
  void ensureArchive();
  mobileClose();
 }
+function registerTitle(value,type){
+ const raw=String(value||'');
+ const refs=[...raw.matchAll(/\bNFS\s*\.?\s*(?:d\s*\.?)?\s*(\d+)/gi)].map(match=>match[1]);
+ if(refs.length&&!/TMT/i.test(raw))return [...new Set(refs)].map(n=>'NFS.d.'+n).join(' / ');
+ if(/nfs|nufus/.test(norm(type))&&/^\s*\d+(?:[;, /]+\d+)*\s*$/.test(raw)){
+  return [...new Set(raw.match(/\d+/g))].map(n=>'NFS.d.'+n).join(' / ');
+ }
+ return raw.trim();
+}
+function registerCards(rows){
+ const cards=new Map();
+ for(const row of rows){
+  for(const d of row.defterler||[]){
+   const title=registerTitle(d.defter,d.tur);
+   if(!title)continue;
+   const fields=[
+    ['Tarih',d.yil],['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Sancak',d.sancak],
+    ['Divan',d.divan],['Defterdeki ad',d.kayit_adi||d.tarihi_ad||row.tarihi_karye],
+    ['Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],['Erkek',d.erkek]
+   ].filter(([,value])=>value!=null&&String(value).trim());
+   const notes=[d.eslesme_durumu,d.aciklama].filter(Boolean);
+   const signature=norm(JSON.stringify([title,fields,notes]));
+   if(!cards.has(signature))cards.set(signature,{title,fields,notes,nfs:/\bNFS\.d\./i.test(title)});
+  }
+ }
+ const detailed=new Set([...cards.values()].filter(card=>card.fields.length||card.notes.length).map(card=>card.title));
+ return [...cards.values()].filter(card=>card.fields.length||card.notes.length||!detailed.has(card.title));
+}
 function showDetails(p){
  const list=records.get(pointKey(p.il,p.ilce,p.name))||[],b=$('detailBody');
  let html='<div class="tiny">GÜNÜMÜZ · '+esc(p.il)+' / '+esc(p.ilce)+'</div>';
- const item=metadata(p),docs=documentLabels(p);
+ const item=metadata(p),docs=documentLabels(p),cards=registerCards(list);
  if(item?.kazas.length)html+='<div class="source"><b>TARİHÎ KAZA</b><div>'+item.kazas.map(esc).join(' · ')+'</div></div>';
- if(item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+item.families.map(esc).join(' · ')+'</div></div>';
- if(docs.length)html+='<div class="source"><b>NFS DEFTERİ · TARİHÎ KAZA</b>'+docs.map(doc=>'<div>'+esc(doc)+'</div>').join('')+'</div>';
- if(!loadedArchive&&!list.length){html+='<p>Arşiv kartı yükleniyor…</p>';b.innerHTML=html;return}
- if(!list.length&&!docs.length&&!item?.families.length){html+='<p>BU YERLEŞİME BAĞLI AYRINTILI ARŞİV KARTI BULUNAMADI.</p>'}
- else{
-  const seen=new Set();for(const rec of list){
-   for(const d of rec.defterler||[]){
-    const sig=[d.defter,d.yil,d.sayfa,d.varak,d.kayit_adi,d.divan].join('|');if(!d.defter||seen.has(sig))continue;seen.add(sig);
-    html+='<div class="source"><b>'+esc(d.defter)+'</b>'+
-      '<div>'+esc([d.tur,d.yil].filter(Boolean).join(' · '))+'</div>'+
-      (d.tarihi_kaza||rec.tarihi_kaza?'<div>TAHRİR / KAZA: '+esc(d.tarihi_kaza||rec.tarihi_kaza)+'</div>':'')+
-      (d.kayit_adi||rec.tarihi_karye?'<div>TARİHÎ AD: '+esc(d.kayit_adi||rec.tarihi_karye)+'</div>':'')+
-      (d.sayfa!=null?'<div>SAYFA: '+esc(d.sayfa)+'</div>':'')+
-      (d.varak!=null?'<div>VARAK: '+esc(d.varak)+'</div>':'')+
-      (d.hane!=null?'<div>HANE: '+esc(d.hane)+'</div>':'')+
-      (d.erkek!=null?'<div>ERKEK: '+esc(d.erkek)+'</div>':'')+
-      (d.divan?'<div>DİVAN: '+esc(d.divan)+'</div>':'')+
-      (d.eslesme_durumu?'<div>'+esc(d.eslesme_durumu)+'</div>':'')+
-      (d.aciklama?'<div>'+esc(d.aciklama)+'</div>':'')+
-      '</div>'
-   }
+ if(docs.length)html+='<h2 class="archive-section">NFS defteri ve tarihî kaza</h2>'+docs.map(doc=>'<div>'+esc(doc)+'</div>').join('');
+ for(const [label,items] of [['Nüfus defteri içeriği',cards.filter(c=>c.nfs)],['Diğer arşiv kayıtları',cards.filter(c=>!c.nfs)]]){
+  if(!items.length)continue;
+  html+='<h2 class="archive-section">'+label+'</h2>';
+  for(const card of items){
+   const fields=card.fields.map(([label,value])=>'<dt>'+esc(label)+'</dt><dd>'+esc(value)+'</dd>').join('');
+   html+='<article class="archive-entry'+(card.nfs?'':' secondary')+'"><h3>'+esc(card.title)+'</h3>'+
+    (fields?'<dl>'+fields+'</dl>':'')+card.notes.map(note=>'<p>'+esc(note)+'</p>').join('')+'</article>';
   }
-  if(!seen.size)html+='<p>YERLEŞİM KAYDI VAR; DEFTER KÜNYESİ HENÜZ GİRİLMEDİ.</p>';
+ }
+ if(!loadedArchive&&!list.length)html+='<p>Arşiv kartı yükleniyor…</p>';
+ else if(!list.length&&!docs.length&&!item?.families.length)html+='<p>Bu yerleşime bağlı ayrıntılı arşiv kartı bulunamadı.</p>';
+ if(item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+item.families.map(esc).join(' · ')+'</div></div>';
+ if(list.length){
   for(const source of list.flatMap(r=>r.yerel_kaynaklar||[])){
    const citation=source.kaynak?'<div>'+(/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak)+'</a>':esc(source.kaynak))+'</div>':'';
    html+='<div class="source"><b>'+esc([source.tarih,source.tur].filter(Boolean).join(' · '))+'</b><div>'+esc(source.ozet)+'</div>'+citation+'</div>';
@@ -645,7 +705,7 @@ async function showRadius(center,focus=null){
   if(places.length&&map.getCenter().equals(initialCenter)&&map.getZoom()===initialZoom){
    const size=map.getSize();
    const bounds=L.latLngBounds([focus,...places].map(p=>[p.lat,p.lng]));
-   map.fitBounds(bounds,{paddingTopLeft:[35,65],paddingBottomRight:size.x>650?[370,55]:[30,Math.round(size.y*.4)],maxZoom:13,animate:false});
+   map.fitBounds(bounds,{paddingTopLeft:[35,65],paddingBottomRight:window.matchMedia('(min-width:1080px)').matches?[85,65]:[30,Math.round(size.y*.4)],maxZoom:13,animate:false});
   }
   status(focus.name+' · '+places.length+' YAKIN YERLEŞİM'+(incomplete?' · BAZI KONUMLAR YÜKLENEMEDİ':''));
  }else status('30 KM ÇAP · '+nearbyList.size.toLocaleString('tr-TR')+' YERLEŞİM'+(incomplete?' · BAZI KONUMLAR YÜKLENEMEDİ':''));
@@ -691,6 +751,57 @@ async function loadViewportPoints(){
   if(token===viewportToken)renderPlaces(true);
  }catch(e){console.warn('Görünür ilçe sınırları:',e)}
 }
+let finderOpen=false;
+function closeFinder(){
+ finderOpen=false;
+ $('archiveResults').hidden=true;
+}
+function renderFinder(){
+ const input=$('archiveQuery'),root=$('archiveResults'),query=norm(input.value).trim().replace(/\s+/g,' ');
+ root.replaceChildren();
+ if(!finderOpen||query.length<2){root.hidden=true;return []}
+ const register=query.match(/^(?:nfs[ .-]*(?:d[ .-]*)?)?0*(\d+)$/)?.[1];
+ const placeQuery=placeNameKey(query),choices=[];
+ if(!register){
+  for(const province of provinces){
+   const name=province.properties.name;
+   if(norm(name).includes(query))choices.push({name,info:'İl',open:()=>openProvince(name)});
+  }
+  for(const district of districts){
+   if(!norm(district.name).includes(query))continue;
+   const province=provinces.find(p=>provinceID(p)===district.parent_id);
+   if(province)choices.push({name:district.name,info:province.properties.name+' · İlçe',
+    open:()=>{openProvince(province.properties.name);openDistrict(district)}});
+  }
+ }
+ for(const p of archivePointList){
+  const label=norm([p.name,p.il,p.ilce].join(' '));
+  if(register?!p.refs.some(([code])=>String(code)===register):!(label.includes(query)||(placeQuery&&placeNameKey(p.name).includes(placeQuery))))continue;
+  choices.push({name:p.name,info:p.il+' / '+p.ilce+(register?' · NFS.d.'+register:''),open:()=>selectPlace(p)});
+ }
+ const matches=choices.sort((a,b)=>Number(norm(b.name)===query)-Number(norm(a.name)===query)||a.name.localeCompare(b.name,'tr')).slice(0,35);
+ root.hidden=false;
+ if(!matches.length){
+  const empty=document.createElement('p');empty.textContent='Eşleşen yerleşim bulunamadı.';root.append(empty);
+ }
+ for(const result of matches){
+  const button=document.createElement('button');button.type='button';button.className='item';
+  button.innerHTML='<span><b>'+esc(result.name)+'</b><small class="item-doc">'+esc(result.info)+'</small></span>';
+  button.onclick=()=>{closeFinder();result.open()};
+  root.append(button);
+ }
+ return matches;
+}
+$('archiveQuery').oninput=$('archiveQuery').onfocus=()=>{finderOpen=true;renderFinder()};
+$('archiveFind').onsubmit=e=>{e.preventDefault();const first=renderFinder()?.[0];if(first){closeFinder();first.open()}};
+$('archiveFind').onkeydown=e=>{
+ if(e.key==='Escape'){$('archiveQuery').focus();closeFinder()}
+ if(e.key==='ArrowDown'&&e.target===$('archiveQuery')){
+  const first=$('archiveResults').querySelector('button');
+  if(first){e.preventDefault();first.focus()}
+ }
+};
+document.addEventListener('click',e=>{if(!$('archiveFind').contains(e.target))closeFinder()});
 map.on('moveend zoomend',()=>{
  clearTimeout(regionTimer);
  regionTimer=setTimeout(()=>{renderOverview();renderPlaces();void loadViewportPoints()},130);
@@ -705,7 +816,7 @@ $('clearNearby').onclick=()=>{
  renderPlaces(true);
 };
 $('close').onclick=()=>{
- $('detail').classList.remove('open');
+ setDetailOpen(false);
  selectedPlace=null;
  if(nearbyFocus)$('clearNearby').click();
 };
