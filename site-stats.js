@@ -97,7 +97,7 @@ async function refresh(){
   if(api){
    try{
     const r=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(4500)});
-    if(r.ok){const data=await r.json();draw("village",data.villages||[],false);draw("family",data.families||[],false);return}
+    if(r.ok){const data=await r.json();draw("village",data.villages||[],false);draw("family",data.families||[],false);sharedHealthy=true;statusText("ORTAK ARAMA SİSTEMİ BAĞLI");return}
    }catch(_){}
   }
   let sharedRead=0,sharedErrors=0;
@@ -158,6 +158,25 @@ window.ArchiveStats={
 };
 async function today(){
  if(!daily)return;
+ if(api){
+  try{
+   const flag="archive_daily_api_visit_v1";
+   if(sessionStorage.getItem(flag)!=="1"){
+    const hit=await fetch(api,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type:"visit"}),signal:AbortSignal.timeout(6000)});
+    if(!hit.ok)throw Error("API visit "+hit.status);
+    sessionStorage.setItem(flag,"1");
+    sessionStorage.setItem("alidedeoglu_visit_api_v1","1");
+   }
+   const res=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(6000)});
+   if(!res.ok)throw Error("API today "+res.status);
+   const data=await res.json();
+   const n=Number(data.today);
+   if(!Number.isSafeInteger(n)||n<0)throw Error("Invalid daily counter");
+   daily.textContent=n.toLocaleString("tr-TR");
+   return;
+  }catch(e){console.warn("Günlük sayaç API:",e)}
+ }
+
  const date=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Istanbul",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
  const key="alidedeogluarsivi_today_"+date.replace(/\D/g,"");
  const flag="archive_daily_counted_"+date;
