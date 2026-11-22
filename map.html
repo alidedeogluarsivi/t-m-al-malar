@@ -97,6 +97,8 @@ function resetCountry(){
 async function openProvince(name){
  const p=provinces.find(x=>norm(x.properties.name)===norm(name));if(!p)return;
  const token=++selectionToken;level='province';chosenProvince=p;chosenDistrict=null;clearPlaces();clearDistrictLayer();
+ // Load this province's family index independently of the large national archive.
+ void loadProvinceFamilies(p).catch(e=>console.warn('İl sülale verisi:',e));
  $('province').value=p.properties.name;$('district').disabled=false;
  const arr=neighborsForProvince(p);
  $('district').innerHTML='<option value="">İLÇE SEÇİN</option>'+arr.map(d=>'<option value="'+esc(d.id)+'">'+esc(d.name)+'</option>').join('');
@@ -125,6 +127,8 @@ function districtInfo(d){return chosenProvince?chosenProvince.properties.name+' 
 async function openDistrict(d){
  const local=typeof d==='string'?districts.find(x=>x.id===d):d;if(!local||!chosenProvince||local.parent_id!==provinceID(chosenProvince))return;
  const token=++selectionToken;chosenDistrict=local;level='district';clearPlaces();clearDistrictLayer();
+ // Preserve the current province's indexed families even if bulk archive loading is slow.
+ void loadProvinceFamilies(chosenProvince).catch(e=>console.warn('İl sülale verisi:',e));
  $('district').value=local.id;$('crumb').textContent=chosenProvince.properties.name.toLocaleUpperCase('tr-TR')+' / '+local.name.toLocaleUpperCase('tr-TR');
  $('detail').classList.remove('open');itemList([],'KÖYLER',x=>x.name,()=>{});
  status('KÖYLER YÜKLENİYOR · '+districtInfo(local));
