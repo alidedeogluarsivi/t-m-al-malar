@@ -1,0 +1,8 @@
+name = "alidedeoglu-arsiv-stats"
+main = "worker.js"
+compatibility_date = "2026-11-22"
+# Create a Cloudflare D1 database, then replace DATABASE_ID before deployment.
+[[d1_databases]]
+binding = "DB"
+database_name = "alidedeoglu-arsiv-stats"
+database_id = "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID"
