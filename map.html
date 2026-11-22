@@ -180,7 +180,7 @@ function appendKnownArchivePoints(points, district, province){
   if(!rec)continue;
   const [lng,lat]=rec.konum;
   const feature={type:'Feature',geometry:{type:'Point',coordinates:[lng,lat]},properties:{name:rec.koy}};
-  list.push({name:rec.koy,il:province,ilce:district.name,lng,lat,feature});
+  list.push({name:rec.koy,il:province,ilce:district.name,lng,lat,feature,kind:rec.yerlesim_turu||'',parentVillage:rec.bagli_oldugu_koy||''});
  }
  return list;
 }
@@ -301,7 +301,7 @@ async function loadProvinceFamilies(province){
 function ensureArchive(){
  if(archivePromise)return archivePromise;
  // Read real BOA data from existing sources. Additional catalogues can be added here without touching the map.
- const sources=['./catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','./catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
+ const sources=['./catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson','./catalog/tokat_merkez_guryildiz_bireb_i_atik_tmt_20261122.ndjson','./catalog/tokat_erbaa_turkfindicak_hasankahya_ogullari.ndjson','./catalog/arac_havzasi_1840_nfs_1844_1845_tmt_fihristi_20261121.ndjson?v=20261121-nfs938','./catalog/taskopru_havzasi_nfs_tmt_sulaleler_20261121.ndjson','./catalog/kastamonu_nfs_tercume_sulaleleri_20261121.ndjson?v=taskopru20261121','./archive_verified.ndjson','./archive_1.ndjson','./archive_2.ndjson','./archive_3.ndjson','./archive_4.ndjson','./archive_5.ndjson','./catalog/archive_library_verified_20261111.ndjson','./catalog/amasya_1830_1850_kazalar_guncel_yerlesim_eslesmeleri_20261121.ndjson','./catalog/gelingiras_1846_nfs2176_1845_tmt_fihrist_20261119.ndjson','./catalog/tasabad_1844_1845_tmt_guncel_koy_eslesmeleri_20261121.ndjson'];
  archivePromise=(async()=>{for(const file of sources)await ingestNDJSON(file);loadedArchive=true;++archiveVersion;
   if(level==='district'&&chosenDistrict){
    currentPoints=appendKnownArchivePoints(currentPoints,chosenDistrict,chosenProvince.properties.name);
