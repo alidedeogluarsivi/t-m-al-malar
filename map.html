@@ -42,7 +42,8 @@ main{height:calc(100dvh - 54px)}
 .item-doc{display:block;font-size:.72rem;line-height:1.35;color:#435d70;margin-top:3px}
 .green{color:#177047;font-size:17px;line-height:1}
 #detail{top:52px;max-height:calc(100% - 112px)}
-.map-place-label{background:white;border:1px solid #b1c0cb;border-radius:5px;padding:3px 6px;line-height:1.3;color:#142d3f;box-shadow:0 2px 8px #14283c1c;white-space:nowrap;pointer-events:auto;cursor:pointer;display:inline-block;font-size:11px}
+.map-place-label{line-height:1.25;color:#102b3f;white-space:nowrap;pointer-events:auto;cursor:pointer;display:inline-block;font-size:11px;font-weight:600;text-shadow:-1px -1px 1px #fff,1px -1px 1px #fff,-1px 1px 1px #fff,1px 1px 1px #fff}
+.map-place-label.selected b{text-decoration:underline;text-underline-offset:2px}
 .map-place-label span{display:block;color:#334c62}
 .map-place-label b{font-size:12px}
 #nearby button{width:100%;padding:7px;border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px}
@@ -86,6 +87,8 @@ pointPane.style.zIndex='430';
 const pointCanvas=L.canvas({padding:.12,pane:'archivePoints'});
 const overviewLayer=L.layerGroup().addTo(map);
 const nearbyList=new Map();
+const NEARBY_LIMIT=10;
+let nearbyFocus=null;
 const archivePoints=new Map();
 let archivePointList=[],largeArchiveDots=false,nearbyCenter=null,visibleBoundaries=null,boundaryIds='',visiblePointDistricts=new Set();
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),regionRing=null;
@@ -280,7 +283,6 @@ function populateVillageSelectors(){
  updateHamlets(places);
 }
 function focusPlace(place){
- if(Number.isFinite(place.lat)&&Number.isFinite(place.lng))map.setView([place.lat,place.lng],Math.max(11,map.getZoom()),{animate:false});
  selectPlace(place);
 }
 function selectVillage(name){
@@ -320,8 +322,9 @@ function dotStyle(p,overview=false){
  const kind=archiveKind(p);
  const color=kind==='nfs'?'#c91d35':kind==='family'?'#188357':'#8b98a3';
  const small=overview&&map.getZoom()<8;
- return {renderer:pointCanvas,interactive:true,bubblingMouseEvents:false,radius:small?2.5:kind?5:3.5,
-  color:small?color:'#fff',weight:small?.35:1.2,fillColor:color,fillOpacity:small?.76:1};
+ const active=p===nearbyFocus;
+ return {renderer:pointCanvas,interactive:true,bubblingMouseEvents:false,radius:active?7:small?2.5:kind?5:3.5,
+  color:active?'#142d3f':small?color:'#fff',weight:active?2:small?.35:1.2,fillColor:color,fillOpacity:small?.76:1};
 }
 function addDot(p,layer,overview){
  L.circleMarker([p.lat,p.lng],dotStyle(p,overview)).on('click',()=>selectPlace(p)).addTo(layer);
@@ -340,12 +343,18 @@ function labelPlace(p,layer){
  const kazas=metadata(p)?.kazas||[];
  const text=docs.length?docs.slice(0,2).join(' / ')+(docs.length>2?' …':''):
   kazas.length?'Tarihî kaza: '+kazas.join(' / '):'Günümüz: '+p.ilce;
- const html='<span class="map-place-label"><b>'+esc(p.name)+'</b><span>'+esc(text)+'</span></span>';
+ const html='<span class="map-place-label'+(p===nearbyFocus?' selected':'')+'"><b>'+esc(p.name)+'</b><span>'+esc(text)+'</span></span>';
  L.marker([p.lat,p.lng],{interactive:true,keyboard:true,title:p.name,bubblingMouseEvents:false,
   icon:L.divIcon({className:'',html,iconSize:[0,0],iconAnchor:[-7,13]})})
   .on('click',()=>selectPlace(p)).addTo(layer);
 }
 function renderOverview(){
+ const visible=map.hasLayer(overviewLayer);
+ if(nearbyFocus){
+  if(visible)map.removeLayer(overviewLayer);
+  return;
+ }
+ if(!visible)overviewLayer.addTo(map);
  if(!archivePointList.length)return;
  const large=map.getZoom()>=8;
  const layers=overviewLayer.getLayers();
@@ -376,8 +385,8 @@ async function loadNationalArchive(){
  $('familyCount').textContent=data.family.toLocaleString('tr-TR');
  renderOverview();++archiveVersion;
  renderPlaces(true);
- if(chosenDistrict){populateVillageSelectors();renderDistrictItems()}
- if(nearbyCenter)void showRadius(nearbyCenter);
+ if(chosenDistrict){populateVillageSelectors();if(!nearbyCenter)renderDistrictItems()}
+ if(nearbyCenter)void showRadius(nearbyCenter,nearbyFocus);
  if(selectedPlace)showDetails(selectedPlace);
 }
 function loadDistrictPoints(d){
@@ -403,6 +412,13 @@ function renderPlaces(force=false){
   bounds.getEast().toFixed(3),archiveVersion,loadedPoints.size,nearbyList.size].join('|');
  if(!force&&signature===lastRenderSignature)return;
  lastRenderSignature=signature;placeLayer.clearLayers();labels.clearLayers();
+ if(nearbyFocus){
+  for(const place of [...nearestPlaces(),nearbyFocus]){
+   addDot(place,placeLayer,false);
+   labelPlace(place,labels);
+  }
+  return;
+ }
  const marked=archivePointList.filter(p=>bounds.contains([p.lat,p.lng]));
  if(zoom>=10||nearbyCenter){
   const candidates=[...nearbyList.values(),...currentPoints,...[...visiblePointDistricts].flatMap(id=>loadedPoints.get(id)||[])];
@@ -431,7 +447,12 @@ function selectPlace(p){
  selectedPlace=p;
  $('detailTitle').textContent=p.name;
  $('detail').classList.add('open');
+ $('detail').scrollTop=0;
  showDetails(p);
+ if(Number.isFinite(p.lat)&&Number.isFinite(p.lng)){
+  $('search').value='';
+  void showRadius(p,p);
+ }
  const province=provinces.find(item=>norm(item.properties.name)===norm(p.il));
  if(province)void loadProvinceFamilies(province).then(()=>{
   if(selectedPlace===p)showDetails(p);
@@ -548,26 +569,44 @@ function ensureArchive(){
 let radiusRequest=0;
 function clearNearby(){
  ++radiusRequest;
- nearbyCenter=null;nearbyList.clear();
+ nearbyCenter=null;nearbyFocus=null;nearbyList.clear();
+ renderOverview();
  $('nearby').hidden=true;
  if(regionRing){map.removeLayer(regionRing);regionRing=null}
 }
+function nearestPlaces(){
+ const key=pointKey(nearbyFocus.il,nearbyFocus.ilce,nearbyFocus.name);
+ return [...nearbyList.entries()]
+  .filter(([identity])=>identity!==key)
+  .map(([,place])=>({place,distance:map.distance(nearbyCenter,[place.lat,place.lng])}))
+  .sort((a,b)=>a.distance-b.distance||a.place.name.localeCompare(b.place.name,'tr'))
+  .slice(0,NEARBY_LIMIT)
+  .map(({place})=>place);
+}
 function renderNearby(){
- const places=[...nearbyList.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
- itemList(places,'30 KM ÇAP İÇİNDEKİ YERLEŞİMLER',p=>p.name,focusPlace,archiveKind,p=>{
+ const places=nearbyFocus?nearestPlaces():[...nearbyList.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+ itemList(places,nearbyFocus?'EN YAKIN YERLEŞİMLER':'30 KM ÇAP İÇİNDEKİ YERLEŞİMLER',p=>p.name,focusPlace,archiveKind,p=>{
   const docs=documentLabels(p);
   return docs.length?docs.join(' / '):metadata(p)?.kazas?.join(' / ')||p.ilce;
  });
- renderPlaces(true);
+ renderOverview();renderPlaces(true);
 }
-async function showRadius(center){
+async function showRadius(center,focus=null){
  const token=++radiusRequest,radius=15000;
  nearbyCenter=L.latLng(center.lat,center.lng);
+ nearbyFocus=focus;
  const origin=nearbyCenter;
+ const latPadding=radius/110500;
+ const lngPadding=latPadding/Math.cos(origin.lat*Math.PI/180);
+ const area=L.latLngBounds(
+  [origin.lat-latPadding,origin.lng-lngPadding],
+  [origin.lat+latPadding,origin.lng+lngPadding]
+ );
  nearbyList.clear();
  $('nearby').hidden=false;
- if(regionRing)map.removeLayer(regionRing);
- regionRing=L.circle(origin,{radius,color:'#284d76',weight:2,fillColor:'#527ca5',fillOpacity:.08,interactive:false}).addTo(map);
+ $('clearNearby').textContent=focus?'Tüm noktaları göster':'Çevre seçimini kaldır';
+ if(regionRing){map.removeLayer(regionRing);regionRing=null}
+ if(!focus)regionRing=L.circle(origin,{radius,color:'#284d76',weight:2,fillColor:'#527ca5',fillOpacity:.08,interactive:false}).addTo(map);
  const addNearby=p=>{
   if(map.distance(origin,[p.lat,p.lng])<=radius){
    const key=pointKey(p.il,p.ilce,p.name);
@@ -576,14 +615,16 @@ async function showRadius(center){
  };
  archivePointList.forEach(addNearby);
  for(const rows of loadedPoints.values())rows.forEach(addNearby);
+ if(focus)map.setView(origin,Math.min(13,Math.max(11,map.getZoom())),{animate:false});
+ else if(map.getZoom()<10)map.fitBounds(regionRing.getBounds(),{padding:[35,35],maxZoom:11,animate:false});
+ const initialCenter=map.getCenter(),initialZoom=map.getZoom();
  renderNearby();
- status('30 KM ÇAP · ÇEVREDEKİ YERLEŞİMLER YÜKLENİYOR…');
- if(map.getZoom()<10)map.fitBounds(regionRing.getBounds(),{padding:[35,35],maxZoom:11,animate:false});
+ status(focus?'YAKIN YERLEŞİMLER YÜKLENİYOR…':'30 KM ÇAP · ÇEVREDEKİ YERLEŞİMLER YÜKLENİYOR…');
  let incomplete=false;
  try{
   const geometry=await getDistrictGeometry();
   if(token!==radiusRequest)return;
-  const ids=new Set((geometry.features||[]).filter(f=>intersectsView(f,regionRing.getBounds())).map(f=>f.properties.id));
+  const ids=new Set((geometry.features||[]).filter(f=>intersectsView(f,area)).map(f=>f.properties.id));
   const neighbors=districts.filter(d=>ids.has(d.id));
   let cursor=0;
   async function load(){
@@ -599,8 +640,16 @@ async function showRadius(center){
   await Promise.all(Array.from({length:Math.min(4,neighbors.length)},load));
  }catch(e){incomplete=true;console.warn('Çevre sınırları:',e)}
  if(token!==radiusRequest)return;
+ if(focus){
+  const places=nearestPlaces();
+  if(places.length&&map.getCenter().equals(initialCenter)&&map.getZoom()===initialZoom){
+   const size=map.getSize();
+   const bounds=L.latLngBounds([focus,...places].map(p=>[p.lat,p.lng]));
+   map.fitBounds(bounds,{paddingTopLeft:[35,65],paddingBottomRight:size.x>650?[370,55]:[30,Math.round(size.y*.4)],maxZoom:13,animate:false});
+  }
+  status(focus.name+' · '+places.length+' YAKIN YERLEŞİM'+(incomplete?' · BAZI KONUMLAR YÜKLENEMEDİ':''));
+ }else status('30 KM ÇAP · '+nearbyList.size.toLocaleString('tr-TR')+' YERLEŞİM'+(incomplete?' · BAZI KONUMLAR YÜKLENEMEDİ':''));
  renderNearby();
- status('30 KM ÇAP · '+nearbyList.size.toLocaleString('tr-TR')+' YERLEŞİM'+(incomplete?' · BAZI KONUMLAR YÜKLENEMEDİ':''));
 }
 const districtBoundsCache=new WeakMap();
 function intersectsView(f,bounds){
@@ -633,7 +682,7 @@ async function loadViewportPoints(){
     .addTo(map);
    boundaryIds=signature;
   }
-  if(zoom<10||(!chosenDistrict&&!nearbyCenter))return;
+  if(zoom<10||nearbyFocus||(!chosenDistrict&&!nearbyCenter))return;
   visiblePointDistricts=ids;
   const tasks=districts.filter(d=>ids.has(d.id)&&!loadedPoints.has(d.id)).slice(0,8);
   for(let i=0;i<tasks.length&&token===viewportToken;i+=4){
@@ -655,7 +704,11 @@ $('clearNearby').onclick=()=>{
  status('NOKTAYA TIKLAYARAK KAYDI AÇIN · BOŞ ALAN: 30 KM ÇAP');
  renderPlaces(true);
 };
-$('close').onclick=()=>{$('detail').classList.remove('open')};
+$('close').onclick=()=>{
+ $('detail').classList.remove('open');
+ selectedPlace=null;
+ if(nearbyFocus)$('clearNearby').click();
+};
 $('menu').onclick=()=>setMobileMenu(!$('side').classList.contains('open'));
 $('search').oninput=()=>{if(nearbyCenter){renderNearby();return}if(level==='country')itemList(provinces,'İLLER',x=>x.properties.name,x=>openProvince(x.properties.name));
  else if(level==='province')itemList(neighborsForProvince(chosenProvince),'İLÇELER',x=>x.name,x=>openDistrict(x));
