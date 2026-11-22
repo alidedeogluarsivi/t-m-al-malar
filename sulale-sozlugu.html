@@ -445,7 +445,7 @@ async function loadFreshArchiveAdditions(){
     for(const line of data.split(/\r?\n/)){
      if(!line.trim())continue;
      let obj;try{obj=JSON.parse(line)}catch(_){continue}
-     if(obj.il&&obj.ilce&&obj.koy&&Array.isArray(obj.defterler)&&obj.defterler.length){
+     if(obj.il&&obj.ilce&&obj.koy&&(Array.isArray(obj.defterler)&&obj.defterler.length || Array.isArray(obj.sulaleler)&&obj.sulaleler.length || Array.isArray(obj.sulale_kayitlari)&&obj.sulale_kayitlari.length)){
       const key=archiveVillageKey(obj.il,obj.ilce,obj.koy);
       const existing=villageArchiveCards.get(key);
       if(!existing||(!(existing.sulaleler||[]).length&&(obj.sulaleler||[]).length)||(!(existing.defterler||[]).length&&obj.defterler.length))villageArchiveCards.set(key,obj);
