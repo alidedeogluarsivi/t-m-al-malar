@@ -19,6 +19,15 @@ let publicIndex=null,indexRetryAfter=0,localIndex={village:{},family:{}};
 let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
 function statusText(msg){if(status)status.textContent=msg;}
 function normalize(x){return String(x||"").trim().replace(/\s+/g," ").slice(0,90).toLocaleUpperCase("tr-TR").normalize("NFC");}
+// Exclude editorial placeholders from public recent searches; preserve source records.
+function validSearchName(type,value){
+ const s=normalize(value);
+ if(s.length<2||s.length>90)return false;
+ if(/^(?:[-?.…\s]+|YERLEŞİM|KÖY|KARYE|SÜLALE|BİLİNMİYOR|BELİRTİLMEMİŞ|KAYIT YOK|VERİ YOK)$/.test(s))return false;
+ if(/(?:ADI\s+(?:YOK|YAZILMAMIŞ|BELİRTİLMEMİŞ)|İSMİ\s+(?:YOK|BİLİNMİYOR)|TESPİT EDİLEMEDİ|OKUNAMADI|BİLİNMİYOR|BELİRTİLMEMİŞ|KAYIT BULUNAMADI)/.test(s))return false;
+ if(type==='village'&&/^(?:TÜM KÖYLER|TÜM YERLEŞİMLER|İL SEÇİN|İLÇE SEÇİN|KÖY SEÇİN)$/.test(s))return false;
+ return true;
+}
 function nameId(name){
  let hash=14695981039346656037n;
  for(const byte of new TextEncoder().encode(normalize(name))){
@@ -43,7 +52,7 @@ function draw(type,names,isLocal){
  const unique=[];const seen=new Set();
  for(const item of names){
   const name=String(item||"").trim();
-  if(!name||seen.has(normalize(name)))continue;
+  if(!validSearchName(type,name)||seen.has(normalize(name)))continue;
   unique.push(name);seen.add(normalize(name));
   if(unique.length>=TYPES[type].n)break;
  }
@@ -84,7 +93,7 @@ async function readShared(type,legacy){
  for(const raw of vals){
   const id=String(raw);
   const name=(lookup&&lookup[type]&&lookup[type][id])||localIndex[type][id];
-  if(name)names.push(name);
+  if(name&&validSearchName(type,name))names.push(name);
  }
  return names;
 }
@@ -126,7 +135,7 @@ async function refresh(){
 async function record(type,name){
  if(!TYPES[type])return;
  name=String(name||"").trim().replace(/\s+/g," ").slice(0,90);
- if(name.length<2)return;
+ if(!validSearchName(type,name))return;
  saveLocal(type,name);
  if(TYPES[type].el)draw(type,local(type),true);
  statusText("ARAMA KAYDI ORTAK SAYAÇA GÖNDERİLİYOR…");
