@@ -1,0 +1,38 @@
+name: Audit archival catalog integrity
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'catalog/**/*.ndjson'
+      - 'catalog/sulale_source_manifest.json'
+      - 'scripts/audit-catalog.py'
+  schedule:
+    - cron: '15 6 * * *'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit all source records
+        run: python scripts/audit-catalog.py
+      - name: Publish integrity report
+        if: always()
+        run: |
+          if [ -f catalog/catalog_integrity_report.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add catalog/catalog_integrity_report.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Update archival catalog integrity report"
+              for n in 1 2 3 4 5; do
+                git pull --rebase origin main
+                if git push origin HEAD:main; then break; fi
+                sleep 2
+              done
+            fi
+          fi
