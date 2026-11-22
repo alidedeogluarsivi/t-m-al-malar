@@ -47,7 +47,7 @@ function draw(type,names,isLocal){
   unique.push(name);seen.add(normalize(name));
   if(unique.length>=TYPES[type].n)break;
  }
- if(!unique.length){el.textContent="HENÜZ KAYIT YOK";return;}
+ if(!unique.length){el.textContent=isLocal?"BU CİHAZDA HENÜZ ARAMA YOK":"HENÜZ KAYIT YOK";return;}
  unique.forEach((name,i)=>{const s=document.createElement("span");s.className="archiveRecentItem";s.textContent=String(i+1)+". "+name;el.append(s)});
  if(isLocal){const small=document.createElement("small");small.textContent=" (BU TARAYICIDA)";el.append(small);}
 }
@@ -115,7 +115,7 @@ async function refresh(){
     sharedErrors++;
     const own=local(type);
     draw(type,own,!!own.length);
-    if(!own.length)TYPES[type].el.textContent="ORTAK SAYAÇ ERİŞİLEMİYOR";
+    if(!own.length)TYPES[type].el.textContent="ORTAK ARAMALAR ŞU AN GÖRÜNTÜLENEMİYOR";
    }
   }));
   sharedHealthy=sharedRead>0;
@@ -166,7 +166,7 @@ async function today(){
   if(sessionStorage.getItem(flag)==="1")value=await request("get",key);
   else {value=await request("hit",key);sessionStorage.setItem(flag,"1")}
   daily.textContent=value.toLocaleString("tr-TR");
- }catch(e){daily.textContent="—";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
+ }catch(e){daily.textContent="ERİŞİLEMİYOR";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
 }
 void today();void refresh();
 if(villages||families){
