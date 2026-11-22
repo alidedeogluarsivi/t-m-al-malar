@@ -395,9 +395,12 @@ const countryDots=L.layerGroup().addTo(map);
 let countryScanStarted=false,countryScanDone=0;
 function previewKind(p){
  const rows=records.get(pointKey(p.il,p.ilce,p.name))||[];
- const nfs=rows.some(r=>(r.defterler||[]).some(d=>/NFS|NÜFUS|FİHR|FIHR/i.test(typeof d==='string'?d:JSON.stringify(d))));
- const family=rows.some(r=>(r.sulaleler||[]).length||(r.sulale_kayitlari||[]).length);
- return nfs?'nfs':family?'family':rows.length?'nfs':null;
+ const hasNfs=rows.some(r=>(r.defterler||[]).some(d=>{
+  const raw=typeof d==='string'?d:[d.defter,d.tur,d.kaynak,d.aciklama].filter(Boolean).join(' ');
+  return /NFS(?:\\.d)?|NÜFUS|FİHRİST|FIHRIST/i.test(raw);
+ })||/NFS(?:\\.d)?|NÜFUS/i.test(String(r.defter||r.kaynak||'')));
+ const hasFamily=rows.some(r=>(r.sulaleler||[]).length||(r.sulale_kayitlari||[]).length||(r.families||[]).length);
+ return hasNfs?'nfs':hasFamily?'family':null;
 }
 function redrawCountryDots(){
  countryDots.clearLayers();if(level==='district')return;
