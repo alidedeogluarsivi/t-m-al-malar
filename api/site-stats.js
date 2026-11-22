@@ -42,7 +42,7 @@ export default async function handler(req,res){
      seen.add(k);return true;
     }).slice(0,count);
    };
-   return res.status(200).json({villages:unique('village',3),families:unique('family',5)});
+   return res.status(200).json({villages:unique('village',10),families:unique('family',10)});
   }catch(_){return res.status(503).json({error:'Arama kayıtları veri deposu erişilemiyor'});}
  }
  if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return res.status(405).end();}
