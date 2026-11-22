@@ -15,7 +15,8 @@ input{width:100%;font:inherit;padding:14px;border-radius:8px;border:1px solid #b
 .small{font-size:.86rem;color:#55656b}details{margin-top:10px}.families{columns:2;line-height:1.7;font-size:.92rem;padding-left:20px}
 button{font:inherit;padding:10px 14px;border-radius:7px;border:1px solid #667;background:white;cursor:pointer}
 @media(max-width:580px){.families{columns:1}}
-</style></head>
+</style><script src="./archive-family-audit.js?v=1"></script>
+</head>
 <body><header><a href="./index.html">ALİDEDEOĞLU ARŞİVİ / ANA SAYFA</a><h1>4.498 SÜLALE–YER KAYDI · HARİTA DİZİNİ</h1><p>20 KASIM 2026 · 270 GÜNCEL YERLEŞİM · BOA NFS / TMT KAYNAKLARI</p></header>
 <main><div class="info"><b>HARİTA NOTU:</b> “HARİTADA AÇ” seçilen il, ilçe ve yerleşimin arşiv kaydını açar. İşaretin doğru koordinatta görüntülenmesi, sitede o yerleşime ait doğrulanmış coğrafî nokta veya sınır bulunmasına bağlıdır. Tarihî karye adı ile güncel köy adı farklıysa eşleştirme ayrıca kontrol edilmelidir. Bu dizin, her satırın koordinatının tek tek doğrulandığı anlamına gelmez.</div>
 <div class="stats"><span id="status">KAYITLAR YÜKLENİYOR…</span><span id="count">270 YERLEŞİM</span></div>
@@ -46,7 +47,7 @@ $("more").onclick=()=>{limit+=35;render()};
 (async()=>{try{
  const responses=await Promise.all(FILES.map(async f=>{const r=await fetch(f,{cache:"no-store"});if(!r.ok)throw Error(f+" HTTP "+r.status);return r.text()}));
  const map=new Map();let total=0;
- for(const text of responses)for(const line of text.split(/\r?\n/)){if(!line.trim())continue;const r=JSON.parse(line);total++;if(!r.il||!r.ilce||!r.koy)continue;
+ for(const text of responses)for(const line of text.split(/\r?\n/)){if(!line.trim())continue;const r=ArchiveFamilyAudit.scrub(JSON.parse(line));total++;if(!r.il||!r.ilce||!r.koy)continue;
  const k=[r.il,r.ilce,r.koy].join("|");if(!map.has(k))map.set(k,{il:r.il,ilce:r.ilce,koy:r.koy,rows:[]});map.get(k).rows.push(r)}
  groups=[...map.values()].sort((a,b)=>[a.il,a.ilce,a.koy].join("|").localeCompare([b.il,b.ilce,b.koy].join("|"),"tr"));
  for(const g of groups)g.search=fold([g.il,g.ilce,g.koy,...g.rows.flatMap(r=>[r.tarihi_karye,...(r.sulaleler||[]),...(r.defterler||[]).map(d=>d.defter)])].join(" "));

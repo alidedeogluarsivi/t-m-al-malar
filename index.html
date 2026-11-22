@@ -198,6 +198,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
  .mapInfoCard{max-height:130px}
 }
 </style>
+<script src="./archive-family-audit.js?v=1"></script>
 </head>
 <body>
 
@@ -215,7 +216,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <a href="./dergi.html">HAFTALIK E-DERGİ</a>
 <a href="./haberler.html">BASINDA BİZ</a>
 </nav>
-<iframe class="home-map" src="./map.html?embed=1" title="Alidedeoğlu Arşivi yerleşim ve sülale haritası"></iframe>
+<iframe class="home-map" src="./map.html?embed=1&amp;v=period" title="Alidedeoğlu Arşivi yerleşim ve sülale haritası"></iframe>
 
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
@@ -1978,13 +1979,13 @@ function extendVillageFromBulk(name,base){
  const o=getVillageOverlayFor(name);
  if(!o)return base;
  const r=base||{id:'bulk|'+name,il:selectedProvince.name,ilce:selectedDistrict.name,koy:name,defterler:[],sulaleler:[],haneler:[],gorevli_notlari:[],taramalar:[],kaynak_pdf:[],durumlar:[]};
- const candidateNames=new Set((o.candidate_families||[]).map(function(n){return norm(n)}));
+ const candidateNames=new Set(ArchiveFamilyAudit.filterNames(o.candidate_families||[]).map(function(n){return norm(n)}));
  // The province index is authoritative for explicitly unverified family links.
  // Do not allow older archive feeds to restore candidates as confirmed families.
  r.sulaleler=(r.sulaleler||[]).filter(function(n){return !candidateNames.has(norm(typeof n==='string'?n:''))});
  const known=new Set(r.sulaleler.map(function(x){return norm(typeof x==='string'?x:'')}));
- for(const n of o.families||[]){if(!known.has(norm(n))&&!candidateNames.has(norm(n))){r.sulaleler.push(n);known.add(norm(n))}}
- r.overlayCandidates=(o.candidate_families||[]).filter(function(n){return !known.has(norm(n))});
+ for(const n of ArchiveFamilyAudit.filterNames(o.families||[])){if(!known.has(norm(n))&&!candidateNames.has(norm(n))){r.sulaleler.push(n);known.add(norm(n))}}
+ r.overlayCandidates=ArchiveFamilyAudit.filterNames(o.candidate_families||[]).filter(function(n){return !known.has(norm(n))});
  r.overlaySources=o.sources||[];
  return r
 }
@@ -2400,7 +2401,7 @@ function showRecord(name,r,ilce,il){
     }
     if(archiveLayerPrefs.families&&(r.sulale_kayitlari||[]).length){
       h+='<div class="section"><h3>TERCÜME EDİLMİŞ DEFTERLERDEKİ SÜLALELER</h3>'+r.sulale_kayitlari.map(function(f){
-        return '<div class="record"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>'
+        return '<div class="record"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.kaynak,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>'
       }).join('')+'</div>'
     }
     if(archiveLayerPrefs.families&&fams.length){
@@ -2544,6 +2545,7 @@ function cleanOfficialDefter(d){
 }
 function sanitizeArchiveFamilyRecord(x){
   if(!x||typeof x!=='object')return x;
+  ArchiveFamilyAudit.scrub(x);
   x.defterler=(Array.isArray(x.defterler)?x.defterler:[]).flatMap(cleanOfficialDefter);
   // Secondary literature can be preserved in research files but never cited as clan evidence.
   x.kaynak_pdf=[];
@@ -2616,7 +2618,7 @@ async function loadArchiveCore(){
         const ilce=String(item['İLÇE']||'').trim();
         const koyRaw=String(item['KÖY/KARYE/MAHALLE']||'').trim();
         const sulale=standardFamilyName(String(item['STANDART SÜLALE ADI']||''));
-        if(!sulale||!koyRaw||!item['DEFTER NO']||!item['HANE NO'])return;
+        if(!sulale||ArchiveFamilyAudit.isReviewed(sulale)||!koyRaw||!item['DEFTER NO']||!item['HANE NO'])return;
         let resolvedIl=il,resolvedIlce=ilce;
         if(!resolvedIlce&&item['TARİHÎ KAZA']){
           const hk=String(item['TARİHÎ KAZA']||'').trim();
@@ -2648,6 +2650,7 @@ async function loadArchiveCore(){
 
   // Performans: eski 6 parçalı sülale katalogları ilk açılışta tekrar yüklenmez.
   // Doğrulanmış birleşik kataloglar ARCH üzerinden yüklenir; böylece aynı veri telefonda birkaç kez işlenmez.
+  raw.push(...ArchiveFamilyAudit.archiveRows());
   const merged=new Map();
   const mergedSignatures=new WeakMap();
   function pushUnique(arr,vals,sig){

@@ -1,0 +1,9 @@
+.leaflet-tooltip.period-admin-name{padding:0;border:0;background:transparent;box-shadow:none;text-align:center;font-weight:800;line-height:1.05;pointer-events:none;text-shadow:0 0 2px #fff,1px 1px 0 #fff,-1px -1px 0 #fff}
+ .period-admin-name:before{display:none}
+ .period-admin-name small{display:block;font:700 7px/1.1 system-ui,sans-serif;letter-spacing:.07em}
+ .period-admin-name.kaza{color:#6d3027;font-size:10px}
+ .period-admin-name.sancak{color:#1d4563;font-size:12px}
+ .period-admin-name.vilayet{color:#124435;font-size:14px}
+ .map-legend .history-boundary{width:16px;height:0;background:none;border-radius:0;border-top:2px solid #13634b}
+ .map-legend .history-boundary.sancak{border-top:2px dashed #285778}
+ .map-legend .history-boundary.kaza{border-top:2px dotted #8c4338}

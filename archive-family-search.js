@@ -11,12 +11,23 @@
       if(!response.ok)throw Error('Sülale dizini açılamadı');
       return response.json();
     }).then(groups=>groups.flatMap(([il,ilce,rows])=>rows.map(([name,lat,lng,families])=>({
-      name,lat,lng,il,ilce,families:families.map(family=>[family,normalize(family)])
+      name,lat,lng,il,ilce,families:ArchiveFamilyAudit.filterNames(families).map(family=>[family,normalize(family)])
     })))).catch(error=>{index=null;throw error});
-    return (await index).flatMap(({families,...place})=>{
+    const found=(await index).flatMap(({families,...place})=>{
       const matches=families.filter(([,key])=>key.includes(needle)).map(([name])=>name);
       return matches.length?[{...place,matches}]:[];
     });
+    if(normalize(ArchiveFamilyAudit.name).includes(needle)){
+      for(const {il,ilce,koy,coords} of ArchiveFamilyAudit.records){
+        if(!coords)continue;
+        const [lat,lng]=coords;
+        const existing=found.find(place=>Math.abs(place.lat-lat)<.0001 && Math.abs(place.lng-lng)<.0001 &&
+          normalize(place.il)===normalize(il) && normalize(place.ilce)===normalize(ilce));
+        if(existing)existing.matches.push(ArchiveFamilyAudit.name);
+        else found.push({il,ilce,name:koy,lat,lng,matches:[ArchiveFamilyAudit.name]});
+      }
+    }
+    return found;
   }
   function createLayer(map) {
     map.createPane('archiveFamilyMatches').style.zIndex='550';

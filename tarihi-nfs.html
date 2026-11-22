@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>1831–1850 Tarihî İdare Haritası | Alidedeoğlu Arşivi</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="./archive-period-map.css?v=1">
 <style>
 *{box-sizing:border-box}body{margin:0;color:#152c3d;background:#f4f7f7;font:16px system-ui,sans-serif}
 header{background:#17384e;color:#fff;padding:12px 18px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
@@ -16,7 +17,7 @@ label{font-weight:700;font-size:.86rem}select,input,button{font:inherit;color:in
 select,input{border:1px solid #afbec8;border-radius:6px;padding:7px 8px;min-width:0;width:100%;background:#fff}
 button{cursor:pointer;background:#eef3f6;border:1px solid #afbec8;border-radius:6px;padding:6px 8px}
 :focus-visible{outline:3px solid #aa772b;outline-offset:2px}
-.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.filters label{display:grid;gap:3px}
+.filters{display:grid;grid-template-columns:1fr;gap:8px}.filters label{display:grid;gap:3px}
 .area-filters{display:grid;gap:6px;margin:10px 0}.area-filters label{display:grid;grid-template-columns:70px 1fr;align-items:center}
 .toggles{display:flex;flex-wrap:wrap;gap:5px 12px;margin:8px 0}.toggles input{width:auto}
 form{display:flex;gap:5px}form button{flex:none}
@@ -29,17 +30,13 @@ small{color:#42586a;font-size:.77rem}.entry{border-left:3px solid #8c774b;paddin
 details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weight:700}
 @media(max-width:760px){main{height:auto;min-height:0;grid-template-columns:1fr}.map-space{height:60dvh;min-height:370px;grid-row:1}aside{max-height:none}}
 .legend span{display:flex;align-items:center;gap:6px;margin:2px 0}.legend i{display:inline-block;width:25px;border-top:3px dashed #136248}.legend .sanjak{border-top:2px dashed #244e76}.legend .county{border-top:2px dotted #88403c}.legend .village{border:0;width:7px;height:7px;border-radius:50%;background:#941d37;margin-inline:9px}
-.leaflet-tooltip.admin-name{background:transparent;border:0;box-shadow:none;padding:0;color:#88403c;font-size:.74rem;font-weight:750;text-align:center;pointer-events:none;text-shadow:1px 1px 2px #fff,-1px -1px 2px #fff,1px -1px 2px #fff,-1px 1px 2px #fff}
-.leaflet-tooltip.admin-name.sanjak{color:#244e76;font-size:.83rem;font-weight:800}
-.leaflet-tooltip.admin-name.eyalet{color:#136248;font-size:.96rem;font-weight:900}
 </style>
 </head>
 <body>
-<header><a href="./map.html">Yerleşim haritası</a><h1>1831–1850 Tarihî İdare Haritası</h1></header>
+<header><a href="./index.html">← Ana sayfaya dön</a><a href="./map.html">Yerleşim haritası</a><h1>1831–1850 Tarihî İdare Haritası</h1></header>
 <main>
 <aside>
 <div class="filters">
-<label>Defter yılı<select id="year"></select></label>
 <label>Sınır katmanı<select id="level"><option value="all">Üçü birlikte</option><option value="0">Kaza</option><option value="1">Sancak</option><option value="2">Eyalet / vilâyet</option></select></label>
 </div>
 <div class="area-filters">
@@ -57,8 +54,8 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <details>
 <summary>Kapsam, yöntem ve kaynaklar</summary>
 <p id="coverage" class="note"></p>
-<p>Her görünüm tek defter yılını kullanır. Çizgiler, bugünkü konumu eşleştirilmiş karyelerden türetilen yaklaşık çalışma alanlarını gösterir. En az üç ayrı, doğrusal olmayan nokta gereklidir. Çelişkili üyelikler ve adaylar çizgiyi belirlemez. Sancak ve eyalet alanları, o yıl çizilebilen alt birimlerin birleşimidir. Kesintiler, eldeki kanıtın sınırını gösterir.</p>
-<p>Defter fihristinde yazılan Miladî yıl, karye katmanında korunur. Katalog dizininde tam Hicrî tarihler tabular takvimle çevrilir. Ham katalog tarihi kartta ayrıca görünür.</p>
+<p>Çizgiler, 1831–1850 arasında bugünkü konumu eşleştirilen karyelerden türetilen yaklaşık alanları gösterir. Çelişkili üyelikler ve adaylar çizgiyi belirlemez. Sancak ve eyalet alanları çizilebilen alt birimlerin birleşimidir. Kesintiler, eldeki verinin sınırını gösterir.</p>
+
 <p><a href="https://www.devletarsivleri.gov.tr/varliklar/dosyalar/eskisiteden/yayinlar/genel-mudurluk-yayinlar/osmanli_yer_adlari.pdf">Devlet Arşivleri · Osmanlı Yer Adları</a><br>
 <a href="https://dergipark.org.tr/tr/pub/ttkbelleten/article/1337426">1831 idarî taksimat çalışması</a></p>
 </details>
@@ -66,7 +63,9 @@ details{margin-top:10px;font-size:.8rem}details summary{cursor:pointer;font-weig
 <div class="map-space"><div id="atlasMap" aria-label="Günümüz altlığında tarihî kaza, sancak ve eyalet haritası"></div><div class="legend"><strong>Yaklaşık tarihî sınırlar</strong><span><i></i>Eyalet / vilâyet</span><span><i class="sanjak"></i>Sancak</span><span><i class="county"></i>Kaza</span><span><i class="village"></i>NFS karyesi</span><span><i class="village" style="background:#1769ce"></i>Sülale araması</span></div></div>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="./archive-family-search.js"></script>
-<script src="./tarihi-nfs.js"></script>
+<script src="./archive-family-audit.js?v=1"></script>
+<script src="./archive-family-search.js?v=2"></script>
+<script src="./archive-period-map.js?v=1"></script>
+<script src="./tarihi-nfs.js?v=2"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yeradları Haritası | Alidedeoğlu Arşivi</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="./archive-period-map.css?v=1">
 <style>
 :root{--ink:#1c2b27;--mut:#687871;--line:#e1e7df;--green:#174e3f;--red:#cf2028}
 *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#f7f8f4}
@@ -77,7 +78,7 @@ main{height:calc(100dvh - 54px)}
  #archiveFind{min-width:0}
  #detail{top:auto;bottom:50px;max-height:34vh}
 }
-.map-full-link{display:none}.embedded .map-home-link{display:none}.embedded .map-full-link{display:inline}.embedded header strong{display:none}
+.map-home-link{white-space:nowrap;border:1px solid #7093a9;border-radius:6px;padding:5px 8px}.map-full-link{display:none}.embedded .map-home-link{display:none}.embedded .map-full-link{display:inline}.embedded header strong{display:none}
 .map-legend .legend-match{background:#1769ce}
 @media(max-width:420px){
  header{gap:6px;padding-inline:6px}header a{font-size:10px}
@@ -85,7 +86,7 @@ main{height:calc(100dvh - 54px)}
 }
 </style></head>
 <body>
-<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← ARŞİVE DÖN</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Tarihî sınırlar</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
+<header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← Ana sayfaya dön</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Dönem fihristi</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
  <input id="archiveQuery" type="search" autocomplete="off" aria-label="Arşiv haritasında ara" aria-controls="archiveResults" placeholder="Köy, ilçe, NFS kodu veya sülale">
  <button type="submit" aria-label="Haritada ara">Ara</button>
  <div id="archiveResults" hidden aria-label="Arşiv arama sonuçları"></div>
@@ -97,6 +98,7 @@ main{height:calc(100dvh - 54px)}
 <select id="village" aria-label="Köy veya mahalle" disabled><option value="">ÖNCE İLÇE SEÇİN</option></select>
 <select id="hamlet" aria-label="Bağlı yerleşim" disabled><option value="">KÖY ALTI MAHALLE</option></select>
 <input id="search" placeholder="Köy / mahalle ara" aria-label="Yerleşim ara">
+<label class="sub"><input id="modernBorders" type="checkbox" style="width:auto;min-height:0"> Günümüz ilçe sınırları</label>
 <div id="nearby" hidden><button id="clearNearby" type="button">Çevre seçimini kaldır</button></div>
 <button id="back" type="button" style="border:1px solid #cbd4cc;background:#f6faf6;border-radius:6px;padding:8px">ÜST SEVİYEYE DÖN</button>
 </div><div class="listtop"><span id="listTitle">İLLER</span><span class="tiny" id="listCount"></span></div><div id="items"></div>
@@ -104,14 +106,19 @@ main{height:calc(100dvh - 54px)}
 <div class="map-legend" aria-label="Harita işaretleri">
  <span><i class="legend-nfs"></i>NFS defteri <b id="nfsCount"></b></span>
  <span><i class="legend-family"></i>Sülale kaydı <b id="familyCount"></b></span>
- <span><i class="legend-border"></i>Günümüz ilçe sınırı</span>
+ <span><i class="history-boundary"></i>Eyalet / vilâyet</span>
+ <span><i class="history-boundary sancak"></i>Sancak</span>
+ <span><i class="history-boundary kaza"></i>Kaza</span>
+ <span id="periodCoverage" title="Konumu eşleştirilen karyelerden türetilmiştir.">1831–1850 · Yaklaşık sınırlar</span>
  <span id="familyLegend" style="display:none"><i class="legend-match"></i>Sülale araması</span>
 </div>
 <div id="status" role="status">Harita hazırlanıyor…</div></div>
 <section id="detail" aria-labelledby="detailTitle"><div class="dhead"><div><small>YERLEŞİM ARŞİVİ</small><strong id="detailTitle">KÖY</strong></div><button id="close" type="button" class="close" aria-label="Kapat">×</button></div><div id="detailBody"></div></section>
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="./archive-family-search.js"></script>
+<script src="./archive-family-audit.js?v=1"></script>
+<script src="./archive-family-search.js?v=2"></script>
+<script src="./archive-period-map.js?v=1"></script>
 <script>
 (function(){
 'use strict';
@@ -121,6 +128,12 @@ const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 let provinces=[],districts=[],level='country',chosenProvince=null,chosenDistrict=null;
+const periodPane=map.createPane('archivePeriodBoundaries');
+periodPane.style.zIndex='400';
+periodPane.style.pointerEvents='none';
+const periodBoundaries=L.layerGroup().addTo(map);
+void ArchivePeriodMap.load('period-areas').then(areas=>ArchivePeriodMap.draw(periodBoundaries,areas,{pane:'archivePeriodBoundaries'}))
+ .catch(error=>{console.warn('Tarihî sınırlar:',error);$('periodCoverage').textContent='Tarihî sınırlar yüklenemedi';});
 const boundaryPane=map.createPane('districtBoundaries');
 boundaryPane.style.zIndex='390';
 boundaryPane.style.pointerEvents='none';
@@ -175,7 +188,7 @@ function drawProvinceLayer(){
  if(provinceLayer){map.removeLayer(provinceLayer);provinceLayer=null}
  provinceLayer=L.geoJSON({type:'FeatureCollection',features:provinces},{
   bubblingMouseEvents:false,
-  style:{color:'#75917e',weight:1.1,fillColor:'#eaf1e8',fillOpacity:.07},
+  style:{stroke:false,fillOpacity:0},
   onEachFeature:(f,l)=>{const n=f.properties.name;l.on('click',e=>{if(map.getZoom()<8)openProvince(n);void showRadius(e.latlng)});l.bindTooltip(n,{className:'province-label',direction:'center',permanent:false,sticky:true,opacity:1})}
  }).addTo(map);
 }
@@ -203,7 +216,7 @@ async function openProvince(name){
  itemList(arr,'İLÇELER',x=>x.name,x=>openDistrict(x));
  setDetailOpen(false);
  if(provinceLayer)map.removeLayer(provinceLayer);provinceLayer=null;
- const poly=L.geoJSON(p,{style:{color:'#3c6d50',weight:2,fillColor:'#edf4e8',fillOpacity:.08},interactive:false}).addTo(map);provinceLayer=poly;
+ const poly=L.geoJSON(p,{style:{stroke:false,fill:false},interactive:false}).addTo(map);provinceLayer=poly;
  map.fitBounds(poly.getBounds(),{padding:[20,20],maxZoom:9,animate:false});
  status(p.properties.name+' · İLÇE SEÇİN');
  // Boundaries load after the sidebar is ready; only selected province districts are drawn.
@@ -211,7 +224,7 @@ async function openProvince(name){
   if(token!==selectionToken||level!=='province')return;
   const wanted=new Map(arr.map(d=>[d.id,d]));
   const fs=(data.features||[]).filter(f=>wanted.has(f.properties?.id) && wanted.get(f.properties.id).parent_id===provinceID(p));
-  districtLayer=L.geoJSON({type:'FeatureCollection',features:fs},{bubblingMouseEvents:false,style:{color:'#648875',weight:1.2,fillColor:'#c8d8c7',fillOpacity:.12},onEachFeature:(f,l)=>{
+  districtLayer=L.geoJSON({type:'FeatureCollection',features:fs},{bubblingMouseEvents:false,style:{stroke:false,fillOpacity:0},onEachFeature:(f,l)=>{
    const local=wanted.get(f.properties?.id);
    if(!local)return;
    l.bindTooltip(local.name,{permanent:false,sticky:true,direction:'center',className:'label',opacity:1});
@@ -423,13 +436,16 @@ async function loadNationalArchive(){
   const district=districtById.get(id),il=provinceById.get(district?.parent_id);
   if(!il)continue;
   for(const [name,lat,lng,family,refs,families,kazas] of rows){
-   const place={name,lat,lng,il,ilce:district.name,districtId:id,family,refs,families,kazas};
+   const cleanFamilies=ArchiveFamilyAudit.filterNames(families);
+   if(ArchiveFamilyAudit.records.some(r=>r.coords&&r.coords[0]===lat&&r.coords[1]===lng))cleanFamilies.push(ArchiveFamilyAudit.name);
+   if(!refs.length&&!cleanFamilies.length)continue;
+   const place={name,lat,lng,il,ilce:district.name,districtId:id,family,refs,families:cleanFamilies,kazas};
    archivePoints.set(pointKey(il,district.name,name),place);
   }
  }
  archivePointList=[...archivePoints.values()];
  $('nfsCount').textContent=data.nfs.toLocaleString('tr-TR');
- $('familyCount').textContent=data.family.toLocaleString('tr-TR');
+ $('familyCount').textContent=archivePointList.filter(place=>!place.refs.length&&place.families.length).length.toLocaleString('tr-TR');
  renderOverview();++archiveVersion;
  if(finderOpen)renderFinder();
  renderPlaces(true);
@@ -529,7 +545,7 @@ function registerCards(rows){
    const title=registerTitle(d.defter,d.tur);
    if(!title)continue;
    const fields=[
-    ['Tarih',d.yil],['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Sancak',d.sancak],
+    ['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Sancak',d.sancak],
     ['Divan',d.divan],['Defterdeki ad',d.kayit_adi||d.tarihi_ad||row.tarihi_karye],
     ['Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],['Erkek',d.erkek]
    ].filter(([,value])=>value!=null&&String(value).trim());
@@ -568,7 +584,7 @@ function showDetails(p){
   }
   const citations=list.flatMap(r=>r.sulale_kayitlari||[]);
   if(citations.length){
-   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
+   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.kaynak,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
   }
   const citedNames=new Set(citations.map(f=>norm(f.ad)));
   const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
@@ -576,8 +592,9 @@ function showDetails(p){
  }
  b.innerHTML=html
 }
-function insertArchive(rec){
+function insertArchive(rec,audited=false){
  if(!rec||!rec.il||!rec.ilce||!rec.koy)return;
+ if(!audited)ArchiveFamilyAudit.scrub(rec);
  const k=pointKey(rec.il,rec.ilce,rec.koy);
  if(!records.has(k)){
   const rows=[],region=districtKey(rec.il,rec.ilce);
@@ -749,7 +766,7 @@ async function loadViewportPoints(){
   const features=(data.features||[]).filter(f=>intersectsView(f,bounds));
   const ids=new Set(features.map(f=>f.properties.id));
   const signature=[...ids].join('|');
-  if(boundaryIds!==signature){
+  if($('modernBorders').checked&&boundaryIds!==signature){
    if(visibleBoundaries)map.removeLayer(visibleBoundaries);
    visibleBoundaries=L.geoJSON({type:'FeatureCollection',features},
     {pane:'districtBoundaries',interactive:false,style:{color:'#2f5679',weight:1.35,dashArray:'5 4',fill:false}})
@@ -885,6 +902,12 @@ $('close').onclick=()=>{
  selectedPlace=null;
  if(nearbyFocus)$('clearNearby').click();
 };
+$('modernBorders').onchange=()=>{
+ if(!$('modernBorders').checked&&visibleBoundaries){
+  map.removeLayer(visibleBoundaries);visibleBoundaries=null;boundaryIds='';
+ }
+ void loadViewportPoints();
+};
 $('menu').onclick=()=>setMobileMenu(!$('side').classList.contains('open'));
 $('search').oninput=()=>{if(nearbyCenter){renderNearby();return}if(level==='country')itemList(provinces,'İLLER',x=>x.properties.name,x=>openProvince(x.properties.name));
  else if(level==='province')itemList(neighborsForProvince(chosenProvince),'İLÇELER',x=>x.name,x=>openDistrict(x));
@@ -906,6 +929,7 @@ $('back').onclick=()=>{if(level==='district'&&chosenProvince)openProvince(chosen
   const [p,d]=await Promise.all([json('./provinces-local.json'),json('./districts-local.json')]);
   provinces=p.features||[];districts=(d||[]).filter(x=>x&&x.id&&x.parent_id);provinces.sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
   $('province').innerHTML='<option value="">İL SEÇİN</option>'+provinces.map(p=>'<option value="'+esc(p.properties.name)+'">'+esc(p.properties.name)+'</option>').join('');
+  for(const row of ArchiveFamilyAudit.archiveRows())insertArchive(row,true);
   resetCountry();
   void loadNationalArchive().catch(error=>{console.warn('Nokta dizini:',error);status('ARŞİV NOKTALARI YÜKLENEMEDİ · YERLEŞİM MENÜSÜNÜ KULLANABİLİRSİNİZ')});
  }catch(e){status('HARİTA VERİSİ AÇILAMADI: '+String(e.message||e))}

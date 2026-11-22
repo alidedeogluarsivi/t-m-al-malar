@@ -11,30 +11,10 @@ const map = L.map('atlasMap', {preferCanvas:true}).setView([39.4, 34.7], 6);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 const boundaries = L.layerGroup().addTo(map);
 const villages = L.layerGroup().addTo(map);
-const adminNames = L.layerGroup().addTo(map);
 const familySearchLayer = ArchiveFamilySearch.createLayer(map);
-const adminClasses = ['county','sanjak','eyalet'];
-const boundaryStyles = [
-  {color:'#88403c',dashArray:'2 4',weight:1.8},
-  {color:'#244e76',dashArray:'7 5',weight:3.3},
-  {color:'#136248',dashArray:'13 7',weight:5}
-];
-const files = new Map();
-let metadata = null, active = null, modern = null, renderId = 0, searchId = 0;
-
-function load(name) {
-  if (files.has(name)) return files.get(name);
-  const pending = fetch('./historical/nfs/' + name + '.txt')
-    .then(async res => {
-      if (!res.ok) throw Error('HTTP ' + res.status);
-      const encoded = (await res.text()).trim();
-      const bytes = Uint8Array.from(atob(encoded), char => char.charCodeAt(0));
-      return new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).json();
-    }).catch(error => {files.delete(name);throw error;});
-  files.set(name, pending);
-  return pending;
-}
-
+const {load} = ArchivePeriodMap;
+let metadata = null, active = null, modern = null, searchId = 0;
+let periodRecords;
 function pairs(values) {
   return [...new Map(values.filter(Boolean).map(name => [norm(name), name])).values()]
     .sort((a,b) => a.localeCompare(b,'tr'));
@@ -55,13 +35,13 @@ function refreshFilters() {
   options('county',province.filter(row => !$('sanjak').value || norm(row[3]) === norm($('sanjak').value)).map(row => row[4]));
 }
 function card(row) {
-  const [number,year,eyalet,sancak,kaza,historical,il,ilce,place,lon,lat,page,hane,erkek,grade,source,divan] = row;
+  const [number,,eyalet,sancak,kaza,historical,il,ilce,place,lon,lat,page,hane,erkek,grade,source,divan] = row;
   const identity = [eyalet,sancak,kaza,divan].filter(Boolean).map(esc).join(' / ');
   const present = [il,ilce,place].filter(Boolean).map(esc).join(' / ');
   const figures = [page&&'Varak / sayfa '+esc(page),hane&&esc(hane)+' hane',erkek&&esc(erkek)+' erkek'].filter(Boolean).join(' · ');
   const condition = grade === 2 ? 'Kullanıcı onaylı eşleşme' : grade === 1 ? 'Konum eşleşmesi' :
     place ? 'Aday veya konumu doğrulanmamış eşleşme' : 'Bugünkü karşılık açık';
-  return '<article class="entry"><b>'+esc(historical)+'</b><p>BOA NFS.d.'+number+' · '+year+'</p>'+
+  return '<article class="entry"><b>'+esc(historical)+'</b><p>BOA NFS.d.'+number+'</p>'+
     (identity?'<p>'+identity+'</p>':'')+(present?'<p>Günümüz: '+present+'</p>':'')+
     (figures?'<p>'+figures+'</p>':'')+'<small>'+condition+' · '+esc(metadata.sources[source])+'</small></article>';
 }
@@ -94,44 +74,20 @@ function list(title, entries, render, open) {
 }
 function recordTitle(row) {
   return '<b>'+esc(row[5])+'</b><br><small>'+
-    [row[6],row[7],row[8], 'NFS.d.'+row[0]+' · '+row[1]].filter(Boolean).map(esc).join(' / ')+'</small>';
+    [row[6],row[7],row[8], 'NFS.d.'+row[0]].filter(Boolean).map(esc).join(' / ')+'</small>';
 }
-function showArea(area) {
+async function showArea(area) {
   ++searchId;
   const [level,eyalet,sancak,kaza] = area;
-  const rows=active.records.filter(row => norm(row[2])===norm(eyalet) &&
+  const tokens=searchId;
+  const rows=(await periodRecords).filter(row => norm(row[2])===norm(eyalet) &&
     (level===2||norm(row[3])===norm(sancak)) && (level!==0||norm(row[4])===norm(kaza)));
+  if(tokens!==searchId)return;
   list((kaza||sancak||eyalet)+' · '+count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));
-}
-function interiorLabelPoint(type, coordinates) {
-  const polygons=type==='MultiPolygon'?coordinates:[coordinates];
-  let best=null;
-  for(const polygon of polygons){
-    const outer=polygon[0];
-    if(!outer?.length)continue;
-    const lats=outer.map(point=>point[1]);
-    const south=Math.min(...lats), height=Math.max(...lats)-south;
-    for(const fraction of [.5,.3,.7,.15,.85]){
-      const lat=south+height*fraction, edges=[];
-      for(const ring of polygon){
-        for(let i=1;i<ring.length;i++){
-          const [x1,y1]=ring[i-1], [x2,y2]=ring[i];
-          if((y1>lat)===(y2>lat))continue;
-          edges.push(x1+(x2-x1)*(lat-y1)/(y2-y1));
-        }
-      }
-      edges.sort((a,b)=>a-b);
-      for(let i=0;i+1<edges.length;i+=2){
-        const score=(edges[i+1]-edges[i])*height*(1-Math.abs(fraction-.5));
-        if(!best||score>best.score)best={lat,lng:(edges[i]+edges[i+1])/2,score};
-      }
-    }
-  }
-  return best;
 }
 function draw(fit=false) {
   if(!active)return;
-  boundaries.clearLayers();villages.clearLayers();adminNames.clearLayers();
+  boundaries.clearLayers();villages.clearLayers();
   const selectedLevel=$('level').value, combined=selectedLevel==='all';
   const province=$('province').value,sanjak=$('sanjak').value,county=$('county').value;
   const rows=active.records.filter(recordMatches);
@@ -139,21 +95,7 @@ function draw(fit=false) {
     (combined||String(level)===selectedLevel) &&
     (!province||norm(eyalet)===norm(province))&&(!sanjak||level===2||norm(district)===norm(sanjak))&&
     (!county||level!==0||norm(kaza)===norm(county))).sort((a,b)=>b[0]-a[0]);
-  for(const area of areas){
-    const [type,eyalet,sancak,kaza,,geometry,coordinates]=area;
-    const name=kaza||sancak||eyalet, label=document.createElement('span');
-    label.textContent=name;
-    L.geoJSON({type:geometry,coordinates},{
-      style:{...boundaryStyles[type],fillOpacity:combined?.035:.10},
-      interactive:true
-    }).on('click',()=>showArea(area)).addTo(boundaries);
-    const center=interiorLabelPoint(geometry,coordinates);
-    if(center){
-      L.tooltip({permanent:true,direction:'center',interactive:false,className:'admin-name '+adminClasses[type],
-        offset:[0,combined?[-12,5,22][type]:0]})
-        .setLatLng([center.lat,center.lng]).setContent(label).addTo(adminNames);
-    }
-  }
+  ArchivePeriodMap.draw(boundaries,areas,{onSelect:showArea});
   const displayed=new Set();
   for(const row of rows){
     if(!$('points').checked||row[9]==null||!row[14])continue;
@@ -167,24 +109,12 @@ function draw(fit=false) {
   const coverage=combined?
     [0,1,2].map((level,i)=>count(areas.filter(area=>area[0]===level).length)+' '+['kaza','sancak','eyalet'][i]).join(' · '):
     count(areas.length)+' yaklaşık alan';
-  $('status').textContent=$('year').value+' · '+count(rows.length)+' fihrist satırı · '+coverage;
+  $('status').textContent=coverage+' · '+count(rows.length)+' fihrist satırı';
   if(fit){
     const bounds=L.latLngBounds(rows.filter(r=>r[9]!=null&&r[14]).map(r=>[r[10],r[9]]));
     if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18],maxZoom:10});
   }
 }
-async function setYear() {
-  const token=++renderId;
-  ++searchId;
-  $('status').textContent='Yılın kayıtları yükleniyor…';
-  $('result').replaceChildren();
-  try {
-    const data=await load($('year').value);
-    if(token!==renderId)return;
-    active=data;refreshFilters();draw();
-  }catch(error){if(token===renderId)$('status').textContent='Yılın kayıtları açılamadı: '+error.message;}
-}
-
 function showCatalogue(rows) {
   list(count(rows.length)+' katalog kaydı', rows, row=>'<b>NFS.d.'+row[0]+'</b><br><small>'+
     [row[3],row[4],row[5].join(', '),row[1]].filter(Boolean).map(esc).join(' / ')+'</small>',
@@ -211,8 +141,9 @@ $('find').onsubmit=async event=>{
   if(!query){++searchId;$('result').replaceChildren();return;}
   const token=++searchId;
   const number=query.match(/^(?:boa\s+)?(?:nfs[.\s]*(?:d[.\s]*)?)?(\d+)$/)?.[1];
-  const rows=active.records.filter(row=>number?row[0]===Number(number):
+  const rows=(await periodRecords).filter(row=>number?row[0]===Number(number):
     norm(row.slice(2,9).join(' ')).includes(query));
+  if(token!==searchId)return;
   if(!number){
     try{
       const families=await ArchiveFamilySearch.find(searchText);
@@ -231,11 +162,11 @@ $('find').onsubmit=async event=>{
         list(count(families.length)+' yerleşim · Sülale araması',families,place=>
           '<b>'+esc(place.name)+'</b><br><small>'+esc(place.il)+' / '+esc(place.ilce)+' · '+place.matches.map(esc).join(', ')+'</small>',open);
         const hint=document.createElement('p');hint.className='note';
-        hint.textContent='Mavi noktalar genel sülale dizinindeki yerleşimlerdir. Tarihî sınırlar seçili defter yılına aittir.';
+        hint.textContent='Mavi noktalar genel sülale dizinindeki yerleşimlerdir. Sınırlar 1831–1850 dönemini kapsar.';
         $('result').insertBefore(hint,$('result').children[1]);
         if(rows.length&&!familyOnly){
           const switchResults=document.createElement('button');switchResults.type='button';switchResults.textContent='Karye ve kaza sonuçlarını göster';
-          switchResults.onclick=()=>list(count(rows.length)+' fihrist kaydı · '+$('year').value,rows,recordTitle,row=>showRecord(row,true));
+          switchResults.onclick=()=>list(count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));
           $('result').prepend(switchResults);
         }
         return;
@@ -246,7 +177,7 @@ $('find').onsubmit=async event=>{
     }
     if(familyOnly){$('result').textContent='Konumu eşleştirilen sülale kaydı bulunamadı.';return;}
   }
-  if(rows.length){list(count(rows.length)+' fihrist kaydı · '+$('year').value,rows,recordTitle,row=>showRecord(row,true));return;}
+  if(rows.length){list(count(rows.length)+' fihrist kaydı',rows,recordTitle,row=>showRecord(row,true));return;}
   if(number){
     $('result').textContent='Defter kataloğu aranıyor…';
     try{
@@ -261,22 +192,13 @@ $('find').onsubmit=async event=>{
       list(count(matches.length)+' tarihî idarî kayıt',matches,r=>'<b>'+esc(r[2])+'</b><br><small>'+r.slice(0,2).filter(Boolean).map(esc).join(' / ')+'</small>',r=>{
         const place=r[5].map(p=>p.map(esc).join(' / ')).join(' · ');
         const candidates=(r[6]||[]).map(p=>p.map(esc).join(' / ')).join(' · ');
-        const years=r[4].join(', ');
         $('result').innerHTML='<h2>'+esc(r[2])+'</h2><p>'+r.slice(0,2).filter(Boolean).map(esc).join(' / ')+'</p>'+
-          '<p>Defter yılları: '+years+'</p><p>Günümüz il / ilçe: '+(place||'Karye fihristlerinden henüz belirlenmedi')+
+          '<p>Günümüz il / ilçe: '+(place||'Karye fihristlerinden henüz belirlenmedi')+
           '</p>'+(candidates?'<p>Bugünkü ad adayları: '+candidates+'</p>':'')+'<p>NFS: '+r[3].map(n=>'NFS.d.'+n).join(', ')+'</p>';
       });
       return;
     }
   }
-  $('result').textContent='Diğer yılların fihristleri aranıyor…';
-  try{
-    const sets=await Promise.all(Array.from({length:20},(_,i)=>load(String(1831+i))));
-    if(token!==searchId)return;
-    const matches=sets.flatMap(data=>data.records).filter(row=>number?row[0]===Number(number):
-      norm(row.slice(2,9).join(' ')).includes(query));
-    if(matches.length){list(count(matches.length)+' fihrist kaydı · 1831–1850',matches,recordTitle,row=>showRecord(row,true));return;}
-  }catch(error){if(token===searchId)$('result').textContent='Diğer yılların fihristleri açılamadı.';return;}
   $('result').textContent='Bu aramada kayıt bulunamadı.';
 };
 
@@ -299,16 +221,22 @@ for(const id of ['province','sanjak','county'])$(id).onchange=()=>{
   if(id!=='county')$('county').value='';
   refreshFilters();draw(true);
 };
-$('year').onchange=setYear;
 
 (async()=>{
   try{
-    metadata=await load('atlas');
-    for(let year=1831;year<=1850;year++)$('year').add(new Option(String(year),String(year)));
-    $('year').value='1840';
+    const [atlas,areas]=await Promise.all([load('atlas'),load('period-areas')]);
+    metadata=atlas;
+    active={areas,records:[]};
+    periodRecords=Promise.all(Array.from({length:20},(_,i)=>load(String(1831+i))))
+      .then(sets=>sets.flatMap(set=>set.records)).catch(error=>{
+        console.warn('Karye kayıtları yüklenemedi:',error);
+        return [];
+      });
+    draw();
     $('coverage').textContent=count(metadata.catalogSizes[0])+' yeni NFS satırı ve önceki fon listesindeki '+count(metadata.catalogSizes[1])+
       ' NFS satırı tarandı. 1831–1850 tarihli '+count(metadata.periodRegisters)+' katalog kaydı, '+count(metadata.observations)+
       ' fihrist satırı ve '+count(metadata.mapped)+' konumlu eşleşme var. Çelişkili '+count(metadata.ambiguousPoints)+' nokta-yıl sınır hesabının dışında tutuldu.';
-    await setYear();
+    active.records=await periodRecords;
+    refreshFilters();draw();
   }catch(error){$('status').textContent='Arşiv dizini açılamadı: '+error.message;}
 })();

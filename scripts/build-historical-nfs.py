@@ -253,9 +253,7 @@ def polygon_only(geom):
     polygons=[g for g in getattr(geom,'geoms',[]) if g.geom_type in ('Polygon','MultiPolygon')]
     return union_all(polygons)
 
-coverage={}
-for y in range(1831,1851):
-    rows=by_year[y]
+def make_areas(rows, year=None):
     claims=defaultdict(dict)
     groups=defaultdict(set)
     labels={}
@@ -270,7 +268,7 @@ for y in range(1831,1851):
         strongest=max(options.values());choices=[k for k,v in options.items() if v==strongest]
         if len(choices)==1:
             owners[point]=choices[0];groups[choices[0]].add(point)
-        else:ambiguous.add((y,point))
+        elif year is not None:ambiguous.add((year,point))
     areas=[]
     parent=defaultdict(list)
     if len(owners)>=3:
@@ -293,9 +291,33 @@ for y in range(1831,1851):
         eyalet,sancak,*_=pieces[0]
         geom=polygon_only(make_valid(union_all([g[2] for g in pieces])))
         if not geom.is_empty:areas.append([level,eyalet,sancak,'',sum(v[3] for v in pieces),*shape(geom)])
+    return areas
+
+coverage={}
+for y in range(1831,1851):
+    rows=by_year[y]
+    areas=make_areas(rows,y)
     mapped=sum(r[9] is not None and r[14]>0 for r in rows)
     coverage[y]=[len(rows),mapped,sum(a[0]==0 for a in areas),sum(a[0]==1 for a in areas),sum(a[0]==2 for a in areas)]
     dump(f'{y}.json',{'areas':areas,'records':rows})
+
+# Build a single period view from mapped observations. Fill gaps in the hierarchy
+# only when one documented parent pair agrees across the period.
+period_parents=defaultdict(set)
+for pairs_by_year in parent_evidence:
+    period_parents[pairs_by_year[1]].update(parent_evidence[pairs_by_year])
+period_rows=[]
+for original in observations.values():
+    row=original.copy()
+    if not (row[2] and row[3]):
+        candidates={(alias(e),alias(s)):(e,s) for e,s in period_parents[alias(row[4])]
+                    if (not row[2] or alias(row[2])==alias(e)) and (not row[3] or alias(row[3])==alias(s))}
+        if len(candidates)==1:
+            eyalet,sancak=next(iter(candidates.values()))
+            row[2]=row[2] or eyalet
+            row[3]=row[3] or sancak
+    period_rows.append(row)
+dump('period-areas.json',make_areas(period_rows))
 
 # Period-only register data retains original dates and catalog source row.
 period=[r for r in catalog.values() if r[2] in range(1831,1851)]
