@@ -435,7 +435,7 @@ async function ingestFamilyText(text,path){
  }
 }
 async function loadFreshArchiveAdditions(){
- const jobs=[...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"];
+ const manifestResponse=await fetch("catalog/sulale_source_manifest.json?v=20261122-audit",{cache:"no-cache"}); const manifest=manifestResponse.ok?await manifestResponse.json():{paths:[]}; const jobs=[...new Set([...(manifest.paths||[]),...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"])];
  let index=0,success=0,newRows=0;
  async function worker(){
   while(index<jobs.length){
