@@ -436,7 +436,7 @@ async function ingestFamilyText(text,path){
  }
 }
 async function loadFreshArchiveAdditions(){
- const manifestResponse=await fetch("catalog/sulale_source_manifest.json?v=20261122-audit",{cache:"no-cache"}); const manifest=manifestResponse.ok?await manifestResponse.json():{paths:[]}; const jobs=[...new Set([...(manifest.paths||[]),...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"])];
+ let manifest={paths:[]}; try{const manifestResponse=await fetch("catalog/sulale_source_manifest.json?v=20261122-audit2",{cache:"no-cache",signal:AbortSignal.timeout(12000)});if(manifestResponse.ok)manifest=await manifestResponse.json();else errors.push("SÜLALE KAYNAK LİSTESİ HTTP "+manifestResponse.status)}catch(e){errors.push("SÜLALE KAYNAK LİSTESİ OKUNAMADI");console.warn(e)} const jobs=[...new Set([...(manifest.paths||[]),...deltaArchivePaths,"catalog/archive_library_verified_20261111.ndjson"])];
  let index=0,success=0,newRows=0;
  async function worker(){
   while(index<jobs.length){
@@ -502,7 +502,7 @@ async function loadAllFamilySources(){
 const officialReady=setupOfficial().then(()=>refreshFilters("il")).catch(e=>console.warn("Yerleşim dizini:",e));
 (async()=>{
  await officialReady;
- const meta=await loadAllFamilySources();
+ let meta={files:0};try{meta=await loadAllFamilySources()}catch(e){errors.push("TOPLU SÜLALE KATALOĞU YÜKLENEMEDİ");console.warn(e)}
  const added=await loadFreshArchiveAdditions();
  all=[...recordMap.values()].sort((a,b)=>sortTR(a.name,b.name));
   // Unique modern district names permit province recovery without guessing a historical kaza.
