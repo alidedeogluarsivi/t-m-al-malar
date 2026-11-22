@@ -15,7 +15,7 @@ const OLD_OWN_KEY="alidedeoglu_recent_own_searches_v3";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
 const TYPES={village:{el:villages,n:10,legacy:3},family:{el:families,n:10,legacy:5}};
-let publicIndex=null,localIndex={village:{},family:{}};
+let publicIndex=null,indexRetryAfter=0,localIndex={village:{},family:{}};
 let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
 function statusText(msg){if(status)status.textContent=msg;}
 function normalize(x){return String(x||"").trim().replace(/\s+/g," ").slice(0,90).toLocaleUpperCase("tr-TR").normalize("NFC");}
@@ -62,11 +62,13 @@ async function request(action,key,value){
 }
 async function ensureIndex(){
  if(publicIndex)return publicIndex;
+ if(Date.now()<indexRetryAfter)return null;
+ indexRetryAfter=Date.now()+60000;
  try{
   const r=await fetch("./recent-search-index.json?v=20261118-family5",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
   if(!r.ok)throw Error("index missing");
   const parsed=await r.json();
-  if(parsed&&parsed.village&&parsed.family){publicIndex=parsed;return parsed}
+  if(parsed&&parsed.village&&parsed.family){publicIndex=parsed;indexRetryAfter=0;return parsed}
  }catch(e){console.warn("Arama isim indeksi henüz hazır değil:",e.message)}
  return null;
 }
@@ -89,6 +91,7 @@ async function readShared(type,legacy){
 async function refresh(){
  if(refreshBusy)return;
  if(!villages&&!families)return;
+ if(document.hidden)return;
  refreshBusy=true;
  try{
   if(api){
@@ -168,6 +171,6 @@ async function today(){
 void today();void refresh();
 if(villages||families){
  window.addEventListener("focus",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
- setInterval(()=>{if(!document.hidden)void refresh()},15000);
+ setInterval(()=>{if(!document.hidden&&Date.now()-lastRefresh>=60000)void refresh()},60000);
 }
 })();
