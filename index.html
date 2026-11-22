@@ -3177,6 +3177,26 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 
 // Ziyaret sayacı: yalnızca toplam ziyaret tutulur.
 (function initVisitorCounter(){
+  const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\\/$/,""):"";
+  const api=backend?backend+"/api/site-stats":null;
+  if(api){
+    (async()=>{
+      try{
+        if(sessionStorage.getItem("alidedeoglu_visit_api_v1")!=="1"){
+          const hit=await fetch(api,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type:"visit"}),signal:AbortSignal.timeout(6000)});
+          if(!hit.ok)throw Error("visit HTTP "+hit.status);
+          sessionStorage.setItem("alidedeoglu_visit_api_v1","1");
+        }
+        const response=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(6000)});
+        if(!response.ok)throw Error("stats HTTP "+response.status);
+        const stats=await response.json();
+        const total=Number(stats.total);
+        if(!Number.isSafeInteger(total)||total<0)throw Error("invalid total");
+        entryEl.textContent=total.toLocaleString("tr-TR");
+      }catch(e){entryEl.textContent="—";console.warn("Ziyaret sayacı API:",e)}
+    })();
+    return;
+  }
   const base='https://countapi.mileshilliard.com/api/v1';
   const entryKey='alidedeogluarsivi_com_entries_v1';
   const entryEl=document.getElementById('entryStat');
