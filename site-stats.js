@@ -10,7 +10,6 @@ const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVi
 const COUNT="https://countapi.mileshilliard.com/api/v1/";
 const PREFIX="alidedeogluarsivi_last_search_v5_";
 const OWN_KEY="alidedeoglu_recent_own_searches_v5";
-const OLD_OWN_KEY="alidedeoglu_recent_own_searches_v4";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
 const TYPES={village:{el:villages,n:10},family:{el:families,n:10}};
@@ -39,13 +38,13 @@ function saveLocal(type,name){
  const normalized=normalize(name);if(!normalized||normalized.length<2)return;
  const id=nameId(name);
  localIndex[type][id]=name.trim();
- try{const store=JSON.parse(localStorage.getItem(OWN_KEY)||localStorage.getItem(OLD_OWN_KEY)||"{}");
+ try{const store=JSON.parse(localStorage.getItem(OWN_KEY)||"{}");
   const rows=Array.isArray(store[type])?store[type]:[];
   store[type]=[name.trim(),...rows.filter(x=>normalize(x)!==normalized)].slice(0,TYPES[type].n);
   localStorage.setItem(OWN_KEY,JSON.stringify(store));
  }catch(_){}
 }
-function local(type){try{return (JSON.parse(localStorage.getItem(OWN_KEY)||localStorage.getItem(OLD_OWN_KEY)||"{}")[type]||[]).slice(0,10)}catch(_){return []}}
+function local(type){try{return (JSON.parse(localStorage.getItem(OWN_KEY)||"{}")[type]||[]).slice(0,10)}catch(_){return []}}
 function draw(type,names,isLocal){
  const el=TYPES[type].el;if(!el)return;
  el.replaceChildren();
