@@ -595,6 +595,16 @@ function showDetails(p){
    const citation=source.kaynak?'<div>'+(/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak)+'</a>':esc(source.kaynak))+'</div>':'';
    html+='<div class="source"><b>'+esc([source.tarih,source.tur].filter(Boolean).join(' · '))+'</b><div>'+esc(source.ozet)+'</div>'+citation+'</div>';
   }
+  const gorevliler=[...new Set(list.flatMap(r=>r.gorevli_notlari||[]).map(x=>typeof x==='string'?x:JSON.stringify(x)))];
+  if(gorevliler.length)html+='<div class="source"><b>İMAM / MUHTAR / HATİP / GÖREVLİ</b>'+gorevliler.map(g=>'<div style="margin-top:7px">'+esc(g)+'</div>').join('')+'</div>';
+  const haneler=list.flatMap(r=>r.haneler||[]);
+  if(haneler.length){
+    const groups=new Map();
+    for(const h of haneler){const y=String(h.yil||'YIL');if(!groups.has(y))groups.set(y,[]);groups.get(y).push(h)}
+    html+='<div class="source"><b>YILLARA GÖRE HANE VE SÜLALE KAYITLARI</b>';
+    for(const [y,rows] of groups){html+='<div style="margin-top:10px"><b>'+esc(y)+' · '+rows.length+' HANE KAYDI</b>'+rows.map(h=>'<div style="margin-top:4px">HANE '+esc(h.hane_no||'-')+' · '+esc(h.sulale||'')+' · '+esc(h.hane_reisi||'')+'</div>').join('')+'</div>'}
+    html+='</div>';
+  }
   const citations=list.flatMap(r=>r.sulale_kayitlari||[]);
   if(citations.length){
    html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.kaynak,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
