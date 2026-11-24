@@ -1,4 +1,4 @@
-/* ALIDEDEOGLU ARSIVI — statik GitHub Pages son aramalar (v3).
+/* ALIDEDEOGLU ARSIVI - ortak sayaç arızası ve yerel geçmiş düzeltmesi (v6).
    Shared counters retain integer IDs, never names or identifying visitor data.
    Names resolved through generated public archive index.
    Public counters have no authentication and are best-effort, not an audit log.
@@ -116,19 +116,19 @@ async function refresh(){
     const rows=await readShared(type);
     sharedRead++;
     if(rows.length){draw(type,rows,false);return;}
-    const own=local(type);draw(type,own,!!own.length);
-    if(!own.length)TYPES[type].el.textContent=recentSharedSequence[type]>0
-      ?"YENİ ARAMALARIN İSİMLERİ HENÜZ ÇÖZÜMLENEMEDİ":"YENİ ORTAK ARAMA HENÜZ YOK";
+    draw(type,[],false);
+    TYPES[type].el.textContent=recentSharedSequence[type]>0
+      ?"YENİ ORTAK ARAMALARIN İSİMLERİ HENÜZ ÇÖZÜMLENEMEDİ":"ORTAK ARAMA KAYDI HENÜZ YOK";
    }catch(e){
     sharedErrors++;
-    const own=local(type);draw(type,own,!!own.length);
-    if(!own.length)TYPES[type].el.textContent="ORTAK ARAMA HİZMETİNE ERİŞİLEMİYOR";
+    draw(type,[],false);
+    TYPES[type].el.textContent="ORTAK ARAMA HİZMETİNE ERİŞİLEMİYOR";
     console.warn("Son aramalar:",type,e.message);
    }
   }));
   sharedHealthy=sharedRead>0;
   if(sharedHealthy)statusText("GÜNCEL ORTAK ARAMALAR · ESKİ LİSTELER GÖSTERİLMİYOR");
-  else if(sharedErrors)statusText("ORTAK SAYAÇ BAĞLANTISI YOK · YALNIZ BU TARAYICIDAKİ ARAMALAR GÖSTERİLİYOR");
+  else if(sharedErrors)statusText("ORTAK ARAMA SUNUCUSUNA BAĞLANILAMIYOR · GÜNCEL LİSTE GÖSTERİLEMİYOR");
  }finally{refreshBusy=false;lastRefresh=Date.now()}
 }
 async function record(type,name){
@@ -136,7 +136,7 @@ async function record(type,name){
  name=String(name||"").trim().replace(/\s+/g," ").slice(0,90);
  if(!validSearchName(type,name))return;
  saveLocal(type,name);
- if(TYPES[type].el)draw(type,local(type),true);
+ if(TYPES[type].el&&sharedHealthy!==true)TYPES[type].el.textContent="ARAMA ORTAK SAYAÇA GÖNDERİLİYOR";
  statusText("ARAMA KAYDI ORTAK SAYAÇA GÖNDERİLİYOR…");
  if(api){
   try{
@@ -157,7 +157,7 @@ async function record(type,name){
   sharedHealthy=true;
   statusText("ARAMA ORTAK SAYAÇA KAYDEDİLDİ");
   void refresh();
- }catch(e){sharedHealthy=false;statusText("ARAMA YALNIZ BU CİHAZDA KAYDEDİLDİ · ORTAK SAYACA ULAŞILAMIYOR");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
+ }catch(e){sharedHealthy=false;statusText("ORTAK KAYIT YAPILAMADI · ARAMA BU TARAYICIDA SAKLANDI");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
 }
 window.ArchiveStats={
  recordVillage:name=>record("village",name),
@@ -193,7 +193,7 @@ async function today(){
   if(sessionStorage.getItem(flag)==="1")value=await request("get",key);
   else {value=await request("hit",key);sessionStorage.setItem(flag,"1")}
   daily.textContent=value.toLocaleString("tr-TR");
- }catch(e){daily.textContent="ERİŞİLEMİYOR";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
+ }catch(e){daily.textContent="—";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
 }
 void today();void refresh();
 if(villages||families){
