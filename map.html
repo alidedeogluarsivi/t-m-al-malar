@@ -115,7 +115,7 @@ main{height:calc(100dvh - 54px)}
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./archive-family-audit.js?v=1"></script>
-<script src="./archive-family-search.js?v=2"></script>
+<script src="./archive-family-search.js?v=3"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
 <script>
 (function(){
@@ -427,7 +427,7 @@ function renderOverview(){
  largeArchiveDots=large;
 }
 async function loadNationalArchive(){
- const data=await json('./geo/archive-points.json');
+ const data=await json('./geo/archive-points.json?v=osmanli-nfs-20261124');
  const districtById=new Map(districts.map(d=>[d.id,d]));
  const provinceById=new Map(provinces.map(p=>[provinceID(p),p.properties.name]));
  for(const [id,rows] of Object.entries(data.districts||{})){
