@@ -303,6 +303,14 @@ function showVillage(vn,r){
   h+='<div class="section"><h3>TERCÜME EDİLMİŞ SÜLALE KAYITLARI</h3>'+r.sulale_kayitlari.map(f=>'<div class="record"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>';
  }
  h+='<div class="section"><h3>SÜLALE ADLARI</h3>'+(fam.length?fam.map(f=>'<span class="family">'+esc(f)+'</span>').join(''):'<div class="empty">Sülale bilgisi henüz bağlanmadı.</div>')+'</div>';
+ const tepeHaneRows=(r.haneler||[]);
+ if(tepeHaneRows.length){
+   const yearGroups=new Map();
+   for(const row of tepeHaneRows){const year=String(row.yil||'YILI BELİRTİLMEMİŞ');if(!yearGroups.has(year))yearGroups.set(year,[]);yearGroups.get(year).push(row)}
+   h+='<div class="section"><h3>HANE VE SÜLALE KAYITLARI</h3>';
+   for(const [year,rows] of yearGroups){h+='<div class="record"><b>'+esc(year)+' NÜFUS DEFTERİ</b><div class="kv">'+rows.map(row=>'<div><b>HANE '+esc(row.hane_no||'-')+'</b><span>'+esc(row.sulale||'')+' · '+esc(row.hane_reisi||'')+' · '+esc(row.defter||'')+'</span></div>').join('')+'</div></div>'}
+   h+='</div>';
+ }
  h+='<div class="section"><h3>ARŞİV TARAMASI / ÇALIŞMA DOSYALARI</h3>'+(scans.length?scans.slice(0,100).map(s=>'<div class="record"><b>'+esc(s.ad||'ARŞİV KAYDI')+'</b>'+(s.yil?' · '+esc(s.yil):'')+(s.tur?' · '+esc(s.tur):'')+'</div>').join(''):'<div class="empty">Ayrı tarama kaydı bulunmuyor.</div>')+'</div>';
  }document.getElementById('vbody').innerHTML=h;drawer.classList.add('open')
 }
