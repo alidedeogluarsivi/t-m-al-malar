@@ -446,7 +446,7 @@ async function loadNationalArchive(){
  const tepeKey=pointKey('NEVŞEHİR','ACIGÖL','Tepeköy Köyü');
  const tepeRefNumbers=[3554,3588,3596,3608];
  const tepeRefs=tepeRefNumbers.map(n=>[n,'NEVŞEHİR']);
- const tepeFamilies=["KEMENCECİ OĞULLARI","KÜRD SÜLEYMAN OĞULLARI","KÖSTER SÜLEYMAN OĞULLARI","YÖRÜK OĞULLARI","SİPAHİ OĞULLARI","HACI ÖMER OĞULLARI","EMİR HÜSEYİN OĞULLARI","HACI ABDİ OĞULLARI"];
+ const tepeFamilies=["ALİ AĞA OĞULLARI","DEĞİRMENCİ OĞULLARI","DELİ MUSTAFA OĞULLARI","EMİR HÜSEYİN OĞULLARI","HACI ABDİ OĞULLARI","HACI HALİL TORUNU","HACI ÖMER OĞULLARI","İMAM OĞULLARI","KARAKOCA OĞULLARI","KASIM OĞULLARI","KEMENCECİ OĞULLARI","KÖR AHMED OĞULLARI","KÖSTER SÜLEYMAN OĞULLARI","KÜRD SÜLEYMAN OĞULLARI","MURTAZA OĞULLARI","MUSTAFA OĞULLARI","SABAKLI OĞULLARI","SATILMIŞ OĞULLARI","SİPAHİ OĞULLARI","YÖRÜK OĞULLARI"];
  const tepeOld=archivePoints.get(tepeKey);
  if(tepeOld){
    const knownNums=new Set((tepeOld.refs||[]).map(r=>String(r[0])));
