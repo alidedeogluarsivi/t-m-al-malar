@@ -7,7 +7,7 @@
   async function find(query) {
     const needle=normalize(query);
     if(needle.length<3)return [];
-    if(!index)index=fetch('./geo/archive-family-points.json?v=osmanli-nfs-20261124').then(response=>{
+    if(!index)index=fetch('./geo/archive-family-points.json?v=osmanli-nfs-20261124-ulus').then(response=>{
       if(!response.ok)throw Error('Sülale dizini açılamadı');
       return response.json();
     }).then(groups=>groups.flatMap(([il,ilce,rows])=>rows.map(([name,lat,lng,families])=>({
