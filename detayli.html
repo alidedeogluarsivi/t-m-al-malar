@@ -73,6 +73,7 @@ h1{margin:0;font:500 clamp(34px,5vw,62px)/1 Georgia,'Times New Roman',serif;lett
 <div id="drawer" class="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
 <script src="./family-totals.js?v=20261121-shared-totals"></script>
+<script src="./emlak-harita-kayitlari.js"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
@@ -281,12 +282,12 @@ function originalOnly(r){
  }));
  return r;
 }
-async function loadArchive(){const responses=await Promise.allSettled(ARCH.map(f=>txt(f)));for(const response of responses){if(response.status!=='fulfilled'){console.warn('ARŞİV DOSYASI YÜKLENEMEDİ',response.reason);continue}for(const line of response.value.split(/\r?\n/)){if(!line.trim())continue;try{const x=originalOnly(ArchiveFamilyAudit.scrub(JSON.parse(line)));if(x._summary){summary=x._summary;continue}archive.push(x)}catch(e){}}}archive.push(...ArchiveFamilyAudit.archiveRows());for(const r of archive){
+async function loadArchive(){const published=await EmlakCensus.load();const keepLegacy=EmlakCensus.withoutDuplicates(published);archive.push(...published.map(r=>originalOnly(structuredClone(r))));const responses=await Promise.allSettled(ARCH.map(f=>txt(f)));for(const response of responses){if(response.status!=='fulfilled'){console.warn('ARŞİV DOSYASI YÜKLENEMEDİ',response.reason);continue}for(const line of response.value.split(/\r?\n/)){if(!line.trim())continue;try{const row=keepLegacy(JSON.parse(line));if(!row)continue;const x=originalOnly(ArchiveFamilyAudit.scrub(row));if(x._summary){summary=x._summary;continue}archive.push(x)}catch(e){}}}archive.push(...ArchiveFamilyAudit.archiveRows());for(const r of archive){
   if(!(r.il&&r.ilce&&r.koy))continue;
   const k=key(r.il,r.ilce,r.koy),existing=archiveIndex.get(k);
   if(!existing){archiveIndex.set(k,r);continue}
   const appendUnique=(field)=>{const cur=existing[field]||[];const known=new Set(cur.map(x=>typeof x==='string'?norm(x):JSON.stringify(x)));for(const x of r[field]||[]){const v=typeof x==='string'?norm(x):JSON.stringify(x);if(v&&!known.has(v)){cur.push(x);known.add(v)}}existing[field]=cur};
-  for(const f of ['sulaleler','sulale_kayitlari','defterler','haneler','gorevli_notlari','taramalar','durumlar'])appendUnique(f);
+  for(const f of ['sulaleler','sulale_kayitlari','defterler','haneler','gorevli_notlari','taramalar','yerel_kaynaklar','durumlar'])appendUnique(f);
 }
 archive=Array.from(archiveIndex.values());
   document.getElementById('pdfStat').textContent=(summary.pdf_toplam||1879).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||37678).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
@@ -298,6 +299,14 @@ function showVillage(vn,r){
  let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy haritada mevcut; arşiv kaydı kesinleştiğinde buraya eklenecek.</div>'}else{
  const defs=r.defterler||[],fam=r.sulaleler||[],scans=r.taramalar||[],gos=r.gorevli_notlari||[];
  h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">'+(d.tur?'<b>'+esc(d.tur)+'</b><br>':'')+(d.defter?'Defter: <b>'+esc(d.defter)+'</b> ':'')+(d.defter_adi?' · '+esc(d.defter_adi):'')+(d.yil?'· Yıl: '+esc(d.yil):'')+(d.varak?'<br>'+(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'Köy başlangıç varağı':'Varak')+': <b>'+esc(d.varak)+'</b>':'')+(d.sayfa?' · Sayfa: '+esc(d.sayfa):'')+(d.kayit_adi?'<br>Tarihî yer: '+esc(d.kayit_adi):'')+(d.tarihi_kaza?'<br>Kaza: '+esc(d.tarihi_kaza):'')+(d.divan?' · Divan: '+esc(d.divan):'')+(d.hane?'<br>Hane: <b>'+esc(d.hane)+'</b>':'')+(d.erkek?' · Erkek: <b>'+esc(d.erkek)+'</b>':'')+(d.eslesme_durumu?'<br>'+esc(d.eslesme_durumu):'')+(d.aciklama?'<br>'+esc(d.aciklama):'')+'</div>'}h+='</div>';
+ const localSources=r.yerel_kaynaklar||[];
+ if(localSources.length){
+   h+='<div class="section"><h3>YEREL KAYNAKLAR / TARİHÎ OLAYLAR</h3>'+localSources.map(source=>{
+     const title=esc([source.tarih,source.tur].filter(Boolean).join(' · '));
+     const citation=/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak||source.url)+'</a>':esc(source.kaynak);
+     return '<div class="record"><b>'+title+'</b><p>'+esc(source.ozet)+'</p>'+citation+'</div>';
+   }).join('')+'</div>';
+ }
  h+='<div class="section"><h3>İMAM / MUHTAR / GÖREVLİ</h3>'+(gos.length?gos.map(g=>'<div class="record">'+esc(g)+'</div>').join(''):'<div class="empty">Görevli bilgisi henüz tespit edilmedi.</div>')+'</div>';
  if((r.sulale_kayitlari||[]).length){
   h+='<div class="section"><h3>TERCÜME EDİLMİŞ SÜLALE KAYITLARI</h3>'+r.sulale_kayitlari.map(f=>'<div class="record"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.defter_adi,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>';

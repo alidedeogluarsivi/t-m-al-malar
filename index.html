@@ -289,6 +289,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="searchPanel" class="searchpanel"></div>
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
+<script src="./emlak-harita-kayitlari.js"></script>
 <script src="./family-totals.js?v=20261121-dual-counter"></script>
 <script>
 const PROV='./provinces-local.json';
@@ -2568,7 +2569,9 @@ async function loadArchiveCore(){
   // Aksi halde son eklenen Çerkeş kayıtları yalnız tarihî adlarıyla kalır.
   try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
   settlementNameIndexes.clear();
-  const raw=[];
+  const published=await EmlakCensus.load();
+  const raw=published.map(r=>sanitizeArchiveFamilyRecord(structuredClone(r)));
+  const keepLegacy=EmlakCensus.withoutDuplicates(published);
   // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
   const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson']).map(function(path){return path.split('?')[0]})));
   const archiveResults=new Array(archivePaths.length);
@@ -2589,7 +2592,9 @@ async function loadArchiveCore(){
     t.split(/\r?\n/).forEach(function(line){
       if(!line.trim())return;
       try{
-        const x=sanitizeArchiveFamilyRecord(JSON.parse(line));
+        const row=keepLegacy(JSON.parse(line));
+        if(!row)return;
+        const x=sanitizeArchiveFamilyRecord(row);
         if(x._summary){summary=Object.assign(summary,x._summary);return}
         if(!x.il&&x.ilce)x.il=inferProvinceFromDistrict(x.ilce);
         if(x.il&&x.ilce&&x.koy){
