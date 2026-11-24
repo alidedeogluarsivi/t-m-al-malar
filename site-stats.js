@@ -8,14 +8,14 @@
 const $=id=>document.getElementById(id);
 const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat"),status=$("recentSearchStatus");
 const COUNT="https://countapi.mileshilliard.com/api/v1/";
-const PREFIX="alidedeogluarsivi_last_search_v4_";
-const LEGACY_PREFIX="alidedeogluarsivi_last_search_v3_";
-const OWN_KEY="alidedeoglu_recent_own_searches_v4";
-const OLD_OWN_KEY="alidedeoglu_recent_own_searches_v3";
+const PREFIX="alidedeogluarsivi_last_search_v5_";
+const OWN_KEY="alidedeoglu_recent_own_searches_v5";
+const OLD_OWN_KEY="alidedeoglu_recent_own_searches_v4";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
-const TYPES={village:{el:villages,n:10,legacy:3},family:{el:families,n:10,legacy:5}};
+const TYPES={village:{el:villages,n:10},family:{el:families,n:10}};
 let publicIndex=null,indexRetryAfter=0,localIndex={village:{},family:{}};
+let recentSharedSequence={village:0,family:0};
 let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
 function statusText(msg){if(status)status.textContent=msg;}
 function normalize(x){return String(x||"").trim().replace(/\s+/g," ").slice(0,90).toLocaleUpperCase("tr-TR").normalize("NFC");}
@@ -74,16 +74,17 @@ async function ensureIndex(){
  if(Date.now()<indexRetryAfter)return null;
  indexRetryAfter=Date.now()+60000;
  try{
-  const r=await fetch("./recent-search-index.json?v=20261118-family5",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
+  const r=await fetch("./recent-search-index.json?v=20261124-recent5",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
   if(!r.ok)throw Error("index missing");
   const parsed=await r.json();
   if(parsed&&parsed.village&&parsed.family){publicIndex=parsed;indexRetryAfter=0;return parsed}
  }catch(e){console.warn("Arama isim indeksi henüz hazır değil:",e.message)}
  return null;
 }
-async function readShared(type,legacy){
- const limit=legacy?TYPES[type].legacy:TYPES[type].n,base=(legacy?LEGACY_PREFIX:PREFIX)+type+"_";
+async function readShared(type){
+ const limit=TYPES[type].n,base=PREFIX+type+"_";
  const position=await request("get",base+"position");
+ recentSharedSequence[type]=position;
  if(position<1)return [];
  const slots=[...new Set(Array.from({length:Math.min(limit,position)},(_,i)=>(position-1-i)%limit))];
  const vals=await Promise.all(slots.map(async slot=>{try{return await request("get",base+"slot_"+slot)}catch(_){return 0}}));
@@ -113,23 +114,22 @@ async function refresh(){
   await Promise.all(Object.keys(TYPES).map(async type=>{
    if(!TYPES[type].el)return;
    try{
-    const rows=await readShared(type,false);
+    const rows=await readShared(type);
     sharedRead++;
     if(rows.length){draw(type,rows,false);return;}
-    let legacy=[];
-    try{legacy=await readShared(type,true)}catch(_){}
-    if(legacy.length){draw(type,legacy,false);return;}
     const own=local(type);draw(type,own,!!own.length);
-   }catch(_){
+    if(!own.length)TYPES[type].el.textContent=recentSharedSequence[type]>0
+      ?"YENİ ARAMALARIN İSİMLERİ HENÜZ ÇÖZÜMLENEMEDİ":"YENİ ORTAK ARAMA HENÜZ YOK";
+   }catch(e){
     sharedErrors++;
-    const own=local(type);
-    draw(type,own,!!own.length);
-    if(!own.length)TYPES[type].el.textContent="ORTAK ARAMALAR ŞU AN GÖRÜNTÜLENEMİYOR";
+    const own=local(type);draw(type,own,!!own.length);
+    if(!own.length)TYPES[type].el.textContent="ORTAK ARAMA HİZMETİNE ERİŞİLEMİYOR";
+    console.warn("Son aramalar:",type,e.message);
    }
   }));
   sharedHealthy=sharedRead>0;
-  if(sharedHealthy)statusText("ORTAK ARAMA SAYACI BAĞLI");
-  else if(sharedErrors)statusText("ORTAK SAYAÇ BAĞLANTISI YOK · YALNIZ BU CİHAZDAKİ ARAMALAR GÖRÜNÜYOR");
+  if(sharedHealthy)statusText("GÜNCEL ORTAK ARAMALAR · ESKİ LİSTELER GÖSTERİLMİYOR");
+  else if(sharedErrors)statusText("ORTAK SAYAÇ BAĞLANTISI YOK · YALNIZ BU TARAYICIDAKİ ARAMALAR GÖSTERİLİYOR");
  }finally{refreshBusy=false;lastRefresh=Date.now()}
 }
 async function record(type,name){
@@ -199,6 +199,8 @@ async function today(){
 void today();void refresh();
 if(villages||families){
  window.addEventListener("focus",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
- setInterval(()=>{if(!document.hidden&&Date.now()-lastRefresh>=60000)void refresh()},60000);
+ window.addEventListener("pageshow",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-lastRefresh>6000)void refresh()});
+ setInterval(()=>{if(!document.hidden&&Date.now()-lastRefresh>=30000)void refresh()},30000);
 }
 })();
