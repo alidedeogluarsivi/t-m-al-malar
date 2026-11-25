@@ -280,7 +280,7 @@ function renderVillageList(){
     const officialNames=new Set(currentVillages.map(f=>norm(f.properties._displayName||'')));
     const historical=[...archiveIndex.values()].filter(r=>
       norm(r.il)===norm('Sinop')&&norm(r.ilce)===norm('Saraydüzü')&&
-      (r.defterler||[]).some(d=>/NFS\\.d\\.(852|853|854)\\b/i.test(String(d.defter||'')))&&
+      (r.defterler||[]).some(d=>/NFS[.]d[.](852|853|854)(?![0-9])/i.test(String(d.defter||'')))&&
       !officialNames.has(norm(r.koy))
     );
     if(historical.length){
