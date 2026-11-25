@@ -1094,7 +1094,7 @@ function archivePinDetails(il,ilce,koy){
   (d.varak!=null?'<br>VARAK: '+esc(d.varak):'')+
   (d.sayfa!=null?'<br>SAYFA: '+esc(d.sayfa):'')+
   (d.hane!=null?'<br>HANE: '+esc(d.hane):'')+
-  (d.erkek!=null?'<br>ERKEK: '+esc(d.erkek):'')+'</div>'
+  (d.erkek!=null?'<br>'+(d.erkek_kayit_sira_sayisi?'ERKEK SIRA KAYDI':'ERKEK')+': '+esc(d.erkek):'')+'</div>'
  }).join('');
  return h;
 }
@@ -2403,7 +2403,7 @@ function showRecord(name,r,ilce,il){
           +valueLine('VARAK',d.varak)
           +valueLine('SAYFA',d.sayfa)
           +valueLine('HANE',d.hane)
-          +valueLine('ERKEK',d.erkek)
+          +valueLine(d.erkek_kayit_sira_sayisi?'ERKEK SIRA KAYDI':'ERKEK',d.erkek)
           +valueLine('TARİHÎ KAZA',d.tarihi_kaza)
           +valueLine('SANCAK',d.sancak)
           +valueLine('DİVAN',d.divan)
