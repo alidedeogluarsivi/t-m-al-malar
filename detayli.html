@@ -155,7 +155,16 @@ async function selectProvince(f){
   statusEl.textContent=localDistricts.length+' ilçe · listeden seçin.';
 
   try{
-    if(!districtData) districtData=await json(DIST);
+    if(!districtData){
+      const geometry=await json(DIST);
+      const namesById=new Map(districtListData.map(district=>[district.id,district.name]));
+      geometry.features=geometry.features.filter(feature=>namesById.has(feature.properties.id));
+      for(const feature of geometry.features){
+        feature.properties.name=namesById.get(feature.properties.id);
+      }
+      districtData=geometry;
+    }
+    if(selectedProvince?.id!==pid||selectedDistrict)return;
     const feats=districtData.features.filter(x=>x.properties.parent_id===pid).sort((a,b)=>a.properties.name.localeCompare(b.properties.name,'tr'));
     if(feats.length) renderFeatures(feats,'district',selectDistrict);
   }catch(e){
