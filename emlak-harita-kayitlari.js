@@ -1,6 +1,9 @@
 (() => {
   'use strict';
-  const path = './catalog/emlak_gedik_cubuk_sarioglan_1831_1846.ndjson';
+  const paths = [
+    './catalog/emlak_gedik_cubuk_sarioglan_1831_1846.ndjson',
+    './catalog/ankara_nfs_eslesmeleri.ndjson',
+  ];
   const legacy = /^(?:sivas-ek-2084-|kayseri\|kayse20261119\|)/;
   const key = value => String(value ?? '').toLocaleLowerCase('tr').normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i').replace(/[^a-z0-9]/g, '');
@@ -9,25 +12,29 @@
     String(document.sayfa ?? document.varak ?? ''), String(document.hane ?? ''),
     String(document.erkek ?? ''),
   ]);
-  let pending;
-  function load() {
-    if (!pending) {
-      pending = fetch(path, {signal: AbortSignal.timeout(10000)})
+  const pending = new Map();
+  function loadCatalog(path) {
+    if (!pending.has(path)) {
+      pending.set(path, fetch(path, {signal: AbortSignal.timeout(10000)})
         .then(response => {
           if (!response.ok) throw Error('Harita kayıtları HTTP ' + response.status);
           return response.text();
         })
-        .then(text => text.trim().split(/\r?\n/).map(line => JSON.parse(line)))
+        .then(text => text.split(/\r?\n/).filter(line => line.trim()).map(line => JSON.parse(line)))
         .catch(error => {
-          pending = null;
-          console.warn('Emlak haritasının yerleşim kayıtları yüklenemedi:', error);
+          pending.delete(path);
+          console.warn('Yerleşim kayıtları yüklenemedi:', path, error);
           return [];
-        });
+        }));
     }
-    return pending;
+    return pending.get(path);
+  }
+  async function load() {
+    const catalogs = await Promise.all(paths.map(loadCatalog));
+    return catalogs.flat();
   }
   function withoutDuplicates(approved) {
-    const covered = new Set(approved.flatMap(row => (row.defterler || [])
+    const covered = new Set(approved.filter(row => row.id?.startsWith('harita-1831-1846|')).flatMap(row => (row.defterler || [])
       .filter(document => document.hane != null || document.erkek != null)
       .map(document => stamp(row, document))));
     return row => {
