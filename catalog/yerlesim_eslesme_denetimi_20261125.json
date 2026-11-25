@@ -177,7 +177,7 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "all": 33,
-      "modern": 8,
+      "modern": 11,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-b-002",
@@ -250,16 +250,6 @@
           "family_count": 4
         },
         {
-          "id": "ayandon-1841-nfs847-b-013",
-          "original": "Çatak",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 8
-        },
-        {
           "id": "ayandon-1841-nfs847-b-014",
           "original": "Kıran",
           "historical_district": "AYANDON",
@@ -268,16 +258,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 2
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-015",
-          "original": "Usva (Merkez)",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 9
         },
         {
           "id": "ayandon-1841-nfs847-b-017",
@@ -298,16 +278,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 0
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-019",
-          "original": "Çepni (Merkez)",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 9
         },
         {
           "id": "ayandon-1841-nfs847-b-020",
@@ -434,7 +404,7 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
       "all": 32,
-      "modern": 2,
+      "modern": 8,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-c-001",
@@ -445,36 +415,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 6
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-002",
-          "original": "Kızılcakaya",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 11
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-003",
-          "original": "Somay",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 9
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-004",
-          "original": "Yunuslar",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 7
         },
         {
           "id": "ayandon-1841-nfs847-c-005",
@@ -495,16 +435,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 15
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-007",
-          "original": "Piri",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 7
         },
         {
           "id": "ayandon-1841-nfs847-c-009",
@@ -607,16 +537,6 @@
           "family_count": 6
         },
         {
-          "id": "ayandon-1841-nfs847-c-019",
-          "original": "Hacıreisköy",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 13
-        },
-        {
           "id": "ayandon-1841-nfs847-c-020",
           "original": "Sekicek",
           "historical_district": "AYANDON",
@@ -625,16 +545,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 6
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-021",
-          "original": "Kavaklı",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 11
         },
         {
           "id": "ayandon-1841-nfs847-c-022",
@@ -1804,12 +1714,102 @@
       "source": "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
       "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103",
       "note": "Rum cemaati ayrı nüfus kaydı"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-013",
+      "original": "Çatak",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Çatak",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-015",
+      "original": "Usva (Merkez)",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Satköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103: Usva => Satköy",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-019",
+      "original": "Çepni (Merkez)",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Çepni",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-002",
+      "original": "Kızılcakaya",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Kızılcakaya",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1968 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-003",
+      "original": "Somay",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Somay",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-004",
+      "original": "Yunuslar",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Yunuslar",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-007",
+      "original": "Piri",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Piri",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-019",
+      "original": "Hacıreisköy",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Hacireis",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-021",
+      "original": "Kavaklı",
+      "il": "Kastamonu",
+      "ilce": "Çatalzeytin",
+      "koy": "Kavaklı",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
+      "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
     }
   ],
-  "last_update": "2026-11-25",
+  "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 167,
-    "verified_source_rows": 8
+    "unresolved_source_rows": 158,
+    "verified_source_rows": 17
   }
 }
