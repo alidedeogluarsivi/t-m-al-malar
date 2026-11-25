@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaza Bazında NFS Fihristleri | Alidedeoğlu Arşivi</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f1e8;color:#183247;font-family:Arial,Helvetica,sans-serif}main{max-width:1370px;margin:auto;padding:22px}header{background:#16354a;color:#fff;border-radius:17px;padding:24px 28px}h1{font:600 32px Georgia,serif;margin:5px 0 12px}header p{max-width:960px;line-height:1.6;color:#dbe8ed;margin:0}a{color:#155676}.back{color:#fff}.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;background:#fff;border:1px solid #ddd3c3;border-radius:13px;margin:15px 0;padding:15px}label{font-size:11px;font-weight:800;display:block;margin-bottom:5px}input,select{width:100%;border:1px solid #c9bdae;border-radius:8px;padding:11px;font-size:14px;background:#fff}.stats{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.stats span{background:#fff;border:1px solid #ddd3c3;border-radius:8px;padding:9px 12px;font-size:13px}.note{background:#fff9e9;border-left:4px solid #a67a28;padding:12px 15px;font-size:13px;line-height:1.6;margin:12px 0}.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:10px}.entry{background:white;border:1px solid #ded5c8;border-radius:11px;padding:13px;min-width:0}.entry h2{font-size:16px;margin:0 0 8px;overflow-wrap:anywhere}.entry p{font-size:12px;margin:5px 0;line-height:1.45}.entry .code{font-weight:900;color:#9a2d2d}.entry small{color:#677783}.bottom{display:flex;justify-content:center;gap:10px;margin:20px}.bottom button{padding:10px 20px;border:1px solid #bcab94;background:#fff;border-radius:8px;cursor:pointer}button:disabled{opacity:.4}@media(max-width:680px){.controls{grid-template-columns:1fr}h1{font-size:25px}main{padding:10px}} 
+</style></head><body><main>
+<header><a class="back" href="./index.html">← ANA SAYFA</a><h1>Kaza Bazında Osmanlı Nüfus Fihristleri</h1><p>Kaynak belgelerden daha önce derlenen NFS yerleşim satırları, tarihî kaza ve defter numaralarına göre gösterilir. Günümüz köy/ilçe eşleşmesi doğrulanmayan satırlar tarihî adlarıyla korunur; otomatik harita konumu üretilmez.</p></header>
+<div class="note"><strong>İŞARETLEME KURALI:</strong> Bu sayfadaki her satır bir NFS fihrist kaydıdır; sülale adının bulunmadığı kayıtlardan aile adı türetilmez. Hane ve erkek sayıları yalnız kaynak dosyada varsa gösterilir. Yıl, varak ve PDF sayfası birbirinin yerine kullanılmaz.</div>
+<section class="controls"><div><label for="q">KÖY / KAZA / DEFTER NO ARA</label><input id="q" placeholder="Örn. 3526, KAMAN, OĞUZ, ŞÜREGEL"></div><div><label for="region">BÖLGE</label><select id="region"><option value="">TÜM BÖLGELER</option></select></div><div><label for="district">TARİHÎ KAZA / NAHİYE</label><select id="district"><option value="">TÜMÜ</option></select></div></section>
+<div class="stats"><span id="total">Kaynak dosyaları yükleniyor…</span><span id="visible">—</span><span id="sources">—</span></div><div id="results" class="results" aria-live="polite"></div><div class="bottom"><button id="more" type="button" hidden>100 KAYIT DAHA GÖSTER</button></div>
+</main><script>
+'use strict';
+const sources=[
+ {region:'SİVAS',file:'catalog/sivas_1831_1844_nfs_819_tarihi_fihrist_20261121.ndjson',kind:'sivas'},
+ {region:'KIRŞEHİR',file:'catalog/kirsehir_1830_1831_nfs3526_122_tarihi_yerlesim_20261125.ndjson',kind:'kirsehir'},
+ {region:'KARS / ŞÜREGEL',file:'catalog/kars_suregel_nfs2785_1835_56_karye_fihrist_20261125.ndjson',kind:'kars'},
+ {region:'ÜĞÜZ / OĞUZ',file:'catalog/uguz_1891_1845_8koy_fihrist.ndjson',kind:'uguz'}
+];
+const $=id=>document.getElementById(id),norm=s=>String(s||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i'),safe=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[x])),nonempty=v=>v!=null&&String(v).trim()!=='';let rows=[],filtered=[],limit=100,failed=[];
+async function loadSource(source){
+ const r=await fetch(source.file,{cache:'no-cache'});if(!r.ok)throw Error('HTTP '+r.status);
+ const text=await r.text();
+ return text.split(/\r?\n/).filter(Boolean).map(line=>{try{const d=JSON.parse(line),item=(d.defterler||[])[0]||{},entry={region:source.region,kaza:d.tarihi_kaza||item.tarihi_kaza||'BELİRTİLMEMİŞ',name:d.tarihi_karye||d.tarihi_ad||d.koy||item.kayit_adi||'',defter:item.defter||d.defter||'',yil:item.yil||d.yil||'',varak:item.varak||d.varak||'',sayfa:item.sayfa||item.pdf_sayfa||d.sayfa||'',hane:item.hane||d.hane||'',erkek:item.erkek||d.erkek||'',kaynak:source.file};return entry.name?entry:null}catch(e){return null}}).filter(Boolean);
+}
+function options(){
+ const old=$('district').value;
+ const kas=[...new Set(rows.filter(r=>!$('region').value||r.region===$('region').value).map(r=>r.kaza))].sort((a,b)=>a.localeCompare(b,'tr'));
+ $('district').innerHTML='<option value="">TÜMÜ</option>'+kas.map(x=>'<option value="'+safe(x)+'">'+safe(x)+'</option>').join('');
+ $('district').value=kas.includes(old)?old:'';
+}
+function render(reset=true){
+ if(reset)limit=100;
+ const q=norm($('q').value),region=$('region').value,kaza=$('district').value;
+ filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.defter,r.yil].join(' ')).includes(q)));
+ $('visible').textContent=filtered.length.toLocaleString('tr-TR')+' ARAMA SONUCU';
+ $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&'VARAK: '+safe(r.varak),r.sayfa&&'PDF/SAYFA: '+safe(r.sayfa)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane&&'HANE: '+safe(r.hane),r.erkek&&'ERKEK: '+safe(r.erkek)].filter(Boolean).join(' · ')+'</p><small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
+ $('more').hidden=filtered.length<=limit;
+}
+$('q').oninput=()=>render();
+$('region').onchange=()=>{options();render()};
+$('district').onchange=()=>render();
+$('more').onclick=()=>{limit+=100;render(false)};
+(async()=>{
+ const results=await Promise.allSettled(sources.map(loadSource));
+ results.forEach((x,i)=>{if(x.status==='fulfilled')rows.push(...x.value);else failed.push(sources[i].region)});
+ rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
+ $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
+ $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';
+ $('sources').textContent=failed.length?'YÜKLENEMEYEN: '+failed.join(', '):sources.length+' KAYNAK DOSYASI OKUNDU';
+ options();render();
+})().catch(e=>{$('total').textContent='KAYNAK OKUMA HATASI';console.error(e)});
+</script></body></html>
