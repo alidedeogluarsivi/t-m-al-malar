@@ -52,6 +52,7 @@ $('more').onclick=()=>{limit+=100;render(false)};
 (async()=>{
  const results=await Promise.allSettled(sources.map(loadSource));
  results.forEach((x,i)=>{if(x.status==='fulfilled')rows.push(...x.value);else failed.push(sources[i].region)});
+ try{const z=await fetch('catalog/boyabat_1840_nfs_852_853_ek_hane_sulale_20261125.ndjson');if(z.ok){for(const line of (await z.text()).split(/\r?\n/)){if(!line.trim())continue;const t=JSON.parse(line);const def=t.sulale_kayitlari?.[0]?.defter;const target=rows.find(r=>r.defter===def&&norm(r.koyDegeri)===norm(t.koy));if(target)target.families=[...new Set([...target.families,...t.sulaleler])]}}}catch(e){console.warn('Boyabat sülale ekleri',e)}
  rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
  $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
  $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';
