@@ -84,6 +84,15 @@ main{height:calc(100dvh - 54px)}
  header{gap:6px;padding-inline:6px}header a{font-size:10px}
  #archiveFind{min-width:0}#archiveQuery{font-size:.76rem}#archiveFind>button{padding-inline:6px}
 }
+
+/* Embedded homepage map: keep a single scroll container and avoid an empty right column. */
+html:has(body.embedded),body.embedded{height:100%;overflow:hidden}
+body.embedded main{height:calc(100% - 54px);min-height:0;overflow:hidden}
+body.embedded .mapwrap{min-height:0;overflow:hidden}
+body.embedded aside{overflow-y:auto;overscroll-behavior:contain}
+body.embedded #detail.open{position:absolute;right:8px;top:8px;bottom:8px;left:auto;width:min(360px,calc(100% - 16px));max-height:none;border:1px solid #cbd7df;border-radius:10px;box-shadow:0 8px 22px #0002;z-index:900;background:#fff}
+@media(min-width:1080px){body.embedded .mapwrap.has-detail{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){body.embedded #detail.open{top:auto;bottom:8px;height:min(52%,390px)}}
 </style></head>
 <body>
 <header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← Ana sayfaya dön</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Dönem fihristi</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
@@ -104,8 +113,8 @@ main{height:calc(100dvh - 54px)}
 </div><div class="listtop"><span id="listTitle">İLLER</span><span class="tiny" id="listCount"></span></div><div id="items"></div>
 </aside><div class="mapwrap"><div class="mapPane"><div id="map" aria-label="Yerleşim haritası"></div>
 <div class="map-legend" aria-label="Harita işaretleri">
- <span><i class="legend-nfs"></i>NFS defteri <b id="nfsCount"></b></span>
- <span><i class="legend-family"></i>Sülale kaydı <b id="familyCount"></b></span>
+ <span title="Sülale adı henüz kayıtlı olmayan NFS fihrist yerleşimleri"><i class="legend-nfs"></i>Yalnız NFS <b id="nfsCount"></b></span>
+ <span title="Sülale adı bulunan yerleşimler; NFS kaydı da varsa yeşil gösterilir"><i class="legend-family"></i>Sülale yüklü <b id="familyCount"></b></span>
  <span><i class="history-boundary sancak"></i>Sancak sınırı</span>
  <span id="periodCoverage" title="Konumu eşleştirilen karyelerden türetilmiştir.">1831–1850 · Yaklaşık sınırlar</span>
  <span id="familyLegend" style="display:none"><i class="legend-match"></i>Sülale araması</span>
@@ -369,8 +378,8 @@ function appendKnownArchivePoints(points, district, province){
 function metadata(p){return archivePoints.get(pointKey(p.il,p.ilce,p.name))}
 function archiveKind(p){
  const item=metadata(p);
- if(item?.refs.length)return 'nfs';
- if(item?.family)return 'family';
+ if(item?.families?.length||item?.family)return 'family';
+ if(item?.refs?.length)return 'nfs';
  return records.has(pointKey(p.il,p.ilce,p.name))?'card':'';
 }
 function dotStyle(p,overview=false){
@@ -471,8 +480,8 @@ async function loadNationalArchive(){
    archivePoints.set(tepeKey,{name:'Tepeköy Köyü',il:'NEVŞEHİR',ilce:'Acıgöl',lat:38.5835,lng:34.56871,refs:tepeRefs,families:tepeFamilies,family:1,kazas:['NEVŞEHİR']});
  }
  archivePointList=[...archivePoints.values()];
- $('nfsCount').textContent=archivePointList.filter(place=>place.refs.length).length.toLocaleString('tr-TR');
- $('familyCount').textContent=archivePointList.filter(place=>!place.refs.length&&place.families.length).length.toLocaleString('tr-TR');
+ $('nfsCount').textContent=archivePointList.filter(place=>archiveKind(place)==='nfs').length.toLocaleString('tr-TR');
+ $('familyCount').textContent=archivePointList.filter(place=>archiveKind(place)==='family').length.toLocaleString('tr-TR');
  renderOverview();++archiveVersion;
  if(finderOpen)renderFinder();
  renderPlaces(true);
