@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25-ayandon-NFS847",
+  "version": "2026-11-25-ayandon-NFS847-with-rum-surnames",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -206,7 +206,8 @@
     "catalog/boyabat_1840_nfs_852_853_ek_hane_sulale_20261125.ndjson",
     "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
     "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
-    "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson"
+    "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+    "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson"
   ],
   "notes": [
     "S",
