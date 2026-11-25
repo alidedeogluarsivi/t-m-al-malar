@@ -1,5 +1,5 @@
 {
-  "source_count": 182,
+  "source_count": 183,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -81,9 +81,9 @@
     },
     "14": {
       "il": "BOLU",
-      "ilce": 15,
-      "koy": 30,
-      "confirmed_family_places": 288,
+      "ilce": 16,
+      "koy": 34,
+      "confirmed_family_places": 293,
       "candidate_family_places": 3
     },
     "16": {
