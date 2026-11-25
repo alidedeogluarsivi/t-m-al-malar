@@ -1,10 +1,10 @@
 {
-  "source_count": 202,
+  "source_count": 205,
   "missing": [],
   "invalid_json": [],
-  "records": 26915,
-  "with_families": 18787,
-  "with_registers": 16399,
+  "records": 27007,
+  "with_families": 18878,
+  "with_registers": 16491,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -118745,6 +118745,10 @@
     {
       "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
       "line": 10
+    },
+    {
+      "path": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "line": 18
     }
   ],
   "duplicate_ids": [
