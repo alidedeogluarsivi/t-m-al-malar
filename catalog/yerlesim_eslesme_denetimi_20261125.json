@@ -1,0 +1,1618 @@
+{
+  "title": "YERLEŞİM EŞLEŞME DENETİMİ",
+  "date": "2026-11-25",
+  "scope": "Ayandon NFS.d.847 ve Boyabat NFS.d.853-854 kısmi taraması",
+  "rules": [
+    "Tarihî kaza kaydı güncel köy eşleştirmesi olmadan taşınmaz.",
+    "Yalnız doğrulanmış yerleşim eşleşmeleri yayımlanır.",
+    "Sülale kayıtları mevcut kaynak dosyalarında korunur."
+  ],
+  "groups": [
+    {
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "all": 27,
+      "modern": 10,
+      "unresolved": [
+        {
+          "id": "ayandon-1841-nfs847-a-001",
+          "original": "Ayandon",
+          "historical_district": "AYANDON",
+          "status": "GÜNCEL KÖY ADI KİTABIN 5. BÖLÜMÜNDE AÇIKÇA EŞLENİR.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 21
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-003",
+          "original": "Düre",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-004",
+          "original": "Öreğe",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-005",
+          "original": "Hacı",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-006",
+          "original": "Güğergid",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 10
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-007",
+          "original": "Çay",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-008",
+          "original": "Kirtos",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 9
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-011",
+          "original": "Balaycık",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-012",
+          "original": "Simi",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 7
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-014",
+          "original": "Eğrit",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-017",
+          "original": "Kulübetekkesi",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-018",
+          "original": "Yenice",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-020",
+          "original": "Gidemorza",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 5
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-022",
+          "original": "Günderet",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-023",
+          "original": "Çayağzı",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-025",
+          "original": "Emrelli",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-a-027",
+          "original": "Morza",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        }
+      ]
+    },
+    {
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "all": 33,
+      "modern": 7,
+      "unresolved": [
+        {
+          "id": "ayandon-1841-nfs847-b-002",
+          "original": "Kurvana",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 8
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-003",
+          "original": "Sarıbece",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-005",
+          "original": "Kışla",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 5
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-007",
+          "original": "Mağribel (Merkez)",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 7
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-008",
+          "original": "Temürcü",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-009",
+          "original": "Oğrı",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-010",
+          "original": "Eskiandon",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-012",
+          "original": "Dev",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-013",
+          "original": "Çatak",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 8
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-014",
+          "original": "Kıran",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-015",
+          "original": "Usva (Merkez)",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 9
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-017",
+          "original": "Karye-i Didire",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 15
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-018",
+          "original": "Dikençukuru",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 0
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-019",
+          "original": "Çepni (Merkez)",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 9
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-020",
+          "original": "Veli",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-021",
+          "original": "Ebceler",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-022",
+          "original": "Doruh",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-023",
+          "original": "Güvande",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-024",
+          "original": "Kuşcular",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-025",
+          "original": "Kuzsökü",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-026",
+          "original": "Halim",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-027",
+          "original": "Derbend",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-028",
+          "original": "Simi",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-029",
+          "original": "Cive",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-031",
+          "original": "Düz",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-b-032",
+          "original": "Safran",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        }
+      ]
+    },
+    {
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "all": 32,
+      "modern": 2,
+      "unresolved": [
+        {
+          "id": "ayandon-1841-nfs847-c-001",
+          "original": "Güneşler",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-002",
+          "original": "Kızılcakaya",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 11
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-003",
+          "original": "Somay",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 9
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-004",
+          "original": "Yunuslar",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 7
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-005",
+          "original": "Çerkes",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 11
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-006",
+          "original": "Saka",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 15
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-007",
+          "original": "Piri",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 7
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-009",
+          "original": "Ova",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 5
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-010",
+          "original": "Hamzalar",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-011",
+          "original": "Gerişköy",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-012",
+          "original": "Celaller",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-013",
+          "original": "Virancık",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-014",
+          "original": "Aydükler",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-015",
+          "original": "Kalaycıköy",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 8
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-016",
+          "original": "Ahdköy",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 10
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-017",
+          "original": "Günay",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 14
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-018",
+          "original": "Sökü",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-019",
+          "original": "Hacıreisköy",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 13
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-020",
+          "original": "Sekicek",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-021",
+          "original": "Kavaklı",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 11
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-022",
+          "original": "Ayvat",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 2
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-023",
+          "original": "Günay",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 8
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-024",
+          "original": "Gevkü (?)",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-025",
+          "original": "Günayçatak",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 14
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-027",
+          "original": "Avanos",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 3
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-028",
+          "original": "Aktaş",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-029",
+          "original": "Keşiş",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 7
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-030",
+          "original": "Kasrat",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 5
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-031",
+          "original": "Tacahmed",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 4
+        },
+        {
+          "id": "ayandon-1841-nfs847-c-032",
+          "original": "Kalaycı",
+          "historical_district": "AYANDON",
+          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 1
+        }
+      ]
+    },
+    {
+      "source": "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
+      "all": 6,
+      "modern": 4,
+      "unresolved": [
+        {
+          "id": "ayandon-1841-rum-01",
+          "original": "Ayandon",
+          "historical_district": "AYANDON",
+          "status": "1841 AYANDON RUM CEMAATİ KAYDI. MÜSLÜMAN SAYILARI İLE AYNI DEFTERDE FARKLI NÜFUS KÜMESİ OLARAK KORUNDU.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 6
+        },
+        {
+          "id": "ayandon-1841-rum-06",
+          "original": "Morza",
+          "historical_district": "AYANDON",
+          "status": "1841 AYANDON RUM CEMAATİ KAYDI. MÜSLÜMAN SAYILARI İLE AYNI DEFTERDE FARKLI NÜFUS KÜMESİ OLARAK KORUNDU.",
+          "record": [
+            "BOA NFS.d.847"
+          ],
+          "family_count": 14
+        }
+      ]
+    },
+    {
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "all": 46,
+      "modern": 1,
+      "unresolved": [
+        {
+          "id": "boyabat-854-ilkhane-001",
+          "original": "Fildanlar",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-002",
+          "original": "Ceke",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-003",
+          "original": "Yukarıköprücek",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-004",
+          "original": "Aşağıköprücek",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-005",
+          "original": "Kemaloğlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-006",
+          "original": "Bölüklü",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-007",
+          "original": "Koğaçayır",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-008",
+          "original": "Sarıyar",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-009",
+          "original": "Bürüm",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-010",
+          "original": "Divan-ı Hürremşah",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-011",
+          "original": "Şehr-iviran",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-012",
+          "original": "Piriefendioğluderesi",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-013",
+          "original": "Nikel",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-014",
+          "original": "Osmanlı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-015",
+          "original": "Koyunkıran",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-016",
+          "original": "Alioğlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-017",
+          "original": "Vehşeli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-018",
+          "original": "Çal",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-019",
+          "original": "Karandu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-020",
+          "original": "Seğricek",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-021",
+          "original": "Karaağaç",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-022",
+          "original": "Çurguşlar",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-023",
+          "original": "Kumarlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-024",
+          "original": "Öşek",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-025",
+          "original": "Çaybaşı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-026",
+          "original": "Engilekin",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-027",
+          "original": "Kavacık",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-028",
+          "original": "Doğrul",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-029",
+          "original": "Fındıcak",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-030",
+          "original": "Tabaklı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-031",
+          "original": "Tesim?",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-032",
+          "original": "Yenelak",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-033",
+          "original": "Emiroğlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-034",
+          "original": "Benişli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-035",
+          "original": "Günce",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-036",
+          "original": "Boyalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-037",
+          "original": "Tenhalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-038",
+          "original": "Şadbeli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-039",
+          "original": "Esengâzili",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-040",
+          "original": "Kadılar",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-041",
+          "original": "Kayalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-042",
+          "original": "Deneçobanı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-044",
+          "original": "Camili",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-045",
+          "original": "Gölet",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-854-ilkhane-046",
+          "original": "Dere",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        }
+      ]
+    },
+    {
+      "source": "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum1_20261125.ndjson",
+      "all": 23,
+      "modern": 10,
+      "unresolved": [
+        {
+          "id": "boyabat-853-full-a-9",
+          "original": "Cennet?",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 7
+        },
+        {
+          "id": "boyabat-853-full-a-10",
+          "original": "Enbiyalı",
+          "historical_district": "BOYABAD",
+          "status": "PDF s.418 KIZILOĞLAN NEFS-İ RUBU BAŞLADIĞINDAN ENBİYALI KAYDI 413-417 İLE SINIRLANDI.",
+          "record": [],
+          "family_count": 14
+        },
+        {
+          "id": "boyabat-853-full-a-12",
+          "original": "Kayalı (Cuma / Söğütlü)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 9
+        },
+        {
+          "id": "boyabat-853-full-a-13",
+          "original": "Ömer",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 7
+        },
+        {
+          "id": "boyabat-853-full-a-14",
+          "original": "Korkun",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 8
+        },
+        {
+          "id": "boyabat-853-full-a-16",
+          "original": "Debe (Tepe)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 40
+        },
+        {
+          "id": "boyabat-853-full-a-17",
+          "original": "Hacıçay",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 30
+        },
+        {
+          "id": "boyabat-853-full-a-18",
+          "original": "Hacıoğlan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 11
+        },
+        {
+          "id": "boyabat-853-full-a-19",
+          "original": "Yalnızkavak",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 7
+        },
+        {
+          "id": "boyabat-853-full-a-20",
+          "original": "Kurthasan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 3
+        },
+        {
+          "id": "boyabat-853-full-a-21",
+          "original": "Çad",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 6
+        },
+        {
+          "id": "boyabat-853-full-a-22",
+          "original": "Arpalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 5
+        },
+        {
+          "id": "boyabat-853-full-a-23",
+          "original": "Alpaşalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 10
+        }
+      ]
+    },
+    {
+      "source": "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum2_20261125.ndjson",
+      "all": 23,
+      "modern": 6,
+      "unresolved": [
+        {
+          "id": "boyabat-853-full-b-2",
+          "original": "Kavaklı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 18
+        },
+        {
+          "id": "boyabat-853-full-b-3",
+          "original": "Bekdaşlı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 9
+        },
+        {
+          "id": "boyabat-853-full-b-4",
+          "original": "Zeyve",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 12
+        },
+        {
+          "id": "boyabat-853-full-b-6",
+          "original": "Yusuflu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 12
+        },
+        {
+          "id": "boyabat-853-full-b-8",
+          "original": "Göve",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 25
+        },
+        {
+          "id": "boyabat-853-full-b-9",
+          "original": "Katırlı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 18
+        },
+        {
+          "id": "boyabat-853-full-b-10",
+          "original": "Karasakallı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 11
+        },
+        {
+          "id": "boyabat-853-full-b-11",
+          "original": "Toğçlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 28
+        },
+        {
+          "id": "boyabat-853-full-b-12",
+          "original": "Yekran",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 11
+        },
+        {
+          "id": "boyabat-853-full-b-13",
+          "original": "Camili (Yekran)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 15
+        },
+        {
+          "id": "boyabat-853-full-b-14",
+          "original": "Kayalı (Yekran)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 11
+        },
+        {
+          "id": "boyabat-853-full-b-15",
+          "original": "Mehmedbeli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 10
+        },
+        {
+          "id": "boyabat-853-full-b-16",
+          "original": "Gülberan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 4
+        },
+        {
+          "id": "boyabat-853-full-b-18",
+          "original": "Şeyhli (Yekran)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 10
+        },
+        {
+          "id": "boyabat-853-full-b-19",
+          "original": "Hamidli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 9
+        },
+        {
+          "id": "boyabat-853-full-b-20",
+          "original": "Mehdioğlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 8
+        },
+        {
+          "id": "boyabat-853-full-b-22",
+          "original": "Tabaklı (Yekran)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 10
+        }
+      ]
+    },
+    {
+      "source": "catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson",
+      "all": 39,
+      "modern": 14,
+      "unresolved": [
+        {
+          "id": "boyabat-853-first-8",
+          "original": "Cennet?",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-9",
+          "original": "Enbiyalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-11",
+          "original": "Ömer",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-12",
+          "original": "Korkun",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-14",
+          "original": "Debe (Tepe)",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-15",
+          "original": "Hacıçay",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-16",
+          "original": "Hacıoğlan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-17",
+          "original": "Yalnızkavak",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-18",
+          "original": "Kurthasan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-19",
+          "original": "Çad",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-20",
+          "original": "Arpalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-21",
+          "original": "Alpaşalı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-23",
+          "original": "Kavaklı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-24",
+          "original": "Bekdaşlı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-25",
+          "original": "Zeyve",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-27",
+          "original": "Yusuflu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-29",
+          "original": "Göve",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-30",
+          "original": "Katırlı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-31",
+          "original": "Karasakallı",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-32",
+          "original": "Camili",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-33",
+          "original": "Mehmedbeli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-34",
+          "original": "Gülberan",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-36",
+          "original": "Şeyhli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-37",
+          "original": "Hamidli",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        },
+        {
+          "id": "boyabat-853-first-38",
+          "original": "Mehdioğlu",
+          "historical_district": "BOYABAD",
+          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
+          "record": [],
+          "family_count": 1
+        }
+      ]
+    }
+  ]
+}
