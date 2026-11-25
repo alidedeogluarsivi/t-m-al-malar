@@ -122,7 +122,7 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 .archiveRecent strong{display:block;font-size:11px;letter-spacing:.04em;margin-bottom:5px}
 .archiveRecent p{margin:0!important;color:#fff!important;font-size:13px!important;line-height:1.65!important;overflow-wrap:anywhere;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 10px;align-content:start;min-height:34px}
 .archiveRecentItem{display:block;overflow-wrap:anywhere;padding:2px 0;border-bottom:1px solid #ffffff1a}
-/* Recent search markers: village red, family blue; counters and archive data unchanged. */
+/* Archive status: NFS red, family records green; counters use a single verified report. */
 #recentVillages .archiveRecentItem::before,#recentFamilies .archiveRecentItem::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;box-shadow:0 0 0 1px #ffffff66}
 #recentVillages .archiveRecentItem::before{background:#ed3b42}
 #recentFamilies .archiveRecentItem::before{background:#49a9f5}
@@ -227,8 +227,8 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div class="stats">
 <div class="stat"><b id="pdfStat">—</b><span>ARŞİV PDF / ÇALIŞMA DOSYASI</span></div>
 <div class="stat"><b id="pageStat">—</b><span>E-SATIŞ PDF</span></div>
-<div class="stat"><a class="familyStatPair" href="./sulale-sozlugu.html" aria-label="Tekil sülale adı ve toplam kayıt sayısını sözlükte aç"><div><b id="familyUniqueStat">—</b><span>TEKİL SÜLALE ADI</span></div><div><b id="familyStat">—</b><span>TOPLAM KAYIT SAYISI</span></div></a></div>
-<div class="stat"><b id="mappedStat">—</b><span>HARİTAYA BAĞLI KART</span></div>
+<div class="stat"><a class="familyStatPair" href="./sulale-sozlugu.html" aria-label="Tekil sülale adı ve toplam kayıt sayısını sözlükte aç"><div><b id="familyUniqueStat">—</b><span>TEKİL SÜLALE ADI</span></div><div><b id="familyStat">—</b><span>TEKRARSIZ SÜLALE KAYDI</span></div></a></div>
+<div class="stat"><b id="mappedStat">—</b><span>ARŞİV YERLEŞİM KARTI</span></div>
 </div>
 </section>
 
@@ -291,7 +291,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
 <script src="./emlak-harita-kayitlari.js?v=ankara-20261125"></script>
-<script src="./family-totals.js?v=20261121-dual-counter"></script>
+<script src="./family-totals.js?v=20261125-single-source"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST_LOCAL='./districts-local.json';
@@ -2748,9 +2748,9 @@ async function loadArchiveCore(){
   try{
     const sales=await withTimeout(getJSON(SALES),3500,{items:[],count:0});
     salesMap=new Map((sales.items||[]).map(function(x){return[x.id,x]}));
-    salesCount=Number(sales.count||salesMap.size||0);
+    salesCount=Number.isSafeInteger(Number(sales.count))&&Number(sales.count)>=0?Number(sales.count):salesMap.size;
   }catch(e){salesMap=new Map();salesCount=0}
-  document.getElementById('pdfStat').textContent=(summary.pdf_toplam||0).toLocaleString('tr-TR');
+  document.getElementById('pdfStat').textContent=Number.isSafeInteger(Number(summary.pdf_toplam))&&Number(summary.pdf_toplam)>0?Number(summary.pdf_toplam).toLocaleString('tr-TR'):'—';
   document.getElementById('pageStat').textContent=salesCount.toLocaleString('tr-TR');
   document.getElementById('mappedStat').textContent=archive.length.toLocaleString('tr-TR');
   renderPreview();
@@ -3396,33 +3396,12 @@ bindHistoricalControls();
   });
   if(preview)observer.observe(preview);
   getJSON(SALES).then(function(sales){
-    document.getElementById('pageStat').textContent=Number(sales.count||sales.items?.length||0).toLocaleString('tr-TR');
+    document.getElementById('pageStat').textContent=(Number.isSafeInteger(Number(sales.count))&&Number(sales.count)>=0?Number(sales.count):(sales.items||[]).length).toLocaleString('tr-TR');
   }).catch(function(e){console.warn('Satış kataloğu yüklenemedi',e)});
 
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
-<script>
-/* Independent compiled family counters: do not wait for 174 village files. */
-(function(){
- async function updateFamilyCounters(){
-  const unique=document.getElementById("familyUniqueStat");
-  const total=document.getElementById("familyStat");
-  if(!unique||!total)return;
-  try{
-   const response=await fetch("./catalog/sulale_tum_arsiv_rapor.json?v=20261122-counters",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
-   if(!response.ok)throw Error("HTTP "+response.status);
-   const report=await response.json(),stats=report.family_stats||{};
-   const n=Number(stats.unique_names),r=Number(stats.records);
-   if(!Number.isSafeInteger(n)||!Number.isSafeInteger(r)||n<0||r<0)throw Error("Geçersiz sayaç");
-   unique.textContent=n.toLocaleString("tr-TR");
-   total.textContent=r.toLocaleString("tr-TR");
-   unique.title=total.title="Son derlenen arşiv kataloğundan; canlı ziyaret sayısı değildir";
-  }catch(e){console.warn("Sülale sayaçları:",e);unique.textContent="—";total.textContent="—"}
- }
- if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",updateFamilyCounters,{once:true});
- else void updateFamilyCounters();
-})();
-</script>
+
 <script src="./historical-1890.js?v=20261111-perf1"></script>
 <script defer src="./site-stats.js?v=20261124-recent6"></script>
 <script>
