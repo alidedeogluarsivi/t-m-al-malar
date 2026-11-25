@@ -318,7 +318,10 @@ archive=[...archiveIndex.values(),...archive.filter(r=>r.tarihi_yerlesim_kaydi)]
   document.getElementById('pdfStat').textContent=Number(summary.pdf_toplam)>0?Number(summary.pdf_toplam).toLocaleString('tr-TR'):'—';document.getElementById('pageStat').textContent=Number(summary.sayfa_toplam)>0?Number(summary.sayfa_toplam).toLocaleString('tr-TR'):'—';document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
 }
 function archiveStatus(r){if(!r)return 'none';const names=[...(r.sulaleler||[]),...(r.sulale_kayitlari||[]).map(x=>typeof x==='object'?x?.ad:x)];if(names.some(x=>typeof x==='string'&&x.trim()&&!/^(SÜLALE ADI BELİRTİLMEMİŞ|BELİRTİLMEMİŞ|BİLİNMİYOR|YOK)$/i.test(x.trim())))return 'family';if((r.defterler||[]).some(d=>/NFS/i.test(String([d?.defter,d?.tur].join(' ')))))return 'nfs';return 'none'}
-function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;if(norm(selectedProvince?.name)===norm('NEVŞEHİR')&&norm(selectedDistrict?.name)===norm('ACIGÖL')&&norm(v)===norm('Tepeköy Köyü')){r=archiveIndex.get(key('NEVŞEHİR','ACIGÖL','Tepeköy'));if(r)return r;}const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
+function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;if(norm(selectedProvince?.name)==='bolu'&&norm(selectedDistrict?.name)==='gerede'){
+  const alternateName={umit:'Ümitköy',umitkoy:'Ümit'}[norm(v)];
+  if(alternateName){r=archiveIndex.get(key('Bolu','Gerede',alternateName));if(r)return r;}
+}if(norm(selectedProvince?.name)===norm('NEVŞEHİR')&&norm(selectedDistrict?.name)===norm('ACIGÖL')&&norm(v)===norm('Tepeköy Köyü')){r=archiveIndex.get(key('NEVŞEHİR','ACIGÖL','Tepeköy'));if(r)return r;}const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
 
 function showVillage(vn,r){
  document.getElementById('vtitle').textContent=vn;document.getElementById('vloc').textContent=r?.tarihi_yerlesim_kaydi?[r.tarihi_kaza,r.defterler?.[0]?.sancak].filter(Boolean).join(' / '):(r?.ilce||selectedDistrict?.name||'')+' / '+(r?.il||selectedProvince?.name||'');
