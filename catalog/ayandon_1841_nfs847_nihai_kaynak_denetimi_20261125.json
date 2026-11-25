@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-25",
+  "source": "Türkeli: Mekân Nüfus Tarih (2016), Pelin İskender Kılıç, Mucize Ünlü ve Nedim İpek, Ayandon Kazasının 1841 Yılı Nüfus Defteri, BOA NFS.d.847",
+  "scope": "13 historic divans, 92 Muslim locality records, 6 mixed-community Rum census records",
+  "nfs847_muslim": {
+    "historic_locality_rows": 92,
+    "with_hane": 92,
+    "with_erkek": 92,
+    "village_hane_last_recorded_serial_sum": 807,
+    "published_muslim_hane_total": 805,
+    "register_male_person_total": 2706,
+    "village_clan_name_links": 569
+  },
+  "nfs847_rum": {
+    "mixed_localities": 6,
+    "recorded_hane_total": 86,
+    "published_rum_hane_in_chapter_prose": 86,
+    "recorded_male_person_total": 253,
+    "village_clan_name_links": 63
+  },
+  "household_discrepancy": "Book's high-level Muslim hane total is 805; village-by-village final Hane serial values total 807. Do not force reconcile, preserve source references. Book's rum household totals are represented as 86 in narrative and numbered village lines; source summary tables may differ.",
+  "place_corrections": [
+    "Current Türkeli centre is Yarna historically (book ch.5 p302), not Ayandon itself.",
+    "NFS.d.847 Ayandon locality and historic Ayandon kaza separate from modern Türkeli centre.",
+    "Modern villages from ch.5 crosswalk only; no unsupported map coordinates."
+  ],
+  "male_data_cautions": [
+    "Oğrı printed last serial 93 but text shows 9 persons.",
+    "Fariye Aydükler 15 and Kalaycıköy 27 use age-distribution analysis to avoid misleading serial maxima.",
+    "All male totals are source-listed male persons, not assumed total male+female population."
+  ],
+  "genealogy_limit": "Surnames are assigned to their historical village from published Elkab/Lakap tables. Person-by-person full surname-to-household genealogy not yet completed; household numbers were not invented.",
+  "separate_source_issue": "Book's Ayaz Kayabaşı Oğnaz excerpts are from İstefan BOA NFS.d.914 and excluded from NFS.d.847; earlier archive_library_verified Ayaz 847 record should be checked against Ottoman original.",
+  "published_files": [
+    "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+    "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+    "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+    "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
+    "catalog/ayandon_1841_nfs847_13_divan_hane_erkek_20261125.json"
+  ],
+  "site_pages_updated": [
+    "index.html",
+    "detayli.html",
+    "kaza-nfs-fihristleri.html",
+    "map.html",
+    "catalog/sulale_source_manifest.json"
+  ]
+}
