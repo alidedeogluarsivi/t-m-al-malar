@@ -166,6 +166,10 @@ window.ArchiveStats={
 };
 async function today(){
  if(!daily)return;
+ const dayKey=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Istanbul",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()).replace(/\D/g,"");
+ const verifiedKey="alidedeogluarsivi_verified_today_"+dayKey;
+ try{const last=localStorage.getItem(verifiedKey);if(last!==null&&Number.isSafeInteger(Number(last))&&Number(last)>=0){daily.textContent=Number(last).toLocaleString("tr-TR");daily.title="SON DOĞRULANAN GÜNLÜK SAYI";}}catch(_){}
+ const displayToday=n=>{daily.textContent=n.toLocaleString("tr-TR");daily.title="CANLI GÜNLÜK ZİYARET";try{localStorage.setItem(verifiedKey,String(n));}catch(_){}};
  if(api){
   try{
    const flag="archive_daily_api_visit_v1";
@@ -180,7 +184,7 @@ async function today(){
    const data=await res.json();
    const n=Number(data.today);
    if(!Number.isSafeInteger(n)||n<0)throw Error("Invalid daily counter");
-   daily.textContent=n.toLocaleString("tr-TR");
+   displayToday(n);
    return;
   }catch(e){console.warn("Günlük sayaç API:",e)}
  }
@@ -192,8 +196,8 @@ async function today(){
   let value;
   if(sessionStorage.getItem(flag)==="1")value=await request("get",key);
   else {value=await request("hit",key);sessionStorage.setItem(flag,"1")}
-  daily.textContent=value.toLocaleString("tr-TR");
- }catch(e){daily.textContent="—";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; doğrulanmamış sayı gösterilmiyor";console.warn("Günlük ziyaret sayacı:",e.message)}
+  displayToday(value);
+ }catch(e){if(daily.textContent.trim()==="—"||daily.textContent.trim()==="")daily.textContent="BAĞLANTI YOK";daily.title="Günlük ziyaret sayacı hizmetine erişilemiyor; son doğrulanan sayı varsa gösteriliyor";console.warn("Günlük ziyaret sayacı:",e.message)}
 }
 void today();void refresh();
 if(villages||families){
