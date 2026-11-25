@@ -3,7 +3,7 @@
   "missing": [],
   "invalid_json": [],
   "records": 26420,
-  "with_families": 18416,
+  "with_families": 18420,
   "with_registers": 16168,
   "missing_location": [
     {
@@ -116472,10 +116472,6 @@
     },
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-      "line": 48
-    },
-    {
-      "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 49
     },
     {
@@ -116604,10 +116600,6 @@
     },
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-      "line": 84
-    },
-    {
-      "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 85
     },
     {
@@ -116629,10 +116621,6 @@
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 91
-    },
-    {
-      "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-      "line": 92
     },
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
@@ -116729,10 +116717,6 @@
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 118
-    },
-    {
-      "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-      "line": 119
     },
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
