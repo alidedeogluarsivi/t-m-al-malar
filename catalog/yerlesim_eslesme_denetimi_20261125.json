@@ -3598,7 +3598,7 @@
     {
       "source": "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum2_20261125.ndjson",
       "all": 23,
-      "modern": 6,
+      "modern": 7,
       "unresolved": [
         {
           "id": "boyabat-853-full-b-2",
@@ -3910,146 +3910,6 @@
             },
             {
               "ad": "ÇİLHALİLOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-853-full-b-8",
-          "original": "Göve",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 25,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "ALAGÖZLÜOĞULLARI",
-            "BEKMEZCİOĞULLARI",
-            "CEVDEDOĞULLARI",
-            "DALDALOĞULLARI",
-            "DEMİRCİOĞULLARI",
-            "DÜZCEHACIOĞULLARI",
-            "HACIOSMANOĞULLARI",
-            "HACIOĞULLARI",
-            "HALİLOĞULLARI",
-            "HASANOĞULLARI",
-            "KADIOĞULLARI",
-            "KARAMEHMEDOĞULLARI",
-            "KOCABAŞAOĞULLARI",
-            "KOCABAŞOĞULLARI",
-            "KOCABEYOĞULLARI",
-            "KUDUZOĞULLARI",
-            "KURDOĞULLARI",
-            "KURTHACIOĞULLARI",
-            "MOLLAHALİLOĞULLARI",
-            "MUHTARALİOĞULLARI",
-            "SARIMEHMEDOĞULLARI",
-            "VELİBEYOĞULLARI",
-            "VELİOĞULLARI",
-            "YUSUFOĞULLARI",
-            "ŞABANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "ALAGÖZLÜOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "BEKMEZCİOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "CEVDEDOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "DALDALOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "DEMİRCİOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "DÜZCEHACIOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "HACIOSMANOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "HACIOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "HALİLOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "HASANOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KADIOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KARAMEHMEDOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KOCABAŞAOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KOCABAŞOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KOCABEYOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KUDUZOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KURDOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "KURTHACIOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "MOLLAHALİLOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "MUHTARALİOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "SARIMEHMEDOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "VELİBEYOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "VELİOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "YUSUFOĞULLARI",
-              "defter": "BOA NFS.d.853"
-            },
-            {
-              "ad": "ŞABANOĞULLARI",
               "defter": "BOA NFS.d.853"
             }
           ],
@@ -4965,7 +4825,7 @@
     {
       "source": "catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson",
       "all": 39,
-      "modern": 14,
+      "modern": 15,
       "unresolved": [
         {
           "id": "boyabat-853-first-8",
@@ -5297,27 +5157,6 @@
           "sulale_kayitlari": [
             {
               "ad": "KARAAHMEDOĞULLARI",
-              "defter": "BOA NFS.d.853",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-853-first-29",
-          "original": "Göve",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "MOLLAHALİLOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "MOLLAHALİLOĞULLARI",
               "defter": "BOA NFS.d.853",
               "hane": 1
             }
@@ -6066,18 +5905,38 @@
       "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
       "verified_source": "Sinop Valiliği 18.02.2015: Esengazili Köyü Kadılar Mahallesi",
       "note": "Kadılar MAHALLESİ"
+    },
+    {
+      "id": "boyabat-853-full-b-8",
+      "original": "Göve",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Göve",
+      "source": "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum2_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat/Göve; BOA NFS.d.853",
+      "note": "Tarihî Boyabad kayıt adıyla aynı güncel köy"
+    },
+    {
+      "id": "boyabat-853-first-29",
+      "original": "Göve",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Göve",
+      "source": "catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat/Göve; BOA NFS.d.853",
+      "note": "Tarihî Boyabad kayıt adıyla aynı güncel köy"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 120,
-    "verified_source_rows": 55
+    "unresolved_source_rows": 118,
+    "verified_source_rows": 57
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 120,
+    "unresolved_rows": 118,
     "source_documents": 58,
     "attached_family_names": 721
   }
