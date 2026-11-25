@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-25",
+  "source": "Recep Yılmaz 2018, Boyabat NFS 852-854 nüfus defterleri çevriyazısı, I Cilt",
+  "scope": "BOA NFS.d.854, five unresolved male person serial anomalies",
+  "entries": [
+    {
+      "place": "Fildanlar",
+      "pdf_pages": "602-604",
+      "last_printed": 35,
+      "numbered_rows": 35,
+      "anomaly": "Sıra 28 iki farklı kişide, 29 yok"
+    },
+    {
+      "place": "Öşek",
+      "pdf_pages": "831-835",
+      "last_printed": 59,
+      "numbered_rows": 59,
+      "anomaly": "1 mükerrer, 38 yok; 39'da iki ayrı kişi ve iki yaş aynı satırda"
+    },
+    {
+      "place": "Divan-ı Kılınçlı",
+      "pdf_pages": "678-690",
+      "last_printed": 158,
+      "numbered_rows": 157,
+      "anomaly": "10 ile 12 arasında boş/çizgi satır; 11 sayılmamış"
+    },
+    {
+      "place": "Divan-ı Ortaöz",
+      "pdf_pages": "691-700",
+      "last_printed": 122,
+      "numbered_rows": 123,
+      "anomaly": "92 sıra numarası iki ayrı kişide"
+    },
+    {
+      "place": "Şehr-iviran",
+      "pdf_pages": "701-718",
+      "last_printed": 222,
+      "numbered_rows": 223,
+      "anomaly": "75 sıra numarası iki ayrı satırda"
+    }
+  ],
+  "policy": "No 'erkek' number inserted for these five records without reconciling directly against original Ottoman image. Printed serial max, number of lines and counted male persons are distinct quantities."
+}
