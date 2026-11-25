@@ -1,10 +1,10 @@
 {
-  "source_count": 199,
+  "source_count": 200,
   "missing": [],
   "invalid_json": [],
-  "records": 26684,
-  "with_families": 18684,
-  "with_registers": 16168,
+  "records": 26792,
+  "with_families": 18785,
+  "with_registers": 16276,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -2593,6 +2593,118 @@
     {
       "path": "catalog/bafra_1834_nfs972_tarihi_sulale_dizini_t_z_20261120.ndjson",
       "line": 44
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 36
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 37
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 39
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 40
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 50
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 54
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 57
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 60
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 61
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 62
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 64
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 70
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 72
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 78
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 79
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 82
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 91
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 92
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 97
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 101
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 108
     },
     {
       "path": "catalog/carsamba_1834_tercume_122_karye_sulale_parca_1_20261119.ndjson",
@@ -98013,6 +98125,34 @@
     {
       "path": "catalog/boyabat_golaz_sehirviran_1842_nfs857.ndjson",
       "line": 15
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/gerede_1840_nfs707_708_fihristi.ndjson",
+      "line": 37
     },
     {
       "path": "catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson",
