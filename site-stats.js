@@ -121,14 +121,14 @@ async function refresh(){
       ?"YENİ ORTAK ARAMALARIN İSİMLERİ HENÜZ ÇÖZÜMLENEMEDİ":"ORTAK ARAMA KAYDI HENÜZ YOK";
    }catch(e){
     sharedErrors++;
-    draw(type,[],false);
-    TYPES[type].el.textContent="ORTAK ARAMA HİZMETİNE ERİŞİLEMİYOR";
+    draw(type,local(type),true);
+    if(!local(type).length)TYPES[type].el.textContent="ORTAK SERVİSE ERİŞİLEMİYOR · BU TARAYICIDA ARAMA YOK";
     console.warn("Son aramalar:",type,e.message);
    }
   }));
   sharedHealthy=sharedRead>0;
   if(sharedHealthy)statusText("GÜNCEL ORTAK ARAMALAR · ESKİ LİSTELER GÖSTERİLMİYOR");
-  else if(sharedErrors)statusText("ORTAK ARAMA SUNUCUSUNA BAĞLANILAMIYOR · GÜNCEL LİSTE GÖSTERİLEMİYOR");
+  else if(sharedErrors)statusText("ORTAK SUNUCUYA ERİŞİLEMİYOR · VARSA YALNIZ BU TARAYICININ ARAMALARI GÖSTERİLİYOR");
  }finally{refreshBusy=false;lastRefresh=Date.now()}
 }
 async function record(type,name){
@@ -136,7 +136,7 @@ async function record(type,name){
  name=String(name||"").trim().replace(/\s+/g," ").slice(0,90);
  if(!validSearchName(type,name))return;
  saveLocal(type,name);
- if(TYPES[type].el&&sharedHealthy!==true)TYPES[type].el.textContent="ARAMA ORTAK SAYAÇA GÖNDERİLİYOR";
+ if(TYPES[type].el&&sharedHealthy!==true)draw(type,local(type),true);
  statusText("ARAMA KAYDI ORTAK SAYAÇA GÖNDERİLİYOR…");
  if(api){
   try{
@@ -157,7 +157,7 @@ async function record(type,name){
   sharedHealthy=true;
   statusText("ARAMA ORTAK SAYAÇA KAYDEDİLDİ");
   void refresh();
- }catch(e){sharedHealthy=false;statusText("ORTAK KAYIT YAPILAMADI · ARAMA BU TARAYICIDA SAKLANDI");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
+ }catch(e){sharedHealthy=false;draw(type,local(type),true);statusText("ORTAK KAYIT YAPILAMADI · ARAMA BU TARAYICIDA SAKLANDI");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
 }
 window.ArchiveStats={
  recordVillage:name=>record("village",name),
