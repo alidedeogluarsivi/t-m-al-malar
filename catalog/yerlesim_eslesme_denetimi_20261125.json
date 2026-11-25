@@ -1986,29 +1986,8 @@
     {
       "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
       "all": 46,
-      "modern": 1,
+      "modern": 18,
       "unresolved": [
-        {
-          "id": "boyabat-854-ilkhane-001",
-          "original": "Fildanlar",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "HATİPOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "HATİPOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
         {
           "id": "boyabat-854-ilkhane-002",
           "original": "Ceke",
@@ -2094,27 +2073,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-006",
-          "original": "Bölüklü",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "YUSUFOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "YUSUFOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-007",
           "original": "Koğaçayır",
           "historical_district": "BOYABAD",
@@ -2176,38 +2134,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-009",
-          "original": "Bürüm",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Bürüm",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "KOCAMEHMEDOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KOCAMEHMEDOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-010",
           "original": "Divan-ı Hürremşah",
           "historical_district": "BOYABAD",
@@ -2243,27 +2169,6 @@
           "sulale_kayitlari": [
             {
               "ad": "MUHARREMBEYOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-012",
-          "original": "Piriefendioğluderesi",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "KARAHASANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KARAHASANOĞULLARI",
               "defter": "BOA NFS.d.854",
               "hane": 1
             }
@@ -2408,27 +2313,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-019",
-          "original": "Karandu",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "İMAMOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "İMAMOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-020",
           "original": "Seğricek",
           "historical_district": "BOYABAD",
@@ -2471,27 +2355,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-022",
-          "original": "Çurguşlar",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "ÇAVUŞOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "ÇAVUŞOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-023",
           "original": "Kumarlu",
           "historical_district": "BOYABAD",
@@ -2527,156 +2390,6 @@
           "sulale_kayitlari": [
             {
               "ad": "KIRŞEHRİOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-025",
-          "original": "Çaybaşı",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Çaybaşı",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "İMAMOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "İMAMOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-026",
-          "original": "Engilekin",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Engilekin",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson",
-                "catalog/archive_library_verified_20261111.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "BEKİROĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "BEKİROĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-027",
-          "original": "Kavacık",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Kavacık",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "YALAKCIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "YALAKCIOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-028",
-          "original": "Doğrul",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Doğrul",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "KÖLEOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KÖLEOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-029",
-          "original": "Fındıcak",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "HATİPOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "HATİPOĞULLARI",
               "defter": "BOA NFS.d.854",
               "hane": 1
             }
@@ -2747,70 +2460,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-033",
-          "original": "Emiroğlu",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Emiroğlu",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "ESKİALİOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "ESKİALİOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-034",
-          "original": "Benişli",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Benişli",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "LATİFOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "LATİFOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-035",
           "original": "Günce",
           "historical_district": "BOYABAD",
@@ -2832,59 +2481,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "boyabat-854-ilkhane-036",
-          "original": "Boyalı",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Boyabat",
-              "koy": "Boyalı",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "BEKDAŞOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "BEKDAŞOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-037",
-          "original": "Tenhalı",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "MUSAOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "MUSAOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "boyabat-854-ilkhane-038",
           "original": "Şadbeli",
           "historical_district": "BOYABAD",
@@ -2899,48 +2495,6 @@
           "sulale_kayitlari": [
             {
               "ad": "ÇELOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-039",
-          "original": "Esengâzili",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "SARIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "SARIOĞULLARI",
-              "defter": "BOA NFS.d.854",
-              "hane": 1
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "boyabat-854-ilkhane-040",
-          "original": "Kadılar",
-          "historical_district": "BOYABAD",
-          "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
-          "record": [],
-          "family_count": 1,
-          "tarihi_divan": null,
-          "defterler": [],
-          "sulaleler": [
-            "NUHOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "NUHOĞULLARI",
               "defter": "BOA NFS.d.854",
               "hane": 1
             }
@@ -6342,18 +5896,188 @@
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
       "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.309-310; güncel köy ve bağlı mahalle tarihçesi",
       "note": "Kalaycı MAHALLESİ; tarihî ad: Kalaycı"
+    },
+    {
+      "id": "boyabat-854-ilkhane-001",
+      "original": "Fildanlar",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Çurkuşlar",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Curguşlar Köyü Fildanlar Mahallesi",
+      "note": "Fildanlar MAHALLESİ"
+    },
+    {
+      "id": "boyabat-854-ilkhane-006",
+      "original": "Bölüklü",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Bölüklü",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Bölüklü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-009",
+      "original": "Bürüm",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Bürüm",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Bürüm",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-012",
+      "original": "Piriefendioğluderesi",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Pirefendideresi",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Pirefendideresi; tarihî yazım Piriefendioğluderesi",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-019",
+      "original": "Karandu",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Engilekin",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Engilekin Köyü Karandu Mahallesi",
+      "note": "Karandu MAHALLESİ"
+    },
+    {
+      "id": "boyabat-854-ilkhane-022",
+      "original": "Çurguşlar",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Çurkuşlar",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Çurkuşlar; Sinop Valiliği Curguşlar",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-025",
+      "original": "Çaybaşı",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Çaybaşı",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Çaybaşı",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-026",
+      "original": "Engilekin",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Engilekin",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat Engilekin",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-027",
+      "original": "Kavacık",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Kavacık",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Kavacık Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-028",
+      "original": "Doğrul",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Doğrul",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Doğrul Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-029",
+      "original": "Fındıcak",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Doğrul",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Doğrul Köyü Fındıcak Mahallesi",
+      "note": "Fındıcak MAHALLESİ"
+    },
+    {
+      "id": "boyabat-854-ilkhane-033",
+      "original": "Emiroğlu",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Emiroğlu",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Emiroğlu Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-034",
+      "original": "Benişli",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Benişli",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Benişli Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-036",
+      "original": "Boyalı",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Boyalı",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Boyalı Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-037",
+      "original": "Tenhalı",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Keseköy",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Keseköy Tenhalı Mahallesi",
+      "note": "Tenhalı MAHALLESİ"
+    },
+    {
+      "id": "boyabat-854-ilkhane-039",
+      "original": "Esengâzili",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Esengazili",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Boyabat Esengazili Köyü",
+      "note": ""
+    },
+    {
+      "id": "boyabat-854-ilkhane-040",
+      "original": "Kadılar",
+      "il": "Sinop",
+      "ilce": "Boyabat",
+      "koy": "Esengazili",
+      "source": "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+      "verified_source": "Sinop Valiliği 18.02.2015: Esengazili Köyü Kadılar Mahallesi",
+      "note": "Kadılar MAHALLESİ"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 137,
-    "verified_source_rows": 38
+    "unresolved_source_rows": 120,
+    "verified_source_rows": 55
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 137,
+    "unresolved_rows": 120,
     "source_documents": 58,
     "attached_family_names": 721
   }
