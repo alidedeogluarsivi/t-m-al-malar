@@ -1,10 +1,10 @@
 {
-  "source_count": 182,
+  "source_count": 183,
   "missing": [],
   "invalid_json": [],
-  "records": 26198,
-  "with_families": 18398,
-  "with_registers": 15946,
+  "records": 26233,
+  "with_families": 18402,
+  "with_registers": 15981,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -116113,6 +116113,130 @@
     {
       "path": "catalog/balikesir_kepsut_1844_1845_tmt8400_8403_16yer_20261125.ndjson",
       "line": 17
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 22
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 23
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 25
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 26
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 34
+    },
+    {
+      "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+      "line": 35
     }
   ],
   "duplicate_ids": [
