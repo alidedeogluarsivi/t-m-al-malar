@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25-boyabat-852-853-household-data",
+  "version": "2026-11-25-boyabad-852-853-854-complete-research",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -188,7 +188,19 @@
     "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
     "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
     "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
-    "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson"
+    "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+    "catalog/boyabat_1840_nfs852_tum_sulaleler_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs852_tum_sulaleler_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum3_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_kiziloglan_nefs_rubu_sulaleler_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson",
+    "catalog/boyabat_1840_nfs852_ilk_hane_sulaleleri_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson",
+    "catalog/boyabat_1840_nfs_852_853_ek_hane_sulale_20261125.ndjson"
   ],
   "notes": [
     "S",
