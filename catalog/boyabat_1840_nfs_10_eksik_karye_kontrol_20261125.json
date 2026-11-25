@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-25",
+  "registers": {
+    "852": {
+      "karye": 39,
+      "hane_known": 38,
+      "hane_missing": [
+        "Gâzideretabaklı"
+      ],
+      "hane_total_of_known": 858
+    },
+    "853": {
+      "karye": 47,
+      "hane_known": 41,
+      "hane_missing": [
+        "Debe (Tepe)",
+        "Toğçlu",
+        "Yekran",
+        "Tabaklı",
+        "Yenice",
+        "Göve"
+      ],
+      "hane_total_of_known": 907
+    },
+    "854": {
+      "karye": 54,
+      "hane_known": 51,
+      "hane_missing": [
+        "Kilise",
+        "Kozaklı",
+        "Çadlı"
+      ],
+      "hane_total_of_known": 1403
+    }
+  },
+  "source": "Recep Yılmaz (2018), 852–854 Numaralı Nüfus Defterlerine Göre Boyabat Nüfusu, 962-page PDF",
+  "method": "Direct KARYE-İ heading and HANE field extraction. Similar names not asserted as accepted matches.",
+  "warnings": [
+    "Kilise/Kise, Kozaklı/Kazaklı, Çadlı/Çatlı ambiguous historical readings",
+    "Kayalı appears in separate Cuma, Yekran and Hisarcık subdistrict records",
+    "PDF page is separate from Ottoman folio",
+    "Male count not inferred from hane count"
+  ]
+}
