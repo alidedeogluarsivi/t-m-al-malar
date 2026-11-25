@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-25",
+  "scope": "NFS 852, 853, 854 BOYABAD; NFS 3626 ULUKIŞLA",
+  "sources": [
+    {
+      "author": "Recep Yılmaz",
+      "title": "852, 853, 854 Numaralı Nüfus Defterlerine Göre Boyabat Nüfusu (2018)",
+      "file": "511378 - 852, 853, 854 Numaralı Defterlere Göre Boyabat Nüfusu - I. Cilt.pdf",
+      "tables": [
+        "2.10",
+        "2.11",
+        "2.12"
+      ]
+    },
+    {
+      "author": "Tolga Çiçek",
+      "title": "H.1254 Tarihli Ulukışla Kazası Nüfus Defterinin Transkripsiyon ve Değerlendirilmesi (2018)",
+      "file": "521443 - 1838 Ulukışla Kazası Nüfus Defteri - NFS.d.3626.pdf",
+      "tables": [
+        "Tablo 2 s.8"
+      ]
+    }
+  ],
+  "boyabat": {
+    "rows": 140,
+    "by_register": {
+      "NFS.d.852": 39,
+      "NFS.d.853": 47,
+      "NFS.d.854": 54
+    },
+    "district_matches_from_2018_thesis": 77,
+    "notes": [
+      "Bz. (benzerlik) modern matching is NOT accepted",
+      "Historical villages repeated in distinct registers are preserved as register rows",
+      "The 1896 salname household/population figures are NOT added to 1840 records",
+      "1840 source chapter contains village names but tabulated household and male values are absent, left blank"
+    ]
+  },
+  "ulukisla": {
+    "rows": 21,
+    "total_households_from_rows": 595,
+    "male_base_from_rows": 1887,
+    "subsequent_births_from_rows": 42,
+    "source_printed_male_total": 1926,
+    "source_discussion_veledi": 585,
+    "notes": [
+      "Table total 1926 does not equal itemized male base 1887 or base+births 1929; no silent reconciliation",
+      "Subsequent births preserved separately in register detail description and source field",
+      "No unsupported family names were produced"
+    ]
+  },
+  "publications": [
+    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+    "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson"
+  ],
+  "pending": [
+    "Full confirmed family names from per-household transcriptions",
+    "Village-level 1840 male/household counts for Boyabad",
+    "Confirmed modern village names and map coordinates",
+    "Kars 2783 full-text extraction"
+  ]
+}
