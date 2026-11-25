@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-25",
+  "source": "Recep Yılmaz (2018), 852, 853, 854 Numaralı Nüfus Defterlerine Göre Boyabat Nüfusu, I. Cilt, transkripsiyon NFS.d.852 ve NFS.d.853",
+  "new_dataset": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+  "updated_dataset": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+  "new_mahalles": 11,
+  "new_mahalles_hane_total": 417,
+  "existing_village_rows_enriched_with_hane": 50,
+  "existing_village_hane_total": 1256,
+  "registered_household_counts_together": 1673,
+  "source_notation": "Hane numbers copied from transcription headers; not derived from modern census, total male population or estimated households",
+  "surname_records_from_explicit_first_household": [
+    {
+      "place": "Çerçioğlu Mahallesi",
+      "original": "Yazıcıoğlu",
+      "standard": "YAZICIOĞULLARI",
+      "register": "BOA NFS.d.852"
+    },
+    {
+      "place": "Kale Mahallesi",
+      "original": "Aliefendioğlu",
+      "standard": "ALİEFENDİOĞULLARI",
+      "register": "BOA NFS.d.852"
+    }
+  ],
+  "remaining": [
+    "NFS.d.852 and 853 other village male totals not yet checked person-by-person",
+    "NFS.d.854 village hane counts require II. cilt transcription not inspected in this operation",
+    "Modern exact neighborhood and village identities not asserted",
+    "Kars NFS.d.2783 full-text not available in material searched"
+  ],
+  "warning": "Boyabat NFS 852 village Şeyhli and town Mahalle-i Şeyhli are separate entries; similarly other repeated village names across defters are not collapsed."
+}
