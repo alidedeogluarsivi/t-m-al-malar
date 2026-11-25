@@ -1,5 +1,5 @@
 {
-  "source_count": 205,
+  "source_count": 206,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -279,7 +279,7 @@
       "il": "SİNOP",
       "ilce": 10,
       "koy": 446,
-      "confirmed_family_places": 4301,
+      "confirmed_family_places": 4364,
       "candidate_family_places": 2023
     },
     "58": {
