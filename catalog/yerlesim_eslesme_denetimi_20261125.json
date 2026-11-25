@@ -328,73 +328,8 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "all": 33,
-      "modern": 20,
+      "modern": 21,
       "unresolved": [
-        {
-          "id": "ayandon-1841-nfs847-b-002",
-          "original": "Kurvana",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 8,
-          "tarihi_divan": "Reyfez",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 9,
-              "erkek": 36
-            }
-          ],
-          "sulaleler": [
-            "KORKMAZOĞULLARI",
-            "KARAHASANOĞULLARI",
-            "KİBEROĞULLARI",
-            "ŞEHİRLİOĞULLARI",
-            "KARTALOĞULLARI",
-            "TERZİOĞULLARI",
-            "KALYONCUOĞULLARI",
-            "ŞEHLAOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KORKMAZOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAHASANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KİBEROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ŞEHİRLİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARTALOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "TERZİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KALYONCUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ŞEHLAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
         {
           "id": "ayandon-1841-nfs847-b-003",
           "original": "Sarıbece",
@@ -5925,18 +5860,28 @@
       "source": "catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson",
       "verified_source": "İçişleri Bakanlığı Genel Köy Listesi: Boyabat/Göve; BOA NFS.d.853",
       "note": "Tarihî Boyabad kayıt adıyla aynı güncel köy"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-002",
+      "original": "Kurvana",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Yeşiloba",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.310-311",
+      "note": "Kurvana Mahallesi; tarihî Reyfez Divanı"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 118,
-    "verified_source_rows": 57
+    "unresolved_source_rows": 117,
+    "verified_source_rows": 58
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 118,
+    "unresolved_rows": 117,
     "source_documents": 58,
     "attached_family_names": 721
   }
