@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-25",
+  "source": "Recep Yılmaz (2018), 852, 853, 854 Numaralı Nüfus Defterlerine Göre Boyabat Nüfusu - I. Cilt, 962-page PDF",
+  "registers": {
+    "BOA NFS.d.852": {
+      "settlement_or_division_rows": 39,
+      "total_hane": 890,
+      "male_person_register_entries": 2203,
+      "clan_village_links": 573
+    },
+    "BOA NFS.d.853": {
+      "settlement_or_division_rows": 47,
+      "total_hane": 1143,
+      "male_person_register_entries": 2938,
+      "clan_village_links": 693
+    },
+    "BOA NFS.d.854": {
+      "settlement_or_division_rows": 54,
+      "total_hane": 1467,
+      "male_person_register_entries": 4115,
+      "clan_village_links": 817
+    }
+  },
+  "totals": {
+    "settlement_or_division_rows": 140,
+    "records_with_hane": 140,
+    "records_with_male_count": 140,
+    "documented_hane": 3500,
+    "numbered_or_named_male_register_records": 9256,
+    "clan_name_place_records": 2083,
+    "clan_source_village_rows": 140
+  },
+  "corrections": [
+    {
+      "place": "Katırlı",
+      "book": "853",
+      "hane": 31,
+      "erkek": 84,
+      "source_pdf_pages": "524-530",
+      "reason": "Earlier split at an internal false positive 'karyesinde' on PDF 527 erroneously capped male at 36."
+    },
+    {
+      "place": "Nefs-i Yekran Rubu",
+      "book": "853",
+      "hane": 34,
+      "erkek": 91,
+      "source_pdf_pages": "547-554",
+      "reason": "Not an empty heading; source enumerates 34 hane and persons 1..91."
+    },
+    {
+      "place": "Enbiyalı",
+      "book": "853",
+      "source_pdf_pages": "413-417",
+      "reason": "Separate Nefs-i Kızıloğlan rubu begins 418; clan names separated."
+    },
+    {
+      "place": "Nefs-i Kızıloğlan Rubu",
+      "book": "853",
+      "hane": 41,
+      "erkek": 108,
+      "source_pdf_pages": "418-426",
+      "reason": "Independent 28 family name entries from Elkab column."
+    }
+  ],
+  "methodology": [
+    "Male data are counted from named/serially enumerated male individuals, not derived from household count.",
+    "Five 854 book locations have serial numbering errors resolved by counting actual named entries; source anomalies are explained in each corresponding record.",
+    "All -oğlu surnames standardized as -OĞULLARI; transcription originals preserved in sulale_kayitlari.",
+    "Full clan index records have no inferred household number; separately verified first-house and detailed household evidence preserve their explicit hane.",
+    "Same-named historical communities from different rubu/divan are separated using qualifiers; none forcibly mapped to present-day villages.",
+    "2083 counts are name-place records, not unique surnames or households."
+  ],
+  "files": [
+    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+    "catalog/boyabat_1840_nfs852_tum_sulaleler_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs852_tum_sulaleler_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_tum_sulaleler_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs853_kiziloglan_nefs_rubu_sulaleler_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum1_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum2_20261125.ndjson",
+    "catalog/boyabat_1840_nfs854_tum_sulale_adlari_bolum3_20261125.ndjson"
+  ],
+  "remaining_issues": [
+    "Original Ottoman folio images should be checked for ambiguous proper-name spelling and serial anomalies.",
+    "Source Elkab entries without explicit household labels need person-by-person household mapping before genealogy.",
+    "Modern present-day village and district identities require independent evidence; map pins are not inferred."
+  ]
+}
