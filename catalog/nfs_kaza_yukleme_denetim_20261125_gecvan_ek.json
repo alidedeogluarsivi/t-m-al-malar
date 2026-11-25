@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-25",
+  "register": "BOA NFS.d.2782",
+  "source": "Aysel Güneş (2020), Kağızman ve Geçvan nüfus defteri transkripsiyonu",
+  "confirmed_list": {
+    "kagizman_named_villages": 5,
+    "kagizman_stated_villages": 9,
+    "gecvan_town": 1,
+    "gecvan_named_villages": 9
+  },
+  "confirmed_counts": [
+    {
+      "place": "Geçvan kasabası",
+      "hane": 43,
+      "erkek": 150
+    },
+    {
+      "place": "Günücekez",
+      "hane": 8,
+      "erkek": 33
+    }
+  ],
+  "confirmed_family": [
+    {
+      "place": "Günücekez",
+      "source_spelling": "Kalendar oğlu",
+      "site_standard": "KALENDAR OĞULLARI"
+    }
+  ],
+  "pending": [
+    "Kağızman'ın 4 eksik köy adı",
+    "Geçvan'ın kalan 8 köy hane/erkek sayıları",
+    "Güncel idarî yerleşim doğrulaması",
+    "Ulukışla NFS.d.3626 tam metin yerleşim tablosu",
+    "Kars NFS.d.2783 tam metin yerleşim tablosu"
+  ],
+  "checks": [
+    "Ladik 2234 daha önce yüklenmiş; tekrar edilmedi",
+    "Boyabat 852 mevcut 1837 kayıtları ile 1840 tezi ayrı kontrol gerektirir"
+  ]
+}
