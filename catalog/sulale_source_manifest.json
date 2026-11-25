@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25-boyabat-nfs-140-places",
+  "version": "2026-11-25-ulukisla-boyabat-new-census",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -186,7 +186,8 @@
     "catalog/balikesir_kepsut_1844_1845_tmt8400_8403_16yer_20261125.ndjson",
     "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
     "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
-    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson"
+    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+    "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson"
   ],
   "notes": [
     "S",
