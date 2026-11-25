@@ -21,7 +21,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Ayandon",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 12
+            }
+          ],
+          "sulaleler": [
+            "DİVANCIOĞULLARI",
+            "DELİHALİLOĞULLARI",
+            "MASDANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "DİVANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DELİHALİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MASDANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-004",
@@ -31,7 +61,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Ayandon",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 5,
+              "erkek": 17
+            }
+          ],
+          "sulaleler": [
+            "YUSUFOĞULLARI",
+            "KOZLUOĞULLARI",
+            "KALYONCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KOZLUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KALYONCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-005",
@@ -41,7 +101,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Ayandon",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 7,
+              "erkek": 19
+            }
+          ],
+          "sulaleler": [
+            "KALYONCUOĞULLARI",
+            "KALAYCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KALYONCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KALAYCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-006",
@@ -51,7 +136,72 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": "Ayandon",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 13,
+              "erkek": 31
+            }
+          ],
+          "sulaleler": [
+            "KARAMUSTAFAOĞULLARI",
+            "MEHMEDALİOĞULLARI",
+            "HACIHALİLOĞULLARI",
+            "SARIİSMAİLOĞULLARI",
+            "KANBUROĞULLARI",
+            "AHMEDREİSOĞULLARI",
+            "SÜLEYMANOĞULLARI",
+            "HACIÖMEROĞULLARI",
+            "AYUCUOĞULLARI",
+            "DAĞLIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MEHMEDALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIHALİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SARIİSMAİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KANBUROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "AHMEDREİSOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SÜLEYMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIÖMEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "AYUCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DAĞLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-011",
@@ -61,7 +211,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Yarna",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 18
+            }
+          ],
+          "sulaleler": [
+            "TİRYAKİOĞULLARI",
+            "AKMEHMEDOĞULLARI",
+            "SANCAKDAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TİRYAKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "AKMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SANCAKDAROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-012",
@@ -71,7 +251,57 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": "Yarna",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 13,
+              "erkek": 35
+            }
+          ],
+          "sulaleler": [
+            "HACIAHMEDOĞULLARI",
+            "HACIOĞULLARI",
+            "SERRÂCOĞULLARI",
+            "SOFUOĞULLARI",
+            "USTAAHMEDOĞULLARI",
+            "KADIOĞULLARI",
+            "KÜRDİLİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HACIAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SERRÂCOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SOFUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "USTAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÜRDİLİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-014",
@@ -81,7 +311,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Dayısda",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 10,
+              "erkek": 27
+            }
+          ],
+          "sulaleler": [
+            "İSMAİLOĞULLARI",
+            "BALCIOĞULLARI",
+            "KARAİBRAHİMOĞULLARI",
+            "KARAMANOĞULLARI",
+            "MATARACIOĞULLARI",
+            "TECÜRCÜOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İSMAİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BALCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAİBRAHİMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MATARACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TECÜRCÜOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-017",
@@ -91,7 +366,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Muğan",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 16
+            }
+          ],
+          "sulaleler": [
+            "TEKKEŞİNOĞULLARI",
+            "SOYUKOĞULLARI",
+            "TİRAKİOĞULLARI",
+            "TOPCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TEKKEŞİNOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SOYUKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TİRAKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOPCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-018",
@@ -129,7 +439,42 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": "Muğan",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 4,
+              "erkek": 15
+            }
+          ],
+          "sulaleler": [
+            "UZUNOSMANOĞULLARI",
+            "KÜRTOĞULLARI",
+            "KARAMEHMEDOĞULLARI",
+            "KARAHALİLOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "UZUNOSMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÜRTOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAHALİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-022",
@@ -139,7 +484,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Muğan",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 15
+            }
+          ],
+          "sulaleler": [
+            "KARAALİOĞULLARI",
+            "SAKALOĞULLARI",
+            "KARAHASANOĞULLARI",
+            "KARAVELİOĞULLARI",
+            "SARIAHMEDOĞULLARI",
+            "MAHMUDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARAALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SAKALOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAVELİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SARIAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MAHMUDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-023",
@@ -160,7 +550,32 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": "Muğan",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 10
+            }
+          ],
+          "sulaleler": [
+            "MADENOĞULLARI",
+            "SOYUKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MADENOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SOYUKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-a-025",
@@ -170,7 +585,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Helaldı",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 17
+            }
+          ],
+          "sulaleler": [
+            "CARTIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "CARTIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -187,7 +622,62 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 8
+          "family_count": 8,
+          "tarihi_divan": "Reyfez",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 9,
+              "erkek": 36
+            }
+          ],
+          "sulaleler": [
+            "KORKMAZOĞULLARI",
+            "KARAHASANOĞULLARI",
+            "KİBEROĞULLARI",
+            "ŞEHİRLİOĞULLARI",
+            "KARTALOĞULLARI",
+            "TERZİOĞULLARI",
+            "KALYONCUOĞULLARI",
+            "ŞEHLAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KORKMAZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KİBEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞEHİRLİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARTALOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TERZİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KALYONCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞEHLAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-003",
@@ -197,7 +687,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Reyfez",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 13
+            }
+          ],
+          "sulaleler": [
+            "KADIOĞULLARI",
+            "OSMANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "OSMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-007",
@@ -207,7 +722,57 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 11,
+              "erkek": 26
+            }
+          ],
+          "sulaleler": [
+            "KÖSEHÜSEYİNOĞULLARI",
+            "UZUNMUSTAFAOĞULLARI",
+            "YANDIMOĞULLARI",
+            "BALAZOĞULLARI",
+            "YESİROĞULLARI",
+            "ALİOĞULLARI",
+            "SARIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KÖSEHÜSEYİNOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "UZUNMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YANDIMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BALAZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YESİROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SARIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-008",
@@ -217,7 +782,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 10
+            }
+          ],
+          "sulaleler": [
+            "SOFUOĞULLARI",
+            "KUŞOĞULLARI",
+            "BODUROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "SOFUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KUŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BODUROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-009",
@@ -227,7 +822,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 9
+            }
+          ],
+          "sulaleler": [
+            "ÇİLOĞULLARI",
+            "KALIBCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KALIBCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-010",
@@ -237,7 +857,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 11
+            }
+          ],
+          "sulaleler": [
+            "YUSUFOĞULLARI",
+            "MATAKOĞULLARI",
+            "EYYAMCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MATAKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "EYYAMCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-012",
@@ -247,7 +897,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 14
+            }
+          ],
+          "sulaleler": [
+            "TOPALUSTAOĞULLARI",
+            "TOPALOĞULLARI",
+            "KARAKETHÜDAOĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TOPALUSTAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOPALOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAKETHÜDAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-014",
@@ -257,7 +942,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Mağribel",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 6
+            }
+          ],
+          "sulaleler": [
+            "KÖLEOĞULLARI",
+            "BEDİKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KÖLEOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BEDİKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-017",
@@ -267,7 +977,97 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 15
+          "family_count": 15,
+          "tarihi_divan": "Didire",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 26,
+              "erkek": 94
+            }
+          ],
+          "sulaleler": [
+            "DELİEMİNOĞULLARI",
+            "PAŞAOĞULLARI",
+            "EMİRALİOĞULLARI",
+            "BALCIOĞULLARI",
+            "HAYDAROĞULLARI",
+            "HACIOĞULLARI",
+            "ODALIOĞULLARI",
+            "OSMANOĞULLARI",
+            "KADIOĞULLARI",
+            "KULAKSUZOĞULLARI",
+            "HATİBOĞULLARI",
+            "MOLLAHÜSEYİNOĞULLARI",
+            "MEHMEDOĞULLARI",
+            "ŞİŞMANOĞULLARI",
+            "TEMUROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "DELİEMİNOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "PAŞAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "EMİRALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BALCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HAYDAROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ODALIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "OSMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KULAKSUZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MOLLAHÜSEYİNOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞİŞMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TEMUROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-018",
@@ -277,7 +1077,20 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 0
+          "family_count": 0,
+          "tarihi_divan": "Didire",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 1,
+              "erkek": 3
+            }
+          ],
+          "sulaleler": [],
+          "sulale_kayitlari": [],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-020",
@@ -287,7 +1100,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 1,
+              "erkek": 4
+            }
+          ],
+          "sulaleler": [
+            "MUSAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-021",
@@ -297,7 +1130,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 24
+            }
+          ],
+          "sulaleler": [
+            "FEYZULLAHOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "FEYZULLAHOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-022",
@@ -307,7 +1160,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 16
+            }
+          ],
+          "sulaleler": [
+            "MEHMEDOĞULLARI",
+            "ELLEZOĞULLARI",
+            "KARAGÖZOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ELLEZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAGÖZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-023",
@@ -317,7 +1200,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 5,
+              "erkek": 11
+            }
+          ],
+          "sulaleler": [
+            "ÇAYLIOĞULLARI",
+            "KARAHASANOĞULLARI",
+            "HACIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇAYLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-024",
@@ -327,7 +1240,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 4,
+              "erkek": 17
+            }
+          ],
+          "sulaleler": [
+            "KÜÇÜKAHMEDOĞULLARI",
+            "ŞABANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KÜÇÜKAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞABANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-025",
@@ -337,7 +1275,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 12
+            }
+          ],
+          "sulaleler": [
+            "MUSAOĞULLARI",
+            "MEBATCIOĞULLARI",
+            "DUMANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MEBATCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DUMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-026",
@@ -347,7 +1315,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 5
+            }
+          ],
+          "sulaleler": [
+            "DAİBOĞULLARI",
+            "HALİMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "DAİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HALİMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-027",
@@ -357,7 +1350,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Doruh",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 1,
+              "erkek": 1
+            }
+          ],
+          "sulaleler": [
+            "SALİHOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "SALİHOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-028",
@@ -367,7 +1380,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Palamar",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 6
+            }
+          ],
+          "sulaleler": [
+            "BOSTANCIOĞULLARI",
+            "BALIKCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BOSTANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BALIKCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-029",
@@ -377,7 +1415,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Palamar",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 4,
+              "erkek": 8
+            }
+          ],
+          "sulaleler": [
+            "SOFUOĞULLARI",
+            "KERİMOĞULLARI",
+            "KADIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "SOFUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KERİMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-031",
@@ -387,7 +1455,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Palamar",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 7,
+              "erkek": 24
+            }
+          ],
+          "sulaleler": [
+            "HATİBOĞULLARI",
+            "KÖSE AHMEDOĞULLARI",
+            "TUNAOĞULLARI",
+            "CEMİLOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÖSE AHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TUNAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CEMİLOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-b-032",
@@ -397,7 +1500,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Palamar",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 10
+            }
+          ],
+          "sulaleler": [
+            "KİBAROĞULLARI",
+            "EKŞİAHMEDOĞULLARI",
+            "EKŞİOĞULLARI",
+            "HACIMUSTAFAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KİBAROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "EKŞİAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "EKŞİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HACIMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -414,7 +1552,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Somay",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 9,
+              "erkek": 36
+            }
+          ],
+          "sulaleler": [
+            "ESKİOĞULLARI",
+            "MASUDEOĞULLARI",
+            "YARICIOĞULLARI",
+            "SEFEROĞULLARI",
+            "TOPRAKCIOĞULLARI",
+            "KUŞCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ESKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MASUDEOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YARICIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SEFEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOPRAKCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KUŞCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-005",
@@ -424,7 +1607,77 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 11
+          "family_count": 11,
+          "tarihi_divan": "Somay",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 13,
+              "erkek": 32
+            }
+          ],
+          "sulaleler": [
+            "BEKDAŞOĞULLARI",
+            "DEĞİRMANCIOĞULLARI",
+            "GÖZÜBÜYÜKOĞULLARI",
+            "ÖRÜKOĞULLARI",
+            "DORUKOĞULLARI",
+            "TOKATLIOĞULLARI",
+            "MANTUZOĞULLARI",
+            "CİVANOĞULLARI",
+            "HEKİMOĞULLARI",
+            "DURANOĞULLARI",
+            "ÇAKIROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BEKDAŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DEĞİRMANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "GÖZÜBÜYÜKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÖRÜKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DORUKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOKATLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MANTUZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CİVANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HEKİMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DURANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇAKIROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-006",
@@ -434,7 +1687,97 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 15
+          "family_count": 15,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 17,
+              "erkek": 54
+            }
+          ],
+          "sulaleler": [
+            "HASEKİOĞULLARI",
+            "HASTAOĞULLARI",
+            "ALİREİSOĞULLARI",
+            "GÜMÜŞOĞULLARI",
+            "MOLLAHASANOĞULLARI",
+            "SARIİBRAHİMOĞULLARI",
+            "ŞEYHOĞULLARI",
+            "HAMLECİOĞULLARI",
+            "MOLLAMUSTAFAOĞULLARI",
+            "KAVASOĞULLARI",
+            "USTAAHMEDOĞULLARI",
+            "ÖMEROĞULLARI",
+            "KARAGÜLLEOĞULLARI",
+            "KÖLEOĞULLARI",
+            "DELİALİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HASEKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HASTAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ALİREİSOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "GÜMÜŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MOLLAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SARIİBRAHİMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞEYHOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HAMLECİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MOLLAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KAVASOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "USTAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARAGÜLLEOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÖLEOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DELİALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-009",
@@ -444,7 +1787,47 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 5
+          "family_count": 5,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 27
+            }
+          ],
+          "sulaleler": [
+            "BAYRAMOĞULLARI",
+            "TOPRAKCIOĞULLARI",
+            "BEKİROĞULLARI",
+            "ÇÜNKÜOĞULLARI",
+            "DELİMAHMUDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BAYRAMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOPRAKCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BEKİROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇÜNKÜOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DELİMAHMUDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-010",
@@ -454,7 +1837,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 8,
+              "erkek": 20
+            }
+          ],
+          "sulaleler": [
+            "EBİCOĞULLARI",
+            "KETHÜDAOĞULLARI",
+            "ÇALAKLIOĞULLARI",
+            "MALOĞULLARI",
+            "VALBAZOĞULLARI",
+            "UZUNHASANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "EBİCOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KETHÜDAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇALAKLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MALOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "VALBAZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "UZUNHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-011",
@@ -464,7 +1892,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 30
+            }
+          ],
+          "sulaleler": [
+            "ALİBAYOĞULLARI",
+            "EMEKSÜZOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİBAYOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "EMEKSÜZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-012",
@@ -474,7 +1927,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 6,
+              "erkek": 20
+            }
+          ],
+          "sulaleler": [
+            "MARIZAOĞULLARI",
+            "KABAOĞULLARI",
+            "CEBECİOĞULLARI",
+            "CEDİDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MARIZAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KABAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CEBECİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CEDİDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-013",
@@ -484,7 +1972,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 14
+            }
+          ],
+          "sulaleler": [
+            "AHLATCIOĞULLARI",
+            "MÜNEVVEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AHLATCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MÜNEVVEROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-014",
@@ -494,7 +2007,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 15
+            }
+          ],
+          "sulaleler": [
+            "BUBABEKİROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BUBABEKİROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-015",
@@ -504,7 +2037,62 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 8
+          "family_count": 8,
+          "tarihi_divan": "Fariye",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 9,
+              "erkek": 27
+            }
+          ],
+          "sulaleler": [
+            "KAÇIROĞULLARI",
+            "TACİROĞULLARI",
+            "SAÇLIOĞULLARI",
+            "SAKIZLIOĞULLARI",
+            "KELEŞOĞULLARI",
+            "BAYRAMOĞULLARI",
+            "KÖSEMEHMEDOĞULLARI",
+            "TOPCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KAÇIROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TACİROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SAÇLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SAKIZLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KELEŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BAYRAMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÖSEMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TOPCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-016",
@@ -514,7 +2102,72 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": "Karacakaya",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 10,
+              "erkek": 34
+            }
+          ],
+          "sulaleler": [
+            "BAKIROĞULLARI",
+            "DUMANOĞULLARI",
+            "KURTOĞULLARI",
+            "PEHLİVANOĞULLARI",
+            "BÜRYADOĞULLARI",
+            "NEBİOĞULLARI",
+            "DENGİOĞULLARI",
+            "YAĞCIOĞULLARI",
+            "KAÇANOĞULLARI",
+            "KADIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BAKIROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DUMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KURTOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "PEHLİVANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BÜRYADOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "NEBİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DENGİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YAĞCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KAÇANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-017",
@@ -524,7 +2177,92 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 14
+          "family_count": 14,
+          "tarihi_divan": "Karacakaya",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 18,
+              "erkek": 66
+            }
+          ],
+          "sulaleler": [
+            "GÜNAYOĞULLARI",
+            "SAKALLIOĞULLARI",
+            "MEDİKOĞULLARI",
+            "ÇAVUŞOĞULLARI",
+            "CEBECİOĞULLARI",
+            "TİRYAKİOĞULLARI",
+            "ÇALIKOĞULLARI",
+            "KURUKADIOĞULLARI",
+            "ALEMDAROĞULLARI",
+            "SARACOĞULLARI",
+            "HURAZOĞULLARI",
+            "ZİLFİOĞULLARI",
+            "KAPUCUOĞULLARI",
+            "KANBUROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "GÜNAYOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SAKALLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MEDİKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇAVUŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CEBECİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TİRYAKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇALIKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KURUKADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ALEMDAROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SARACOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HURAZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ZİLFİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KAPUCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KANBUROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-018",
@@ -534,7 +2272,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Karacakaya",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 9,
+              "erkek": 33
+            }
+          ],
+          "sulaleler": [
+            "MOLLAHASANOĞULLARI",
+            "KADIOĞULLARI",
+            "KILINCIOĞULLARI",
+            "KÖMÜRCÜOĞULLARI",
+            "KÜRİKOĞULLARI",
+            "YAHYAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MOLLAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KILINCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÖMÜRCÜOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÜRİKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YAHYAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-020",
@@ -544,7 +2327,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Karacakaya",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 7,
+              "erkek": 20
+            }
+          ],
+          "sulaleler": [
+            "AYAKSUZOĞULLARI",
+            "KURUBEKİROĞULLARI",
+            "HATİBOĞULLARI",
+            "ALİUSTAOĞULLARI",
+            "YALANCIOĞULLARI",
+            "BOSTANCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AYAKSUZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KURUBEKİROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ALİUSTAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YALANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BOSTANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-022",
@@ -554,7 +2382,32 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 7
+            }
+          ],
+          "sulaleler": [
+            "ÇAKALOĞULLARI",
+            "DELİMEHMEDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇAKALOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DELİMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-023",
@@ -564,7 +2417,62 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 8
+          "family_count": 8,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 10,
+              "erkek": 56
+            }
+          ],
+          "sulaleler": [
+            "MUSAOĞULLARI",
+            "DELİOĞULLARI",
+            "ZOBUOĞULLARI",
+            "TEMÜRCÜOĞULLARI",
+            "ÇAYOĞULLARI",
+            "HATİBOĞULLARI",
+            "TEKELİOĞULLARI",
+            "KADIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "DELİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ZOBUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TEMÜRCÜOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇAYOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TEKELİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-024",
@@ -574,7 +2482,52 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 9,
+              "erkek": 25
+            }
+          ],
+          "sulaleler": [
+            "HALACOĞULLARI",
+            "BELEKOĞULLARI",
+            "YELEKOĞULLARI",
+            "YOĞURTCUOĞULLARI",
+            "SÜLEYMANOĞULLARI",
+            "MADANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HALACOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BELEKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YELEKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YOĞURTCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SÜLEYMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MADANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-025",
@@ -584,7 +2537,92 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 14
+          "family_count": 14,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 18,
+              "erkek": 70
+            }
+          ],
+          "sulaleler": [
+            "KADIOĞULLARI",
+            "RAİBOĞULLARI",
+            "MOLLAAHMEDOĞULLARI",
+            "YORGANCIOĞULLARI",
+            "CANBAZOĞULLARI",
+            "ŞİŞMANOĞULLARI",
+            "KELHASANOĞULLARI",
+            "KAYIKCIOĞULLARI",
+            "ÇELEBİOĞULLARI",
+            "BÖLÜKOĞULLARI",
+            "KARADAĞLIOĞULLARI",
+            "HASEKİOĞULLARI",
+            "YANUKOĞULLARI",
+            "SIRÇAHASANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "RAİBOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MOLLAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YORGANCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CANBAZOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ŞİŞMANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KELHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KAYIKCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ÇELEBİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BÖLÜKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KARADAĞLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "HASEKİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YANUKOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SIRÇAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-027",
@@ -594,7 +2632,37 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 3,
+              "erkek": 12
+            }
+          ],
+          "sulaleler": [
+            "MOLLAHASANOĞULLARI",
+            "ALİOĞULLARI",
+            "YANKICIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MOLLAHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ALİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "YANKICIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-028",
@@ -615,7 +2683,27 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 2,
+              "erkek": 5
+            }
+          ],
+          "sulaleler": [
+            "SARIAHMEDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "SARIAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-029",
@@ -625,7 +2713,57 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 8,
+              "erkek": 35
+            }
+          ],
+          "sulaleler": [
+            "HACIOĞULLARI",
+            "CÜCEDAROĞULLARI",
+            "BIÇAKCIOĞULLARI",
+            "KELEŞAHMEDOĞULLARI",
+            "SOĞANOĞULLARI",
+            "GÜBERCİOĞULLARI",
+            "MAHMUDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "CÜCEDAROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "BIÇAKCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KELEŞAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SOĞANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "GÜBERCİOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "MAHMUDOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-030",
@@ -635,7 +2773,47 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 5
+          "family_count": 5,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 5,
+              "erkek": 18
+            }
+          ],
+          "sulaleler": [
+            "HACIOĞULLARI",
+            "SAKALLIOĞULLARI",
+            "ATEŞOĞULLARI",
+            "ERKEKHASANOĞULLARI",
+            "NASUHOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "SAKALLIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ATEŞOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ERKEKHASANOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "NASUHOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-031",
@@ -645,7 +2823,42 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 7,
+              "erkek": 20
+            }
+          ],
+          "sulaleler": [
+            "İMAMOĞULLARI",
+            "ARABHACIOĞULLARI",
+            "TUZCUOĞULLARI",
+            "KÖROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "ARABHACIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "TUZCUOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            },
+            {
+              "ad": "KÖROĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "ayandon-1841-nfs847-c-032",
@@ -655,7 +2868,27 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": "Günayçatak",
+          "defterler": [
+            {
+              "defter": "BOA NFS.d.847",
+              "tur": "NFS",
+              "yil": "1841",
+              "hane": 1,
+              "erkek": 7
+            }
+          ],
+          "sulaleler": [
+            "LACCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "LACCIOĞULLARI",
+              "defter": "BOA NFS.d.847"
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -676,7 +2909,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HATİPOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HATİPOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-002",
@@ -684,7 +2930,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MEMİŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MEMİŞOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-003",
@@ -692,7 +2951,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "TÜFEKÇİBAŞIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TÜFEKÇİBAŞIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-004",
@@ -700,7 +2972,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BATUKCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BATUKCUOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-005",
@@ -708,7 +2993,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÂRİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÂRİOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-006",
@@ -716,7 +3014,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "YUSUFOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-007",
@@ -724,7 +3035,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "TEKKEŞİNOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TEKKEŞİNOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-008",
@@ -751,7 +3075,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÖMEREFENDİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÖMEREFENDİOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-009",
@@ -770,7 +3107,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KOCAMEHMEDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KOCAMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-010",
@@ -778,7 +3128,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "YÜZBAŞIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "YÜZBAŞIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-011",
@@ -786,7 +3149,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MUHARREMBEYOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MUHARREMBEYOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-012",
@@ -794,7 +3170,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KARAHASANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARAHASANOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-013",
@@ -802,7 +3191,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-014",
@@ -810,7 +3212,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HATİPOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HATİPOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-015",
@@ -818,7 +3233,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "NALCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "NALCIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-016",
@@ -826,7 +3254,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BADDALOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BADDALOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-017",
@@ -834,7 +3275,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-018",
@@ -853,7 +3307,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÇORBAYEMEZOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇORBAYEMEZOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-019",
@@ -861,7 +3328,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-020",
@@ -869,7 +3349,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÖMERPAŞAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÖMERPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-021",
@@ -877,7 +3370,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KETHÜDAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KETHÜDAOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-022",
@@ -885,7 +3391,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÇAVUŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇAVUŞOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-023",
@@ -893,7 +3412,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "TOPALAHMEDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TOPALAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-024",
@@ -901,7 +3433,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KIRŞEHRİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KIRŞEHRİOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-025",
@@ -920,7 +3465,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-026",
@@ -940,7 +3498,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BEKİROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BEKİROĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-027",
@@ -959,7 +3530,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "YALAKCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "YALAKCIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-028",
@@ -978,7 +3562,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KÖLEOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KÖLEOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-029",
@@ -986,7 +3583,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HATİPOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HATİPOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-030",
@@ -994,7 +3604,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "GÖKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "GÖKOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-031",
@@ -1002,7 +3625,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "DERVİŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "DERVİŞOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-032",
@@ -1010,7 +3646,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-033",
@@ -1029,7 +3678,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ESKİALİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ESKİALİOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-034",
@@ -1048,7 +3710,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "LATİFOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "LATİFOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-035",
@@ -1056,7 +3731,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HÜSEYİNBEYOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HÜSEYİNBEYOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-036",
@@ -1075,7 +3763,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BEKDAŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BEKDAŞOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-037",
@@ -1083,7 +3784,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MUSAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-038",
@@ -1091,7 +3805,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÇELOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇELOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-039",
@@ -1099,7 +3826,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "SARIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "SARIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-040",
@@ -1107,7 +3847,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "NUHOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "NUHOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-041",
@@ -1115,7 +3868,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "DAVULCUOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "DAVULCUOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-042",
@@ -1123,7 +3889,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KİRMANLIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KİRMANLIOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-044",
@@ -1131,7 +3910,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HATİPOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HATİPOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-045",
@@ -1139,7 +3931,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HASANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HASANOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-854-ilkhane-046",
@@ -1147,7 +3952,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BALAYIKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BALAYIKOĞULLARI",
+              "defter": "BOA NFS.d.854",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -1162,7 +3980,49 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AHMEDPAŞAOĞULLARI",
+            "DADAYOĞULLARI",
+            "KADIOĞULLARI",
+            "KARABAŞOĞULLARI",
+            "KUDUZOĞULLARI",
+            "MUSTAFAPAŞAOĞULLARI",
+            "ÇOBANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AHMEDPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DADAYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARABAŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUDUZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSTAFAPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOBANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-10",
@@ -1170,7 +4030,84 @@
           "historical_district": "BOYABAD",
           "status": "PDF s.418 KIZILOĞLAN NEFS-İ RUBU BAŞLADIĞINDAN ENBİYALI KAYDI 413-417 İLE SINIRLANDI.",
           "record": [],
-          "family_count": 14
+          "family_count": 14,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİBEYOĞULLARI",
+            "GÜDÜKOĞULLARI",
+            "HAFIZOĞULLARI",
+            "HASANBEYOĞULLARI",
+            "HATİBOĞULLARI",
+            "İMAMOĞULLARI",
+            "KETENCİOĞULLARI",
+            "KÖSEALİOĞULLARI",
+            "MUSABEYOĞULLARI",
+            "SOĞTAOĞULLARI",
+            "TEPSİOĞULLARI",
+            "TOPCUOĞULLARI",
+            "ÇOLAKOĞULLARI",
+            "ÇUKADAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÜDÜKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HAFIZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HASANBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KETENCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KÖSEALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSABEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SOĞTAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TEPSİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TOPCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOLAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-12",
@@ -1178,7 +4115,59 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 9
+          "family_count": 9,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİKÖLEOĞULLARI",
+            "CEVDETOĞULLARI",
+            "DEYMENELLİOĞULLARI",
+            "HACIOĞULLARI",
+            "İLYASOĞULLARI",
+            "SİNANOĞULLARI",
+            "SUFİOĞULLARI",
+            "YETİMMAHMUDOĞULLARI",
+            "ÇORAKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİKÖLEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CEVDETOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DEYMENELLİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İLYASOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SİNANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SUFİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YETİMMAHMUDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇORAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-13",
@@ -1186,7 +4175,49 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BERBEROĞULLARI",
+            "BİLAMEKANHASANOĞULLARI",
+            "İMAMHASANOĞULLARI",
+            "İMAMOĞULLARI",
+            "LATİFOĞULLARI",
+            "MEMİŞOĞULLARI",
+            "MERAZOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BERBEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BİLAMEKANHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "LATİFOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MEMİŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MERAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-14",
@@ -1194,7 +4225,54 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 8
+          "family_count": 8,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AKÇABEYOĞULLARI",
+            "KARADAYIOĞULLARI",
+            "KUDUZOĞULLARI",
+            "MEHMEDALİOĞULLARI",
+            "YAKUBOĞULLARI",
+            "YUSUFOĞULLARI",
+            "ÇOBANBANOĞULLARI",
+            "ÇOLAKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AKÇABEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARADAYIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUDUZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MEHMEDALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YAKUBOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOBANBANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOLAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-16",
@@ -1202,7 +4280,214 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 40
+          "family_count": 40,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABDALOĞULLARI",
+            "AHMEDOĞULLARI",
+            "ALİAĞAOĞULLARI",
+            "ALİBEYOĞULLARI",
+            "ALİDEDEOĞULLARI",
+            "ALİEFENDİOĞULLARI",
+            "ALİİMAMOĞULLARI",
+            "ARABOSMANOĞULLARI",
+            "ARNOVUDOĞULLARI",
+            "BALTACIOĞULLARI",
+            "BEKDAŞOĞULLARI",
+            "BİLLURCUOĞULLARI",
+            "DAĞDANLIOĞULLARI",
+            "DELİOSMANOĞULLARI",
+            "EFENDİOĞULLARI",
+            "ELGUVANOĞULLARI",
+            "EMİROĞULLARI",
+            "GÖKHÜSEYİNOĞULLARI",
+            "GÖKMEHMEDOĞULLARI",
+            "GÜZELOĞULLARI",
+            "HACIBEYOĞULLARI",
+            "HACIHALİLOĞULLARI",
+            "HACIOĞULLARI",
+            "HASANBEYOĞULLARI",
+            "İMAMOĞULLARI",
+            "KARAMEHMEDOĞULLARI",
+            "KARGIALİOĞULLARI",
+            "KAYAOĞULLARI",
+            "KEBABCIOĞULLARI",
+            "KOCAALİOĞULLARI",
+            "KUMCUOĞULLARI",
+            "KIRCAHASANOĞULLARI",
+            "MESSAROĞULLARI",
+            "SATIROĞULLARI",
+            "SEVDALIOĞULLARI",
+            "TEMİRCİOĞULLARI",
+            "TÜFENKCİOĞULLARI",
+            "YÜZBAŞIOĞULLARI",
+            "ÇUKADAROĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABDALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİAĞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİDEDEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİEFENDİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİİMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ARABOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ARNOVUDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BALTACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BEKDAŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BİLLURCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DAĞDANLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DELİOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EFENDİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ELGUVANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKHÜSEYİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÜZELOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIHALİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HASANBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARGIALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAYAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KEBABCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUMCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KIRCAHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MESSAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SATIROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SEVDALIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TEMİRCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TÜFENKCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YÜZBAŞIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-17",
@@ -1210,7 +4495,164 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 30
+          "family_count": 30,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABDULLAHOĞULLARI",
+            "AKOĞULLARI",
+            "ALAOĞULLARI",
+            "ALAYİŞOĞULLARI",
+            "ALIŞOĞULLARI",
+            "BÖLÜKBAŞIOĞULLARI",
+            "CEYYİNOĞULLARI",
+            "DEMİRCİOĞULLARI",
+            "DERVİŞOĞULLARI",
+            "DÜLGEROĞULLARI",
+            "GÖKAHMEDOĞULLARI",
+            "GÖZCÜOĞULLARI",
+            "HACIOĞULLARI",
+            "HATİBOĞULLARI",
+            "HELVACIOĞULLARI",
+            "KAHYAOĞULLARI",
+            "KALYONCUOĞULLARI",
+            "KASEMOĞULLARI",
+            "KAVASOĞULLARI",
+            "KOCAKALİOĞULLARI",
+            "KOÇAKOĞULLARI",
+            "KUMCUOĞULLARI",
+            "MOLLAOSMANOĞULLARI",
+            "MUSAOĞULLARI",
+            "MÜEZZİNOĞULLARI",
+            "SOĞTAOĞULLARI",
+            "TOBALOĞULLARI",
+            "VELİAĞAOĞULLARI",
+            "VELİOĞULLARI",
+            "YÜRÜKHASANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABDULLAHOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALAYİŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALIŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BÖLÜKBAŞIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CEYYİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DEMİRCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DERVİŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DÜLGEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖZCÜOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HELVACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAHYAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KALYONCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KASEMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAVASOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAKALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOÇAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUMCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MÜEZZİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SOĞTAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TOBALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİAĞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YÜRÜKHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-18",
@@ -1218,7 +4660,69 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 11
+          "family_count": 11,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HACIABDULLAHOĞULLARI",
+            "HAMİDOĞULLARI",
+            "İSMAİLOĞULLARI",
+            "KARAOSMANOĞULLARI",
+            "MOLLAAHMEDOĞULLARI",
+            "TOBALOSMANOĞULLARI",
+            "TOPALMEHMEDOĞULLARI",
+            "VELİOĞULLARI",
+            "ÇALIKIRANOĞULLARI",
+            "ÇOLAKHASANOĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HACIABDULLAHOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HAMİDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İSMAİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TOBALOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TOPALMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇALIKIRANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOLAKHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-19",
@@ -1226,7 +4730,49 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 7
+          "family_count": 7,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BAŞOĞULLARI",
+            "İMAMOĞULLARI",
+            "KOÇAKOĞULLARI",
+            "KUŞCUOĞULLARI",
+            "OSMANOĞULLARI",
+            "SÜLEYMANOĞULLARI",
+            "ĞANİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BAŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOÇAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUŞCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "OSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SÜLEYMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ĞANİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-20",
@@ -1234,7 +4780,29 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 3
+          "family_count": 3,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MADENOĞULLARI",
+            "MERİKOĞULLARI",
+            "ÇOTANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MADENOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MERİKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOTANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-21",
@@ -1242,7 +4810,44 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 6
+          "family_count": 6,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABDULLAHOĞULLARI",
+            "ACEMOĞULLARI",
+            "EĞRİOĞULLARI",
+            "KARABEYOĞULLARI",
+            "KİBAROĞULLARI",
+            "ZAYİMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABDULLAHOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ACEMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EĞRİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARABEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KİBAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ZAYİMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-22",
@@ -1250,7 +4855,39 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 5
+          "family_count": 5,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "EMİRAHMEDOĞULLARI",
+            "EMİROĞULLARI",
+            "HAMZAOĞULLARI",
+            "KARAMUSTAFAOĞULLARI",
+            "ÇOTANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "EMİRAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HAMZAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOTANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-a-23",
@@ -1258,7 +4895,64 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİPAŞAOĞULLARI",
+            "DERELİOĞULLARI",
+            "GÖKAHMEDOĞULLARI",
+            "HAMİDOĞULLARI",
+            "HATİBOĞULLARI",
+            "HÜSEYİNBEYOĞULLARI",
+            "KAYACIOĞULLARI",
+            "KUMADOĞULLARI",
+            "TURNACIOĞULLARI",
+            "ÇUKADAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DERELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HAMİDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HÜSEYİNBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAYACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUMADOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TURNACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -1273,7 +4967,104 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 18
+          "family_count": 18,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AKHASANOĞULLARI",
+            "AKKUŞOĞULLARI",
+            "ALAZOĞULLARI",
+            "ALİOĞULLARI",
+            "DERVİŞOĞULLARI",
+            "HACIOĞULLARI",
+            "KABUSUZOĞULLARI",
+            "KARAALİOĞULLARI",
+            "KAZMACIOĞULLARI",
+            "KULAKSIZOĞULLARI",
+            "KÖROSMANOĞULLARI",
+            "MOLLAOĞULLARI",
+            "NEMETOĞULLARI",
+            "SAĞIROĞULLARI",
+            "SOMUNCUOĞULLARI",
+            "TOKAOĞULLARI",
+            "TORUŞOĞULLARI",
+            "ÇUKADAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AKHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AKKUŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DERVİŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KABUSUZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAZMACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KULAKSIZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KÖROSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "NEMETOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SAĞIROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SOMUNCUOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TOKAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TORUŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-3",
@@ -1281,7 +5072,59 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 9
+          "family_count": 9,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "EMİRAHMEDOĞULLARI",
+            "GÖKOSMANOĞULLARI",
+            "GÜLALİOĞULLARI",
+            "HANÇERCİOĞULLARI",
+            "KAHYAOĞULLARI",
+            "KAYMAKCIOĞULLARI",
+            "NEMETOĞULLARI",
+            "UZVELİOĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "EMİRAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÜLALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HANÇERCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAHYAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAYMAKCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "NEMETOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "UZVELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-4",
@@ -1289,7 +5132,74 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 12
+          "family_count": 12,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AĞYANOĞULLARI",
+            "BAFRALIOĞULLARI",
+            "CEYYİNOĞULLARI",
+            "DAVEROĞULLARI",
+            "FAZLIOĞULLARI",
+            "KİBAROĞULLARI",
+            "KÖLEOĞULLARI",
+            "MUSTAFAPAŞAOĞULLARI",
+            "PALANCIOĞULLARI",
+            "TEKKEŞİNOĞULLARI",
+            "YAKUNOĞULLARI",
+            "ĞAZALOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AĞYANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BAFRALIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CEYYİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DAVEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "FAZLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KİBAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KÖLEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSTAFAPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "PALANCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TEKKEŞİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YAKUNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ĞAZALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-6",
@@ -1297,7 +5207,74 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 12
+          "family_count": 12,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AHMEDBEYOĞULLARI",
+            "AKKOCAOĞULLARI",
+            "ARABALİOĞULLARI",
+            "CILBIRCİOĞULLARI",
+            "ELÇİOĞULLARI",
+            "GÖKHÜSEYİNOĞULLARI",
+            "KARAAHMEDOĞULLARI",
+            "KARABAKALOĞULLARI",
+            "MOLLAOĞULLARI",
+            "SARACOĞULLARI",
+            "YAHŞİOĞULLARI",
+            "ÇİLHALİLOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AHMEDBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AKKOCAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ARABALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CILBIRCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ELÇİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKHÜSEYİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARABAKALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SARACOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YAHŞİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇİLHALİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-8",
@@ -1305,7 +5282,139 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 25
+          "family_count": 25,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALAGÖZLÜOĞULLARI",
+            "BEKMEZCİOĞULLARI",
+            "CEVDEDOĞULLARI",
+            "DALDALOĞULLARI",
+            "DEMİRCİOĞULLARI",
+            "DÜZCEHACIOĞULLARI",
+            "HACIOSMANOĞULLARI",
+            "HACIOĞULLARI",
+            "HALİLOĞULLARI",
+            "HASANOĞULLARI",
+            "KADIOĞULLARI",
+            "KARAMEHMEDOĞULLARI",
+            "KOCABAŞAOĞULLARI",
+            "KOCABAŞOĞULLARI",
+            "KOCABEYOĞULLARI",
+            "KUDUZOĞULLARI",
+            "KURDOĞULLARI",
+            "KURTHACIOĞULLARI",
+            "MOLLAHALİLOĞULLARI",
+            "MUHTARALİOĞULLARI",
+            "SARIMEHMEDOĞULLARI",
+            "VELİBEYOĞULLARI",
+            "VELİOĞULLARI",
+            "YUSUFOĞULLARI",
+            "ŞABANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALAGÖZLÜOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BEKMEZCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CEVDEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DALDALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DEMİRCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DÜZCEHACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HALİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KADIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCABAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCABAŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCABEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUDUZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KURDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KURTHACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAHALİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUHTARALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SARIMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞABANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-9",
@@ -1313,7 +5422,104 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 18
+          "family_count": 18,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİBEYOĞULLARI",
+            "CAKALOĞULLARI",
+            "CAFEROĞULLARI",
+            "CEBECİOĞULLARI",
+            "GÜLCÜOĞULLARI",
+            "İMAMOĞULLARI",
+            "İNCEAĞALIOĞULLARI",
+            "KARALUĞMANOĞULLARI",
+            "KARAMEDOĞULLARI",
+            "KİZİROĞULLARI",
+            "KOCAOĞULLARI",
+            "MELLAZOĞULLARI",
+            "OSMANOĞULLARI",
+            "YALMANOĞULLARI",
+            "YENTARİOĞULLARI",
+            "ÇAKALLIOĞULLARI",
+            "ÇOBANOĞULLARI",
+            "ÇUKADAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CAKALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CAFEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CEBECİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÜLCÜOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İNCEAĞALIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARALUĞMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KİZİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MELLAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "OSMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YALMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YENTARİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇAKALLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOBANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-10",
@@ -1321,7 +5527,69 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 11
+          "family_count": 11,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİGÜLLÜOĞULLARI",
+            "EMİROĞULLARI",
+            "HIZARCIOĞULLARI",
+            "İHTİYAROĞULLARI",
+            "KARAMUSTAFAOĞULLARI",
+            "KEMİKSİZOĞULLARI",
+            "MOLLAHÜSEYİNOĞULLARI",
+            "MOLLAMEHMEDOĞULLARI",
+            "MUSAOĞULLARI",
+            "ÇAKIROĞULLARI",
+            "ŞERBETCİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİGÜLLÜOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HIZARCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İHTİYAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KEMİKSİZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAHÜSEYİNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇAKIROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞERBETCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-11",
@@ -1329,7 +5597,154 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 28
+          "family_count": 28,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AYDINLIOĞULLARI",
+            "BAYRAMOĞULLARI",
+            "CAFEROĞULLARI",
+            "DERVİŞOĞULLARI",
+            "DOHMAOĞULLARI",
+            "DÜZCEOĞULLARI",
+            "GÖKCEOĞULLARI",
+            "GÖKMENOĞULLARI",
+            "GÖKÇEOĞULLARI",
+            "GÖZOĞULLARI",
+            "GÜLÜNOĞULLARI",
+            "HASANOĞULLARI",
+            "HÜSEYİNPAŞAOĞULLARI",
+            "KABADAYIOĞULLARI",
+            "KACAKOĞULLARI",
+            "KARABACAKOĞULLARI",
+            "KARAİMAMOĞULLARI",
+            "KELMEHMEDOĞULLARI",
+            "KİRAZLIOĞULLARI",
+            "KOCAOĞULLARI",
+            "KÖSEOĞULLARI",
+            "MEHMEDOĞULLARI",
+            "SOYTARIOĞULLARI",
+            "ÇAKALLIOĞULLARI",
+            "ÇAVUŞOĞULLARI",
+            "ÇOLAKOĞULLARI",
+            "ÇUKADAROĞULLARI",
+            "ŞABANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AYDINLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BAYRAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CAFEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DERVİŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DOHMAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DÜZCEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKCEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKMENOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖKÇEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÖZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GÜLÜNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HÜSEYİNPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KABADAYIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KACAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARABACAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAİMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KELMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KİRAZLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KÖSEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SOYTARIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇAKALLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇAVUŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇOLAKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞABANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-12",
@@ -1337,7 +5752,69 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 11
+          "family_count": 11,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABDALOĞULLARI",
+            "AZELLİOĞULLARI",
+            "BAYRAMOĞULLARI",
+            "CÜRETLİOĞULLARI",
+            "EZİNELİOĞULLARI",
+            "HATİBOĞULLARI",
+            "KADİROĞULLARI",
+            "KAHRAMANOĞULLARI",
+            "MERAZOĞULLARI",
+            "SARIOĞULLARI",
+            "TASLIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABDALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AZELLİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BAYRAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CÜRETLİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EZİNELİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HATİBOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KADİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAHRAMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MERAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SARIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "TASLIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-13",
@@ -1345,7 +5822,89 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 15
+          "family_count": 15,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİBEYOĞULLARI",
+            "AYNACIOĞULLARI",
+            "BATTALOĞULLARI",
+            "BÜRDİOĞULLARI",
+            "CUDALOĞULLARI",
+            "EMİROĞULLARI",
+            "HOTONOĞULLARI",
+            "İMAMOĞULLARI",
+            "KAHYAOĞULLARI",
+            "KARAİBRAHİMOĞULLARI",
+            "KETHÜDAOĞULLARI",
+            "KOCAMANOĞULLARI",
+            "KUZGUNOĞULLARI",
+            "YOBAZOĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AYNACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BATTALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "BÜRDİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CUDALOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HOTONOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KAHYAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAİBRAHİMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KETHÜDAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAMANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KUZGUNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YOBAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-14",
@@ -1353,7 +5912,69 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 11
+          "family_count": 11,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABDUSSELAMOĞULLARI",
+            "AĞCAOĞULLARI",
+            "HACIOĞULLARI",
+            "İKDEŞOĞULLARI",
+            "KABAKCIOĞULLARI",
+            "KARAKELOĞULLARI",
+            "KARAMUSTAFAOĞULLARI",
+            "MUSTAFAOĞULLARI",
+            "UZUNOĞULLARI",
+            "ŞABANOĞULLARI",
+            "ŞİKARCIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABDUSSELAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "AĞCAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İKDEŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KABAKCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAKELOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "UZUNOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞABANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞİKARCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-15",
@@ -1361,7 +5982,64 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ABALIOĞULLARI",
+            "EDREMİDOĞULLARI",
+            "HÜSEYİNBEYOĞULLARI",
+            "MEHMEDOĞULLARI",
+            "MOLLAOĞULLARI",
+            "MULAYİMOĞULLARI",
+            "MÜLAYİMOĞULLARI",
+            "YUSUFOĞULLARI",
+            "ÇORBAOĞULLARI",
+            "ÖMERPAŞAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ABALIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EDREMİDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HÜSEYİNBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MULAYİMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MÜLAYİMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇORBAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMERPAŞAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-16",
@@ -1369,7 +6047,34 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 4
+          "family_count": 4,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALEMDAROĞULLARI",
+            "KULAKSIZOĞULLARI",
+            "KULALİOĞULLARI",
+            "ŞATIROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALEMDAROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KULAKSIZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KULALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ŞATIROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-18",
@@ -1377,7 +6082,64 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BEYLİAHMEDOĞULLARI",
+            "CÜDEOĞULLARI",
+            "DELİAHMEDOĞULLARI",
+            "HACIÖMEROĞULLARI",
+            "İKİNCİOĞULLARI",
+            "KARAMENEKOĞULLARI",
+            "KİRAZOĞULLARI",
+            "MOLLAOĞULLARI",
+            "OSMANBEYOĞULLARI",
+            "ÇAVUŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BEYLİAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "CÜDEOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "DELİAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İKİNCİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAMENEKOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KİRAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MOLLAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "OSMANBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇAVUŞOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-19",
@@ -1385,7 +6147,59 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 9
+          "family_count": 9,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "CÜRETLİOĞULLARI",
+            "EMİROĞULLARI",
+            "HACIHASANOĞULLARI",
+            "KURDOĞULLARI",
+            "MERADOĞULLARI",
+            "PEHLİVANOĞULLARI",
+            "SARIMEHMEDOĞULLARI",
+            "YUSUFOĞULLARI",
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "CÜRETLİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HACIHASANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KURDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MERADOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "PEHLİVANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SARIMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "YUSUFOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-20",
@@ -1393,7 +6207,54 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 8
+          "family_count": 8,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "AHMEDOĞULLARI",
+            "ESİROĞULLARI",
+            "EĞRİALİOĞULLARI",
+            "İMAMOĞULLARI",
+            "KELHACIOĞULLARI",
+            "KÖSEMEHMEDOĞULLARI",
+            "MERAZOĞULLARI",
+            "VELİBEYOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "AHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ESİROĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "EĞRİALİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KELHACIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KÖSEMEHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MERAZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "VELİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-full-b-22",
@@ -1401,7 +6262,64 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 10
+          "family_count": 10,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "BORANOĞULLARI",
+            "GANİOĞULLARI",
+            "HALİLOĞULLARI",
+            "KABAKCIOĞULLARI",
+            "KARAOĞULLARI",
+            "KOCAMUSAOĞULLARI",
+            "KOCAMUSTAFAOĞULLARI",
+            "MUSAOĞULLARI",
+            "SİNANOĞULLARI",
+            "ÇERKEZOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "BORANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "GANİOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "HALİLOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KABAKCIOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KARAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAMUSAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "KOCAMUSTAFAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "MUSAOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "SİNANOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            },
+            {
+              "ad": "ÇERKEZOĞULLARI",
+              "defter": "BOA NFS.d.853"
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     },
@@ -1416,7 +6334,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KARABAŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARABAŞOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-9",
@@ -1424,7 +6355,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÇUKADAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇUKADAROĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-11",
@@ -1432,7 +6376,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "LATİFOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "LATİFOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-12",
@@ -1440,7 +6397,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MEHMEDALİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MEHMEDALİOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-14",
@@ -1448,7 +6418,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-15",
@@ -1456,7 +6439,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALIŞOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALIŞOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-16",
@@ -1464,7 +6460,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÖMEROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÖMEROĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-17",
@@ -1472,7 +6481,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KOÇAKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KOÇAKOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-18",
@@ -1480,7 +6502,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ÇOTANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ÇOTANOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-19",
@@ -1488,7 +6523,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ZAYİMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ZAYİMOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-20",
@@ -1496,7 +6544,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "HAMZAOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "HAMZAOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-21",
@@ -1504,7 +6565,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "TURNACIOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TURNACIOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-23",
@@ -1512,7 +6586,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALİOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-24",
@@ -1520,7 +6607,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "GÜLALİOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "GÜLALİOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-25",
@@ -1528,7 +6628,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "TEKKEŞİNOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "TEKKEŞİNOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-27",
@@ -1536,7 +6649,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KARAAHMEDOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARAAHMEDOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-29",
@@ -1544,7 +6670,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MOLLAHALİLOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MOLLAHALİLOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-30",
@@ -1552,7 +6691,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İMAMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İMAMOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-31",
@@ -1560,7 +6712,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "İHTİYAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "İHTİYAROĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-32",
@@ -1568,7 +6733,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KOCAMANOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KOCAMANOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-33",
@@ -1576,7 +6754,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "MÜLAYİMOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "MÜLAYİMOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-34",
@@ -1584,7 +6775,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "ALEMDAROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "ALEMDAROĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-36",
@@ -1603,7 +6807,20 @@
               ]
             }
           ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "KARAMENEKOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "KARAMENEKOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-37",
@@ -1611,7 +6828,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "EMİROĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "EMİROĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         },
         {
           "id": "boyabat-853-first-38",
@@ -1619,7 +6849,20 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "tarihi_divan": null,
+          "defterler": [],
+          "sulaleler": [
+            "VELİBEYOĞULLARI"
+          ],
+          "sulale_kayitlari": [
+            {
+              "ad": "VELİBEYOĞULLARI",
+              "defter": "BOA NFS.d.853",
+              "hane": 1
+            }
+          ],
+          "yerlesim_turu": null
         }
       ]
     }
@@ -1811,5 +7054,12 @@
     "source_rows": 229,
     "unresolved_source_rows": 158,
     "verified_source_rows": 17
+  },
+  "publication": {
+    "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
+    "time": "2026-11-26",
+    "unresolved_rows": 158,
+    "source_documents": 58,
+    "attached_family_names": 721
   }
 }
