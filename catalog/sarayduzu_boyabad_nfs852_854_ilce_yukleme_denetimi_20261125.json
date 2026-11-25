@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-25",
+  "scope": "Sinop Sarayduzu, historic Boyabad NFS 852-854",
+  "source": "Recep Yılmaz (2018), Boyabat nüfus defteri 852-854, current district classification; Saraydüzü Kaymakamlığı güncel köy listesi",
+  "records": 17,
+  "households": 489,
+  "male_registration_rows": 1271,
+  "exact_modern_place_name_confirmed": [
+    "Başekin",
+    "Uluköy",
+    "Akbelen",
+    "Karaçaygöleti",
+    "Korucuk",
+    "Çorman",
+    "Arım",
+    "Yukarıarım",
+    "Yenice"
+  ],
+  "district_confirmed_but_modern_village_unresolved": [
+    "Akpınar",
+    "Göynükviran",
+    "Yaylacı",
+    "Fakılı",
+    "Cuma",
+    "Ağuluca",
+    "Bahçe",
+    "Hacılıhisarcık"
+  ],
+  "policy": [
+    "1830-1840 historic kaza stays BOYABAD, current district SINOP/SARAYDUZU",
+    "Source village names are not silently replaced with attractive but unverified modern-name similarities",
+    "No site coordinates inferred for unresolved names",
+    "Main dataset and clan supplementary files use the same Sinop/Sarayduzu district key",
+    "Census male totals are enumerated male entries from transliteration, not total living population"
+  ]
+}
