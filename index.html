@@ -1593,7 +1593,7 @@ function renderDistrictVillageView(local,districtFeature,villageFeatures,pointFe
     })
   }else if(pointFeatures.length){
     pointFeatures.forEach(function(f){
-      const name=(f.properties&&f.properties.name)||'',has=!!archiveForVillage(name);
+      const name=(f.properties&&f.properties.name)||'',record=archiveForVillage(name),has=!!record,mark=archiveMarkerStatus(record);
       const cc=center(f,pr);
       const hit=document.createElementNS(SVG_NS,'circle');
       hit.setAttribute('cx',cc[0]);hit.setAttribute('cy',cc[1]);
