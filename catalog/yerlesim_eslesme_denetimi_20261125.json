@@ -11,7 +11,7 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
       "all": 27,
-      "modern": 21,
+      "modern": 22,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-a-004",
@@ -48,41 +48,6 @@
             },
             {
               "ad": "KALYONCUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-a-005",
-          "original": "Hacı",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 2,
-          "tarihi_divan": "Ayandon",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 7,
-              "erkek": 19
-            }
-          ],
-          "sulaleler": [
-            "KALYONCUOĞULLARI",
-            "KALAYCIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KALYONCUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KALAYCIOĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -5870,18 +5835,28 @@
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.310-311",
       "note": "Kurvana Mahallesi; tarihî Reyfez Divanı"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-005",
+      "original": "Hacı",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Hacıköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.306-307; 7 hane çapraz doğrulandı",
+      "note": "1841 Hacı karyesi; 7 hane / 19 erkek"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 117,
-    "verified_source_rows": 58
+    "unresolved_source_rows": 116,
+    "verified_source_rows": 59
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 117,
+    "unresolved_rows": 116,
     "source_documents": 58,
     "attached_family_names": 721
   }
