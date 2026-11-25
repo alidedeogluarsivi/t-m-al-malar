@@ -11,48 +11,8 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
       "all": 27,
-      "modern": 16,
+      "modern": 21,
       "unresolved": [
-        {
-          "id": "ayandon-1841-nfs847-a-003",
-          "original": "Düre",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 3,
-          "tarihi_divan": "Ayandon",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 3,
-              "erkek": 12
-            }
-          ],
-          "sulaleler": [
-            "DİVANCIOĞULLARI",
-            "DELİHALİLOĞULLARI",
-            "MASDANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "DİVANCIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "DELİHALİLOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "MASDANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
         {
           "id": "ayandon-1841-nfs847-a-004",
           "original": "Öreğe",
@@ -204,46 +164,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-a-011",
-          "original": "Balaycık",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 3,
-          "tarihi_divan": "Yarna",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 6,
-              "erkek": 18
-            }
-          ],
-          "sulaleler": [
-            "TİRYAKİOĞULLARI",
-            "AKMEHMEDOĞULLARI",
-            "SANCAKDAROĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "TİRYAKİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "AKMEHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "SANCAKDAROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-a-012",
           "original": "Simi",
           "historical_district": "AYANDON",
@@ -304,61 +224,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-a-014",
-          "original": "Eğrit",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 6,
-          "tarihi_divan": "Dayısda",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 10,
-              "erkek": 27
-            }
-          ],
-          "sulaleler": [
-            "İSMAİLOĞULLARI",
-            "BALCIOĞULLARI",
-            "KARAİBRAHİMOĞULLARI",
-            "KARAMANOĞULLARI",
-            "MATARACIOĞULLARI",
-            "TECÜRCÜOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "İSMAİLOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "BALCIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAİBRAHİMOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAMANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "MATARACIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "TECÜRCÜOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-a-017",
           "original": "Kulübetekkesi",
           "historical_district": "AYANDON",
@@ -398,79 +263,6 @@
             },
             {
               "ad": "TOPCUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-a-018",
-          "original": "Yenice",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Saraydüzü",
-              "koy": "Yenice",
-              "sources": [
-                "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            },
-            {
-              "il": "Çankırı",
-              "ilce": "Orta",
-              "koy": "Yenice",
-              "sources": [
-                "catalog/archive_library_verified_20261111.ndjson"
-              ]
-            },
-            {
-              "il": "Çankırı",
-              "ilce": "Şabanözü",
-              "koy": "Yenice",
-              "sources": [
-                "catalog/archive_library_verified_20261111.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": "Muğan",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 4,
-              "erkek": 15
-            }
-          ],
-          "sulaleler": [
-            "UZUNOSMANOĞULLARI",
-            "KÜRTOĞULLARI",
-            "KARAMEHMEDOĞULLARI",
-            "KARAHALİLOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "UZUNOSMANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KÜRTOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAMEHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAHALİLOĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -530,59 +322,13 @@
             }
           ],
           "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-a-023",
-          "original": "Çayağzı",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 2,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Sinop",
-              "ilce": "Durağan",
-              "koy": "Çayağzı",
-              "sources": [
-                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": "Muğan",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 2,
-              "erkek": 10
-            }
-          ],
-          "sulaleler": [
-            "MADENOĞULLARI",
-            "SOYUKOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "MADENOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "SOYUKOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
         }
       ]
     },
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "all": 33,
-      "modern": 11,
+      "modern": 20,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-b-002",
@@ -685,66 +431,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-b-007",
-          "original": "Mağribel (Merkez)",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 7,
-          "tarihi_divan": "Mağribel",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 11,
-              "erkek": 26
-            }
-          ],
-          "sulaleler": [
-            "KÖSEHÜSEYİNOĞULLARI",
-            "UZUNMUSTAFAOĞULLARI",
-            "YANDIMOĞULLARI",
-            "BALAZOĞULLARI",
-            "YESİROĞULLARI",
-            "ALİOĞULLARI",
-            "SARIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KÖSEHÜSEYİNOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "UZUNMUSTAFAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "YANDIMOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "BALAZOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "YESİROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ALİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "SARIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-b-008",
           "original": "Temürcü",
           "historical_district": "AYANDON",
@@ -814,126 +500,6 @@
             },
             {
               "ad": "KALIBCIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-010",
-          "original": "Eskiandon",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 3,
-          "tarihi_divan": "Mağribel",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 3,
-              "erkek": 11
-            }
-          ],
-          "sulaleler": [
-            "YUSUFOĞULLARI",
-            "MATAKOĞULLARI",
-            "EYYAMCIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "YUSUFOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "MATAKOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "EYYAMCIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-012",
-          "original": "Dev",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "tarihi_divan": "Mağribel",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 6,
-              "erkek": 14
-            }
-          ],
-          "sulaleler": [
-            "TOPALUSTAOĞULLARI",
-            "TOPALOĞULLARI",
-            "KARAKETHÜDAOĞULLARI",
-            "ÖMEROĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "TOPALUSTAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "TOPALOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KARAKETHÜDAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ÖMEROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-014",
-          "original": "Kıran",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 2,
-          "tarihi_divan": "Mağribel",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 2,
-              "erkek": 6
-            }
-          ],
-          "sulaleler": [
-            "KÖLEOĞULLARI",
-            "BEDİKOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KÖLEOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "BEDİKOĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -1203,81 +769,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-b-024",
-          "original": "Kuşcular",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 2,
-          "tarihi_divan": "Doruh",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 4,
-              "erkek": 17
-            }
-          ],
-          "sulaleler": [
-            "KÜÇÜKAHMEDOĞULLARI",
-            "ŞABANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KÜÇÜKAHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ŞABANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-025",
-          "original": "Kuzsökü",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 3,
-          "tarihi_divan": "Doruh",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 3,
-              "erkek": 12
-            }
-          ],
-          "sulaleler": [
-            "MUSAOĞULLARI",
-            "MEBATCIOĞULLARI",
-            "DUMANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "MUSAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "MEBATCIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "DUMANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-b-026",
           "original": "Halim",
           "historical_district": "AYANDON",
@@ -1376,143 +867,13 @@
             }
           ],
           "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-029",
-          "original": "Cive",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 3,
-          "tarihi_divan": "Palamar",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 4,
-              "erkek": 8
-            }
-          ],
-          "sulaleler": [
-            "SOFUOĞULLARI",
-            "KERİMOĞULLARI",
-            "KADIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "SOFUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KERİMOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KADIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-031",
-          "original": "Düz",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "tarihi_divan": "Palamar",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 7,
-              "erkek": 24
-            }
-          ],
-          "sulaleler": [
-            "HATİBOĞULLARI",
-            "KÖSE AHMEDOĞULLARI",
-            "TUNAOĞULLARI",
-            "CEMİLOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "HATİBOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KÖSE AHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "TUNAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "CEMİLOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-032",
-          "original": "Safran",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "tarihi_divan": "Palamar",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 6,
-              "erkek": 10
-            }
-          ],
-          "sulaleler": [
-            "KİBAROĞULLARI",
-            "EKŞİAHMEDOĞULLARI",
-            "EKŞİOĞULLARI",
-            "HACIMUSTAFAOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "KİBAROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "EKŞİAHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "EKŞİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "HACIMUSTAFAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
         }
       ]
     },
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
       "all": 32,
-      "modern": 8,
+      "modern": 14,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-c-001",
@@ -1800,61 +1161,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-c-010",
-          "original": "Hamzalar",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 6,
-          "tarihi_divan": "Fariye",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 8,
-              "erkek": 20
-            }
-          ],
-          "sulaleler": [
-            "EBİCOĞULLARI",
-            "KETHÜDAOĞULLARI",
-            "ÇALAKLIOĞULLARI",
-            "MALOĞULLARI",
-            "VALBAZOĞULLARI",
-            "UZUNHASANOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "EBİCOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KETHÜDAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ÇALAKLIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "MALOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "VALBAZOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "UZUNHASANOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-c-011",
           "original": "Gerişköy",
           "historical_district": "AYANDON",
@@ -1890,51 +1196,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-c-012",
-          "original": "Celaller",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "tarihi_divan": "Fariye",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 6,
-              "erkek": 20
-            }
-          ],
-          "sulaleler": [
-            "MARIZAOĞULLARI",
-            "KABAOĞULLARI",
-            "CEBECİOĞULLARI",
-            "CEDİDOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "MARIZAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KABAOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "CEBECİOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "CEDİDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-c-013",
           "original": "Virancık",
           "historical_district": "AYANDON",
@@ -1964,36 +1225,6 @@
             },
             {
               "ad": "MÜNEVVEROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-014",
-          "original": "Aydükler",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 1,
-          "tarihi_divan": "Fariye",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 2,
-              "erkek": 15
-            }
-          ],
-          "sulaleler": [
-            "BUBABEKİROĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "BUBABEKİROĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -2635,47 +1866,6 @@
           "yerlesim_turu": null
         },
         {
-          "id": "ayandon-1841-nfs847-c-028",
-          "original": "Aktaş",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 1,
-          "ayni_adli_yerlesimler": [
-            {
-              "il": "Samsun",
-              "ilce": "Ladik",
-              "koy": "Aktaş",
-              "sources": [
-                "catalog/archive_library_verified_20261111.ndjson"
-              ]
-            }
-          ],
-          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI",
-          "tarihi_divan": "Günayçatak",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 2,
-              "erkek": 5
-            }
-          ],
-          "sulaleler": [
-            "SARIAHMEDOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "SARIAHMEDOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
           "id": "ayandon-1841-nfs847-c-029",
           "original": "Keşiş",
           "historical_district": "AYANDON",
@@ -2780,81 +1970,6 @@
             },
             {
               "ad": "NASUHOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-031",
-          "original": "Tacahmed",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 4,
-          "tarihi_divan": "Günayçatak",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 7,
-              "erkek": 20
-            }
-          ],
-          "sulaleler": [
-            "İMAMOĞULLARI",
-            "ARABHACIOĞULLARI",
-            "TUZCUOĞULLARI",
-            "KÖROĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "İMAMOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "ARABHACIOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "TUZCUOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            },
-            {
-              "ad": "KÖROĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-c-032",
-          "original": "Kalaycı",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; MODERN KONUM KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 1,
-          "tarihi_divan": "Günayçatak",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 1,
-              "erkek": 7
-            }
-          ],
-          "sulaleler": [
-            "LACCIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "LACCIOĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -7027,18 +6142,218 @@
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
       "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319-320",
       "note": "Yusuflu köyü Emrelli Mahallesi; tarihî karye adı korunmuştur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-003",
+      "original": "Düre",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Hacıköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.306-307; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Düre MAHALLESİ; tarihî ad: Düre"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-011",
+      "original": "Balaycık",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Yusuflu",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.311; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Balaycık MAHALLESİ; tarihî ad: Balaycık"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-014",
+      "original": "Eğrit",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Gaziler",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.305-306; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Eyrit MAHALLESİ; tarihî ad: Eğrit"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-018",
+      "original": "Yenice",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Kuzköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.308; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Yenice MAHALLESİ; tarihî ad: Yenice"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-023",
+      "original": "Çayağzı",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Gencek",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.305-306; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Çayağzı MAHALLESİ; tarihî ad: Çayağzı"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-007",
+      "original": "Mağribel (Merkez)",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Akçabük",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.303; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Mağribel MAHALLESİ; tarihî ad: Mağribel (Merkez)"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-010",
+      "original": "Eskiandon",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Direkli",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304-305; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Eskiayandon MAHALLESİ; tarihî ad: Eskiandon"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-012",
+      "original": "Dev",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Direkli",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304-305; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Dev MAHALLESİ; tarihî ad: Dev"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-014",
+      "original": "Kıran",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Turhan",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.309-310; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Kıran MAHALLESİ; tarihî ad: Kıran"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-024",
+      "original": "Kuşcular",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Kuşçular",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.307-308; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Merkez MAHALLESİ; tarihî ad: Kuşcular"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-025",
+      "original": "Kuzsökü",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Kuşçular",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.307-308; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Kuzsökü MAHALLESİ; tarihî ad: Kuzsökü"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-029",
+      "original": "Cive",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Düzköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304-305; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Çöve MAHALLESİ; tarihî ad: Cive"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-031",
+      "original": "Düz",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Düzköy",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304-305; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Düz MAHALLESİ; tarihî ad: Düz"
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-032",
+      "original": "Safran",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Karabey",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.307; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Safranlı MAHALLESİ; tarihî ad: Safran"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-010",
+      "original": "Hamzalar",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Çatakgeriş",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Hamızlar MAHALLESİ; tarihî ad: Hamzalar"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-012",
+      "original": "Celaller",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Çatakörencik",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Celaller MAHALLESİ; tarihî ad: Celaller"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-014",
+      "original": "Aydükler",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Çatakörencik",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.304; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Aydoğlular MAHALLESİ; tarihî ad: Aydükler"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-028",
+      "original": "Aktaş",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Taşgüney",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.309-310; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Aktaş MAHALLESİ; tarihî ad: Aktaş"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-031",
+      "original": "Tacahmed",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Taçahmet",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.309; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Merkez MAHALLESİ; tarihî ad: Tacahmed"
+    },
+    {
+      "id": "ayandon-1841-nfs847-c-032",
+      "original": "Kalaycı",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Yapraklı",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.309-310; güncel köy ve bağlı mahalle tarihçesi",
+      "note": "Kalaycı MAHALLESİ; tarihî ad: Kalaycı"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 157,
-    "verified_source_rows": 18
+    "unresolved_source_rows": 137,
+    "verified_source_rows": 38
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 157,
+    "unresolved_rows": 137,
     "source_documents": 58,
     "attached_family_names": 721
   }
