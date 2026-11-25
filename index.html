@@ -3261,7 +3261,7 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 (function initVisitorCounter(){
   const el=document.getElementById("entryStat");
   if(!el)return;
-  const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\\/$/,""):"";
+  const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
   const api=backend?backend+"/api/site-stats":null;
   const key="alidedeogluarsivi_com_entries_v1";
   const cacheKey="alidedeogluarsivi_verified_total_v2";
