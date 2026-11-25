@@ -1,10 +1,10 @@
 {
-  "source_count": 183,
+  "source_count": 184,
   "missing": [],
   "invalid_json": [],
-  "records": 26233,
-  "with_families": 18402,
-  "with_registers": 15981,
+  "records": 26248,
+  "with_families": 18403,
+  "with_registers": 15996,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -116237,6 +116237,62 @@
     {
       "path": "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
       "line": 35
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson",
+      "line": 15
     }
   ],
   "duplicate_ids": [
