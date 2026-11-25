@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25-five-register-research-batch",
+  "version": "2026-11-25-kagizman-gecvan-2782",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -184,7 +184,8 @@
     "catalog/kirsehir_1845_tmt798_27koy_6mahalle_20261125.ndjson",
     "catalog/sivas_hafik_1841_1845_nfs2321_90karye_hane_erkek_20261125.ndjson",
     "catalog/balikesir_kepsut_1844_1845_tmt8400_8403_16yer_20261125.ndjson",
-    "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson"
+    "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson",
+    "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson"
   ],
   "notes": [
     "S",
