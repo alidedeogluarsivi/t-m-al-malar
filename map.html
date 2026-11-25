@@ -399,7 +399,7 @@ function confirmedFamilyNames(p){
  const result=[],seen=new Set();
  for(const v of ArchiveFamilyAudit.filterNames(raw)){
   if(typeof v!=='string')continue;
-  const name=v.trim().replace(/\\s+OĞLU$/iu,' OĞULLARI');
+  const name=v.trim().replace(/\s+OĞLU$/iu,' OĞULLARI');
   if(!name||/^(?:BİLİNMİYOR|YOK|SÜLALE ADI BELİRTİLMEMİŞ|BELİRTİLMEMİŞ)$/iu.test(name))continue;
   const id=norm(name);
   if(!seen.has(id)){seen.add(id);result.push(name)}
@@ -449,6 +449,7 @@ function labelPlace(p,layer){
   icon:L.divIcon({className:'',html,iconSize:[0,0],iconAnchor:[-7,13]})})
   .on('click',()=>selectPlace(p)).addTo(layer);
 }
+let renderedOverviewVersion=-1;
 function renderOverview(){
  const visible=map.hasLayer(overviewLayer);
  if(nearbyFocus){
@@ -459,15 +460,16 @@ function renderOverview(){
  if(!archivePointList.length)return;
  const large=map.getZoom()>=8;
  const layers=overviewLayer.getLayers();
- if(!layers.length){
+ if(layers.length!==archivePointList.length){
+  overviewLayer.clearLayers();
   for(const p of archivePointList)addDot(p,overviewLayer,true);
- }else if(large!==largeArchiveDots){
+ }else if(large!==largeArchiveDots||renderedOverviewVersion!==archiveVersion){
   layers.forEach((layer,index)=>{
    const style=dotStyle(archivePointList[index],true);
    layer.setStyle(style);layer.setRadius(style.radius);
   });
  }
- largeArchiveDots=large;
+ largeArchiveDots=large;renderedOverviewVersion=archiveVersion;
 }
 async function loadNationalArchive(){
  const [data,published]=await Promise.all([json('./geo/archive-points.json?v=osmanli-nfs-20261124-ulus'),EmlakCensus.load()]);
@@ -655,7 +657,7 @@ function showDetails(p){
  if(!loadedArchive&&!list.length&&item)html+='<p>Bu yerleşimin ayrıntılı kaynak kartları yükleniyor.</p>';
  else if(!list.length&&!docs.length&&!item?.families.length)html+='<p>Bu yerleşime bağlı ayrıntılı arşiv kartı bulunamadı.</p>';
  const allFamilies=confirmedFamilyNames(p);
- if(allFamilies.length)html+='<div class="source"><b>DOĞRULANMIŞ SÜLALE ADLARI</b><div>'+allFamilies.map(esc).join(' · ')+'</div></div>';
+ if(allFamilies.length)html+='<div class="source"><b>KAYITLI SÜLALE ADLARI</b><div>'+allFamilies.map(esc).join(' · ')+'</div></div>';
  if(list.length){
   for(const source of list.flatMap(r=>r.yerel_kaynaklar||[])){
    const citation=source.kaynak?'<div>'+(/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak)+'</a>':esc(source.kaynak))+'</div>':'';
