@@ -318,7 +318,7 @@ let provinceData=null,districtList=[],settlements=null,districtGeo=null,archive=
 const archiveLayerPrefs={historical:true,families:true,subsettlements:true};
 function localityKind(n,r){
  const explicit=String(r&& (r.yerlesim_turu||r.alt_yerlesim_turu)||'').toLocaleUpperCase('tr-TR');
- if(['MAHALLE','MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ','KÖY','DİVAN'].includes(explicit))return explicit;
+ if(['MAHALLE','MEZRA','ÇİFTLİK','YAYLA','OBA','KOM','SOKAK','MEVKİ','KÖY','DİVAN','İLÇE MERKEZİ'].includes(explicit))return explicit;
  const v=String(n||'').toLocaleLowerCase('tr-TR');
  if(/(?:^|\\s)(?:mahalle|mahallesi|mah\\.|mah)(?:\\s|$)/i.test(v))return 'MAHALLE';
  if(/mezra/i.test(v))return 'MEZRA';
