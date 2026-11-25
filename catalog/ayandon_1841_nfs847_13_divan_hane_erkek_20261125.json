@@ -1,0 +1,144 @@
+{
+  "yil": 1841,
+  "defter": "BOA NFS.d.847",
+  "tarihi_kaza": "AYANDON",
+  "kaynak": "Pelin İskender Kılıç, Mucize Ünlü, Nedim İpek, Türkeli Mekân Nüfus Tarih, 2016",
+  "tablolar": [
+    13,
+    14,
+    15
+  ],
+  "divanlar": [
+    {
+      "tarihi_divan": "Ayandon",
+      "yerlesim": 9,
+      "muslim_hane": 107,
+      "muslim_erkek": 368,
+      "rum_hane": 6,
+      "rum_erkek": 23,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Yarna",
+      "yerlesim": 3,
+      "muslim_hane": 42,
+      "muslim_erkek": 125,
+      "rum_hane": 6,
+      "rum_erkek": 23,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Dayısda",
+      "yerlesim": 3,
+      "muslim_hane": 48,
+      "muslim_erkek": 159,
+      "rum_hane": 41,
+      "rum_erkek": 116,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Muğan",
+      "yerlesim": 8,
+      "muslim_hane": 54,
+      "muslim_erkek": 163,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Helaldı",
+      "yerlesim": 4,
+      "muslim_hane": 49,
+      "muslim_erkek": 162,
+      "rum_hane": 31,
+      "rum_erkek": 91,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Reyfez",
+      "yerlesim": 5,
+      "muslim_hane": 47,
+      "muslim_erkek": 160,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Mağribel",
+      "yerlesim": 11,
+      "muslim_hane": 69,
+      "muslim_erkek": 217,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Didire",
+      "yerlesim": 3,
+      "muslim_hane": 36,
+      "muslim_erkek": 128,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Doruh",
+      "yerlesim": 14,
+      "muslim_hane": 59,
+      "muslim_erkek": 207,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Somay",
+      "yerlesim": 5,
+      "muslim_hane": 63,
+      "muslim_erkek": 184,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Fariye",
+      "yerlesim": 10,
+      "muslim_hane": 79,
+      "muslim_erkek": 285,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Karacakaya",
+      "yerlesim": 6,
+      "muslim_hane": 76,
+      "muslim_erkek": 258,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    },
+    {
+      "tarihi_divan": "Günayçatak",
+      "yerlesim": 11,
+      "muslim_hane": 76,
+      "muslim_erkek": 290,
+      "rum_hane": 0,
+      "rum_erkek": 0,
+      "kaynak": "Türkeli Mekân Nüfus Tarih (2016), Tablo 13, 14, 15, s.44-45; BOA NFS.d.847"
+    }
+  ],
+  "toplam": {
+    "yerlesim": 92,
+    "muslim_hane": 805,
+    "muslim_erkek": 2706,
+    "rum_hane": 84,
+    "rum_erkek": 253
+  },
+  "notlar": [
+    "Doruh divanı içindeki Palamar alt grubu 6 köydür; Doruh 14 köy toplamına dâhildir, ayrıca 14. divan sayılmaz.",
+    "805 Müslüman hanede 2706 Müslüman erkek ve 84 Rum hanede 253 Rum erkek, tez yazarlarının kişi satırlarından hesapladığı toplamdır.",
+    "İcmal defterinde 778 hane 2714 farklı toplamı yer aldığı kitapta ayrıca belirtilir; iki yöntem karıştırılmadı.",
+    "Aile lakap tablosu hane numarası içermediği için köy-sülale alanına yüklenen isimlere otomatik hane numarası verilmedi.",
+    "Ayaz, Kayabaşı ve Oğnaz kitaba ayrı İstefan NFS.d.914 malzemesinden eklenmiştir; NFS.d.847 köyleri arasında sayılmadı."
+  ]
+}
