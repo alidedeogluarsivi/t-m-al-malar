@@ -135,6 +135,7 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./archive-family-audit.js?v=1"></script>
 <script src="./archive-family-search.js?v=4"></script>
+<script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
 <script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-2"></script>
 <script>
@@ -412,7 +413,7 @@ function confirmedFamilyNames(p){
 function archiveKind(p){
  const item=metadata(p);
  if(confirmedFamilyNames(p).length)return 'family';
- if(item?.families?.length||item?.family)return 'family';
+ // Source index flags without a named family do not establish a confirmed family.
  if(item?.refs?.length)return 'nfs';
  return records.has(pointKey(p.il,p.ilce,p.name))?'card':'';
 }
@@ -481,8 +482,8 @@ async function loadNationalArchive(){
   for(const [name,lat,lng,family,refs,families,kazas] of rows){
    const cleanFamilies=ArchiveFamilyAudit.filterNames(families);
    if(ArchiveFamilyAudit.records.some(r=>r.coords&&r.coords[0]===lat&&r.coords[1]===lng))cleanFamilies.push(ArchiveFamilyAudit.name);
-   if(!refs.length&&!cleanFamilies.length)continue;
-   const place={name,lat,lng,il,ilce:district.name,districtId:id,family,refs,families:cleanFamilies,kazas};
+   if(!(refs||[]).length&&!cleanFamilies.length)continue;
+   const place={name,lat,lng,il,ilce:district.name,districtId:id,family:cleanFamilies.length?1:0,refs:refs||[],families:cleanFamilies,kazas};
    archivePoints.set(pointKey(il,district.name,name),place);
   }
  }
@@ -497,7 +498,7 @@ async function loadNationalArchive(){
   const existing=(current?.refs||[]).filter(([number,kaza])=>kaza||!refs.some(ref=>ref[0]===number));
   const combined=new Map([...existing,...refs].map(ref=>[String(ref[0])+'|'+norm(ref[1]).replace(/[^a-z0-9]/g,''),ref]));
   const [lng,lat]=konum;
-  const families=[...new Set([...(current?.families||[]),...ArchiveFamilyAudit.filterNames(sulaleler||[])])];
+  const families=[...new Set([...(current?.families||[]),...ArchiveFamilyAudit.filterNames(sulaleler||[]).filter(n=>typeof n==='string'&&n.trim())])];
   archivePoints.set(key,{name:koy,lat,lng,il,ilce,districtId:districtIds.get(districtKey(il,ilce)),
    ...current,refs:[...combined.values()],families,family:families.length?1:(current?.family||0)});
  }
@@ -589,6 +590,12 @@ function setDetailOpen(open){
  detail.classList.toggle('open',open);
  detail.closest('.mapwrap').classList.toggle('has-detail',open);
  map.invalidateSize({pan:false});
+}
+function recordMapSearch(type,name){
+ const stats=window.ArchiveStats||(window.parent!==window?window.parent.ArchiveStats:null);
+ if(!stats)return;
+ if(type==="family"&&typeof stats.recordFamily==="function")void stats.recordFamily(name);
+ if(type==="village"&&typeof stats.recordVillage==="function")void stats.recordVillage(name);
 }
 function selectPlace(p){
  selectedPlace=p;
@@ -974,6 +981,7 @@ async function updateFamilySearch(fit){
     selectPlace(archivePoints.get(pointKey(place.il,place.ilce,place.name))||place));
   $('familyLegend').style.display=found.length?'inline-flex':'none';
   if(fit&&found.length){
+   recordMapSearch('family',query);
    clearNearby();setDetailOpen(false);selectedPlace=null;
    ArchiveFamilySearch.fit(map,found);
    status(found.length+' YERLEŞİM · SÜLALE ARAMASI');
@@ -996,7 +1004,7 @@ $('archiveFind').onsubmit=async e=>{
  if(await updateFamilySearch(true)){closeFinder();return}
  if($('archiveQuery').value!==submitted)return;
  const first=renderFinder()?.[0];
- if(first){closeFinder();first.open()}
+ if(first){recordMapSearch('village',first.name);closeFinder();first.open()}
 };
 $('archiveFind').onkeydown=e=>{
  if(e.key==='Escape'){$('archiveQuery').focus();closeFinder()}
