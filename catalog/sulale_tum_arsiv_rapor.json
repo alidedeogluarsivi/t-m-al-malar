@@ -184,9 +184,10 @@
     "catalog/balikesir_kepsut_1844_1845_tmt8400_8403_16yer_20261125.ndjson": 37,
     "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson": 5,
     "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson": 1,
-    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson": 0
+    "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson": 0,
+    "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson": 0
   },
-  "source_rows": 26384,
+  "source_rows": 26405,
   "family_mentions": 62923,
   "export_rows": 49148,
   "candidate": 13760,
