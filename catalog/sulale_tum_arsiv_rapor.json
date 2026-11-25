@@ -198,7 +198,7 @@
     "records": 44874,
     "unique_names": 10658,
     "source_rows": 49184,
-    "places": 2414,
+    "places": 2415,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
