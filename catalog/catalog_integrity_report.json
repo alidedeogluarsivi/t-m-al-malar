@@ -3,7 +3,7 @@
   "missing": [],
   "invalid_json": [],
   "records": 26420,
-  "with_families": 18405,
+  "with_families": 18406,
   "with_registers": 16168,
   "missing_location": [
     {
@@ -116449,10 +116449,6 @@
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 39
-    },
-    {
-      "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
-      "line": 40
     },
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
