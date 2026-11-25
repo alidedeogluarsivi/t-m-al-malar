@@ -290,7 +290,7 @@ async function loadArchive(){const published=await EmlakCensus.load();const keep
   for(const f of ['sulaleler','sulale_kayitlari','defterler','haneler','gorevli_notlari','taramalar','yerel_kaynaklar','durumlar'])appendUnique(f);
 }
 archive=Array.from(archiveIndex.values());
-  document.getElementById('pdfStat').textContent=(summary.pdf_toplam||1879).toLocaleString('tr-TR');document.getElementById('pageStat').textContent=(summary.sayfa_toplam||37678).toLocaleString('tr-TR');document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
+  document.getElementById('pdfStat').textContent=Number(summary.pdf_toplam)>0?Number(summary.pdf_toplam).toLocaleString('tr-TR'):'—';document.getElementById('pageStat').textContent=Number(summary.sayfa_toplam)>0?Number(summary.sayfa_toplam).toLocaleString('tr-TR'):'—';document.getElementById('placeStat').textContent=archive.length.toLocaleString('tr-TR');
 }
 function archiveStatus(r){if(!r)return 'none';const names=[...(r.sulaleler||[]),...(r.sulale_kayitlari||[]).map(x=>typeof x==='object'?x?.ad:x)];if(names.some(x=>typeof x==='string'&&x.trim()&&!/^(SÜLALE ADI BELİRTİLMEMİŞ|BELİRTİLMEMİŞ|BİLİNMİYOR|YOK)$/i.test(x.trim())))return 'family';if((r.defterler||[]).some(d=>/NFS/i.test(String([d?.defter,d?.tur].join(' ')))))return 'nfs';return 'none'}
 function recFor(v){let r=archiveIndex.get(key(selectedProvince?.name,selectedDistrict?.name,v));if(r)return r;if(norm(selectedProvince?.name)===norm('NEVŞEHİR')&&norm(selectedDistrict?.name)===norm('ACIGÖL')&&norm(v)===norm('Tepeköy Köyü')){r=archiveIndex.get(key('NEVŞEHİR','ACIGÖL','Tepeköy'));if(r)return r;}const c=archive.filter(x=>x.koy&&norm(x.koy)===norm(v)&&x.ilce&&norm(x.ilce)===norm(selectedDistrict?.name));return c.length===1?c[0]:null}
