@@ -387,8 +387,31 @@ function appendKnownArchivePoints(points, district, province){
  return list;
 }
 function metadata(p){return archivePoints.get(pointKey(p.il,p.ilce,p.name))}
+function confirmedFamilyNames(p){
+ const item=metadata(p);
+ const list=records.get(pointKey(p.il,p.ilce,p.name))||[];
+ const raw=[...(item?.families||[])];
+ for(const r of list){
+  for(const n of r.sulaleler||[])if(typeof n==='string')raw.push(n);
+  for(const x of r.sulale_kayitlari||[])if(x&&x.ad&&!x.aday)raw.push(x.ad);
+  for(const h of r.haneler||[])if(h&&h.sulale&&!h.aday)raw.push(h.sulale);
+ }
+ const result=[],seen=new Set();
+ for(const v of ArchiveFamilyAudit.filterNames(raw)){
+  if(typeof v!=='string')continue;
+  const name=v.trim().replace(/\\s+OĞLU$/iu,' OĞULLARI');
+  if(!name||/^(?:BİLİNMİYOR|YOK|SÜLALE ADI BELİRTİLMEMİŞ|BELİRTİLMEMİŞ)$/iu.test(name))continue;
+  const id=norm(name);
+  if(!seen.has(id)){seen.add(id);result.push(name)}
+ }
+ // Manually audited family entries are kept separate from legacy import scrub.
+ if(ArchiveFamilyAudit.records.some(r=>pointKey(r.il,r.ilce,r.koy)===pointKey(p.il,p.ilce,p.name))
+    &&!seen.has(norm(ArchiveFamilyAudit.name)))result.push(ArchiveFamilyAudit.name);
+ return result;
+}
 function archiveKind(p){
  const item=metadata(p);
+ if(confirmedFamilyNames(p).length)return 'family';
  if(item?.families?.length||item?.family)return 'family';
  if(item?.refs?.length)return 'nfs';
  return records.has(pointKey(p.il,p.ilce,p.name))?'card':'';
@@ -465,8 +488,8 @@ async function loadNationalArchive(){
  const districtIds=new Map(districts.map(d=>[districtKey(provinceById.get(d.parent_id),d.name),d.id]));
  for(const {il,ilce,koy,konum,defterler,sulaleler} of published){
   if(!il||!ilce||!Array.isArray(konum)||konum.length!==2||!konum.every(Number.isFinite))continue;
-  const refs=defterler.flatMap(d=>d.defter.match(/NFS\.d\.(\d+)/i)?.slice(1).map(number=>[Number(number),d.tarihi_kaza])||[]);
-  if(!refs.length)continue;
+  const refs=(defterler||[]).flatMap(d=>String(d&&d.defter||'').match(/NFS\.d\.(\d+)/i)?.slice(1).map(number=>[Number(number),d.tarihi_kaza])||[]);
+  if(!refs.length&&!ArchiveFamilyAudit.filterNames(sulaleler||[]).length)continue;
   const key=pointKey(il,ilce,koy);
   const current=archivePoints.get(key);
   const existing=(current?.refs||[]).filter(([number,kaza])=>kaza||!refs.some(ref=>ref[0]===number));
@@ -631,7 +654,8 @@ function showDetails(p){
  }
  if(!loadedArchive&&!list.length&&item)html+='<p>Bu yerleşimin ayrıntılı kaynak kartları yükleniyor.</p>';
  else if(!list.length&&!docs.length&&!item?.families.length)html+='<p>Bu yerleşime bağlı ayrıntılı arşiv kartı bulunamadı.</p>';
- if(item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+item.families.map(esc).join(' · ')+'</div></div>';
+ const allFamilies=confirmedFamilyNames(p);
+ if(allFamilies.length)html+='<div class="source"><b>DOĞRULANMIŞ SÜLALE ADLARI</b><div>'+allFamilies.map(esc).join(' · ')+'</div></div>';
  if(list.length){
   for(const source of list.flatMap(r=>r.yerel_kaynaklar||[])){
    const citation=source.kaynak?'<div>'+(/^https:\/\//i.test(source.url||'')?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.kaynak)+'</a>':esc(source.kaynak))+'</div>':'';
@@ -653,7 +677,7 @@ function showDetails(p){
   }
   const citedNames=new Set(citations.map(f=>norm(f.ad)));
   const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
-  if(f.length&&!item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+f.map(esc).join(' · ')+'</div></div>'
+  // Sülaleler üstte tüm kaynaklardan tekilleştirilerek gösterildi.
  }
  b.innerHTML=html
 }
@@ -701,6 +725,10 @@ async function loadProvinceFamilies(province){
    populateVillageSelectors();if(!nearbyCenter)renderDistrictItems();renderPlaces(true);
    if(selectedPlace)showDetails(selectedPlace);
   }
+  // Family index may load after location geometry; refresh all visible green markers.
+  renderPlaces(true);
+  renderOverview();
+  if(finderOpen)renderFinder();
  })().catch(error=>{provinceFamilyPromises.delete(code);throw error});
  provinceFamilyPromises.set(code,task);
  return task;
