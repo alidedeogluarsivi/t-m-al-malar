@@ -3,6 +3,7 @@
   const paths = [
     './catalog/emlak_gedik_cubuk_sarioglan_1831_1846.ndjson',
     './catalog/ankara_nfs_eslesmeleri.ndjson',
+    './catalog/gerede_1840_nfs707_708_fihristi.ndjson',
   ];
   const legacy = /^(?:sivas-ek-2084-|kayseri\|kayse20261119\|)/;
   const key = value => String(value ?? '').toLocaleLowerCase('tr').normalize('NFD')

@@ -136,7 +136,7 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 <script src="./archive-family-audit.js?v=1"></script>
 <script src="./archive-family-search.js?v=4"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
-<script src="./emlak-harita-kayitlari.js?v=ankara-20261125"></script>
+<script src="./emlak-harita-kayitlari.js?v=gerede-nfs707-708-20261125"></script>
 <script>
 (function(){
 'use strict';
@@ -464,6 +464,7 @@ async function loadNationalArchive(){
 
  const districtIds=new Map(districts.map(d=>[districtKey(provinceById.get(d.parent_id),d.name),d.id]));
  for(const {il,ilce,koy,konum,defterler} of published){
+  if(!il||!ilce||!Array.isArray(konum)||konum.length!==2||!konum.every(Number.isFinite))continue;
   const refs=defterler.flatMap(d=>d.defter.match(/NFS\.d\.(\d+)/i)?.slice(1).map(number=>[Number(number),d.tarihi_kaza])||[]);
   if(!refs.length)continue;
   const key=pointKey(il,ilce,koy);

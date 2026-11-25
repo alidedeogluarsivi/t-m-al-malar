@@ -291,7 +291,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="searchPanel" class="searchpanel"></div>
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
-<script src="./emlak-harita-kayitlari.js?v=ankara-20261125"></script>
+<script src="./emlak-harita-kayitlari.js?v=gerede-nfs707-708-20261125"></script>
 <script src="./family-totals.js?v=20261125-single-source"></script>
 <script>
 const PROV='./provinces-local.json';
@@ -2378,7 +2378,7 @@ function showDistrictInfo(il,ilce){openInfoPanel(ilce,il+' / İLÇE BİLGİSİ',
 function showRecord(name,r,ilce,il){
   if(r&&r.koy&&window.ArchiveStats)window.ArchiveStats.recordVillage(r.koy);
   document.getElementById('vtitle').textContent=name||'YERLEŞİM';
-  document.getElementById('vloc').textContent=[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ')||'';
+  document.getElementById('vloc').textContent=r?.tarihi_yerlesim_kaydi?[r.tarihi_kaza,r.defterler?.[0]?.sancak].filter(Boolean).join(' / '):[ilce||(r&&r.ilce),il||(r&&r.il)].filter(Boolean).join(' / ');
   let h='';
   const local=localSourcesFor(il||(r&&r.il),ilce||(r&&r.ilce),name).concat(r?.yerel_kaynaklar||[]);
   if(!r){
@@ -2580,14 +2580,17 @@ function hasOfficialArchiveRecord(r){
     (r.gorevli_notlari||[]).length
   ))
 }
+let historicalSettlementArchive=[];
 async function loadArchiveCore(){
-  archive=[];summary={};
+  archive=[];summary={};historicalSettlementArchive=[];
   // Güncel köy eşleştirmesi arşiv dosyalarından ÖNCE hazır olmalı.
   // Aksi halde son eklenen Çerkeş kayıtları yalnız tarihî adlarıyla kalır.
   try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
   settlementNameIndexes.clear();
   const published=await EmlakCensus.load();
-  const raw=published.map(r=>sanitizeArchiveFamilyRecord(structuredClone(r)));
+  const publishedRows=published.map(r=>sanitizeArchiveFamilyRecord(structuredClone(r)));
+  historicalSettlementArchive=publishedRows.filter(r=>r.tarihi_yerlesim_kaydi);
+  const raw=publishedRows.filter(r=>!r.tarihi_yerlesim_kaydi);
   const keepLegacy=EmlakCensus.withoutDuplicates(published);
   // Yeni katalogları önce yükle; yüzlerce eşzamanlı istek tarayıcıda zaman aşımına neden oluyordu.
   const archivePaths=Array.from(new Set(ARCH.concat(['catalog/kars_zarusad_verified.ndjson']).map(function(path){return path.split('?')[0]})));
@@ -3119,7 +3122,7 @@ async function runFinder(){
     }
   }
   if(request!==finderRequest||q!==input.value.trim()||il!==(fp?.value||'')||ilce!==(fd?.value||''))return;
-  let rows=archive.filter(function(r){
+  let rows=archive.concat(historicalSettlementArchive).filter(function(r){
     if(il&&norm(canonicalProvince(r.il||''))!==norm(il))return false;
     if(ilce&&norm(r.ilce||'')!==norm(ilce)&&!(norm(il)===norm(ilce)&&norm(r.ilce)==='merkez'))return false;
     if(!nq)return !!(il||ilce);
@@ -3146,7 +3149,7 @@ async function runFinder(){
   list.innerHTML=visible.map(function(r,i){
     const defs=(r.defterler||[]).slice(0,2).map(function(d){return[d.defter,d.yil].filter(Boolean).join(' · ')}).filter(Boolean);
     const fam=(r.sulaleler||[]).filter(Boolean).slice(0,6);
-    return'<div class="finderItem" data-fi="'+i+'" tabindex="0"><div class="loc">'+esc([r.il,r.ilce].filter(Boolean).join(' · '))+'</div><h3>'+esc(r.koy||'YERLEŞİM')+'</h3><div class="meta">'+(defs.length?defs.map(esc).join('<br>'):'ARŞİV KARTI')+'</div>'+(fam.length?'<div class="finderFam">'+fam.map(function(x){return'<button type="button" class="familyJump" data-family="'+esc(typeof x==='object'?JSON.stringify(x):x)+'">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</button>'}).join('')+'</div>':'')+'<div class="resultActions"><button type="button" class="openRecord">KAYDI AÇ</button><button type="button" class="showOnMap" data-map-fi="'+i+'">HARİTADA GÖSTER</button></div></div>'
+    return'<div class="finderItem" data-fi="'+i+'" tabindex="0"><div class="loc">'+esc([r.il,r.ilce].filter(Boolean).join(' · ')||r.tarihi_kaza||'')+'</div><h3>'+esc(r.koy||'YERLEŞİM')+'</h3><div class="meta">'+(defs.length?defs.map(esc).join('<br>'):'ARŞİV KARTI')+'</div>'+(fam.length?'<div class="finderFam">'+fam.map(function(x){return'<button type="button" class="familyJump" data-family="'+esc(typeof x==='object'?JSON.stringify(x):x)+'">'+esc(typeof x==='object'?JSON.stringify(x):x)+'</button>'}).join('')+'</div>':'')+'<div class="resultActions"><button type="button" class="openRecord">KAYDI AÇ</button>'+(r.tarihi_yerlesim_kaydi?'':'<button type="button" class="showOnMap" data-map-fi="'+i+'">HARİTADA GÖSTER</button>')+'</div></div>'
   }).join('')+(rows.length>visible.length?'<button id="finderMore" class="finderMore" type="button">DAHA FAZLA SONUÇ · '+visible.length+' / '+rows.length+'</button>':'');
   list.querySelectorAll('[data-fi]').forEach(function(el){const open=function(e){if(e&&e.target&&e.target.closest('.familyJump,.showOnMap'))return;const r=visible[Number(el.dataset.fi)];if(r){window.ArchiveStats?.recordVillage(r.koy||'');showRecord(r.koy,r,r.ilce,r.il)}};el.onclick=open;el.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(e)}}});
   list.querySelectorAll('[data-map-fi]').forEach(function(btn){btn.onclick=function(e){e.stopPropagation();const r=visible[Number(btn.getAttribute('data-map-fi'))];if(r){window.ArchiveStats?.recordVillage(r.koy||'');showRecordOnMap(r)}}});
