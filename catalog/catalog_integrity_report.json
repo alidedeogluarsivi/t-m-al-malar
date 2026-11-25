@@ -1,10 +1,10 @@
 {
-  "source_count": 186,
+  "source_count": 187,
   "missing": [],
   "invalid_json": [],
-  "records": 26409,
-  "with_families": 18403,
-  "with_registers": 16157,
+  "records": 26420,
+  "with_families": 18405,
+  "with_registers": 16168,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -116937,6 +116937,42 @@
     {
       "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
       "line": 21
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson",
+      "line": 10
     }
   ],
   "duplicate_ids": [
