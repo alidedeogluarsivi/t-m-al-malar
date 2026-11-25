@@ -1,10 +1,10 @@
 {
-  "source_count": 185,
+  "source_count": 186,
   "missing": [],
   "invalid_json": [],
-  "records": 26388,
+  "records": 26409,
   "with_families": 18403,
-  "with_registers": 16136,
+  "with_registers": 16157,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -116853,6 +116853,90 @@
     {
       "path": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
       "line": 140
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson",
+      "line": 21
     }
   ],
   "duplicate_ids": [
