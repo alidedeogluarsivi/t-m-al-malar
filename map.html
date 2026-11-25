@@ -87,9 +87,14 @@ main{height:calc(100dvh - 54px)}
 
 /* Embedded homepage map: keep a single scroll container and avoid an empty right column. */
 html:has(body.embedded),body.embedded{height:100%;overflow:hidden}
-body.embedded main{height:calc(100% - 54px);min-height:0;overflow:hidden}
+body.embedded main{height:calc(100% - 54px)!important;min-height:0;overflow:hidden}
 body.embedded .mapwrap{min-height:0;overflow:hidden}
 body.embedded aside{overflow-y:auto;overscroll-behavior:contain}
+body.embedded #map{height:100%!important;min-height:0}
+body.embedded .mapPane{overflow:hidden}
+body.embedded header{height:54px;overflow:visible}
+body.embedded #detailBody:empty::after{content:'Bu yerleşimin arşiv ayrıntıları henüz yüklenmedi.';display:block;padding:15px;color:#526879}
+body.embedded header .map-full-link::after{content:' · GÜNCEL HARİTA';font-size:10px;opacity:.75}
 body.embedded #detail.open{position:absolute;right:8px;top:8px;bottom:8px;left:auto;width:min(360px,calc(100% - 16px));max-height:none;border:1px solid #cbd7df;border-radius:10px;box-shadow:0 8px 22px #0002;z-index:900;background:#fff}
 @media(min-width:1080px){body.embedded .mapwrap.has-detail{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){body.embedded #detail.open{top:auto;bottom:8px;height:min(52%,390px)}}
@@ -131,6 +136,7 @@ body.embedded #detail.open{position:absolute;right:8px;top:8px;bottom:8px;left:a
 (function(){
 'use strict';
 if(new URLSearchParams(location.search).get('embed')==='1')document.body.classList.add('embedded');
+if(document.body.classList.contains('embedded'))document.body.dataset.layoutVersion='20261125-b';
 const $=id=>document.getElementById(id), norm=v=>String(v||'').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i').replace(/ğ/g,'g').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ç/g,'c');
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const map=L.map('map',{center:[39.05,35.2],zoom:6,minZoom:5,maxZoom:17,preferCanvas:true,zoomAnimation:false,markerZoomAnimation:false,fadeAnimation:false});
@@ -610,7 +616,7 @@ function showDetails(p){
     (fields?'<dl>'+fields+'</dl>':'')+card.notes.map(note=>'<p>'+esc(note)+'</p>').join('')+'</article>';
   }
  }
- if(!loadedArchive&&!list.length)html+='<p>Arşiv kartı yükleniyor…</p>';
+ if(!loadedArchive&&!list.length)html+='<p>Arşiv kartları yükleniyor. NFS ve sülale bilgileri tamamlandığında burada görüntülenecek.</p>';
  else if(!list.length&&!docs.length&&!item?.families.length)html+='<p>Bu yerleşime bağlı ayrıntılı arşiv kartı bulunamadı.</p>';
  if(item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+item.families.map(esc).join(' · ')+'</div></div>';
  if(list.length){
