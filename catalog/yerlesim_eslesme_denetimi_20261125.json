@@ -131,7 +131,35 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 4
+          "family_count": 4,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Saraydüzü",
+              "koy": "Yenice",
+              "sources": [
+                "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            },
+            {
+              "il": "Çankırı",
+              "ilce": "Orta",
+              "koy": "Yenice",
+              "sources": [
+                "catalog/archive_library_verified_20261111.ndjson"
+              ]
+            },
+            {
+              "il": "Çankırı",
+              "ilce": "Şabanözü",
+              "koy": "Yenice",
+              "sources": [
+                "catalog/archive_library_verified_20261111.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "ayandon-1841-nfs847-a-020",
@@ -161,7 +189,18 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 2
+          "family_count": 2,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Durağan",
+              "koy": "Çayağzı",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "ayandon-1841-nfs847-a-025",
@@ -715,7 +754,18 @@
           "record": [
             "BOA NFS.d.847"
           ],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Samsun",
+              "ilce": "Ladik",
+              "koy": "Aktaş",
+              "sources": [
+                "catalog/archive_library_verified_20261111.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "ayandon-1841-nfs847-c-029",
@@ -853,7 +903,26 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Sarıyar",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            },
+            {
+              "il": "Sinop",
+              "ilce": "Durağan",
+              "koy": "Sarıyar",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-009",
@@ -861,7 +930,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Bürüm",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-010",
@@ -933,7 +1013,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Samsun",
+              "ilce": "Vezirköprü",
+              "koy": "Çal",
+              "sources": [
+                "catalog/archive_library_verified_20261111.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-019",
@@ -989,7 +1080,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Çaybaşı",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-026",
@@ -997,7 +1099,19 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Engilekin",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson",
+                "catalog/archive_library_verified_20261111.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-027",
@@ -1005,7 +1119,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Kavacık",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-028",
@@ -1013,7 +1138,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Doğrul",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-029",
@@ -1053,7 +1189,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Emiroğlu",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-034",
@@ -1061,7 +1208,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Benişli",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-035",
@@ -1077,7 +1235,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Boyalı",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-854-ilkhane-037",
@@ -1594,7 +1763,18 @@
           "historical_district": "BOYABAD",
           "status": "GÜNCEL YERLEŞİM EŞLEŞMESİ BEKLİYOR",
           "record": [],
-          "family_count": 1
+          "family_count": 1,
+          "ayni_adli_yerlesimler": [
+            {
+              "il": "Sinop",
+              "ilce": "Boyabat",
+              "koy": "Şeyhli",
+              "sources": [
+                "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson"
+              ]
+            }
+          ],
+          "eslesme_durumu": "AD BENZERLİĞİ - KİMLİK DOĞRULANMADI"
         },
         {
           "id": "boyabat-853-first-37",
@@ -1614,5 +1794,15 @@
         }
       ]
     }
-  ]
+  ],
+  "cross_reference": {
+    "checked_sources": [
+      "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+      "catalog/sinop_boyabat_duragan_sarayduzu_sulaleler.ndjson",
+      "catalog/archive_library_verified_20261111.ndjson"
+    ],
+    "rows_with_same_name": 14,
+    "rule": "İlçe bilgisi veya isim benzerliği tek başına tarihî karye eşleşmesi kabul edilmez.",
+    "date": "2026-11-25"
+  }
 }
