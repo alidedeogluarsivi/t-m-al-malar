@@ -6,6 +6,7 @@
     './catalog/gerede_1840_nfs707_708_fihristi.ndjson',
     './catalog/kirsehir_1830_1831_nfs3526_122_tarihi_yerlesim_20261125.ndjson?v=site-denetimi-20261125-1',
     './catalog/panli_agacoren_1831_1834_nfs3518_3520_hane_sulale_20261125.ndjson',
+    './catalog/karabuk_nfs_full.ndjson?v=site-denetimi-20261125-2',
   ];
   const legacy = /^(?:sivas-ek-2084-|kayseri\|kayse20261119\|)/;
   const key = value => String(value ?? '').toLocaleLowerCase('tr').normalize('NFD')

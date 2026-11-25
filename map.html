@@ -136,7 +136,7 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 <script src="./archive-family-audit.js?v=1"></script>
 <script src="./archive-family-search.js?v=4"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
-<script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-1"></script>
+<script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-2"></script>
 <script>
 (function(){
 'use strict';
@@ -601,7 +601,7 @@ function registerCards(rows){
    const fields=[
     ['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Sancak',d.sancak],
     ['Divan',d.divan],['Defterdeki ad',d.kayit_adi||d.tarihi_ad||row.tarihi_karye],
-    ['Yıl',d.yil],['Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],['Erkek',d.erkek]
+    ['Yıl',d.yil],['Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],[d.erkek_kayit_sira_sayisi?'Erkek sıra kaydı':'Erkek',d.erkek]
    ].filter(([,value])=>value!=null&&String(value).trim());
    const notes=[d.eslesme_durumu,d.aciklama].filter(Boolean);
    const signature=norm(JSON.stringify([title,fields,notes]));

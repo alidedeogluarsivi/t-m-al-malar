@@ -291,7 +291,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="searchPanel" class="searchpanel"></div>
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
-<script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-1"></script>
+<script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-2"></script>
 <script src="./family-totals.js?v=20261125-single-source"></script>
 <script>
 const PROV='./provinces-local.json';
@@ -2358,7 +2358,7 @@ function renderSideVillage(name,r,ilce,il){
   const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
   if(defs.length){
     body+='<div class="sideInfoSec"><b class="title">NFS / TEMETTUAT</b>'+defs.map(function(d){
-      const parts=[d.tur,d.asiret?'AŞİRET '+d.asiret:'',d.kayit_adi?'DEFTERDE '+d.kayit_adi:'',d.defter,d.defter_adi,d.yil,d.varak?(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'KÖY BAŞLANGIÇ VARAĞI ':'VARAK ')+d.varak:'',d.sayfa?'SAYFA '+d.sayfa:'',d.hane?'HANE '+d.hane:'',d.erkek?'ERKEK '+d.erkek:''].filter(Boolean);
+      const parts=[d.tur,d.asiret?'AŞİRET '+d.asiret:'',d.kayit_adi?'DEFTERDE '+d.kayit_adi:'',d.defter,d.defter_adi,d.yil,d.varak?(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'KÖY BAŞLANGIÇ VARAĞI ':'VARAK ')+d.varak:'',d.sayfa?'SAYFA '+d.sayfa:'',d.hane?'HANE '+d.hane:'',d.erkek?(d.erkek_kayit_sira_sayisi?'ERKEK SIRA KAYDI ':'ERKEK ')+d.erkek:''].filter(Boolean);
       const hist=[d.tarihi_kaza||d.kaza,d.sancak||d.tarihi_sancak,d.vilayet||d.eyalet||d.tarihi_vilayet||d.tarihi_eyalet].filter(Boolean);
       return'<div class="sideInfoRecord"><strong>'+esc(parts.join(' · '))+'</strong>'+(hist.length?'<br>'+esc(hist.join(' → ')):'')+(d.divan?'<br>DİVAN: '+esc(d.divan):'')+(d.eslesme_durumu?'<br>'+esc(d.eslesme_durumu):'')+(d.aciklama?'<br>'+esc(d.aciklama):'')+'</div>'
     }).join('')+'</div>'
@@ -2557,7 +2557,7 @@ function cleanOfficialDefter(d){
   const refs=originalRegisterRefs(d.defter||d.defter_no||d['DEFTER NO']);
   return refs.map(function(ref){
     const clean={defter:ref,tur:ref.includes('NFS.d.')?'NFS':'TMT'};
-    for(const key of ['defter_adi','yil','hicri','varak','varak_turu','sayfa','hane','erkek','tarihi_kaza','tarihi_ad','sancak','divan','asiret','kayit_adi','eslesme_durumu','aciklama']){
+    for(const key of ['defter_adi','yil','hicri','varak','varak_turu','sayfa','hane','erkek','erkek_kayit_sira_sayisi','tarihi_kaza','tarihi_ad','sancak','divan','asiret','kayit_adi','eslesme_durumu','aciklama']){
       if(d[key]!=null&&d[key]!=='')clean[key]=d[key];
     }
     return clean;
