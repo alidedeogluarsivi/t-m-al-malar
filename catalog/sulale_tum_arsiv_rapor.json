@@ -185,19 +185,20 @@
     "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson": 5,
     "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson": 1,
     "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson": 0,
-    "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson": 0
+    "catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson": 0,
+    "catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson": 2
   },
-  "source_rows": 26405,
-  "family_mentions": 62923,
-  "export_rows": 49148,
+  "source_rows": 26416,
+  "family_mentions": 62925,
+  "export_rows": 49150,
   "candidate": 13760,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 44838,
+    "records": 44840,
     "unique_names": 10651,
-    "source_rows": 49148,
-    "places": 2398,
+    "source_rows": 49150,
+    "places": 2400,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
