@@ -11,7 +11,7 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
       "all": 27,
-      "modern": 15,
+      "modern": 16,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-a-003",
@@ -572,36 +572,6 @@
             },
             {
               "ad": "SOYUKOĞULLARI",
-              "defter": "BOA NFS.d.847"
-            }
-          ],
-          "yerlesim_turu": null
-        },
-        {
-          "id": "ayandon-1841-nfs847-a-025",
-          "original": "Emrelli",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 1,
-          "tarihi_divan": "Helaldı",
-          "defterler": [
-            {
-              "defter": "BOA NFS.d.847",
-              "tur": "NFS",
-              "yil": "1841",
-              "hane": 3,
-              "erkek": 17
-            }
-          ],
-          "sulaleler": [
-            "CARTIOĞULLARI"
-          ],
-          "sulale_kayitlari": [
-            {
-              "ad": "CARTIOĞULLARI",
               "defter": "BOA NFS.d.847"
             }
           ],
@@ -7047,18 +7017,28 @@
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
       "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319 1957 idari transfer",
       "note": "Tarihî divan ve karye adı kaynak dosyasında korunur"
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-025",
+      "original": "Emrelli",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Yusuflu",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), s.319-320",
+      "note": "Yusuflu köyü Emrelli Mahallesi; tarihî karye adı korunmuştur"
     }
   ],
   "last_update": "2026-11-26",
   "summary": {
     "source_rows": 229,
-    "unresolved_source_rows": 158,
-    "verified_source_rows": 17
+    "unresolved_source_rows": 157,
+    "verified_source_rows": 18
   },
   "publication": {
     "status": "Tüm eşleşmemiş kaynak kayıtları tarihî kaza/divan başlığı ve defter/sülale ayrıntısıyla yayımlandı; güncel köy ataması yapılmadı.",
     "time": "2026-11-26",
-    "unresolved_rows": 158,
+    "unresolved_rows": 157,
     "source_documents": 58,
     "attached_family_names": 721
   }
