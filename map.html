@@ -98,6 +98,11 @@ body.embedded header .map-full-link::after{content:' · GÜNCEL HARİTA';font-si
 body.embedded #detail.open{position:absolute;right:8px;top:8px;bottom:8px;left:auto;width:min(360px,calc(100% - 16px));max-height:none;border:1px solid #cbd7df;border-radius:10px;box-shadow:0 8px 22px #0002;z-index:900;background:#fff}
 @media(min-width:1080px){body.embedded .mapwrap.has-detail{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){body.embedded #detail.open{top:auto;bottom:8px;height:min(52%,390px)}}
+
+/* Home embed: reduce noisy nearby annotations, keep site map navigable. */
+body.embedded .map-place-label{max-width:145px;white-space:normal;font-size:10px;line-height:1.15}
+body.embedded .map-place-label span{font-size:9px}
+body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 </style></head>
 <body>
 <header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← Ana sayfaya dön</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Dönem fihristi</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
@@ -415,8 +420,7 @@ function documentLabels(p){
 function labelPlace(p,layer){
  const docs=documentLabels(p);
  const kazas=metadata(p)?.kazas||[];
- const text=docs.length?docs.slice(0,2).join(' / ')+(docs.length>2?' …':''):
-  kazas.length?'Tarihî kaza: '+kazas.join(' / '):'Günümüz: '+p.ilce;
+ const text=docs.length?docs[0]:kazas.length?'Tarihî kaza: '+kazas[0]:'Günümüz: '+p.ilce;
  const html='<span class="map-place-label'+(p===nearbyFocus?' selected':'')+'"><b>'+esc(p.name)+'</b><span>'+esc(text)+'</span></span>';
  L.marker([p.lat,p.lng],{interactive:true,keyboard:true,title:p.name,bubblingMouseEvents:false,
   icon:L.divIcon({className:'',html,iconSize:[0,0],iconAnchor:[-7,13]})})
@@ -519,9 +523,14 @@ function renderPlaces(force=false){
  if(!force&&signature===lastRenderSignature)return;
  lastRenderSignature=signature;placeLayer.clearLayers();labels.clearLayers();
  if(nearbyFocus){
-  for(const place of [...nearestPlaces(),nearbyFocus]){
-   addDot(place,placeLayer,false);
-   labelPlace(place,labels);
+  const near=nearestPlaces();
+  for(const place of [...near,nearbyFocus])addDot(place,placeLayer,false);
+  const used=[];
+  for(const place of [nearbyFocus,...near]){
+   const point=map.latLngToContainerPoint([place.lat,place.lng]);
+   if(used.some(other=>Math.abs(other.x-point.x)<135&&Math.abs(other.y-point.y)<54))continue;
+   labelPlace(place,labels);used.push(point);
+   if(used.length>=7)break;
   }
   return;
  }
@@ -562,7 +571,8 @@ function selectPlace(p){
  showDetails(p);
  if(Number.isFinite(p.lat)&&Number.isFinite(p.lng)){
   $('search').value='';
-  void showRadius(p,p);
+  if(!document.body.classList.contains('embedded'))void showRadius(p,p);
+  else if(nearbyCenter){clearNearby();renderPlaces(true)}
  }
  const province=provinces.find(item=>norm(item.properties.name)===norm(p.il));
  if(province)void loadProvinceFamilies(province).then(()=>{
@@ -603,6 +613,7 @@ function showDetails(p){
  const list=records.get(pointKey(p.il,p.ilce,p.name))||[],b=$('detailBody');
  let html='<div class="tiny">GÜNÜMÜZ · '+esc(p.il)+' / '+esc(p.ilce)+'</div>';
  const item=metadata(p),docs=documentLabels(p),cards=registerCards(list);
+ if(!item&&!list.length&&!loadedArchive)html+='<div class="source">YERLEŞİM ARŞİV KAYITLARI YÜKLENİYOR</div>';
  const matches=familyResults.find(place=>pointKey(place.il,place.ilce,place.name)===pointKey(p.il,p.ilce,p.name));
  if(matches)html+='<div class="source"><b>SÜLALE EŞLEŞMESİ</b><div>'+matches.matches.map(esc).join(' · ')+'</div></div>';
  if(item?.kazas.length)html+='<div class="source"><b>TARİHÎ KAZA</b><div>'+item.kazas.map(esc).join(' · ')+'</div></div>';
@@ -616,7 +627,7 @@ function showDetails(p){
     (fields?'<dl>'+fields+'</dl>':'')+card.notes.map(note=>'<p>'+esc(note)+'</p>').join('')+'</article>';
   }
  }
- if(!loadedArchive&&!list.length)html+='<p>Arşiv kartları yükleniyor. NFS ve sülale bilgileri tamamlandığında burada görüntülenecek.</p>';
+ if(!loadedArchive&&!list.length&&item)html+='<p>Bu yerleşimin ayrıntılı kaynak kartları yükleniyor.</p>';
  else if(!list.length&&!docs.length&&!item?.families.length)html+='<p>Bu yerleşime bağlı ayrıntılı arşiv kartı bulunamadı.</p>';
  if(item?.families.length)html+='<div class="source"><b>SÜLALELER</b><div>'+item.families.map(esc).join(' · ')+'</div></div>';
  if(list.length){
@@ -943,7 +954,7 @@ map.on('moveend zoomend',()=>{
  clearTimeout(regionTimer);
  regionTimer=setTimeout(()=>{renderOverview();renderPlaces();void loadViewportPoints()},130);
 });
-map.on('click',e=>void showRadius(e.latlng));
+map.on('click',e=>{if(document.body.classList.contains('embedded')){if(!selectedPlace){setDetailOpen(false)}return;}void showRadius(e.latlng)});
 $('clearNearby').onclick=()=>{
  clearNearby();
  if(chosenDistrict)renderDistrictItems();
