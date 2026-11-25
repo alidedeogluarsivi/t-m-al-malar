@@ -3259,56 +3259,62 @@ document.addEventListener('click',function(e){if(!e.target.closest('#search')&&!
 
 // Ziyaret sayacı: yalnızca toplam ziyaret tutulur.
 (function initVisitorCounter(){
-  const entryEl=document.getElementById('entryStat');
-  if(!entryEl)return;
-  const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
+  const el=document.getElementById("entryStat");
+  if(!el)return;
+  const backend=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\\/$/,""):"";
   const api=backend?backend+"/api/site-stats":null;
-  if(api){
-    (async()=>{
-      try{
-        const response=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(6000)});
-        if(!response.ok)throw Error("stats HTTP "+response.status);
-        const stats=await response.json();
-        const total=Number(stats.total);
-        if(!Number.isSafeInteger(total)||total<0)throw Error("invalid total");
-        entryEl.textContent=total.toLocaleString("tr-TR");
-      }catch(e){entryEl.textContent="—";console.warn("Ziyaret sayacı API:",e)}
-    })();
-    return;
+  const key="alidedeogluarsivi_com_entries_v1";
+  const cacheKey="alidedeogluarsivi_verified_total_v2";
+  const sessionKey="alidedeogluarsivi_visit_counted_v1";
+  const countApi="https://countapi.mileshilliard.com/api/v1/";
+  let busy=false;
+  function number(v){const n=Number(v);if(!Number.isSafeInteger(n)||n<0)throw Error("Geçersiz sayaç değeri");return n;}
+  function display(value,stale){
+    el.textContent=number(value).toLocaleString("tr-TR");
+    el.title=stale?"SON DOĞRULANAN TOPLAM · CANLI BAĞLANTI KURULAMADI":"CANLI TOPLAM ZİYARET";
   }
-  const base='https://countapi.mileshilliard.com/api/v1';
-  const entryKey='alidedeogluarsivi_com_entries_v1';
-  function n(v){const x=Number(v);if(v==null||v===''||!Number.isSafeInteger(x)||x<0)throw new Error('Sayaç verisi geçersiz');return x}
-  async function counterRequest(action){
-    const controller=new AbortController();
-    const timeout=setTimeout(function(){controller.abort()},3500);
-    try{
-      const r=await fetch(base+'/'+action+'/'+entryKey,{cache:'no-store',signal:controller.signal});
-      if(!r.ok)throw new Error('Sayaç servisi erişilemiyor');
-      const j=await r.json();
-      return n(j.value);
-    }finally{clearTimeout(timeout)}
+  try{const old=localStorage.getItem(cacheKey);if(old!==null)display(old,true);}catch(_){}
+  async function request(url){
+    const r=await fetch(url,{cache:"no-store",signal:AbortSignal.timeout(8500)});
+    if(!r.ok)throw Error("Sayaç HTTP "+r.status);
+    return await r.json();
   }
-  async function read(){return counterRequest('get')}
-  async function hit(){return counterRequest('hit')}
-  (async function(){
+  async function update(){
+    if(busy||document.hidden)return;
+    busy=true;
     try{
       let total;
-      try{
-        if(sessionStorage.getItem('alidedeogluarsivi_visit_counted_v1')==='1'){
-          total=await read();
-        }else{
-          total=await hit();
-          sessionStorage.setItem('alidedeogluarsivi_visit_counted_v1','1');
+      if(api){
+        const json=await request(api);
+        total=number(json.total);
+      }else{
+        const counted=sessionStorage.getItem(sessionKey)==="1";
+        const action=counted?"get":"hit";
+        try{
+          const json=await request(countApi+action+"/"+key);
+          total=number(json.value);
+          if(!counted)sessionStorage.setItem(sessionKey,"1");
+        }catch(e){
+          // A failed hit can still have incremented remotely. Read once,
+          // without sending another hit that might count the visit twice.
+          if(counted)throw e;
+          const json=await request(countApi+"get/"+key);
+          total=number(json.value);
         }
-      }catch(_){
-        total=await read();
       }
-      entryEl.textContent=total.toLocaleString('tr-TR');
-    }catch(_){
-      entryEl.textContent='—';
-    }
-  })();
+      display(total,false);
+      try{localStorage.setItem(cacheKey,String(total));}catch(_){}
+    }catch(e){
+      if(el.textContent.trim()==="—"||el.textContent.trim()==="")el.textContent="BAĞLANTI YOK";
+      el.title="Sayaç sunucusuna erişilemiyor; doğrulanmamış ziyaret sayısı gösterilmiyor";
+      console.warn("Ziyaret sayacı erişim hatası:",e);
+    }finally{busy=false;}
+  }
+  void update();
+  window.addEventListener("pageshow",()=>{void update();});
+  window.addEventListener("focus",()=>{void update();});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)void update();});
+  setInterval(()=>{if(!document.hidden)void update();},60000);
 })();
 
 // Harita: maus tekeriyle zoom + sürükleyerek gezinme.
