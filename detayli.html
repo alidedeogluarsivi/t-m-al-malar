@@ -74,7 +74,7 @@ h1{margin:0;font:500 clamp(34px,5vw,62px)/1 Georgia,'Times New Roman',serif;lett
 <div id="drawer" class="drawer"><button id="close" class="close">×</button><div class="dhead"><div class="small">KÖY ARŞİV DOSYASI</div><h2 id="vtitle">KÖY</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
 <script src="./family-totals.js?v=20261121-shared-totals"></script>
-<script src="./emlak-harita-kayitlari.js?v=gerede-nfs707-708-20261125"></script>
+<script src="./emlak-harita-kayitlari.js?v=site-denetimi-20261125-1"></script>
 <script>
 const PROV='./provinces-local.json';
 const DIST='https://raw.githubusercontent.com/ttezer/turkiye-harita-verisi/master/dist/geojson/districts.geojson';
@@ -208,9 +208,12 @@ async function loadAllSettlements(){
     if(norm(record.il)!==norm(selectedProvince?.name)||norm(record.ilce)!==norm(selectedDistrict?.name))continue;
     const name=record.koy,n=norm(name);
     if(!n||displayedNames.has(n))continue;
-    if(!(record.durumlar||[]).includes('GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK')&&!(record.durumlar||[]).includes('TARİHÎ ARAÇ MERKEZİNİN YUKARI VE AŞAĞI KESİMLERİ'))continue;
+    const confirmed=record.eslesme_kesin===true&&record.yerlesim_anahtari_sabit===true;
+    const historic=(record.durumlar||[]).some(status=>['GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK','TARİHÎ ARAÇ MERKEZİNİN YUKARI VE AŞAĞI KESİMLERİ'].includes(status));
+    if(!confirmed&&!historic)continue;
     displayedNames.add(n);
-    rows.push({properties:{_displayName:name,_kind:'TARİHÎ YERLEŞİM',_has:1,_fallback:1}});
+    const kind=confirmed?(record.yerlesim_turu||'YERLEŞİM'):'TARİHÎ YERLEŞİM';
+    rows.push({properties:{_displayName:name,_kind:kind,_has:1,_fallback:1}});
   }
   rows.sort((a,b)=>a.properties._displayName.localeCompare(b.properties._displayName,'tr'));
   return rows;

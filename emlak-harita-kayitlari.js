@@ -4,6 +4,8 @@
     './catalog/emlak_gedik_cubuk_sarioglan_1831_1846.ndjson',
     './catalog/ankara_nfs_eslesmeleri.ndjson',
     './catalog/gerede_1840_nfs707_708_fihristi.ndjson',
+    './catalog/kirsehir_1830_1831_nfs3526_122_tarihi_yerlesim_20261125.ndjson?v=site-denetimi-20261125-1',
+    './catalog/panli_agacoren_1831_1834_nfs3518_3520_hane_sulale_20261125.ndjson',
   ];
   const legacy = /^(?:sivas-ek-2084-|kayseri\|kayse20261119\|)/;
   const key = value => String(value ?? '').toLocaleLowerCase('tr').normalize('NFD')
@@ -35,10 +37,12 @@
     return catalogs.flat();
   }
   function withoutDuplicates(approved) {
+    const publishedIds = new Set(approved.map(row => row.id).filter(Boolean));
     const covered = new Set(approved.filter(row => row.id?.startsWith('harita-1831-1846|')).flatMap(row => (row.defterler || [])
       .filter(document => document.hane != null || document.erkek != null)
       .map(document => stamp(row, document))));
     return row => {
+      if (publishedIds.has(row.id)) return null;
       if (!legacy.test(row.id || '') || !row.defterler?.length) return row;
       const unique = row.defterler.filter(document => !covered.has(stamp(row, document)));
       if (unique.length === row.defterler.length) return row;
