@@ -1,5 +1,5 @@
 {
-  "source_count": 199,
+  "source_count": 202,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -11,9 +11,9 @@
     },
     "68": {
       "il": "AKSARAY",
-      "ilce": 3,
-      "koy": 4,
-      "confirmed_family_places": 29,
+      "ilce": 4,
+      "koy": 5,
+      "confirmed_family_places": 36,
       "candidate_family_places": 0
     },
     "05": {
@@ -82,8 +82,8 @@
     "14": {
       "il": "BOLU",
       "ilce": 16,
-      "koy": 34,
-      "confirmed_family_places": 293,
+      "koy": 94,
+      "confirmed_family_places": 1358,
       "candidate_family_places": 3
     },
     "16": {
@@ -166,8 +166,8 @@
     "78": {
       "il": "KARABÜK",
       "ilce": 10,
-      "koy": 46,
-      "confirmed_family_places": 167,
+      "koy": 47,
+      "confirmed_family_places": 170,
       "candidate_family_places": 15
     },
     "36": {
