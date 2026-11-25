@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-25",
+  "source": "Recep Yılmaz 2018, 852, 853, 854 Numaralı Nüfus Defterlerine Göre Boyabat Nüfusu, I. Cilt",
+  "verified_inside_pdf": "NFS.d.854 transcription begins printed p.585 in the inspected I. Cilt PDF",
+  "archive_file": "catalog/boyabat_1840_nfs852_853_854_kaza_koyleri_20261125.ndjson",
+  "defterler": {
+    "852": {
+      "village_rows": 39,
+      "rows_with_hane": 38,
+      "rows_without_hane": 1,
+      "documented_hane_sum_for_loaded_rows": 858
+    },
+    "853": {
+      "village_rows": 47,
+      "rows_with_hane": 34,
+      "rows_without_hane": 13,
+      "documented_hane_sum_for_loaded_rows": 775
+    },
+    "854": {
+      "village_rows": 54,
+      "rows_with_hane": 36,
+      "rows_without_hane": 18,
+      "documented_hane_sum_for_loaded_rows": 1039
+    }
+  },
+  "family_provenance": {
+    "place": "Başekin",
+    "register": "BOA NFS.d.853",
+    "source_page": 2,
+    "originals": [
+      "Dibekoğlu",
+      "Kelağacaoğlu",
+      "Çavuşoğlu"
+    ],
+    "standard": [
+      "DİBEKOĞULLARI",
+      "KELAĞACAOĞULLARI",
+      "ÇAVUŞOĞULLARI"
+    ]
+  },
+  "quality": [
+    "Hane counts are from transcribed karye headings; not male counts",
+    "Exact modern village identification is not inferred from name similarity",
+    "Duplicate village labels in different books remain separate",
+    "Male population fields remain empty unless stated in source",
+    "853 has two distinct Kayalı occurrences; household numbers were not assigned by name alone to those two records"
+  ]
+}
