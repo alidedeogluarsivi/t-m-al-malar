@@ -274,6 +274,21 @@ function renderVillageList(){
     const n=f.properties._displayName||'',has=f.properties._has===1,kind=f.properties._kind||'YER',status=archiveStatus(recFor(n));
     return '<div class="villageItem '+(status==='family'?'hasFamily':has?'has':'')+'" data-i="'+i+'"><span><b>'+esc(n)+'</b><br><small>'+esc(kind)+'</small></span>'+(has?'<span class="badge" style="background:'+(status==='family'?'#17834b':status==='nfs'?'#d52424':'#888')+';color:#fff">'+(status==='family'?'SÜLALE':status==='nfs'?'NFS FİHRİSTİ':'ARŞİV')+'</span>':'<span class="muted">—</span>')+'</div>';
   }).join('');
+  // Historical Sarayduzu NFS entries whose present-day village name is not proven
+  // remain visible under the correct district without inventing a current village polygon.
+  if(norm(selectedProvince?.name)===norm('Sinop')&&norm(selectedDistrict?.name)===norm('Saraydüzü')){
+    const officialNames=new Set(currentVillages.map(f=>norm(f.properties._displayName||'')));
+    const historical=[...archiveIndex.values()].filter(r=>
+      norm(r.il)===norm('Sinop')&&norm(r.ilce)===norm('Saraydüzü')&&
+      (r.defterler||[]).some(d=>/NFS\\.d\\.(852|853|854)\\b/i.test(String(d.defter||'')))&&
+      !officialNames.has(norm(r.koy))
+    );
+    if(historical.length){
+      vList.innerHTML+='<div style="padding:12px;font-weight:800;background:#f5eddc;border-radius:8px;margin-top:12px">TARİHÎ BOYABAD NFS YERLEŞİMLERİ · GÜNCEL KÖY ADI KESİNLEŞMEYEN '+historical.length+' KAYIT</div>'+
+       historical.map((r,i)=>'<div class="villageItem" data-historical="'+i+'"><span><b>'+esc(r.koy)+'</b><br><small>1840 TARİHÎ KARYE · '+esc((r.defterler||[])[0]?.defter||'BOA NFS')+'</small></span><span class="badge" style="background:'+(archiveStatus(r)==='family'?'#17834b':'#d52424')+';color:#fff">'+(archiveStatus(r)==='family'?'SÜLALE':'NFS')+'</span></div>').join('');
+      vList.querySelectorAll('[data-historical]').forEach(el=>el.onclick=()=>showVillage(historical[Number(el.dataset.historical)].koy,historical[Number(el.dataset.historical)]));
+    }
+  }
   vList.querySelectorAll('[data-i]').forEach(el=>el.onclick=()=>openVillage(currentVillages[Number(el.dataset.i)].properties._displayName));
 }
 function openVillage(name){showVillage(name,recFor(name))}
