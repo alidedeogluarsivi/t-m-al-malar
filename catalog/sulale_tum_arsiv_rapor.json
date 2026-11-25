@@ -182,19 +182,20 @@
     "catalog/kirsehir_1845_tmt798_27koy_6mahalle_20261125.ndjson": 0,
     "catalog/sivas_hafik_1841_1845_nfs2321_90karye_hane_erkek_20261125.ndjson": 2,
     "catalog/balikesir_kepsut_1844_1845_tmt8400_8403_16yer_20261125.ndjson": 37,
-    "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson": 5
+    "catalog/bolu_dortdivan_1840_nfs702_35_karye_20261125.ndjson": 5,
+    "catalog/kars_kagizman_gecvan_1835_1836_nfs2782_15_yerlesim_20261125.ndjson": 1
   },
-  "source_rows": 26229,
-  "family_mentions": 62922,
-  "export_rows": 49147,
+  "source_rows": 26244,
+  "family_mentions": 62923,
+  "export_rows": 49148,
   "candidate": 13760,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 44837,
-    "unique_names": 10650,
-    "source_rows": 49147,
-    "places": 2397,
+    "records": 44838,
+    "unique_names": 10651,
+    "source_rows": 49148,
+    "places": 2398,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }

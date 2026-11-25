@@ -1,5 +1,5 @@
 {
-  "source_count": 183,
+  "source_count": 184,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -172,9 +172,9 @@
     },
     "36": {
       "il": "KARS",
-      "ilce": 5,
-      "koy": 11,
-      "confirmed_family_places": 52,
+      "ilce": 6,
+      "koy": 12,
+      "confirmed_family_places": 53,
       "candidate_family_places": 17
     },
     "37": {
