@@ -40,7 +40,7 @@ function options(){
 function render(reset=true){
  if(reset)limit=100;
  const q=norm($('q').value),region=$('region').value,kaza=$('district').value;
- filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.defter,r.yil,r.modern,...r.families].join(' ')).includes(q)));
+ filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.koyDegeri,r.defter,r.yil,r.modern,...r.families].join(' ')).includes(q)));
  $('visible').textContent=filtered.length.toLocaleString('tr-TR')+' ARAMA SONUCU';
  $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&'VARAK: '+safe(r.varak),r.sayfa&&'DEFTER SAYFA: '+safe(r.sayfa),r.pdfPage&&'KAYNAK PDF: '+safe(r.pdfPage)+'. SAYFA',r.pdfRange&&'PDF SAYFA ARALIĞI: '+safe(r.pdfRange)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane&&'HANE: '+safe(r.hane),r.hane_diger&&!r.hane&&'HANE (TEZ): '+safe(r.hane_diger),r.erkek&&(r.erkekKayit?'ERKEK SIRA KAYDI: ':'ERKEK: ')+safe(r.erkek)].filter(Boolean).join(' · ')+'</p>'+(r.modern?'<p><b>GÜNÜMÜZ (TEZ DERLEMESİ):</b> '+safe(r.modern)+'</p>':'')+(r.families.length?'<p style="color:#147449"><b>SÜLALE:</b> '+r.families.map(safe).join(' · ')+'</p>':'')+'<small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
  $('more').hidden=filtered.length<=limit;
@@ -52,7 +52,22 @@ $('more').onclick=()=>{limit+=100;render(false)};
 (async()=>{
  const results=await Promise.allSettled(sources.map(loadSource));
  results.forEach((x,i)=>{if(x.status==='fulfilled')rows.push(...x.value);else failed.push(sources[i].region)});
- try{const z=await fetch('catalog/boyabat_1840_nfs_852_853_ek_hane_sulale_20261125.ndjson');if(z.ok){for(const line of (await z.text()).split(/\r?\n/)){if(!line.trim())continue;const t=JSON.parse(line);const def=t.sulale_kayitlari?.[0]?.defter;const target=rows.find(r=>r.defter===def&&norm(r.koyDegeri)===norm(t.koy));if(target)target.families=[...new Set([...target.families,...t.sulaleler])]}}}catch(e){console.warn('Boyabat sülale ekleri',e)}
+
+ // Load surname-only evidence onto the existing book and historic-divan row, never as extra settlement cards.
+ for(const path of ["catalog/boyabat_1840_nfs_852_853_ek_hane_sulale_20261125.ndjson","catalog/boyabat_1840_nfs852_ilk_hane_sulaleleri_20261125.ndjson","catalog/boyabat_1840_nfs853_ilk_hane_sulaleleri_20261125.ndjson","catalog/boyabat_1840_nfs854_ilk_hane_sulaleleri_20261125.ndjson"]){
+  try{
+   const response=await fetch(path,{cache:'no-cache'});
+   if(!response.ok)continue;
+   for(const line of (await response.text()).split(/\r?\n/)){
+    if(!line.trim())continue;
+    const entry=JSON.parse(line), book=(entry.sulale_kayitlari||[])[0]?.defter;
+    if(!book)continue;
+    const target=rows.find(r=>r.defter===book&&norm(r.koyDegeri)===norm(entry.koy));
+    if(target)target.families=[...new Set([...(target.families||[]),...(entry.sulaleler||[])])];
+   }
+  }catch(error){console.warn('Sülale ek kaynağı okunamadı:',path,error)}
+ }
+
  rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
  $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
  $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';
