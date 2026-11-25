@@ -11,18 +11,8 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
       "all": 27,
-      "modern": 10,
+      "modern": 12,
       "unresolved": [
-        {
-          "id": "ayandon-1841-nfs847-a-001",
-          "original": "Ayandon",
-          "historical_district": "AYANDON",
-          "status": "GÜNCEL KÖY ADI KİTABIN 5. BÖLÜMÜNDE AÇIKÇA EŞLENİR.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 21
-        },
         {
           "id": "ayandon-1841-nfs847-a-003",
           "original": "Düre",
@@ -62,16 +52,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 10
-        },
-        {
-          "id": "ayandon-1841-nfs847-a-007",
-          "original": "Çay",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON KARYESİ; BUGÜNKÜ KÖY/İLÇE KONUMU KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 1
         },
         {
           "id": "ayandon-1841-nfs847-a-008",
@@ -227,7 +207,7 @@
     {
       "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "all": 33,
-      "modern": 7,
+      "modern": 8,
       "unresolved": [
         {
           "id": "ayandon-1841-nfs847-b-002",
@@ -248,16 +228,6 @@
             "BOA NFS.d.847"
           ],
           "family_count": 2
-        },
-        {
-          "id": "ayandon-1841-nfs847-b-005",
-          "original": "Kışla",
-          "historical_district": "AYANDON",
-          "status": "TARİHÎ AYANDON YERLEŞİMİ; GÜNCEL İLÇE/KÖY EŞLEŞMESİ KESİNLEŞMEDİ.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 5
         },
         {
           "id": "ayandon-1841-nfs847-b-007",
@@ -812,18 +782,8 @@
     {
       "source": "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
       "all": 6,
-      "modern": 4,
+      "modern": 5,
       "unresolved": [
-        {
-          "id": "ayandon-1841-rum-01",
-          "original": "Ayandon",
-          "historical_district": "AYANDON",
-          "status": "1841 AYANDON RUM CEMAATİ KAYDI. MÜSLÜMAN SAYILARI İLE AYNI DEFTERDE FARKLI NÜFUS KÜMESİ OLARAK KORUNDU.",
-          "record": [
-            "BOA NFS.d.847"
-          ],
-          "family_count": 6
-        },
         {
           "id": "ayandon-1841-rum-06",
           "original": "Morza",
@@ -1804,5 +1764,53 @@
     "rows_with_same_name": 14,
     "rule": "İlçe bilgisi veya isim benzerliği tek başına tarihî karye eşleşmesi kabul edilmez.",
     "date": "2026-11-25"
+  },
+  "resolved": [
+    {
+      "id": "ayandon-1841-nfs847-a-001",
+      "original": "Ayandon",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Hamamlı",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103 s.321",
+      "note": ""
+    },
+    {
+      "id": "ayandon-1841-nfs847-a-007",
+      "original": "Çay",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Ayaz",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103 s.321",
+      "note": ""
+    },
+    {
+      "id": "ayandon-1841-nfs847-b-005",
+      "original": "Kışla",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Sazkışla",
+      "source": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103 s.321",
+      "note": "Kışla, güncel Sazkışla birleşiminin tarihî bileşeni"
+    },
+    {
+      "id": "ayandon-1841-rum-01",
+      "original": "Ayandon",
+      "il": "Sinop",
+      "ilce": "Türkeli",
+      "koy": "Hamamlı",
+      "source": "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
+      "verified_source": "Türkeli: Mekân - Nüfus - Tarih (2016), Tablo 103 s.321",
+      "note": "Rum cemaati ayrı nüfus kümesi"
+    }
+  ],
+  "last_update": "2026-11-25",
+  "summary": {
+    "source_rows": 229,
+    "unresolved_source_rows": 171,
+    "verified_source_rows": 4
   }
 }
