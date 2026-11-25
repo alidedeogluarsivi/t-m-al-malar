@@ -1,5 +1,5 @@
 {
-  "source_count": 178,
+  "source_count": 182,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -67,9 +67,9 @@
     },
     "10": {
       "il": "BALIKESİR",
-      "ilce": 5,
-      "koy": 24,
-      "confirmed_family_places": 200,
+      "ilce": 6,
+      "koy": 26,
+      "confirmed_family_places": 237,
       "candidate_family_places": 0
     },
     "74": {
@@ -284,9 +284,9 @@
     },
     "58": {
       "il": "SİVAS",
-      "ilce": 14,
-      "koy": 39,
-      "confirmed_family_places": 926,
+      "ilce": 15,
+      "koy": 41,
+      "confirmed_family_places": 928,
       "candidate_family_places": 6
     },
     "60": {
