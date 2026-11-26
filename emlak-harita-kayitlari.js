@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const paths = [
+    './catalog/oncelikli_kaynak_kontrolu_20261126.ndjson',
     './catalog/emlak_gedik_cubuk_sarioglan_1831_1846.ndjson',
     './catalog/ankara_nfs_eslesmeleri.ndjson',
     './catalog/gerede_1840_nfs707_708_fihristi.ndjson',

@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25-ayandon-NFS847-with-rum-surnames",
+  "version": "2026-11-26-oncelikli-kaynak-kontrolu",
   "kind": "archival-family-source-list",
   "paths": [
     "archive_1.ndjson",
@@ -207,7 +207,8 @@
     "catalog/ayandon_1841_nfs847_koy_sulale_1_20261125.ndjson",
     "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
     "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson",
-    "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson"
+    "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson",
+    "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson"
   ],
   "notes": [
     "S",
@@ -549,7 +550,8 @@
     "a",
     "z",
     ".",
-    "NFS.d.2785: 56 köyde köy satırlarının erkek toplamı 2135, defter fihrist genel toplamı 2125; fark 10, kaynak düzeltilmeden korundu."
+    "NFS.d.2785: 56 köyde köy satırlarının erkek toplamı 2135, defter fihrist genel toplamı 2125; fark 10, kaynak düzeltilmeden korundu.",
+    "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson"
   ],
   "counts": {
     "root": 6,

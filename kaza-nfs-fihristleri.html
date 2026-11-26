@@ -11,6 +11,7 @@
 </main><script>
 'use strict';
 const sources=[
+ {region:'ÖNCELİKLİ KAYNAK DENETİMİ',file:'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson',kind:'oncelikli'},
  {region:'NİĞDE / ULUKIŞLA 3626',file:'catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson',kind:'ulukisla'},
  {region:'SİNOP / BOYABAT MERKEZ 852',file:'catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson',kind:'boyabat-mahalle'},
   {region:'SİNOP / AYANDON NFS 847 RUM',file:'catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson',kind:'ayandon-rum'},
@@ -73,6 +74,19 @@ $('more').onclick=()=>{limit+=100;render(false)};
   }catch(error){console.warn('Sülale ek kaynağı okunamadı:',path,error)}
  }
 
+ const priorityByRegister = new Map();
+ for (const row of rows.filter(row => row.kaynak === 'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson')) {
+   const key = JSON.stringify([row.kaza, row.name, row.modern, row.defter, row.yil, row.varak, row.sayfa]);
+   const prior = priorityByRegister.get(key);
+   if (!prior) {
+     priorityByRegister.set(key, row);
+     continue;
+   }
+   prior.hane ||= row.hane;
+   prior.erkek ||= row.erkek;
+   prior.families = [...new Set([...prior.families, ...row.families])];
+ }
+ rows = rows.filter(row => row.kaynak !== 'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson').concat([...priorityByRegister.values()]);
  rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
  $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
  $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';

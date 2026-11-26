@@ -100,6 +100,8 @@ def main():
         name_key = place_key(name)
         if plate == "37" and key(district) == "abana" and name_key == "abanamerkez":
             name_key = "abanailcemerkezi"
+        if plate == "06" and key(district) == "cubuk" and name_key == "esenbogamerkez":
+            name_key = "esenboga"
         matches = locations[district_id].get(name_key, set())
         points = {point for _, point in matches}
         given = coordinates(row.get("konum"))
