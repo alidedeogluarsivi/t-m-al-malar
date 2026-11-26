@@ -206,19 +206,20 @@
     "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson": 157,
     "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson": 222,
     "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson": 63,
-    "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson": 39
+    "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson": 39,
+    "catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson": 247
   },
-  "source_rows": 27051,
-  "family_mentions": 67204,
-  "export_rows": 53319,
+  "source_rows": 27298,
+  "family_mentions": 67451,
+  "export_rows": 53566,
   "candidate": 14064,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 48990,
-    "unique_names": 11475,
-    "source_rows": 53319,
-    "places": 2699,
+    "records": 49237,
+    "unique_names": 11502,
+    "source_rows": 53566,
+    "places": 2701,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
