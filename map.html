@@ -134,10 +134,10 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./archive-family-audit.js?v=1"></script>
-<script src="./archive-family-search.js?v=6"></script>
+<script src="./archive-family-search.js?v=7"></script>
 <script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
-<script src="./emlak-harita-kayitlari.js?v=ceviriyazi-20261126"></script>
+<script src="./emlak-harita-kayitlari.js?v=kaza-20261126"></script>
 <script>
 (function(){
 'use strict';
@@ -474,7 +474,7 @@ function renderOverview(){
  largeArchiveDots=large;renderedOverviewVersion=archiveVersion;
 }
 async function loadNationalArchive(){
- const [data,published]=await Promise.all([json('./geo/archive-points.json?v=ceviriyazi-20261126'),EmlakCensus.load()]);
+ const [data,published]=await Promise.all([json('./geo/archive-points.json?v=kaza-20261126'),EmlakCensus.load()]);
  const districtById=new Map(districts.map(d=>[d.id,d]));
  const provinceById=new Map(provinces.map(p=>[provinceID(p),p.properties.name]));
  for(const [id,rows] of Object.entries(data.districts||{})){
