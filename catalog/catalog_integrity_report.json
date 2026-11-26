@@ -1,10 +1,10 @@
 {
-  "source_count": 206,
+  "source_count": 207,
   "missing": [],
   "invalid_json": [],
-  "records": 27013,
-  "with_families": 18884,
-  "with_registers": 16497,
+  "records": 27055,
+  "with_families": 18923,
+  "with_registers": 16539,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -118749,6 +118749,18 @@
     {
       "path": "catalog/ayandon_1841_nfs847_koy_sulale_2_20261125.ndjson",
       "line": 18
+    },
+    {
+      "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
+      "line": 42
     }
   ],
   "duplicate_ids": [
