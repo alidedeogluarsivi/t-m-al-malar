@@ -10,7 +10,13 @@
 <div class="stats"><span id="total">Kaynak dosyaları yükleniyor…</span><span id="visible">—</span><span id="sources">—</span></div><div id="results" class="results" aria-live="polite"></div><div class="bottom"><button id="more" type="button" hidden>100 KAYIT DAHA GÖSTER</button></div>
 </main><script>
 'use strict';
+const groupedFihristPaths = new Set([
+ 'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson',
+ 'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',
+]);
 const sources=[
+ {region:'ÇEVRİYAZI VE HANE DENETİMİ',file:'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',kind:'ceviriyazi'},
+ {region:'ANKARA / HASANOĞLAN',file:'catalog/ankara_hasanoglan_tarihi_nfs_20261126.ndjson',kind:'hasanoglan'},
  {region:'ÖNCELİKLİ KAYNAK DENETİMİ',file:'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson',kind:'oncelikli'},
  {region:'NİĞDE / ULUKIŞLA 3626',file:'catalog/nigde_ulukisla_1838_1839_nfs3626_21_yerlesim_20261125.ndjson',kind:'ulukisla'},
  {region:'SİNOP / BOYABAT MERKEZ 852',file:'catalog/boyabat_1840_nfs852_11_merkez_mahalle_hane_20261125.ndjson',kind:'boyabat-mahalle'},
@@ -75,8 +81,8 @@ $('more').onclick=()=>{limit+=100;render(false)};
  }
 
  const priorityByRegister = new Map();
- for (const row of rows.filter(row => row.kaynak === 'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson')) {
-   const key = JSON.stringify([row.kaza, row.name, row.modern, row.defter, row.yil, row.varak, row.sayfa]);
+ for (const row of rows.filter(row => groupedFihristPaths.has(row.kaynak))) {
+   const key = JSON.stringify([row.kaynak, row.kaza, row.name, row.modern, row.defter, row.yil, row.varak, row.sayfa]);
    const prior = priorityByRegister.get(key);
    if (!prior) {
      priorityByRegister.set(key, row);
@@ -86,7 +92,7 @@ $('more').onclick=()=>{limit+=100;render(false)};
    prior.erkek ||= row.erkek;
    prior.families = [...new Set([...prior.families, ...row.families])];
  }
- rows = rows.filter(row => row.kaynak !== 'catalog/oncelikli_kaynak_kontrolu_20261126.ndjson').concat([...priorityByRegister.values()]);
+ rows = rows.filter(row => !groupedFihristPaths.has(row.kaynak)).concat([...priorityByRegister.values()]);
  rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
  $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
  $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';
