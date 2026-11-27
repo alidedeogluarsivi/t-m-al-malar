@@ -1,10 +1,10 @@
 {
-  "source_count": 221,
+  "source_count": 220,
   "missing": [],
   "invalid_json": [],
-  "records": 28558,
-  "with_families": 19442,
-  "with_registers": 18015,
+  "records": 28556,
+  "with_families": 19440,
+  "with_registers": 18013,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
