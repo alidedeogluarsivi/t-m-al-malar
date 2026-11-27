@@ -465,7 +465,7 @@ async function readFamilyFile(path){
 async function getCompiledFamilyFeed(){
  if(typeof DecompressionStream==="function"){
   try{
-   const response=await fetch("catalog/sulale_tum_arsiv.ndjson.gz?v=kaza-20261126",{signal:AbortSignal.timeout(35000)});
+   const response=await fetch("catalog/sulale_tum_arsiv.ndjson.gz?v=20261128-nufus",{signal:AbortSignal.timeout(35000)});
    if(response.ok&&response.body){
     const stream=response.body.pipeThrough(new DecompressionStream("gzip"));
     return await new Response(stream).text();

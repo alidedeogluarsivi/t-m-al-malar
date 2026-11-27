@@ -2,6 +2,7 @@
   "version": "2026-11-26-oncelikli-kaynak-kontrolu",
   "kind": "archival-family-source-list",
   "paths": [
+    "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
     "archive_1.ndjson",
     "archive_2.ndjson",
     "archive_3.ndjson",
