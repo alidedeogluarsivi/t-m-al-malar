@@ -113,28 +113,18 @@ button,.searchBtn,.mapSearchBtn,.histTools button,.mapactions button{min-height:
 @media(max-width:1050px){.sidebar{overflow:visible}.sidebody{overflow:visible}.stickyLocationSearch{top:0}}
 @media(max-width:620px){.stickyLocationSearch{padding:7px}.stickyLocationFields{gap:5px}.stickyLocationFields select{font-size:12px;min-height:42px}.stickyLocationTitle{font-size:10px}}
 
-/* Arşiv canlı ziyaret ve son aramalar */
-.archiveLiveStats{margin-top:12px;padding:13px 15px;background:#ffffff12;border:1px solid #ffffff35;border-radius:13px}
-.archiveRecent{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.archiveRecent>div{min-width:0;padding:10px;background:#ffffff0d;border:1px solid #ffffff22;border-radius:9px}
-.archiveRecent strong{display:block;font-size:11px;letter-spacing:.04em;margin-bottom:5px}
-.archiveRecent p{margin:0!important;color:#fff!important;font-size:13px!important;line-height:1.65!important;overflow-wrap:anywhere;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 10px;align-content:start;min-height:34px}
-.archiveRecentItem{display:block;overflow-wrap:anywhere;padding:2px 0;border-bottom:1px solid #ffffff1a}
-/* Archive status: NFS red, family records green; counters use a single verified report. */
-#recentVillages .archiveRecentItem::before,#recentFamilies .archiveRecentItem::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;box-shadow:0 0 0 1px #ffffff66}
-#recentVillages .archiveRecentItem::before{background:#ed3b42}
-#recentFamilies .archiveRecentItem::before{background:#49a9f5}
-@media(max-width:720px){.archiveRecent p{grid-template-columns:1fr}}
-@media(max-width:600px){.archiveRecent{grid-template-columns:1fr}}
+.archiveRecentSection{display:grid;gap:6px;margin:0 0 10px}
+.archiveRecentRow{display:grid;grid-template-columns:11rem minmax(0,1fr);align-items:start;gap:5px 12px;padding:9px 13px;background:#132f43;color:#fff;border-radius:10px;font-size:.875rem;line-height:1.45}
+.archiveRecentRow p{margin:0;overflow-wrap:anywhere}
+.archiveRecentRow p small{color:#dbe8ed}
+#recentSearchStatus{padding:0 4px;color:#415566;font-size:.75rem}
+@media(max-width:600px){.archiveRecentRow{grid-template-columns:minmax(0,1fr)}}
 
 .archiveStatsTop{margin:0 0 10px;padding:9px;background:#132f43;color:#fff;border-radius:14px;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
 .archiveStatsTop .stat{min-width:0;padding:8px 9px;color:inherit;text-decoration:none}
 .archiveStatsTop .stat b{font-size:clamp(1rem,2vw,1.4rem);line-height:1.2}
 .archiveStatsTop .stat span{display:block;margin-top:3px;font-size:.7rem;line-height:1.25;letter-spacing:0}
 .archiveStatsTop a:hover,.archiveStatsTop a:focus-visible{background:#ffffff25}
-.archiveRecentSection{margin-top:12px;padding:8px;background:#132f43;color:#fff;border-radius:14px}
-.archiveRecentSection .archiveLiveStats{margin:0;padding:7px 10px}
-.archiveRecentSection .archiveRecent{margin-top:0}
 @media(max-width:900px){.archiveStatsTop{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:385px){.archiveStatsTop{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -215,6 +205,11 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
   <div class="stat"><b id="entryStat">—</b><span>TOPLAM ZİYARET</span></div>
   <div class="stat"><b id="dailyVisitStat">—</b><span>BUGÜNKÜ ZİYARET</span></div>
 </section>
+<section class="archiveRecentSection" aria-label="Son aramalar">
+  <div class="archiveRecentRow"><strong>SON ARANAN 10 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div>
+  <div class="archiveRecentRow"><strong>SON ARANAN 10 SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div>
+  <small id="recentSearchStatus">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
+</section>
 <nav class="sectionNav" aria-label="Arşiv bölümleri">
 <a href="./sulale-sozlugu.html">İL / İLÇE / KÖY SÜLALE SÖZLÜĞÜ</a>
 <a href="https://headless-xwztcsnrvic-ahmetsel1198-140c.wix-site-host.com/SULALE_SOZLUGU_EKITAP_ILK_KAPAK_SITE.pdf" target="_blank" rel="noopener noreferrer">SÜLALE SÖZLÜĞÜ — ÜCRETSİZ İNDİR</a>
@@ -286,9 +281,6 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 </section>
 </div>
 
-<section class="archiveRecentSection" aria-label="Son aramalar"><div class="archiveLiveStats">
-  <div class="archiveRecent"><div><strong>SON ARANAN 10 KÖY</strong><p id="recentVillages">VERİ YÜKLENİYOR</p></div><div><strong>SON ARANAN 10 SÜLALE</strong><p id="recentFamilies">VERİ YÜKLENİYOR</p></div></div><small id="recentSearchStatus" style="display:block;margin-top:7px;font-size:11px;font-weight:800;color:#fff">ORTAK ARAMA BAĞLANTISI KONTROL EDİLİYOR…</small>
-</div></section>
 <img class="topBanner" loading="lazy" src="https://static.wixstatic.com/media/c3ec93_34ab432e5bf1475b89860b32f89ec19b~mv2.png" alt="Alidedeoğlu Arşivi ana sayfa kapak görseli" decoding="async" fetchpriority="low">
 <div style="max-width:1250px;margin:12px auto;padding:10px 18px;background:#f5f4ee;border:1px solid #d8d5ca;border-radius:8px;font:600 14px Arial,sans-serif"><a href="./yerlesim-eslesme-denetimi.html" style="color:#174b61;text-decoration:underline">YERLEŞİM EŞLEŞME DENETİMİ · AYANDON / BOYABAT · EKSİK KAYITLAR</a></div>
 <section id="adminHistory" class="adminHistory"><h2 id="adminTitle">OSMANLI İDARÎ GEÇMİŞİ</h2><p id="adminDesc"></p><div id="adminGrid" class="adminGrid"></div><div class="adminSource">KAYNAK: DEVLET ARŞİVLERİ GENEL MÜDÜRLÜĞÜ · OSMANLI YER ADLARI (2017)</div></section><section class="preview"><h2 id="previewTitle">Arşivden Ön İzleme</h2><p id="previewDesc">İl veya ilçe seçtiğinizde o bölgedeki köyler ve kayıtlı sülale adları burada görünür.</p><div id="previewGrid" class="previewgrid"></div></section>
@@ -3411,7 +3403,7 @@ bindHistoricalControls();
 </script>
 
 <script src="./historical-1890.js?v=20261127"></script>
-<script defer src="./site-stats.js?v=20261126-recent7"></script>
+<script defer src="./site-stats.js?v=20261127-recent8"></script>
 <script>
 /* Önceki sürümlerden kalabilecek özel üst şeritleri de gizle */
 (function(){

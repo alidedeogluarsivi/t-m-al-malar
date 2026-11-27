@@ -47,7 +47,6 @@ function saveLocal(type,name){
 function local(type){try{return (JSON.parse(localStorage.getItem(OWN_KEY)||"{}")[type]||[]).slice(0,10)}catch(_){return []}}
 function draw(type,names,isLocal){
  const el=TYPES[type].el;if(!el)return;
- el.replaceChildren();
  const unique=[];const seen=new Set();
  for(const item of names){
   const name=String(item||"").trim();
@@ -56,7 +55,7 @@ function draw(type,names,isLocal){
   if(unique.length>=TYPES[type].n)break;
  }
  if(!unique.length){el.textContent=isLocal?"BU CİHAZDA HENÜZ ARAMA YOK":"HENÜZ KAYIT YOK";return;}
- unique.forEach((name,i)=>{const s=document.createElement("span");s.className="archiveRecentItem";s.textContent=String(i+1)+". "+name;el.append(s)});
+ el.textContent=unique.join(", ");
  if(isLocal){const small=document.createElement("small");small.textContent=" (BU TARAYICIDA)";el.append(small);}
 }
 async function request(action,key,value){
