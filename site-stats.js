@@ -1,22 +1,13 @@
-/* ALIDEDEOGLU ARSIVI - ortak sayaç arızası ve yerel geçmiş düzeltmesi (v6).
-   Shared counters retain integer IDs, never names or identifying visitor data.
-   Names resolved through generated public archive index.
-   Public counters have no authentication and are best-effort, not an audit log.
-*/
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat"),status=$("recentSearchStatus");
+const villages=$("recentVillages"),families=$("recentFamilies"),daily=$("dailyVisitStat");
 const COUNT="https://countapi.mileshilliard.com/api/v1/";
-const PREFIX="alidedeogluarsivi_last_search_v5_";
-const OWN_KEY="alidedeoglu_recent_own_searches_v5";
 const API_BASE=typeof window.ARCHIVE_STATS_API==="string"?window.ARCHIVE_STATS_API.trim().replace(/\/$/,""):"";
 const api=API_BASE?API_BASE+"/api/site-stats":null;
 const TYPES={village:{el:villages,n:10},family:{el:families,n:10}};
-let publicIndex=null,indexRetryAfter=0,localIndex={village:{},family:{}};
-let recentSharedSequence={village:0,family:0};
-let lastRefresh=0,refreshBusy=false,sharedHealthy=null;
-function statusText(msg){if(status)status.textContent=msg;}
+const RECENT_API="https://alidedeoglu-arsivi-arama-kayitlari.ahmet-sel-al-2548.chatgpt.site/api/recent-searches";
+let lastRefresh=0,refreshPromise=null;
 function normalize(x){return String(x||"").trim().replace(/\s+/g," ").slice(0,90).toLocaleUpperCase("tr-TR").normalize("NFC");}
 // Exclude editorial placeholders from public recent searches; preserve source records.
 function validSearchName(type,value){
@@ -34,18 +25,7 @@ function nameId(name){
  }
  return String(hash & ((1n<<48n)-1n));
 }
-function saveLocal(type,name){
- const normalized=normalize(name);if(!normalized||normalized.length<2)return;
- const id=nameId(name);
- localIndex[type][id]=name.trim();
- try{const store=JSON.parse(localStorage.getItem(OWN_KEY)||"{}");
-  const rows=Array.isArray(store[type])?store[type]:[];
-  store[type]=[name.trim(),...rows.filter(x=>normalize(x)!==normalized)].slice(0,TYPES[type].n);
-  localStorage.setItem(OWN_KEY,JSON.stringify(store));
- }catch(_){}
-}
-function local(type){try{return (JSON.parse(localStorage.getItem(OWN_KEY)||"{}")[type]||[]).slice(0,10)}catch(_){return []}}
-function draw(type,names,isLocal){
+function draw(type,names){
  const el=TYPES[type].el;if(!el)return;
  const unique=[];const seen=new Set();
  for(const item of names){
@@ -54,12 +34,10 @@ function draw(type,names,isLocal){
   unique.push(name);seen.add(normalize(name));
   if(unique.length>=TYPES[type].n)break;
  }
- if(!unique.length){el.textContent=isLocal?"BU CİHAZDA HENÜZ ARAMA YOK":"HENÜZ KAYIT YOK";return;}
- el.textContent=unique.join(", ");
- if(isLocal){const small=document.createElement("small");small.textContent=" (BU TARAYICIDA)";el.append(small);}
+ el.textContent=unique.join(", ")||"—";
 }
-async function request(action,key,value){
- const url=COUNT+action+"/"+key+(value===undefined?"":"?value="+encodeURIComponent(String(value)));
+async function request(action,key){
+ const url=COUNT+action+"/"+key;
  const res=await fetch(url,{cache:"no-store",signal:AbortSignal.timeout(4500)});
  if(!res.ok)throw Error("SAYAÇ HTTP "+res.status);
  const json=await res.json();
@@ -67,96 +45,52 @@ async function request(action,key,value){
  if(!Number.isSafeInteger(n)||n<0)throw Error("SAYAÇ VERİSİ GEÇERSİZ");
  return n;
 }
-async function ensureIndex(){
- if(publicIndex)return publicIndex;
- if(Date.now()<indexRetryAfter)return null;
- indexRetryAfter=Date.now()+60000;
- try{
-  const r=await fetch("./recent-search-index.json?v=20261124-recent5",{cache:"no-cache",signal:AbortSignal.timeout(9000)});
-  if(!r.ok)throw Error("index missing");
-  const parsed=await r.json();
-  if(parsed&&parsed.village&&parsed.family){publicIndex=parsed;indexRetryAfter=0;return parsed}
- }catch(e){console.warn("Arama isim indeksi henüz hazır değil:",e.message)}
- return null;
-}
-async function readShared(type){
- const limit=TYPES[type].n,base=PREFIX+type+"_";
- const position=await request("get",base+"position");
- recentSharedSequence[type]=position;
- if(position<1)return [];
- const slots=[...new Set(Array.from({length:Math.min(limit,position)},(_,i)=>(position-1-i)%limit))];
- const vals=await Promise.all(slots.map(async slot=>{try{return await request("get",base+"slot_"+slot)}catch(_){return 0}}));
- const lookup=await ensureIndex();
- if(!lookup)throw Error("İSİM DİZİNİ YÜKLENEMEDİ");
- const names=[];
- for(const raw of vals){
-  const id=String(raw);
-  const name=(lookup&&lookup[type]&&lookup[type][id])||localIndex[type][id];
-  if(name&&validSearchName(type,name))names.push(name);
- }
- return names;
-}
-async function refresh(){
- if(refreshBusy)return;
- if(!villages&&!families)return;
- if(document.hidden)return;
- refreshBusy=true;
- try{
-  if(api){
-   try{
-    const r=await fetch(api,{cache:"no-store",signal:AbortSignal.timeout(4500)});
-    if(r.ok){const data=await r.json();draw("village",data.villages||[],false);draw("family",data.families||[],false);sharedHealthy=true;statusText("ORTAK ARAMA SİSTEMİ BAĞLI");return}
-   }catch(_){}
+function refresh(){
+ if((!villages&&!families)||document.hidden)return;
+ if(refreshPromise)return refreshPromise;
+ refreshPromise=(async()=>{
+  try{
+   const response=await fetch(RECENT_API,{cache:"no-store",signal:AbortSignal.timeout(8000)});
+   if(!response.ok)throw Error("Arama listesi HTTP "+response.status);
+   const data=await response.json();
+   if(!Array.isArray(data.villages)||!Array.isArray(data.families))throw Error("Arama listesi verisi geçersiz");
+   draw("village",data.villages);
+   draw("family",data.families);
+  }catch(error){
+   console.warn("Ortak arama listesi:",error.message);
+  }finally{
+   lastRefresh=Date.now();
+   refreshPromise=null;
   }
-  let sharedRead=0,sharedErrors=0;
-  await Promise.all(Object.keys(TYPES).map(async type=>{
-   if(!TYPES[type].el)return;
-   try{
-    const rows=await readShared(type);
-    sharedRead++;
-    if(rows.length){draw(type,rows,false);return;}
-    draw(type,[],false);
-    TYPES[type].el.textContent=recentSharedSequence[type]>0
-      ?"YENİ ORTAK ARAMALARIN İSİMLERİ HENÜZ ÇÖZÜMLENEMEDİ":"ORTAK ARAMA KAYDI HENÜZ YOK";
-   }catch(e){
-    sharedErrors++;
-    draw(type,local(type),true);
-    if(!local(type).length)TYPES[type].el.textContent="ORTAK SERVİSE ERİŞİLEMİYOR · BU TARAYICIDA ARAMA YOK";
-    console.warn("Son aramalar:",type,e.message);
-   }
-  }));
-  sharedHealthy=sharedRead>0;
-  if(sharedHealthy)statusText("GÜNCEL ORTAK ARAMALAR · ESKİ LİSTELER GÖSTERİLMİYOR");
-  else if(sharedErrors)statusText("ORTAK SUNUCUYA ERİŞİLEMİYOR · VARSA YALNIZ BU TARAYICININ ARAMALARI GÖSTERİLİYOR");
- }finally{refreshBusy=false;lastRefresh=Date.now()}
+ })();
+ return refreshPromise;
+}
+function sendSearch(kind,id){
+ return fetch(RECENT_API,{
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify({kind,id}),
+  signal:AbortSignal.timeout(10000),
+  keepalive:true,
+ });
 }
 async function record(type,name){
- if(!TYPES[type])return;
- name=String(name||"").trim().replace(/\s+/g," ").slice(0,90);
- if(!validSearchName(type,name))return;
- saveLocal(type,name);
- if(TYPES[type].el&&sharedHealthy!==true)draw(type,local(type),true);
- statusText("ARAMA KAYDI ORTAK SAYAÇA GÖNDERİLİYOR…");
- if(api){
-  try{
-   const r=await fetch(api,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,name}),signal:AbortSignal.timeout(5000)});
-   if(r.ok){void refresh();return}
-  }catch(_){}
- }
- // The sequence counter allocates a shared circular position. Concurrent writes
- // may overwrite the same slot; this is a best-effort latest-queries widget.
+ if(!Object.hasOwn(TYPES,type)||!validSearchName(type,name))return;
+ const original=normalize(name);
  try{
-  const id=nameId(name);
-  const base=PREFIX+type+"_";
-  const seq=await request("hit",base+"position");
-  const slot=(seq-1)%TYPES[type].n;
-  await request("set",base+"slot_"+slot,id);
-  const saved=await request("get",base+"slot_"+slot);
-  if(saved!==Number(id))throw Error("Ortak sayaç kayıt doğrulaması başarısız");
-  sharedHealthy=true;
-  statusText("ARAMA ORTAK SAYAÇA KAYDEDİLDİ");
-  void refresh();
- }catch(e){sharedHealthy=false;draw(type,local(type),true);statusText("ORTAK KAYIT YAPILAMADI · ARAMA BU TARAYICIDA SAKLANDI");console.warn("Ortak arama sayacına erişilemedi:",e.message)}
+  let response=await sendSearch(type,nameId(original));
+  if(response.status===422&&type==="family"){
+   const variant=original.endsWith(" OĞULLARI")
+    ?original.replace(/ OĞULLARI$/,"OĞULLARI")
+    :original.replace(/(?<! )OĞULLARI$/," OĞULLARI");
+   if(variant!==original)response=await sendSearch(type,nameId(variant));
+  }
+  if(!response.ok)throw Error("Arama kaydı HTTP "+response.status);
+  await refreshPromise;
+  await refresh();
+ }catch(error){
+  console.warn("Ortak arama kaydı:",error.message);
+ }
 }
 window.ArchiveStats={
  recordVillage:name=>record("village",name),
@@ -203,6 +137,6 @@ if(villages||families){
  window.addEventListener("focus",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
  window.addEventListener("pageshow",()=>{if(Date.now()-lastRefresh>6000)void refresh()});
  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-lastRefresh>6000)void refresh()});
- setInterval(()=>{if(!document.hidden&&Date.now()-lastRefresh>=30000)void refresh()},30000);
+ setInterval(()=>{if(!document.hidden&&Date.now()-lastRefresh>=15000)void refresh()},15000);
 }
 })();
