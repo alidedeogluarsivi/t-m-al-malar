@@ -15,6 +15,9 @@ const groupedFihristPaths = new Set([
  'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',
 ]);
 const sources=[
+ {region:'SİNOP / SARAY VE ANTALYA / FİNİKE',file:'catalog/saray_finike_nfs_20261127.ndjson?v=20261127-saray-finike',kind:'envanter'},
+ ...[1,2,3].map(part=>({region:'SAMSUN / ÇARŞAMBA NFS 975',file:'catalog/carsamba_1834_tercume_122_karye_sulale_parca_'+part+'_20261119.ndjson?v=20261127-saray-finike',kind:'envanter',defter:'BOA NFS.d.975'})),
+ {region:'SAMSUN / AYVACIK NFS 975–976',file:'catalog/carsamba_arim_okse_ayvacik_nfs_1834.ndjson?v=20261127-saray-finike',kind:'envanter',id:'carsamba1834|ayvac-k|14|omerlu'},
  {region:'YENİ OKUNAN EXCEL FİHRİSTLERİ',file:'catalog/tamamlanan_excel_fihristleri_20261127.ndjson',kind:'envanter'},
  {region:'TARİHÎ KAZA EŞLEŞMELERİ',file:'catalog/kaza_yerlesim_eslesmeleri_20261127.ndjson',kind:'envanter'},
  {region:'EXCEL FİHRİST EKLERİ',file:'catalog/excel_fihrist_ekleri_20261127.ndjson',kind:'envanter'},
@@ -50,16 +53,19 @@ async function loadSource(source){
   if(!line.trim())continue;
   let row;
   try{row=JSON.parse(line)}catch{continue}
+  if(source.id&&row.id!==source.id)continue;
   const documents=source.kind==='envanter'?(row.defterler||[]):[row.defterler?.[0]||{}];
   for(const item of documents){
+   if(source.defter&&item.defter!==source.defter)continue;
    const name=source.kind==='envanter'?(item.kayit_adi||row.koy):(row.tarihi_karye||row.tarihi_ad||row.koy||item.kayit_adi||'');
    if(!name)continue;
    const modern=row.eslesme_kesin===true&&row.il&&row.ilce&&row.koy
-     ?[row.il,row.ilce,row.koy]:[row.bugunku_il,row.bugunku_ilce,row.bugunku_koy];
+     ?[row.il,row.ilce,row.koy,item.koy_alti]:[row.bugunku_il,row.bugunku_ilce,row.bugunku_koy];
    entries.push({region:source.region,kaza:row.tarihi_kaza||item.tarihi_kaza||item.tarihi_nahiye||'BELİRTİLMEMİŞ',
     name,defter:item.defter||row.defter||'',yil:item.yil||row.yil||'',
     varak:item.varak||row.varak||'',varakTuru:item.varak_turu,sayfa:item.sayfa||row.sayfa||'',
-    pdfPage:item.kaynak_pdf_sayfa||item.pdf_sayfa||'',hane:item.hane||row.hane||'',
+    pdfPage:item.kaynak_pdf_sayfa||item.pdf_sayfa||'',editionPage:item.kaynak_yayin_sayfa||'',
+    title:item.defter_adi||'',hane:item.hane||row.hane||'',
     erkek:item.erkek||row.erkek||'',erkekKayit:!!item.erkek_kayit_sira_sayisi,
     pdfRange:item.kaynak_pdf_sayfa_araligi||'',koyDegeri:row.koy||'',modern:modern.filter(Boolean).join(' / '),
     families:source.kind==='envanter'?(row.sulale_kayitlari||[]).filter(f=>f.defter===item.defter).map(f=>f.ad):row.sulaleler||[],
@@ -77,9 +83,9 @@ function options(){
 function render(reset=true){
  if(reset)limit=100;
  const q=norm($('q').value),region=$('region').value,kaza=$('district').value;
- filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.koyDegeri,r.defter,r.yil,r.modern,...r.families].join(' ')).includes(q)));
+ filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.koyDegeri,r.defter,r.title,r.yil,r.modern,...r.families].join(' ')).includes(q)));
  $('visible').textContent=filtered.length.toLocaleString('tr-TR')+' ARAMA SONUCU';
- $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&(r.varakTuru==='VARAK / FİHRİST NO'?'VARAK / FİHRİST NO: ':'VARAK: ')+safe(r.varak),r.sayfa&&'DEFTER SAYFA: '+safe(r.sayfa),r.pdfPage&&'KAYNAK PDF: '+safe(r.pdfPage)+'. SAYFA',r.pdfRange&&'PDF SAYFA ARALIĞI: '+safe(r.pdfRange)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane&&'HANE: '+safe(r.hane),r.hane_diger&&!r.hane&&'HANE (TEZ): '+safe(r.hane_diger),r.erkek&&(r.erkekKayit?'ERKEK SIRA KAYDI: ':'ERKEK: ')+safe(r.erkek)].filter(Boolean).join(' · ')+'</p>'+(r.modern?'<p><b>GÜNÜMÜZ:</b> '+safe(r.modern)+'</p>':'')+(r.families.length?'<p style="color:#147449"><b>SÜLALE:</b> '+r.families.map(safe).join(' · ')+'</p>':'')+'<small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
+ $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+(r.title?' · '+safe(r.title):'')+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&(r.varakTuru==='VARAK / FİHRİST NO'?'VARAK / FİHRİST NO: ':'VARAK: ')+safe(r.varak),r.sayfa&&'DEFTER SAYFA: '+safe(r.sayfa),r.pdfPage&&'KAYNAK PDF: '+safe(r.pdfPage)+'. SAYFA',r.editionPage&&'ÇEVRİYAZI SAYFA: '+safe(r.editionPage),r.pdfRange&&'PDF SAYFA ARALIĞI: '+safe(r.pdfRange)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane&&'HANE: '+safe(r.hane),r.hane_diger&&!r.hane&&'HANE (TEZ): '+safe(r.hane_diger),r.erkek&&(r.erkekKayit?'ERKEK SIRA KAYDI: ':'ERKEK: ')+safe(r.erkek)].filter(Boolean).join(' · ')+'</p>'+(r.modern?'<p><b>GÜNÜMÜZ:</b> '+safe(r.modern)+'</p>':'')+(r.families.length?'<p style="color:#147449"><b>SÜLALE:</b> '+r.families.map(safe).join(' · ')+'</p>':'')+'<small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
  $('more').hidden=filtered.length<=limit;
 }
 $('q').oninput=()=>render();
@@ -119,7 +125,7 @@ $('more').onclick=()=>{limit+=100;render(false)};
  }
  rows = rows.filter(row => !groupedFihristPaths.has(row.kaynak)).concat([...priorityByRegister.values()]);
  rows.sort((a,b)=>a.region.localeCompare(b.region,'tr')||a.kaza.localeCompare(b.kaza,'tr')||a.name.localeCompare(b.name,'tr'));
- $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+sources.map(s=>'<option value="'+safe(s.region)+'">'+safe(s.region)+'</option>').join('');
+ $('region').innerHTML='<option value="">TÜM BÖLGELER</option>'+[...new Set(sources.map(s=>s.region))].map(region=>'<option value="'+safe(region)+'">'+safe(region)+'</option>').join('');
  $('total').textContent=rows.length.toLocaleString('tr-TR')+' KAYNAK FİHRİST SATIRI';
  $('sources').textContent=failed.length?'YÜKLENEMEYEN: '+failed.join(', '):sources.length+' KAYNAK DOSYASI OKUNDU';
  options();render();

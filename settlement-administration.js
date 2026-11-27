@@ -2,7 +2,7 @@
   'use strict';
   const assetBase = document.currentScript.src;
   const dataURL = new URL('./geo/settlement-administration.json?v=20261127', assetBase);
-  const catalogURL = new URL('./geo/nfs-settlement-catalog.json?v=20261127', assetBase);
+  const catalogURL = new URL('./geo/nfs-settlement-catalog.json?v=20261127-saray-finike', assetBase);
   const labels = ['VİLAYET / EYALET', 'SANCAK', 'KAZA'];
   const normalize = value => String(value ?? '').trim().toLocaleLowerCase('tr')
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
