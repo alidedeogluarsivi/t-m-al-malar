@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const additions = [
+    './catalog/kaza_yerlesim_eslesmeleri_20261127.ndjson',
     './catalog/excel_fihrist_ekleri_20261127.ndjson',
     './catalog/eksik_yerlesim_ekleri_20261127.ndjson',
     './catalog/karabuk_eflani_mulayim_asagi_mulayim_nfs_758_760_20261122.ndjson',
