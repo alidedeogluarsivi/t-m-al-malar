@@ -1,6 +1,6 @@
 {
   "source_count": 220,
-  "province_count": 52,
+  "province_count": 53,
   "provinces": {
     "03": {
       "il": "AFYONKARAHİSAR",
@@ -79,6 +79,13 @@
       "confirmed_family_places": 173,
       "candidate_family_places": 7
     },
+    "69": {
+      "il": "BAYBURT",
+      "ilce": 1,
+      "koy": 11,
+      "confirmed_family_places": 65,
+      "candidate_family_places": 0
+    },
     "14": {
       "il": "BOLU",
       "ilce": 16,
@@ -116,9 +123,9 @@
     },
     "25": {
       "il": "ERZURUM",
-      "ilce": 3,
-      "koy": 3,
-      "confirmed_family_places": 38,
+      "ilce": 5,
+      "koy": 76,
+      "confirmed_family_places": 344,
       "candidate_family_places": 0
     },
     "24": {
@@ -256,9 +263,9 @@
     },
     "53": {
       "il": "RİZE",
-      "ilce": 1,
-      "koy": 1,
-      "confirmed_family_places": 1,
+      "ilce": 2,
+      "koy": 5,
+      "confirmed_family_places": 71,
       "candidate_family_places": 0
     },
     "55": {

@@ -1,6 +1,6 @@
 {
   "files": {
-    "catalog/nfs_yeni_belgeler_kart_20261128.ndjson": 234,
+    "catalog/nfs_yeni_belgeler_kart_20261128.ndjson": 681,
     "archive_1.ndjson": 1656,
     "archive_2.ndjson": 1252,
     "archive_3.ndjson": 1374,
@@ -221,17 +221,17 @@
     "catalog/denizli_cal_isabey_hacibekirogullari_1832_1855_20261126.ndjson": 1,
     "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson": 489
   },
-  "source_rows": 28552,
-  "family_mentions": 70481,
-  "export_rows": 56597,
-  "candidate": 14050,
+  "source_rows": 28574,
+  "family_mentions": 70928,
+  "export_rows": 57044,
+  "candidate": 14056,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 52271,
-    "unique_names": 12247,
-    "source_rows": 56597,
-    "places": 2876,
+    "records": 52718,
+    "unique_names": 12378,
+    "source_rows": 57044,
+    "places": 2966,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
