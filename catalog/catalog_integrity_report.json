@@ -1,10 +1,10 @@
 {
-  "source_count": 211,
+  "source_count": 212,
   "missing": [],
   "invalid_json": [],
-  "records": 27479,
-  "with_families": 19240,
-  "with_registers": 16940,
+  "records": 27578,
+  "with_families": 19243,
+  "with_registers": 17037,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -90617,6 +90617,14 @@
       "line": 3
     },
     {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 47
+    },
+    {
       "path": "catalog/eksik_yerlesim_ekleri_20261127.ndjson",
       "line": 14
     },
@@ -118853,6 +118861,390 @@
     {
       "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
       "line": 42
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 22
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 23
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 24
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 25
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 26
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 27
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 34
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 35
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 36
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 37
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 38
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 39
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 40
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 41
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 42
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 43
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 44
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 45
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 46
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 48
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 49
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 50
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 51
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 52
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 53
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 54
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 55
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 56
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 57
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 58
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 59
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 60
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 61
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 62
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 63
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 64
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 65
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 66
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 67
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 68
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 69
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 70
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 71
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 72
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 73
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 74
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 75
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 76
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 77
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 78
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 79
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 80
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 81
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 82
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 83
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 84
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 86
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 87
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 88
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 89
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 90
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 91
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 92
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 93
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 94
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 95
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 96
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 97
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 98
+    },
+    {
+      "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
+      "line": 99
     },
     {
       "path": "catalog/eksik_yerlesim_ekleri_20261127.ndjson",
