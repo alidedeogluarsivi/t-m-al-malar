@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const additions = [
+    './catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson?v=20261127-cubuk-kirsehir',
     './catalog/excel_arsiv_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
     './catalog/excel_sulale_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
     './catalog/excel_ceviriyazi_sulale_ekleri_20261127.ndjson?v=20261127-ceviriyazi-sulale',
