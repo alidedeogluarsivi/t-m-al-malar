@@ -1,10 +1,10 @@
 {
-  "source_count": 217,
+  "source_count": 218,
   "missing": [],
   "invalid_json": [],
-  "records": 28071,
-  "with_families": 19279,
-  "with_registers": 17528,
+  "records": 28184,
+  "with_families": 19389,
+  "with_registers": 17641,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -118869,6 +118869,18 @@
     {
       "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
       "line": 42
+    },
+    {
+      "path": "catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson",
+      "line": 65
     },
     {
       "path": "catalog/saray_finike_nfs_20261127.ndjson",
