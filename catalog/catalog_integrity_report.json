@@ -3,7 +3,7 @@
   "missing": [],
   "invalid_json": [],
   "records": 28494,
-  "with_families": 19402,
+  "with_families": 19409,
   "with_registers": 17951,
   "missing_location": [
     {
@@ -52933,6 +52933,14 @@
     {
       "path": "catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson",
       "line": 17
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 9
     },
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
@@ -122597,34 +122605,6 @@
     {
       "path": "catalog/eksik_yerlesim_ekleri_20261127.ndjson",
       "line": 133
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 3
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 4
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 5
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 6
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 7
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 8
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 9
     },
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
