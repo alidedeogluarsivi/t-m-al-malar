@@ -1,10 +1,10 @@
 {
-  "source_count": 220,
+  "source_count": 221,
   "missing": [],
   "invalid_json": [],
-  "records": 28455,
+  "records": 28494,
   "with_families": 19393,
-  "with_registers": 17912,
+  "with_registers": 17951,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -52933,6 +52933,14 @@
     {
       "path": "catalog/uguz_1891_bademce_1845_pdf_sulale_dizini.ndjson",
       "line": 17
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 21
     }
   ],
   "family_without_register": [
@@ -122589,6 +122597,162 @@
     {
       "path": "catalog/eksik_yerlesim_ekleri_20261127.ndjson",
       "line": 133
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 22
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 23
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 24
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 25
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 26
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 27
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 34
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 35
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 36
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 37
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 38
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 39
     }
   ],
   "duplicate_ids": [
