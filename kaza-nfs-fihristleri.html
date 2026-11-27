@@ -15,6 +15,7 @@ const groupedFihristPaths = new Set([
  'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',
 ]);
 const sources=[
+ {region:'EXCEL FİHRİST EKLERİ',file:'catalog/excel_fihrist_ekleri_20261127.ndjson',kind:'envanter'},
  {region:'YERLEŞİM ENVANTERİ EKLERİ',file:'catalog/eksik_yerlesim_ekleri_20261127.ndjson',kind:'envanter'},
  {region:'ÇEVRİYAZI VE HANE DENETİMİ',file:'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',kind:'ceviriyazi'},
  {region:'ANKARA / HASANOĞLAN',file:'catalog/ankara_hasanoglan_tarihi_nfs_20261126.ndjson',kind:'hasanoglan'},
@@ -60,7 +61,7 @@ async function loadSource(source){
     erkek:item.erkek||row.erkek||'',erkekKayit:!!item.erkek_kayit_sira_sayisi,
     pdfRange:item.kaynak_pdf_sayfa_araligi||'',koyDegeri:row.koy||'',modern:modern.filter(Boolean).join(' / '),
     families:source.kind==='envanter'?(row.sulale_kayitlari||[]).filter(f=>f.defter===item.defter).map(f=>f.ad):row.sulaleler||[],
-    hane_diger:row.hane_kaynakli||'',kaynak:source.file.split('?')[0]});
+    hane_diger:row.hane_kaynakli||'',kaynak:item.kaynak_dosya||source.file.split('?')[0]});
   }
  }
  return entries;
