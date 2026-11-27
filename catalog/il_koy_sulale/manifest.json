@@ -1,5 +1,5 @@
 {
-  "source_count": 214,
+  "source_count": 215,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -265,8 +265,8 @@
       "il": "SAMSUN",
       "ilce": 12,
       "koy": 401,
-      "confirmed_family_places": 5371,
-      "candidate_family_places": 763
+      "confirmed_family_places": 5414,
+      "candidate_family_places": 731
     },
     "54": {
       "il": "SAKARYA",
