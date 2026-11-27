@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const additions = [
-    './catalog/nfs_yeni_belgeler_kart_20261128.ndjson?v=20261128-nufus-ek',
+    './catalog/nfs_yeni_belgeler_kart_20261128.ndjson?v=20261128-ispir',
     './catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson?v=20261127-cubuk-kirsehir',
     './catalog/excel_arsiv_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
     './catalog/excel_sulale_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
