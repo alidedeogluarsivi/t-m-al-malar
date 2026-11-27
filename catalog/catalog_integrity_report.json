@@ -1,10 +1,10 @@
 {
-  "source_count": 213,
+  "source_count": 214,
   "missing": [],
   "invalid_json": [],
-  "records": 27847,
-  "with_families": 19243,
-  "with_registers": 17306,
+  "records": 28035,
+  "with_families": 19245,
+  "with_registers": 17492,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -90617,6 +90617,14 @@
       "line": 3
     },
     {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 185
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 186
+    },
+    {
       "path": "catalog/excel_fihrist_ekleri_20261127.ndjson",
       "line": 20
     },
@@ -118861,6 +118869,750 @@
     {
       "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
       "line": 42
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 3
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 22
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 23
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 24
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 25
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 26
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 27
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 34
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 35
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 36
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 37
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 38
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 39
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 40
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 41
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 42
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 43
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 44
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 45
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 46
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 47
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 48
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 49
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 50
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 51
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 52
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 53
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 54
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 55
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 56
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 57
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 58
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 59
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 60
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 61
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 62
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 63
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 64
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 65
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 66
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 67
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 68
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 69
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 70
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 71
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 72
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 73
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 74
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 75
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 76
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 77
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 78
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 79
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 80
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 81
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 82
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 83
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 84
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 85
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 86
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 87
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 88
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 89
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 90
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 91
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 92
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 93
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 94
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 95
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 96
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 97
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 98
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 99
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 100
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 101
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 102
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 103
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 104
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 105
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 106
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 107
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 108
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 109
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 110
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 111
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 112
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 113
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 114
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 115
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 116
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 117
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 118
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 119
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 120
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 121
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 122
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 123
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 124
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 125
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 126
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 127
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 128
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 129
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 130
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 131
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 132
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 133
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 134
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 135
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 136
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 137
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 138
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 139
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 140
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 141
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 142
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 143
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 144
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 145
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 146
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 147
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 148
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 149
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 150
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 151
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 152
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 153
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 154
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 155
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 156
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 157
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 158
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 159
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 160
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 161
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 162
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 163
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 164
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 165
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 166
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 167
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 168
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 169
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 170
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 171
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 172
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 173
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 174
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 175
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 176
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 177
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 178
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 179
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 180
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 181
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 182
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 183
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 184
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 187
+    },
+    {
+      "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
+      "line": 188
     },
     {
       "path": "catalog/kaza_yerlesim_eslesmeleri_20261127.ndjson",
