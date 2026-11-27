@@ -1,5 +1,5 @@
 {
-  "source_count": 211,
+  "source_count": 212,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -145,8 +145,8 @@
     "29": {
       "il": "GÜMÜŞHANE",
       "ilce": 10,
-      "koy": 12,
-      "confirmed_family_places": 62,
+      "koy": 15,
+      "confirmed_family_places": 151,
       "candidate_family_places": 0
     },
     "32": {
