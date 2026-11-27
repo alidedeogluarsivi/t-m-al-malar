@@ -37,7 +37,9 @@ def families(o):
 def first_defter(o):
     defs=o.get("defterler")
     if isinstance(defs,list):
-        return ", ".join(dict.fromkeys(txt(d.get("defter")) for d in defs if isinstance(d,dict) and txt(d.get("defter"))))
+        references = dict.fromkeys(txt(d.get("defter")) for d in defs if isinstance(d, dict) and txt(d.get("defter")))
+        if references:
+            return ", ".join(references)
     return get(o,["DEFTER NO","DEFTER NUMARASI","defter"])
 def first_year(o):
     defs=o.get("defterler")
@@ -49,7 +51,7 @@ def first_hane(o):
     return get(o,["HANE NO","hane_no"])
 def corrupt_place(value):
     x=txt(value).upper().replace(" ","")
-    return x in {"YL","DYL","YDL","YLL","YLI","YIL","Y"} or (len(x)<=3 and x.isalpha() and x not in {"ADA","OVA"})
+    return x in {"YL","DYL","YDL","YLL","YLI","YIL","Y"} or (len(x)<=3 and x.isalpha() and x not in {"ADA","LÖK","OVA"})
 def is_candidate(o, il, ilce, koy):
     if not all([il,ilce,koy]) or any(s.upper() in EMPTY for s in [il,ilce,koy]):return True
     if corrupt_place(koy) or corrupt_place(ilce):return True
