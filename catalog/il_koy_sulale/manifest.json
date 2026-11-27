@@ -1,5 +1,5 @@
 {
-  "source_count": 216,
+  "source_count": 217,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -209,7 +209,7 @@
       "il": "KOCAELİ",
       "ilce": 3,
       "koy": 9,
-      "confirmed_family_places": 61,
+      "confirmed_family_places": 69,
       "candidate_family_places": 0
     },
     "42": {
@@ -237,7 +237,7 @@
       "il": "MANİSA",
       "ilce": 9,
       "koy": 19,
-      "confirmed_family_places": 187,
+      "confirmed_family_places": 189,
       "candidate_family_places": 2
     },
     "51": {
@@ -349,14 +349,14 @@
       "il": "İSTANBUL",
       "ilce": 6,
       "koy": 13,
-      "confirmed_family_places": 135,
+      "confirmed_family_places": 148,
       "candidate_family_places": 0
     },
     "35": {
       "il": "İZMİR",
       "ilce": 6,
-      "koy": 8,
-      "confirmed_family_places": 102,
+      "koy": 9,
+      "confirmed_family_places": 111,
       "candidate_family_places": 0
     },
     "63": {
