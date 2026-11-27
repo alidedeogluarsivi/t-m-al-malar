@@ -199,6 +199,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 }
 </style>
 <script src="./archive-family-audit.js?v=1"></script>
+<link rel="stylesheet" href="./settlement-administration.css?v=20261127">
 </head>
 <body>
 
@@ -219,7 +220,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <a href="./dergi.html">HAFTALIK E-DERGİ</a>
 <a href="./haberler.html">BASINDA BİZ</a>
 </nav>
-<iframe class="home-map" src="./map.html?embed=1&amp;v=20261126-audit-map-families" title="Alidedeoğlu Arşivi yerleşim ve sülale haritası"></iframe>
+<iframe class="home-map" src="./map.html?embed=1&amp;v=20261127-settlement-administration" title="Alidedeoğlu Arşivi yerleşim ve sülale haritası"></iframe>
 
 <section class="hero">
 <div class="eyebrow">ALİDEDEOĞLU ARŞİVİ · DİJİTAL KÜLLİYAT</div>
@@ -295,6 +296,7 @@ a[href*="ogullari-harita-dizini.html"]{display:none!important}
 <div id="searchPanel" class="searchpanel"></div>
 <div id="drawer" class="drawer"><div class="dhead"><button id="close" class="close">×</button><div class="eyebrow">ARŞİV DOSYASI</div><h2 id="vtitle">YERLEŞİM</h2><p id="vloc"></p></div><div id="vbody" class="dbody"></div></div>
 
+<script src="./settlement-administration.js?v=20261127"></script>
 <script src="./emlak-harita-kayitlari.js?v=kaza-20261126"></script>
 <script src="./family-totals.js?v=20261125-single-source"></script>
 <script>
@@ -362,7 +364,7 @@ function localSourcesSection(rows,cls){
 
 function archiveLayerMenu(){
  const c=L.control({position:'topright'});
- c.onAdd=function(){const d=L.DomUtil.create('div','leaflet-bar archiveLayerMenu');d.style.cssText='background:#fff;padding:9px 12px;max-width:230px;font:600 12px Arial;color:#17384e;box-shadow:0 2px 8px #0002';d.innerHTML='<button type="button" class="archiveLayerToggle" aria-expanded="false">KATMANLAR ☰</button><div class="archiveLayerContents"><b>ARŞİV KATMANLARI</b><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="historical" checked> TARİHÎ KAZA / NAHİYE / DİVAN</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="families" checked> SÜLALE / HANE KAYITLARI</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="subsettlements" checked> MEZRA / ÇİFTLİK / KÖY ALTI</label><small style="display:block;margin-top:5px;font-weight:400">Tarihî sınırlar kesin değilse güncel coğrafya üzerinde bilgi gösterilir.</small></div>';const toggle=d.querySelector('.archiveLayerToggle');toggle.addEventListener('click',function(){const opened=d.classList.toggle('open');toggle.setAttribute('aria-expanded',String(opened))});L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);d.querySelectorAll('[data-archive-layer]').forEach(function(input){input.addEventListener('change',function(){archiveLayerPrefs[input.dataset.archiveLayer]=input.checked;updateAdaptiveLabels();updateHistoricalOverlay()})});return d};return c
+ c.onAdd=function(){const d=L.DomUtil.create('div','leaflet-bar archiveLayerMenu');d.style.cssText='background:#fff;padding:9px 12px;max-width:230px;font:600 12px Arial;color:#17384e;box-shadow:0 2px 8px #0002';d.innerHTML='<button type="button" class="archiveLayerToggle" aria-expanded="false">KATMANLAR ☰</button><div class="archiveLayerContents"><b>ARŞİV KATMANLARI</b><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="historical" checked> TARİHÎ KAZA / NAHİYE / DİVAN</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="families" checked> SÜLALE / HANE KAYITLARI</label><label style="display:block;margin-top:6px"><input type="checkbox" data-archive-layer="subsettlements" checked> MEZRA / ÇİFTLİK / KÖY ALTI</label><small style="display:block;margin-top:5px;font-weight:400">Tarihî idarî bağlılık yerleşim kartında gösterilir.</small></div>';const toggle=d.querySelector('.archiveLayerToggle');toggle.addEventListener('click',function(){const opened=d.classList.toggle('open');toggle.setAttribute('aria-expanded',String(opened))});L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);d.querySelectorAll('[data-archive-layer]').forEach(function(input){input.addEventListener('change',function(){archiveLayerPrefs[input.dataset.archiveLayer]=input.checked;updateAdaptiveLabels();updateHistoricalOverlay()})});return d};return c
 }
 
 
@@ -581,11 +583,11 @@ function updateHistoricalOverlay(){
     parts.push('<span class="periodBadge nfs">1830–1850</span><b>NÜFUS DEFTERİ İDARÎ KATMANI</b>');
     if(m.sancak.length)parts.push('<b>SANCAK:</b> '+m.sancak.map(esc).join(' · '));
     if(m.kaza.length)parts.push('<b>KAZA:</b> '+m.kaza.map(esc).join(' · '));
-    if(note)note.textContent='1830–1850 · GÜNÜMÜZ SINIRLARI TEMEL ALINIR; SADECE NFS KAYITLARINDA ADI VEYA BAĞLILIĞI DEĞİŞEN İL/İLÇELER AYRICA GÖSTERİLİR.';
+    if(note)note.textContent='1830–1850 · NÜFUS DEFTERLERİNDEKİ TARİHÎ YER ADLARI';
   }else{
     parts.push('<span class="periodBadge p1890">1890</span><b>OSMANLI İDARÎ KATMANI</b>');
     parts.push('KAZA / NAHİYE BAĞLILIKLARI 1890 DÖNEM SATIRLARINA GÖRE GÖSTERİLİR.');
-    if(note)note.textContent='1890 · GÜNÜMÜZ İL/İLÇE GEOMETRİSİ ESAS; SALNÂMEDE BAĞLILIĞI VEYA ADI DEĞİŞEN YERLER FARKLI ETİKETLENİR.';
+    if(note)note.textContent='1890 · SALNÂMEDEKİ TARİHÎ YER ADLARI';
   }
   box.innerHTML=parts.join('<br>');box.classList.add('show')
 }
@@ -643,15 +645,6 @@ async function addHistoricalProvinceLayer(feats,layerGroup){
       if(meta&&meta.kaza)histName=meta.kaza;
     }
     const changed=norm(histName)!==norm(modernName);
-    const border=L.geoJSON(f,{style:{
-      color:mapPeriod==='nfs'?'#8c3030':'#765b31',
-      weight:changed?4.8:3.2,
-      fillOpacity:changed ? .035 : .015,
-      fillColor:mapPeriod==='nfs'?'#8c3030':'#b9975b',
-      dashArray:null,
-      interactive:false
-    }});
-    layerGroup.addLayer(border);
     let ll=null;
     try{ll=featureLabelLatLng(f)}catch(e){}
     if(ll&&changed){
@@ -1289,7 +1282,7 @@ function renderBaseProvince(feats){
   useLeafletMap();initBaseMap();clearBaseLayer();
   const historical=mapPeriod!=='modern';
   const polygonLayer=L.geoJSON({type:'FeatureCollection',features:feats},{
-    style:{color:historical?'#8a8378':'#b27c2f',weight:historical?1.1:2,fillColor:'#f1ddad',fillOpacity:historical ? .012 : .035,dashArray:historical?'5 5':null,bubblingMouseEvents:false,className:historical?'histReference':''},
+    style:{stroke:!historical,color:'#b27c2f',weight:2,fillColor:'#f1ddad',fillOpacity:historical ? 0 : .035,bubblingMouseEvents:false},
     onEachFeature:function(f,l){
       const n=(f.properties&&f.properties.name)||'';
       l.on('click',function(){
@@ -1384,7 +1377,7 @@ function renderBaseDistrict(df,vf,pf){
   let boundsLayer=null;
 
   if(df){
-    const districtOutline=L.geoJSON(df,{style:{color:mapPeriod==='nfs'?'#8c3030':mapPeriod==='1890'?'#765b31':'#17384e',weight:4.5,fillColor:'#fbf7ef',fillOpacity:.015,dashArray:mapPeriod==='modern'?null:'8 5'},interactive:false});
+    const districtOutline=L.geoJSON(df,{style:{stroke:mapPeriod==='modern',color:'#17384e',weight:4.5,fill:false},interactive:false});
     layers.push(districtOutline);boundsLayer=districtOutline
   }
 
@@ -2357,7 +2350,9 @@ function renderSideVillage(name,r,ilce,il){
   if(r&&r.eslesme_kesin===false)body+='<div class="sideInfoSec"><b>GÜNCEL KÖY EŞLEŞMESİ ADAY</b><p>BU KAYITTA TARİHÎ KÖY İLE GÜNCEL KÖY AYNI ADI TAŞIYOR; BELGE ÜZERİNDEN EK TEYİT GEREKİYOR.</p></div>';
   if(!r){
     body+='<div class="sideInfoSec"><div class="sideInfoRecord"><b>FİHRİST EKSİK</b><br>BU GÜNCEL KÖY / MAHALLE LİSTEDE VAR, ANCAK NFS / TMT DEFTER NUMARASI, VARAK, HANE VE ERKEK NÜFUSU BU YERLEŞİME HENÜZ DOĞRULANARAK BAĞLANMADI. VERİ YOKLUĞU, TARİHÎ DEFTERİN OLMADIĞI ANLAMINA GELMEZ.</div></div>'+(local.length?localSourcesSection(local,'side'):'');
-    setSideInfo(name,(ilce||'')+' / KÖY-MAHALLE',body);return
+    setSideInfo(name,(ilce||'')+' / KÖY-MAHALLE',body);
+    SettlementAdministration.append(document.querySelector('#sideInfo .sideInfoBody'),{il,ilce,name});
+    return
   }
   const defs=(r.defterler||[]).filter(function(d){return d&&Object.keys(d).some(function(k){return d[k]!=null&&d[k]!==''})});
   if(defs.length){
@@ -2375,7 +2370,8 @@ function renderSideVillage(name,r,ilce,il){
   const pdfs=(r.kaynak_pdf||[]).filter(function(x){return /^https?:\/\//i.test(String(x||''))});
   if(pdfs.length)body+='<div class="sideInfoSec"><b class="title">ARŞİV PDF</b>'+pdfs.map(function(x){const u=String(x||'');return /^https?:\/\//i.test(u)?'<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" style="display:block;margin:8px 0;padding:10px 12px;border-radius:10px;background:#17384e;color:#fff;text-decoration:none;font-weight:900;text-align:center">📄 PDF DOSYASINI AÇ</a>':'<div class="sideInfoRecord">'+esc(u)+'</div>'}).join('')+'</div>';
   if(local.length)body+=localSourcesSection(local,'side');
-  setSideInfo(name,(ilce||'')+' / '+(il||''),body)
+  setSideInfo(name,(ilce||'')+' / '+(il||''),body);
+  SettlementAdministration.append(document.querySelector('#sideInfo .sideInfoBody'),{il,ilce,name,historical:r.tarihi_yerlesim_kaydi},[r]);
 }
 function showProvinceInfo(name){openInfoPanel(name,'İL BİLGİSİ',provinceInfoHtml(name))}
 function showDistrictInfo(il,ilce){openInfoPanel(ilce,il+' / İLÇE BİLGİSİ',districtInfoHtml(il,ilce))}
@@ -2484,6 +2480,7 @@ function showRecord(name,r,ilce,il){
   }
   const contentEl=document.getElementById('vbody');
   contentEl.innerHTML=h;
+  SettlementAdministration.append(contentEl,{il:il||r?.il,ilce:ilce||r?.ilce,name,historical:r?.tarihi_yerlesim_kaydi},[r]);
   contentEl.scrollTop=0;
   drawer.classList.add('open')
 }
@@ -3416,7 +3413,7 @@ bindHistoricalControls();
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
 
-<script src="./historical-1890.js?v=20261111-perf1"></script>
+<script src="./historical-1890.js?v=20261127"></script>
 <script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script>
 /* Önceki sürümlerden kalabilecek özel üst şeritleri de gizle */

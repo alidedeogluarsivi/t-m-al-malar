@@ -103,7 +103,8 @@ body.embedded #detail.open{position:absolute;right:8px;top:8px;bottom:8px;left:a
 body.embedded .map-place-label{max-width:145px;white-space:normal;font-size:10px;line-height:1.15}
 body.embedded .map-place-label span{font-size:9px}
 body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
-</style></head>
+</style><link rel="stylesheet" href="./settlement-administration.css?v=20261127">
+</head>
 <body>
 <header><button id="menu" type="button" aria-controls="side" aria-expanded="false">Yer seç</button><a class="map-home-link" href="./index.html">← Ana sayfaya dön</a><a class="map-full-link" href="./map.html" target="_top">Tam harita</a><a target="_top" href="./tarihi-nfs.html" aria-label="1831–1850 tarihî idare haritasını aç">Dönem fihristi</a><strong>ALİDEDEOĞLU · YERADLARI HARİTASI</strong><form id="archiveFind" role="search">
  <input id="archiveQuery" type="search" autocomplete="off" aria-label="Arşiv haritasında ara" aria-controls="archiveResults" placeholder="Köy, ilçe, NFS kodu veya sülale">
@@ -137,6 +138,7 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 <script src="./archive-family-search.js?v=7"></script>
 <script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
+<script src="./settlement-administration.js?v=20261127"></script>
 <script src="./emlak-harita-kayitlari.js?v=kaza-20261126"></script>
 <script>
 (function(){
@@ -651,7 +653,6 @@ function showDetails(p){
  if(!item&&!list.length&&!loadedArchive)html+='<div class="source">YERLEŞİM ARŞİV KAYITLARI YÜKLENİYOR</div>';
  const matches=familyResults.find(place=>pointKey(place.il,place.ilce,place.name)===pointKey(p.il,p.ilce,p.name));
  if(matches)html+='<div class="source"><b>SÜLALE EŞLEŞMESİ</b><div>'+matches.matches.map(esc).join(' · ')+'</div></div>';
- if(item?.kazas.length)html+='<div class="source"><b>TARİHÎ KAZA</b><div>'+item.kazas.map(esc).join(' · ')+'</div></div>';
  if(docs.length)html+='<h2 class="archive-section">NFS defteri ve tarihî kaza</h2>'+docs.map(doc=>'<div>'+esc(doc)+'</div>').join('');
  for(const [label,items] of [['Nüfus defteri içeriği',cards.filter(c=>c.nfs)],['Diğer arşiv kayıtları',cards.filter(c=>!c.nfs)]]){
   if(!items.length)continue;
@@ -689,7 +690,10 @@ function showDetails(p){
   const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
   // Sülaleler üstte tüm kaynaklardan tekilleştirilerek gösterildi.
  }
- b.innerHTML=html
+ b.innerHTML=html;
+ const administration=document.createElement('div');
+ b.firstElementChild.after(administration);
+ SettlementAdministration.append(administration,{il:p.il,ilce:p.ilce,name:p.name},list);
 }
 function insertArchive(rec,audited=false){
  if(!rec||!rec.il||!rec.ilce||!rec.koy)return;

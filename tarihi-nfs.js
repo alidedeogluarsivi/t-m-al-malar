@@ -26,13 +26,15 @@ function options(id, values) {
 }
 function card(row) {
   const [number,,eyalet,sancak,kaza,historical,il,ilce,place,lon,lat,page,hane,erkek,grade,source,divan] = row;
-  const identity = [eyalet,sancak,kaza,divan].filter(Boolean).map(esc).join(' / ');
+  const administration = [['Vilayet / Eyalet',eyalet],['Sancak',sancak],['Kaza',kaza]]
+    .map(([label,value])=>'<dt>'+label+'</dt><dd>'+esc(value||'Belirtilmemiş')+'</dd>').join('');
   const present = [il,ilce,place].filter(Boolean).map(esc).join(' / ');
   const figures = [page&&'Varak / sayfa '+esc(page),hane&&esc(hane)+' hane',erkek&&esc(erkek)+' erkek'].filter(Boolean).join(' · ');
   const condition = grade === 2 ? 'Kullanıcı onaylı eşleşme' : grade === 1 ? 'Konum eşleşmesi' :
     place ? 'Aday veya konumu doğrulanmamış eşleşme' : 'Bugünkü karşılık açık';
   return '<article class="entry"><b>'+esc(historical)+'</b><p>BOA NFS.d.'+number+'</p>'+
-    (identity?'<p>'+identity+'</p>':'')+(present?'<p>Günümüz: '+present+'</p>':'')+
+     '<section class="settlement-administration"><h3>TARİHÎ İDARÎ BAĞLILIK</h3><dl>'+administration+'</dl></section>'+
+    (divan?'<p>Divan: '+esc(divan)+'</p>':'')+(present?'<p>Günümüz: '+present+'</p>':'')+
     (figures?'<p>'+figures+'</p>':'')+'<small>'+condition+' · '+esc(metadata.sources[source])+'</small></article>';
 }
 function showRecord(row, zoom) {
@@ -137,8 +139,11 @@ $('find').onsubmit=async event=>{
           const linked=active.records.filter(row=>row[9]!=null&&
             Math.abs(row[9]-place.lng)<.0001&&Math.abs(row[10]-place.lat)<.0001);
           if(linked.length)showRecord(linked[0],false);
-          else $('result').innerHTML='<h2>'+esc(place.name)+'</h2><p>'+esc(place.il)+' / '+esc(place.ilce)+
-            '</p><p>Sülale kaydı: '+place.matches.map(esc).join(', ')+'</p>';
+          else {
+            $('result').innerHTML='<h2>'+esc(place.name)+'</h2><p>'+esc(place.il)+' / '+esc(place.ilce)+
+              '</p><p>Sülale kaydı: '+place.matches.map(esc).join(', ')+'</p><div></div>';
+            SettlementAdministration.append($('result').lastElementChild,place);
+          }
         };
         ArchiveFamilySearch.show(familySearchLayer,families,open);
         ArchiveFamilySearch.fit(map,families);

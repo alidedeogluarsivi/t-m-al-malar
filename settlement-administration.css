@@ -1,0 +1,7 @@
+.settlement-administration{margin:12px 0;padding:10px 12px;border:1px solid #c7d5ce;border-radius:8px;background:#f4f8f5;color:#1b362d}
+.settlement-administration h3{font-size:.9rem;margin:0 0 6px}
+.settlement-administration dl{display:grid;grid-template-columns:minmax(6.5rem,auto) 1fr;gap:3px 10px;margin:0;font-size:.85rem}
+.settlement-administration dt{font-weight:700}
+.settlement-administration dd{min-width:0;margin:0;overflow-wrap:anywhere}
+.settlement-administration small{display:block;margin-top:4px;overflow-wrap:anywhere}
+.settlement-administration div+div{border-top:1px solid #c7d5ce;margin-top:7px;padding-top:7px}
