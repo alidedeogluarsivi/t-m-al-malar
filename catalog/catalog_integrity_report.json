@@ -3,7 +3,7 @@
   "missing": [],
   "invalid_json": [],
   "records": 28494,
-  "with_families": 19409,
+  "with_families": 19411,
   "with_registers": 17951,
   "missing_location": [
     {
@@ -52941,6 +52941,10 @@
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
       "line": 9
+    },
+    {
+      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
+      "line": 10
     },
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
@@ -122605,14 +122609,6 @@
     {
       "path": "catalog/eksik_yerlesim_ekleri_20261127.ndjson",
       "line": 133
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 10
-    },
-    {
-      "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
-      "line": 11
     },
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
