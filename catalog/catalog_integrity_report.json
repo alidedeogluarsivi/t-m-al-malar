@@ -1,10 +1,10 @@
 {
-  "source_count": 218,
+  "source_count": 219,
   "missing": [],
   "invalid_json": [],
-  "records": 28184,
-  "with_families": 19389,
-  "with_registers": 17641,
+  "records": 28453,
+  "with_families": 19391,
+  "with_registers": 17910,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -90726,6 +90726,1074 @@
     }
   ],
   "register_without_family": [
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 2
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 4
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 5
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 6
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 7
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 8
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 9
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 10
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 11
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 12
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 13
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 14
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 15
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 16
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 17
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 18
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 19
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 20
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 21
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 22
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 23
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 24
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 25
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 26
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 27
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 28
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 29
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 30
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 31
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 32
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 33
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 34
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 35
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 36
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 37
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 38
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 39
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 40
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 41
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 42
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 43
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 44
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 45
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 46
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 47
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 48
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 49
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 50
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 51
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 52
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 53
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 54
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 55
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 56
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 57
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 58
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 59
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 60
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 61
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 62
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 63
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 64
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 65
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 66
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 67
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 68
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 69
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 70
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 71
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 72
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 73
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 74
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 75
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 76
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 77
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 78
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 79
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 80
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 81
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 82
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 83
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 84
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 85
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 86
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 87
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 88
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 89
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 90
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 91
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 92
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 93
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 94
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 95
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 96
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 97
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 98
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 99
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 100
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 101
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 102
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 103
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 104
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 105
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 106
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 107
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 108
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 109
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 110
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 111
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 112
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 113
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 114
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 115
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 116
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 117
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 118
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 119
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 120
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 121
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 122
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 123
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 124
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 125
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 126
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 127
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 128
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 129
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 130
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 131
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 132
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 133
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 134
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 135
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 136
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 137
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 138
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 139
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 140
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 141
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 142
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 143
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 144
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 145
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 146
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 147
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 148
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 149
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 150
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 151
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 152
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 153
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 154
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 155
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 156
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 157
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 158
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 159
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 160
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 161
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 162
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 163
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 164
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 165
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 166
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 167
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 168
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 169
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 170
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 171
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 172
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 173
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 174
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 175
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 176
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 177
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 178
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 179
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 180
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 181
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 182
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 183
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 184
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 185
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 186
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 187
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 188
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 189
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 190
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 191
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 192
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 193
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 194
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 195
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 196
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 197
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 198
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 199
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 200
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 201
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 202
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 203
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 204
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 205
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 206
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 207
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 208
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 209
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 210
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 211
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 212
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 213
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 214
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 215
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 216
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 217
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 218
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 219
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 220
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 221
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 222
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 223
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 224
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 225
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 226
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 227
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 228
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 229
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 230
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 231
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 232
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 233
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 234
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 235
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 236
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 237
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 238
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 239
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 240
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 241
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 242
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 243
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 244
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 245
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 246
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 247
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 248
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 249
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 250
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 251
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 252
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 253
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 254
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 255
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 256
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 257
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 258
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 259
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 260
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 261
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 262
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 263
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 264
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 265
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 266
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 267
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 268
+    },
+    {
+      "path": "catalog/nfs_yeni_belgeler_kart_20261128.ndjson",
+      "line": 269
+    },
     {
       "path": "archive_1.ndjson",
       "line": 3
