@@ -1,10 +1,10 @@
 {
-  "source_count": 220,
+  "source_count": 221,
   "missing": [],
   "invalid_json": [],
-  "records": 28578,
-  "with_families": 19530,
-  "with_registers": 18035,
+  "records": 28603,
+  "with_families": 19555,
+  "with_registers": 18060,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -52953,6 +52953,10 @@
     {
       "path": "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson",
       "line": 24
+    },
+    {
+      "path": "catalog/bayat_sahin_1845_tmt_25_yerlesim_sulaleleri_20261128.ndjson",
+      "line": 6
     }
   ],
   "family_without_register": [
