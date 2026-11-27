@@ -1,5 +1,5 @@
 {
-  "source_count": 218,
+  "source_count": 219,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -214,9 +214,9 @@
     },
     "42": {
       "il": "KONYA",
-      "ilce": 7,
-      "koy": 14,
-      "confirmed_family_places": 204,
+      "ilce": 8,
+      "koy": 16,
+      "confirmed_family_places": 228,
       "candidate_family_places": 0
     },
     "43": {
