@@ -6,6 +6,10 @@ on:
       - 'catalog/**/*.ndjson'
       - 'catalog/sulale_source_manifest.json'
       - 'scripts/audit-catalog.py'
+      - 'scripts/build-map-archive-points.py'
+      - 'archive_*.ndjson'
+      - 'catalog/district_family_overlay.json'
+      - 'districts-local.json'
   schedule:
     - cron: '15 6 * * *'
 permissions:
@@ -20,13 +24,15 @@ jobs:
           python-version: '3.12'
       - name: Audit all source records
         run: python scripts/audit-catalog.py
-      - name: Publish integrity report
+      - name: Calculate public settlement and PDF totals
+        run: python scripts/build-map-archive-points.py --totals-only
+      - name: Publish integrity report and totals
         if: always()
         run: |
           if [ -f catalog/catalog_integrity_report.json ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add catalog/catalog_integrity_report.json
+            git add catalog/catalog_integrity_report.json catalog/settlement-totals.json
             if ! git diff --cached --quiet; then
               git commit -m "Update archival catalog integrity report"
               for n in 1 2 3 4 5; do

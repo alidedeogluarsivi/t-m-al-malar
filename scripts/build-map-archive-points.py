@@ -1,4 +1,5 @@
 """Join archival documents to the site's existing settlement coordinates."""
+import argparse
 from collections import defaultdict
 import json
 from pathlib import Path
@@ -8,6 +9,10 @@ import unicodedata
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "catalog"
 NFS = re.compile(r"\bNFS\s*\.?\s*(?:d\s*\.?)?\s*0*(\d+)\b", re.I)
+TMT = re.compile(r"\bTMT\s*\.?\s*(?:d\s*\.?)?\s*0*(\d+)\b", re.I)
+EMPTY_PLACE = {"", "belirsiz", "bilinmiyor", "belirtilmedi", "belirtilmemis", "nan", "none", "null",
+               "yok", "kayityok", "koy", "mahalle", "karye", "yerlesim", "koyleri", "kazasi",
+               "icindekiler", "talebe", "isimler", "hastalik", "muhtar", "imam", "toplu", "soyadtespiti", "kopya"}
 UNCERTAIN = re.compile(r"ADAY|BELIRSIZ|DOGRULANMADI|TEYIT BEKLIYOR|ARASTIRMA BEKLIYOR")
 
 
@@ -68,6 +73,10 @@ def coordinates(value):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--totals-only", action="store_true", help="Update the published counters without rebuilding coordinates")
+    args = parser.parse_args()
+
     provinces = {key(name): plate for plate, name in read(ROOT / "official-addresses/manifest.json")["provinces"].items()}
     provinces["afyon"] = "03"
     district_ids = {}
@@ -82,7 +91,7 @@ def main():
         if provinces.get(name_key) == plate:
             district_ids[plate, "merkez"] = district_id
         file = ROOT / "geo/points" / f"{district_id}.geojson"
-        if not file.exists():
+        if args.totals_only or not file.exists():
             continue
         for feature in read(file)["features"]:
             name = feature["properties"]["name"]
@@ -91,6 +100,8 @@ def main():
                 locations[district_id].setdefault(place_key(name), set()).add((name, point))
 
     entries = {}
+    settlement_cards = set()
+    archive_pdfs = None
 
     def add(plate, district, name, row, families=()):
         district_id = district_ids.get((plate, key(district)))
@@ -113,6 +124,18 @@ def main():
         else:
             point = None
         identity = district_id, name_key
+        if (name_key not in EMPTY_PLACE and not row.get("tarihi_yerlesim_kaydi") and not row.get("aday")
+                and "GÜNCEL YERLEŞİM EŞLEŞMESİ KONTROL EDİLECEK" not in (row.get("durumlar") or ())):
+            has_family = any(isinstance(family, str) and key(family) not in EMPTY_PLACE for family in families)
+            has_register = any(
+                NFS.search(str(ref or "")) or TMT.search(str(ref or ""))
+                or (re.fullmatch(r"\d+", str(ref or "")) and re.search(r"\bnfs\b|nufus|\btmt\b|temettuat", normalize(kind)))
+                for ref, _, kind in documents(row)
+            )
+            if has_family or has_register:
+                settlement_cards.add(identity)
+        if args.totals_only:
+            return
         card = entries.setdefault(identity, {"name": name, "point": point, "families": set(), "docs": set(), "kazas": set()})
         if point and card["point"] is None:
             card.update(name=name, point=point)
@@ -144,6 +167,9 @@ def main():
                 if not line.strip():
                     continue
                 row = json.loads(line)
+                summary = row.get("_summary") or {}
+                if path.name.startswith("archive_") and isinstance(summary.get("pdf_toplam"), int):
+                    archive_pdfs = max(archive_pdfs or 0, summary["pdf_toplam"])
                 province = row.get("il") or row.get("İL")
                 district = row.get("ilce") or row.get("İLÇE")
                 name = row.get("koy") or row.get("KÖY") or row.get("KÖY/KARYE/MAHALLE")
@@ -157,6 +183,12 @@ def main():
                                 if isinstance(f, dict) and not f.get("aday"))
                 add(provinces.get(key(province)), district, name, row, families)
 
+
+    totals = {"settlement_cards": len(settlement_cards), "archive_pdfs": archive_pdfs}
+    (CATALOG / "settlement-totals.json").write_text(json.dumps(totals, indent=2) + "\n", encoding="utf-8")
+    print(f"{len(settlement_cards)} settlement cards, {archive_pdfs} archive PDFs")
+    if args.totals_only:
+        return
 
     groups = defaultdict(list)
     family_places = defaultdict(list)
