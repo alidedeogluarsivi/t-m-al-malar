@@ -180,7 +180,7 @@ function ingest(obj,path,audited=false){
  if(Array.isArray(obj.sulaleler)&&obj.sulaleler.length){
   const mappedCandidate=obj.guncel_eslesme?.kesin===false || obj.eslesme_kesin===false || /ADAY|BELİRSİZ|KONTROL|ŞÜPHE|BEKLİYOR|DOĞRULANMADI/i.test(String(obj.yerlesim_eslesme_durumu||"")) || (obj.guncel_eslesme?.yerlesim_turu==="EŞLEŞME ADAYI");
   for(const name of obj.sulaleler){if(typeof name!=="string")continue;
-   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),source:(obj.defterler||[]).map(officialArchiveCitation).filter(Boolean).join(" · ")||obj.yerel_kaynaklar?.[0]?.kaynak},mappedCandidate);
+   add({name,il:obj.il,ilce:obj.ilce,koy:obj.koy,koyAlti:obj.koy_alti_yerlesimi||obj.koy_alti||obj.alt_yerlesim||obj.bagli_mahalle||obj.mahalle_alt||obj.mezra||obj.ciftlik||"",sokak:obj.sokak_adi||obj.sokak||"",cadde:obj.cadde_adi||obj.cadde||"",defter:(obj.defterler||[]).flatMap(x=>originalOttomanRefs(x.defter)).filter(Boolean).join(", "),year:obj.sulale_kaynak_tarihi||obj.yil||obj.defter_yili||(obj.defterler||[]).find(x=>x.yil)?.yil||"",source:[...(obj.defterler||[]).map(officialArchiveCitation).filter(Boolean),...(obj.yerel_kaynaklar||[]).map(x=>x.kaynak).filter(Boolean)].join(" · ")},mappedCandidate);
   }return;
  }
  const name=obj["SÜLALE ADI (STANDART)"]||obj["STANDART SÜLALE ADI"]||obj.sulale||obj.sulale_adi;
