@@ -18,9 +18,9 @@
     },
     "05": {
       "il": "AMASYA",
-      "ilce": 4,
-      "koy": 29,
-      "confirmed_family_places": 383,
+      "ilce": 5,
+      "koy": 30,
+      "confirmed_family_places": 473,
       "candidate_family_places": 0
     },
     "06": {
@@ -137,9 +137,9 @@
     },
     "28": {
       "il": "GİRESUN",
-      "ilce": 3,
-      "koy": 16,
-      "confirmed_family_places": 252,
+      "ilce": 4,
+      "koy": 25,
+      "confirmed_family_places": 372,
       "candidate_family_places": 0
     },
     "29": {
@@ -341,8 +341,8 @@
     "19": {
       "il": "ÇORUM",
       "ilce": 13,
-      "koy": 114,
-      "confirmed_family_places": 2763,
+      "koy": 116,
+      "confirmed_family_places": 2799,
       "candidate_family_places": 35
     },
     "34": {
