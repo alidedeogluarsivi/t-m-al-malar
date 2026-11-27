@@ -219,11 +219,10 @@
     "catalog/eksik_yerlesim_ekleri_20261127.ndjson": 124,
     "catalog/karabuk_eflani_mulayim_asagi_mulayim_nfs_758_760_20261122.ndjson": 3,
     "catalog/denizli_cal_isabey_hacibekirogullari_1832_1855_20261126.ndjson": 1,
-    "catalog/bayat_sahin_1838_eskialibey_kopuklu_sulaleleri_20261128.ndjson": 64,
-    "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson": 425
+    "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson": 489
   },
-  "source_rows": 28554,
-  "family_mentions": 70545,
+  "source_rows": 28552,
+  "family_mentions": 70481,
   "export_rows": 56597,
   "candidate": 14050,
   "source_missing": [],
