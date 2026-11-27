@@ -135,11 +135,11 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 </div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./archive-family-audit.js?v=1"></script>
-<script src="./archive-family-search.js?v=7"></script>
+<script src="./archive-family-search.js?v=20261127-envanter"></script>
 <script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
 <script src="./settlement-administration.js?v=20261127-kartlar"></script>
-<script src="./emlak-harita-kayitlari.js?v=kaza-20261126"></script>
+<script src="./emlak-harita-kayitlari.js?v=20261127-envanter"></script>
 <script>
 (function(){
 'use strict';
@@ -168,6 +168,7 @@ const nearbyList=new Map();
 const NEARBY_LIMIT=10;
 let nearbyFocus=null;
 const archivePoints=new Map();
+const publishedPlaces=new Map();
 let archivePointList=[],largeArchiveDots=false,nearbyCenter=null,visibleBoundaries=null,boundaryIds='',visiblePointDistricts=new Set();
 let provinceLayer=null,districtLayer=null,districtGeoPromise=null,placeLayer=L.layerGroup().addTo(map),labels=L.layerGroup().addTo(map),regionRing=null;
 let currentPoints=[],attachedPlaces=[],loadedPoints=new Map(),pointRequests=new Map(),records=new Map(),districtRecords=new Map(),loadedArchive=false,archivePromise=null,selectionToken=0,regionTimer=0,viewportToken=0,lastRenderSignature='',archiveVersion=0;const provinceFamilyPromises=new Map();let selectedPlace=null;
@@ -390,7 +391,7 @@ function appendKnownArchivePoints(points, district, province){
  }
  return list;
 }
-function metadata(p){return archivePoints.get(pointKey(p.il,p.ilce,p.name))}
+function metadata(p){const key=pointKey(p.il,p.ilce,p.name);return archivePoints.get(key)||publishedPlaces.get(key)}
 function confirmedFamilyNames(p){
  const item=metadata(p);
  const list=records.get(pointKey(p.il,p.ilce,p.name))||[];
@@ -476,7 +477,7 @@ function renderOverview(){
  largeArchiveDots=large;renderedOverviewVersion=archiveVersion;
 }
 async function loadNationalArchive(){
- const [data,published]=await Promise.all([json('./geo/archive-points.json?v=kaza-20261126'),EmlakCensus.load()]);
+ const [data,published,additions]=await Promise.all([json('./geo/archive-points.json?v=kaza-20261126'),EmlakCensus.load(),EmlakCensus.loadAdditions()]);
  const districtById=new Map(districts.map(d=>[d.id,d]));
  const provinceById=new Map(provinces.map(p=>[provinceID(p),p.properties.name]));
  for(const [id,rows] of Object.entries(data.districts||{})){
@@ -492,18 +493,23 @@ async function loadNationalArchive(){
  }
 
  const districtIds=new Map(districts.map(d=>[districtKey(provinceById.get(d.parent_id),d.name),d.id]));
- for(const {il,ilce,koy,konum,defterler,sulaleler} of published){
-  if(!il||!ilce||!Array.isArray(konum)||konum.length!==2||!konum.every(Number.isFinite))continue;
-  const refs=(defterler||[]).flatMap(d=>String(d&&d.defter||'').match(/NFS\.d\.(\d+)/i)?.slice(1).map(number=>[Number(number),d.tarihi_kaza])||[]);
-  if(!refs.length&&!ArchiveFamilyAudit.filterNames(sulaleler||[]).length)continue;
+ const additionsIds=new Set(additions.map(row=>row.id));
+ for(const row of published){
+  const {il,ilce,koy,konum,defterler,sulaleler}=row;
+  if(!il||!ilce||!koy||row.tarihi_yerlesim_kaydi||row.eslesme_kesin===false)continue;
   const key=pointKey(il,ilce,koy);
   const current=archivePoints.get(key);
+  const hasLocation=Array.isArray(konum)&&konum.length===2&&konum.every(Number.isFinite);
+  if(!current&&!hasLocation&&!additionsIds.has(row.id))continue;
+  const refs=(defterler||[]).flatMap(d=>String(d?.defter||'').match(/NFS\.d\.(\d+)/i)?.slice(1).map(number=>[Number(number),d.tarihi_kaza])||[]);
   const existing=(current?.refs||[]).filter(([number,kaza])=>kaza||!refs.some(ref=>ref[0]===number));
   const combined=new Map([...existing,...refs].map(ref=>[String(ref[0])+'|'+norm(ref[1]).replace(/[^a-z0-9]/g,''),ref]));
-  const [lng,lat]=konum;
+  const [lng,lat]=hasLocation?konum:[null,null];
   const families=[...new Set([...(current?.families||[]),...ArchiveFamilyAudit.filterNames(sulaleler||[]).filter(n=>typeof n==='string'&&n.trim())])];
-  archivePoints.set(key,{name:koy,lat,lng,il,ilce,districtId:districtIds.get(districtKey(il,ilce)),
-   ...current,refs:[...combined.values()],families,family:families.length?1:(current?.family||0)});
+  const place={name:koy,lat,lng,il,ilce,districtId:districtIds.get(districtKey(il,ilce)),
+   ...current,refs:[...combined.values()],families,family:families.length?1:(current?.family||0)};
+  if((current||hasLocation)&&(place.refs.length||families.length))archivePoints.set(key,place);
+  else if(additionsIds.has(row.id))publishedPlaces.set(key,place);
  }
 
  // NEVŞEHİR / ACIGÖL / TEPEKÖY - ARŞİV DEFTERLERİ VE SÜLALELER
@@ -634,9 +640,9 @@ function registerCards(rows){
    const title=registerTitle(d.defter,d.tur);
    if(!title)continue;
    const fields=[
-    ['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Sancak',d.sancak],
+    ['Tarihî kaza',d.tarihi_kaza||row.tarihi_kaza],['Nahiye',d.tarihi_nahiye],['Sancak',d.sancak],['Günümüz köy altı',d.koy_alti||row.mahalle],
     ['Divan',d.divan],['Defterdeki ad',d.kayit_adi||d.tarihi_ad||row.tarihi_karye],
-    ['Yıl',d.yil],['Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],[d.erkek_kayit_sira_sayisi?'Erkek sıra kaydı':'Erkek',d.erkek]
+    ['Yıl',d.yil],[d.varak_turu==='VARAK / FİHRİST NO'?'Varak / fihrist no':'Varak',d.varak],['Sayfa',d.sayfa],['Hane',d.hane],[d.erkek_kayit_sira_sayisi?'Erkek sıra kaydı':'Erkek',d.erkek]
    ].filter(([,value])=>value!=null&&String(value).trim());
    const notes=[d.eslesme_durumu,d.aciklama].filter(Boolean);
    const signature=norm(JSON.stringify([title,fields,notes]));
@@ -686,7 +692,7 @@ function showDetails(p){
   }
   const citations=list.flatMap(r=>r.sulale_kayitlari||[]);
   if(citations.length){
-   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.hane&&'HANE '+f.hane,f.kaynak,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
+   html+='<div class="source"><b>TERCÜME EDİLMİŞ SÜLALELER</b>'+citations.map(f=>'<div style="margin-top:8px"><b>'+esc(f.ad)+'</b><div>'+esc([f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.varak&&'VARAK '+f.varak,f.hane&&'HANE '+f.hane,f.kaynak,f.aday&&'YER EŞLEŞMESİ ADAY'].filter(Boolean).join(' · '))+'</div></div>').join('')+'</div>'
   }
   const citedNames=new Set(citations.map(f=>norm(f.ad)));
   const f=[...new Set(list.flatMap(r=>r.sulaleler||[]).filter(x=>typeof x==='string'&&x&&!citedNames.has(norm(x))))];
@@ -782,6 +788,7 @@ function ensureArchive(){
   const published=await EmlakCensus.load();
   const keepLegacy=EmlakCensus.withoutDuplicates(published);
   for(const row of published)insertArchive(structuredClone(row));
+  if(selectedPlace)showDetails(selectedPlace);
   for(let i=0;i<uniqueSources.length;i+=8)await Promise.all(uniqueSources.slice(i,i+8).map(path=>ingestNDJSON(path,keepLegacy)));
   loadedArchive=true;++archiveVersion;
   if(level==='district'&&chosenDistrict){
@@ -942,7 +949,7 @@ function renderFinder(){
     open:()=>{openProvince(province.properties.name);openDistrict(district)}});
   }
  }
- for(const p of familyOnly?[]:archivePointList){
+ for(const p of familyOnly?[]:[...archivePointList,...publishedPlaces.values()]){
   const label=norm([p.name,p.il,p.ilce].join(' '));
   if(register?!p.refs.some(([code])=>String(code)===register):!(label.includes(query)||(placeQuery&&placeNameKey(p.name).includes(placeQuery))))continue;
   choices.push({name:p.name,info:p.il+' / '+p.ilce+(register?' · NFS.d.'+register:''),open:()=>selectPlace(p)});

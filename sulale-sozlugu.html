@@ -172,7 +172,7 @@ function ingest(obj,path,audited=false){
  if(!obj||obj._summary)return;
  if(obj.sulale_kayitlari?.length){
   for(const f of obj.sulale_kayitlari){
-   const citation=[f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.defter_adi,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.kaynak,f.kaynak&&f.hane&&'HANE '+f.hane].filter(Boolean).join(' · ');
+   const citation=[f.tarihi_kaza&&f.tarihi_kaza+' KAZASI',f.defter,f.defter_adi,f.karye,f.sayfa&&'SAYFA '+f.sayfa,f.varak&&'VARAK '+f.varak,f.kaynak,f.hane&&'HANE '+f.hane].filter(Boolean).join(' · ');
    add({name:f.ad,il:obj.il,ilce:obj.ilce,koy:obj.koy,defter:f.defter,year:f.yil,hane:f.hane,source:citation},f.aday,audited);
   }
   return;
@@ -451,7 +451,7 @@ byId("print").addEventListener("click",()=>window.print());
 byId("reset").addEventListener("click",()=>{++searchRequest;il.value="";ilce.value="";koy.value="";koyAlti.value="";query.value="";onlyVerified.checked=false;searched=false;byId("results").replaceChildren();byId("summary").textContent="SÜLALE ADINI YAZIP ARA DÜĞMESİNE BASIN.";byId("more").hidden=true;refreshFilters("il")});
 let manifestRequest;
 function familySourceManifest(){
- if(!manifestRequest)manifestRequest=fetch("catalog/sulale_source_manifest.json",{signal:AbortSignal.timeout(12000)}).then(response=>{
+ if(!manifestRequest)manifestRequest=fetch("catalog/sulale_source_manifest.json?v=20261127-envanter",{signal:AbortSignal.timeout(12000)}).then(response=>{
   if(!response.ok)throw Error("HTTP "+response.status);
   return response.json();
  });

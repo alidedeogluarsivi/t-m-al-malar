@@ -1,6 +1,12 @@
 (() => {
   'use strict';
+  const additions = [
+    './catalog/eksik_yerlesim_ekleri_20261127.ndjson',
+    './catalog/karabuk_eflani_mulayim_asagi_mulayim_nfs_758_760_20261122.ndjson',
+    './catalog/denizli_cal_isabey_hacibekirogullari_1832_1855_20261126.ndjson',
+  ];
   const paths = [
+    ...additions,
     './catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson?v=kaza-20261126',
     './catalog/ankara_hasanoglan_tarihi_nfs_20261126.ndjson',
     './catalog/oncelikli_kaynak_kontrolu_20261126.ndjson',
@@ -55,5 +61,5 @@
       return {...row, defterler:unique};
     };
   }
-  window.EmlakCensus = {load, withoutDuplicates};
+  window.EmlakCensus = {load, loadAdditions: () => Promise.all(additions.map(loadCatalog)).then(rows => rows.flat()), withoutDuplicates};
 })();
