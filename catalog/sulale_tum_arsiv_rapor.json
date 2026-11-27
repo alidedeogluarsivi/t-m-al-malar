@@ -220,19 +220,19 @@
     "catalog/karabuk_eflani_mulayim_asagi_mulayim_nfs_758_760_20261122.ndjson": 3,
     "catalog/denizli_cal_isabey_hacibekirogullari_1832_1855_20261126.ndjson": 1,
     "catalog/bayat_sahin_1838_eskialibey_kopuklu_sulaleleri_20261128.ndjson": 64,
-    "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson": 40
+    "catalog/bayat_sahin_39_yerlesim_nfs_kaynak_envanteri_20261128.ndjson": 81
   },
   "source_rows": 28490,
-  "family_mentions": 69886,
-  "export_rows": 56002,
+  "family_mentions": 69927,
+  "export_rows": 56043,
   "candidate": 13996,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 51676,
-    "unique_names": 12102,
-    "source_rows": 56002,
-    "places": 2841,
+    "records": 51717,
+    "unique_names": 12112,
+    "source_rows": 56043,
+    "places": 2843,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
