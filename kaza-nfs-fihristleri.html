@@ -15,8 +15,8 @@ const groupedFihristPaths = new Set([
  'catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson',
 ]);
 const sources=[
- {region:'YENİ NÜFUS DEFTERLERİ',file:'catalog/nfs_yeni_belgeler_kart_20261128.ndjson?v=20261128-ispir',kind:'envanter'},
- {region:'YENİ TARİHÎ YERLEŞİM FİHRİSTİ',file:'catalog/nfs_yeni_belgeler_tarihi_20261128.ndjson?v=20261128-ispir',kind:'envanter'},
+ {region:'YENİ NÜFUS DEFTERLERİ',file:'catalog/nfs_yeni_belgeler_kart_20261128.ndjson?v=20261128-yerlesim',kind:'envanter'},
+ {region:'YENİ TARİHÎ YERLEŞİM FİHRİSTİ',file:'catalog/nfs_yeni_belgeler_tarihi_20261128.ndjson?v=20261128-yerlesim',kind:'envanter'},
  {region:'ÇUBUK NFS 1774 VE KIRŞEHİR NFS 3537',file:'catalog/cubuk_kirsehir_1774_3537_koy_sulale_20261127.ndjson?v=20261127-cubuk-kirsehir',kind:'envanter'},
  {region:'ÇUBUK VE KIRŞEHİR TARİHÎ YERLEŞİMLERİ',file:'catalog/cubuk_kirsehir_1774_3537_tarihi_fihrist_20261127.ndjson?v=20261127-cubuk-kirsehir',kind:'envanter'},
  {region:'KASTAMONU TARİHÎ FİHRİSTİ',file:'catalog/kastamonu_tarihi_fihrist_20261127_1.ndjson?v=20261127-arsiv-son-kontrol',kind:'envanter'},
@@ -72,7 +72,7 @@ async function loadSource(source){
     name,defter:item.defter||row.defter||'',yil:item.yil||row.yil||'',
     varak:item.varak||row.varak||'',varakTuru:item.varak_turu,sayfa:item.sayfa||row.sayfa||'',
     pdfPage:item.kaynak_pdf_sayfa||item.pdf_sayfa||'',editionPage:item.kaynak_yayin_sayfa||'',
-    title:item.defter_adi||'',hane:item.hane??row.hane??'',
+    note:row.yerlesim_eslesme_kaynagi?item.aciklama:'',title:item.defter_adi||'',hane:item.hane??row.hane??'',
     erkek:item.erkek??row.erkek??'',erkekKayit:!!item.erkek_kayit_sira_sayisi,
     pdfRange:item.kaynak_pdf_sayfa_araligi||'',koyDegeri:row.koy||'',modern:modern.filter(Boolean).join(' / '),
     families:source.kind==='envanter'?(row.sulale_kayitlari||[]).filter(f=>f.defter===item.defter).map(f=>f.ad):row.sulaleler||[],
@@ -92,7 +92,7 @@ function render(reset=true){
  const q=norm($('q').value),region=$('region').value,kaza=$('district').value;
  filtered=rows.filter(r=>(!region||r.region===region)&&(!kaza||r.kaza===kaza)&&(!q||norm([r.region,r.kaza,r.name,r.koyDegeri,r.defter,r.title,r.yil,r.modern,...r.families].join(' ')).includes(q)));
  $('visible').textContent=filtered.length.toLocaleString('tr-TR')+' ARAMA SONUCU';
- $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+(r.title?' · '+safe(r.title):'')+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&(r.varakTuru==='VARAK / FİHRİST NO'?'VARAK / FİHRİST NO: ':'VARAK: ')+safe(r.varak),r.sayfa&&'DEFTER SAYFA: '+safe(r.sayfa),r.pdfPage&&'KAYNAK PDF: '+safe(r.pdfPage)+'. SAYFA',r.editionPage&&'ÇEVRİYAZI SAYFA: '+safe(r.editionPage),r.pdfRange&&'PDF SAYFA ARALIĞI: '+safe(r.pdfRange)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane!==''&&'HANE: '+safe(r.hane),r.hane_diger&&!r.hane&&'HANE (TEZ): '+safe(r.hane_diger),r.erkek!==''&&(r.erkekKayit?'ERKEK SIRA KAYDI: ':'ERKEK: ')+safe(r.erkek)].filter(Boolean).join(' · ')+'</p>'+(r.modern?'<p><b>GÜNÜMÜZ:</b> '+safe(r.modern)+'</p>':'')+(r.families.length?'<p style="color:#147449"><b>SÜLALE:</b> '+r.families.map(safe).join(' · ')+'</p>':'')+'<small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
+ $('results').innerHTML=filtered.slice(0,limit).map(r=>'<article class="entry"><h2>'+safe(r.name)+'</h2><p>'+safe(r.region)+' · '+safe(r.kaza)+'</p><p class="code">'+safe(r.defter)+(r.title?' · '+safe(r.title):'')+'</p><p>'+[r.yil&&'YIL: '+safe(r.yil),r.varak&&(r.varakTuru==='VARAK / FİHRİST NO'?'VARAK / FİHRİST NO: ':'VARAK: ')+safe(r.varak),r.sayfa&&'DEFTER SAYFA: '+safe(r.sayfa),r.pdfPage&&'KAYNAK PDF: '+safe(r.pdfPage)+'. SAYFA',r.editionPage&&'ÇEVRİYAZI SAYFA: '+safe(r.editionPage),r.pdfRange&&'PDF SAYFA ARALIĞI: '+safe(r.pdfRange)].filter(Boolean).join(' · ')+'</p><p>'+[r.hane!==''&&'HANE: '+safe(r.hane),r.hane_diger&&!r.hane&&'HANE (TEZ): '+safe(r.hane_diger),r.erkek!==''&&(r.erkekKayit?'ERKEK SIRA KAYDI: ':'ERKEK: ')+safe(r.erkek)].filter(Boolean).join(' · ')+'</p>'+(r.modern?'<p><b>GÜNÜMÜZ:</b> '+safe(r.modern)+'</p>':'')+(r.note?'<p>'+safe(r.note)+'</p>':'')+(r.families.length?'<p style="color:#147449"><b>SÜLALE:</b> '+r.families.map(safe).join(' · ')+'</p>':'')+'<small>KAYNAK DOSYASI: '+safe(r.kaynak.split('/').pop())+'</small></article>').join('')||'<p>Bu ölçütlere uyan kayıt bulunamadı.</p>';
  $('more').hidden=filtered.length<=limit;
 }
 $('q').oninput=()=>render();
