@@ -1,6 +1,8 @@
 (() => {
   'use strict';
   const additions = [
+    './catalog/excel_arsiv_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
+    './catalog/excel_sulale_son_kontrol_20261127.ndjson?v=20261127-arsiv-son-kontrol',
     './catalog/excel_ceviriyazi_sulale_ekleri_20261127.ndjson?v=20261127-ceviriyazi-sulale',
     './catalog/saray_finike_nfs_20261127.ndjson?v=20261127-saray-finike',
     './catalog/tamamlanan_excel_fihristleri_20261127.ndjson?v=20261127-son-excel',
