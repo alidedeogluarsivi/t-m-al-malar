@@ -1,5 +1,5 @@
 {
-  "source_count": 208,
+  "source_count": 211,
   "province_count": 52,
   "provinces": {
     "03": {
@@ -27,7 +27,7 @@
       "il": "ANKARA",
       "ilce": 6,
       "koy": 11,
-      "confirmed_family_places": 132,
+      "confirmed_family_places": 134,
       "candidate_family_places": 0
     },
     "07": {
@@ -75,15 +75,15 @@
     "74": {
       "il": "BARTIN",
       "ilce": 4,
-      "koy": 18,
-      "confirmed_family_places": 169,
+      "koy": 19,
+      "confirmed_family_places": 173,
       "candidate_family_places": 7
     },
     "14": {
       "il": "BOLU",
       "ilce": 16,
       "koy": 94,
-      "confirmed_family_places": 1358,
+      "confirmed_family_places": 1365,
       "candidate_family_places": 3
     },
     "16": {
@@ -167,28 +167,28 @@
       "il": "KARABÜK",
       "ilce": 10,
       "koy": 47,
-      "confirmed_family_places": 170,
+      "confirmed_family_places": 171,
       "candidate_family_places": 15
     },
     "36": {
       "il": "KARS",
-      "ilce": 6,
-      "koy": 12,
-      "confirmed_family_places": 53,
+      "ilce": 7,
+      "koy": 13,
+      "confirmed_family_places": 56,
       "candidate_family_places": 17
     },
     "37": {
       "il": "KASTAMONU",
       "ilce": 24,
       "koy": 140,
-      "confirmed_family_places": 1189,
+      "confirmed_family_places": 1194,
       "candidate_family_places": 132
     },
     "38": {
       "il": "KAYSERİ",
-      "ilce": 5,
-      "koy": 6,
-      "confirmed_family_places": 90,
+      "ilce": 6,
+      "koy": 7,
+      "confirmed_family_places": 139,
       "candidate_family_places": 0
     },
     "71": {
@@ -209,7 +209,7 @@
       "il": "KOCAELİ",
       "ilce": 3,
       "koy": 6,
-      "confirmed_family_places": 18,
+      "confirmed_family_places": 20,
       "candidate_family_places": 0
     },
     "42": {
@@ -237,7 +237,7 @@
       "il": "MANİSA",
       "ilce": 9,
       "koy": 19,
-      "confirmed_family_places": 184,
+      "confirmed_family_places": 187,
       "candidate_family_places": 2
     },
     "51": {
@@ -251,7 +251,7 @@
       "il": "ORDU",
       "ilce": 10,
       "koy": 92,
-      "confirmed_family_places": 1082,
+      "confirmed_family_places": 1088,
       "candidate_family_places": 9
     },
     "53": {
@@ -265,7 +265,7 @@
       "il": "SAMSUN",
       "ilce": 12,
       "koy": 401,
-      "confirmed_family_places": 5369,
+      "confirmed_family_places": 5371,
       "candidate_family_places": 763
     },
     "54": {
@@ -286,14 +286,14 @@
       "il": "SİVAS",
       "ilce": 15,
       "koy": 41,
-      "confirmed_family_places": 943,
+      "confirmed_family_places": 953,
       "candidate_family_places": 6
     },
     "60": {
       "il": "TOKAT",
       "ilce": 13,
       "koy": 48,
-      "confirmed_family_places": 345,
+      "confirmed_family_places": 346,
       "candidate_family_places": 68
     },
     "61": {
@@ -341,8 +341,8 @@
     "19": {
       "il": "ÇORUM",
       "ilce": 13,
-      "koy": 97,
-      "confirmed_family_places": 2520,
+      "koy": 99,
+      "confirmed_family_places": 2548,
       "candidate_family_places": 35
     },
     "34": {

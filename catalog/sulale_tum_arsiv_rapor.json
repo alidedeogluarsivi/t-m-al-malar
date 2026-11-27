@@ -207,19 +207,22 @@
     "catalog/ayandon_1841_nfs847_koy_sulale_3_20261125.ndjson": 222,
     "catalog/ayandon_1841_nfs847_rum_6_yerlesim_sulale_20261125.ndjson": 63,
     "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson": 39,
-    "catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson": 289
+    "catalog/oncelikli_ceviriyazi_hane_den_20261126.ndjson": 289,
+    "catalog/eksik_yerlesim_ekleri_20261127.ndjson": 124,
+    "catalog/karabuk_eflani_mulayim_asagi_mulayim_nfs_758_760_20261122.ndjson": 3,
+    "catalog/denizli_cal_isabey_hacibekirogullari_1832_1855_20261126.ndjson": 1
   },
-  "source_rows": 27340,
-  "family_mentions": 67493,
-  "export_rows": 53608,
-  "candidate": 14064,
+  "source_rows": 27475,
+  "family_mentions": 67621,
+  "export_rows": 53736,
+  "candidate": 14065,
   "source_missing": [],
   "family_stats": {
     "version": 1,
-    "records": 49279,
-    "unique_names": 11504,
-    "source_rows": 53608,
-    "places": 2702,
+    "records": 49407,
+    "unique_names": 11548,
+    "source_rows": 53736,
+    "places": 2708,
     "record_definition": "AYNI YER, SÜLALE ADI, BOA KÜNYESİ, YIL VE HANE TEKRARLARI BİRLEŞTİRİLMİŞ SORGULAMA KAYDI.",
     "name_definition": "AD YAZIMINDAKİ BÜYÜK/KÜÇÜK HARF, TÜRKÇE HARF, BOŞLUK VE OĞLU/OĞULLARI FARKLARI AYIKLANIR; AYNI AD FARKLI KÖYLERDE BİR KEZ SAYILIR. BU SAYI BAĞIMSIZ SOY SAYISI DEĞİLDİR."
   }
