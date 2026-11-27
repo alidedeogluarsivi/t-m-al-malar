@@ -138,7 +138,7 @@ body.embedded .map-legend{max-width:calc(100% - 26px);flex-wrap:wrap}
 <script src="./archive-family-search.js?v=7"></script>
 <script defer src="./site-stats.js?v=20261126-recent7"></script>
 <script src="./archive-period-map.js?v=sancak"></script>
-<script src="./settlement-administration.js?v=20261127"></script>
+<script src="./settlement-administration.js?v=20261127-katalog"></script>
 <script src="./emlak-harita-kayitlari.js?v=kaza-20261126"></script>
 <script>
 (function(){
@@ -442,7 +442,7 @@ function documentLabels(p){
   if(!grouped.has(kaza))grouped.set(kaza,[]);
   grouped.get(kaza).push('NFS.d.'+number);
  }
- return [...grouped].map(([kaza,numbers])=>numbers.join(', ')+' · '+(kaza||'Kazası belirtilmemiş'));
+ return [...grouped].map(([kaza,numbers])=>kaza?numbers.join(', ')+' · '+kaza:numbers.join(', '));
 }
 function labelPlace(p,layer){
  const docs=documentLabels(p);
@@ -653,7 +653,9 @@ function showDetails(p){
  if(!item&&!list.length&&!loadedArchive)html+='<div class="source">YERLEŞİM ARŞİV KAYITLARI YÜKLENİYOR</div>';
  const matches=familyResults.find(place=>pointKey(place.il,place.ilce,place.name)===pointKey(p.il,p.ilce,p.name));
  if(matches)html+='<div class="source"><b>SÜLALE EŞLEŞMESİ</b><div>'+matches.matches.map(esc).join(' · ')+'</div></div>';
- if(docs.length)html+='<h2 class="archive-section">NFS defteri ve tarihî kaza</h2>'+docs.map(doc=>'<div>'+esc(doc)+'</div>').join('');
+ const summarizedCodes=new Set(cards.filter(card=>card.nfs).flatMap(card=>card.title.match(/NFS\.d\.\d+/g)||[]));
+ const remainingCodes=[...new Set((item?.refs||[]).map(([number])=>'NFS.d.'+number))].filter(code=>!summarizedCodes.has(code));
+ if(remainingCodes.length)html+='<h2 class="archive-section">Nüfus defterleri</h2><div>'+remainingCodes.map(esc).join(' · ')+'</div>';
  for(const [label,items] of [['Nüfus defteri içeriği',cards.filter(c=>c.nfs)],['Diğer arşiv kayıtları',cards.filter(c=>!c.nfs)]]){
   if(!items.length)continue;
   html+='<h2 class="archive-section">'+label+'</h2>';
@@ -693,7 +695,7 @@ function showDetails(p){
  b.innerHTML=html;
  const administration=document.createElement('div');
  b.firstElementChild.after(administration);
- SettlementAdministration.append(administration,{il:p.il,ilce:p.ilce,name:p.name},list);
+ SettlementAdministration.append(administration,{il:p.il,ilce:p.ilce,name:p.name,refs:item?.refs},list);
 }
 function insertArchive(rec,audited=false){
  if(!rec||!rec.il||!rec.ilce||!rec.koy)return;

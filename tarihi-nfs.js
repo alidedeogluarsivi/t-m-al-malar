@@ -25,23 +25,27 @@ function options(id, values) {
   if ([...input.options].some(option => option.value === old)) input.value = old;
 }
 function card(row) {
-  const [number,,eyalet,sancak,kaza,historical,il,ilce,place,lon,lat,page,hane,erkek,grade,source,divan] = row;
-  const administration = [['Vilayet / Eyalet',eyalet],['Sancak',sancak],['Kaza',kaza]]
-    .map(([label,value])=>'<dt>'+label+'</dt><dd>'+esc(value||'Belirtilmemiş')+'</dd>').join('');
+  const [number,,,,,historical,il,ilce,place,,,page,hane,erkek,grade,source,divan] = row;
   const present = [il,ilce,place].filter(Boolean).map(esc).join(' / ');
   const figures = [page&&'Varak / sayfa '+esc(page),hane&&esc(hane)+' hane',erkek&&esc(erkek)+' erkek'].filter(Boolean).join(' · ');
   const condition = grade === 2 ? 'Kullanıcı onaylı eşleşme' : grade === 1 ? 'Konum eşleşmesi' :
     place ? 'Aday veya konumu doğrulanmamış eşleşme' : 'Bugünkü karşılık açık';
   return '<article class="entry"><b>'+esc(historical)+'</b><p>BOA NFS.d.'+number+'</p>'+
-     '<section class="settlement-administration"><h3>TARİHÎ İDARÎ BAĞLILIK</h3><dl>'+administration+'</dl></section>'+
+     '<div class="period-settlement-administration"></div>'+
     (divan?'<p>Divan: '+esc(divan)+'</p>':'')+(present?'<p>Günümüz: '+present+'</p>':'')+
     (figures?'<p>'+figures+'</p>':'')+'<small>'+condition+' · '+esc(metadata.sources[source])+'</small></article>';
 }
 function showRecord(row, zoom) {
   ++searchId;
   const related=active?.records.filter(r=>r[9]===row[9]&&r[10]===row[10]&&r[9]!=null)||[];
-  const records=[row,...related.filter(r=>r!==row)];
-  $('result').innerHTML='<h2>NFS karye kaydı</h2>'+records.slice(0,25).map(card).join('');
+  const records=[row,...related.filter(r=>r!==row)].slice(0,25);
+  $('result').innerHTML='<h2>NFS karye kaydı</h2>'+records.map(card).join('');
+  $('result').querySelectorAll('.period-settlement-administration').forEach((element,index)=>{
+    const [number,,eyalet,sancak,kaza] = records[index];
+    SettlementAdministration.append(element,{historical:true},[
+      {defter:'NFS.d.'+number,tarihi_eyalet:eyalet,tarihi_sancak:sancak,tarihi_kaza:kaza},
+    ]);
+  });
   if(zoom && row[9]!=null && row[14])map.setView([row[10],row[9]],Math.max(11,map.getZoom()));
 }
 function list(title, entries, render, open) {

@@ -1,12 +1,23 @@
 (() => {
   'use strict';
-  const dataURL = new URL('./geo/settlement-administration.json?v=20261127', document.currentScript.src);
+  const assetBase = document.currentScript.src;
+  const dataURL = new URL('./geo/settlement-administration.json?v=20261127', assetBase);
+  const catalogURL = new URL('./geo/nfs-settlement-catalog.json?v=20261127', assetBase);
   const labels = ['VİLAYET / EYALET', 'SANCAK', 'KAZA'];
   const normalize = value => String(value ?? '').trim().toLocaleLowerCase('tr')
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
   const key = value => normalize(value).replace(/[^a-z0-9]/g, '');
   const unitKey = value => key(normalize(value).replace(/\s+(?:kazasi|sancagi|eyaleti|vilayeti)$/, ''));
   const citationKey = value => key(normalize(value).replace(/^boa\s+/, ''));
+  const registerPattern = /\bNFS\s*\.?\s*(?:D\s*\.?)?\s*0*(\d+)\b/gi;
+  const districtKey = value => {
+    const name = unitKey(String(value || '').replace(/\s*\(.*$/, '').replace(/\s+(?:nahiyesi|merkez)$/iu, ''));
+    return ({
+      boyabad:'boyabat', kengiri:'cankiri', kopru:'kedegara', vezirkopru:'kedegara',
+      kedagra:'kedegara', kedegra:'kedegara', gedegra:'kedegara', inegol:'inegolibursa',
+      gumusmadeni:'gumus', gumusmadenihumayunu:'gumus', kureihadit:'kureihadid',
+    })[name] || name;
+  };
   let indexRequest;
 
   function identity(il, ilce, name) {
@@ -19,17 +30,35 @@
     return province && district && place ? [province, district, place].join('|') : '';
   }
 
+  async function getJSON(url) {
+    const response = await fetch(url, {signal: AbortSignal.timeout(12000)});
+    if (!response.ok) throw Error('HTTP ' + response.status);
+    return response.json();
+  }
+
   function loadIndex() {
     if (!indexRequest) {
-      indexRequest = fetch(dataURL, {signal: AbortSignal.timeout(12000)}).then(response => {
-        if (!response.ok) throw Error('HTTP ' + response.status);
-        return response.json();
-      }).catch(error => {
+      indexRequest = Promise.all([getJSON(dataURL), getJSON(catalogURL)]).then(([index, extra]) => ({
+        places:index.places, registers:{...index.registers, ...extra},
+      })).catch(error => {
         indexRequest = null;
         throw error;
       });
     }
     return indexRequest;
+  }
+
+  function enrich(rows, registers) {
+    return rows.flatMap(([province, sanjak, district, refs]) => {
+      const codes = refs.length === 1 ? [...refs[0].matchAll(registerPattern)] : [];
+      if (codes.length !== 1 || !registers[codes[0][1]]) return [[province,sanjak,district,refs]];
+      const [catalogProvince, catalogSanjak, districts] = registers[codes[0][1]];
+      const districtMatches = !district || !districts.length ||
+        districts.some(name => districtKey(name) === districtKey(district));
+      if (!districtMatches || (province && catalogProvince && unitKey(province) !== unitKey(catalogProvince)) ||
+          (sanjak && catalogSanjak && unitKey(sanjak) !== unitKey(catalogSanjak))) return [[province,sanjak,district,refs]];
+      return [[province || catalogProvince, sanjak || catalogSanjak, district || (districts.length === 1 ? districts[0] : ''), refs]];
+    });
   }
 
   function uncertain(row) {
@@ -56,7 +85,7 @@
     for (const [province, sanjak, district, refs] of rows) {
       const fields = [province, sanjak, district].map(value =>
         ['', 'belirsiz', 'belirtilmedi', 'belirtilmemis', 'bilinmiyor', 'nan', 'none', 'yok'].includes(key(value)) ? '' : String(value).trim());
-      const keys = fields.map(unitKey);
+      const keys = [unitKey(fields[0]), unitKey(fields[1]), districtKey(fields[2])];
       if (!keys.some(Boolean)) continue;
       const signature = keys.join('|');
       const group = groups.get(signature) || {fields, keys, refs: new Map()};
@@ -79,16 +108,23 @@
     root.prepend(section);
     const content = section.lastElementChild;
     const direct = fromRecords(records, place.historical);
+    const markerRows = (place.refs || []).map(([number, district]) => ['', '', district, ['NFS.d.' + number]]);
+    const id = !place.historical && identity(place.il, place.ilce, place.name);
     function draw(rows, loading = false, failed = false) {
       const entries = summarize(rows);
       content.replaceChildren();
-      for (const {fields, refs} of entries.length ? entries : [{fields: [], refs: new Map()}]) {
+      if (!entries.length) {
+        content.textContent = loading ? 'Yükleniyor…' : failed ? 'Veri yüklenemedi' : 'Tarihî idarî kayıt henüz eşleştirilmedi.';
+        return;
+      }
+      for (const {fields, refs} of entries) {
         const group = document.createElement('div');
         const list = document.createElement('dl');
         labels.forEach((label, index) => {
+          if (!fields[index]) return;
           const term = document.createElement('dt'), detail = document.createElement('dd');
           term.textContent = label;
-          detail.textContent = fields[index] || (loading ? 'Yükleniyor…' : failed ? 'Veri yüklenemedi' : 'Belirtilmemiş');
+          detail.textContent = fields[index];
           list.append(term, detail);
         });
         group.append(list);
@@ -100,21 +136,17 @@
         content.append(group);
       }
     }
-    const id = !place.historical && identity(place.il, place.ilce, place.name);
-    draw(direct, Boolean(id || place.historical));
+    const rows = [...direct, ...markerRows];
+    draw(rows, Boolean(id || place.historical));
     if (id || place.historical) void loadIndex().then(({places, registers}) => {
-      const enriched = direct.map(([province, sanjak, district, refs]) => {
-        const number = refs.length === 1 && refs[0].match(/^(?:BOA\s+)?NFS\s*\.?\s*(?:D\s*\.?)?\s*0*(\d+)$/i)?.[1];
-        const reg = number && registers[number];
-        if (!reg) return [province, sanjak, district, refs];
-        const [catalogProvince, catalogSanjak, districts] = reg;
-        const districtMatches = district ? districts.some(name => unitKey(name) === unitKey(district)) : districts.length === 1;
-        if (!districtMatches || (province && catalogProvince && unitKey(province) !== unitKey(catalogProvince)) ||
-            (sanjak && catalogSanjak && unitKey(sanjak) !== unitKey(catalogSanjak))) return [province, sanjak, district, refs];
-        return [province || catalogProvince, sanjak || catalogSanjak, district || districts[0], refs];
-      });
-      draw([...(places[id] || []), ...enriched]);
-    }).catch(() => draw(direct, false, true));
+      const indexed = (places[id] || []).flatMap(([province, sanjak, district, refs]) =>
+        refs.length ? refs.map(ref => [province, sanjak, district, [ref]]) : [[province, sanjak, district, []]]);
+      const sourceRows = [...indexed, ...direct];
+      const documentedKazas = new Set(sourceRows.filter(row => row[2]).flatMap(row => row[3].map(citationKey)));
+      const markers = markerRows.filter(row => !documentedKazas.has(citationKey(row[3][0])));
+      const documented = sourceRows.filter(row => row[2] || row[3].every(ref => !documentedKazas.has(citationKey(ref))));
+      draw(enrich([...documented, ...markers], registers));
+    }).catch(() => draw(rows, false, true));
   }
 
   window.SettlementAdministration = {append};
