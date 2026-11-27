@@ -1,10 +1,10 @@
 {
-  "source_count": 214,
+  "source_count": 215,
   "missing": [],
   "invalid_json": [],
-  "records": 28035,
+  "records": 28037,
   "with_families": 19245,
-  "with_registers": 17492,
+  "with_registers": 17494,
   "missing_location": [
     {
       "path": "archive_1.ndjson",
@@ -118869,6 +118869,14 @@
     {
       "path": "catalog/oncelikli_kaynak_kontrolu_20261126.ndjson",
       "line": 42
+    },
+    {
+      "path": "catalog/saray_finike_nfs_20261127.ndjson",
+      "line": 1
+    },
+    {
+      "path": "catalog/saray_finike_nfs_20261127.ndjson",
+      "line": 2
     },
     {
       "path": "catalog/tamamlanan_excel_fihristleri_20261127.ndjson",
