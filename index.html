@@ -376,14 +376,18 @@ async function withTimeout(p,ms,fallback){
   })
 }
 function getJSON(u){
-  if(jsonRequestCache.has(u))return jsonRequestCache.get(u);
+  if(jsonRequestCache.has(u)){const cached=jsonRequestCache.get(u);jsonRequestCache.delete(u);jsonRequestCache.set(u,cached);return cached;}
   const p=fetch(u,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(r.status+' '+u);return r.json()}).catch(function(e){jsonRequestCache.delete(u);throw e});
-  jsonRequestCache.set(u,p);return p
+  jsonRequestCache.set(u,p);
+  p.then(function(){while(jsonRequestCache.size>48)jsonRequestCache.delete(jsonRequestCache.keys().next().value)},function(){});
+  return p
 }
 async function getText(u){
   if(textRequestCache.has(u))return textRequestCache.get(u);
   const p=fetch(u,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(r.status+' '+u);return r.text()}).catch(function(e){textRequestCache.delete(u);throw e});
-  textRequestCache.set(u,p);return p
+  textRequestCache.set(u,p);
+  p.then(function(){while(textRequestCache.size>12)textRequestCache.delete(textRequestCache.keys().next().value)},function(){});
+  return p
 }
 function flatten(c,out){out=out||[];if(Array.isArray(c)&&typeof c[0]==='number'){out.push(c);return out}if(Array.isArray(c))c.forEach(function(x){flatten(x,out)});return out}
 function geometryPath(g,pr){if(!g)return'';function ring(r){return r.map(function(p,i){const q=pr(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z'}if(g.type==='Polygon')return g.coordinates.map(ring).join(' ');if(g.type==='MultiPolygon')return g.coordinates.flatMap(function(poly){return poly.map(ring)}).join(' ');return''}
@@ -776,7 +780,7 @@ function initBaseMap(){
   let labelRefreshTimer=null;
   baseMap.on('zoomend moveend',function(){
     clearTimeout(labelRefreshTimer);
-    labelRefreshTimer=setTimeout(updateAdaptiveLabels,90)
+    labelRefreshTimer=setTimeout(updateAdaptiveLabels,250)
   });
   // Panning is light: only visible labels change. Full neighborhood scans are click-only.
   baseMap.on('click',function(e){
@@ -833,20 +837,24 @@ function adaptiveLabelThreshold(spec){
 }
 function updateAdaptiveLabels(){
   if(!baseMap)return;
-  if(adaptiveLabelLayer){baseMap.removeLayer(adaptiveLabelLayer);adaptiveLabelLayer=null}
-  if(!adaptiveLabelSpecs.length)return;
+  if(!adaptiveLabelSpecs.length){if(adaptiveLabelLayer){baseMap.removeLayer(adaptiveLabelLayer);adaptiveLabelLayer=null}return;}
   const z=baseMap.getZoom(),bounds=baseMap.getBounds(),visible=[];
   // Labels follow map bounds when panning; no new network request is needed.
+  const paddedBounds=bounds.pad(.15);
   for(const spec of adaptiveLabelSpecs){
     if(z<adaptiveLabelThreshold(spec))continue;
     if(!archiveLayerPrefs.subsettlements&&isSubsettlementName(spec.name))continue;
-    if(!spec.ll||!bounds.pad(.15).contains(L.latLng(spec.ll[0],spec.ll[1])))continue;
+    if(!spec.ll||!paddedBounds.contains(spec.ll))continue;
     visible.push(spec)
   }
   visible.sort(function(a,b){return Number(!!b.hasArchive)-Number(!!a.hasArchive)});
   const limit=adaptiveLabelMode==='district'?(z>=13?85:55):adaptiveLabelMode==='country'?100:110;
+  const chosen=visible.slice(0,limit);
+  if(adaptiveLabelLayer&&adaptiveLabelLayer._archiveSpecs&&chosen.length===adaptiveLabelLayer._archiveSpecs.length&&chosen.every((spec,i)=>spec===adaptiveLabelLayer._archiveSpecs[i]))return;
+  if(adaptiveLabelLayer)baseMap.removeLayer(adaptiveLabelLayer);
   adaptiveLabelLayer=L.layerGroup().addTo(baseMap);
-  visible.slice(0,limit).forEach(function(spec){
+  adaptiveLabelLayer._archiveSpecs=chosen;
+  chosen.forEach(function(spec){
     const m=L.marker(spec.ll,{
       pane:'archiveLabels',interactive:true,keyboard:false,bubblingMouseEvents:false,zIndexOffset:spec.hasArchive?3600:3000,
       icon:L.divIcon({className:'',html:'<div class="mapClickLabel '+esc(spec.kind||'')+(spec.hasArchive?' hasArchive':'')+'">'+esc(spec.name)+'</div>',iconSize:null,iconAnchor:[0,0]})
@@ -1112,7 +1120,7 @@ function refreshNationwideLabels(){
 }
 function scheduleNationwideLabels(){
  if(nationwideLabelTimer)clearTimeout(nationwideLabelTimer);
- nationwideLabelTimer=setTimeout(refreshNationwideLabels,130)
+ nationwideLabelTimer=setTimeout(refreshNationwideLabels,300)
 }
 function addNationwideVillageDots(){
   if(level!=='turkey'||!baseMap||!nationwideVillageLayer)return;
@@ -1132,7 +1140,7 @@ function addNationwideVillageDots(){
     nationwideDotRefreshMap=baseMap;
     baseMap.on('moveend zoomend',function(){
       clearTimeout(nationwideDotRefreshTimer);
-      nationwideDotRefreshTimer=setTimeout(function(){addNationwideVillageDots();scheduleNationwideLabels()},160);
+      nationwideDotRefreshTimer=setTimeout(function(){if(level==='turkey')addNationwideVillageDots();else scheduleNationwideLabels()},350);
     });
   }
   const bounds=baseMap.getBounds().pad(.18);
