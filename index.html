@@ -2603,7 +2603,9 @@ async function loadArchiveCore(){
   if(failedArchives.length)console.warn('Yüklenemeyen arşiv dosyaları:',failedArchives);
   if(!archiveTexts.length)throw new Error('Hiçbir arşiv dosyası yüklenemedi');
   for(const t of archiveTexts){
-    t.split(/\r?\n/).forEach(function(line){
+    const lines=t.split(/\r?\n/);
+    for(let offset=0;offset<lines.length;offset+=100){
+    lines.slice(offset,offset+100).forEach(function(line){
       if(!line.trim())return;
       try{
         const row=keepLegacy(JSON.parse(line));
@@ -2624,14 +2626,15 @@ async function loadArchiveCore(){
       }catch(e){}
     });
     await new Promise(function(resolve){setTimeout(resolve,0)})
+    }
   }
   // Kaynaksız sülale-köy eşleştirmeleri geçici olarak yayından çıkarıldı.
   // Doğrulanmış katalog yalnızca defter ve hane kanıtı bulunan satırları sunabilir.
   try{
     const verified=await withTimeout(getText('catalog/sulale_verified_v2_compact.ndjson'),6500);
     const verifiedLines=verified.split(/\r?\n/);
-    for(let vi=0;vi<verifiedLines.length;vi+=500){
-      verifiedLines.slice(vi,vi+500).forEach(function(line){
+    for(let vi=0;vi<verifiedLines.length;vi+=100){
+      verifiedLines.slice(vi,vi+100).forEach(function(line){
       if(!line.trim())return;
       try{
         const item=JSON.parse(line);
@@ -2686,8 +2689,8 @@ async function loadArchiveCore(){
       arr.push(value);
     }
   }
-  for(let ri=0;ri<raw.length;ri+=400){
-    raw.slice(ri,ri+400).forEach(function(r){
+  for(let ri=0;ri<raw.length;ri+=100){
+    raw.slice(ri,ri+100).forEach(function(r){
     const k=key(canonicalProvince(r.il||''),r.ilce||'',r.koy||'');
     if(!k||k==='||')return;
     let t=merged.get(k);
@@ -3112,12 +3115,18 @@ async function runFinder(){
     }
   }
   if(request!==finderRequest||q!==input.value.trim()||il!==(fp?.value||'')||ilce!==(fd?.value||''))return;
-  let rows=archive.concat(historicalSettlementArchive).filter(function(r){
+  const candidates=archive.concat(historicalSettlementArchive);
+  let rows=[];
+  for(let offset=0;offset<candidates.length;offset+=150){
+  rows.push(...candidates.slice(offset,offset+150).filter(function(r){
     if(il&&norm(canonicalProvince(r.il||''))!==norm(il))return false;
     if(ilce&&norm(r.ilce||'')!==norm(ilce)&&!(norm(il)===norm(ilce)&&norm(r.ilce)==='merkez'))return false;
     if(!nq)return !!(il||ilce);
     return finderBlob(r).includes(nq)
-  });
+  }));
+  await new Promise(function(resolve){setTimeout(resolve,0)});
+  if(request!==finderRequest||q!==input.value.trim()||il!==(fp?.value||'')||ilce!==(fd?.value||''))return;
+  }
   function rank(r){
     if(!nq)return 0;
     let s=0;
@@ -3128,7 +3137,12 @@ async function runFinder(){
     if(searchNorm(r.il||'').includes(nq))s+=10;
     return s
   }
-  const ranking=new Map(rows.map(function(row){return [row,rank(row)]}));
+  const ranking=new Map();
+  for(let offset=0;offset<rows.length;offset+=150){
+    rows.slice(offset,offset+150).forEach(function(row){ranking.set(row,rank(row))});
+    await new Promise(function(resolve){setTimeout(resolve,0)});
+    if(request!==finderRequest||q!==input.value.trim()||il!==(fp?.value||'')||ilce!==(fd?.value||''))return;
+  }
   rows.sort(function(a,b){return ranking.get(b)-ranking.get(a)||(a.koy||'').localeCompare(b.koy||'','tr')});
   const visible=rows.slice(0,finderLimit);
   sum.innerHTML='<span><b>'+rows.length.toLocaleString('tr-TR')+'</b> SONUÇ BULUNDU</span><span>'+esc([il,ilce].filter(Boolean).join(' / ')||'TÜRKİYE')+'</span>';
