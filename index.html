@@ -2582,7 +2582,11 @@ async function loadArchiveCore(){
   try{await withTimeout(ensureSettlements(),15000)}catch(e){console.warn('Güncel yerleşimler hazır değil; tarihî adlar korunacak',e)}
   settlementNameIndexes.clear();
   const published=await EmlakCensus.load();
-  const publishedRows=published.map(r=>sanitizeArchiveFamilyRecord(structuredClone(r)));
+  const publishedRows=[];
+  for(let offset=0;offset<published.length;offset+=100){
+    published.slice(offset,offset+100).forEach(r=>publishedRows.push(sanitizeArchiveFamilyRecord(structuredClone(r))));
+    await new Promise(resolve=>setTimeout(resolve,0));
+  }
   historicalSettlementArchive=publishedRows.filter(r=>r.tarihi_yerlesim_kaydi);
   const raw=publishedRows.filter(r=>!r.tarihi_yerlesim_kaydi);
   const keepLegacy=EmlakCensus.withoutDuplicates(published);
@@ -2718,7 +2722,8 @@ async function loadArchiveCore(){
   familyIndex=new Map();
   provinceArchiveCounts=new Map();
   const provinceSeen=new Map();
-  archive.forEach(function(r){
+  for(let offset=0;offset<archive.length;offset+=100){
+  archive.slice(offset,offset+100).forEach(function(r){
     const k=key(r.il,r.ilce,r.koy);
     if(!archiveIndex.has(k))archiveIndex.set(k,[]);
     archiveIndex.get(k).push(r);
@@ -2745,6 +2750,8 @@ async function loadArchiveCore(){
       provinceSeen.get(pk).add(norm(r.ilce)+'|'+norm(r.koy))
     }
   });
+  await new Promise(function(resolve){setTimeout(resolve,0)});
+  }
   provinceSeen.forEach(function(set,pk){provinceArchiveCounts.set(pk,set.size)});
   try{
     const sales=await withTimeout(getJSON(SALES),3500,{items:[],count:0});
@@ -2754,10 +2761,11 @@ async function loadArchiveCore(){
   // Koy koordinatlari yalniz secilen ilce ve 50km cevre icin yuklenir.
   return archive
 }
-let archivePromise=null;
+let archivePromise=null,archiveLoading=false;
 function loadArchive(){
   if(!archivePromise){
-    archivePromise=loadArchiveCore().catch(function(e){archivePromise=null;throw e})
+    archiveLoading=true;
+    archivePromise=loadArchiveCore().catch(function(e){archivePromise=null;throw e}).finally(function(){archiveLoading=false})
   }
   return archivePromise
 }
@@ -3103,7 +3111,7 @@ async function runFinder(){
   const q=input.value.trim(),nq=searchNorm(q),il=fp?fp.value:'',ilce=fd?fd.value:'';
   if(!q&&!il&&!ilce){box.classList.remove('show');list.innerHTML='';sum.innerHTML='';return}
   box.classList.add('show');
-  if(!archive.length){
+  if(!archive.length||archiveLoading){
     sum.innerHTML='<span><b>ARŞİV YÜKLENİYOR…</b></span>';
     list.innerHTML='<div class="empty">Arama verileri hazırlanıyor.</div>';
     try{await loadArchive()}catch(e){
@@ -3408,7 +3416,11 @@ bindHistoricalControls();
     observer.disconnect();
     loadArchive().catch(function(e){console.warn('Arşiv özetleri yüklenemedi',e)});
   });
-  if(preview)observer.observe(preview);
+  if(preview){
+    const startPreview=function(){observer.observe(preview)};
+    if(document.readyState==='complete')setTimeout(startPreview,1200);
+    else window.addEventListener('load',function(){setTimeout(startPreview,1200)},{once:true});
+  }
 
 }catch(e){console.error(e);statusEl.textContent='HARİTA BAŞLATILAMADI: '+String(e&&e.message||e).slice(0,130)+' · Ekran görüntüsü gönderin.'}})();
 </script>
