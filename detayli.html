@@ -333,6 +333,26 @@ function showVillage(vn,r){
  let h='';if(!r){h='<div class="empty"><b>HENÜZ EŞLEŞEN ARŞİV KAYDI YOK.</b><br>Bu köy haritada mevcut; arşiv kaydı kesinleştiğinde buraya eklenecek.</div>'}else{
  const defs=r.defterler||[],fam=r.sulaleler||[],scans=r.taramalar||[],gos=r.gorevli_notlari||[];
  h+='<div class="section"><h3>DEFTER VE NÜFUS BİLGİLERİ</h3>';if(!defs.length)h+='<div class="empty">Defter bilgisi henüz bağlanmadı.</div>';for(const d of defs.slice(0,80)){h+='<div class="record">'+(d.tur?'<b>'+esc(d.tur)+'</b><br>':'')+(d.defter?'Defter: <b>'+esc(d.defter)+'</b> ':'')+(d.defter_adi?' · '+esc(d.defter_adi):'')+(d.yil?'· Yıl: '+esc(d.yil):'')+(d.varak?'<br>'+(d.varak_turu==='KÖYÜN FİHRİSTTEKİ BAŞLANGIÇ VARAĞI'?'Köy başlangıç varağı':'Varak')+': <b>'+esc(d.varak)+'</b>':'')+(d.sayfa?' · Sayfa: '+esc(d.sayfa):'')+(d.kayit_adi?'<br>Tarihî yer: '+esc(d.kayit_adi):'')+(d.tarihi_kaza?'<br>Kaza: '+esc(d.tarihi_kaza):'')+(d.divan?' · Divan: '+esc(d.divan):'')+(d.koy_alti?' · Köy altı: '+esc(d.koy_alti):'')+(d.tarihi_nahiye?' · Nahiye: '+esc(d.tarihi_nahiye):'')+(d.hane?'<br>Hane: <b>'+esc(d.hane)+'</b>':'')+(d.erkek?' · '+(d.erkek_kayit_sira_sayisi?'Erkek sıra kaydı':'Erkek')+': <b>'+esc(d.erkek)+'</b>':'')+(d.eslesme_durumu?'<br>'+esc(d.eslesme_durumu):'')+(d.aciklama?'<br>'+esc(d.aciklama):'')+'</div>'}h+='</div>';
+
+ const bayatFihrist=r.fihrist_kayitlari||[];
+ if(bayatFihrist.length){
+   h+='<div class="section"><h3>1830–1831 NÜFUS FİHRİSTİ (İKİNCİL KAYNAK)</h3>';
+   for(const item of bayatFihrist){
+     h+='<div class="record"><b>'+esc(item.defter||'NFS FİHRİSTİ')+'</b>'
+       +(item.varak?' · VARAK '+esc(item.varak):'')
+       +(item.erkek!=null?' · ERKEK '+esc(item.erkek):'')
+       +'<p>'+esc(item.kayit_durumu||'Özgün nüfus varağı ile teyit bekliyor')+'</p>'
+       +'<small>'+esc(item.kaynak_turu||'Önceki İskilip haritası fihristi')+'</small></div>';
+   }
+   h+='<div class="record">Bu fihrist, farklı tarihli nüfus çevriyazısındaki sülalelerin aynı defterden geldiğini tek başına kanıtlamaz.</div></div>';
+ }
+ const bayatTemettuat=r.temettuat_1845;
+ if(bayatTemettuat){
+   h+='<div class="section"><h3>1845 TEMETTUAT – AKADEMİK ÇEVRİYAZI</h3>'
+     +'<div class="record">HANE/SATIR: <b>'+esc(bayatTemettuat.hane_satiri_sayisi||'BİLİNMİYOR')+'</b>'
+     +' · KİTAP SAYFASI: <b>'+esc(bayatTemettuat.sayfa||'BELİRTİLMEMİŞ')+'</b>'
+     +'<p>Bu özet, hane reisleri ve aile lakaplarına dayalıdır. Köye ait kesin TMT defter numarası ve varak ayrıca doğrulanmalıdır.</p></div></div>';
+ }
  const localSources=r.yerel_kaynaklar||[];
  if(localSources.length){
    h+='<div class="section"><h3>YEREL KAYNAKLAR / TARİHÎ OLAYLAR</h3>'+localSources.map(source=>{
