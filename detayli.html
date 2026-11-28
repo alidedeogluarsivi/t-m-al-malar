@@ -318,7 +318,7 @@ async function loadArchive(){const published=await EmlakCensus.load();const keep
   const k=key(r.il,r.ilce,r.koy),existing=archiveIndex.get(k);
   if(!existing){archiveIndex.set(k,r);continue}
   const appendUnique=(field)=>{const cur=existing[field]||[];const known=new Set(cur.map(x=>typeof x==='string'?norm(x):JSON.stringify(x)));for(const x of r[field]||[]){const v=typeof x==='string'?norm(x):JSON.stringify(x);if(v&&!known.has(v)){cur.push(x);known.add(v)}}existing[field]=cur};
-  for(const f of ['sulaleler','sulale_kayitlari','defterler','haneler','gorevli_notlari','taramalar','yerel_kaynaklar','durumlar'])appendUnique(f);
+  for(const f of ['sulaleler','sulale_kayitlari','defterler','haneler','gorevli_notlari','taramalar','yerel_kaynaklar','durumlar','fihrist_kayitlari'])appendUnique(f);if(!existing.temettuat_1845&&r.temettuat_1845)existing.temettuat_1845=r.temettuat_1845;
 }
 archive=[...archiveIndex.values(),...archive.filter(r=>r.tarihi_yerlesim_kaydi)];
 }
